@@ -1,0 +1,29 @@
+---
+title: "vegan-meta-pap"
+author: "Seth Green"
+date: "2023-11-15"
+output: html_document
+---
+
+**libraries, functions, options, and data **
+fake dataset for now
+```{r setup, message=F}
+
+#' libraries
+library(metafor, quietly = T)
+library(dplyr, warn.conflicts = F)
+library(ggplot2, warn.conflicts = F)
+library(lubridate, warn.conflicts = F)
+library(purrr)
+library(stringr)
+library(tidyr, warn.conflicts = F)
+library(tibble)
+library(knitr)
+
+#' functions
+source("https://raw.githubusercontent.com/setgree/sv-meta/main/code/functions/map_robust.R")
+source('https://raw.githubusercontent.com/setgree/sv-meta/main/code/functions/sum_lm.R')
+options(scipen = 99)
+
+#' data
+```
