@@ -14,9 +14,9 @@ Before mock analyses, here are some general principles we followed when coding s
 
 * We take the outcome that most clearly maps to changes in actual consumption behavior. 
 
-* We take the latest possible outcome to test for the presence of enduring effects.
+* We take the latest possible outcome to test for the presence of enduring effects/. 
 
-* N of treatment and N of control are from post-test rather than pre-test.
+* N of treatment and N of control are from the latest possible post-test as well.
 
 * We use Glass's $\Delta$ rather than Cohen's *d*, meaning we standardize by the SD of the control group at baseline whenever possible. This is to avoid any additional assumptions about equivlance of variance between treatment and control groups. When studies don't provide enough information to estimate the control group's SD, we use combined sample estiamtes of population variance or statistical tests that implicitly reflect this information.
 
@@ -97,7 +97,6 @@ What is the overall average meta-analytics effect?
 
 ```{r avg_eff}
 dat |> map_robust()
-#' include a forest plot here
 ```
 
 Fig 1: forest plot
