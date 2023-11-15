@@ -10,24 +10,37 @@ editor_options:
 
 # general principles for data collection 
 
-Before we do mock analyses, let me try to elucidate 
+Before mock analyses, here are some general principles we followed when coding studies.
+
+* We take the outcome that most clearly maps to changes in actual consumption behavior. 
+
+* We take the latest possible outcome to test for the presence of enduring effects.
+
+* N of treatment and N of control are from post-test rather than pre-test.
+
+* We use Glass's $\Delta$ rather than Cohen's *d*, meaning we standardize by the SD of the control group at baseline whenever possible. This is to avoid any additional assumptions about equivlance of variance between treatment and control groups. When studies don't provide enough information to estimate the control group's SD, we use combined sample estiamtes of population variance or statistical tests that implicitly reflect this information.
+
+* For cluster-assigned treatments, our Ns are the # of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
+
+* when authors don't tell us enough to calculate Glass's $\Delta$ but they do tell us that the results were null, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
+
+# data analysis on a simulated dataset
+
+Our data analysis will basically look like this at the outset, except with real data. This simulated dataset has basically the same variables as our real dataset. There will be a few differences, e.g. we'll probably do something more complicated to isolate the leaflet studies (or else modify the dataset). But in general, these are the main points.
+
+Anything else we do is exploratory based on trends we observe in the data once we actually do the analysis.
 
 **libraries, functions, options, and simulated data**
 
 ```{r setup, message=F}
-
 #' libraries
 library(metafor, quietly = T)
 library(dplyr, warn.conflicts = F)
 library(ggforestplot) # https://nightingalehealth.github.io/ggforestplot
 library(ggplot2, warn.conflicts = F)
 library(knitr)
-library(lubridate, warn.conflicts = F)
 library(purrr)
 library(sessioninfo)
-library(stringr)
-library(tidyr, warn.conflicts = F)
-library(tibble)
 
 #' functions
 source('./functions/d_calc.R')
@@ -36,10 +49,11 @@ source('./functions/sum_lm.R')
 source('./functions/var_d_calc.R')
 #' options and reproducibility
 options(scipen = 99)
-
 set.seed(11111988)
-#' data
+```
 
+make a dataset
+```{r make_dataset}
 dat <- data.frame(study_name = c('a study', 'b study', 'c study', 'd study', 
                                  'e study', 'f study', 'g study', 'h study', 
                                  'i study', 'j study', 'k study', 'l study',
@@ -55,6 +69,7 @@ dat <- data.frame(study_name = c('a study', 'b study', 'c study', 'd study',
                     16, replace = T)),
                   self_report = rbinom(16, 1, 0.25),
                   leaflet = rbinom(16, 1, 0.25),
+                  doi_or_url = rbinom(16, 1, 0.25),
                   delay = sample(1:30, 16, replace = T),
                   unique_study_id = 1:16,
                   pos_neg_neutral = sample(-1:1, 16, replace = T))
@@ -75,10 +90,9 @@ dat <- data.frame(study_name = c('a study', 'b study', 'c study', 'd study',
         n_c = n_c_post,
         n_t = n_t_post),
       se_d = sqrt(var_d))
-
 ```
 
-Average effect?
+What is the overall average meta-analytics effect?
 
 ```{r avg_eff}
 dat |> map_robust()
@@ -88,23 +102,6 @@ dat |> map_robust()
 Fig 1: forest plot
 
 ```{r forest_plot}
-
-# either something bespoke like
-dat |>
-  ggplot(aes(y = study_name, x = d, 
-             xmin = d - (1.96 * se_d),
-             xmax = d + (1.96 * se_d))) + 
-  geom_point(size = 1, aes(color = theory)) +
-  geom_errorbarh(height = .1, aes(color = theory)) +
-  geom_vline(xintercept = 0, color = "black", alpha = .5) +
-  geom_vline(xintercept = (dat |> map_robust())$beta, 
-                           color = '#00BFC4', lty = 'dashed') +
-  scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
-  ylab("Study") +
-  ggtitle("Forest plot") + 
-  theme_minimal()
-
-# or something off the shelf like
 dat |> arrange(var_d) |>  ggforestplot::forestplot(study_name, 
                          estimate = d, se = se_d, 
                          colour = theory, 
