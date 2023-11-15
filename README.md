@@ -1,2 +1,2 @@
 # vegan-meta
-what do the *good* studies say about vegan persuasion?
+what do high-quality RCTs tell us about vegan persuasion efforts?
