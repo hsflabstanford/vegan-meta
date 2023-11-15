@@ -27,6 +27,7 @@ source("https://raw.githubusercontent.com/setgree/sv-meta/main/code/functions/ma
 source('https://raw.githubusercontent.com/setgree/sv-meta/main/code/functions/sum_lm.R')
 options(scipen = 99)
 
+set.seed(11111988)
 #' data
 
 dat <- data.frame(study_name = c('a study', 'b study', 'c study',
@@ -34,8 +35,14 @@ dat <- data.frame(study_name = c('a study', 'b study', 'c study',
                                  'g study', 'h study', 'i study', 
                                  'j study', 'k study', 'l study'),
                   d  = rnorm(12, 1, 1),
-                  vard_d = rnorm(12, 0.5, 0.5),
-                  cluster_var = rbinom(12, 1, 0.3))
+                  var_d = abs(rnorm(12, 0.5, 0.5)),
+                  cluster_var = rbinom(12, 1, 0.4),
+                  theory = sample(1:3, 12, replace = T),
+                  self_report = rbinom(12, 1, 0.25),
+                  leaflet = rbinom(12, 1, 0.25),
+                  delay = sample(1:30, 12, replace = T),
+                  unique_study_id = 1:12) |> 
+  mutate(se_d = var_d^2)
 
 ```
 
@@ -43,5 +50,38 @@ Average effect?
 
 ```{r avg_eff}
 dat |> map_robust()
+#' include a forest plot here
+```
 
+
+publication bias
+```{r pub_bias}
+dat |> sum_lm()
+
+dat |> ggplot(aes(d, se_d)) + geom_point(aes(color = theory)) + 
+  stat_smooth(method = 'lm', se = F, color = 'black') + theme_minimal() +
+  ggtitle('relationship between effect size and standard erors')
+```
+(include a relationship between d and se plot here)
+
+differences by clustering, theory and self-report? 
+
+```{r cluster}
+dat |> split(~cluster_var) |> map(map_robust)
+dat |> split(~theory) |> map(map_robust)
+dat |> split(~self_report) |> map(map_robust)
+```
+
+do leaflet studies work? 
+
+```{r leaflet}
+dat |> filter(leaflet == 1) |> map_robust()
+
+```
+
+Any relationship with delay and outcome?
+```{r delay}
+dat |> sum_lm(d, delay)
+dat |> ggplot(aes(d, delay)) + geom_point() + 
+  stat_smooth(method = 'lm', se = F) + theme_minimal()
 ```
