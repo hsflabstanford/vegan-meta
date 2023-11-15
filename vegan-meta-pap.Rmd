@@ -7,6 +7,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+
+# general principles for data collection 
+
+Before we do mock analyses, let me try to elucidate 
+
 **libraries, functions, options, and simulated data**
 
 ```{r setup, message=F}
