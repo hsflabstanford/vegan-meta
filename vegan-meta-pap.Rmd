@@ -28,7 +28,7 @@ Before mock analyses, here are some general principles we followed when coding s
 
 Our data analysis will basically look like this at the outset, except with real data. This simulated dataset has basically the same variables as our real dataset. There will be a few differences, e.g. we'll probably do something more complicated to isolate the leaflet studies (or else modify the dataset). But in general, these are the main points.
 
-Anything else we do is exploratory based on trends we observe in the data once we actually do the analysis.
+Anything else we do is exploratory based on trends we observe in the data once we actually start the analysis.
 
 **libraries, functions, options, and simulated data**
 
@@ -50,6 +50,7 @@ source('./functions/var_d_calc.R')
 #' options and reproducibility
 options(scipen = 99)
 set.seed(11111988)
+
 ```
 
 make a dataset
@@ -128,6 +129,11 @@ dat |> sum_lm()
 dat |> ggplot(aes(d, se_d)) + geom_point(aes(color = theory)) + 
   stat_smooth(method = 'lm', se = F, color = 'black') + theme_minimal() +
   ggtitle('relationship between effect size and standard erors')
+
+#' split by published/unpublished (DOI = published)
+
+dat |> split(~doi_or_url) |> map(sum_lm) 
+dat |> split(~doi_or_url) |> imap(~map_robust(.x) |> kable('markdown')) 
 ```
 
 differences by clustering, theory and self-report? 
@@ -142,7 +148,7 @@ dat |> split(~self_report) |> imap(~map_robust(.x) |> kable('markdown'))
 do leaflet studies work? 
 
 ```{r leaflet}
-dat |> filter(leaflet == 1) |> map_robust()
+dat |> filter(leaflet == 1) |> map_robust() |> kable('markdown')
 ```
 
 Any relationship with delay and outcome?
@@ -151,7 +157,6 @@ dat |> sum_lm(d, delay)
 dat |> ggplot(aes(d, delay)) + geom_point() + 
   stat_smooth(method = 'lm', se = F) + theme_minimal()
 ```
-
 
 record computational environment
 ```{r reproducibility}
