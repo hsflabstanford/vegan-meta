@@ -65,7 +65,7 @@ dat <- data.frame(study_name = c('a study', 'b study', 'c study', 'd study',
                   n_c_post = sample(1:100, 16, replace = T),
                   cluster_var = rbinom(16, 1, 0.4),
                   theory = as.factor(sample(
-                    c("animal welfare", "environment","health", "psychology"), 
+                    c("animal welfare", "environment", "psychology"), 
                     16, replace = T)),
                   self_report = rbinom(16, 1, 0.25),
                   leaflet = rbinom(16, 1, 0.25),
@@ -92,7 +92,7 @@ dat <- data.frame(study_name = c('a study', 'b study', 'c study', 'd study',
       se_d = sqrt(var_d))
 ```
 
-What is the overall average meta-analytics effect?
+### 4.1 What is the overall average meta-analytics effect?
 
 ```{r avg_eff}
 dat |> map_robust()
@@ -120,7 +120,7 @@ binom.test(sign_table[[3]], sum(sign_table[1:3]))
 
 ```
 
-publication bias
+### 4.2 publication bias
 ```{r pub_bias}
 dat |> sum_lm()
 
@@ -134,7 +134,7 @@ dat |> split(~doi_or_url) |> map(sum_lm)
 dat |> split(~doi_or_url) |> imap(~map_robust(.x) |> kable('markdown')) 
 ```
 
-differences by clustering, theory and self-report? 
+### differences by clustering, theory and self-report? 
 
 ```{r cluster}
 
@@ -143,20 +143,30 @@ dat |> split(~theory) |> imap(~map_robust(.x) |> kable('markdown'))
 dat |> split(~self_report) |> imap(~map_robust(.x) |> kable('markdown'))
 ```
 
-do leaflet studies work? 
+### 4.3 Social desirability penalty
+Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\Beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
+```{r social_desirability_penalty}
+dat |>  mutate(d = 
+                 if_else(self_report == 0,
+                         d - 0.1,
+                         d)) |> map_robust()
+
+```
+
+### 4.4 do leaflet studies work? 
 
 ```{r leaflet}
 dat |> filter(leaflet == 1) |> map_robust() |> kable('markdown')
 ```
 
-Any relationship with delay and outcome?
+### 4.5 Any relationship between delay and outcome?
 ```{r delay}
 dat |> sum_lm(d, delay)
 dat |> ggplot(aes(d, delay)) + geom_point() + 
   stat_smooth(method = 'lm', se = F) + theme_minimal()
 ```
 
-record computational environment
+### 4.6 record computational environment
 ```{r reproducibility}
 sessioninfo::session_info()
 ```
