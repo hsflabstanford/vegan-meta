@@ -1,12 +1,11 @@
 ---
-title: "vegan-meta-pap"
+title: "Vegan meta-analysis pre-analysis plan"
 author: "Seth Green"
 date: "2023-11-15"
 output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-
 
 # general principles for data collection 
 
