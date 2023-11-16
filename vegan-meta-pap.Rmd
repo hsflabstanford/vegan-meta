@@ -1,7 +1,7 @@
 ---
 title: "Vegan meta-analysis pre-analysis plan"
 author: "Seth Green"
-date: "2023-11-15"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 output: html_document
 editor_options: 
   chunk_output_type: console
