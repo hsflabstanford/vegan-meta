@@ -13,11 +13,11 @@ Before mock analyses, here are some general principles we followed when coding s
 
 * We take the outcome that most clearly maps to changes in actual consumption behavior. 
 
-* We take the latest possible outcome to test for the presence of enduring effects/. 
+* We take the latest possible outcome to test for the presence of enduring effects. 
 
 * N of treatment and N of control are from the latest possible post-test as well.
 
-* We use Glass's $\Delta$ rather than Cohen's *d*, meaning we standardize by the SD of the control group at baseline whenever possible. This is to avoid any additional assumptions about equivlance of variance between treatment and control groups. When studies don't provide enough information to estimate the control group's SD, we use combined sample estiamtes of population variance or statistical tests that implicitly reflect this information.
+* We use Glass's $\Delta$ rather than Cohen's *d*, meaning we standardize by the SD of the control group at baseline whenever possible. This is to avoid any additional assumptions about equivalence of variance between treatment and control groups. When studies don't provide enough information to estimate the control group's SD, we use combined sample estimates of population variance or statistical tests that implicitly reflect this information.
 
 * For cluster-assigned treatments, our Ns are the # of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
 
@@ -25,7 +25,7 @@ Before mock analyses, here are some general principles we followed when coding s
 
 # data analysis on a simulated dataset
 
-Our data analysis will basically look like this at the outset, except with real data. This simulated dataset has basically the same variables as our real dataset. There will be a few differences, e.g. we'll probably do something more complicated to isolate the leaflet studies (or else modify the dataset). But in general, these are the main points.
+Our data analysis will basically look like this at the outset, except with real data. This simulated dataset has essentially the same variables as our real dataset. There will be a few differences, e.g. we'll probably do something more complicated to isolate the leaflet studies (or else modify the dataset). But in general, these are the main points.
 
 Anything else we do is exploratory based on trends we observe in the data once we actually start the analysis.
 
@@ -150,18 +150,13 @@ dat |> split(~self_report) |> imap(~map_robust(.x) |> kable('markdown'))
 ### 4.3 Social desirability penalty
 Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\Beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
 ```{r social_desirability_penalty}
-dat |>  mutate(d = 
-                 if_else(self_report,
-                         d - 0.1,
-                         d)) |> map_robust()
-#' I would prefer that self_report be a T/F where T has a 90% chance of occuring,
-#' but I'm not seeing a <5 minutes solution to doing this 
+dat |>  mutate(d =  if_else(self_report, d - 0.1, d)) |>map_robust()
 ```
 
 ### 4.4 do leaflet studies work? 
 
 ```{r leaflet}
-dat |> filter(leaflet == 1) |> map_robust() |> kable('markdown')
+dat |> filter(leaflet) |> map_robust() |> kable('markdown')
 ```
 
 ### 4.5 Any relationship between delay and outcome?
@@ -173,5 +168,5 @@ dat |> ggplot(aes(d, delay)) + geom_point() +
 
 ### 4.6 record computational environment
 ```{r reproducibility}
-sessioninfo::session_info()
+session_info()
 ```
