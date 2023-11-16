@@ -46,6 +46,7 @@ source('./functions/d_calc.R')
 source('./functions/map_robust.R')
 source('./functions/sum_lm.R')
 source('./functions/var_d_calc.R')
+
 #' options and reproducibility
 options(scipen = 99)
 set.seed(11111988)
@@ -54,27 +55,27 @@ set.seed(11111988)
 
 make a dataset
 ```{r make_dataset}
-dat <- data.frame(study_name = c('a study', 'b study', 'c study', 'd study', 
+dat <- data.frame(unique_study_id = 1:16,
+                  study_name = c('a study', 'b study', 'c study', 'd study', 
                                  'e study', 'f study', 'g study', 'h study', 
                                  'i study', 'j study', 'k study', 'l study',
                                  'm study', 'n study', 'o study', 'p study'),
                   u_s_d  = abs(rnorm(16, 1, 1)),
                   ctrl_sd = abs(rnorm(16,4,1)),
-                  eff_type = rep("d_i_m", 16),
+                  eff_type = sample(c("d_i_m", "d_i_p", "d_i_d"), 16, T),
                   n_t_post = sample(1:100, 16, replace = T),
                   n_c_post = sample(1:100, 16, replace = T),
-                  cluster_var = rbinom(16, 1, 0.4),
                   theory = as.factor(sample(
                     c("animal welfare", "environment", "psychology"), 
                     16, replace = T)),
-                  self_report = rbinom(16, 1, 0.25),
-                  leaflet = rbinom(16, 1, 0.25),
-                  doi_or_url = rbinom(16, 1, 0.25),
+                  cluster_var = as.logical(rbinom(16, 1, 0.4)),
+                  self_report = as.logical(rbinom(16, 1, 0.2)),
+                  leaflet     = as.logical(rbinom(16, 1, 0.2)),
+                  doi_or_url = as.logical(rbinom(16, 1, 0.2)),
                   delay = sample(1:30, 16, replace = T),
-                  unique_study_id = 1:16,
                   pos_neg_neutral = sample(-1:1, 16, replace = T))
 
-#' add d, var_d, and se_d
+ #' add d, var_d, and se_d
   dat <- dat |>
     mutate(
       d = mapply(
@@ -124,8 +125,11 @@ binom.test(sign_table[[3]], sum(sign_table[1:3]))
 ```{r pub_bias}
 dat |> sum_lm()
 
-dat |> ggplot(aes(d, se_d)) + geom_point(aes(color = theory)) + 
-  stat_smooth(method = 'lm', se = F, color = 'black') + theme_minimal() +
+dat |> ggplot(aes(d, se_d)) + 
+  geom_point(aes(color = theory)) + 
+  stat_smooth(method = 'lm', se = F, color = 'grey', 
+              lty = 'dashed', linewidth = 1) + 
+  theme_minimal() +
   ggtitle('relationship between effect size and standard erors')
 
 #' split by published/unpublished (DOI = published)
@@ -147,10 +151,11 @@ dat |> split(~self_report) |> imap(~map_robust(.x) |> kable('markdown'))
 Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\Beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
 ```{r social_desirability_penalty}
 dat |>  mutate(d = 
-                 if_else(self_report == 0,
+                 if_else(self_report,
                          d - 0.1,
                          d)) |> map_robust()
-
+#' I would prefer that self_report be a T/F where T has a 90% chance of occuring,
+#' but I'm not seeing a <5 minutes solution to doing this 
 ```
 
 ### 4.4 do leaflet studies work? 
