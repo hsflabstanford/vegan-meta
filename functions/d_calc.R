@@ -9,18 +9,16 @@
 #' group only.
 #' 
 #' All calculations derived from Cooper, Hedges, and Valentine (2009), except 
-#' for difference in proportions, which, to the best of our knowledge, Don Green
+#' for difference in proportions, which, to the best of my knowledge, Don Green
 #' came up with while we were working on _Prejudice Reduction: Progress and Challenges_. 
-#' We elaborate more on this estimator in the paper's appendix.
 #' See https://meta-analysis.com/download/Meta-analysis%20Converting%20among%20effect%20sizes.pdf
 #' for more information on calculating effect sizes.
 #' 
 #' If a given paper reports that effects were "not significant," that there was
 #' "no effect," etc., but didn't provide enough details to calculate d/$\Delta$,
-#' we recorded the result as an 'unspecified null', and here we convert all such
-#' results to 0.01.
+#' we recorded the result as an 'unspecified null', with an effect size of 0.01.
 
-#' The function takes four inputs
+#' The function takes four inputs:
 #' @param stat_type the category of statistical result either reported in or derived from 
 #' the paper.
 #' @param stat the unstandardized effect size
