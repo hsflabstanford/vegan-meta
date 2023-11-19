@@ -55,25 +55,28 @@ set.seed(11111988)
 
 make a dataset
 ```{r make_dataset}
-dat <- data.frame(unique_study_id = 1:16,
+dat <- data.frame(unique_study_id = 1:24,
                   study_name = c('a study', 'b study', 'c study', 'd study', 
                                  'e study', 'f study', 'g study', 'h study', 
                                  'i study', 'j study', 'k study', 'l study',
-                                 'm study', 'n study', 'o study', 'p study'),
-                  u_s_d  = abs(rnorm(16, 1, 1)),
-                  ctrl_sd = abs(rnorm(16,4,1)),
-                  eff_type = sample(c("d_i_m", "d_i_p", "d_i_d"), 16, T),
-                  n_t_post = sample(1:100, 16, replace = T),
-                  n_c_post = sample(1:100, 16, replace = T),
+                                 'm study', 'n study', 'o study', 'p study',
+                                 'q study', 'r study', 's study', 't study',
+                                 'u study', 'v study', 'w study', 'x study'),
+                  u_s_d  = abs(rnorm(24, 1, 1)),
+                  ctrl_sd = abs(rnorm(24,4,1)),
+                  eff_type = sample(c("d_i_m", "d_i_p", "d_i_d"), 24, T),
+                  n_t_post = sample(1:100, 24, replace = T),
+                  n_c_post = sample(1:100, 24, replace = T),
                   theory = as.factor(sample(
                     c("animal welfare", "environment", "psychology"), 
-                    16, replace = T)),
-                  cluster_var = as.logical(rbinom(16, 1, 0.4)),
-                  self_report = as.logical(rbinom(16, 1, 0.2)),
-                  leaflet     = as.logical(rbinom(16, 1, 0.2)),
-                  doi_or_url = as.logical(rbinom(16, 1, 0.2)),
-                  delay = sample(1:30, 16, replace = T),
-                  pos_neg_neutral = sample(-1:1, 16, replace = T))
+                    24, replace = T)),
+                  cluster_var = as.logical(rbinom(24, 1, 0.4)),
+                  self_report = as.logical(rbinom(24, 1, 0.2)),
+                  leaflet     = as.logical(rbinom(24, 1, 0.2)),
+                  doi_or_url = as.logical(rbinom(24, 1, 0.2)),
+                  delay = sample(1:30, 24, replace = T),
+                  year = sample(2005:2023, 24, replace = T),
+                  pos_neg_neutral = sample(-1:1, 24, replace = T))
 
  #' add d, var_d, and se_d
   dat <- dat |>
@@ -164,6 +167,24 @@ dat |> filter(leaflet) |> map_robust() |> kable('markdown')
 dat |> sum_lm(d, delay)
 dat |> ggplot(aes(d, delay)) + geom_point() + 
   stat_smooth(method = 'lm', se = F) + theme_minimal()
+```
+
+### 4.6 any relationship between publication date and effect size or validity?
+
+```{r publication_date}
+
+dat |> sum_lm(d, year)
+
+dat |>  mutate(decade = as.factor(
+      case_when(
+        year <= 1989 ~ "1980s",
+        year >= 1990 & year <= 1999 ~ "1990s",
+        year >= 2000 & year <= 2009 ~ "2000s",
+        year >= 2010 ~ "2010s",
+        TRUE ~ "Other"))) |>
+  split(~decade) |>  
+  map(map_robust)
+
 ```
 
 ### 4.6 record computational environment
