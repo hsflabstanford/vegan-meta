@@ -6,7 +6,7 @@
 #' All calculations derived from Cooper, Hedges, and Valentine (2009), except  
 #' for difference in proportions, which, to the best of our knowledge, Don Green
 #' came up with while we were working on _Prejudice Reduction: Progress and Challenges_. 
-#' We elaborate more on this estimator in the paper's appendix.
+#' We elaborate more on this estimator in a forthcoming separate paper's appendix.
 #' See https://meta-analysis.com/download/Meta-analysis%20Converting%20among%20effect%20sizes.pdf
 #' for more information on calculating effect sizes.
 
@@ -23,30 +23,37 @@
 #' @return Cohen's D or Glass's $\Delta$ value.
 #'
 d_calc <- function(stat_type, stat, sample_sd, n_t, n_c) {
-  if (stat_type == "d_i_d" || stat_type == "d_i_m" || stat_type == "d_i_p" ||
-      stat_type == "reg_coef") {
-    # Calculate Cohen's D or Glass's $\Delta$ based on effect size and sample standard deviation
+  #' Calculate Cohen's D or Glass's $\Delta$ based on effect size and sample SD
+  if (stat_type == "d_i_d" || stat_type == "d_i_m" || stat_type == "reg_coef") {
     d <- round(stat / sample_sd, digits = 3)
   } else if (stat_type == "d") {
-    # Directly use the reported change of SDs
+    #' Directly use the reported change of SDs
     d <- stat
   } else if (stat_type == "unspecified null") {
-    # Set an 'unspecified null' result to a default small value
+    #' Set an 'unspecified null' result to a default small value
     d <- 0.01
   } else if (stat_type == "t_test") {
-    # Calculate Cohen's D for t test
+    #' Calculate Cohen's D for t test
     d <- round(stat * sqrt((n_t + n_c) / (n_t * n_c)), digits = 3)
   } else if (stat_type == "f_test") {
-    # Calculate Cohen's D for f test
+    #' Calculate Cohen's D for f test
     d <- round(sqrt((stat * (n_t + n_c)) / (n_t * n_c)), digits = 3)
   } else if (stat_type == "odds_ratio") {
-    # Calculate Cohen's D for odds ratio
+    #' Calculate Cohen's D for odds ratio
     d <- log(stat) * sqrt(3) / pi
   } else if (stat_type == "log_odds_ratio") {
-    # Calculate Cohen's D for log odds ratio
+    #' Calculate Cohen's D for log odds ratio
     d <- stat * sqrt(3) / pi
+  } else if (stat_type == 'd_i_p') {
+    #' Calculate Glass's Delta for difference in proportions
+    #' "SD" as an input is a misnomer here; input the _proportion_ of the incident
+    #' in the control group as the variance estimate, and then this calculator
+    #' treats that as draws from a bernoulli distribution. Variance ouf Bernoulli
+    #' is $p(1-p)$; so the estimator in total is 
+    #'  $$\Delta = \frac{p_{1} - p_{2}}{\sqrt{p_{2} * (1 - p_{2)}}}$$
+    d = stat / (sqrt(sample_sd * (1 - sample_sd)))
   } else {
-    # Default value if stat_type is unrecognized
+    #' Default value if stat_type is unrecognized
     d <- NA
   }
   

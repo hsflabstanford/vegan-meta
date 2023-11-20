@@ -141,7 +141,7 @@ dat |> split(~doi_or_url) |> map(sum_lm)
 dat |> split(~doi_or_url) |> imap(~map_robust(.x) |> kable('markdown')) 
 ```
 
-### differences by clustering, theory and self-report? 
+### 4.3 differences by clustering, theory and self-report? 
 
 ```{r cluster}
 
@@ -150,26 +150,27 @@ dat |> split(~theory) |> imap(~map_robust(.x) |> kable('markdown'))
 dat |> split(~self_report) |> imap(~map_robust(.x) |> kable('markdown'))
 ```
 
-### 4.3 Social desirability penalty
+### 4.4 Social desirability penalty
 Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\Beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
 ```{r social_desirability_penalty}
 dat |>  mutate(d =  if_else(self_report, d - 0.1, d)) |>map_robust()
 ```
 
-### 4.4 do leaflet studies work? 
+### 4.5 do leaflet studies work? 
 
 ```{r leaflet}
 dat |> filter(leaflet) |> map_robust() |> kable('markdown')
 ```
 
-### 4.5 Any relationship between delay and outcome?
+### 4.6 Any relationship between delay and outcome?
+
 ```{r delay}
 dat |> sum_lm(d, delay)
 dat |> ggplot(aes(d, delay)) + geom_point() + 
   stat_smooth(method = 'lm', se = F) + theme_minimal()
 ```
 
-### 4.6 any relationship between publication date and effect size or validity?
+### 4.7 any relationship between publication date and effect size or validity?
 
 ```{r publication_date}
 
