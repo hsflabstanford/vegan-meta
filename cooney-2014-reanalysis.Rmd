@@ -40,7 +40,15 @@ n_m_post <- as.numeric(str_extract(dat[22, 10], "(?<=sample size: )\\d+"))
 n_n_post <- as.numeric(str_extract(dat[23, 10], "(?<=sample size: )\\d+"))
 
 g_comparison <- d_calc(stat_type = 'd_i_m', stat = as.numeric(dat[16,9])- as.numeric(dat[15,9]), 
+<<<<<<< HEAD
                        sample_sd = NA, n_t = n_g_post, n_c = n_c_post)
 
 ```
 never mind this is too much work. what's the correct SD for this variable? Ideally we'd do an actual measure or composite or reconstruct the paper's reasoning
+=======
+                       sample_sd = 1, n_t = n_g_post, n_c = n_c_post)
+
+
+```
+never mind this is too much work. what's the correct SD for this variable? No we really need to do an actual measure
+>>>>>>> b93dffa9da18cd17da0b30598b6d088094d09c31
