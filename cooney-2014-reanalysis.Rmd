@@ -1,0 +1,46 @@
+---
+title: "Cooney 2014 reanalysis"
+author: "Seth Green"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+### Background on the study
+
+[Cooney (2014)](https://osf.io/nwcgf), "What elements make a vegetarian leaflet more effective?," a [Humane League](https://forum.effectivealtruism.org/topics/the-humane-league) looked at how to make a "pro-vegetarian booklet more effective at inspiring young people to reduce their consumption of animal products." The study recruited young people at colleges and universities in the Northeastern U.S. and at various stops on the Warp Music tour (I love this detail!) and randomly assigned to read one of eight booklets or a control group. The booklets presented (some combination of) information about animal cruelty, the health benefits of going vegetarian, information focused on all farm animals or just chickens, and content on either why participants should go vegetarian or a focus on how to do so. 3,233 people filled out an initial survey on their eating habits and viewed one of the booklets (or were assigned to control); 569 people filled out an endline survey 3 months later to assess long-term impacts.
+
+The study's main findings are that information on cruelty was slightly more effective at reducing MAP consumption than health information was; that leaflets focused on _all_ farm animals outperformed those focused just on chickens; and information about how to go vegetarian was more effective than arguments for going vegetarian. Overall, Cooney concludes, the study produces "strong evidence that pro-vegetarian booklets aimed at young people should focus on all main farm animals, not just chickens," and "weak evidence that booklets should focus more on the cruelty done to animals than on the health benefits of going vegetarian;" once these two elements are established, he argues, it's "unclear whether how-or why-focused booklets will be more effective at persuading people to change their diet."
+
+However, each of these is an intra-treatment comparison, and ignores the control group. For a meta-analysis, the main quantity of interest is generally how a given treatment, or cluster of treatments, compares to baseline of no intervention. For these participants, three months later, "those in the control group (those who never received a booklet ) reported more of a reduction in animal product consumption than those who received any of the other booklets. Coney does not believe that the booklets actually reduced likelihood of changing one's diet, and call this an anomaly. He also partly attributes it to tiny sample sizes.
+
+This is a textbook example of  [the garden of forking paths](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf). Choosing an analytic strategy after you've seen the data allows researcher to make _prima facie_ reasonable choices that, at the aggregate level, have a way of supressing and under-reporting backlash or unwelcome results.
+
+Fortunately, the study's code and data were [posted to the Open Science Framework](https://osf.io/rg2ve), and we can actually figure out the quantities of interest from the first tab. 
+
+
+```{r re-analysis}
+library(readxl)
+library(dplyr)
+
+source('./functions/d_calc.R')
+source('./functions/var_d_calc.R')
+
+dat <- read_xlsx('./data/cooney-2014-data.xlsx')
+
+n_c_post <- as.numeric(str_extract(dat[15, 10], "(?<=sample size: )\\d+"))
+n_g_post <- as.numeric(str_extract(dat[16, 10], "(?<=sample size: )\\d+"))
+n_h_post <- as.numeric(str_extract(dat[17, 10], "(?<=sample size: )\\d+"))
+n_i_post <- as.numeric(str_extract(dat[18, 10], "(?<=sample size: )\\d+"))
+n_j_post <- as.numeric(str_extract(dat[19, 10], "(?<=sample size: )\\d+"))
+n_k_post <- as.numeric(str_extract(dat[20, 10], "(?<=sample size: )\\d+"))
+n_l_post <- as.numeric(str_extract(dat[21, 10], "(?<=sample size: )\\d+"))
+n_m_post <- as.numeric(str_extract(dat[22, 10], "(?<=sample size: )\\d+"))
+n_n_post <- as.numeric(str_extract(dat[23, 10], "(?<=sample size: )\\d+"))
+
+g_comparison <- d_calc(stat_type = 'd_i_m', stat = as.numeric(dat[16,9])- as.numeric(dat[15,9]), 
+                       sample_sd = NA, n_t = n_g_post, n_c = n_c_post)
+
+```
+never mind this is too much work. what's the correct SD for this variable? Ideally we'd do an actual measure or composite or reconstruct the paper's reasoning
