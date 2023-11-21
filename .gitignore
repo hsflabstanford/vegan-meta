@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 .DS_store
-cutouts.R
+cutouts.Rmd
 results/
