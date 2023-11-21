@@ -7,6 +7,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+# Some priors we have
+If there was a durable, easy-to-scale method for reducing meat consumption, you’d already know about it. It would be news the way [Wegovy is news](https://nymag.com/press/2023/02/people-have-swapped-their-old-diets-for-a-dose-of-ozempic.html).
+Putative effects from observational research often disappear when put to a [rigorous, randomized test](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1330479). [Confounders abound](https://www.jstor.org/stable/2676645).
+Attitudes and intentions are [much more malleable](https://thehumaneleague.org/article/gfu-rcts) than behavior, and on sensitive subjects, people sometimes say one thing and do another. This has been [well understood for decades](https://www.jsad.com/doi/abs/10.15288/jsa.1981.42.355?journalCode=jsa)
+.
+Anything touching on food is a sensitive, personal subject, so we should expect significant biases in studies that focus on attitudes and intentions.
+
 # general principles for data collection 
 
 Before mock analyses, here are some general principles we followed when coding studies.
