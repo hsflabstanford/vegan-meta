@@ -33,7 +33,7 @@ Before mock analyses, here are some general principles we followed when coding s
 
 # data analysis on a simulated dataset
 
-Our data analysis will basically look like this at the outset, except with real data. This simulated dataset has essentially the same variables as our real dataset. There will be a few differences, e.g. we'll probably do something more complicated to isolate the leaflet studies (or else modify the dataset). But in general, these are the main points.
+Our data analysis will basically look like this in broad outline, except with real data. This simulated dataset has more or less the same variables as our real dataset. There will be a few differences, e.g. we'll probably do something more complicated to isolate the leaflet studies (or else modify the dataset). But in general, these are the main points.
 
 Anything else we do is exploratory based on trends we observe in the data once we actually start the analysis.
 
