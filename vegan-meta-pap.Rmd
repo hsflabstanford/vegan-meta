@@ -57,6 +57,7 @@ library(stringr)
 source('./functions/d_calc.R')
 source('./functions/map_robust.R')
 source('./functions/sum_lm.R')
+source('./functions/sum_tab.R')
 source('./functions/var_d_calc.R')
 
 #' options and reproducibility
@@ -189,6 +190,18 @@ dat |> filter(theory == 'persuasion') |>
   split(~persuasion_category) |> 
   imap(~map_robust(.x) |> 
          kable('markdown'))
+
+# a couple zoom ins on the self-report vs not
+
+dat |>
+  split(~self_report) |>
+  imap(~ sum_tab(.x, theory))
+
+dat |>
+  split(~self_report) |>
+  imap(~ sum_tab(.x, year))
+#' I'm expecting to see here that non-self-reported things basically start
+#' in the past 3-5 years and that some theories are just plum missing
 ```
 
 ### 4.4 Social desirability penalty
