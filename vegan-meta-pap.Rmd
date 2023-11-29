@@ -2,8 +2,9 @@
 title: "Vegan meta-analysis pre-analysis plan"
 author: "Seth Green"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
-output: html_document
-editor_options: 
+output:
+  word_document: default
+editor_options:
   chunk_output_type: console
 ---
 
@@ -15,7 +16,7 @@ editor_options:
 
 * Anything touching on food is a sensitive, personal subject, so we should expect significant biases in studies that focus on attitudes and intentions.
 
-# general principles for data collection 
+# Guidelines for data collection 
 
 Before mock analyses, here are some general principles we followed when coding studies.
 
@@ -30,6 +31,8 @@ Before mock analyses, here are some general principles we followed when coding s
 * For cluster-assigned treatments, our Ns are the # of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
 
 * when authors don't tell us enough to calculate Glass's $\Delta$ but they do tell us that the results were null, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
+
+* For binary variables, we treat the incidence of the event in the treatment group and control group as draws from a [Bernoulli distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution) whose variance is $p*(1-p)$, and whose standard deviation is (therefore) $\sqrt{p * (1-p)}$. Here, $p$ is the incidence of the dependent variable in the control group as a percentage. If the DV is "proportion of vegetarian meals,  if the control group ordered 100 meals and 60% of them were vegetarian, then $p = 0.4$. So if the treatment group proportion is $p_1$ and the control group proportion is $p_2$,  Glass's $\Delta$ is $\frac{p_1 - p_2}{\sqrt{p_2 * (1 -p_2)}}$
 
 # data analysis on a simulated dataset
 
@@ -64,7 +67,7 @@ set.seed(11111988)
 
 make a dataset
 ```{r make_dataset}
-dat <- data.frame(unique_study_id = 1:24,
+ dat <- data.frame(unique_study_id = 1:24,
                   study_name = c('a study', 'b study', 'c study', 'd study', 
                                  'e study', 'f study', 'g study', 'h study', 
                                  'i study', 'j study', 'k study', 'l study',
@@ -189,7 +192,7 @@ dat |> filter(theory == 'persuasion') |>
 ```
 
 ### 4.4 Social desirability penalty
-Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\Beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
+Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
 
 ```{r social_desirability_penalty}
 dat |>  mutate(d =  if_else(self_report, d - 0.1, d)) |>map_robust()
