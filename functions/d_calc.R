@@ -24,12 +24,14 @@
 #'
 d_calc <- function(stat_type, stat, sample_sd, n_t, n_c) {
   #' Calculate Cohen's D or Glass's $\Delta$ based on effect size and sample SD
-  if (stat_type == "d_i_d" || stat_type == "d_i_m" || stat_type == "reg_coef") {
+  if (stat_type == "d_i_d" || stat_type == "d_i_m" || stat_type == "reg_coef" ||
+      stat_type == "beta") {
     d <- round(stat / sample_sd, digits = 3)
   } else if (stat_type == "d") {
     #' Directly use the reported change of SDs
     d <- stat
-  } else if (stat_type == "unspecified null") {
+  } else if (stat_type == "unspecified_null" || 
+             stat_type == "unspecified null") {
     #' Set an 'unspecified null' result to a default small value
     d <- 0.01
   } else if (stat_type == "t_test") {
