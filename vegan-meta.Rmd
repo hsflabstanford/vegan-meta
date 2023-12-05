@@ -42,7 +42,7 @@ set.seed(11111988)
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> # create unique paper id
-  group_by(unique_paper_id, intervention_condition) |> 
+  ungroup() |> group_by(unique_paper_id, intervention_condition) |> 
   mutate(unique_study_id = cur_group_id()) |> ### create unique study id
   ungroup() |>
   mutate(
@@ -51,6 +51,8 @@ dat <- read.csv('./data/vegan-meta.csv')  |>
         year >= 2000 & year <= 2009 ~ "2000s",
         year >= 2010 & year <= 2019  ~ "2010s",
         year >= 2020 ~ "2020s")),
+      self_report = as.factor(self_report),
+      cluster_assigned = as.factor(cluster_assigned),
       d = mapply(
         FUN = d_calc,
         stat_type = eff_type,
@@ -164,17 +166,14 @@ dat |> filter(theory == 'economics') |> select(author, year, d, se_d)
 
 # for the persuasion categories, something more specific is required
 
-dat |> group_by(persuasion_category) |> study
-
-setNames(
-  lapply(c('animal welfare', 'environment', 'health'), function(term) {
-    combine_functions <- function(data) {
+ combine_functions <- function(data) {
       bind_cols(study_count(data), map_robust(data)) %>%
         kable('markdown')
-    }
-    
+   }
+setNames(
+  lapply(c('animal welfare', 'environment', 'health'), function(term) {
     dat %>%
-      filter(str_detect(term, persuasion_category)) %>%
+      filter(str_detect(persuasion_category, term)) %>%
       combine_functions()
   }),
   c('animal', 'environment', 'health')
@@ -196,37 +195,30 @@ dat |>
 dat |>
   split(~self_report) |>
   imap(~ sum_tab(.x, decade))
-#' I'm expecting to see here that non-self-reported things basically start
-#' in the past 3-5 years and that some theories are just plum missing
 ```
 
-### 4.4 Social desirability penalty
-Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirability bias in self-reported outcome research of about $\beta$ = 0.1. What if we discount all self-reported outcomes bhy about that much, what do the overall effects look like?
+In light of this, I think the check for social desirability bias we outlined in the pre-analysis plan no longer makes sense, so we're omitting it.
 
-```{r social_desirability_penalty}
-## totally have to rework this
-```
-
-### 4.5 do leaflet studies work? 
+### 4.4 do leaflet studies work? 
 
 ```{r leaflet}
-
 dat |>
   filter(str_detect(intervention_condition, "leaflet") |
            str_detect(brief_description, "leaflet")) |>
-  map_robust()
+  combine_functions()
+
 ```
 
 ### 4.6 How do studies administered online compare to in-person studies?
 
 ```{r online_vs_in_person}
 # effect size comparison
-dat |> split(~str_detect(country, "internet")) |> map(map_robust)
+dat |> split(~str_detect(country, "internet")) |> map(combine_functions)
 
 # simple null vs not comparison (not simple to code, thank you chatGPT)
 dat |>
   mutate(country_group = ifelse(grepl("internet", country), "Internet", "Other"))|>
-  group_by(country_group)|>
+  group_by(country_group) |>
   do({
     test_result <- binom.test(sum(.$neg_null_pos == 1), length(.$neg_null_pos), conf.level = 0.95)
     tibble(
@@ -253,7 +245,8 @@ dat |> ggplot(aes(d, delay)) + geom_point() +
 dat |> sum_lm(d, year) #...what is happening with year and d in this dataset
 
 dat |> split(~decade) |>  
-  map(map_robust)
+    imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
+         kable('markdown')) 
 # wow! This is one of the most interesting results
 
 dat |> ggplot(aes(year, d)) + geom_point() + 
