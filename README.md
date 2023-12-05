@@ -16,4 +16,9 @@ what do high-quality RCTs tell us about vegan persuasion efforts?
   * `sum_lm.R`prints a subset of the results from `summary(lm())` and also works in a pipe
   * `var_d_calc.R` calculates the variance of $\Delta$.
   
-The other stuff is project setup, the license, etc. 
+* data has two files: 
+  * `vegan-meta.csv`  is our dataset of studies
+  * `excluded-studies.csv` is our list of studies we looked at but didn't include
+  * `vegan-codebook.csv` is our codebook for the dataset
+  
+The other stuff in this repo is project setup, license, .gitignore, etc. 
