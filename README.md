@@ -1,9 +1,12 @@
 # vegan-meta
+
 what do high-quality RCTs tell us about vegan persuasion efforts?
 
 ### about this repo
 
-* `vegan-meta-pap.Rmd` is an outline for how I plan to do the analyses. It also lists some guiding principles for how we recorded data from studies.
+* `vegan-meta-pap.Rmd` simulates data and runs our planned analyses on it. It also lists some guiding principles for how we recorded data from studies.
+
+* `vegan-meta.Rmd` runs the quantitative analyses on our actual dataset.
 
 * `run.sh` executes the script(s).
 
