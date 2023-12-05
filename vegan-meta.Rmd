@@ -24,6 +24,7 @@ library(stringr)
 #' functions
 source('./functions/d_calc.R')
 source('./functions/map_robust.R')
+source('./functions/study_count.R')
 source('./functions/sum_lm.R')
 source('./functions/sum_tab.R')
 source('./functions/var_d_calc.R')
@@ -91,6 +92,7 @@ Sign test (how many studies were positive, negative, or neutral in their authors
 ```{r sign_test}
 sign_table <- table(dat$neg_null_pos)
 binom.test(sign_table[[3]], sum(sign_table[1:3]))
+table(dat$neg_null_pos)
 ```
 
 Fig 1: forest plot
@@ -103,8 +105,8 @@ dat |>
                          colour = theory, 
                          xlab = expression(paste("Glass's", " ", Delta)), 
                          ylab = "Study",
-                         title = "Vegan meta Forest Plot") +
-    geom_vline(xintercept = (dat |> map_robust())$beta, 
+                         title = "Vegan meta forest plot") +
+    geom_vline(xintercept = (dat |> map_robust())$Delta, 
                             lty = 'dashed') +  # color = '#00BFC4'
   theme(plot.title = element_text(hjust = 0.5))
 ```
@@ -128,27 +130,49 @@ dat |> split(~str_detect(dat$doi_or_url, "10\\.")) |>
 
 dat |> split(~str_detect(dat$doi_or_url, "10\\.")) |> 
   imap(~map_robust(.x) |> kable('markdown')) 
+
+# funnel plot and eggers test
+st_model <- rma(yi = d, vi = var_d, data = dat) # n/A for metafor::robust()
+funnel(st_model)
+regtest(st_model)
 ```
 
 ### 4.3 differences by clustering, theory, persuasion theory, and self-report? 
 
 ```{r cluster}
 
-dat |> split(~cluster_assigned) |> imap(~map_robust(.x) |> kable('markdown'))
+dat |> split(~cluster_assigned) |>   
+  imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
+         kable('markdown')) 
+
 
 dat |> filter(theory != 'economics') |> 
   # economics has one study so we have to report it separately
   split(~theory) |> 
-  imap(~map_robust(.x) |> kable('markdown'))
+  imap(~bind_cols(study_count(.x), map_robust(.x)) |> kable('markdown'))
 
 dat |> filter(theory == 'economics') |> select(author, year, d, se_d)
 
-dat |> split(~self_report) |> imap(~map_robust(.x) |> kable('markdown'))
+dat |> split(~self_report) |> 
+   imap(~bind_cols(study_count(.x), map_robust(.x)) |> kable('markdown'))
 
-# dat |> filter(theory == 'persuasion') |> 
-#   split(~persuasion_category) |> 
-#   imap(~map_robust(.x) |> 
-#          kable('markdown'))
+
+# for the persuasion categories, something more specific is required
+
+setNames(
+  lapply(c('animal welfare', 'environment', 'health'), function(term) {
+    combine_functions <- function(data) {
+      bind_cols(study_count(data), map_robust(data)) %>%
+        kable('markdown')
+    }
+    
+    dat %>%
+      filter(str_detect(term, persuasion_category)) %>%
+      combine_functions()
+  }),
+  c('animal welfare', 'environment', 'health')
+)
+
 
 # a couple zoom ins on the self-report vs not
 
@@ -174,7 +198,7 @@ Mathur et al. (2021b) provide a nice estimate of the magnitude of social desirab
 
 ```{r leaflet}
 
-dat|>
+dat |>
   filter(str_detect(intervention_condition, "leaflet") |
            str_detect(brief_description, "leaflet")) |>
   map_robust()
