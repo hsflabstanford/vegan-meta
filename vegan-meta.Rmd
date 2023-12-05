@@ -125,11 +125,14 @@ dat |> ggplot(aes(d, se_d)) +
 
 #' split by published/unpublished (DOI = published)
 
+dat |> 
+  mutate(published_unpublished = 
+    if_else(str_detect(dat$doi_or_url, "10\\."), T, F)) |> 
+  sum_lm(d, published_unpublished)
+  
 dat |> split(~str_detect(dat$doi_or_url, "10\\.")) |> 
-  map(sum_lm) 
-
-dat |> split(~str_detect(dat$doi_or_url, "10\\.")) |> 
-  imap(~map_robust(.x) |> kable('markdown')) 
+  imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
+         kable('markdown')) 
 
 # funnel plot and eggers test
 st_model <- rma(yi = d, vi = var_d, data = dat) # n/A for metafor::robust()
@@ -139,12 +142,18 @@ regtest(st_model)
 
 ### 4.3 differences by clustering, theory, persuasion theory, and self-report? 
 
+**cluster**
 ```{r cluster}
-
 dat |> split(~cluster_assigned) |>   
   imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
          kable('markdown')) 
 
+# is this just a self-report difference
+dat |> group_by(cluster_assigned, self_report) |> study_count()
+```
+
+**theory differences**
+```{r theory_differences}
 
 dat |> filter(theory != 'economics') |> 
   # economics has one study so we have to report it separately
@@ -153,11 +162,9 @@ dat |> filter(theory != 'economics') |>
 
 dat |> filter(theory == 'economics') |> select(author, year, d, se_d)
 
-dat |> split(~self_report) |> 
-   imap(~bind_cols(study_count(.x), map_robust(.x)) |> kable('markdown'))
-
-
 # for the persuasion categories, something more specific is required
+
+dat |> group_by(persuasion_category) |> study
 
 setNames(
   lapply(c('animal welfare', 'environment', 'health'), function(term) {
@@ -170,9 +177,15 @@ setNames(
       filter(str_detect(term, persuasion_category)) %>%
       combine_functions()
   }),
-  c('animal welfare', 'environment', 'health')
+  c('animal', 'environment', 'health')
 )
 
+```
+
+**self report or not**
+```{r self_report}
+dat |> split(~self_report) |> 
+   imap(~bind_cols(study_count(.x), map_robust(.x)) |> kable('markdown'))
 
 # a couple zoom ins on the self-report vs not
 
