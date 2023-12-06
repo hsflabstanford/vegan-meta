@@ -1,6 +1,8 @@
-# vegan-meta
+# Reducing consumption of meat and animal products: what works? 
 
 what do high-quality RCTs tell us about vegan persuasion efforts?
+
+Forthcoming on the effecive altruism forum, and then eventually (we hope) in an academic paper
 
 ### The main files:
 
