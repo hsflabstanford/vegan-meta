@@ -33,6 +33,12 @@ source('./functions/var_d_calc.R')
 options(scipen = 99)
 set.seed(11111988)
 
+#' count_and_robust helper function
+#' necessary when you ` filter |> split` for some reason
+  count_and_robust <- function(data) {
+      bind_cols(study_count(data), map_robust(data)) |>
+        kable('markdown')
+   }
 ```
 
 **load data, add more descriptive vars, and add d, var_d, and se_d**
@@ -133,8 +139,7 @@ dat |>
   sum_lm(d, published_unpublished)
   
 dat |> split(~str_detect(dat$doi_or_url, "10\\.")) |> 
-  imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
-         kable('markdown')) 
+  imap(~count_and_robust(.x))
 
 # funnel plot and eggers test
 st_model <- rma(yi = d, vi = var_d, data = dat) # n/A for metafor::robust()
@@ -147,8 +152,7 @@ regtest(st_model)
 **cluster**
 ```{r cluster}
 dat |> split(~cluster_assigned) |>   
-  imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
-         kable('markdown')) 
+  imap(~count_and_robust(.x)) 
 
 # is this just a self-report difference
 dat |> group_by(cluster_assigned, self_report) |> study_count()
@@ -160,21 +164,16 @@ dat |> group_by(cluster_assigned, self_report) |> study_count()
 dat |> filter(theory != 'economics') |> 
   # economics has one study so we have to report it separately
   split(~theory) |> 
-  imap(~bind_cols(study_count(.x), map_robust(.x)) |> kable('markdown'))
+  imap(~count_and_robust(.x))
 
 dat |> filter(theory == 'economics') |> select(author, year, d, se_d)
 
-# for the persuasion categories, something more specific is required
-
- combine_functions <- function(data) {
-      bind_cols(study_count(data), map_robust(data)) %>%
-        kable('markdown')
-   }
+# I have no idea why this was so complicated to do but it works
 setNames(
   lapply(c('animal welfare', 'environment', 'health'), function(term) {
     dat %>%
       filter(str_detect(persuasion_category, term)) %>%
-      combine_functions()
+      count_and_robust()
   }),
   c('animal', 'environment', 'health')
 )
@@ -184,17 +183,17 @@ setNames(
 **self report or not**
 ```{r self_report}
 dat |> split(~self_report) |> 
-   imap(~bind_cols(study_count(.x), map_robust(.x)) |> kable('markdown'))
+   imap(~count_and_robust(.x))
 
 # a couple zoom ins on the self-report vs not
 
 dat |>
   split(~self_report) |>
-  imap(~ sum_tab(.x, theory))
+  imap(~sum_tab(.x, theory))
 
 dat |>
   split(~self_report) |>
-  imap(~ sum_tab(.x, decade))
+  imap(~sum_tab(.x, decade))
 ```
 
 In light of this, I think the check for social desirability bias we outlined in the pre-analysis plan no longer makes sense, so we're omitting it.
@@ -205,15 +204,15 @@ In light of this, I think the check for social desirability bias we outlined in 
 dat |>
   filter(str_detect(intervention_condition, "leaflet") |
            str_detect(brief_description, "leaflet")) |>
-  combine_functions()
+  count_and_robust()
 
 ```
 
-### 4.6 How do studies administered online compare to in-person studies?
+### 4.5 How do studies administered online compare to in-person studies?
 
 ```{r online_vs_in_person}
 # effect size comparison
-dat |> split(~str_detect(country, "internet")) |> map(combine_functions)
+dat |> split(~str_detect(country, "internet")) |> map(count_and_robust)
 
 # simple null vs not comparison (not simple to code, thank you chatGPT)
 dat |>
@@ -230,7 +229,7 @@ dat |>
   })
 ```
 
-### 4.7 Any relationship between delay and outcome?
+### 4.6 Any relationship between delay and outcome?
 
 ```{r delay}
 dat |> sum_lm(d, delay)
@@ -238,20 +237,47 @@ dat |> ggplot(aes(d, delay)) + geom_point() +
   stat_smooth(method = 'lm', se = F) + theme_minimal()
 ```
 
-### 4.8 any relationship between publication date and effect size or validity?
+### 4.7 any relationship between publication date and effect size or validity?
 
 ```{r publication_date}
 
 dat |> sum_lm(d, year) #...what is happening with year and d in this dataset
 
 dat |> split(~decade) |>  
-    imap(~bind_cols(study_count(.x), map_robust(.x)) |> 
-         kable('markdown')) 
+   imap(~count_and_robust(.x))
 # wow! This is one of the most interesting results
 
 dat |> ggplot(aes(year, d)) + geom_point() + 
   stat_smooth(method = 'lm', se = F) + theme_minimal()
 ```
+
+Everything from hereonout is speculative.
+
+### Effects on college students vs. adults vs. everyone
+
+```{r population_tests}
+dat |> mutate(pop_categories = case_when(
+  str_detect(population, "adults") ~ 'adults',
+  str_detect(population, "students") ~ 'college students',
+  TRUE ~ 'other')) |>
+  split(~pop_categories) |> 
+  imap(~count_and_robust(.x))
+
+```
+
+### Effects by county/region
+Grouping studies into US, UK, Italy & other because you need at least three clusters to do meta-analysis at all
+
+```{r country_effects}
+dat |> mutate(country_categories = case_when(
+  str_detect(country, "(US)|United States") ~ 'United States',
+  str_detect(country, "United Kingdom") ~ 'United Kingdom',
+  str_detect(country, "Italy") ~ "Italy",
+  TRUE ~ 'Other')) |>
+  split(~country_categories) |> 
+  imap(~count_and_robust(.x))
+```
+
 
 ### 4.9 record computational environment
 ```{r reproducibility}
