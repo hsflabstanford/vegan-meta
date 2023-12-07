@@ -11,6 +11,7 @@ editor_options:
 **libraries, functions, options, and data**
 
 ```{r setup, message=F}
+
 #' libraries
 library(metafor, quietly = T)
 library(dplyr, warn.conflicts = F)
@@ -33,12 +34,13 @@ source('./functions/var_d_calc.R')
 options(scipen = 99)
 set.seed(11111988)
 
-#' count_and_robust helper function
-#' necessary when you ` filter |> split` for some reason
+#' count_and_robust helper function;
+#' necessary b/c `filter |> split |> imap()` didn't work for some reason
+#' 
   count_and_robust <- function(data) {
       bind_cols(study_count(data), map_robust(data)) |>
         kable('markdown')
-   }
+    }
 ```
 
 **load data, add more descriptive vars, and add d, var_d, and se_d**
@@ -71,12 +73,13 @@ dat <- read.csv('./data/vegan-meta.csv')  |>
         d = d,
         n_c = n_c_post,
         n_t = n_t_post),
-      se_d = sqrt(var_d))
+      se_d = sqrt(var_d)) |>
+  select(unique_paper_id, unique_study_id, author, year, title, everything())
 
 ```
 
 ### 3.3 descriptive stats
-mean N, country table, and population
+mean N, country table, population, and dependent variables
 
 ```{r descriptive_stats}
 dat |> group_by(cluster_assigned) |> 
@@ -85,6 +88,20 @@ dat |> group_by(cluster_assigned) |>
             
 sort(table(dat$country))
 table(dat$population)
+
+table(dat$self_report)
+
+dat |> filter(self_report == 'Y') |> select(author, year, outcome)|> print(n = 23)
+
+dat |> filter(self_report == 'N') |> select(author, year, outcome)|> print(n = 17)
+
+```
+
+
+
+```{r DVs}
+dat |> select(self_report, outcome, title) |> View()
+
 ```
 
 # Meta-analysis

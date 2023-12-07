@@ -25,3 +25,6 @@ everything in `functions` is used in the analysis, and the files themselves shou
   * `vegan-codebook.csv` is our codebook for the dataset
   
 The other stuff in this repo is project setup, license, .gitignore, etc. 
+
+Our code and data are also [available on Code Ocean](https://doi.org/10.24433/CO.6020578.v1), where they can be rerun from scratch in a frozen, code-compatible computational environment.
+
