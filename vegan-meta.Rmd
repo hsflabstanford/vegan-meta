@@ -15,7 +15,6 @@ editor_options:
 #' libraries
 library(metafor, quietly = T)
 library(dplyr, warn.conflicts = F)
-library(ggforestplot) # https://nightingalehealth.github.io/ggforestplot
 library(ggplot2, warn.conflicts = F)
 library(knitr)
 library(purrr)
@@ -118,19 +117,24 @@ table(dat$neg_null_pos)
 **Fig 1: forest plot**
 
 ```{r forest_plot}
-dat |> 
-  mutate(study_name = paste0(author, " ", year)) |> 
-           arrange(var_d) |> ggforestplot::forestplot(study_name,
-                         estimate = d, se = se_d, 
-                         colour = theory, 
-                         xlab = expression(paste("Glass's", " ", Delta)), 
-                         ylab = "Study",
-                         title = "Vegan meta forest plot") +
-    geom_vline(xintercept = (dat |> map_robust())$Delta, 
-                            lty = 'dashed') +  # color = '#00BFC4'
-  theme(plot.title = element_text(hjust = 0.5))
+dat |>
+  mutate(study_name = reorder(as.factor(paste0(author, " ", year)), desc(se_d))) |>
+  ggplot(aes(y = study_name, x = d, 
+             xmin = d - (1.96 * se_d),
+             xmax = d + (1.96 * se_d))) + 
+  geom_point(size = 1, aes(color = theory)) +
+  geom_errorbarh(height = .1, aes(color = theory)) +
+  geom_vline(xintercept = 0, color = "black", alpha = .5) +
+  geom_vline(xintercept = (dat |> map_robust())$Delta, 
+             color = 'black', lty = 'dashed') +
+  scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
+  scale_y_discrete() +
+  ylab("Study") +
+  ggtitle("Vegan meta forest plot") + 
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5,
+                                  face = "bold"))
 ```
-
 
 ## 4.2 publication bias
 
