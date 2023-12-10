@@ -8,7 +8,7 @@ Forthcoming on the effecive altruism forum, and then eventually (we hope) in an 
 
   * `vegan-meta-pap.Rmd` simulates data and runs our planned analyses on it. It also lists some guiding principles for how we recorded data from studies.
   * `vegan-meta.Rmd` runs the quantitative analyses on our actual dataset.
-  * `run.sh` executes the script(s).
+  * `run.sh` executes the scripts.
 
 ### functions
 everything in `functions` is used in the analysis, and the files themselves should be pretty well-documented. Mostly I wrote them to avoid writing certain bits of code over and over, or to have something that was formatted properly to work in a sequence of pipes (`|>`). I mostly copied them verbatim from https://github.com/setgree/sv-meta, but in brief:
