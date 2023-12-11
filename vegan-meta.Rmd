@@ -117,7 +117,7 @@ table(dat$neg_null_pos)
 **Fig 1: forest plot**
 
 ```{r forest_plot}
-dat |>
+fig <- dat |>
   mutate(study_name = reorder(as.factor(paste0(author, " ", year)), desc(se_d))) |>
   ggplot(aes(y = study_name, x = d, 
              xmin = d - (1.96 * se_d),
@@ -136,7 +136,8 @@ dat |>
                                   face = "bold"),
         legend.title = element_text(size = 15),
         legend.text = element_text(size = 12))
-ggsave('./results/fig_1.png')
+fig
+ggsave(filename = './results/fig_1.png', plot = fig)
 ```
 
 ## 4.2 publication bias
