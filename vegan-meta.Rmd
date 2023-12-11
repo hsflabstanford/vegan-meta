@@ -133,7 +133,10 @@ dat |>
   ggtitle("Vegan meta forest plot") + 
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5,
-                                  face = "bold"))
+                                  face = "bold"),
+        legend.title = element_text(size = 15),
+        legend.text = element_text(size = 12))
+ggsave('./results/fig_1.png')
 ```
 
 ## 4.2 publication bias
