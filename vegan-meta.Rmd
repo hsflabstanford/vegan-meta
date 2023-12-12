@@ -96,6 +96,7 @@ dat |> filter(self_report == 'Y') |> select(author, year, outcome)|> print(n = 2
 
 dat |> filter(self_report == 'N') |> select(author, year, outcome)|> print(n = 17)
 
+dat |> filter(country == "United States") |> filter(population == "university students") |> count()
 ```
 
 # Meta-analysis
