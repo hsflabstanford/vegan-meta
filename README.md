@@ -2,7 +2,7 @@
 
 what do high-quality RCTs tell us about vegan persuasion efforts?
 
-Forthcoming on the effecive altruism forum, and then eventually (we hope) in an academic paper
+The first draft is available on the [EA Forum](https://forum.effectivealtruism.org/posts/k9qqGZtmWz3x4yaaA/environmental-and-health-appeals-are-the-most-effective). Next up is to convert this into a real paper.
 
 ### The main files:
 
@@ -27,4 +27,13 @@ everything in `functions` is used in the analysis, and the files themselves shou
 The other stuff in this repo is project setup, license, .gitignore, etc. 
 
 Our code and data are also [available on Code Ocean](https://doi.org/10.24433/CO.6020578.v1), where they can be rerun from scratch in a frozen, code-compatible computational environment.
+
+### TODOs
+1. Do attitudes and/or intentions predict behaviors? To assess this, we’ll record all attitudinal and intentional outcomes in our database of studies.
+
+2. What can we say about whether people compensate for less meat at one meal with more meat at another? If we studies that show this, then many behavioral economics studies that measure outcomes immediately might not be properly capturing overall effects. In other words, they might be missing widespread ‘regression to the meat.’
+
+3. What are the most common methodological shortcomings of extant work? To assess this, we will conduct a systematic review of all papers that describe themselves, or that were described by previous systematic reviews, as experiments, RCTs, or field experiments, and check which of our criteria they do not meet. This will give researchers a sense of where the field would most benefit from additional attention to rigor: internal validity (randomization), measurement validity (measuring MAP consumption with delay), or statistical power (sample sizes). 
+
+4. What can we say about Intention to Treat (ITT) estimates and comparative cost-effectiveness? For these analyses, we will redo our coding to include more information about initial assignments, as well as potentially code more papers to see how many provide cost estimates. These estimates would be especially relevant for grantmaking institutions. 
 
