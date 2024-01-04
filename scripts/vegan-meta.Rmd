@@ -22,12 +22,12 @@ library(sessioninfo)
 library(stringr)
 
 #' functions
-source('./functions/d_calc.R')
-source('./functions/map_robust.R')
-source('./functions/study_count.R')
-source('./functions/sum_lm.R')
-source('./functions/sum_tab.R')
-source('./functions/var_d_calc.R')
+source('../functions/d_calc.R')
+source('../functions/map_robust.R')
+source('../functions/study_count.R')
+source('../functions/sum_lm.R')
+source('../functions/sum_tab.R')
+source('../functions/var_d_calc.R')
 
 #' options and reproducibility
 options(scipen = 99)
@@ -47,7 +47,7 @@ set.seed(11111988)
 
 ```{r load_data}
 
-dat <- read.csv('./data/vegan-meta.csv')  |>
+dat <- read.csv('../data/vegan-meta.csv')  |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> #' create unique paper id
   ungroup() |> group_by(unique_paper_id, intervention_condition) |> 
@@ -138,7 +138,7 @@ fig <- dat |>
         legend.title = element_text(size = 15),
         legend.text = element_text(size = 12))
 fig
-ggsave(filename = './results/fig_1.png', plot = fig)
+ggsave(filename = '../results/fig_1.png', plot = fig)
 ```
 
 ## 4.2 publication bias
