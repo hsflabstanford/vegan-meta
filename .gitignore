@@ -5,3 +5,5 @@
 .DS_store
 cutouts.Rmd
 results/
+*.pdf
+*.html
