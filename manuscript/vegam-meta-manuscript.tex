@@ -1,0 +1,1552 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Environmental \& health appeals are the most effective vegan outreach strategies},
+  pdfauthor={Seth Green, Benny Smith},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Environmental \& health appeals are the most effective vegan
+outreach strategies}
+\author{Seth Green, Benny Smith}
+\date{}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, frame hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, sharp corners, enhanced]}{\end{tcolorbox}}\fi
+
+\hypertarget{abstract}{%
+\subsection{Abstract}\label{abstract}}
+
+What interventions for reducing consumption of meat and animal products
+(MAP) have been tested and validated in the scientific literature, and
+what theories of change drive the most effective interventions? We
+address these questions with a theoretical review review and
+meta-analysis. We find that appeals to environmental and health concerns
+most reliably reduce MAP consumption, while appeals to animal welfare,
+studies administered online, and choice architecture/nudging studies
+generally do not produce meaningful effects. We then outline eight areas
+where more research is needed and five promising interventions that have
+yet to be rigorously tested.
+
+\hypertarget{introduction}{%
+\subsection{1. Introduction}\label{introduction}}
+
+There are
+\href{https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2812392?resultClick=3}{strong}
+\href{https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/meatless-meals/art-20048193}{personal}
+\href{https://europepmc.org/article/med/30209430}{health},
+\href{https://pubmed.ncbi.nlm.nih.gov/20010001/}{public}
+\href{https://www.theregreview.org/2022/10/12/khodor-how-factory-farming-could-cause-the-next-covid-19/}{health},
+\href{https://www.theguardian.com/environment/2023/jul/20/vegan-diet-cuts-environmental-damage-climate-heating-emissions-study}{environmental},
+and
+\href{https://forum.effectivealtruism.org/topics/farmed-animal-welfare}{animal
+welfare} arguments for reducing consumption of meat and animal products
+(MAP). However, changing people's eating behavior is
+\href{https://forum.effectivealtruism.org/posts/qgaKpgJfGgkZB3fjh/effectiveness-of-a-theory-informed-documentary-to-reduce}{a
+hard problem}. This paper approaches that problem with a theoretical
+review and meta-analysis.
+
+A previous review by
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{Mathur
+et al.~(2021 b)} called on future MAP research to feature ``direct
+behavioral outcomes'' and ``long-term follow-up.'' Our paper shares
+those commitments. Therefore, while our review is theoretically
+comprehensive, our meta-analysis looks exclusively at randomized
+controlled trials (RCTs), for
+\href{https://www.sfu.ca/~palys/Campbell\&Stanley-1959-Exptl\&QuasiExptlDesignsForResearch.pdf}{well-understood
+reasons}, that meet the following quality criteria:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Measurements of actual consumption of animal products, rather than (or
+  in addition to) measures of attitudes, behavioral intentions, or
+  hypothetical choices.
+\item
+  At least 25 subjects in treatment and control groups or, for
+  \href{https://www.jstor.org/stable/25791925}{cluster-randomized
+  studies}, at least 10 clusters in total.
+\item
+  At least a single day separating the onset of treatment from outcome
+  measurement. This helps identify effects that endure beyond the length
+  of a single interaction and also helps to mitigate
+  \href{https://link.springer.com/article/10.1007/s10683-009-9230-z}{experimenter
+  demand effects}.
+\end{enumerate}
+
+We also required that the full papers be available on the internet,
+rather than just a summary or abstract, and written in English. We
+identified 42 such interventions published in 28 papers or technical
+reports.
+
+By our count, there have been 21 narrative reviews, systematic reviews,
+book chapters, and meta-analyses that either focus or touch on MAP
+reduction from 2017 onwards (See section 2, table 1 for an overview).
+However, past reviews are either A)
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666318309309}{organized}
+\href{https://animalcharityevaluators.org/wp-content/uploads/2022/04/protest-intervention-report.pdf}{around}
+\href{https://animalcharityevaluators.org/wp-content/uploads/2022/04/leafleting-intervention-report.pdf}{particular}
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{theories}
+\href{https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext}{of}
+\href{https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6}{change},
+\href{https://www.sciencedirect.com/science/article/abs/pii/B9780323988285000012}{rather}
+than comprehensive of all literature; B) a few years
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666318315812}{out}
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321006462}{of}
+\href{https://www.sciencedirect.com/science/article/abs/pii/S092422441830606X}{date},
+which means they miss
+\href{https://doi.org/10.1038/s43016-023-00712-1}{important}
+\href{https://faunalytics.org/relative-effectiveness/}{recent}
+\href{https://doi.org/10.1016/j.jenvp.2021.10159}{papers}; and/or C)
+\href{https://doi.org/10.1016/j.tifs.2019.09.019}{not}
+\href{https://www.sciencedirect.com/science/article/pii/S2666833521000976}{quantitative}.
+Further, while some previous reviews noted heterogeneity in research
+quality, none made this a major focus. Our paper therefore fills three
+gaps. First, it is theoretically comprehensive. Second, it offers
+quantitative meta-analysis. Third, it focuses on the subset of studies
+whose designs credibly license causal inference on the key quantity of
+interest.
+
+The remainder of this article proceeds as follows. Section 2 reviews how
+we assembled our database of policy-relevant MAP reduction research.
+Section 3 provides an overview of the findings of the six major strands
+of this literature. Section 4 describes our analytic methods. Section 5
+meta-analyzes the assembled studies. Section 6 discusses what we know
+works, what we know does not work, areas where more research is needed,
+and promising theories and strategies that have yet to be rigorously
+tested. Section 7 concludes with proposed next steps for this paper.
+
+\hypertarget{assembling-the-database}{%
+\subsection{2. Assembling the database}\label{assembling-the-database}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First, Benny knew a lot of relevant research because of his work at
+  \href{https://forum.effectivealtruism.org/posts/PwdjcsoeuH9E9hB8g/introducing-allied-scholars-for-animal-protection}{Allied
+  Scholars for Animal Protection}. We read those studies as well as all
+  relevant studies cited in their bibliographies.
+\item
+  We located and read 21 previous systematic reviews, starting with
+  Mathur et
+  al.~(\href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{2021
+  b}) and Bianchi et
+  al.~(\href{https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6}{2018a},
+  \href{https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext}{2018b})
+  and Animal Charity Evaluators'
+  \href{https://animalcharityevaluators.org/research/reports/dietary-impacts/}{research
+  reports on dietary changes}.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Our search for reviews was assisted greatly by posts by
+    \href{https://forum.effectivealtruism.org/posts/Sy7swEetrtcK2C7q6/research-summary-a-meta-review-of-interventions-that}{Peter
+    Slattery} and
+    \href{https://forum.effectivealtruism.org/posts/azHZ2pQj9JgdZLC63/what-interventions-influence-animal-product-consumption}{Emily
+    Grundy} summarizing their
+    \href{https://www.sciencedirect.com/science/article/pii/S2666833521000976\#!}{2022
+    review of reviews}.
+  \end{enumerate}
+\item
+  We searched the homepages, google scholar pages, and co-authorship
+  lists of researchers with studies in our database.
+\item
+  Occasionally, articles' published pages suggested further reading that
+  seemed promising.
+\item
+  Once we had a pretty good list assembled, we emailed
+  \href{https://www.mayamathur.com/}{Maya Mathur},
+  \href{https://www.jacobpeacock.com/}{Jacob Peacock},
+  \href{https://www.oxy.edu/academics/faculty/andrew-jalil}{Andrew
+  Jalil},
+  \href{https://www.bc.edu/bc-web/schools/mcas/departments/psychology/people/faculty-directory/gregg-sparkman.html}{Gregg
+  Sparkman}, \href{https://scholar.cgu.edu/joshua-tasoff/}{Joshua
+  Tasoff}, \href{https://luciuscaviola.com/}{Lucius Caviola},
+  \href{https://jacyanthis.com/}{Jacy Reese Anthis},
+  \href{https://www.phc.ox.ac.uk/team/emma-garnett}{Emma Garnett},
+  \href{https://www.daniellrosenfeld.com/}{Daniel Rosenfeld} and
+  \href{https://www.kent.ac.uk/psychology/people/220/dhont-kristof}{Kristof
+  Dhont} to see if we had missed any relevant papers.
+\end{enumerate}
+
+Table 1 provides an overview of 21 previous systematic reviews,
+narrative reviews, meta-analyses, and book chapters that touch on
+reducing MAP consumption.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2414}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0148}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2537}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0665}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2808}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+First Author
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Year
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Title
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Papers Reviewed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Methods
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+One-Sentence Finding
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\href{https://animalcharityevaluators.org/wp-content/uploads/2022/04/protest-intervention-report.pdf}{Adelberg}
+& 2018 & Protests Intervention Report & Protests & Narrative review &
+Effectiveness of protests is variable; authors recommend more protests
+with a specific (e.g.~institutional) target and a specific ``ask'' \\
+\href{https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6}{Bianchi}
+(a) & 2018 & Interventions targeting conscious determinants of human
+behavior to reduce the demand for meat: a systematic review with
+qualitative comparative analysis & Conscious determinants of eating meat
+& Systematic review & Mixed, inconclusive results, though appeals to
+health appear to change intentions \\
+\href{https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext}{Bianchi}
+(b) & 2018 & Restructuring physical micro-environments to reduce the
+demand for meat: a systematic review and qualitative comparative
+analysis & Choice architecture & Systematic review & Very mixed results,
+nothing conclusive mostly b/c of wide range of methods and
+methodological quality, though making vegetarian meals more salient and
+accessible seems to have effects \\
+\href{https://doi.org/10.1002/fee.1777}{Byerly} & 2018 & Nudging
+pro-environmental behavior: evidence and opportunities & Nudging
+literature & Systematic review & Behavior ``nudges,'' e.g.~making the
+default meal option vegetarian, can meaningfully influence consumer
+decisions \\
+\href{https://www.frontiersin.org/articles/10.3389/fsufs.2023.1103060/full}{Chang}
+& 2023 & Strategies for reducing meat consumption within college and
+university settings: A systematic review and meta-analysis & University
+meat reduction interventions & Meta-analysis and systematic review &
+University meat-reduction interventions were effective \\
+\href{https://doi.org/10.1016/j.tifs.2019.07.046}{Graça} & 2019 &
+Reducing meat consumption and following plant-based diets: Current
+evidence and future directions to inform integrated transitions &
+Studies on capability, opportunity, and motivation to eat less meat &
+Systematic review & Some evidence on motivation, little on capability
+and opportunity \\
+\href{https://animalcharityevaluators.org/wp-content/uploads/2022/04/leafleting-intervention-report.pdf}{Grieg}
+& 2017 & Leafleting Intervention Report & Leafleting & Narrative review
+& Leafleting literature is biased towards overestimating impact, and
+leafleting does not seem cost-effective, though with significant
+uncertainty \\
+\href{https://www.sciencedirect.com/science/article/pii/S2666833521000976}{Grundy}
+& 2022 & Interventions that influence animal-product consumption: A
+meta-review & Reviews systematic reviews & Meta-meta-review &
+Environmental messaging is effective at reducing meat consumption;
+health messaging and nudges may also be effective but have less
+evidence \\
+\href{https://doi.org/10.1016/j.appet.2019.104478}{Harguess} & 2020 &
+Strategies to reduce meat consumption: A systematic literature review of
+experimental studies & Experiments (though not in the sense of
+randomized intervention) & Systematic review & In general, increasing
+knowledge alone or when combined with other methods was shown to
+successfully reduce meat consumption behavior or intentions/willingness
+to eat meat. \\
+\href{https://doi.org/10.1016/j.tifs.2016.12.006}{Hartman} & 2017 &
+Consumer perception and behavior regarding sustainable protein
+consumption: A systematic review & Literature studying consumer
+awareness of meat's environmental impact, willingness to reduce meat
+consumption, and acceptance of substitutes & Systematic review &
+Consumers are unaware of the environmental impact of meat, are unwilling
+to change their behavior, and are not very open to substitutes \\
+\href{https://doi.org/10.1093/ajcn/nqy045}{Hartman} & 2018 & Grocery
+store interventions to change food purchasing behaviors: a systematic
+review of randomized controlled trials & RCTs conducted in grocery
+stores for interventions attempting to change purchasing & Systematic
+review & Grocery store intervention such as price changes, suggested
+swaps, and changes to item availability are effective at changing
+purchasing choices \\
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321000976}{Kwasny}
+& 2022 & Towards reduced meat consumption: A systematic literature
+review of intervention effectiveness, 2001--2019 & All `interventions'
+2001-2022 & Systematic review & There's been insufficient research on
+meat-reduction interventions, and effectiveness varies meaningly between
+interventions on several axes \\
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{Mathur}
+& 2021 & Interventions to reduce meat consumption by appealing to animal
+welfare: Meta-analysis and evidence-based recommendations & Appeals to
+animal welfare & Meta-analysis and systematic review & ``Animal welfare
+interventions preliminarily appear effective in these typically
+short-term studies of primarily self-reported outcomes'' \\
+\href{https://doi.org/10.1038/s41467-019-12457-2}{Nisa} & 2019 &
+Meta-analysis of randomized controlled trials testing behavioral
+interventions to promote household action on climate change & RCTs of
+behavioral interventions for household emissions reduction &
+Meta-analysis & Low effect size for most interventions; nudges are the
+most effective intervention \\
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666318309309}{Rosenfeld}
+& 2018 & The psychology of vegetarianism: Recent advances and future
+directions & Psychological theories of vegetarianism & Narrative review
+& Vegetarianism is influenced by moral values and identity, and
+psychological research on vegetarians is relatively new but growing \\
+\href{https://doi.org/10.3390/ijerph16071220}{Sanchez-Sabate} & 2019 &
+Consumer Attitudes Towards Environmental Concerns of Meat Consumption: A
+Systematic Review & Consumer attitudes around meat consumption \& the
+environment & Systematic review & Awareness of meat's environmental
+impacts is low, as is willingness to reduce consumption \\
+\href{https://www.jandonline.org/article/S2212-2672(21)01572-0/fulltext\#\%20}{Stiles}
+& 2021 & Effectiveness of Strategies to Decrease Animal-Sourced Protein
+and/or Increase Plant-Sourced Protein in Foodservice Settings: A
+Systematic Literature Review & Interventions aimed at decreasing animal
+protein and/or increasing plant protein in foodservice settings &
+Systematic review & Menu labeling, prompting at the point of sale, and
+redesigning menus, recipes, and service increased uptake of target
+foods \\
+\href{https://doi.org/10.1016/j.tifs.2019.09.019}{Taufik} & 2019 &
+Determinants of real-life behavioral interventions to stimulate more
+plant-based and less animal-based diets: A systematic review &
+Behavioral determinants of eating meat & Systematic review & Relatively
+few real-life intervention studies have been conducted that focus on a
+decrease in animal-based food consumption \\
+\href{https://doi.org/10.1016/j.tifs.2019.09.019}{Valli} & 2019 &
+Health-Related Values and Preferences Regarding Meat Consumption & Meat
+consumption \& health considerations & Systematic review & Consumers are
+not very willing to reduce meat consumption in light of health
+arguments \\
+\href{https://theses.ubn.ru.nl/handle/123456789/6391}{Veul} & 2018 &
+Interventions to reduce meat consumption in OECD countries: an
+understanding of differences in success & Behavioral interventions for
+meat consumption reduction & Systematic review & There's no silver
+bullet, but influencing individuals' thoughts about the positive effects
+of reduction is helpful, as is making substitutes available and
+tailoring interventions to gender and consumer segments \\
+\href{https://iopscience.iop.org/article/10.1088/1748-9326/aae5d7/meta}{Wynes}
+& 2018 & Measuring what works: quantifying greenhouse gas emission
+reductions of behavioral interventions to reduce driving, meat
+consumption, and household energy use & Behavior change for GHG
+emissions reduction & Narrative review & ``\,`Nudges' such as defaults
+were most effective in reducing meat consumption'' \\
+\end{longtable}
+
+\emph{Table 1: Review of previous reviews}
+
+\hypertarget{an-overview-of-map-reduction-literature}{%
+\subsection{\texorpdfstring{\textbf{3. An overview of MAP reduction
+literature}}{3. An overview of MAP reduction literature}}\label{an-overview-of-map-reduction-literature}}
+
+Researchers who study MAP consumption do so under many banners,
+e.g.~\href{https://www.foodlabstanford.com/}{accelerating the transition
+to an animal-free food system},
+\href{https://scholar.cgu.edu/joshua-tasoff/}{vegan economics}, the
+\href{https://blogs.kent.ac.uk/shark/}{psychology of human and animal
+intergroup relations}, \href{https://luciuscaviola.com/}{moral circle
+expansion}, and \href{https://sisclab.bc.edu/research/}{dynamic norms
+and sustainability}. The range of journals is similarly diverse, though
+\href{https://www.sciencedirect.com/journal/appetite}{Appetite},
+\href{https://www.nature.com/natfood/}{Nature Food},
+\href{https://www.sciencedirect.com/journal/journal-of-environmental-psychology}{Journal
+of Environmental Psychology},
+\href{https://www.sciencedirect.com/journal/food-quality-and-preference}{Food
+Quality and Preference}, and
+\href{https://www.sciencedirect.com/journal/food-policy}{Food Policy}
+are popular venues. While there is no singular disciplinary home to
+these efforts, social psychology seems to house the plurality.
+
+Broadly, the literature we've found falls into six conceptual buckets
+(see section 3.1 for an overview of our search process). The first three
+are about direct persuasion efforts. These interventions share a
+presumption that people's conscious concerns have primacy in their
+eating choices, and thus appeal to concerns about 1) animal welfare, 2)
+health, and/or 3) environmental impacts and sustainability.
+
+The second set of theories are about indirect persuasion efforts. These
+approaches share a presumption that indirect cues strongly influence our
+eating behavior, whether by manipulating our physical environment,
+incentives, or sense of self. The three constituent theories here are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  behavioral economics approaches (also called ``nudges'' or ``choice
+  architecture'') that, for example, make meat-free choices more
+  \href{https://www.nature.com/articles/s43016-020-0132-8}{salient} or
+  physically accessible, or increase the
+  \href{https://www.pnas.org/doi/full/10.1073/pnas.1907207116}{proportion
+  of vegetarian meals sold in cafeterias};
+\item
+  economic interventions which manipulate incentives, for instance by
+  making meat more expensive or meat alternatives less expensive;
+\item
+  psychological interventions which typically appeal to (and sometimes
+  manipulate) people's sense of norms.
+\end{enumerate}
+
+Some studies combined multiple theories of change, e.g.~presented
+information about both the health and environmental reasons for eating
+less meat (\href{https://doi.org/10.1038/s43016-023-00712-1}{Jalil et
+al.~2023}) or an appeal to psychological norms alongside a visual
+ranking of meal choices by their environmental impacts
+(\href{https://doi.org/10.1016/j.appet.2020.104842}{Piester et
+al.~2020}).
+
+We now review each strand in turn.
+
+\hypertarget{appeals-to-animal-welfare}{%
+\subsubsection{3.1 Appeals to animal
+welfare}\label{appeals-to-animal-welfare}}
+
+Direct appeals to eat less meat for the sake of animals' wellbeing
+inform 13 of 42 interventions in our database. These interventions take
+many forms. Some studies, often run by animal advocacy organizations
+such as
+\href{https://forum.effectivealtruism.org/topics/faunalytics}{Faunalytics},
+\href{https://forum.effectivealtruism.org/topics/the-humane-league}{The
+Humane League}, and
+\href{https://www.google.com/search?q=mercy+for+animals+effective+altruism+forum\&oq=mercy+for+animals+effective+altruism+forum\&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCDcxNDRqMGoxqAIAsAIA\&sourceid=chrome\&ie=UTF-8}{Mercy
+for Animals}, distribute
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666322000721?via\%3Dihub}{pamphlets}
+or \href{https://osf.io/nwcgf}{booklets} on animal welfare issues.
+Others have people watch advocacy
+\href{https://mercyforanimals.org/blog/impact-study/}{videos}, sometimes
+in \href{https://doi.org/10.31219/osf.io/fapu8}{virtual}
+\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3938994}{reality},
+or commercial media that touch on animal welfare issues, such as the
+movie
+\href{https://effectivethesis.org/wp-content/uploads/2022/03/THE-INFLUENCE-OF-MOVIE-ON-BEHAVIORAL-CHANGE-IN-INDIVIDUAL-MEAT-AND-DAIRY-PRODUCTS-CONSUMPTION.pdf}{Babe}
+or the Simpsons episode
+\href{https://onlinelibrary.wiley.com/doi/10.1111/j.1747-0080.2010.01446.x}{Lisa
+the Vegetarian}. One paper investigates whether an animal's
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666317306190?via\%3Dihub}{perceived
+cuteness affects people's willingness to eat it}.
+
+These studies share a commitment to the idea that people are motivated
+by animal welfare concerns, but otherwise draw from different
+disciplines, theories of change, and information mediums. However, as
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{Mathur
+et al.~(2021 b)} note, social desirability bias in this literature is
+likely ``widespread.'' The typical study in this literature tries to
+persuade people that eating meat is morally unacceptable, often by
+confronting them with upsetting footage from factory farms, and then
+asks them a few weeks later how much meat they ate in the past week.
+\href{https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml}{Experimenter
+demand effects} are likely.
+
+Two studies in this strand meet our inclusion criteria and also measure
+outcomes unobtrusively. The first is
+\href{https://www.frontiersin.org/articles/10.3389/fpsyg.2021.668674/full}{Haile
+et al.~(2021)}, who distributed pro-vegan pamphlets on a college campus,
+tracked what students ate at their dining halls and find that ``the
+pamphlet had no statistically significant long-term aggregate effects.''
+The second is
+\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3938994}{Epperson
+and Gerster (2021)}, which shows that a ``360° video about the living
+conditions of pigs in intensive farming via a virtual reality (VR)
+headset'' led to a 6-9\% reduction in purchased meals that contained
+meat in university canteens.
+
+\hypertarget{appeals-to-health}{%
+\subsubsection{3.2 Appeals to health}\label{appeals-to-health}}
+
+Health concerns motivate 9 of 42 interventions in our database. These
+studies are often conducted and/or written by medical doctors. For
+example,
+\href{https://aacrjournals.org/cebp/article/14/6/1453/258325/Project-PREVENT-A-Randomized-Trial-to-Reduce}{Emmons
+et al.~(2005 a)} assigned individuals who had received a ``diagnosis of
+adenomatous colorectal polyps'' (which are
+\href{https://www.mountsinai.org/health-library/diseases-conditions/colorectal-polyps}{potentially
+precancerous}) to either a usual care condition or a tailored
+intervention that provided counseling and materials on risk factors for
+colorectal cancer, ``including red meat consumption, fruit and vegetable
+intake, multivitamin intake, alcohol, smoking, and physical
+inactivity.'' The outcome variable was self-reported servings of red
+meat per week measured at an 8-month follow-up, which the authors
+dichotomized into ``more than three servings per week of red meat'' or
+not. Overall, there was an 18\% reduction in this outcome for the
+treatment group and a 12\% reduction for the usual care condition.
+
+One challenge to integrating these results into our database is that
+they often focus on red meat and/or processed meat consumption rather
+than MAP as a whole. There is a risk, therefore, that these
+interventions might induce substitution towards other animal-based
+products. \href{https://doi.org/10.1016/j.jenvp.2017.01.006}{Klöckner \&
+Ofstad (2017)}, for example, recommended that subjects ``substitute beef
+with other meats or fish,'' which are arguably worse for animal welfare
+on a
+\href{https://slatestarcodex.com/2015/09/23/vegetarianism-for-meat-eaters/}{per-ounce-of-meat}
+\href{https://www.vox.com/future-perfect/22430749/beef-chicken-climate-diet-vegetarian}{basis}
+(see \href{https://www.science.org/doi/10.1126/science.abo2535}{Mathur
+2022} for further discussion). We did not include this study in our
+meta-analytic database because we cannot clearly deduce its overall
+effect on MAP consumption. However, we included all red and/or processed
+meat consumption studies that did not specifically argue for switching
+to other MAP products. (See
+\href{https://static1.squarespace.com/static/5e90e46fd1119766887d1dc3/t/646cc4f6d0b87674aa83a548/1684849910918/FishNormsInterventionBrief.pdf}{Matt-Navarro
+and Sparkman (forthcoming)} for research targeting fish consumption.)
+
+\hypertarget{appeals-to-the-environment}{%
+\subsubsection{3.3 Appeals to the
+environment}\label{appeals-to-the-environment}}
+
+These studies focus on the environmental harms of consuming animal
+products and/or promote plant-based alternatives as a more sustainable
+option. This framing informs 9 of 42 interventions in our database.
+Environmental arguments are communicated in a plethora of ways,
+including
+\href{https://core.ac.uk/download/pdf/158315429.pdf}{leaflets},
+\href{https://doi.org/10.1016/j.appet.2020.104842}{signs in college
+cafeterias}, \href{https://doi.org/10.1016/j.jenvp.2021.101592}{op-eds},
+\href{https://doi.org/10.1016/j.jenvp.2021.101592}{daily reminder text
+messages}, and
+\href{https://assets.researchsquare.com/files/rs-2047134/v1_covered.pdf?c=1665164513}{in-class
+lectures}.
+
+The landmark study in this branch of the literature is
+\href{https://doi.org/10.1038/s43016-023-00712-1}{Jalil et al.~(2023)},
+who randomly assigned undergraduate classes to hear a ``50 min talk
+about the role of meat consumption in global warming, along with
+information about the health benefits of reduced meat consumption,'' and
+then measured their subsequent food choices at the college's dining
+facilities. Overall, they find that students in the treatment group
+``reduced their meat consumption by 5.6 percentage points with no signs
+of reversal over 3 years.'' No other study in this literature shows
+well-identified
+
+effects enduring this long.
+
+\hypertarget{behavioral-economics-nudges-and-choice-architecture}{%
+\subsubsection{3.4 Behavioral economics: nudges and choice
+architecture}\label{behavioral-economics-nudges-and-choice-architecture}}
+
+Behavioral
+economics/\href{https://thedecisionlab.com/reference-guide/psychology/choice-architecture}{choice
+architecture} interventions focus on
+\href{https://yalebooks.yale.edu/book/9780300262285/nudge/}{nudging}
+people into unconsciously or semi-consciously choosing meat-free meals.
+For example, these studies might alter how
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0950329315300227?via\%3Dihub}{fruits
+and vegetables are presented at a buffet}; how
+\href{https://doi.org/10.1016/j.appet.2016.07.009}{slaughtered animals
+are presented} on a hypothetical menu; or whether a meat or
+\href{https://doi.org/10.1017/bpp.2019.11}{vegetarian meal is the
+default at a restaurant} (the alternative was presented as ``available
+on request''). This strand comprises five interventions and two studies
+in our database, both
+with\href{https://www.phc.ox.ac.uk/team/emma-garnett}{Emma Garnett} as
+first author. These studies found that
+\href{https://doi.org/10.1073/pnas.1907207116}{doubling the percentage
+of vegetarian meals available} and
+\href{https://doi.org/10.1038/s43016-020-0132-8}{putting a vegetarian
+meal closer to the entrance} in university cafeterias generally increase
+sales of vegetarian meals.
+
+This literature features some creative interventions that target
+realistic theories of change but also some startling design limitations.
+The most concerning is the use of hypothetical outcomes. For instance,
+\href{https://journals.sagepub.com/doi/10.1177/0013916512469099}{Campbell-Arvai,
+Arvai, and Kalof (2017)} intercepted college students on their way to a
+dining hall ``under the pretence of completing a survey about their food
+preferences,'' then led them ``to a small conference room'' where they
+were presented with different configurations of menus whose items were
+selected from options at the dining hall. Students told researchers
+which food they preferred and then left to go eat their meal, which the
+researchers did not track. As the authors themselves put it, this design
+might ``be critiqued for not providing actual food choices and thus
+lacking any real consequences.'' Along the same lines,
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666317309480?via\%3Dihub}{Bacon
+and Krpap (2018)} asked MTurk participants to ``imagine a scenario in
+which they were catching up with a friend for dinner in a nice
+restaurant one evening during the week\ldots they were also presented
+with an image of a cozy table in a restaurant.'' The main outcome was
+probability of selecting a vegetarian option from a hypothetical menu.
+
+Second, some of these studies feature a large number of subjects but
+assign treatment at the level of a restaurant or dining hall and include
+too few units for meaningful analysis.
+\href{https://www.tandfonline.com/doi/abs/10.1080/07448481.2012.755189}{McClain
+et al.~2013} and
+\href{https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-017-0496-9}{Reinders
+et al.~2017}, for instance, test plausible theories of change in a
+college cafeteria and a chain of restaurants, respectively, but had just
+2 and 3 units in their respective treatment arms. Both studies did not
+meet our inclusion criteria but offer plausible theories and promising
+designs for future replications. Another very nice study
+(\href{https://10.0.3.248/j.appet.2023.106767}{Berke and Larson 2023})
+randomly assigns folks who are attending an MIT Media lab event, which
+serves free food, to see either a menu with vegan/vegetarian labels or
+no labels (all meals were vegetarian or vegan); the authors find that
+labels significantly decrease the proportion of vegan meals selected. We
+did not include this study because it lacks delayed outcomes, but we
+find its underlying theory very plausible.
+
+See \href{https://pubmed.ncbi.nlm.nih.gov/30177007/}{Bianchi (2018 b)}
+for a thorough review of choice architecture interventions.
+
+\hypertarget{conventional-economics-price-manipulations}{%
+\subsubsection{3.5 Conventional economics: price
+manipulations}\label{conventional-economics-price-manipulations}}
+
+Economic manipulations seek to alter the explicit incentives behind MAP
+consumption. This is an underdeveloped body of research, informing just
+1 of 42 interventions in our database. That study
+(\href{https://doi.org/10.1093/ajcn/nqab414}{BIanchi 2022}) provides
+free meat-free substitutes to participants, along with ``information
+leaflets about the health and environmental benefits of eating less
+meat,'' recipes, and success stories from people who reduced their meat
+consumption. Four weeks after the intervention concluded, treated
+subjects reported that they ate an average of 38 grams less meat per day
+than those in the control group (about 11 oz per week).
+
+Two studies in this field presented interesting, plausible theories of
+change but had design limitations that led us to exclude them from our
+meta-analysis. First,
+\href{https://doi.org/10.1093/eurpub/ckp092}{Vermeer et al.~(2010)}
+surveyed people at a fast food restaurant and contrasted two pricing
+schemes, one where larger sizes were cheaper on a per-ounce basis and
+one where price-per-ounce was held constant. They found no effect on
+consumers' intended portion size purchases, but the real prices were not
+altered and no real food purchases were measured. As the authors note,
+``{[}m{]}ore research in realistic settings with actual behaviour as
+outcome measure is required.'' Second,
+\href{https://www.sciencedirect.com/science/article/pii/S0272494421000426?via\%3Dihub}{Garnett
+et al.~(2021)} introduced a small price change at a ``college cafeteria
+in the University of Cambridge (UK), introducing a small change to the
+price of vegetarian meals (decreased by 20p from £2.05 to £1.85) and
+meat meals (increased by 20p from £2.52 to £2.72).'' The intervention
+had no main effect on meat sales but increased sales of vegetarian meals
+by 3.2\%. However, treatment and control had just one cluster apiece.
+This study is an excellent candidate for replication.
+
+\hypertarget{psychological-appeals}{%
+\subsubsection{3.6 Psychological appeals}\label{psychological-appeals}}
+
+MAP reduction studies drawing on social psychological theories comprise
+14 of 42 interventions in our database. These studies typically try to
+normalize vegetarianism and veganism by creating a perception that
+eating plant-based meals is consistent with social norms. To do this,
+researchers might put up signs that say things like
+``\href{https://doi.org/10.1016/j.appet.2021.105824}{More and more
+{[}retail store name{]} customers are choosing our veggie options},'' or
+``\href{https://doi.org/10.1016/j.appet.2020.104842}{The garden fresh
+veggie burger is a tasty choice}!'' One study told participants that
+people who eat meat are more likely to
+\href{https://linkinghub.elsevier.com/retrieve/pii/S019566630190474X}{endorse
+social hierarchy and embrace human dominance over nature}, thus making
+them out to be a counter-normative outgroup.
+
+Other studies conducted drawing on social psychological theories include
+an app that monitors people's
+\href{https://www.sciencedirect.com/science/article/pii/S0195666321006334?via\%3Dihub\#sec2}{meat-free
+pledges on their phones}, or a combination of
+\href{https://doi.org/10.1016/j.foodqual.2020.103997}{norm-setting and
+messaging seeking to promote self-efficacy and the perceived
+feasibility} of eating less meat.
+
+A strong study in this category is
+\href{https://journals.sagepub.com/doi/10.1177/0956797617719950}{Sparkman
+and Walton (2017)}, who presented people waiting in line at a Stanford
+cafeteria the opportunity to participate in a `survey' in exchange for a
+meal coupon, where the survey presented one of two norms-based messages:
+a `static' message about how ``30\% of Americans make an effort to limit
+their meat consumption,'' or a dynamic message emphasizing how behavior
+is changing over time and that vegetarianism is taking off among
+participants' peers. The authors find that 17\% of participants in the
+static group ordered a meatless lunch vs.~23\% in the control group and
+34\% in the dynamic norm group.
+
+For an overview of psychological theories of vegetarianism, see
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666318309309}{Rosenfeld
+(2018)}.
+
+\hypertarget{meta-analytic-methods}{%
+\subsection{4 Meta-analytic methods}\label{meta-analytic-methods}}
+
+For primers on reading and writing meta-analyses, see Frank et al.~2023,
+\href{https://experimentology.io/016-meta.html}{chapter 16}, or Lakens
+2022,
+\href{https://lakens.github.io/statistical_inferences/11-meta.html}{chapter
+11}.
+
+\hypertarget{coding-the-database}{%
+\subsubsection{4.1 Coding the database}\label{coding-the-database}}
+
+Condensing an intervention to an estimate of average treatment effect
+and associated variance sometimes involves judgment calls. Here are the
+general guidelines we followed:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We take the outcome that most clearly maps to changes in actual
+  consumption behavior.
+\item
+  We take the latest possible outcome to test for the presence of
+  enduring effects, and our sample sizes are taken from the same
+  measurement wave.
+\item
+  For cluster-assigned treatments, our Ns are the number of clusters
+  rather than participants. This includes studies that cluster by day
+  (e.g.~everyone who comes to a restaurant on some day gets treated).
+\item
+  We convert all effect sizes to estimates of standardized mean
+  differences: Average Treatment Effect (ATE) / standard deviation (SD).
+\item
+  When possible, we calculate ATE using
+  \href{https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf}{difference
+  in differences} (DiD) --- ((Treatment\_posttest - Treatment\_pretest)
+  - (Control\_posttest - Control\_pretest)) --- which we prefer to
+  difference in means (DiM) --- (Treatment\_posttest -
+  Control\_posttest) --- because it leads to more precise estimates.
+  When pretest scores aren't available, we use DiM.
+\item
+  When possible, we standardize by the SD of the control group, a
+  measure called Glass's Delta (written as ∆). We prefer Glass's Delta
+  to Cohen's d, a measure that standardizes by the SD of the entire
+  sample, because we want to to avoid any additional assumptions about
+  equivalence of variance between treatment and control groups. When we
+  don't have enough information to calculate ∆, we use d.
+\item
+  For conversions from statistical tests like t-test or F-test, we use
+  standard equations from
+  \href{https://psycnet.apa.org/record/2009-05060-000}{Cooper, Hedges
+  and Valentine (2009)}. The one exception is our difference in
+  proportions estimator, which, to the best of our knowledge, Donald P.
+  Green first proposed for a
+  \href{https://doi.org/10.1146/annurev-psych-071620-030619}{previous
+  meta-analysis}. See our
+  \href{https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R}{d\_calc.R
+  function on GItHub for specifics}.
+\item
+  When authors tell us that results were ``not significant'' but don't
+  specify more precisely, we call the effect type ``unspecified null''
+  and record it as ∆ = 0.01.
+\end{enumerate}
+
+\hypertarget{meta-analytic-methods-1}{%
+\subsubsection{4.2 Meta-analytic
+methods}\label{meta-analytic-methods-1}}
+
+Our meta-analysis employs a random effects model rather than a fixed
+effects model, for reasons explained
+\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393987/}{here}. Our
+code mainly uses functions from the metafor and tidyverse packages in R
+as well as some custom wrappers that Seth wrote for previous
+meta-analyses.
+
+The coefficients we report are:
+
+\begin{itemize}
+\tightlist
+\item
+  Glass's Delta (∆), which indicates a meta-analytic estimate: a
+  weighted average of many point estimates, where larger, more precisely
+  estimated studies influence the average proportionally more than
+  smaller ones.
+\item
+  Beta (β), a regression coefficient. Linear regression tells you E(Y
+  \textbar{} X), i.e.~for some value of X (or many Xs), the expected
+  value of Y. We report this coefficient when we discuss publication
+  bias or the effects associated with covariates.
+\item
+  SE (standard error) is the standard deviation of the sampling
+  distribution, e.g.~∆ or β. Smaller standard errors mean more precise
+  estimates.
+\item
+  P-value, a measure of statistical significance. See
+  \href{https://lakens.github.io/statistical_inferences/01-pvalue.html}{Lakens
+  (2022), chapter 1} for an overview.
+\end{itemize}
+
+\hypertarget{meta-analysis}{%
+\subsection{5 Meta-analysis}\label{meta-analysis}}
+
+Section 5.1 provides descriptive statistics about our database. Sections
+5.2-5.8 are our \href{https://osf.io/3sth2}{pre-registered analyses}
+reported in the order we originally intended. Sections 5.9 and 5.10 are
+exploratory analyses we came up with after writing our pre-analysis
+plan.
+
+\hypertarget{descriptive-overview-of-the-database}{%
+\subsubsection{5.1 Descriptive overview of the
+database}\label{descriptive-overview-of-the-database}}
+
+Our database comprises 28 papers that detail 42 interventions. For
+interventions with assignment at the level of the individual, the
+average sample size is 427 participants, and the average
+cluster-assigned intervention has 64 clusters (the equivalent median
+numbers are 214 and 54, respectively).
+
+Twenty-seven interventions take place exclusively in the United States
+--- 20 in person and 7 online with US participants. An additional seven
+take place in the United Kingdom and three take place in Italy.
+Australia, Germany, and Canada have one intervention each, while one
+multisite intervention takes place in the UK, Germany, and, Australia,
+and one intervention recruits internet participants in the US, UK,
+Canada, Australia, and ``other.''
+
+Twenty-six interventions take place at colleges or universities, while
+twelve look at adults (18+), and one specifically looks at older adults
+(40+). One intervention looks at people of all ages (including
+children), while
+\href{https://mercyforanimals.org/blog/impact-study/}{one} looks at
+women ages 13-25. Sixteen interventions take place on a US college
+campus.
+
+23 of 42 outcomes are self-reported. These range in granularity from
+reporting whether subjects had ≤ 3 servings of red meat in a given week
+(\href{https://doi.org/10.2105/AJPH.2004.038745}{Sorensen et al.~2005})
+to food questionnaires asking participants to recall everything they
+recently ate, e.g.~in the past 24 hours
+(\href{https://www.sciencedirect.com/science/article/abs/pii/S0195666322000721?via\%3Dihub}{Feltz
+et al.~2022}) or the past week
+(\href{https://pubmed.ncbi.nlm.nih.gov/34960107/}{Mathur et al.~2021
+a}).
+
+The 19 outcomes that are not self-reported are typically recorded at a
+restaurant or college dining hall. Most are straightforward records of
+how many meals sold did or did not have meat
+(\href{https://doi.org/10.1016/j.appet.2021.105824}{Coker et al.~2022},
+\href{https://doi.org/10.1038/s43016-020-0132-8}{Garnett et al.~2020}).
+By contrast, \href{https://doi.org/10.1016/j.appet.2020.104842}{Piester
+et al.~(2020)} affixed menus with ``images of zero to five leaves, with
+more leaves indicating greater sustainability'' and then compared the
+average leaf ratings of meals purchased by the treatment and control
+groups.
+
+\hypertarget{overall-effect}{%
+\subsubsection{5.2 Overall effect}\label{overall-effect}}
+
+The overall effect of this literature is small, but statistically
+significant and precisely estimated: ∆ = 0.131 (SE = 0.03), p
+\textless{} 0.0001, i.e.~about a 4.4\% change. By convention, ∆ = 0.2 is
+\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3444174/}{considered
+to be a ``small'' effect size}, though see
+\href{https://journals.sagepub.com/doi/10.1177/2515245919847202}{Funder
+and Ozer (2019)} for critical discussion.
+
+Another way to consider these results is to take these papers at their
+word on whether they produced backlash, null, or positive results.
+Across the 42 interventions reviewed here, 21 report positive,
+statistically significant results and 16 report null results. However,
+we don't observe meaningful backlash effects. Although 5 of 42
+interventions report more MAP consumption in the treatment group than in
+the control, none of these effects were statistically or substantively
+significant.
+
+Figure 1 presents these results graphically.
+
+\includegraphics{../results/fig_1.png} \emph{Figure 1: Meta-analysis
+forest plot. Each dot is a point estimate from an intervention,
+clustered by the paper it was published in. The lines to their sides
+correspond to 95\% confidence intervals. Studies are color-coded by
+their underlying academic theory, with animal welfare, health, and
+environmental appeals all grouped together as ``persuasion'' (persuasion
+studies often appeal on multiple angles at once, with no clear hierarchy
+between them, which makes coding them at the level of persuasion content
+tricky). The dark black line is an effect size of 0 and the dotted line
+is the effect size we actually observe.}
+
+\hypertarget{tests-for-publication-bias}{%
+\subsubsection{5.3 Tests for publication
+bias}\label{tests-for-publication-bias}}
+
+See
+\href{https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/pub-bias.html}{here}
+and \href{https://pubmed.ncbi.nlm.nih.gov/29141096/}{here} for primers
+on publication bias, also called the
+\href{https://psycnet.apa.org/record/1979-27602-001}{file drawer
+problem}, in meta-analyses.
+
+We find mixed, inconclusive evidence on publication bias. First, as
+noted before, half of the interventions in our dataset yield null or
+negative results, which suggests that insignificant and null findings in
+this literature are able to see the light of day. Second, the
+relationship between standard error and effect size is small and
+insignificant: β = -0.02999 (SE = 0.294). (This essentially means that
+smaller, noisier studies have not been contradicted by larger,
+better-powered results.)
+
+We do, however, find a moderate though statistically insignificant
+relationship between a paper's having a DOI (digital object identifier),
+which generally means that it has been published in an academic journal,
+and effect size: β = 0.11382 (SE = 0.07635). In our dataset, the thirty
+interventions from papers with a DOI have an meta-analytic effect of ∆ =
+0.18 (SE = 0.043), while the ten studies without a DOI have a
+meta-analytic effect of ∆ = 0.038 (SE = 0.012), p = 0.009. This might
+suggest that a study needs to have positive results to be published in a
+peer-reviewed journal. However, we don't read too much into this,
+because many of the studies without DOIs are published by vegan advocacy
+organizations such as
+\href{https://forum.effectivealtruism.org/topics/faunalytics}{Faunalytics},
+\href{https://forum.effectivealtruism.org/topics/the-humane-league}{The
+Humane League}, and
+\href{https://www.google.com/search?q=mercy+for+animals+effective+altruism+forum\&oq=mercy+for+animals+effective+altruism+forum\&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCDcxNDRqMGoxqAIAsAIA\&sourceid=chrome\&ie=UTF-8}{Mercy
+for Animals}, which, to their credit, publicize their null results, and
+sometimes critically re-examine their own findings.
+
+\hypertarget{differences-by-assignment-theory-and-self-report}{%
+\subsubsection{5.4 Differences by assignment, theory and
+self-report}\label{differences-by-assignment-theory-and-self-report}}
+
+\hypertarget{cluster-assigned-interventions-show-smaller-effects-on-average}{%
+\paragraph{5.4.1 Cluster-assigned interventions show smaller effects on
+average}\label{cluster-assigned-interventions-show-smaller-effects-on-average}}
+
+The 14 interventions where treatment is cluster-assigned show much
+smaller effects on average: ∆ = 0.036 (SE = 0.025), p = 0.181, versus ∆
+= 0.16 (SE = 0,038), p = 0.0003 for the 26 interventions where treatment
+was assigned at the level of the individual.
+
+\hypertarget{there-are-large-differences-in-efficacy-between-theoretical-approaches}{%
+\paragraph{5.4.2 There are large differences in efficacy between
+theoretical
+approaches}\label{there-are-large-differences-in-efficacy-between-theoretical-approaches}}
+
+Table 2 presents, for each of the six theoretical approaches outlined in
+section 3, the number of constituent interventions, the average
+meta-analytic effect, the standard error of that estimate, and stars
+corresponding to that estimate's statistical significance. Note that the
+total N of these categories won't equal 40, because some interventions
+combine multiple theoretical approaches.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2841}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2159}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3182}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1818}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (interventions)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meta-analytic estimate (∆)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Standard Error
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Animal welfare appeals & 13 & 0.037* & 0.011 \\
+Health appeals & 11 & 0.259** & 0.075 \\
+Environmental appeals & 9 & 0.274** & 0.080 \\
+Choice architecture/nudges & 5 & 0.061 & 0.043 \\
+Economic incentives & 1 & 0.586*** & 0.190 \\
+Psychological appeals & 12 & 0.157* & 0.066 \\
+\end{longtable}
+
+\emph{Table 2: differences in effect size by theoretical approach.
+\hspace{0pt}\hspace{0pt}* \textless{} .05; ** \textless{} .01; ***
+\textless{} .001}.
+
+Based on these results, it seems that appeals to animal welfare are the
+least effective category of interventions. Likewise, the aggregated
+effect of the choice architecture approach is substantively small and
+not statistically significant. Psychological appeals also do not meet
+the conventional standard for a `small' effect size in the behavioral
+sciences.
+
+The most robust evidence for changing habits comes from appeals to
+health and the environment. Here, a reasonably sized collection of
+studies suggests a small but precisely estimated effect on MAP
+consumption. Last, manipulating economic incentives seems to produce the
+largest effects, but this is not a robust finding as it is drawn from
+just one paper.
+
+\hypertarget{the-effects-of-self-reported-outcomes}{%
+\paragraph{5.4.3 The effects of self-reported
+outcomes}\label{the-effects-of-self-reported-outcomes}}
+
+In a finding that very much surprised us, self-reported outcomes are
+systematically \emph{smaller} than those measured obliquely.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3368}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2947}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1684}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (interventions)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meta-analytic estimate (∆)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Standard Error
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Self-reported outcomes & 23 & 0.11** & 0.037 \\
+Objectively measured outcomes & 17 & 0.175** & 0.075 \\
+\end{longtable}
+
+\emph{Table 3: differences between self-reported and obliquely reported
+outcomes. \hspace{0pt}\hspace{0pt}* \textless{} .05; ** \textless{} .01;
+*** \textless{} .001}.
+
+Taking these results at face value, social desirability bias is much
+less of a concern in this literature than we had believed. This point
+merits more thinking.
+
+\hypertarget{do-leaflet-studies-work}{%
+\subsubsection{5.5 Do leaflet studies
+work?}\label{do-leaflet-studies-work}}
+
+Four interventions in our dataset test leafleting and find an overall
+effect of ∆ = 0.038 (SE = 0.011), p = 0.0377. Based on this finding,
+leafleting is not an effective tactic.
+
+\hypertarget{how-do-studies-administered-online-compare-to-in-person-studies}{%
+\subsubsection{5.6 How do studies administered online compare to
+in-person
+studies?}\label{how-do-studies-administered-online-compare-to-in-person-studies}}
+
+The eight interventions administered online have an average
+meta-analytic effect of ∆ = 0.048 (SE = 0.013), p = 0.008. By contrast,
+the 32 interventions conducted in person have an average meta-analytic
+effect of ∆ = 0.171 (SE = 0.041), p \textless{} 0.001. In other words,
+in-person interventions are about 3.6 times more effective than those
+administered online; but if an online intervention could reach four
+people for the price it would take to reach one in person, then online
+distribution might be more cost-effective. Nevertheless, ∆ = 0.048 is so
+small that we think this line of work is not fruitful.
+
+\hypertarget{any-relationship-between-delay-and-outcome}{%
+\subsubsection{5.7 Any relationship between delay and
+outcome?}\label{any-relationship-between-delay-and-outcome}}
+
+Days of delay between treatment and measurement has essentially zero
+relationship with effect size: β = -0.00003.
+
+\hypertarget{what-about-publication-date}{%
+\subsubsection{5.8 What about publication
+date?}\label{what-about-publication-date}}
+
+Effect sizes seem to be getting smaller every decade. The four
+interventions published in the first decade of this millennium have an
+average meta-analytic effect of ∆ = 0.187, compared to ∆ = 0.149 for the
+12 studies published in the 2010s and ∆ = 0.123 for the 24 studies
+published from 2020 onwards. One interpretation for this finding is that
+contemporary studies tend to be more credibly designed and implemented,
+and
+post-\href{https://www.aeaweb.org/articles?id=10.1257/jep.24.2.3}{credibility}
+\href{https://journals.sagepub.com/doi/10.1177/1745691617751884}{revolution}
+studies are more likely to find
+\href{https://www.nature.com/articles/d41586-018-07118-1}{smaller} but
+\href{https://scienceplusplus.org/metascience/index.html}{more
+replicable} results.
+
+The analyses we present below were not pre-registered but struck us as
+interesting questions while working on the analysis.
+
+\hypertarget{effects-on-college-students-vs.-adults-vs.-other-populations}{%
+\subsubsection{5.9 Effects on college students vs.~adults vs.~other
+populations}\label{effects-on-college-students-vs.-adults-vs.-other-populations}}
+
+Table 4 presents the average meta-analytic effects for college students,
+adults, and other populations (comprising two interventions, one with
+women ages 13-25 years and one with people of all ages).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2346}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3457}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1975}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (interventions)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meta-analytic estimate (∆)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Standard Error
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+College Students & 24 & 0.177** & 0.050 \\
+Adults & 14 & 0.092* & 0.033 \\
+Other & 2 & 0.043* & 0.001 \\
+\end{longtable}
+
+\emph{Table 4: differences in effect size by population.
+\hspace{0pt}\hspace{0pt}* \textless{} .05; ** \textless{} .01; ***
+\textless{} .001}.
+
+These results suggest that extant interventions produce the largest
+changes for university students.
+
+\hypertarget{effects-by-region}{%
+\subsubsection{5.10 Effects by region}\label{effects-by-region}}
+
+Table 5 presents the meta-analytic results of studies in the United
+States, the United Kingdom, Italy, and everywhere else:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2125}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2375}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Country
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (interventions)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meta-analytic estimate (∆)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Standard Error
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+United States & 26 & 0.095** & 0.025 \\
+United Kingdom & 7 & 0.156 & 0.098 \\
+Italy & 3 & 0.459 & 0.124 \\
+Everywhere else & 4 & 0.068 & 0.051 \\
+\end{longtable}
+
+\emph{Table 5: differences in effect size by location. * \textless{}
+.05; ** \textless{} .01; *** \textless{} .001}.
+
+These results surprised us: we don't have a clear theory for why studies
+in Italy showed the largest effects and studies in the US showed
+comparatively small results. However, we don't read much into this
+because of the small Ns for the non-US categories.
+
+\hypertarget{discussion}{%
+\subsection{6 Discussion}\label{discussion}}
+
+Overall, we're optimistic about the state of MAP reduction research.
+
+On the one hand, we need more credible empirical work. With just 28
+papers and 42 interventions meeting pretty minimal quality standards,
+nothing in our analysis should be considered especially well-validated.
+On the other hand, recent MAP reduction papers tend to bring careful,
+design-based approaches to the problems of measurement validity, social
+desirability bias, and verisimilitude. The trend, therefore, is towards
+increasingly credible work. However, even the best of these studies
+would benefit from out-of-sample replication to help us understand where
+and for whom the most promising interventions work.
+
+\hypertarget{what-works-to-reduce-map-consumption}{%
+\subsubsection{6.1 What works to reduce MAP
+consumption?}\label{what-works-to-reduce-map-consumption}}
+
+In general, appeals to health and the environment appear to reduce MAP
+consumption, albeit not by very large amounts. Moreover, we have a lot
+more confidence that these appeals work for college students than for
+the general population because of the results from
+\href{https://doi.org/10.1038/s43016-023-00712-1}{Jalil et al.~(2023)}.
+Still, we can only learn so much from one experiment at one college. We
+recommend replication and extension.
+
+\hypertarget{what-doesnt-work-to-reduce-map-consumption}{%
+\subsubsection{6.2 What doesn't work to reduce MAP
+consumption?}\label{what-doesnt-work-to-reduce-map-consumption}}
+
+Our review suggests that leafleting studies, studies administered
+online, appeals to animal welfare, and choice architecture/nudging
+studies generally do not move the needle on reducing MAP consumption.
+
+We are disappointed by the lack of efficacy of appeals to animal
+welfare. We want people to care about animals and their needs for their
+own sake, not just whether eating them is good or bad for our health and
+welfare. It seems we have our work cut out for us in making that message
+persuasive.
+
+We also wish to caveat that many of the most interesting choice
+architecture interventions did not meet our inclusion criteria, but
+well-powered, randomly assigned versions of those interventions could be
+worth pursuing,
+e.g.~\href{https://www.journals.uchicago.edu/doi/10.1086/720450}{Malan
+et al.~(2022)},
+\href{https://academic.oup.com/jpubhealth/article/43/2/392/5637580}{Hansen
+et al.~(2019)},
+\href{https://www.sciencedirect.com/science/article/abs/pii/S0950329315300227?via\%3Dihub}{Kongsbak
+et al.~(2016)}, and \href{https://doi.org/10.1017/bpp.2019.11}{Gravert
+and Kurz (2019)}.
+
+Additionally, we find the lack of
+\href{https://faunalytics.org/relative-effectiveness/}{backlash effects}
+on MAP consumption encouraging.
+
+\hypertarget{what-we-still-dont-know}{%
+\subsubsection{6.3 What we still don't
+know}\label{what-we-still-dont-know}}
+
+It is striking to us that there have been nearly as many papers
+aggregating and summarizing MAP reduction research --- 22 including this
+one, with two more that we know of on the way --- as there have been
+RCTs meeting minimal quality standards. Here are eight areas we hope to
+see illuminated by future work.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What interventions work to change behaviors for adults and children?
+\item
+  We lack rigorous evaluations of MAP reduction efforts in Latin
+  America, Asia, and Africa.
+\item
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0195666319312115}{Piester
+  et al.~(2020)} find that food sustainability labels had a significant
+  impact on women but very little impact on men. Should anti-MAP
+  strategies generally be gender-tailored? (See
+  \href{https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2}{Veul
+  2018} for further discussion.)
+\item
+  How much is animal welfare advocacy activating
+  \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/}{disgust}
+  \href{https://www.nature.com/articles/s41598-021-91712-3}{avoidance}
+  vs.~empathy for animals? e.g.~If videos of farmed animal lives show
+  especially squalid or pathogenic living conditions, or if pamphlets
+  about dairy cows talk about the
+  \href{https://genv.org/pus-in-milk/}{allowable level}of
+  \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/}{blood and
+  pus} in milk products, which theoretical perspective are these
+  interventions embodying, or could empathy and disgust be compared to
+  one another?
+\item
+  Theoretically, we'd get equivalent impacts from causing 100
+  environmentally-conscious people to reduce their MAP consumption by
+  1\% each and causing 1 omnivore to go fully vegan. However, the likely
+  responders might be different populations. How do we tailor our
+  messaging accordingly?
+\item
+  Because many of the studies that appeal to environmental and/or health
+  concerns asked about red and/or processed meat consumption, we're not
+  sure that they reduce consumption of MAP in general. (The exception is
+  \href{https://doi.org/10.1038/s43016-023-00712-1}{Jalil et al.~2023},
+  who measure effects on red meat, poultry, and fish.) What sorts of
+  interventions might we design to improve the welfare of
+  \href{https://www.mspca.org/animal_protection/farm-animal-welfare-cows/}{dairy
+  cows}, \href{https://openwingalliance.org/}{eggs-laying hens}, or
+  \href{https://forum.effectivealtruism.org/topics/shrimp-welfare-project}{crustaceans}?
+\item
+  What is the
+  \href{https://www.youtube.com/watch?v=J82_xd5XxXg}{elasticity of
+  demand} for MAP? Our sample, unfortunately, does not allow us to
+  estimate this --- we would need many studies of price changes --- but
+  if we take the
+  \href{https://forum.effectivealtruism.org/posts/iukeBPYNhKcddfFki/price-taste-and-convenience-competitive-plant-based-meat\#References}{price,
+  taste and convenience} theory of change seriously, this is a critical
+  parameter. It seems backwards that there have been many more
+  behavioral economics studies on MAP consumption than well-identified
+  economics studies. (See
+  \href{https://citeseerx.ist.psu.edu/document?repid=rep1\&type=pdf\&doi=e77e92ad9f1d6d0495b57107ba0a630c2a290f80}{here}
+  and
+  \href{https://link.springer.com/chapter/10.1007/978-3-030-47166-8_8}{here}
+  for observational work on the subject).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    A great starting point would be to replicate
+    \href{https://www.sciencedirect.com/science/article/pii/S0272494421000426}{Garnett
+    et al.~(2021)}, with 1) treatment randomly altered at the level of a
+    week rather than in chunks of 4-5 weeks; 2) for at least ten weeks
+    total; and 3) at multiple sites/cafeterias.
+  \end{enumerate}
+\item
+  Do changes to menus or restaurant layouts have effects on treated
+  consumers a week or two later, rather than just the day of? Most
+  studies with these designs only measure outcomes while treatment is
+  being administered or during the control period, but we also care
+  about lasting changes in habits.
+\end{enumerate}
+
+We also note that while many studies in our dataset partnered with
+university dining halls, only one
+(\href{https://www.mdpi.com/2071-1050/12/6/2453}{Sparkman et al.~2020})
+partnered with a grocery/restaurant delivery or meal prep service (which
+``abruptly closed'' in the middle of their experiment). We think this is
+a promising strategy for deploying large-scale interventions and
+measuring real-world behavior. Perhaps someone at the
+\href{https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8}{economics
+team at Instacart} is interested in pursuing this?
+
+\hypertarget{next-steps-for-researchers-five-promising-theories-of-change-that-call-for-rigorous-large-scale-testing}{%
+\subsubsection{6.4 Next steps for researchers: five promising theories
+of change that call for rigorous, large-scale
+testing}\label{next-steps-for-researchers-five-promising-theories-of-change-that-call-for-rigorous-large-scale-testing}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://www.cambridge.org/core/journals/behavioural-public-policy/article/contact-hypothesis-reevaluated/142C913E7FA9E121277B29E994124EC5}{Intergroup
+  contact}.
+  \href{https://www.science.org/doi/10.1126/science.aad9713}{Broockman
+  and Kalla (2016)} show that a brief conversation about trans rights,
+  with either a trans or cis canvasser, reduces transphobia for at least
+  3 months and increases support for a nondiscrimination law. Would a
+  face-to-face conversation about vegan issues, either with a vegan or
+  not, change eating behavior, and/or voting patterns on animal rights
+  bills,
+  e.g.~\href{https://www.vox.com/future-perfect/23721488/prop-12-scotus-pork-pigs-factory-farming-california-bacon}{Proposition
+  12 in California}?
+\item
+  Extant research evaluating protests has generally measured
+  \href{https://onlinelibrary.wiley.com/doi/abs/10.1002/ejsp.1983}{attitudes}
+  \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2911177}{toward}
+  \href{https://animalcharityevaluators.org/research/reports/protests/}{protests}.
+  What about effects on MAP consumption, either for witnesses or
+  participants? Perhaps researchers can identify some mechanism that
+  creates exogenous variation in whether people attend or witness a
+  protest. Alternatively, researchers could randomly assign some
+  on-the-fence participants free transport to a protest, and then send
+  them a coupon to a meal delivery or grocery delivery service a month
+  later and observe whether they select non-meat options.
+\item
+  What is the effect of high-intensity vegan meal planning? For
+  instance, researchers could randomly assign 100 people to participate
+  in \href{https://www.swapmeat.co.uk/}{https://www.swapmeat.co.uk},
+  have them fill out periodic food diaries, and 3/6/9 months after, send
+  them coupons to a grocery delivery service and observe their
+  purchases.
+\item
+  One intriguing paper asks people to
+  \href{https://www.sciencedirect.com/science/article/abs/pii/S0195666321005638}{imagine
+  contact with a farm animal} and then asks about their intentions and
+  attitudes towards eating meat. How about real contact with a farm
+  animal or a visit to a farm sanctuary? For example, researchers could
+  offer a lottery to students at SUNY New Paltz or Vassar for a free
+  tour at \href{https://woodstocksanctuary.org/}{Woodstock Farm
+  Sanctuary}, then mail them a coupon to a local
+  \href{https://karmaroad.net/}{cafe with vegan options} and track their
+  purchases.
+\item
+  Blind taste tests, e.g., have 100 people taste either meat or a meat
+  alternative, then send them a coupon for either meat or the
+  alternative and track what they buy.
+\end{enumerate}
+
+\hypertarget{conclusion-next-steps-for-this-paper-and-how-you-can-help}{%
+\subsection{7. Conclusion: next steps for this paper (and how you can
+help)}\label{conclusion-next-steps-for-this-paper-and-how-you-can-help}}
+
+This post is effectively a pre-preprint of the academic article we
+\href{https://forum.effectivealtruism.org/posts/xbiJRzSJKq69RRHDd/why-you-should-publish-your-research-in-academic-fashion}{aim
+to publish}. You can help us with this in a few ways.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If you know of any studies we missed, please let us know!
+\item
+  If you have further quantitative analyses you'd like to see, we
+  welcome comments on this post. You can also
+  \href{https://github.com/setgree/vegan-meta}{open an issue or PR on
+  the project's GitHub repo}.
+\item
+  We have a lot of work ahead of us to get this article properly
+  formatted, submitted to a journal, through peer review, etc.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    If you work at a grantmaking institution (or have one to recommend)
+    and are interested in supporting this project, we'd be glad to hear
+    from you.
+  \end{enumerate}
+\item
+  If you are an academic with an aptitude for getting papers to the
+  finish line, we'd be happy to discuss co-authorship! We have our eyes
+  on
+  \href{https://www.cambridge.org/core/journals/behavioural-public-policy}{Behavioral
+  Public Policy},
+  \href{https://phair.psychopen.eu/index.php/phair}{Psychology of
+  Human-Animal Intergroup Relations}, or
+  \href{https://journals.sagepub.com/home/psi}{Psychological Science in
+  the Public Interest}.
+\item
+  Likewise, if you are a journal editor and you think your venue would
+  be a good home for this project, please be in touch.
+\end{enumerate}
+
+Thanks for reading. Comments and feedback are very welcome! \#\#\#
+Statement on additional materials
+
+Our analysis code, data, and pre-analysis plan are
+\href{https://github.com/setgree/vegan-meta/tree/main}{available on
+GitHub}, including excluded\_studies.csv, which lists the studies we
+considered but didn't end up including, as well as a PDF of our
+appendices.
+
+Our pre-analysis plan is available on the
+\href{https://osf.io/3sth2}{Open Science Framework}.
+
+Our code and data are also
+\href{https://doi.org/10.24433/CO.6020578.v1}{available on Code Ocean},
+where they can be rerun from scratch in a frozen, code-compatible
+computational environment.
+
+\hypertarget{acknowledgements}{%
+\subsubsection{Acknowledgements}\label{acknowledgements}}
+
+\emph{Thanks Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, and
+Matt Lerner for comments on an early draft. Thanks to Maya Mathur, Jacob
+Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola,
+and Emma Garnett for helping us assemble the database and providing
+guidance on their studies.}
+
+
+
+\end{document}

@@ -1,10 +1,9 @@
 ---
 title: "Environmental & health appeals are the most effective vegan outreach strategies"
 author: "Seth Green, Benny Smith"
-output:
-  format: pdf
-  keepTex: true
-
+format: 
+  pdf:
+    keep-tex: true
 ---
 
 ## Abstract
