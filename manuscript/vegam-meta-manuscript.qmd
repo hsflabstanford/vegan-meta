@@ -198,7 +198,7 @@ The 19 outcomes that are not self-reported are typically recorded at a restauran
 
 ### 5.2 Overall effect
 
-The overall effect of this literature is small, but statistically significant and precisely estimated: ∆ = 0.131 (SE = 0.03), p &lt; 0.0001, i.e. about a 4.4% change. By convention, ∆ = 0.2 is [considered to be a “small” effect size](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3444174/), though see [Funder and Ozer (2019)](https://journals.sagepub.com/doi/10.1177/2515245919847202) for critical discussion.
+The overall effect of this literature is small, but statistically significant and precisely estimated: ∆ = 0.131 (SE = 0.03), p &lt; 0.0001. By convention, ∆ = 0.2 is [considered to be a “small” effect size](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3444174/), though see [Funder and Ozer (2019)](https://journals.sagepub.com/doi/10.1177/2515245919847202) for critical discussion.
 
 Another way to consider these results is to take these papers at their word on whether they produced backlash, null, or positive results. Across the 42 interventions reviewed here, 21 report positive, statistically significant results and 16 report null results. However, we don’t observe meaningful backlash effects. Although 5 of 42 interventions report more MAP consumption in the treatment group than in the control, none of these effects were statistically or substantively significant.
 
@@ -381,5 +381,7 @@ Our pre-analysis plan is available on the [Open Science Framework](https://osf.i
 Our code and data are also [available on Code Ocean](https://doi.org/10.24433/CO.6020578.v1), where they can be rerun from scratch in a frozen, code-compatible computational environment.
 
 ### Acknowledgements
+
+_We are grateful for funding from the [Food Systems Research Fund](https://www.fsrfund.org/)._
 
 _Thanks Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, and Matt Lerner for comments on an early draft. Thanks to Maya Mathur, Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping us assemble the database and providing guidance on their studies._
