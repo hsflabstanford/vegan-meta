@@ -36,6 +36,7 @@ Our code and data are also [available on Code Ocean](https://doi.org/10.24433/CO
 5. Try to convert all studies to common measure like grams of meat (sometimes going to be possible but not always — ask for supplementary data from authors)
 6. Ask for supplementary data about post-treatment outcomes — rebound or compensation effects
 7. Rewrite the introduction to motivate the problem
+  a. include https://doi.org/10.1038/s43016-021-00265-1
 8. Code up behavioral intentions and attitudes when available 
 9. Set up systematic review (to be or not to be conducted) 
 10. Calibrated estimate, `MetaUtility::prop_stronger` to give us a sense of results if we weight differently 
