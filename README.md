@@ -39,7 +39,7 @@ Our code and data are also [available on Code Ocean](https://doi.org/10.24433/CO
   a. include https://doi.org/10.1038/s43016-021-00265-1
 8. Code up behavioral intentions and attitudes when available 
 9. Set up systematic review (to be or not to be conducted) 
-10. Calibrated estimate, `MetaUtility::prop_stronger` to give us a sense of results if we weight differently 
+10. Calibrated estimate, [`MetaUtility::prop_stronger`](https://www.rdocumentation.org/packages/MetaUtility/versions/1.2.0/topics/prop_stronger) to give us a sense of results if we weight differently 
 7. Publication bias — selection models/sensitivity analyses around significance in addition to point estimates.
 8. Funnel plot assumes that the way publication bias manifests is through effect size. other alternative is on significance. maximally severe test for that is tometa-analyze the studies that were nonsignificant or negative
 9. Funnel plots will regress on point estimate, which design selection on large point estimates; also look at selection on significance — hedge’s selection model, etc.
