@@ -54,11 +54,11 @@ library(sessioninfo)
 library(stringr)
 
 #' functions
-source('../functions/d_calc.R')
-source('../functions/map_robust.R')
-source('../functions/sum_lm.R')
-source('../functions/sum_tab.R')
-source('../functions/var_d_calc.R')
+source('./functions/d_calc.R')
+source('./functions/map_robust.R')
+source('./functions/sum_lm.R')
+source('./functions/sum_tab.R')
+source('./functions/var_d_calc.R')
 
 #' options and reproducibility
 options(scipen = 99)
