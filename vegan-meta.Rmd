@@ -1,0 +1,53 @@
+---
+title: "Contrasting information and manipulation approaches to reducing consumption of meat and animal products: findings, biases, and limitations"
+shorttitle: "vegan-meta"
+render:
+  output_dir: ../results
+author:
+ 
+  - name: "Seth A. Green"
+    affiliation: "1"
+    address: "Kahneman-Treisman Center, Princeton University"
+    email: "sag2212@columbia.edu"
+    role:
+      - "Conceptualization"
+      - "Writing - Original Draft Preparation"
+      - "Writing - Review & Editing"
+  - name: "Benny Smith"
+    affiliation: "2"
+    role:
+      - "Writing - Review & Editing"
+  - name: "Maya Mathur"
+    affiliation: "3"
+    role:
+      - "Writing - Review & Editing"
+      - "Supervision"
+affiliation:
+  - id: "1"
+    institution: "Kahneman-Treisman Center, Princeton University"
+  - id: "2"
+    institution: "Stanford University "
+  - id: "3"
+    institution: "Allied Scholars for Animal Protection"
+abstract: |
+
+  This paper provides a theoretical overview and meta-analysis of strategies for reducing consumption of meat and animal products (MAP). While policymakers broadly agree that global levels of MAP consumption are environmentally unsustainable and a major source of public health risks, there is no consensus for which strategy most effectively changes dietary habits. Extant MAP reduction interventions generally embody one of two theoretical perspectives: attempts to *persuade* people to change their habits via information, or attempts to *manipulate* them by changing features of their eating environments. Even the very best evaluations of these interventions, however, are generally hampered by  measurement limitations. For persuasion-based interventions, the majority of studies are at risk of social desirability bias arising from self-reported outcomes; for manipulation-based interventions, most studies do not grapple seriously with the possibility of intertemporal substitution, i.e. that a person who eats less MAP at one meal might compensate by eating more at the next. When we limit our analysis to studies that carefully attend to these threats to inference, we conclude that direct appeals to the environment and personal health, along with some changes to layouts and messages in university cafeterias, can reduce MAP consumption. However, this evidence base is limited to a tiny number of studies at a handful of colleges, and therefore in urgent need of extension and replication. Finally, we argue that despite limited successes to date, appeals to animal welfare are drawn from a vast theoretical space whose most promising interventions yet await rigorous evaluation.
+authornote: |
+ This work was supported by the Food System Research Fund and the NIH (grant XXX). Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, Matt Lerner, and Daniel Waldinger for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping us assemble the database and providing guidance on their studies.
+keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
+wordcount: "300"
+bibliography: "vegan-refs.bib"
+floatsintext: no
+linenumbers: no
+draft: no
+mask: no
+figurelist: no
+tablelist: no
+footnotelist: no
+class: "jou"
+output: papaja::apa6_pdf
+editor_options: 
+  chunk_output_type: console
+---
+
+
