@@ -32,7 +32,7 @@ Before mock analyses, here are some general principles we followed when coding s
 
 * when authors don't tell us enough to calculate Glass's $\Delta$ but they do tell us that the results were null, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
 
-* For binary variables, we treat the incidence of the event in the treatment group and control group as draws from a [Bernoulli distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution) whose variance is $p*(1-p)$, and whose standard deviation is (therefore) $\sqrt{p * (1-p)}$. Here, $p$ is the incidence of the dependent variable in the control group as a percentage. If the DV is "proportion of vegetarian meals,  if the control group ordered 100 meals and 60% of them were vegetarian, then $p = 0.4$. So if the treatment group proportion is $p_1$ and the control group proportion is $p_2$,  Glass's $\Delta$ is $\frac{p_1 - p_2}{\sqrt{p_2 * (1 -p_2)}}$
+* For binary variables, we treat the incidence of the event in the treatment group and control group as draws from a [Bernoulli distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution) whose variance is $p*(1-p)$, and whose standard deviation is (therefore) $\sqrt{p * (1-p)}$. Here, $p$ is the incidence of the dependent variable in the control group as a percentage. For a DV of "proportion of vegetarian meals," if the control group ordered 100 meals and 60% of them were vegetarian, then $p = 0.4$. So if the treatment group proportion is $p_1$ and the control group proportion is $p_2$,  Glass's $\Delta$ is $\frac{p_1 - p_2}{\sqrt{p_2 * (1 -p_2)}}$
 
 # data analysis on a simulated dataset
 
