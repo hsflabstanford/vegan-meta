@@ -2,7 +2,7 @@
 
 what do high-quality RCTs tell us about vegan persuasion efforts?
 
-The first draft is available on the [EA Forum](https://forum.effectivealtruism.org/posts/k9qqGZtmWz3x4yaaA/environmental-and-health-appeals-are-the-most-effective); first draftof code and data are [available on Code Ocean](https://doi.org/10.24433/CO.6020578.v1).
+The first draft is available on the [EA Forum](https://forum.effectivealtruism.org/posts/k9qqGZtmWz3x4yaaA/environmental-and-health-appeals-are-the-most-effective); first draft of code and data are [available on Code Ocean](https://doi.org/10.24433/CO.6020578.v1).
  
 Next up is to convert this into a real paper. That's in progress.
 
