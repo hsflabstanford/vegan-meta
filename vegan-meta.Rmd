@@ -27,9 +27,9 @@ affiliation:
   - id: "3"
     institution: "Stanford University"
 abstract: |
-  This paper provides a theoretical overview and meta-analysis of strategies for reducing consumption of meat and animal products (MAP). While policymakers broadly agree that global levels of MAP consumption are environmentally unsustainable and a major source of public health risks, there is no consensus for which strategy most effectively changes dietary habits. Extant MAP reduction interventions generally embody one of two theoretical perspectives: attempts to *persuade* people to change their habits via information, or attempts to *manipulate* them by changing features of their eating environments. Even the very best evaluations of these interventions, however, are generally hampered by  measurement limitations. For persuasion-based interventions, the majority of studies are at risk of social desirability bias arising from self-reported outcomes; for manipulation-based interventions, most studies do not account for the possibilty of intertemporal substitution: that a person who eats less MAP at one meal might compensate by eating more at the next. When we limit our analysis to studies that carefully attend to these threats to inference, we conclude that direct appeals to the environment and personal health, along with some changes to layouts and messages in university cafeterias, can reduce MAP consumption. However, this evidence base is limited to a tiny number of studies at a handful of colleges, and therefore in urgent need of extension and replication. Finally, we argue that despite limited successes to date, appeals to animal welfare are drawn from a vast theoretical space whose most promising interventions yet await rigorous evaluation.
+  This paper provides a theoretical overview and meta-analysis of strategies for reducing consumption of meat and animal products (MAP). While policymakers broadly agree that global levels of MAP consumption are environmentally unsustainable and a major source of public health risks, there is no consensus for which strategy most effectively changes dietary habits. Extant MAP reduction interventions generally embody one of two theoretical perspectives: attempts to *persuade* people to change their habits via information, or attempts to *manipulate* them by changing features of their eating environments. Even the very best evaluations of these interventions, however, are generally hampered by  measurement limitations. For persuasion-based interventions, the majority of studies are at risk of social desirability bias arising from self-reported outcomes; for manipulation-based interventions, most studies do not account for the possibilty of intertemporal substitution: that a person who eats less MAP at one meal might compensate by eating more at the next. When we limit our analysis to studies that carefully attend to these threats to inference, we find that direct appeals to the environment and personal health, along with some changes to layouts and messages in university cafeterias, can reduce MAP consumption. However, this evidence base is limited to a tiny number of studies at a handful of colleges, and therefore in urgent need of extension and replication. Finally, we argue that despite limited successes to date, appeals to animal welfare are drawn from a vast theoretical space whose most promising interventions yet await rigorous evaluation.
 authornote: |
- This work was generously supported by the Food System Research Fund and the NIH (grant XXX). Thanks to Alex Berke, Alix Winter, Andrey Fradkin, Anson Berns, Hari Dandapani, Martin Gould, Martin Rowe, Matt Lerner, Adin Richards, and Daniel Waldinger for suggestions and comments on an early draft. Thanks to Lucius Caviola, Emma Garnett, Andrew Jalil, Jacob Peacock, Gregg Sparkman, and Joshua Tasoff for helping us assemble the database and providing guidance on their studies.
+ This work was generously supported by the Food System Research Fund and the NIH (grant 5R01LM013866-03). Thanks to Alex Berke, Alix Winter, Andrey Fradkin, Anson Berns, Hari Dandapani, Martin Gould, Martin Rowe, Matt Lerner, Adin Richards, and Daniel Waldinger for suggestions and comments on an early draft. Thanks to Lucius Caviola, Emma Garnett, Andrew Jalil, Jacob Peacock, Gregg Sparkman, and Joshua Tasoff for helping us assemble the database and providing guidance on their studies.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
 wordcount: "245"
 bibliography: "vegan-refs.bib"
@@ -40,7 +40,6 @@ mask: no
 figurelist: no
 tablelist: no
 footnotelist: no
-class: "jou"
 output: papaja::apa6_pdf
 editor_options: 
   chunk_output_type: console
@@ -48,21 +47,18 @@ editor_options:
 
 ### Introduction: a multitude of perspectives on changing dietary behavior
 
-Reducing worldwide consumption of meat and animal products (MAP) is vital to many policy goals.
+Reducing worldwide consumption of meat and animal products (MAP) is vital to many policy goals. Animal agriculture is a major driver of climate change [@scarborough2023; @koneswaran2008 @goodland2009], as well as more localized environmental and public health harms [@horrigan2002; @slingenbergh2004; @graham2008; @greger2010]. Excess MAP consumption is a leading cause of premature deaths [@willett2019; @landry2023]. Last, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in their own right [@yeates2011; @webster2001; @kuruc2023].
 
-### litearture this falls under
-third, systematic review of behavioral econ approaches: https://bfi.uchicago.edu/insight/research-summary/judging-nudging-understanding-the-welfare-effects-of-nudges-versus-taxes/
-https://www.pnas.org/doi/abs/10.1073/pnas.2214851120
-https://www.nature.com/articles/s41562-023-01555-3
-https://www.aeaweb.org/articles?id=10.1257/aer.20200407&&from=f
-comapring nudges to prices and incentives: https://www.science.org/doi/full/10.1126/science.abm0475
+Policymakers have a broad array of tools at their disposal for attempting to change eating behavior, e.g. banning certain kinds of food [@caro2009] or practices [@bursey2018] perceived to be unusually cruel; campaigning for vegetarianism [@trewern2022]; or choice architecture approaches that make non-meat options more salient or appealing [@guthrie2015]. However, any policy lever which does not focus on reducing consumer demand for, and sentiment towards, MAP consumption risks backsliding to an unsustainable status quo through political backlash [@michielsen2022]. It is essential, therefore, to assess which theoretical approaches most effectively and durably alter consumer eating behavior. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis. 
 
-### behavior change is hard 
-https://www.science.org/doi/10.1126/sciadv.adj5778
-(though not always https://www.nature.com/articles/s41586-021-04128-4)
-### choice architecture 
-general evidence these don't scale: https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA18709
-but apparentrly they work best for diet: https://www.pnas.org/doi/10.1073/pnas.2107346118
-how they are justified https://onlinelibrary.wiley.com/doi/full/10.1111/joes.12453
-### Norms
-argument that it's trickery rather than pressure: https://onlinelibrary.wiley.com/doi/full/10.1111/bioe.12421
+A previous review called on future MAP research to feature of “direct behavioral outcomes” and “long-term follow-up" in the MAP reduction literature [@mathur2021meta, p. 1]. Our paper shares those commitments, and restricts its meta-analysis to the very most rigorous, and therefore policy-relevant, research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We also required that the full papers be available on the internet, rather than just a summary or abstract, and written in English. We identified 42 such interventions published in 28 papers or technical reports. 
+
+As an academic subject, reducing MAP consumption has no clear disciplinary home. Scholars have consequently approached the problem form many theoretical approaches, including social psychology [@rosenfeld2018], economics [@lusk2009], choice architecture [@bianchi2018restructuring; @mertens2022]; and environmental studies [@costello2016]. HOwever, the central theoretical divide in the literature's most rigorous, policy-relevant evaluations is between **information-based approaches** that attempt to change ideas about MAP consumption in general, and **place-based interventions** that make MAP consumption more difficult, expensive, or apparently counter-normative in a restaurant or university dining hall.The question of comparative efficacy between these two approaches \textemdash put crudely, informatin vs. manipulation \textemdash is of interest to behavioral scientists and policymakers across a broad array of concerns.
+
+Our main quantitative finding is that appeals to personal health and the environment are the most broadly effective MAP reduction strategies. We also see some evidence of change resulting from price- and salience-based changes to some university dining halls, and text-based reminders of prior intentions to reduce MAP consumption. We find overall null results for appeals to animal welfare, studies conducted online, and leafletting studies. 
+
+However, we place low confidence in the generalizability of these results due to two major concerns about measurement bias. The first is social desirability bias arising from self-reported outcomes [@mathur2021effectiveness], which are predominant in the information-based literature. The second is a lack of engagement with the possibility of compensatory/backlash effects in the place-based literature: that someone who is nudged into eating less MAP at one meal may perceive a moral license [@merritt2010; @blanken2015] to eat more MAP later. If we limit our analysis to studies with measurement strategies that accommodate both potential threats to inference, we still conclude that appeals to the environment and health concerns reduce MAP consumption, but in the highly specialized context of dining halls at an elite liberal arts college. For this literature to truly become shovel-ready for policymakers, extension and replication, along with careful attention to measurement bias, are essential next steps.
+
+
+Our paper builds on several literatures. 
+

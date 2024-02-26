@@ -3,7 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  ,jou]{apa6}
+  man]{apa6}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
 \ifPDFTeX
@@ -62,6 +62,39 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
 \else
@@ -136,9 +169,12 @@
   }
 {}{\PatchFailed}
 \keywords{meta-analysis, meta-science, meat-and-animal-products, evaluation\newline\indent Word count: 245}
-\usepackage{dblfloatfix}
-
-
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
 \usepackage{csquotes}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -163,7 +199,7 @@
 
 \authornote{
 
-This work was generously supported by the Food System Research Fund and the NIH (grant XXX). Thanks to Alex Berke, Alix Winter, Andrey Fradkin, Anson Berns, Hari Dandapani, Martin Gould, Martin Rowe, Matt Lerner, Adin Richards, and Daniel Waldinger for suggestions and comments on an early draft. Thanks to Lucius Caviola, Emma Garnett, Andrew Jalil, Jacob Peacock, Gregg Sparkman, and Joshua Tasoff for helping us assemble the database and providing guidance on their studies.
+This work was generously supported by the Food System Research Fund and the NIH (grant 5R01LM013866-03). Thanks to Alex Berke, Alix Winter, Andrey Fradkin, Anson Berns, Hari Dandapani, Martin Gould, Martin Rowe, Matt Lerner, Adin Richards, and Daniel Waldinger for suggestions and comments on an early draft. Thanks to Lucius Caviola, Emma Garnett, Andrew Jalil, Jacob Peacock, Gregg Sparkman, and Joshua Tasoff for helping us assemble the database and providing guidance on their studies.
 
 The authors made the following contributions. Seth A. Green: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing; Benny Smith: Writing - Review \& Editing; Maya Mathur: Writing - Review \& Editing, Supervision.
 
@@ -172,7 +208,7 @@ The authors made the following contributions. Seth A. Green: Conceptualization, 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Kahneman-Treisman Center, Princeton University\\\textsuperscript{2} Allied Scholars for Animal Protection\\\textsuperscript{3} Stanford University}
 
 \abstract{%
-This paper provides a theoretical overview and meta-analysis of strategies for reducing consumption of meat and animal products (MAP). While policymakers broadly agree that global levels of MAP consumption are environmentally unsustainable and a major source of public health risks, there is no consensus for which strategy most effectively changes dietary habits. Extant MAP reduction interventions generally embody one of two theoretical perspectives: attempts to \emph{persuade} people to change their habits via information, or attempts to \emph{manipulate} them by changing features of their eating environments. Even the very best evaluations of these interventions, however, are generally hampered by measurement limitations. For persuasion-based interventions, the majority of studies are at risk of social desirability bias arising from self-reported outcomes; for manipulation-based interventions, most studies do not account for the possibilty of intertemporal substitution: that a person who eats less MAP at one meal might compensate by eating more at the next. When we limit our analysis to studies that carefully attend to these threats to inference, we conclude that direct appeals to the environment and personal health, along with some changes to layouts and messages in university cafeterias, can reduce MAP consumption. However, this evidence base is limited to a tiny number of studies at a handful of colleges, and therefore in urgent need of extension and replication. Finally, we argue that despite limited successes to date, appeals to animal welfare are drawn from a vast theoretical space whose most promising interventions yet await rigorous evaluation.
+This paper provides a theoretical overview and meta-analysis of strategies for reducing consumption of meat and animal products (MAP). While policymakers broadly agree that global levels of MAP consumption are environmentally unsustainable and a major source of public health risks, there is no consensus for which strategy most effectively changes dietary habits. Extant MAP reduction interventions generally embody one of two theoretical perspectives: attempts to \emph{persuade} people to change their habits via information, or attempts to \emph{manipulate} them by changing features of their eating environments. Even the very best evaluations of these interventions, however, are generally hampered by measurement limitations. For persuasion-based interventions, the majority of studies are at risk of social desirability bias arising from self-reported outcomes; for manipulation-based interventions, most studies do not account for the possibilty of intertemporal substitution: that a person who eats less MAP at one meal might compensate by eating more at the next. When we limit our analysis to studies that carefully attend to these threats to inference, we find that direct appeals to the environment and personal health, along with some changes to layouts and messages in university cafeterias, can reduce MAP consumption. However, this evidence base is limited to a tiny number of studies at a handful of colleges, and therefore in urgent need of extension and replication. Finally, we argue that despite limited successes to date, appeals to animal welfare are drawn from a vast theoretical space whose most promising interventions yet await rigorous evaluation.
 }
 
 
@@ -182,7 +218,13 @@ This paper provides a theoretical overview and meta-analysis of strategies for r
 
 \subsubsection{Introduction: a multitude of perspectives on changing dietary behavior}\label{introduction-a-multitude-of-perspectives-on-changing-dietary-behavior}
 
-Reducing worldwide consumption of meat and animal products (MAP) is vital to many policy goals.
+Reducing worldwide consumption of meat and animal products (MAP) is vital to many policy goals. Animal agriculture is a major driver of climate change Goodland, Anhang, et al. (2009), as well as more localized environmental and public health harms (Graham et al., 2008; Greger \& Koneswaran, 2010; Horrigan, Lawrence, \& Walker, 2002; Slingenbergh, Gilbert, Balogh, \& Wint, 2004). Excess MAP consumption is a leading cause of premature deaths (Landry et al., 2023; Willett et al., 2019). Last, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in their own right (Kuruc \& McFadden, 2023; Webster, 2001; Yeates, Röcklinsberg, \& Gjerris, 2011).
+
+Policymakers have a broad array of tools at their disposal for attempting to change eating behavior, e.g.~banning certain kinds of food (Caro, 2009) or practices (Bursey \& Thomas, 2018) perceived to be unusually cruel; campaigning for vegetarianism (Trewern, Chenoweth, Christie, \& Halevy, 2022); or choice architecture approaches that make non-meat options more salient or appealing (Guthrie, Mancino, \& Lin, 2015). However, any policy lever which does not focus on reducing consumer demand for, and sentiment towards, MAP consumption risks backsliding to an unsustainable status quo through political backlash (Michielsen \& Horst, 2022). It is essential, therefore, to assess which theoretical approaches most effectively and durably alter consumer eating behavior. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis.
+
+A previous review called on future MAP research to feature of ``direct behavioral outcomes'' and ``long-term follow-up'' in the MAP reduction literature (Mathur et al., 2021, p. 1). Our paper shares those commitments, and restricts its meta-analysis to the very most rigorous, and therefore policy-relevant, research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We also required that the full papers be available on the internet, rather than just a summary or abstract, and written in English. We identified 42 such interventions published in 28 papers or technical reports.
+
+As an academic subject, reducing MAP consumption has no clear disciplinary home. Scholars have consequently approached the problem form many theoretical approaches, including social psychology (Rosenfeld, 2018), economics (Lusk \& Norwood, 2009), choice architecture (Bianchi, Garnett, Dorsel, Aveyard, \& Jebb, 2018; Mertens, Herberz, Hahnel, \& Brosch, 2022); and environmental studies (Costello, Birisci, \& McGarvey, 2016).
 
 \subsubsection{litearture this falls under}\label{litearture-this-falls-under}
 
@@ -202,6 +244,79 @@ but apparentrly they work best for diet: \url{https://www.pnas.org/doi/10.1073/p
 how they are justified \url{https://onlinelibrary.wiley.com/doi/full/10.1111/joes.12453}
 \#\#\# Norms
 argument that it's trickery rather than pressure: \url{https://onlinelibrary.wiley.com/doi/full/10.1111/bioe.12421}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-bianchi2018restructuring}
+Bianchi, F., Garnett, E., Dorsel, C., Aveyard, P., \& Jebb, S. A. (2018). Restructuring physical micro-environments to reduce the demand for meat: A systematic review and qualitative comparative analysis. \emph{The Lancet Planetary Health}, \emph{2}(9), e384--e397.
+
+\bibitem[\citeproctext]{ref-bursey2018}
+Bursey, K. W., \& Thomas, A. L. (2018). Proposition 12: Standards for confinement of specified farm animals; bans sale of noncomplying products. \emph{California Initiative Review (CIR)}, \emph{2018}(1), 12.
+
+\bibitem[\citeproctext]{ref-caro2009}
+Caro, M. (2009). \emph{The foie gras wars: How a 5,000-year-old delicacy inspired the world's fiercest food fight}. Simon; Schuster.
+
+\bibitem[\citeproctext]{ref-costello2016}
+Costello, C., Birisci, E., \& McGarvey, R. G. (2016). Food waste in campus dining operations: Inventory of pre-and post-consumer mass by food category, and estimation of embodied greenhouse gas emissions. \emph{Renewable Agriculture and Food Systems}, \emph{31}(3), 191--201.
+
+\bibitem[\citeproctext]{ref-goodland2009}
+Goodland, R., Anhang, J., et al. (2009). Livestock and climate change: What if the key actors in climate change are... Cows, pigs, and chickens? \emph{Livestock and Climate Change: What If the Key Actors in Climate Change Are... Cows, Pigs, and Chickens?}
+
+\bibitem[\citeproctext]{ref-graham2008}
+Graham, J. P., Leibler, J. H., Price, L. B., Otte, J. M., Pfeiffer, D. U., Tiensin, T., \& Silbergeld, E. K. (2008). The animal-human interface and infectious disease in industrial food animal production: Rethinking biosecurity and biocontainment. \emph{Public Health Reports}, \emph{123}(3), 282--299.
+
+\bibitem[\citeproctext]{ref-greger2010}
+Greger, M., \& Koneswaran, G. (2010). The public health impacts of concentrated animal feeding operations on local communities. \emph{Family and Community Health}, 11--20.
+
+\bibitem[\citeproctext]{ref-guthrie2015}
+Guthrie, J., Mancino, L., \& Lin, C.-T. J. (2015). Nudging consumers toward better food choices: Policy approaches to changing food consumption behaviors. \emph{Psychology \& Marketing}, \emph{32}(5), 501--511.
+
+\bibitem[\citeproctext]{ref-horrigan2002}
+Horrigan, L., Lawrence, R. S., \& Walker, P. (2002). How sustainable agriculture can address the environmental and human health harms of industrial agriculture. \emph{Environmental Health Perspectives}, \emph{110}(5), 445--456.
+
+\bibitem[\citeproctext]{ref-koneswaran2008}
+Koneswaran, G., \& Nierenberg, D. (2008). Global farm animal production and global warming: Impacting and mitigating climate change. \emph{Environmental Health Perspectives}, \emph{116}(5), 578--582.
+
+\bibitem[\citeproctext]{ref-kuruc2023}
+Kuruc, K., \& McFadden, J. (2023). Animal welfare in economic analyses of food production. \emph{Nature Food}, 1--2.
+
+\bibitem[\citeproctext]{ref-landry2023}
+Landry, M. J., Ward, C. P., Cunanan, K. M., Durand, L. R., Perelman, D., Robinson, J. L., et al.others. (2023). Cardiometabolic effects of omnivorous vs vegan diets in identical twins: A randomized clinical trial. \emph{JAMA Network Open}, \emph{6}(11), e2344457--e2344457.
+
+\bibitem[\citeproctext]{ref-lusk2009}
+Lusk, J. L., \& Norwood, F. B. (2009). Some economic benefits and costs of vegetarianism. \emph{Agricultural and Resource Economics Review}, \emph{38}(2), 109--124.
+
+\bibitem[\citeproctext]{ref-mathur2021meta}
+Mathur, M. B., Peacock, J., Reichling, D. B., Nadler, J., Bain, P. A., Gardner, C. D., \& Robinson, T. N. (2021). Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations. \emph{Appetite}, \emph{164}, 105277.
+
+\bibitem[\citeproctext]{ref-mertens2022}
+Mertens, S., Herberz, M., Hahnel, U. J., \& Brosch, T. (2022). The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains. \emph{Proceedings of the National Academy of Sciences}, \emph{119}(1), e2107346118.
+
+\bibitem[\citeproctext]{ref-michielsen2022}
+Michielsen, Y. J., \& Horst, H. M. van der. (2022). Backlash against meat curtailment policies in online discourse: Populism as a missing link. \emph{Appetite}, \emph{171}, 105931.
+
+\bibitem[\citeproctext]{ref-rosenfeld2018}
+Rosenfeld, D. L. (2018). The psychology of vegetarianism: Recent advances and future directions. \emph{Appetite}, \emph{131}, 125--138.
+
+\bibitem[\citeproctext]{ref-scarborough2023}
+Scarborough, P., Clark, M., Cobiac, L., Papier, K., Knuppel, A., Lynch, J., \ldots{} Springmann, M. (2023). Vegans, vegetarians, fish-eaters and meat-eaters in the UK show discrepant environmental impacts. \emph{Nature Food}, \emph{4}(7), 565--574.
+
+\bibitem[\citeproctext]{ref-slingenbergh2004}
+Slingenbergh, J., Gilbert, M., Balogh, K. de, \& Wint, W. (2004). Ecological sources of zoonotic diseases. \emph{Revue Scientifique Et Technique-Office International Des {é}pizooties}, \emph{23}(2), 467--484.
+
+\bibitem[\citeproctext]{ref-trewern2022}
+Trewern, J., Chenoweth, J., Christie, I., \& Halevy, S. (2022). Does promoting plant-based products in veganuary lead to increased sales, and a reduction in meat sales? A natural experiment in a supermarket setting. \emph{Public Health Nutrition}, \emph{25}(11), 3204--3214.
+
+\bibitem[\citeproctext]{ref-webster2001}
+Webster, A. J. (2001). Farm animal welfare: The five freedoms and the free market. \emph{The Veterinary Journal}, \emph{161}(3), 229--237.
+
+\bibitem[\citeproctext]{ref-willett2019}
+Willett, W., Rockström, J., Loken, B., Springmann, M., Lang, T., Vermeulen, S., et al.others. (2019). Food in the anthropocene: The EAT--lancet commission on healthy diets from sustainable food systems. \emph{The Lancet}, \emph{393}(10170), 447--492.
+
+\bibitem[\citeproctext]{ref-yeates2011}
+Yeates, J., Röcklinsberg, H., \& Gjerris, M. (2011). Is welfare all that matters? A discussion of what should be included in policy-making regarding animals. \emph{Animal Welfare}, \emph{20}(3), 423--432.
+
+\end{CSLReferences}
 
 
 \end{document}
