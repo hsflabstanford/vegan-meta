@@ -32,7 +32,7 @@ abstract: |
 authornote: |
  This work was generously supported by the Food System Research Fund and the NIH (grant 5R01LM013866-03). Thanks to Alex Berke, Alix Winter, Andrey Fradkin, Anson Berns, Hari Dandapani, Martin Gould, Martin Rowe, Matt Lerner, Adin Richards, and Daniel Waldinger for suggestions and comments on an early draft. Thanks to Lucius Caviola, Emma Garnett, Andrew Jalil, Jacob Peacock, Gregg Sparkman, and Joshua Tasoff for helping us assemble the database and providing guidance on their studies.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "245"
+wordcount: "1937"
 bibliography: "vegan-refs.bib"
 floatsintext: no
 linenumbers: no
