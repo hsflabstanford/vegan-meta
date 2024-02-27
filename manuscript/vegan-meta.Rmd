@@ -68,8 +68,32 @@ The remainder of the paper proceeds as follows. Section 2 details (and motivates
 
 Section 5 presents our quantitative results. We provide a mixture of pooled averages, tests for publication biases, and comparisons of different approaches. We also offer some attempts to estimate the magnitude of different biases in this literature drawn from related literatures, and to use those estimates to offer effect size corrections. These analyses are tentative, and offer readers a broad range of possibilities intended to match different priors about the severity and importance of the measurement issues we enumerate Section 6 concludes with some concrete suggestsion for future MAP reduction researchers based on the results of our analyses.
 
-## Assembling the meta-analytic database
+## 2 Assembling the meta-analytic database
 
 Meta-analysis is a 
+
+## 3 The meta-analytic database
+
+
+## 
+Consider [Fehrenbach (2015)](https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar), a 2015 dissertation that tested the “effectiveness of \[two\] video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
+
+Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
+
+This study strikes us as having a high risk of social desirability bias for three reasons.
+
+First, the study is designed to make people feel a sense of “high threat” from eating meat, and then asks them a week later about how much meat they ate. There are grounds for doubting how much respondents would accurately recount their eating habits. This problem is typical of this literature.
+
+Second, the study asks participants to recall a week’s worth of meals; previous research has found that [daily food diaries lead to more accurate reports](https://pubmed.ncbi.nlm.nih.gov/7635601/). As [Mathur et al. (2021a)](https://www.sciencedirect.com/science/article/pii/S0195666321001847) put it:
+
+> Many existing studies measure meat consumption in terms of, for example, Likert-type items that categorize the number of weekly meals containing meat (e.g., “none”, “1–5 meals”, etc.) or in terms of reductions from one’s previous consumption. When possible, using finer-grained absolute measures, such as the number of servings of poultry, beef, pork, lamb, fish, etc., would enable effect sizes to be translated into direct measures of societal impact.
+
+Third, the decline in meat-eating among the control group suggests that the intended direction of the experiment might have been crystal clear to everyone, whether they watched the video or not.
+
+In sum, using broad stroke, self-reported outcomes in a context where meat is being presented as bad for you seems like a high-risk environment for [experimenter demand effects](https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml).
+
+
+
+## 4 
 
 ### Bibliography

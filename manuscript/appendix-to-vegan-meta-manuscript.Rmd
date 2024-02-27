@@ -64,7 +64,7 @@ Deviations from PAP
 
 Lesser Methods declarations
 
-Revisiting the finding (Mertens et al.) that choice architecture is especially effective for dietary research
+Reviewing the finding (Mertens et al.)
 
 ## 1. A few comments on our inclusion criteria
 
