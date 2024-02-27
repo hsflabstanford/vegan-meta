@@ -68,6 +68,8 @@ The remainder of the paper proceeds as follows. Section 2 details (and motivates
 
 Section 5 presents our quantitative results. We provide a mixture of pooled averages, tests for publication biases, and comparisons of different approaches. We also offer some attempts to estimate the magnitude of different biases in this literature drawn from related literatures, and to use those estimates to offer effect size corrections. These analyses are tentative, and offer readers a broad range of possibilities intended to match different priors about the severity and importance of the measurement issues we enumerate Section 6 concludes with some concrete suggestsion for future MAP reduction researchers based on the results of our analyses.
 
-## 
+## Assembling the meta-analytic database
+
+Meta-analysis is a 
 
 ### Bibliography
