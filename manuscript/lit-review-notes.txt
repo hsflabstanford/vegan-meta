@@ -1,21 +1,15 @@
 ### litearture this falls under
-third, systematic review of behavioral econ approaches: https://bfi.uchicago.edu/insight/research-summary/judging-nudging-understanding-the-welfare-effects-of-nudges-versus-taxes/
-https://www.pnas.org/doi/abs/10.1073/pnas.2214851120
 https://www.nature.com/articles/s41562-023-01555-3
-https://www.aeaweb.org/articles?id=10.1257/aer.20200407&&from=f
-comapring nudges to prices and incentives: https://www.science.org/doi/full/10.1126/science.abm0475
-comparing prices to other 
-### behavior change is hard 
-https://www.science.org/doi/10.1126/sciadv.adj5778
 (though not always https://www.nature.com/articles/s41586-021-04128-4)
 
 ### choice architecture 
 general evidence these don't scale: https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA18709
 but apparentrly they work best for diet: https://www.pnas.org/doi/10.1073/pnas.2107346118
 how they are justified https://onlinelibrary.wiley.com/doi/full/10.1111/joes.12453
+general review of nudges: https://www.annualreviews.org/doi/10.1146/annurev-economics-080213-041033
 ### Norms
-argument that it's trickery rather than pressure: https://onlinelibrary.wiley.com/doi/full/10.1111/bioe.12421
-when discussing nudges https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4265800/
+
+call it trickery because there's no evidence that they are communicating true information. argument that it's trickery rather than pressure: https://onlinelibrary.wiley.com/doi/full/10.1111/bioe.12421
 
 ### estimating the magnitude of moral license bias
 0.32 holy shit?? https://journals.sagepub.com/doi/full/10.1177/0146167215572134
