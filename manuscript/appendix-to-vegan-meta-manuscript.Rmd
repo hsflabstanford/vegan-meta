@@ -2,7 +2,6 @@
 title: "appendix to vegan-meta-manuscript"
 format: 
   pdf:
-    keep-tex: true
     include-in-header: 
        text: |
          \usepackage{fvextra}
@@ -106,7 +105,7 @@ There are a few ways to think about why you might observe such a pattern in the 
 
 ### 4.1 There should be a control group and it shouldn’t receive pro-vegan messaging
 
-Four interesting studies did not meet our inclusion criteria because of issues with their control groups ([one](https://faunalytics.org/wp-content/uploads/2017/12/Animal-Equality-Report-Final.pdf), [two](https://assets.ctfassets.net/ww1ie0z745y7/5BclqQGYj8oJ6Txsj1GGQF/f6feb92bdb4cbd200b6e382a731325b1/E001R02-which-leaflet-is-more-effective-reanalysis.pdf), [three](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00607/full), [four](https://osf.io/fapu8/)). Either they didn’t have one or the control group received some form of vegan messaging, e.g. people were assigned to treatment or control in a tent plastered with animal rights imagery. But the control group should be a control group.
+Four interesting studies did not meet our inclusion criteria because of issues with their control groups ([one](https://faunalytics.org/wp-content/uploads/2017/12/Animal-Equality-Report-Final.pdf), [two](https://assets.ctfassets.net/ww1ie0z745y7/5BclqQGYj8oJ6Txsj1GGQF/f6feb92bdb4cbd200b6e382a731325b1/E001R02-which-leaflet-is-more-effective-reanalysis.pdf), [three](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00607/full), [four](https://osf.io/fapu8/)). Either they didn't have one or the control group received some form of vegan messaging, e.g. people were assigned to treatment or control in a tent plastered with animal rights imagery. But the control group should be a control group.
 
 That also means not to try to \_over-\_control their behavior. For instance, [one study’s control group](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.577111) “were asked not to change their diet” in any way. But *that message is a kind of treatment*. We understand the instinct to try to limit noise, but that can’t come at the expense of internal validity. A control group that gets told to do or not do something by experimenters has received an experimental stimulus. This violates the equivalence in expectation assumption that RCTs depend on for unbiased inference.
 
