@@ -49,6 +49,12 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -168,7 +174,7 @@
     {}{\InnerPatchFailed}%
   }
 {}{\PatchFailed}
-\keywords{meta-analysis, meta-science, meat-and-animal-products, evaluation\newline\indent Word count: 2483}
+\keywords{meta-analysis, meta-science, meat-and-animal-products, evaluation\newline\indent Word count: 2519}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -224,7 +230,7 @@ Policymakers have a broad array of tools at their disposal for attempting to cha
 
 A previous review called on future MAP research to feature more ``direct behavioral outcomes'' and ``long-term follow-up'' (Mathur, Peacock, Reichling, et al., 2021, p. 1). Our paper builds on that one, and thus restricts its meta-analysis to the very most rigorous, policy-ready research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified 44 such interventions published in 29 papers or technical reports.
 
-Scholars have approached the problem of MAP reduction from a myriad of academic disciplines, including social psychology (Dhont, Hodson, Loughnan, \& Amiot, 2019; Rosenfeld, 2018), economics (Lusk \& Norwood, 2009), choice architecture (Bianchi et al., 2018; Mertens, Herberz, Hahnel, \& Brosch, 2022); and environmental studies (Costello, Birisci, \& McGarvey, 2016). The central theoretical divide we observe among policy-ready studies is between \textbf{information-based approaches} that attempt to change ideas about MAP consumption and \textbf{place-based interventions} that make MAP consumption more difficult, expensive, or apparently counter-normative in a restaurant or university dining hall. Which of these two approaches is more effective at changing real world behavior has broad implications for behavioral scientists and policymakers.
+Scholars have approached the problem of MAP reduction from a myriad of academic disciplines, including social psychology (Dhont, Hodson, Loughnan, \& Amiot, 2019; Rosenfeld, 2018), economics (Lusk \& Norwood, 2009), choice architecture (Bianchi, Garnett, et al., 2018; Mertens, Herberz, Hahnel, \& Brosch, 2022); and environmental studies (Costello, Birisci, \& McGarvey, 2016). The central theoretical divide we observe among policy-ready studies is between \textbf{information-based approaches} that attempt to change ideas about MAP consumption and \textbf{place-based interventions} that make MAP consumption more difficult, expensive, or apparently counter-normative in a restaurant or university dining hall. Which of these two approaches is more effective at changing real world behavior has broad implications for behavioral scientists and policymakers.
 
 Our main quantitative finding is that appeals to personal health and the environment are the most broadly effective MAP reduction strategies. We also see some evidence of change resulting from price- and salience-based changes to some university dining halls, and text-based reminders of prior intentions to reduce MAP consumption. We find overall null results for appeals to animal welfare, studies conducted online, and leafletting studies.
 
@@ -259,6 +265,29 @@ Finally, we required that studies have at least 25 subjects in treatment and con
 We also required that the full papers be available on the internet, rather than just a summary or abstract, and written in English.
 
 \subsubsection{2.2 Our search process}\label{our-search-process}
+
+First, we read all qualifying studies that we already knew of, as well as any relevant studies cited in their bibliographies. This yielded four papers.
+
+Second, we located and read 21 previous systematic reviews, starting with Mathur, Peacock, Robinson, et al. (2021) as well as Bianchi, Garnett, et al. (2018) and Bianchi, Dorsel, Garnett, Aveyard, and Jebb (2018). Those three reviews yielded nine additional papers.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  We located and read 21 previous systematic reviews, starting with Mathur et al.~(\href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{\ul{2021 b}}) and Bianchi et al.~(\href{https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6}{\ul{2018a}},~\href{https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext}{\ul{2018b}}) and Animal Charity Evaluators'~\href{https://animalcharityevaluators.org/research/reports/dietary-impacts/}{\ul{research reports on dietary changes}}.~Those three reviews
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Our search for reviews was assisted greatly by posts by~\href{https://forum.effectivealtruism.org/posts/Sy7swEetrtcK2C7q6/research-summary-a-meta-review-of-interventions-that}{\ul{Peter Slattery}} and~\href{https://forum.effectivealtruism.org/posts/azHZ2pQj9JgdZLC63/what-interventions-influence-animal-product-consumption}{\ul{Emily Grundy}} summarizing their~\href{https://www.sciencedirect.com/science/article/pii/S2666833521000976\#!}{\ul{2022 review of reviews}}.
+  \end{enumerate}
+\item
+  We searched the homepages, google scholar pages, and co-authorship lists of researchers with studies in our database.
+\item
+  Occasionally, articles' published pages suggested further reading that seemed promising.
+\item
+  Once we had a pretty good list assembled, we emailed~\href{https://www.mayamathur.com/}{\ul{Maya Mathur}},~\href{https://www.jacobpeacock.com/}{\ul{Jacob Peacock}},~\href{https://www.oxy.edu/academics/faculty/andrew-jalil}{\ul{Andrew Jalil}},~\href{https://www.bc.edu/bc-web/schools/mcas/departments/psychology/people/faculty-directory/gregg-sparkman.html}{\ul{Gregg Sparkman}},~\href{https://scholar.cgu.edu/joshua-tasoff/}{\ul{Joshua Tasoff}},~\href{https://luciuscaviola.com/}{\ul{Lucius Caviola}},~\href{https://jacyanthis.com/}{\ul{Jacy Reese Anthis}},~\href{https://www.phc.ox.ac.uk/team/emma-garnett}{\ul{Emma Garnett}},~\href{https://www.daniellrosenfeld.com/}{\ul{Daniel Rosenfeld}} and~\href{https://www.kent.ac.uk/psychology/people/220/dhont-kristof}{\ul{Kristof Dhont}} to see if we had missed any relevant papers.~
+\end{enumerate}
 
 \subsection{3 The meta-analytic database}\label{the-meta-analytic-database}
 
@@ -304,6 +333,9 @@ Bergman, P., Chetty, R., DeLuca, S., Hendren, N., Katz, L. F., \& Palmer, C. (20
 
 \bibitem[\citeproctext]{ref-bergquist2023}
 Bergquist, M., Thiel, M., Goldberg, M. H., \& Linden, S. van der. (2023). Field interventions for climate change mitigation behaviors: A second-order meta-analysis. \emph{Proceedings of the National Academy of Sciences}, \emph{120}(13), e2214851120.
+
+\bibitem[\citeproctext]{ref-bianchi2018conscious}
+Bianchi, F., Dorsel, C., Garnett, E., Aveyard, P., \& Jebb, S. A. (2018). Interventions targeting conscious determinants of human behaviour to reduce the demand for meat: A systematic review with qualitative comparative analysis. \emph{International Journal of Behavioral Nutrition and Physical Activity}, \emph{15}, 1--25.
 
 \bibitem[\citeproctext]{ref-bianchi2018restructuring}
 Bianchi, F., Garnett, E., Dorsel, C., Aveyard, P., \& Jebb, S. A. (2018). Restructuring physical micro-environments to reduce the demand for meat: A systematic review and qualitative comparative analysis. \emph{The Lancet Planetary Health}, \emph{2}(9), e384--e397.
