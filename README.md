@@ -8,7 +8,7 @@ Next up is to convert this into a real paper. That's in progress.
 
 ### The main files:
 
-  * `vegan-meta.Rmd` is the in-progress paper.
+  * `./manuscript/vegan-meta.Rmd` is the in-progress paper.
   * `./code/vegan-meta-pap.Rmd` simulates data and runs our planned analyses on it. It also lists some guiding principles for how we recorded data from studies.
   * `./code/vegan-meta-quant-analyses.Rmd` runs the quantitative analyses on our actual dataset. We plan to integrate this into the paper itself.
   * `./code/run.sh` executes the scripts.
