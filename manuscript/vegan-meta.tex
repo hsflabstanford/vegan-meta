@@ -168,7 +168,7 @@
     {}{\InnerPatchFailed}%
   }
 {}{\PatchFailed}
-\keywords{meta-analysis, meta-science, meat-and-animal-products, evaluation\newline\indent Word count: 1937}
+\keywords{meta-analysis, meta-science, meat-and-animal-products, evaluation\newline\indent Word count: 2483}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -224,7 +224,7 @@ Policymakers have a broad array of tools at their disposal for attempting to cha
 
 A previous review called on future MAP research to feature more ``direct behavioral outcomes'' and ``long-term follow-up'' (Mathur, Peacock, Reichling, et al., 2021, p. 1). Our paper shares those commitments, and thus restricts its meta-analysis to the very most rigorous, policy-relevant research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified 44 such interventions published in 29 papers or technical reports.
 
-As an academic subject, reducing MAP consumption has no clear disciplinary home. Scholars have consequently approached the problem form many theoretical approaches, including social psychology (Rosenfeld, 2018), economics (Lusk \& Norwood, 2009), choice architecture (Bianchi et al., 2018; Mertens, Herberz, Hahnel, \& Brosch, 2022); and environmental studies (Costello, Birisci, \& McGarvey, 2016). The central theoretical divide in the literature's most rigorous, policy-relevant evaluations is between \textbf{information-based approaches} that attempt to change ideas about MAP consumption in general, and \textbf{place-based interventions} that make MAP consumption more difficult, expensive, or apparently counter-normative in a restaurant or university dining hall. The question of comparative efficacy between these two approaches \textemdash put crudely, information vs.~manipulation \textemdash is of interest to behavioral scientists and policymakers across a broad array of outcomes.
+Scholars have approached the problem of MAP reduction from a myriad of academic disciplines, including social psychology (Rosenfeld, 2018), economics (Lusk \& Norwood, 2009), choice architecture (Bianchi et al., 2018; Mertens, Herberz, Hahnel, \& Brosch, 2022); and environmental studies (Costello, Birisci, \& McGarvey, 2016). The central theoretical divide we observe in our database of policy-relevant studies is between \textbf{information-based approaches} that attempt to change ideas about MAP consumption and \textbf{place-based interventions} that make MAP consumption more difficult, expensive, or apparently counter-normative in a restaurant or university dining hall. Which of these two approaches is more effective at changing real world behavior has broad implications for behavioral scientists and policymakers.
 
 Our main quantitative finding is that appeals to personal health and the environment are the most broadly effective MAP reduction strategies. We also see some evidence of change resulting from price- and salience-based changes to some university dining halls, and text-based reminders of prior intentions to reduce MAP consumption. We find overall null results for appeals to animal welfare, studies conducted online, and leafletting studies.
 
@@ -242,15 +242,23 @@ Section 5 presents our quantitative results. We provide a mixture of pooled aver
 
 \subsubsection{2.1 Selecting inclusion criteria}\label{selecting-inclusion-criteria}
 
-Meta-analysis is a powerful, flexible procedure for pooling results from many studies into a singular estimate, or cluster of estimates, denoting the relationship between a treatment and an outcome. For this to be an unbiased estimate of the true causal relationship between the two requires several additional assumptions. First, the pooled studies must produce individually unbiased causal estimates i.e.~be randomized controlled trials or otherwise deal convincingly with selection bias and/or reverse causality. Second, the set of studies must be a random sample of the universe of possible studies, and not, for instance, an upwardly biased subset due to selection pressures such as publication bias (Thornton \& Lee, 2000). Third, the assembled outcomes must have a persistent, known relationshi with the true outcome of interest.
+Meta-analysis is a powerful, flexible procedure for pooling results from many studies into a singular estimate, or cluster of estimates, denoting the relationship between a treatment and an outcome across contexts. For this to be an unbiased estimate of the true causal relationship between the two requires several additional assumptions. First, the pooled studies must each furnish an unbiased causal estimate. Second, the set of studies must be a random sample of the universe of possible studies, and not, for instance, truncated by publication bias (Thornton \& Lee, 2000). Third, the assembled outcomes must have a persistent, known relationship with the true outcome of interest.
 
-Each of these propositions is, in theory, testable and amenable to statistical correction. (See Mathur and VanderWeele (2022) and Green, Paluck, and Porat (2024) for suggestions and strategies.) However, the most fundamental challenge to meta-analysis is whether the underlying data are coherently integrable. A recent paper by Slough and Tyson (2023) makes this point explicit. In their view, for studies to have ``target equivalence'' \textemdash the property of identifying ``the same estimand'' (p.~1) \textemdash they must first achieve harmonized contrasts and measurements, meaning that the ``substantive comparison across studies is the same'' and ``the outcome of interest is the same and it is measured in the same way'' (p.2). These properties are necessary for meta-analytic results to be ``meaningful and interpretable'' (p.2). Crucially, they cannot be achieved ``solely with statistical techniques'' and are instead a product of tailored ``design or inclusion criteria'' (p.2).
+Each of these propositions is, in theory, testable and amenable to statistical correction (see Mathur and VanderWeele (2022) and Green, Paluck, and Porat (2024) for suggestions and strategies). However, the most fundamental challenge to meta-analysis is whether the underlying data are coherently integrable. A recent paper by Slough and Tyson (2023) makes this point forcefully. In their view, for studies to have ``target equivalence'' \textemdash the property of identifying ``the same estimand'' (p.~1) \textemdash they must first achieve harmonized contrasts and measurements, meaning that the ``substantive comparison across studies is the same'' and ``the outcome of interest is the same and it is measured in the same way'' (p.2). These properties are necessary for meta-analytic results to be ``meaningful and interpretable'' (p.2). Crucially, they cannot be achieved ``solely with statistical techniques'' and are instead a product of tailored ``design or inclusion criteria'' (p.2).
 
-We share this paper's concerns.
+We share this paper's concerns, and we address them via stringent inclusion criteria.
 
-criteria\ldots{}
+First, we only look at randomized controlled trials for historically well-understood reasons (Cook, Campbell, \& Shadish, 2002; see Simonsohn, Simmons, \& Nelson, 2022 for discussion specific to meta-analysis). This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
+
+Second, studies needed to measure MAP consumption directly. This included self-reported outcomes because, as we discuss later, we have preexisting estimates of the magnitude of any resulting bias. However, a tricky case emerged when we found studies that attempted to reduce red or processed meat consumption rather than MAP consumption as a whole. Some of these studies recommended that people substitute to other MAP, such as chicken or fish, but none to our knowledge measured any outcome besides red and/or processed meat. We decided to include these studies so long as they did not specifically recommend that people substitute to other MAP.
+
+Third, studies needed to measure MAP consumption at least a single day after treatment began. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g.~a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g.~if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies are designed to successfully capture adaptation to treatment, and an enduring effect over many days suggests a real effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point at length in our quantitative results.
+
+Finally, we required that studies have at least 25 subjects in treatment and control, or, for cluster-assigned studies, at least 10 clusters. Paluck et al. (2021) found that studies with fewer than 25 subjects per arm, which constituted the smallest quintile of studies in the prejudice reduction literature, showed systematically larger effects than their larger peers That paper also argued that fewer than 10 clusters would be too few to calculate meaningful standard errors. In practice, we excluded very few studies for having fewer than 25 subjects, but quite a few for having fewer than 10 clusters; many studies describing themselves as experiments had just one unit assigned to treatment and one to control, but recorded results at the level of individuals, thereby ignoring clustered standard errors. We treat these studies as, effectively, quasi-experiments and did not include them in our database.
 
 We also required that the full papers be available on the internet, rather than just a summary or abstract, and written in English.
+
+\subsubsection{2.2 Our search process}\label{our-search-process}
 
 \subsection{3 The meta-analytic database}\label{the-meta-analytic-database}
 
@@ -304,6 +312,9 @@ Campos-Mercade, P., Meier, A. N., Schneider, F. H., Meier, S., Pope, D., \& Weng
 
 \bibitem[\citeproctext]{ref-caro2009}
 Caro, M. (2009). \emph{The foie gras wars: How a 5,000-year-old delicacy inspired the world's fiercest food fight}. Simon; Schuster.
+
+\bibitem[\citeproctext]{ref-cook2002}
+Cook, T. D., Campbell, D. T., \& Shadish, W. (2002). \emph{Experimental and quasi-experimental designs for generalized causal inference} (Vol. 1195). Houghton Mifflin Boston, MA.
 
 \bibitem[\citeproctext]{ref-costello2016}
 Costello, C., Birisci, E., \& McGarvey, R. G. (2016). Food waste in campus dining operations: Inventory of pre-and post-consumer mass by food category, and estimation of embodied greenhouse gas emissions. \emph{Renewable Agriculture and Food Systems}, \emph{31}(3), 191--201.
@@ -376,6 +387,9 @@ Rosenfeld, D. L. (2018). The psychology of vegetarianism: Recent advances and fu
 
 \bibitem[\citeproctext]{ref-scarborough2023}
 Scarborough, P., Clark, M., Cobiac, L., Papier, K., Knuppel, A., Lynch, J., \ldots{} Springmann, M. (2023). Vegans, vegetarians, fish-eaters and meat-eaters in the UK show discrepant environmental impacts. \emph{Nature Food}, \emph{4}(7), 565--574.
+
+\bibitem[\citeproctext]{ref-simonsohn2022}
+Simonsohn, U., Simmons, J., \& Nelson, L. D. (2022). Above averaging in literature reviews. \emph{Nature Reviews Psychology}, \emph{1}(10), 551--552.
 
 \bibitem[\citeproctext]{ref-slingenbergh2004}
 Slingenbergh, J., Gilbert, M., Balogh, K. de, \& Wint, W. (2004). Ecological sources of zoonotic diseases. \emph{Revue Scientifique Et Technique-Office International Des {é}pizooties}, \emph{23}(2), 467--484.
