@@ -1,12 +1,6 @@
 ---
 title: "appendix to vegan-meta-manuscript"
-format: 
-  pdf:
-    include-in-header: 
-       text: |
-         \usepackage{fvextra}
-         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-         \DefineVerbatimEnvironment{OutputCode}{Verbatim}{breaklines,commandchars=\\\{\}}
+format: pdf
 ---
 
 ## A review of previous reviews
