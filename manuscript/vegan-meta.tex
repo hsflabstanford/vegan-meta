@@ -49,12 +49,6 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\ifLuaTeX
-  \usepackage{luacolor}
-  \usepackage[soul]{lua-ul}
-\else
-  \usepackage{soul}
-\fi
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -236,7 +230,7 @@ Our main quantitative finding is that appeals to personal health and the environ
 
 However, we place low confidence in the generalizability of these results due to two concerns about measurement. The first is social desirability bias arising from self-reported outcomes (Mathur, Peacock, Robinson, \& Gardner, 2021), which are predominant in the information-based literature. The second is the place-based literature's general lack of engagement with the possibility of compensatory/backlash effects: that someone who is nudged into eating less MAP at one meal may perceive a moral license (Blanken, Van De Ven, \& Zeelenberg, 2015; Merritt, Effron, \& Monin, 2010) to eat more MAP later. If we limit our analysis to studies with deal convincingly with both threats to inference, we still conclude that appeals to the environment and health, as well as a handful of nudges and norms messages, reduce reduce MAP consumption, but in the highly specialized context of dining halls at elite American universities. For this literature to truly become shovel-ready for policymakers, it urgently needs extension and replication, along with careful attention to measurement validity.
 
-Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions on top of this already rich set. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews but do not offer meta-analysis. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, ours is the only review to our knowledge to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.\footnote{We'd also note that some of these reviews err strongly on the side of inclusion, and so end up including studies that do not yield credible results, e.g.~studies that use differential screening procedures for treatment and control (Rees et al., 2018) or that altered the treatment after assignment based on subjects' prior diets (Morren, Mol, Blasch, \& Malek, 2021), thereby violating the ``all else equal in expectation'' condition of a randomized controlled trial. As Simonsohn, Simmons, and Nelson (2022) put it, combining ``studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts'' with high-quality studies creates averages that are ``virtually guaranteed to lack a meaningful interpretation'' (p.~XXX).}
+Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions on top of this already rich set. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews but do not offer meta-analysis. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, ours is the only review to our knowledge to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.\footnote{We'd also note that some of these reviews err strongly on the side of inclusion, and so end up including studies that do not yield credible results, e.g.~studies that use differential screening procedures for treatment and control (Rees et al., 2018) or that alter the treatment after assignment based on subjects' prior diets (Morren, Mol, Blasch, \& Malek, 2021), thereby violating the ``all else equal in expectation'' condition of a randomized controlled trial. As Simonsohn, Simmons, and Nelson (2022) put it, combining ``studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts'' with high-quality studies creates averages that are ``virtually guaranteed to lack a meaningful interpretation'' (p.~XXX).}
 
 Second, our paper contributes to a growing literature of meta-analyses, reviews, and ``megastudies'' (Doell, 2023; Milkman et al., 2021) that attempt to compare the efficacy of different approaches to solving social problems. In social psychology, Paluck, Porat, Clark, and Green (2021) and Porat, Gantman, Paluck, Green, and Pezzuto (2024) apply meta-analytic methods to testing the efficacy of different theories at reducing prejudice and sexual violence, respectively, while Vlasceanu et al. (2024) test 11 theoretically diverse interventions aimed at four ``climate mitigation outcomes'' (p.~1).\footnote{This is distinct from the ``Metaketa'' initiatives from Evidence on Governance and Politics, which run many field experiments simultaneously to test the effect of one theoretical approach on a common outcome (Blair et al., 2021; Slough et al., 2021). Metaketas are concerned primarily with external validity, and thus keep the independent variable approximately constant, while megastudies are aimed at comparative efficacy, and so test many distinct treatments.} In a related vein, Bergquist, Thiel, Goldberg, and Linden (2023) provide a meta-analysis of meta-analyses for climate mitigation behaviors, and find that social comparison and financial incentives were generally effective, while information and feedback generally were not. We also build on prior reviews that that holistically assess the efficacy of choice architecture approaches versus, e.g., taxes (List, Rodemeier, Roy, \& Sun, 2023) or subsidies (Campos-Mercade et al., 2021). Finally, a paper from Bergman et al. (2024) compares information-based approaches to ``short-term financial assistance, customized assistance during the housing search process, and connections to landlords'' (p.~XXX) to encourage families to move to high-opportunity areas. Our paper's approach is similar to all of these but distinct, to the best of our knowledge, for the stringency and policy focus of our meta-analytic inclusion criteria.
 
@@ -256,7 +250,7 @@ We share this paper's concerns, and we address them via the following inclusion 
 
 First, we only look at randomized controlled trials for historically well-understood reasons (Cook, Campbell, \& Shadish, 2002; see Simonsohn et al., 2022 for discussion specific to meta-analysis). This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
 
-Second, studies needed to measure MAP consumption directly. This included self-reported outcomes. Although this is a source of bias (Cerri, Thøgersen, \& Testa, 2019; Hebert, Clemow, Pbert, Ockene, \& Ockene, 1995; Hebert et al., 1997), the fact that it is a well-understood, widely studied problem means that we have reasonable priors about its magnitude. This allows us to conduct sensitivity analyses that adequately account for it. However, a tricky case emerged when we found studies that attempted to reduce red or processed meat consumption rather than MAP consumption as a whole. Some of these studies recommended that people substitute to other MAP, such as chicken or fish, but none to our knowledge measured any outcome besides red and/or processed meat. We decided to include studies focused on red and/or processed meat so long as they did not specifically advise substitution to other MAP.
+Second, studies needed to measure MAP consumption directly. This included self-reported outcomes. Although this is a source of bias (Cerri, Thøgersen, \& Testa, 2019; Hebert, Clemow, Pbert, Ockene, \& Ockene, 1995; Hebert et al., 1997), the fact that it is a well-understood, widely studied problem means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, a tricky case emerged in studies that attempted to reduce red or processed meat consumption rather than MAP consumption as a whole. Some of these studies recommended that people substitute to other MAP, such as chicken or fish, but none to our knowledge measured any outcome besides red and/or processed meat. We decided to include studies focused on red and/or processed meat so long as they did not specifically advise inter-MAP substitution.
 
 Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g.~a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g.~if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point at length in our quantitative results.
 
@@ -268,24 +262,15 @@ We also required that the full papers be available on the internet, rather than 
 
 First, we read all qualifying studies that we already knew of, as well as any relevant studies cited in their bibliographies. This yielded four papers.
 
-Second, we located and read 21 previous systematic reviews, starting with Mathur, Peacock, Robinson, et al. (2021) as well as Bianchi, Garnett, et al. (2018) and Bianchi, Dorsel, Garnett, Aveyard, and Jebb (2018). Those three reviews yielded nine additional papers. We then read and categorized papers from 18 additional reviews (assisted greatly by Grundy et al. (2022), a review of reviews); From Harguess, Crespo, and Hong (2020) and
+Second, we located and read 21 previous systematic reviews, starting with Mathur, Peacock, Robinson, et al. (2021) as well as Bianchi, Garnett, et al. (2018) and Bianchi, Dorsel, Garnett, Aveyard, and Jebb (2018). Those three reviews yielded ten additional papers. We then read and categorized papers from 18 additional reviews (assisted greatly by Grundy et al. (2022), a review of reviews); From Harguess, Crespo, and Hong (2020) and Chang, Wooden, Rosman, Altema-Johnson, and Ramsing (2023) we learned of three additional papers.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \tightlist
-  \item
-    Our search for reviews was assisted greatly by posts by~\href{https://forum.effectivealtruism.org/posts/Sy7swEetrtcK2C7q6/research-summary-a-meta-review-of-interventions-that}{\ul{Peter Slattery}} and~\href{https://forum.effectivealtruism.org/posts/azHZ2pQj9JgdZLC63/what-interventions-influence-animal-product-consumption}{\ul{Emily Grundy}} summarizing their~\href{https://www.sciencedirect.com/science/article/pii/S2666833521000976\#!}{\ul{2022 review of reviews}}.
-  \end{enumerate}
-\item
-  We searched the homepages, Google Scholar pages, and co-authorship lists of researchers with studies in our database.
-\item
-  Occasionally, articles' published pages suggested further reading that seemed promising.
-\item
-  Once we had a pretty good list assembled, we emailed~\href{https://www.mayamathur.com/}{\ul{Maya Mathur}},~\href{https://www.jacobpeacock.com/}{\ul{Jacob Peacock}},~\href{https://www.oxy.edu/academics/faculty/andrew-jalil}{\ul{Andrew Jalil}},~\href{https://www.bc.edu/bc-web/schools/mcas/departments/psychology/people/faculty-directory/gregg-sparkman.html}{\ul{Gregg Sparkman}},~\href{https://scholar.cgu.edu/joshua-tasoff/}{\ul{Joshua Tasoff}},~\href{https://luciuscaviola.com/}{\ul{Lucius Caviola}},~\href{https://jacyanthis.com/}{\ul{Jacy Reese Anthis}},~\href{https://www.phc.ox.ac.uk/team/emma-garnett}{\ul{Emma Garnett}},~\href{https://www.daniellrosenfeld.com/}{\ul{Daniel Rosenfeld}} and~\href{https://www.kent.ac.uk/psychology/people/220/dhont-kristof}{\ul{Kristof Dhont}} to see if we had missed any relevant papers.~
-\end{enumerate}
+Third, We checked the CVs of prominent researchers in the field, which yielded two additional papers. The bibliography of one of those papers yielded one more.
+
+Fourth, we conducted a snowball search, including reading many of the papers suggested to us by article homepages and papers that cited articles already in our database. This yielded seven additional papers.
+
+Fifth, we emailed a preliminary version of our database to several peer researchers and asked if we had missed any. This yielded one further paper.
+
+Finally, we conducted a systematic search of Google Scholar for the terms {[}OUR SEARCH TERMS ONCE WE ARE DONE{]}. This yielded one more paper, bringing our total sample size to twenty-nine papers with 43 separate interventions.\footnote{maybe a footnote here about a few interventions we condensed}~
 
 \subsection{3 The meta-analytic database}\label{the-meta-analytic-database}
 
@@ -303,9 +288,11 @@ Second, we located and read 21 previous systematic reviews, starting with Mathur
 
 Lohmann, Gsottbauer, Doherty, and Kontoleon (2022), Klöckner and Ofstad (2017) recommended people eat other kinds of MAP\ldots{}
 
+\subsubsection{Animal welfare}\label{animal-welfare}
+
 \paragraph{Social desirability bias..}\label{social-desirability-bias..}
 
-Consider \href{https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar}{Fehrenbach (2015)}, a 2015 dissertation that tested the ``effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.'' The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of ``high threat'' by informing viewers of the ``the negative health effects of high meat consumption;'' one video also sought to induce feelings of ``high efficacy'' by suggesting ``easy ways to reduce their meat consumption,'' while the ``low efficacy'' group's video ``only included a very minor efficacy component in the conclusion.'' The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they'd eaten in the past 7 days.
+\ldots Consider \href{https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar}{Fehrenbach (2015)}, a 2015 dissertation that tested the ``effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.'' The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of ``high threat'' by informing viewers of the ``the negative health effects of high meat consumption;'' one video also sought to induce feelings of ``high efficacy'' by suggesting ``easy ways to reduce their meat consumption,'' while the ``low efficacy'' group's video ``only included a very minor efficacy component in the conclusion.'' The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they'd eaten in the past 7 days.
 
 Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
 
@@ -323,7 +310,9 @@ Third, the decline in meat-eating among the control group suggests that the inte
 
 In sum, using broad stroke, self-reported outcomes in a context where meat is being presented as bad for you seems like a high-risk environment for \href{https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml}{experimenter demand effects}.
 
-\subsection{4}\label{section}
+\subsection{4 Meta-analytic Methods}\label{meta-analytic-methods}
+
+\subsection{5 Meta-analysis}\label{meta-analysis}
 
 \subsubsection*{Bibliography}\label{bibliography}
 \addcontentsline{toc}{subsubsection}{Bibliography}
@@ -359,6 +348,9 @@ Caro, M. (2009). \emph{The foie gras wars: How a 5,000-year-old delicacy inspire
 
 \bibitem[\citeproctext]{ref-cerri2019}
 Cerri, J., Thøgersen, J., \& Testa, F. (2019). Social desirability and sustainable food research: A systematic literature review. \emph{Food Quality and Preference}, \emph{71}, 136--140.
+
+\bibitem[\citeproctext]{ref-chang2023}
+Chang, K. B., Wooden, A., Rosman, L., Altema-Johnson, D., \& Ramsing, R. (2023). Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis. \emph{Frontiers in Sustainable Food Systems}, \emph{7}, 1103060.
 
 \bibitem[\citeproctext]{ref-cook2002}
 Cook, T. D., Campbell, D. T., \& Shadish, W. (2002). \emph{Experimental and quasi-experimental designs for generalized causal inference} (Vol. 1195). Houghton Mifflin Boston, MA.
