@@ -110,28 +110,22 @@ Finally, we conducted a systematic search of Google Scholar for the terms [OUR S
 
 [^3]: In a few cases, we condensed multiple interventions into one statistical result based on commonalities to how they were delivered and/or reported in the paper. @dijkstra2022 ran three separate information interventions based on environmental, health, and animal welfare appeals, but present the results aggregated by dependent variable rather than condition: "the main effect of condition was not significant: for red meat consumption...[or] for processed meat consumption...None of the contrasts were significant (all ps \> 0.11)" (p. 6). Likewise, @lacroix2022 test two interventions but present a $\beta$ coefficient for 'Treatment' without further subdividing. We note that both studies' main outcome ofi interest was treatment effect on different subgroups based on covariate values rather than treatment status; our main quantity of interest, by contrast, is average treatment effect (ATE). While subgroup analyses are theoretically interesting, and it's very plausible that some treatments work best for some populations, we would have preferred that subgroups be specified in advance of data collection and then treatment be randomly assigned within subgroups. Without these guardrails, this kind of estimation procedure demonstrates the risks of researcher degrees of freedom as source of upwardly biased results [@wicherts2016]. Thereforefore we calculate the ATE rather than presenting the subgroup analyses as they are reported in the papers.
 
-    				
+## 3 The meta-analytic database
 
-    			
+We first offer some descriptive statistics of our database and then provide a theoretical review.
 
-    		
-
-    	
-
-## 3 The meta-analytic database 
-
-### 3.1 Descriptive statistics
+### 3.1 Descriptive overview of meta-analytic database
 
 ```{r, echo = F, eval = F}
 library(dplyr)
 library(stringr)
+library(purrr)
 source("./code/functions/sum_tab.R")
 
-dat <- read.csv('./data/vegan-meta.csv')
-# add group_id and decade
-dat <- dat |> group_by(title) |> mutate(unique_study_id = cur_group_id(),
-                                        decade = cut(year, breaks = c(2000, 2010, 2020, 2025), labels = c("2000s", "2010s", "2020s"), right = FALSE),
-                                        total_sample = n_c_post + n_c_post) |> ungroup() |> 
+dat <- read.csv('./data/vegan-meta.csv') |> group_by(title) |> 
+  mutate(unique_study_id = cur_group_id(),
+         decade = cut(year, breaks = c(2000, 2010, 2020, 2025), labels = c("2000s", "2010s", "2020s"), right = FALSE),
+         total_sample = n_c_post + n_c_post) |> ungroup() |> 
   select(unique_study_id, everything())
 
 # range of years
@@ -139,20 +133,28 @@ range(dat$year)
 dat |> group_by(unique_study_id) |> slice(1) |> sum_tab(decade)
 
 # how many papers have DOIs (i.e. were published in academic journals)
-dat |>
+dat |> group_by(unique_study_id) |> 
   summarize(has_doi = any(str_detect(doi_or_url, "10\\."))) |> sum_tab(has_doi)
 
-# ; cluster yes or no; average sample size
-dat |> group_by(unique_study_id) |> slice(1) |> sum_tab(cluster_assigned)
+# cluster count; average sample size by cluster yes/no
+dat |> sum_tab(cluster_assigned)
 dat |> group_by(cluster_assigned) |> 
   reframe(range_total_sample = range(total_sample),
           median_sample = median(total_sample))
+
+# self-reported outcomes
+dat |> sum_tab(self_report)
+dat |> split(~theory)  |> map(.f = sum_tab, var = self_report)
+
 ```
 
-The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s. 
+The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s.
 
-Twenty-two of twenty-nine papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among articles published in journals, _Appetite_ is the leading venue with six publications. _The Journal of Environmental Psychology_, _American Journal of Public Health_, _Nature Food_, and _Frontiers in Psychology_ had two articles each. The remainder were published in a wide variety of journals spanning the fields of food and nutrition, sustainability, psychology, and public health.
+Twenty-two of twenty-nine papers were published in peer reviewed journals. (Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations.) Among journal articles, *Appetite* is the leading venue with six publications, followed by *Journal of Environmental Psychology*, *American Journal of Public Health*, *Nature Food*, and *Frontiers in Psychology* with two each. The remainder were published in journals covering such diverse subjects as food and nutrition, sustainability, psychology, and public health.
 
+Twenty-nine studies assigned treatment at the level of the individual; those studies had an average sample size of 204 with a range of 78 to 1312. For the fourteen cluster-assigned studies, the median number of clusters was 54, with a range of 10 to 212. (Some clusters comprised just a few individuals each.)
+
+Twenty-four papers provide self-report data, while
 
 ### 3.2 A diverse array of theoretical approaches
 
