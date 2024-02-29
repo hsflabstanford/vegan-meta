@@ -32,7 +32,7 @@ abstract: |
 authornote: |
  This work was generously supported by the Food System Research Fund and the NIH (grant 5R01LM013866-03). Thanks to Alex Berke, Alix Winter, Andrey Fradkin, Anson Berns, Hari Dandapani, Martin Gould, Martin Rowe, Matt Lerner, Adin Richards, and Daniel Waldinger for suggestions and comments on an early draft. Thanks to Lucius Caviola, Emma Garnett, Andrew Jalil, Jacob Peacock, Gregg Sparkman, and Joshua Tasoff for helping us assemble the database and providing guidance on their studies.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "2882"
+wordcount: "3130"
 bibliography: "vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -94,6 +94,8 @@ We also required that the full papers be available on the internet, rather than 
 
 ### 2.2 Our search process
 
+Our cutoff date for papers was December 2023.
+
 First, we read all qualifying studies that we already knew of, as well as any relevant studies cited in their bibliographies. This yielded four papers.
 
 Second, we located and read 21 previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded ten additional papers. We then read and categorized papers from 18 additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020 and @chang2023 we learned of three additional papers.
@@ -104,7 +106,7 @@ Fourth, we conducted a snowball search, including reading many of the papers sug
 
 Fifth, we emailed a preliminary version of our database to several peer researchers and asked if we had missed any. This yielded one further paper.
 
-Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded one more paper, bringing our total sample size to twenty-nine papers with 43 separate interventions.[^3] 
+Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded one more paper, bringing our total sample size to 29 papers and 43 interventions.[^3]
 
 [^3]: In a few cases, we condensed multiple interventions into one statistical result based on commonalities to how they were delivered and/or reported in the paper. @dijkstra2022 ran three separate information interventions based on environmental, health, and animal welfare appeals, but present the results aggregated by dependent variable rather than condition: "the main effect of condition was not significant: for red meat consumption...[or] for processed meat consumption...None of the contrasts were significant (all ps \> 0.11)" (p. 6). Likewise, @lacroix2022 test two interventions but present a $\beta$ coefficient for 'Treatment' without further subdividing. We note that both studies' main outcome ofi interest was treatment effect on different subgroups based on covariate values rather than treatment status; our main quantity of interest, by contrast, is average treatment effect (ATE). While subgroup analyses are theoretically interesting, and it's very plausible that some treatments work best for some populations, we would have preferred that subgroups be specified in advance of data collection and then treatment be randomly assigned within subgroups. Without these guardrails, this kind of estimation procedure demonstrates the risks of researcher degrees of freedom as source of upwardly biased results [@wicherts2016]. Thereforefore we calculate the ATE rather than presenting the subgroup analyses as they are reported in the papers.
 
@@ -116,11 +118,11 @@ Finally, we conducted a systematic search of Google Scholar for the terms [OUR S
 
     	
 
-## 3 The meta-analytic database
+## 3 The meta-analytic database 
 
 ### 3.1 Descriptive statistics
 
--   when, where published, where take place
+The earliest paper in our sample is @allen20022, and the latest is @jalil2023 and While there is no singular disciplinary home to these papers, social psychology seems to house the plurality. The mos popular journal in this literature is *Appetite*, with six papers.
 
 ### 3.2 A diverse array of theoretical approaches
 
