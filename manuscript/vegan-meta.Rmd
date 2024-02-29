@@ -62,8 +62,11 @@ However, we place low confidence in the generalizability of these results due to
 
 Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions on top of this already rich set. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews but do not offer meta-analysis. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, ours is the only review to our knowledge to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.[^1]
 
+[^1]: We'd also note that some of these reviews err strongly on the side of inclusion, and so end up including studies that do not yield credible results, e.g. studies that use differential screening procedures for treatment and control [@rees2018] or that alter the treatment after assignment based on subjects' prior diets [@morren2021], thereby violating the "all else equal in expectation" condition of a randomized controlled trial. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
+
 Second, our paper contributes to a growing literature of meta-analyses, reviews, and "megastudies" [@doell2023; @milkman2021] that attempt to compare the efficacy of different approaches to solving social problems. In social psychology, @paluck2021 and @porat2024 apply meta-analytic methods to testing the efficacy of different theories at reducing prejudice and sexual violence, respectively, while @vlasceanu2024 test 11 theoretically diverse interventions aimed at four "climate mitigation outcomes" (p. 1).[^2] In a related vein, @bergquist2023 provide a meta-analysis of meta-analyses for climate mitigation behaviors, and find that social comparison and financial incentives were generally effective, while information and feedback generally were not. We also build on prior reviews that that holistically assess the efficacy of choice architecture approaches versus, e.g., taxes [@list2023] or subsidies [@campos2021]. Finally, a paper from @bergman2024 compares information-based approaches to "short-term financial assistance, customized assistance during the housing search process, and connections to landlords" (p. XXX) to encourage families to move to high-opportunity areas. Our paper's approach is similar to all of these but distinct, to the best of our knowledge, for the stringency and policy focus of our meta-analytic inclusion criteria.
 
+[^2]: This is distinct from the "Metaketa" initiatives from Evidence on Governance and Politics, which run many field experiments simultaneously to test the effect of one theoretical approach on a common outcome [@slough2021; @blair2021]. Metaketas are concerned primarily with external validity, and thus keep the independent variable approximately constant, while megastudies are aimed at comparative efficacy, and so test many distinct treatments.
 
 The remainder of the paper proceeds as follows. Section 2 details (and motivates) the inclusion criteria and search process by which we assembled our meta-analytic database. Section 3 describes the database. We provide some descriptive statistics about the database, and then present its six major theoretical approaches \textemdash environmental, health, and animal welfare appeals to MAP reduction comprising information-based strategies, and norms manipulations, choice architecture, and incentive approaches comprising place-based strategies \textemdash and representative literature from each. For each subset, we also highlight some frequent design or measurement limitations that led us to exclude otherwise promising results. Section 4 provides an overview of our meta-analytic methods and procedures.
 
@@ -103,13 +106,23 @@ Fifth, we emailed a preliminary version of our database to several peer research
 
 Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded one more paper, bringing our total sample size to twenty-nine papers with 43 separate interventions.[^3] 
 
+[^3]: In a few cases, we condensed multiple interventions into one statistical result based on commonalities to how they were delivered and/or reported in the paper. @dijkstra2022 ran three separate information interventions based on environmental, health, and animal welfare appeals, but present the results aggregated by dependent variable rather than condition: "the main effect of condition was not significant: for red meat consumption...[or] for processed meat consumption...None of the contrasts were significant (all ps \> 0.11)" (p. 6). Likewise, @lacroix2022 test two interventions but present a $\beta$ coefficient for 'Treatment' without further subdividing. We note that both studies' main outcome ofi interest was treatment effect on different subgroups based on covariate values rather than treatment status; our main quantity of interest, by contrast, is average treatment effect (ATE). While subgroup analyses are theoretically interesting, and it's very plausible that some treatments work best for some populations, we would have preferred that subgroups be specified in advance of data collection and then treatment be randomly assigned within subgroups. Without these guardrails, this kind of estimation procedure demonstrates the risks of researcher degrees of freedom as source of upwardly biased results [@wicherts2016]. Thereforefore we calculate the ATE rather than presenting the subgroup analyses as they are reported in the papers.
+
+    				
+
+    			
+
+    		
+
+    	
+
 ## 3 The meta-analytic database
 
-### Descriptive statistics
+### 3.1 Descriptive statistics
 
 -   when, where published, where take place
 
-### A diverse array of theoretical approaches
+### 3.2 A diverse array of theoretical approaches
 
 ### Health
 
@@ -140,9 +153,3 @@ In sum, using broad stroke, self-reported outcomes in a context where meat is be
 ## 5 Meta-analysis
 
 ### Bibliography
-
-[^1]: We'd also note that some of these reviews err strongly on the side of inclusion, and so end up including studies that do not yield credible results, e.g. studies that use differential screening procedures for treatment and control [@rees2018] or that alter the treatment after assignment based on subjects' prior diets [@morren2021], thereby violating the "all else equal in expectation" condition of a randomized controlled trial. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
-
-[^2]: This is distinct from the "Metaketa" initiatives from Evidence on Governance and Politics, which run many field experiments simultaneously to test the effect of one theoretical approach on a common outcome [@slough2021; @blair2021]. Metaketas are concerned primarily with external validity, and thus keep the independent variable approximately constant, while megastudies are aimed at comparative efficacy, and so test many distinct treatments.
-
-[^3]: maybe a footnote here about a few interventions we condensed
