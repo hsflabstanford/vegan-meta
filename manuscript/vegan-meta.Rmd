@@ -149,7 +149,7 @@ dat |> group_by(cluster_assigned) |>
           median_sample = median(total_sample))
 ```
 
-The earliest paper in our sample is @allen20022, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s. 
+The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s. 
 
 Twenty-two of twenty-nine papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among articles published in journals, _Appetite_ is the leading venue with six publications. _The Journal of Environmental Psychology_, _American Journal of Public Health_, _Nature Food_, and _Frontiers in Psychology_ had two articles each. The remainder were published in a wide variety of journals spanning the fields of food and nutrition, sustainability, psychology, and public health.
 
