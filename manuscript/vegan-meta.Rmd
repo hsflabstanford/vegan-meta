@@ -122,7 +122,37 @@ Finally, we conducted a systematic search of Google Scholar for the terms [OUR S
 
 ### 3.1 Descriptive statistics
 
-The earliest paper in our sample is @allen20022, and the latest is @jalil2023 and While there is no singular disciplinary home to these papers, social psychology seems to house the plurality. The mos popular journal in this literature is *Appetite*, with six papers.
+```{r, echo = F, eval = F}
+library(dplyr)
+library(stringr)
+source("./code/functions/sum_tab.R")
+
+dat <- read.csv('./data/vegan-meta.csv')
+# add group_id and decade
+dat <- dat |> group_by(title) |> mutate(unique_study_id = cur_group_id(),
+                                        decade = cut(year, breaks = c(2000, 2010, 2020, 2025), labels = c("2000s", "2010s", "2020s"), right = FALSE),
+                                        total_sample = n_c_post + n_c_post) |> ungroup() |> 
+  select(unique_study_id, everything())
+
+# range of years
+range(dat$year)
+dat |> group_by(unique_study_id) |> slice(1) |> sum_tab(decade)
+
+# how many papers have DOIs (i.e. were published in academic journals)
+dat |>
+  summarize(has_doi = any(str_detect(doi_or_url, "10\\."))) |> sum_tab(has_doi)
+
+# ; cluster yes or no; average sample size
+dat |> group_by(unique_study_id) |> slice(1) |> sum_tab(cluster_assigned)
+dat |> group_by(cluster_assigned) |> 
+  reframe(range_total_sample = range(total_sample),
+          median_sample = median(total_sample))
+```
+
+The earliest paper in our sample is @allen20022, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s. 
+
+Twenty-two of twenty-nine papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among articles published in journals, _Appetite_ is the leading venue with six publications. _The Journal of Environmental Psychology_, _American Journal of Public Health_, _Nature Food_, and _Frontiers in Psychology_ had two articles each. The remainder were published in a wide variety of journals spanning the fields of food and nutrition, sustainability, psychology, and public health.
+
 
 ### 3.2 A diverse array of theoretical approaches
 
