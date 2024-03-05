@@ -196,7 +196,7 @@ dat |> filter(theory == 'economics') |> select(author, year, d, se_d)
 setNames(
   lapply(c('animal welfare', 'environment', 'health'), function(term) {
     dat %>%
-      filter(str_detect(persuasion_category, term)) %>%
+      filter(str_detect(theory_sub_category, term)) %>%
       count_and_robust()
   }),
   c('animal', 'environment', 'health')
