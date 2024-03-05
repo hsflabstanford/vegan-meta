@@ -1,5 +1,5 @@
 ---
-title: "vegan-meta-appendix"
+title: "vegan meta appendix"
 author: "Seth Green"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 ---
