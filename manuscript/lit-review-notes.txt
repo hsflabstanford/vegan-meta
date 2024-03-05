@@ -2,8 +2,10 @@
 https://www.nature.com/articles/s41562-023-01555-3
 (though not always https://www.nature.com/articles/s41586-021-04128-4)
 
+for general omment on portion size literature: https://ijbnpa.biomedcentral.com/articles/10.1186/1479-5868-6-58?report=reader
+
 ### choice architecture 
-general evidence these don't scale: https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA18709
+general evidence these don't scale: https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA18709 (could test just within the nudges the relationship between effect size and sample size)
 but apparentrly they work best for diet: https://www.pnas.org/doi/10.1073/pnas.2107346118
 how they are justified https://onlinelibrary.wiley.com/doi/full/10.1111/joes.12453
 general review of nudges: https://www.annualreviews.org/doi/10.1146/annurev-economics-080213-041033
@@ -17,3 +19,11 @@ call it trickery because there's no evidence that they are communicating true in
 ### ok we're doing a bit of a systematic search
 Google scholar for "randomized controlled trial" "meat and animal products"
 
+
+mention goal-setting https://psycnet.apa.org/doiLanding?doi=10.1037%2Fbul0000025
+
+and theory of planned behavior: Ajzen, Icek. "The theory of planned behaviour: Reactions and reflections." Psychology & health 26.9 (2011): 1113-1127.
+
+Openness/transparency
+
+data available upon request doesn't mean anything https://osf.io/preprints/psyarxiv/jbu9r/
