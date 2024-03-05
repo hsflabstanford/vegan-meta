@@ -2,8 +2,7 @@
 title: "vegan-meta-appendix"
 author: "Seth Green"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
-output: 
-  pdf_document: default
+output: papaja::apa6_pdf
 ---
 
 ## A review of previous reviews
