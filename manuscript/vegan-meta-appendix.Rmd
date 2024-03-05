@@ -2,8 +2,9 @@
 title: "vegan-meta-appendix"
 author: "Seth Green"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
-output: papaja::apa6_pdf
 ---
+
+ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML which is insane but whatever
 
 ## A review of previous reviews
 
