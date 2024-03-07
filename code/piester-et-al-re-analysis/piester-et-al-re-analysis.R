@@ -17,7 +17,7 @@ study_two_dat |>
     no_buy_veggie_item = sum(veggie.buy == 0, na.rm = TRUE),
     nas = sum(is.na(veggie.buy))
   )
-# these Ns don't line up with those in the paper very well
+# these Ns don't line up with those in the paper. Something is amiss
 
 # linear coefficients? as a sanity check
 models <- study_two_dat |>
