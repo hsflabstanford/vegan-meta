@@ -2,7 +2,7 @@ library(haven)
 library(dplyr, warn.conflicts = F)
 
 # study 2
-study_two_dat <- haven::read_sav(file = './Piester et al. Cafe Studies Study 2.public.sav')
+study_two_dat <- haven::read_sav(file = 'code/piester-et-al-re-analysis/Piester et al. Cafe Studies Study 2.public.sav')
 
 study_two_dat |>
   group_by(condition = case_when(
