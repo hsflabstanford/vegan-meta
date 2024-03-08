@@ -1,4 +1,4 @@
-### litearture this falls under
+### literature this falls under
 https://www.nature.com/articles/s41562-023-01555-3
 (though not always https://www.nature.com/articles/s41586-021-04128-4)
 
@@ -32,3 +32,6 @@ Serious critique of behavioral econ: https://link.springer.com/article/10.1007/s
 
 Carnism as ideology: https://www.sciencedirect.com/science/article/abs/pii/S0195666316305128
 
+# attitudes and intentions don't predict behavior
+
+Do we really need to code attitudes to make this point? We can be pretty sure of it, and others have made it. Wolstenholme	2020: "Intervention studies aimed at reducing meat consumption have begun to emerge in the literature in recent years. These studies have demonstrated that information provision can be effective in encouraging individuals to reduce their meat consumption (e.g., see Bianchi et al., 2018). Although, it should be noted that much of the literature has focused on the effectiveness of interventions on changing attitudes or intentions to eat meat, while fewer studies have demonstrated the effect of informational strategies on eliciting behavior change, i.e., reducing meat consumption (see Harguess et al., 2019). This is problematic as attitudes and intentions do not always predict behavior (Kormos and Gifford, 2014; Hassan et al., 2016), including reducing ones’ meat consumption"
