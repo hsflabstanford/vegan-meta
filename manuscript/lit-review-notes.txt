@@ -19,7 +19,7 @@ call it trickery because there's no evidence that they are communicating true in
 Mathur et al. 2021 but also https://journals.sagepub.com/doi/10.1177/0013916584164005
 ### ok we're doing a bit of a systematic search
 Google scholar for "randomized controlled trial" "meat and animal products"
-
+"Dynamic norms" "meat consumption"
 ### Sparkman 2017 on why meat is bad
 
 " Livestock produce 14.5% to 18% of the total global warming effect, an amount larger than all of transportation (Gerber et al., 2013). Moreover, many people consume far more meat than physicians recommend (Westhoek et al., 2014)."
@@ -57,3 +57,10 @@ Parkman 2017 does a power analysis based on results of earlier studies for study
 "A sample size of 100 participants per condition provides more than 80% power to detect an effect size similar to the small-to-medium-size effects found in Experiments 1 and 2 (ds = 0.31–0.41)." Probably others do this as well (I can double-check). But power analyses should be baed on behavioral effects, which tend to be smaler. Based on our literature review, we'd say folks should estimate for sufficiently powered to detect an effect size of about 0.1-0.2. Reference the Econ paper Jeff sent as well in this context.
 
 ## Subsection on "dynamic" norms within norms
+
+
+## additional systematic reviews?
+Mention Weikertová meta of dynamic norms
+
+## as to whether norms are nudges, see Hansen, P. G. (2016). The definition of nudge and libertarian paternalism: Does the hand fit the glove? Brachem 2019 says "Injunctive social norms don’t necessarily qualify as nudges according to Hansen’s (2016) definition, as they work at least partly by changing incentives through the implication of social sanctions." But I think these norm interventions are all pretty descriptive rather than injunctive
+fit the glove

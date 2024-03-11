@@ -14,7 +14,8 @@
 #' Possible values: "d_i_d" (difference in differences), "d_i_m" (difference in means),
 #' "d_i_p" (difference in proportions), "d" (reporting of change of SDs in text),
 #' "unspecified null", "reg_coef" (regression coefficient), "t_test" (t test),
-#' "f_test" (f test), "odds_ratio" (odds ratio), "log_odds_ratio" (log odds ratio).
+#' "f_test" (f test), "odds_ratio" (odds ratio), "log_odds_ratio" (log odds ratio),
+#' or "z" (z test")
 #' @param stat Unstandardized effect size.
 #' @param sample_sd Standard deviation of the relevant sample (preferably of the control group).
 #' @param n_t Treatment group sample size.
@@ -54,6 +55,8 @@ d_calc <- function(stat_type, stat, sample_sd, n_t, n_c) {
     #' is $p(1-p)$; so the estimator in total is 
     #'  $$\Delta = \frac{p_{1} - p_{2}}{\sqrt{p_{2} * (1 - p_{2)}}}$$
     d = stat / (sqrt(sample_sd * (1 - sample_sd)))
+  } else if (stat_type == "z") {
+    d = stat / sqrt(n_t + n_c)
   } else {
     #' Default value if stat_type is unrecognized
     d <- NA
