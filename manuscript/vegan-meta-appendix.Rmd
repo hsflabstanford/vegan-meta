@@ -56,6 +56,10 @@ ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML wh
 | Wynes          | 2018    | Measuring what works: quantifying greenhouse gas emission reductions of behavioral interventions to reduce driving, meat consumption, and household energy use | Behavior change for GHG emissions reduction                                                                                                  | Narrative review                    | Nudges, such as defaults, work to reduce meat consumption                                                                                                                        |
 +----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ** Add https://osf.io/preprints/psyarxiv/qfn6y **
+<<<<<<< HEAD
+=======
+Deviations from PAP
+>>>>>>> b61a006ce10a32de21e227d0463970d87b5ceb66
 
 Lesser Methods declarations
 
