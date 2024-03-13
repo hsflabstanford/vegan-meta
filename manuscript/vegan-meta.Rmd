@@ -45,10 +45,8 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r, eval=FALSE, echo=FALSE}
+```{r dat_setup, eval=FALSE, echo=FALSE}
 library(dplyr)
-library(stringr)
-library(purrr)
 source("./code/functions/sum_tab.R")
 
 dat <- read.csv('./data/vegan-meta.csv') |> group_by(title) |> 
@@ -56,10 +54,13 @@ dat <- read.csv('./data/vegan-meta.csv') |> group_by(title) |>
   group_by(title, intervention_condition) |> 
   mutate(unique_study_id = cur_group_id()) |> 
   ungroup() |>
-  select(author, year, title, unique_paper_id, unique_study_id, everything()) |> 
-  mutate(decade = cut(year, breaks = c(2000, 2010, 2020, 2025), labels = c("2000s", "2010s", "2020s"), right = FALSE),
-         total_sample = n_c_post + n_c_post)
- 
+  mutate(decade = cut(year, breaks = c(2000, 2010, 2020, 2025), 
+                      labels = c("2000s", "2010s", "2020s"), right = FALSE),
+         total_sample = n_c_post + n_c_post) |>
+  select(author, year, title, unique_paper_id, unique_study_id, everything())
+
+num_papers <- as.numeric(max(dat$unique_paper_id))
+num_studies <- as.numeric(max(dat$unique_study_id))
 ```
 ## 1. Introduction: a multitude of perspectives on changing dietary behavior
 
@@ -67,7 +68,7 @@ Reducing consumption of meat and animal products (MAP) is vital to many policy g
 
 Policymakers have a broad array of tools at their disposal for attempting to change eating behavior. For example, they can ban certain kinds of food [@caro2009] or practices [@bursey2018] perceived to be unusually cruel; campaign for vegetarianism [@trewern2022]; or change eating environments to make non-meat options more salient or appealing [@guthrie2015; @bianchi2018restructuring]. However, any policy lever which focuses on supply rather than reducing consumer demand risks backsliding through political correction [@michielsen2022]. It is essential, therefore, to assess which theoretical approaches most effectively and durably alter consumer eating behavior. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis.
 
-A previous review called on future MAP research to feature more “direct behavioral outcomes” and “long-term follow-up" [@mathur2021meta, p. 1]. Our paper builds on that one, and thus restricts its meta-analysis to the very most rigorous, policy-ready research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified 42 such interventions published in 28 papers or technical reports.
+A previous review called on future MAP research to feature more “direct behavioral outcomes” and “long-term follow-up" [@mathur2021meta, p. 1]. Our paper builds on that one, and thus restricts its meta-analysis to the very most rigorous, policy-ready research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified `r num_studies` such interventions published in `r num_papers` papers or technical reports.
 
 Scholars have approached MAP reduction from many disciplines, including social psychology [@rosenfeld2018; @dhont2019], economics [@lusk2009], choice architecture [@bianchi2018restructuring; @mertens2022]; and environmental studies [@costello2016]. The central theoretical divide we observe among policy-ready studies is between **information-based approaches** that attempt to change ideas about MAP consumption, **nudges** that make MAP consumption less salient, alter the defaults, and expensive, and **norms-based approaches** that make MAP seem socially undesirable. Which of these approaches is more effective at changing real world behavior has broad implications for behavioral scientists and policymakers.
 
@@ -77,7 +78,7 @@ However, we place low confidence in the generalizability of these results due to
 
 Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions on top of this already rich set. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews but do not offer meta-analysis. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, ours is the only review to our knowledge to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.[^1]
 
-[^1]: We'd also note that some of these reviews err strongly on the side of inclusion, and thus end up meta-analyzing studies with serious threats to internal validity. For example, prior reviews included studies that use differential screening procedures for treatment and control [@rees2018] or that alter the treatment after assignment based on subjects' prior diets [@morren2021], thereby violating the 'all else equal in expectation' condition of a randomized controlled trial. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
+[^1]: We'd also note that some of these reviews err strongly on the side of inclusion, and thus end up meta-analyzing studies with serious threats to internal validity. For example, prior reviews included studies that use differential screening procedures for treatment and control [@rees2018] or that alter the treatment after assignment based on subjects' prior diets [@morren2021]; these procedures violate the 'all else equal in expectation' condition of a randomized controlled trial. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
 
 Second, our paper contributes to a growing literature of meta-analyses, reviews, and "megastudies" [@doell2023; @milkman2021; @milkman2021megastudy] that attempt to compare the efficacy of different approaches to solving social problems. In social psychology, @paluck2021 and @porat2024 apply meta-analytic methods to testing the efficacy of different theories at reducing prejudice and sexual violence, respectively, while @vlasceanu2024 test 11 theoretically diverse interventions aimed at four "climate mitigation outcomes" (p. 1).[^2] In a related vein, @bergquist2023 provide a meta-analysis of meta-analyses for climate mitigation behaviors, and find that social comparison and financial incentives were generally effective, while information and feedback generally were not. We also build on prior reviews that that holistically assess the efficacy of choice architecture approaches versus, e.g., taxes [@list2023] or subsidies [@campos2021]. Finally, a paper from @bergman2024 compares information-based approaches to "short-term financial assistance, customized assistance during the housing search process, and connections to landlords" (p. XXX) to encourage families to move to high-opportunity areas. Our paper's approach is similar to all of these but distinct, to the best of our knowledge, for the stringency and policy focus of our meta-analytic inclusion criteria.
 
@@ -99,11 +100,11 @@ We share this paper's concerns, and we address them via the following inclusion 
 
 First, we only look at randomized controlled trials for historically well-understood reasons [@cook2002; see @simonsohn2022 for discussion specific to meta-analysis]. This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
 
-Second, studies needed to measure MAP consumption directly. This included self-reported outcomes. Although this is a source of bias [@hebert1995social; @hebert1997gender; @cerri2019], the fact that it is a well-understood, widely studied problem means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses.
+Second, studies needed to measure MAP consumption directly. This included self-reported outcomes. Although this is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses.
 
-Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g. a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g. if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point at length in our quantitative results.
+Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g. a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g. if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point in our quantitative results.
 
-Finally, we required that studies have at least 25 subjects in treatment and control, or, for cluster-assigned studies, at least 10 clusters. @paluck2021 found that studies with fewer than 25 subjects per arm, which constituted the smallest quintile of studies in the prejudice reduction literature, showed systematically larger effects than their larger peers. That paper also argued that fewer than 10 clusters would be too few to calculate meaningful standard errors. In practice, we excluded very few studies for having fewer than 25 subjects, but quite a few for having fewer than 10 clusters; many studies describing themselves as experiments had just one unit assigned to treatment and one to control, but recorded results at the level of individuals, thereby ignoring clustered standard errors. We treat these studies as, effectively, quasi-experiments and did not include them in our database.
+Finally, we required that studies have at least 25 subjects in both treatment and control, or, for cluster-assigned studies, at least 10 clusters in total. @paluck2021 found that studies with fewer than 25 subjects per arm, which constituted the smallest quintile of studies in the prejudice reduction literature, showed systematically larger effects than their larger peers. That paper also argued that fewer than 10 clusters would be too few to calculate meaningful standard errors. In practice, we excluded very few studies for having fewer than 25 subjects, but quite a few for having fewer than 10 clusters; many studies describing themselves as experiments had just one unit assigned to treatment and one to control, but recorded results at the level of individuals, thereby ignoring clustered standard errors. We treat these studies as, effectively, quasi-experiments and did not include them in our database.
 
 We also required that the full papers be available on the internet, rather than just a summary or abstract, and written in English.
 
@@ -111,9 +112,13 @@ We also required that the full papers be available on the internet, rather than 
 
 Our cutoff date for papers was December 2023.
 
+```{r where_do_studies_come_from }
+
+
+```
 First, we read all qualifying studies that we already knew of, as well as any relevant studies cited in their bibliographies. This yielded four papers.
 
-Second, we located and read 21 previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded ten additional papers. We then read and categorized papers from 18 additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020 and @chang2023 we learned of three additional papers.
+Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded ten additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020 and @chang2023 we learned of three additional papers.
 
 Third, We checked the CVs of prominent researchers in the field, which yielded two additional papers. The bibliography of one of those papers yielded one more.
 
