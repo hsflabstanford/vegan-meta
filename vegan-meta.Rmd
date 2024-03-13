@@ -128,23 +128,28 @@ prior_knowledge <- as.numeric(paper_sources["prior knowledge"])
 initial_reviews <- as.numeric(paper_sources["Bianchi (2018a)"]) + 
   as.numeric(paper_sources["Mathur (2021)"])
 
-second_reviews <- as.numeric(paper_sources["Chang et al. (2023)"]) + 
+second_reviews <- as.numeric(paper_sources["Chang (2023)"]) + 
   as.numeric(paper_sources["Harguess (2019)"]) +  as.numeric(paper_sources["Wynes (2018)"])
+
+cv_papers <- as.numeric(paper_sources["CV (Sparkman)"]) + 
+  as.numeric(paper_sources["CV (Jalil)"])
+
+snowball_papers <- as.numeric(paper_sources["snowball search"])
+
+systematic_search_papers <- as.numeric(paper_sources["systematic search"])
 ```
 
 First, we read all qualifying studies that SAG and BS knew of at the outset, which yielded `r prior_knowledge` papers.
 
-Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_reviews` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of three additional papers.
+Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_reviews` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of `r second_reviews` additional papers.
 
-Third, We checked the CVs of prominent researchers in the field, which yielded two additional papers. The bibliography of one of those papers yielded one more.
+Third, We checked the CVs of prominent researchers in the field, which yielded `r cv_papers` additional papers.
 
-Fourth, we conducted a snowball search, including reading many of the papers suggested to us by article homepages and papers that cited articles already in our database. This yielded seven additional papers.
+Fourth, we conducted a snowball search where we read reading papers our papers had cited, papers suggested to us by article homepages, and papers that cited articles already in our database. This yielded `r snowball_papers` papers.
 
-Fifth, we emailed a preliminary version of our database to several peer researchers and asked if we had missed any. This yielded one further paper.
+Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded `r systematic search` more paper, bringing our total sample size to `r num_papers` papers and `r num_studies` interventions.[^3]
 
-Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded one more paper, bringing our total sample size to 28 papers and 42 interventions.[^3]
-
-[^3]: In FOUR cases, we condensed multiple interventions into one statistical result based on commonalities to how they were delivered and/or reported in the paper. First, [ADD POLANCO AND AND THINK ABOUT HOW TO CONDENSE THIS INTO SUMMARIES OF TWO TYPES] @peacock2017 reanalyze an experiment from The Humane League that tested four pamphlets on animal welfare, and "found no significant differences between groups in inspiring change in the self-reported consumption of animal products of any of the five categories" (p. 6). Given the wide variety of outcomes and statistical tests in the paper, and the fact that on some outcomes the control group reported more change than the treatment grops, we combine all four treatment conditions into one 'pamphlet' condition and record the result as an unspecified null, which we set to $\Delta$ = 0.01. Second, @dijkstra2022 ran three separate information interventions based on environmental, health, and animal welfare appeals, but present the results aggregated by dependent variable rather than condition: "the main effect of condition was not significant: for red meat consumption...[or] for processed meat consumption...None of the contrasts were significant (all ps \> 0.11)" (p. 6). Third, @lacroix2020 test three intervention conditions but present a $\beta$ coefficient for 'Treatment' without further subdividing. We note that both studies are focused on moderators., i.e. the effects of treatment on different subgroups rather than average treatment effects. These subgroup analyses are theoretically interesting, and it is intuitive that some treatments work best for some populations. However, in both cases, treatment was not randomly assigned within subgroups, meaning effects within subgrops are not causally identified.
+[^3]: In four cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: @abrahamse2007, @dijkstra2022, @lacroix2020 and @peacock2017. These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded. 
 
 ## 3 The meta-analytic database
 
@@ -157,12 +162,6 @@ library(dplyr)
 library(stringr)
 library(purrr)
 source("./code/functions/sum_tab.R")
-
-dat <- read.csv('./data/vegan-meta.csv') |> group_by(title) |> 
-  mutate(unique_study_id = cur_group_id(),
-         decade = cut(year, breaks = c(2000, 2010, 2020, 2025), labels = c("2000s", "2010s", "2020s"), right = FALSE),
-         total_sample = n_c_post + n_c_post) |> ungroup() |> 
-  select(unique_study_id, everything())
 
 # range of years
 range(dat$year)
