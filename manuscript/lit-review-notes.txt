@@ -66,3 +66,5 @@ Mention Weikertová meta of dynamic norms
 fit the glove
 
 # why do nudges fail, by Cass: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809658
+
+## regarding social norm backlash, Albas 2023: "Moreover, some studies have even observed a so-called boomerang effect, i.e. that social norm interventions lead to undesirable effects (e.g. Clapp et al., 2003; Richter et al., 2018; Wechsler et al., 2003)."
