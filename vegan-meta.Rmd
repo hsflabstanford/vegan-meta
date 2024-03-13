@@ -33,7 +33,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
 wordcount: "3383"
-bibliography: "vegan-refs.bib"
+bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
 draft: no
@@ -41,7 +41,10 @@ mask: no
 figurelist: no
 tablelist: no
 footnotelist: no
-output: papaja::apa6_pdf
+output:
+  papaja::apa6_pdf:
+    knitrOptions:
+      output.dir: './results'
 editor_options: 
   chunk_output_type: console
 ---
