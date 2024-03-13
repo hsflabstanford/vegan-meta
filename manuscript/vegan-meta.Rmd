@@ -45,6 +45,9 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r, eval=FALSE, echo=FALSE}
+dat <- read.csv('./data/vegan-meta.csv')
+```
 ## 1. Introduction: a multitude of perspectives on changing dietary behavior
 
 Reducing consumption of meat and animal products (MAP) is vital to many policy goals. Animal agriculture is a major driver of climate change [@scarborough2023; @koneswaran2008; @goodland2009] as well as more localized environmental and public health harms [@horrigan2002; @slingenbergh2004; @graham2008; @greger2010]. Excess MAP consumption is a leading cause of premature deaths [@willett2019; @landry2023]; finally, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in their own right [@yeates2011; @webster2001; @kuruc2023].
