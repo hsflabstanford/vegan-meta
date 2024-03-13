@@ -46,7 +46,20 @@ editor_options:
 ---
 
 ```{r, eval=FALSE, echo=FALSE}
-dat <- read.csv('./data/vegan-meta.csv')
+library(dplyr)
+library(stringr)
+library(purrr)
+source("./code/functions/sum_tab.R")
+
+dat <- read.csv('./data/vegan-meta.csv') |> group_by(title) |> 
+  mutate(unique_paper_id = cur_group_id()) |> ungroup() |>
+  group_by(title, intervention_condition) |> 
+  mutate(unique_study_id = cur_group_id()) |> 
+  ungroup() |>
+  select(author, year, title, unique_paper_id, unique_study_id, everything()) |> 
+  mutate(decade = cut(year, breaks = c(2000, 2010, 2020, 2025), labels = c("2000s", "2010s", "2020s"), right = FALSE),
+         total_sample = n_c_post + n_c_post)
+ 
 ```
 ## 1. Introduction: a multitude of perspectives on changing dietary behavior
 
