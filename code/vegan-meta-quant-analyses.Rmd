@@ -22,12 +22,12 @@ library(sessioninfo)
 library(stringr)
 
 #' functions
-source('./functions/d_calc.R')
-source('./functions/map_robust.R')
-source('./functions/study_count.R')
-source('./functions/sum_lm.R')
-source('./functions/sum_tab.R')
-source('./functions/var_d_calc.R')
+source('./code/functions/d_calc.R')
+source('./code/functions/map_robust.R')
+source('./code/functions/study_count.R')
+source('./code/functions/sum_lm.R')
+source('./code/functions/sum_tab.R')
+source('./code/functions/var_d_calc.R')
 
 #' options and reproducibility
 options(scipen = 99)

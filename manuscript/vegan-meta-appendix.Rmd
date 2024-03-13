@@ -59,9 +59,9 @@ ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML wh
 **Add https://www.mdpi.com/2071-1050/12/15/5924**
 **Add https://doi.org/10.1017/S1368980017001069**
 **Add https://doi.org/10.1007/s10113-016-1057-5**
-=======
+**Add https://doi.org/10.3389/fpsyg.2022.901927**
+
 Deviations from PAP
->>>>>>> b61a006ce10a32de21e227d0463970d87b5ceb66
 
 Lesser Methods declarations
 

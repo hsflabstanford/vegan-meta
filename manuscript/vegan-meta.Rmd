@@ -50,16 +50,21 @@ editor_options:
 library(dplyr)
 source("./code/functions/sum_tab.R")
 
-dat <- read.csv('./data/vegan-meta.csv') |> group_by(title) |> 
-  mutate(unique_paper_id = cur_group_id()) |> ungroup() |>
-  group_by(title, intervention_condition) |> 
-  mutate(unique_study_id = cur_group_id()) |> 
+dat <- read.csv('./data/vegan-meta.csv')  |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id())  |> 
+  ungroup() |> group_by(unique_paper_id, intervention_condition) |> 
+  mutate(unique_study_id = cur_group_id()) |>
   ungroup() |>
-  mutate(decade = cut(year, breaks = c(2000, 2010, 2020, 2025), 
-                      labels = c("2000s", "2010s", "2020s"), right = FALSE),
-         total_sample = n_c_post + n_c_post) |>
+  mutate(
+         decade = as.factor(
+      case_when(
+        year >= 2000 & year <= 2009 ~ "2000s",
+        year >= 2010 & year <= 2019  ~ "2010s",
+        year >= 2020 ~ "2020s")),
+      total_sample = n_c_post + n_c_post) |>
   select(author, year, title, unique_paper_id, unique_study_id, everything())
-
+  
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 ```
@@ -115,13 +120,21 @@ We also required that the full papers be available on the internet, rather than 
 Our cutoff date for papers was December 2023.
 
 ```{r where_do_studies_come_from }
-sources <- table(dat$source)
-sources["Benny"]
+source("./code/functions/sum_tab.R")
+paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(source)
+paper_sources
+
+prior_knowledge <- as.numeric(paper_sources["prior knowledge"])
+initial_reviews <- as.numeric(paper_sources["Bianchi (2018a)"]) + 
+  as.numeric(paper_sources["Mathur (2021)"])
+
+second_reviews <- as.numeric(paper_sources["Chang et al. (2023)"]) + 
+  as.numeric(paper_sources["Harguess (2019)"]) +  as.numeric(paper_sources["Wynes (2018)"])
 ```
 
-First, we read all qualifying studies that we already knew of, as well as any relevant studies cited in their bibliographies. This yielded four papers.
+First, we read all qualifying studies that SAG and BS knew of at the outset, which yielded `r prior_knowledge` papers.
 
-Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded ten additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020 and @chang2023 we learned of three additional papers.
+Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_reviews` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of three additional papers.
 
 Third, We checked the CVs of prominent researchers in the field, which yielded two additional papers. The bibliography of one of those papers yielded one more.
 
@@ -168,6 +181,7 @@ dat |> group_by(cluster_assigned) |>
 # self-reported outcomes
 dat |> sum_tab(self_report)
 dat |> split(~theory)  |> map(.f = sum_tab, var = self_report)
+
 
 ```
 
@@ -216,5 +230,46 @@ are texts nudges? these articles don't frame it that way but they're very simila
 ## 4 Meta-analytic Methods
 
 ## 5 Meta-analysis
+
+```{r echo=F, include=F}
+library(metafor, quietly = T)
+library(ggplot2, warn.conflicts = F)
+library(knitr)
+library(purrr)
+library(sessioninfo)
+library(stringr)
+
+source('./code/functions/d_calc.R')
+source('./code/functions/var_d_calc.R')
+source('./code/functions/count_and_robust.R')
+
+#' count_and_robust helper function;
+#' necessary b/c `filter |> split |> imap()` didn't work for some reason
+
+  count_and_robust <- function(data) {
+      bind_cols(study_count(data), map_robust(data)) |>
+        kable('markdown')
+  }
+
+dat <- dat |> mutate(d = mapply(
+        FUN = d_calc,
+        stat_type = eff_type,
+        stat =  u_s_d,
+        sample_sd = ctrl_sd,
+        n_t = n_t_post,
+        n_c = n_c_post),
+      var_d = mapply(
+        FUN = var_d_calc,
+        d = d,
+        n_c = n_c_post,
+        n_t = n_t_post),
+      se_d = sqrt(var_d))
+dat |> count_and_robust()
+
+dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
+  split(~has_pap) |>  
+  map(count_and_robust)
+
+```
 
 ### Bibliography
