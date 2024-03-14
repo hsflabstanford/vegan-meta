@@ -32,7 +32,7 @@ abstract: |
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "3383"
+wordcount: "3213"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -156,49 +156,99 @@ We first offer some descriptive statistics of our database and then provide a th
 
 ### 3.1 Descriptive overview of meta-analytic database
 
-```{r descriptive_stats, echo = F, eval = F}
+```{r descriptive_stats, echo = F, include=F}
 library(dplyr)
 library(stringr)
 library(purrr)
 
-# range of years
-range(dat$year)
+# Data preparation and basic statistics
+paper_dat <- dat |> 
+  group_by(unique_paper_id) |> 
+  slice(1) |>
+  mutate(pub_status = case_when(
+    str_detect(doi_or_url, "osf\\.io") ~ "preprint",
+    str_detect(doi_or_url, "10\\.") ~ "publication",
+    TRUE ~ "dissertation_or_tech_report"),
+    decade = as.character(cut(year, breaks = c(1999, 2009, 2019, 2029), labels = c("2000s", "2010s", "2020s")))) |>
+  ungroup()
 
-#  stats that are by paper rather than study
-paper_dat <- dat |> group_by(unique_paper_id) |> slice(1) |>
-  mutate(has_doi = any(str_detect(doi_or_url, "10\\.")))
-decade_tab <- paper_dat |> sum_tab(decade)
-first_decade_papers <- as.numeric(decade_tab["2000s"])
-second_decade_papers <- as.numeric(decade_tab["2010s"])
-third_decade_papers <- as.numeric(decade_tab["2020s"])
+# Decade Analysis
+decade_tab <- paper_dat |> count(decade)
+first_decade_papers <- as.numeric(decade_tab$`n`[decade_tab$decade == "2000s"])
+second_decade_papers <- as.numeric(decade_tab$`n`[decade_tab$decade == "2010s"])
+third_decade_papers <- as.numeric(decade_tab$`n`[decade_tab$decade == "2020s"])
 
-# how many papers have DOIs (i.e. were published in academic journals)
-doi_tab <- paper_dat |> sum_tab(has_doi)
-no_doi_papers <- doi_tab["FALSE"]
-doi_papers <- doi_tab["TRUE"]
+# Publication Type Analysis
+doi_tab <- paper_dat |> count(pub_status)
+published_papers <- as.numeric(doi_tab$`n`[doi_tab$pub_status == "publication"])
+preprint_papers <- as.numeric(doi_tab$`n`[doi_tab$pub_status == "preprint"])
+other_papers <- as.numeric(doi_tab$`n`[doi_tab$pub_status == "dissertation_or_tech_report"])
 
-# where are the non-doi papers printed
+# Non-DOI Paper Analysis
+non_doi_paper_stats <- paper_dat |> filter(pub_status != "publication") |> count(venue)
+dissertation_papers <- as.numeric(non_doi_paper_stats$`n`[non_doi_paper_stats$venue == "dissertation"])
+advocacy_papers <- as.numeric(non_doi_paper_stats$`n`[non_doi_paper_stats$venue == "advocacy org publication"])
 
-non_doi_paper_stats <- paper_dat |> filter(isFALSE(has_doi)) |> sum_tab(venue)
-dissertations <- non_doi_paper_stats[]
-# cluster count; average sample size by cluster yes/no
-dat |> sum_tab(cluster_assigned)
-dat |> group_by(cluster_assigned) |> 
-  reframe(range_total_sample = range(total_sample),
-          median_sample = median(total_sample))
+# Venue Analysis
+venue_counts <- table(paper_dat$venue)
+num_venues <- length(venue_counts)
+most_common_venue <- names(sort(venue_counts, decreasing = TRUE)[1])
+most_common_venue_count <- max(venue_counts)
 
-# self-reported outcomes
-dat |> sum_tab(self_report)
-dat |> split(~theory)  |> map(.f = sum_tab, var = self_report)
+# Correcting Journal Article Counts
+journal_article_counts <- paper_dat |> 
+  filter(pub_status == "publication") |> 
+  count(venue) |> 
+  arrange(desc(n))
+
+# Cluster Assigned Analysis
+cluster_sample_stats <- paper_dat |> 
+  filter(cluster_assigned == "Y") |> 
+  summarise(median = median(total_sample, na.rm = TRUE), 
+            min = min(total_sample, na.rm = TRUE), 
+            max = max(total_sample, na.rm = TRUE))
+
+# Non-Clustered Sample Size Statistics
+non_cluster_sample_stats <- paper_dat |> 
+  filter(cluster_assigned == "N") |> 
+  summarise(median = median(total_sample, na.rm = TRUE), 
+            min = min(total_sample, na.rm = TRUE), 
+            max = max(total_sample, na.rm = TRUE))
+
+# Intervention Types Count
+intervention_types_counts <- paper_dat |> 
+  summarise(cafeteria_or_restaurant = sum(cafeteria_or_restaurant_based == "Y", na.rm = TRUE),
+            multi_component = sum(multi_component == "Y", na.rm = TRUE),
+            leaflet_count = sum(leaflet == "Y", na.rm = TRUE),
+            video_count = sum(video == "Y", na.rm = TRUE),
+            internet_based = sum(internet == "Y", na.rm = TRUE))
+
+# Emotional Activation
+emotional_activation_stats <- paper_dat |> 
+  summarise(emotional_activated = sum(emotional_activation == "Y", na.rm = TRUE), 
+            emotional_not_activated = sum(emotional_activation == "N", na.rm = TRUE))
+
+# Pre-Analysis Plan Stats
+pre_analysis_plan_stats <- paper_dat |> 
+  summarise(pre_analysis_yes = sum(public_pre_analysis_plan != "N", na.rm = TRUE),
+            pre_analysis_no = sum(public_pre_analysis_plan == "N", na.rm = TRUE))
+
+# Open Data Stats
+open_data_stats <- paper_dat |> 
+  summarise(open_data_yes = sum(open_data != "N", na.rm = TRUE),
+            open_data_no = sum(open_data == "N", na.rm = TRUE))
+open_data_stats
 ```
 
-The earliest paper in our sample is @all'en2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
+The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
 
-`r doi_papers` of `r num_papers` papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among journal articles, *Appetite* is the leading venue with six publications, followed by *Journal of Environmental Psychology*, *American Journal of Public Health*, *Nature Food*, and *Frontiers in Psychology* with two each. The remainder were published in field journals for food and nutrition, sustainability, psychology, and public health.
+Out of `r num_papers` total papers, `r published_papers` were published in peer-reviewed journals. `r dissertation_papers` are dissertations, one is a preprint, and four were published by advocacy organizations. Among journal articles, `r num_venues` different journals are represented. The most common venue is *`r most_common_venue`,* with `r most_common_venue_count` papers, followed by three in _Journal of Environmental Psychology_, and two apiece in _American Journal of Public Health_, and _Frontiers in Psychology_. The remainder were published in field-specific journals for food and nutrition, sustainability, psychology, and public health, with psychology appearing to be a slight majority.
 
-X studies assigned treatment at the level of the individual; those studies had an average sample size of 204 with a range of Y. For the fourteen cluster-assigned studies, the median number of clusters was Z, with a range of Q to Q. (Some clusters comprised just a few individuals each.)
+The methods of intervention in the studies are varied: `r intervention_types_counts$cafeteria_or_restaurant` were cafeteria or restaurant-based, `r intervention_types_counts$multi_component` used multi-component strategies, while `r intervention_types_counts$leaflet_count` employed leaflets. Digital mediums were also notable, with `r intervention_types_counts$video_count` using videos and `r intervention_types_counts$internet_based` being internet-based.
 
-Twenty-four papers provide self-report data, while
+In terms of study designs, `r cluster_sample_stats$n` studies were assigned to clusters, with a median sample size of `r cluster_sample_stats$median`, ranging from `r cluster_sample_stats$min` to `r cluster_sample_stats$max`. Non-clustered studies had a similar range in sample sizes. Non-clustered studies showed a median sample size of `r non_cluster_sample_stats$median`, ranging from `r non_cluster_sample_stats$min` to `r non_cluster_sample_stats$max`.
+
+Emotional activation was a factor in `r emotional_activation_stats$emotional_activated` studies Furthermore, `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` studies had a pre-analysis plan.
 
 ### 3.2 A diverse array of theoretical approaches
 
