@@ -139,7 +139,7 @@ snowball_papers <- as.numeric(paper_sources["snowball search"])
 systematic_search_papers <- as.numeric(paper_sources["systematic search"])
 ```
 
-First, we read all qualifying studies that SAG and BS knew of at the outset, which yielded `r prior_knowledge` papers.
+First, we read all qualifying studies that two authors (SAG and BS) knew of at the outset, which yielded `r prior_knowledge` papers.
 
 Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_reviews` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of `r second_reviews` additional papers.
 
@@ -147,7 +147,7 @@ Third, We checked the CVs of prominent researchers in the field, which yielded `
 
 Fourth, we conducted a snowball search where we read reading papers our papers had cited, papers suggested to us by article homepages, and papers that cited articles already in our database. This yielded `r snowball_papers` papers.
 
-Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded `r systematic_search_papers` more paper, bringing our total sample size to `r num_papers` papers and `r num_studies` interventions.[^3]
+Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded `r systematic_search_papers` more papers, bringing our total sample size to `r num_papers` papers and `r num_studies` interventions.[^3]
 
 [^3]: In four cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: @abrahamse2007, @dijkstra2022, @lacroix2020 and @peacock2017. These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded. 
 
