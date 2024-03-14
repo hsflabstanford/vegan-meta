@@ -48,7 +48,6 @@ editor_options:
 
 ```{r setup, include=FALSE}
 library(dplyr)
-source("./code/functions/sum_tab.R")
 
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
@@ -125,10 +124,10 @@ paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(source)
 paper_sources
 
 prior_knowledge <- as.numeric(paper_sources["prior knowledge"])
-initial_reviews <- as.numeric(paper_sources["Bianchi (2018a)"]) + 
+initial_review_papers <- as.numeric(paper_sources["Bianchi (2018a)"]) + 
   as.numeric(paper_sources["Mathur (2021)"])
 
-second_reviews <- as.numeric(paper_sources["Chang (2023)"]) + 
+second_review_papers <- as.numeric(paper_sources["Chang (2023)"]) + 
   as.numeric(paper_sources["Harguess (2019)"]) +  as.numeric(paper_sources["Wynes (2018)"])
 
 cv_papers <- as.numeric(paper_sources["CV (Sparkman)"]) + 
@@ -141,11 +140,11 @@ systematic_search_papers <- as.numeric(paper_sources["systematic search"])
 
 First, we read all qualifying studies that two authors (SAG and BS) knew of at the outset, which yielded `r prior_knowledge` papers.
 
-Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_reviews` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of `r second_reviews` additional papers.
+Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_review_papers` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of `r second_review_papers` additional papers.
 
 Third, We checked the CVs of prominent researchers in the field, which yielded `r cv_papers` additional papers.
 
-Fourth, we conducted a snowball search where we read reading papers our papers had cited, papers suggested to us by article homepages, and papers that cited articles already in our database. This yielded `r snowball_papers` papers.
+Fourth, we conducted a snowball search where we read papers our assembled papers had cited, papers suggested to us by article homepages, and papers that cited articles already in our database. This yielded `r snowball_papers` papers.
 
 Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded `r systematic_search_papers` more papers, bringing our total sample size to `r num_papers` papers and `r num_studies` interventions.[^3]
 
@@ -161,12 +160,13 @@ We first offer some descriptive statistics of our database and then provide a th
 library(dplyr)
 library(stringr)
 library(purrr)
-source("./code/functions/sum_tab.R")
 
 # range of years
 range(dat$year)
-dat |> group_by(unique_study_id) |> slice(1) |> sum_tab(decade)
-
+decade_tab <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(decade)
+first_decade_papers <- as.numeric(decade_tab["2000s"])
+second_decade_papers <- as.numeric(decade_tab["2010s"])
+third_decade_papers <- as.numeric(decade_tab["2020s"])
 # how many papers have DOIs (i.e. were published in academic journals)
 dat |> group_by(unique_study_id) |> 
   summarize(has_doi = any(str_detect(doi_or_url, "10\\."))) |> sum_tab(has_doi)
@@ -182,7 +182,7 @@ dat |> sum_tab(self_report)
 dat |> split(~theory)  |> map(.f = sum_tab, var = self_report)
 ```
 
-The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s.
+The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
 
 Twenty-two of twenty-nine papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among journal articles, *Appetite* is the leading venue with six publications, followed by *Journal of Environmental Psychology*, *American Journal of Public Health*, *Nature Food*, and *Frontiers in Psychology* with two each. The remainder were published in field journals for food and nutrition, sustainability, psychology, and public health.
 
