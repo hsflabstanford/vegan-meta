@@ -18,9 +18,15 @@ call it trickery because there's no evidence that they are communicating true in
 ### self-reporting bias magnitude
 Mathur et al. 2021 but also https://journals.sagepub.com/doi/10.1177/0013916584164005
 ### ok we're doing a bit of a systematic search
-Google scholar for "randomized controlled trial" "meat and animal products"
-"Dynamic norms" "meat consumption"
+Google scholar for 
+* "randomized controlled trial" "meat and animal products"
+* "Dynamic norms" "meat consumption"
+*  "meat" "consumption" "random"
+* "food choice dynamic norms"
+* "social norm feedback intervention meat consumption"
+* " "meat" "consumption" "reduce" "random""
 ### Sparkman 2017 on why meat is bad
+
 
 " Livestock produce 14.5% to 18% of the total global warming effect, an amount larger than all of transportation (Gerber et al., 2013). Moreover, many people consume far more meat than physicians recommend (Westhoek et al., 2014)."
 
