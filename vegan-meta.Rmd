@@ -163,14 +163,24 @@ library(purrr)
 
 # range of years
 range(dat$year)
-decade_tab <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(decade)
+
+#  stats that are by paper rather than study
+paper_dat <- dat |> group_by(unique_paper_id) |> slice(1) |>
+  mutate(has_doi = any(str_detect(doi_or_url, "10\\.")))
+decade_tab <- paper_dat |> sum_tab(decade)
 first_decade_papers <- as.numeric(decade_tab["2000s"])
 second_decade_papers <- as.numeric(decade_tab["2010s"])
 third_decade_papers <- as.numeric(decade_tab["2020s"])
-# how many papers have DOIs (i.e. were published in academic journals)
-dat |> group_by(unique_study_id) |> 
-  summarize(has_doi = any(str_detect(doi_or_url, "10\\."))) |> sum_tab(has_doi)
 
+# how many papers have DOIs (i.e. were published in academic journals)
+doi_tab <- paper_dat |> sum_tab(has_doi)
+no_doi_papers <- doi_tab["FALSE"]
+doi_papers <- doi_tab["TRUE"]
+
+# where are the non-doi papers printed
+
+non_doi_paper_stats <- paper_dat |> filter(isFALSE(has_doi)) |> sum_tab(venue)
+dissertations <- non_doi_paper_stats[]
 # cluster count; average sample size by cluster yes/no
 dat |> sum_tab(cluster_assigned)
 dat |> group_by(cluster_assigned) |> 
@@ -182,9 +192,9 @@ dat |> sum_tab(self_report)
 dat |> split(~theory)  |> map(.f = sum_tab, var = self_report)
 ```
 
-The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
+The earliest paper in our sample is @all'en2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
 
-Twenty-two of twenty-nine papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among journal articles, *Appetite* is the leading venue with six publications, followed by *Journal of Environmental Psychology*, *American Journal of Public Health*, *Nature Food*, and *Frontiers in Psychology* with two each. The remainder were published in field journals for food and nutrition, sustainability, psychology, and public health.
+`r doi_papers` of `r num_papers` papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among journal articles, *Appetite* is the leading venue with six publications, followed by *Journal of Environmental Psychology*, *American Journal of Public Health*, *Nature Food*, and *Frontiers in Psychology* with two each. The remainder were published in field journals for food and nutrition, sustainability, psychology, and public health.
 
 X studies assigned treatment at the level of the individual; those studies had an average sample size of 204 with a range of Y. For the fourteen cluster-assigned studies, the median number of clusters was Z, with a range of Q to Q. (Some clusters comprised just a few individuals each.)
 
