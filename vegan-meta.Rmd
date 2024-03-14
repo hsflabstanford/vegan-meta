@@ -32,7 +32,7 @@ abstract: |
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "3213"
+wordcount: "3274"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -204,14 +204,16 @@ journal_article_counts <- paper_dat |>
 # Cluster Assigned Analysis
 cluster_sample_stats <- paper_dat |> 
   filter(cluster_assigned == "Y") |> 
-  summarise(median = median(total_sample, na.rm = TRUE), 
+  summarise(n = n(),
+            median = median(total_sample, na.rm = TRUE), 
             min = min(total_sample, na.rm = TRUE), 
             max = max(total_sample, na.rm = TRUE))
 
 # Non-Clustered Sample Size Statistics
 non_cluster_sample_stats <- paper_dat |> 
   filter(cluster_assigned == "N") |> 
-  summarise(median = median(total_sample, na.rm = TRUE), 
+  summarise(n = n(),
+            median = median(total_sample, na.rm = TRUE), 
             min = min(total_sample, na.rm = TRUE), 
             max = max(total_sample, na.rm = TRUE))
 
