@@ -1,0 +1,536 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man]{apa6}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+\makeatletter
+\usepackage{etoolbox}
+\patchcmd{\maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\keywords{meta-analysis, meta-science, meat-and-animal-products, evaluation\newline\indent Word count: 3383}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{csquotes}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Nudges, norms, and persuasion approaches to reducing consumption of meat and animal products: a meta-analysis and theoretical review},
+  pdfauthor={Seth A. Green1, Maya Mathur2, \& Benny Smith3},
+  pdflang={en-EN},
+  pdfkeywords={meta-analysis, meta-science, meat-and-animal-products, evaluation},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Nudges, norms, and persuasion approaches to reducing consumption of meat and animal products: a meta-analysis and theoretical review}
+\author{Seth A. Green\textsuperscript{1}, Maya Mathur\textsuperscript{2}, \& Benny Smith\textsuperscript{3}}
+\date{}
+
+
+\shorttitle{vegan-meta}
+
+\authornote{
+
+This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01.
+
+The authors made the following contributions. Seth A. Green: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing, Writing - Review \& Editing; Maya Mathur: Writing - Review \& Editing, Supervision; Benny Smith: .
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} Kahneman-Treisman Center, Princeton University\\\textsuperscript{2} Stanford University\\\textsuperscript{3} Allied Scholars for Animal Protection}
+
+\abstract{%
+This paper meta-analyzes interventions intended to reduce consumption of meat and animal products (MAP), focusing on the most rigorous, policy-ready studies. Extant efforts generally embody one of three theoretical perspectives: appeals to social norms, nudges to make MAP less salient, and information-based approaches that attempt to change attitudes towards MAP itself on health, environmental, and animal welfare grounds. We find that direct appeals to the environment and personal health, along with some norm messages in cafeterias and text-based nudges, can reduce MAP consumption. Appeals to animal welfare, online studies, and leafletting studies have no apparent overall effect. However, even the very best studies in this literature typically have concerning measurement limitations stemming from the predominance of self-reported outcomes and a lack of post-intervention follow-up. These limitations raise concerns about social desirability bias and `regression to the meat:' the possibility that someone who is nudged into eating less MAP at one meal will compensate by eating more at the next. We address these concerns with a variety of statistical corrections as well as highlighting the studies whose designs and measurement strategies convincingly address both issues. We conclude with concrete, shovel-ready suggestions for future researchers that take the lessons of this analysis into account.
+}
+
+
+
+\begin{document}
+\maketitle
+
+\subsection{1. Introduction: a multitude of perspectives on changing dietary behavior}\label{introduction-a-multitude-of-perspectives-on-changing-dietary-behavior}
+
+Reducing consumption of meat and animal products (MAP) is vital to many policy goals. Animal agriculture is a major driver of climate change (Goodland, Anhang, et al., 2009; Koneswaran \& Nierenberg, 2008; Scarborough et al., 2023) as well as more localized environmental and public health harms (Graham et al., 2008; Greger \& Koneswaran, 2010; Horrigan, Lawrence, \& Walker, 2002; Slingenbergh, Gilbert, Balogh, \& Wint, 2004). Excess MAP consumption is a leading cause of premature deaths (Landry et al., 2023; Willett et al., 2019); finally, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in their own right (Kuruc \& McFadden, 2023; Webster, 2001; Yeates, Röcklinsberg, \& Gjerris, 2011).
+
+Policymakers have a broad array of tools at their disposal for attempting to change eating behavior. For example, they can ban certain kinds of food (Caro, 2009) or practices (Bursey \& Thomas, 2018) perceived to be unusually cruel; campaign for vegetarianism (Trewern, Chenoweth, Christie, \& Halevy, 2022); or change eating environments to make non-meat options more salient or appealing (Bianchi, Garnett, Dorsel, Aveyard, \& Jebb, 2018; Guthrie, Mancino, \& Lin, 2015). However, any policy lever which focuses on supply rather than reducing consumer demand risks backsliding through political correction (Michielsen \& Horst, 2022). It is essential, therefore, to assess which theoretical approaches most effectively and durably alter consumer eating behavior. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis.
+
+A previous review called on future MAP research to feature more ``direct behavioral outcomes'' and ``long-term follow-up'' (Mathur, Peacock, Reichling, et al., 2021, p. 1). Our paper builds on that one, and thus restricts its meta-analysis to the very most rigorous, policy-ready research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified 55 such interventions published in 29 papers or technical reports.
+
+Scholars have approached MAP reduction from many disciplines, including social psychology (Dhont, Hodson, Loughnan, \& Amiot, 2019; Rosenfeld, 2018), economics (Lusk \& Norwood, 2009), choice architecture (Bianchi, Garnett, et al., 2018; Mertens, Herberz, Hahnel, \& Brosch, 2022); and environmental studies (Costello, Birisci, \& McGarvey, 2016). The central theoretical divide we observe among policy-ready studies is between \textbf{information-based approaches} that attempt to change ideas about MAP consumption, \textbf{nudges} that make MAP consumption less salient, alter the defaults, and expensive, and \textbf{norms-based approaches} that make MAP seem socially undesirable. Which of these approaches is more effective at changing real world behavior has broad implications for behavioral scientists and policymakers.
+
+Our main quantitative finding is that appeals to personal health and the environment are the most broadly effective MAP reduction strategies. We also see some evidence of change resulting from a handful of salience- and norms-based changes to some university dining halls, as well as text-based nudges to reduce MAP consumption. We find overall null results for appeals to animal welfare, studies conducted online, and leafletting studies.
+
+However, we place low confidence in the generalizability of these results due to two concerns about measurement. The first is social desirability bias arising from self-reported outcomes (Mathur, Peacock, Robinson, \& Gardner, 2021), which are predominant in the information-based literature. The second is the place-based literature's general lack of engagement with the possibility of compensatory/backlash effects: that someone who is nudged into eating less MAP at one meal may perceive a moral license (Blanken, Van De Ven, \& Zeelenberg, 2015; Merritt, Effron, \& Monin, 2010) to eat more MAP later. If we limit our analysis to studies with deal convincingly with both threats to inference, we still conclude that appeals to the environment and health, as well as a handful of nudges and norms messages, reduce reduce MAP consumption, but in the highly specialized context of dining halls at elite American universities. For this literature to truly become shovel-ready for policymakers, it urgently needs extension and replication, along with careful attention to measurement validity.
+
+Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions on top of this already rich set. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews but do not offer meta-analysis. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, ours is the only review to our knowledge to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.\footnote{We'd also note that some of these reviews err strongly on the side of inclusion, and thus meta-analyze studies with serious threats to internal validity. For example, prior reviews included studies that use differential screening procedures for treatment and control (Rees et al., 2018) or that alter the treatment after assignment based on subjects' prior diets (Morren, Mol, Blasch, \& Malek, 2021); these procedures violate the `all else equal in expectation' condition of a randomized controlled trial. As Simonsohn, Simmons, and Nelson (2022) put it, combining ``studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts'' with high-quality studies creates averages that are ``virtually guaranteed to lack a meaningful interpretation'' (p.~551).}
+
+Second, our paper contributes to a growing literature of meta-analyses, reviews, and ``megastudies'' (Doell, 2023; Milkman, Gromet, et al., 2021; Milkman, Patel, et al., 2021) that attempt to compare the efficacy of different approaches to solving social problems. In social psychology, Paluck, Porat, Clark, and Green (2021) and Porat, Gantman, Paluck, Green, and Pezzuto (2024) apply meta-analytic methods to testing the efficacy of different theories at reducing prejudice and sexual violence, respectively, while Vlasceanu et al. (2024) test 11 theoretically diverse interventions aimed at four ``climate mitigation outcomes'' (p.~1).\footnote{This is distinct from the ``Metaketa'' initiatives from Evidence on Governance and Politics, which run many field experiments simultaneously to test the effect of one theoretical approach on a common outcome (Blair et al., 2021; Slough et al., 2021). Metaketas are concerned primarily with external validity, and thus keep the independent variable approximately constant, while megastudies are aimed at comparative efficacy, and so test many distinct treatments.} In a related vein, Bergquist, Thiel, Goldberg, and Linden (2023) provide a meta-analysis of meta-analyses for climate mitigation behaviors, and find that social comparison and financial incentives were generally effective, while information and feedback generally were not. We also build on prior reviews that that holistically assess the efficacy of choice architecture approaches versus, e.g., taxes (List, Rodemeier, Roy, \& Sun, 2023) or subsidies (Campos-Mercade et al., 2021). Finally, a paper from Bergman et al. (2024) compares information-based approaches to ``short-term financial assistance, customized assistance during the housing search process, and connections to landlords'' (p.~XXX) to encourage families to move to high-opportunity areas. Our paper's approach is similar to all of these but distinct, to the best of our knowledge, for the stringency and policy focus of our meta-analytic inclusion criteria.
+
+The remainder of the paper proceeds as follows. Section 2 details and motivatess the inclusion criteria and search process by which we assembled our meta-analytic database. Section 3 describes the database. We provide some descriptive statistics about the database, and then present its major theoretical approaches \textemdash environmental, health, and animal welfare appeals to MAP reduction comprising information-based strategies, norms manipulations, and nudges \textemdash and representative literature from each. For each subset, we also highlight some frequent design or measurement limitations that led us to exclude otherwise promising results. Section 4 provides an overview of our meta-analytic methods and procedures.
+
+Section 5 presents our quantitative results. We provide a mixture of pooled averages, tests for publication biases, and comparisons of different approaches. We also offer some attempts to estimate the magnitude of different biases in this literature drawn from related literatures, and to use those estimates to offer effect size corrections. These analyses are tentative, and offer readers a broad range of possibilities intended to match different priors about the severity and importance of the measurement issues we enumerate Section 6 concludes with some concrete suggestions for future MAP reduction researchers based on the results of our analyses.
+
+\subsection{2 Assembling the meta-analytic database}\label{assembling-the-meta-analytic-database}
+
+\subsubsection{2.1 Selecting inclusion criteria}\label{selecting-inclusion-criteria}
+
+Meta-analysis is a powerful, flexible procedure for pooling results from many studies into a singular estimate, or cluster of estimates, denoting the relationship between a treatment and an outcome across contexts. For this to be an unbiased estimate of the true causal relationship between the two requires several additional assumptions. First, the pooled studies must each furnish an unbiased causal estimate. Second, the set of studies must be a random sample of the universe of possible studies, and not, for instance, truncated by publication bias (Thornton \& Lee, 2000). Third, the assembled outcomes must have a persistent, known relationship with the true outcome of interest.
+
+Each of these propositions is, in theory, testable and amenable to statistical correction (see Mathur and VanderWeele (2022) and Green, Paluck, and Porat (2024) for suggestions and strategies). However, the most fundamental challenge to meta-analysis is whether the underlying data are coherently integrable. A recent paper by Slough and Tyson (2023) makes this point forcefully. In their view, for studies to have ``target equivalence'' \textemdash the property of identifying ``the same estimand'' (p.~1) \textemdash they must first achieve harmonized contrasts and measurements, meaning that the ``substantive comparison across studies is the same'' and ``the outcome of interest is the same and it is measured in the same way'' (p.2). These properties are necessary for meta-analytic results to be ``meaningful and interpretable'' (p.2). Crucially, they cannot be achieved ``solely with statistical techniques'' and are instead a product of tailored ``design or inclusion criteria'' (p.2).
+
+We share this paper's concerns, and we address them via the following inclusion criteria.
+
+First, we only look at randomized controlled trials for historically well-understood reasons (Cook, Campbell, \& Shadish, 2002; see Simonsohn et al., 2022 for discussion specific to meta-analysis). This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
+
+Second, studies needed to measure MAP consumption directly. This included self-reported outcomes. Although this is a potential source of bias (Cerri, Thøgersen, \& Testa, 2019; Hebert, Clemow, Pbert, Ockene, \& Ockene, 1995; Hebert et al., 1997), it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses.
+
+Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g.~a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g.~if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point in our quantitative results.
+
+Finally, we required that studies have at least 25 subjects in both treatment and control, or, for cluster-assigned studies, at least 10 clusters in total. Paluck et al. (2021) found that studies with fewer than 25 subjects per arm, which constituted the smallest quintile of studies in the prejudice reduction literature, showed systematically larger effects than their larger peers. That paper also argued that fewer than 10 clusters would be too few to calculate meaningful standard errors. In practice, we excluded very few studies for having fewer than 25 subjects, but quite a few for having fewer than 10 clusters; many studies describing themselves as experiments had just one unit assigned to treatment and one to control, but recorded results at the level of individuals, thereby ignoring clustered standard errors. We treat these studies as, effectively, quasi-experiments and did not include them in our database.
+
+We also required that the full papers be available on the internet, rather than just a summary or abstract, and written in English.
+
+\subsubsection{2.2 Our search process}\label{our-search-process}
+
+Our cutoff date for papers was December 2023.
+
+\begin{verbatim}
+## 
+##   Bianchi (2018a)      Chang (2023)        CV (Jalil)     CV (Sparkman) 
+##                 6                 2                 1                 1 
+##   Harguess (2019)     Mathur (2021)   prior knowledge   snowball search 
+##                 2                 4                 3                 6 
+## systematic search      Wynes (2018) 
+##                 3                 1
+\end{verbatim}
+
+First, we read all qualifying studies that SAG and BS knew of at the outset, which yielded 3 papers.
+
+Second, we located and read XX previous systematic reviews, starting with Mathur, Peacock, Robinson, et al. (2021) as well as Bianchi, Garnett, et al. (2018) and Bianchi, Dorsel, Garnett, Aveyard, and Jebb (2018). Those three reviews yielded 10 additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by Grundy et al. (2022), a review of reviews); From Harguess, Crespo, and Hong (2020), Chang, Wooden, Rosman, Altema-Johnson, and Ramsing (2023) and Wynes, Nicholas, Zhao, and Donner (2018), we learned of 5 additional papers.
+
+Third, We checked the CVs of prominent researchers in the field, which yielded 2 additional papers.
+
+Fourth, we conducted a snowball search where we read reading papers our papers had cited, papers suggested to us by article homepages, and papers that cited articles already in our database. This yielded 6 papers.
+
+Finally, we conducted a systematic search of Google Scholar for the terms {[}OUR SEARCH TERMS ONCE WE ARE DONE{]}. This yielded 3 more paper, bringing our total sample size to 29 papers and 55 interventions.\footnote{In four cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: Abrahamse, Steg, Vlek, and Rothengatter (2007), Dijkstra and Rotelli (2022), Lacroix and Gifford (2020) and Peacock and Sethu (2017). These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded.}
+
+\subsection{3 The meta-analytic database}\label{the-meta-analytic-database}
+
+We first offer some descriptive statistics of our database and then provide a theoretical review.
+
+\subsubsection{3.1 Descriptive overview of meta-analytic database}\label{descriptive-overview-of-meta-analytic-database}
+
+The earliest paper in our sample is Allen and Baines (2002), and the latest is Jalil, Tasoff, and Bustamante (2023). Remarkably, a majority of these papers have been published since 2020: four in the 2000s, ten in the 2010s, and fifteen in the 2020s.
+
+Twenty-two of twenty-nine papers were published in peer reviewed journals. Two others are dissertations, one is a preprint, and the remaining four were published by advocacy organizations. Among journal articles, \emph{Appetite} is the leading venue with six publications, followed by \emph{Journal of Environmental Psychology}, \emph{American Journal of Public Health}, \emph{Nature Food}, and \emph{Frontiers in Psychology} with two each. The remainder were published in field journals for food and nutrition, sustainability, psychology, and public health.
+
+X studies assigned treatment at the level of the individual; those studies had an average sample size of 204 with a range of Y. For the fourteen cluster-assigned studies, the median number of clusters was Z, with a range of Q to Q. (Some clusters comprised just a few individuals each.)
+
+Twenty-four papers provide self-report data, while
+
+\subsubsection{3.2 A diverse array of theoretical approaches}\label{a-diverse-array-of-theoretical-approaches}
+
+\subsubsection{Health}\label{health}
+
+Lohmann, Gsottbauer, Doherty, and Kontoleon (2022), Klöckner and Ofstad (2017) recommended people eat other kinds of MAP\ldots{}
+
+\subsubsection{Animal welfare}\label{animal-welfare}
+
+\paragraph{Social desirability bias..}\label{social-desirability-bias..}
+
+\ldots Consider \href{https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar}{Fehrenbach (2015)}, a 2015 dissertation that tested the ``effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.'' The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of ``high threat'' by informing viewers of the ``the negative health effects of high meat consumption;'' one video also sought to induce feelings of ``high efficacy'' by suggesting ``easy ways to reduce their meat consumption,'' while the ``low efficacy'' group's video ``only included a very minor efficacy component in the conclusion.'' The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they'd eaten in the past 7 days.
+
+Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
+
+This study strikes us as having a high risk of social desirability bias for three reasons.
+
+First, the study is designed to make people feel a sense of ``high threat'' from eating meat, and then asks them a week later about how much meat they ate. There are grounds for doubting how much respondents would accurately recount their eating habits. This problem is typical of this literature.
+
+Second, the study asks participants to recall a week's worth of meals; previous research has found that \href{https://pubmed.ncbi.nlm.nih.gov/7635601/}{daily food diaries lead to more accurate reports}. As \href{https://www.sciencedirect.com/science/article/pii/S0195666321001847}{Mathur et al.~(2021a)} put it:
+
+\begin{quote}
+Many existing studies measure meat consumption in terms of, for example, Likert-type items that categorize the number of weekly meals containing meat (e.g., ``none'', ``1--5 meals'', etc.) or in terms of reductions from one's previous consumption. When possible, using finer-grained absolute measures, such as the number of servings of poultry, beef, pork, lamb, fish, etc., would enable effect sizes to be translated into direct measures of societal impact.
+\end{quote}
+
+Third, the decline in meat-eating among the control group suggests that the intended direction of the experiment might have been crystal clear to everyone, whether they watched the video or not.
+
+In sum, using broad stroke, self-reported outcomes in a context where meat is being presented as bad for you seems like a high-risk environment for \href{https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml}{experimenter demand effects}.
+
+\subsubsection{Health}\label{health-1}
+
+However, a tricky case emerged in studies that attempted to reduce red or processed meat consumption rather than MAP consumption as a whole. Some of these studies recommended that people substitute to other MAP, such as chicken or fish, but none to our knowledge measured any outcome besides red and/or processed meat. We decided to include studies focused on red and/or processed meat so long as they did not specifically advise inter-MAP substitution.
+
+\subsubsection{Nudges}\label{nudges}
+
+are texts nudges? these articles don't frame it that way but they're very similar to articles that do we've got the megastudy but also \url{https://jamanetwork.com/journals/jamapediatrics/fullarticle/2801662} and \url{https://www.nature.com/articles/s41586-021-03843-2} and \url{https://www.hbs.edu/ris/Publication\%20Files/text_messages_6294f05d-ef00-420d-9a44-24dfc8989d01.pdf}
+
+\subsection{4 Meta-analytic Methods}\label{meta-analytic-methods}
+
+\subsection{5 Meta-analysis}\label{meta-analysis}
+
+\subsubsection*{Bibliography}\label{bibliography}
+\addcontentsline{toc}{subsubsection}{Bibliography}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-abrahamse2007}
+Abrahamse, W., Steg, L., Vlek, C., \& Rothengatter, T. (2007). The effect of tailored information, goal setting, and tailored feedback on household energy use, energy-related behaviors, and behavioral antecedents. \emph{Journal of Environmental Psychology}, \emph{27}(4), 265--276.
+
+\bibitem[\citeproctext]{ref-allen2002}
+Allen, M. W., \& Baines, S. (2002). Manipulating the symbolic meaning of meat to encourage greater acceptance of fruits and vegetables and less proclivity for red and white meat. \emph{Appetite}, \emph{38}(2), 118--130.
+
+\bibitem[\citeproctext]{ref-bergman2024}
+Bergman, P., Chetty, R., DeLuca, S., Hendren, N., Katz, L. F., \& Palmer, C. (2024). Creating moves to opportunity: Experimental evidence on barriers to neighborhood choice. In \emph{American Economic Review}. American Economic Association.
+
+\bibitem[\citeproctext]{ref-bergquist2023}
+Bergquist, M., Thiel, M., Goldberg, M. H., \& Linden, S. van der. (2023). Field interventions for climate change mitigation behaviors: A second-order meta-analysis. \emph{Proceedings of the National Academy of Sciences}, \emph{120}(13), e2214851120.
+
+\bibitem[\citeproctext]{ref-bianchi2018conscious}
+Bianchi, F., Dorsel, C., Garnett, E., Aveyard, P., \& Jebb, S. A. (2018). Interventions targeting conscious determinants of human behaviour to reduce the demand for meat: A systematic review with qualitative comparative analysis. \emph{International Journal of Behavioral Nutrition and Physical Activity}, \emph{15}, 1--25.
+
+\bibitem[\citeproctext]{ref-bianchi2018restructuring}
+Bianchi, F., Garnett, E., Dorsel, C., Aveyard, P., \& Jebb, S. A. (2018). Restructuring physical micro-environments to reduce the demand for meat: A systematic review and qualitative comparative analysis. \emph{The Lancet Planetary Health}, \emph{2}(9), e384--e397.
+
+\bibitem[\citeproctext]{ref-blair2021}
+Blair, G., Weinstein, J. M., Christia, F., Arias, E., Badran, E., Blair, R. A., et al.others. (2021). Community policing does not build citizen trust in police or reduce crime in the global south. \emph{Science}, \emph{374}(6571), eabd3446.
+
+\bibitem[\citeproctext]{ref-blanken2015}
+Blanken, I., Van De Ven, N., \& Zeelenberg, M. (2015). A meta-analytic review of moral licensing. \emph{Personality and Social Psychology Bulletin}, \emph{41}(4), 540--558.
+
+\bibitem[\citeproctext]{ref-bursey2018}
+Bursey, K. W., \& Thomas, A. L. (2018). Proposition 12: Standards for confinement of specified farm animals; bans sale of noncomplying products. \emph{California Initiative Review (CIR)}, \emph{2018}(1), 12.
+
+\bibitem[\citeproctext]{ref-campos2021}
+Campos-Mercade, P., Meier, A. N., Schneider, F. H., Meier, S., Pope, D., \& Wengström, E. (2021). Monetary incentives increase COVID-19 vaccinations. \emph{Science}, \emph{374}(6569), 879--882.
+
+\bibitem[\citeproctext]{ref-caro2009}
+Caro, M. (2009). \emph{The foie gras wars: How a 5,000-year-old delicacy inspired the world's fiercest food fight}. Simon; Schuster.
+
+\bibitem[\citeproctext]{ref-cerri2019}
+Cerri, J., Thøgersen, J., \& Testa, F. (2019). Social desirability and sustainable food research: A systematic literature review. \emph{Food Quality and Preference}, \emph{71}, 136--140.
+
+\bibitem[\citeproctext]{ref-chang2023}
+Chang, K. B., Wooden, A., Rosman, L., Altema-Johnson, D., \& Ramsing, R. (2023). Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis. \emph{Frontiers in Sustainable Food Systems}, \emph{7}, 1103060.
+
+\bibitem[\citeproctext]{ref-cook2002}
+Cook, T. D., Campbell, D. T., \& Shadish, W. (2002). \emph{Experimental and quasi-experimental designs for generalized causal inference} (Vol. 1195). Houghton Mifflin Boston, MA.
+
+\bibitem[\citeproctext]{ref-costello2016}
+Costello, C., Birisci, E., \& McGarvey, R. G. (2016). Food waste in campus dining operations: Inventory of pre-and post-consumer mass by food category, and estimation of embodied greenhouse gas emissions. \emph{Renewable Agriculture and Food Systems}, \emph{31}(3), 191--201.
+
+\bibitem[\citeproctext]{ref-dhont2019}
+Dhont, K., Hodson, G., Loughnan, S., \& Amiot, C. E. (2019). Rethinking human-animal relations: The critical role of social psychology. Sage Publications Sage UK: London, England.
+
+\bibitem[\citeproctext]{ref-dijkstra2022}
+Dijkstra, A., \& Rotelli, V. (2022). Lowering red meat and processed meat consumption with environmental, animal welfare, and health arguments in italy: An online experiment. \emph{Frontiers in Psychology}, \emph{13}, 877911.
+
+\bibitem[\citeproctext]{ref-doell2023}
+Doell, K. C. (2023). Megastudies to test the efficacy of behavioural interventions. \emph{Nature Reviews Psychology}, \emph{2}(5), 263--263.
+
+\bibitem[\citeproctext]{ref-goodland2009}
+Goodland, R., Anhang, J., et al. (2009). Livestock and climate change: What if the key actors in climate change are... Cows, pigs, and chickens? \emph{Livestock and Climate Change: What If the Key Actors in Climate Change Are... Cows, Pigs, and Chickens?}
+
+\bibitem[\citeproctext]{ref-graham2008}
+Graham, J. P., Leibler, J. H., Price, L. B., Otte, J. M., Pfeiffer, D. U., Tiensin, T., \& Silbergeld, E. K. (2008). The animal-human interface and infectious disease in industrial food animal production: Rethinking biosecurity and biocontainment. \emph{Public Health Reports}, \emph{123}(3), 282--299.
+
+\bibitem[\citeproctext]{ref-green2024}
+Green, S. A., Paluck, E. L., \& Porat, R. (2024). Towards meta-scientific meta-analyses: Standard operating procedures for meta-analysis in the paluck lab. \emph{Forthcoming}.
+
+\bibitem[\citeproctext]{ref-greger2010}
+Greger, M., \& Koneswaran, G. (2010). The public health impacts of concentrated animal feeding operations on local communities. \emph{Family and Community Health}, 11--20.
+
+\bibitem[\citeproctext]{ref-grundy2022}
+Grundy, E. A., Slattery, P., Saeri, A. K., Watkins, K., Houlden, T., Farr, N., et al.others. (2022). Interventions that influence animal-product consumption: A meta-review. \emph{Future Foods}, \emph{5}, 100111.
+
+\bibitem[\citeproctext]{ref-guthrie2015}
+Guthrie, J., Mancino, L., \& Lin, C.-T. J. (2015). Nudging consumers toward better food choices: Policy approaches to changing food consumption behaviors. \emph{Psychology \& Marketing}, \emph{32}(5), 501--511.
+
+\bibitem[\citeproctext]{ref-harguess2020}
+Harguess, J. M., Crespo, N. C., \& Hong, M. Y. (2020). Strategies to reduce meat consumption: A systematic literature review of experimental studies. \emph{Appetite}, \emph{144}, 104478.
+
+\bibitem[\citeproctext]{ref-hebert1995social}
+Hebert, J. R., Clemow, L., Pbert, L., Ockene, I. S., \& Ockene, J. K. (1995). Social desirability bias in dietary self-report may compromise the validity of dietary intake measures. \emph{International Journal of Epidemiology}, \emph{24}(2), 389--398.
+
+\bibitem[\citeproctext]{ref-hebert1997gender}
+Hebert, J. R., Ma, Y., Clemow, L., Ockene, I. S., Saperia, G., Stanek III, E. J., \ldots{} Ockene, J. K. (1997). Gender differences in social desirability and social approval bias in dietary self-report. \emph{American Journal of Epidemiology}, \emph{146}(12), 1046--1055.
+
+\bibitem[\citeproctext]{ref-horrigan2002}
+Horrigan, L., Lawrence, R. S., \& Walker, P. (2002). How sustainable agriculture can address the environmental and human health harms of industrial agriculture. \emph{Environmental Health Perspectives}, \emph{110}(5), 445--456.
+
+\bibitem[\citeproctext]{ref-jalil2023}
+Jalil, A. J., Tasoff, J., \& Bustamante, A. V. (2023). Low-cost climate-change informational intervention reduces meat consumption among students for 3 years. \emph{Nature Food}, \emph{4}(3), 218--222.
+
+\bibitem[\citeproctext]{ref-klockner2017}
+Klöckner, C. A., \& Ofstad, S. P. (2017). Tailored information helps people progress towards reducing their beef consumption. \emph{Journal of Environmental Psychology}, \emph{50}, 24--36.
+
+\bibitem[\citeproctext]{ref-koneswaran2008}
+Koneswaran, G., \& Nierenberg, D. (2008). Global farm animal production and global warming: Impacting and mitigating climate change. \emph{Environmental Health Perspectives}, \emph{116}(5), 578--582.
+
+\bibitem[\citeproctext]{ref-kuruc2023}
+Kuruc, K., \& McFadden, J. (2023). Animal welfare in economic analyses of food production. \emph{Nature Food}, 1--2.
+
+\bibitem[\citeproctext]{ref-lacroix2020}
+Lacroix, K., \& Gifford, R. (2020). Targeting interventions to distinct meat-eating groups reduces meat consumption. \emph{Food Quality and Preference}, \emph{86}, 103997.
+
+\bibitem[\citeproctext]{ref-landry2023}
+Landry, M. J., Ward, C. P., Cunanan, K. M., Durand, L. R., Perelman, D., Robinson, J. L., et al.others. (2023). Cardiometabolic effects of omnivorous vs vegan diets in identical twins: A randomized clinical trial. \emph{JAMA Network Open}, \emph{6}(11), e2344457--e2344457.
+
+\bibitem[\citeproctext]{ref-list2023}
+List, J. A., Rodemeier, M., Roy, S., \& Sun, G. K. (2023). \emph{Judging nudging: Understanding the welfare effects of nudges versus taxes}. National Bureau of Economic Research.
+
+\bibitem[\citeproctext]{ref-lohmann2022}
+Lohmann, P. M., Gsottbauer, E., Doherty, A., \& Kontoleon, A. (2022). Do carbon footprint labels promote climatarian diets? Evidence from a large-scale field experiment. \emph{Journal of Environmental Economics and Management}, \emph{114}, 102693.
+
+\bibitem[\citeproctext]{ref-lusk2009}
+Lusk, J. L., \& Norwood, F. B. (2009). Some economic benefits and costs of vegetarianism. \emph{Agricultural and Resource Economics Review}, \emph{38}(2), 109--124.
+
+\bibitem[\citeproctext]{ref-mathur2021effectiveness}
+Mathur, M. B., Peacock, J. R., Robinson, T. N., \& Gardner, C. D. (2021). Effectiveness of a theory-informed documentary to reduce consumption of meat and animal products: Three randomized controlled experiments. \emph{Nutrients}, \emph{13}(12), 4555.
+
+\bibitem[\citeproctext]{ref-mathur2021meta}
+Mathur, M. B., Peacock, J., Reichling, D. B., Nadler, J., Bain, P. A., Gardner, C. D., \& Robinson, T. N. (2021). Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations. \emph{Appetite}, \emph{164}, 105277.
+
+\bibitem[\citeproctext]{ref-mathur2022}
+Mathur, M. B., \& VanderWeele, T. J. (2022). Methods to address confounding and other biases in meta-analyses: Review and recommendations. \emph{Annual Review of Public Health}, \emph{43}, 19--35.
+
+\bibitem[\citeproctext]{ref-merritt2010}
+Merritt, A. C., Effron, D. A., \& Monin, B. (2010). Moral self-licensing: When being good frees us to be bad. \emph{Social and Personality Psychology Compass}, \emph{4}(5), 344--357.
+
+\bibitem[\citeproctext]{ref-mertens2022}
+Mertens, S., Herberz, M., Hahnel, U. J., \& Brosch, T. (2022). The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains. \emph{Proceedings of the National Academy of Sciences}, \emph{119}(1), e2107346118.
+
+\bibitem[\citeproctext]{ref-michielsen2022}
+Michielsen, Y. J., \& Horst, H. M. van der. (2022). Backlash against meat curtailment policies in online discourse: Populism as a missing link. \emph{Appetite}, \emph{171}, 105931.
+
+\bibitem[\citeproctext]{ref-milkman2021}
+Milkman, K. L., Gromet, D., Ho, H., Kay, J. S., Lee, T. W., Pandiloski, P., et al.others. (2021). Megastudies improve the impact of applied behavioural science. \emph{Nature}, \emph{600}(7889), 478--483.
+
+\bibitem[\citeproctext]{ref-milkman2021megastudy}
+Milkman, K. L., Patel, M. S., Gandhi, L., Graci, H. N., Gromet, D. M., Ho, H., et al.others. (2021). A megastudy of text-based nudges encouraging patients to get vaccinated at an upcoming doctor's appointment. \emph{Proceedings of the National Academy of Sciences}, \emph{118}(20), e2101165118.
+
+\bibitem[\citeproctext]{ref-morren2021}
+Morren, M., Mol, J. M., Blasch, J. E., \& Malek, Ž. (2021). Changing diets-testing the impact of knowledge and information nudges on sustainable dietary choices. \emph{Journal of Environmental Psychology}, \emph{75}, 101610.
+
+\bibitem[\citeproctext]{ref-paluck2021}
+Paluck, E. L., Porat, R., Clark, C. S., \& Green, D. P. (2021). Prejudice reduction: Progress and challenges. \emph{Annual Review of Psychology}, \emph{72}, 533--560.
+
+\bibitem[\citeproctext]{ref-peacock2017}
+Peacock, J., \& Sethu, H. (2017). \emph{Which request creates the most diet change: A reanalysis}. Technical Report 2020. Publisher: Open Science Framework.
+
+\bibitem[\citeproctext]{ref-porat2024}
+Porat, R., Gantman, A., Paluck, E. L., Green, S. A., \& Pezzuto, J.-H. (2024). Preventing sexual violence -- a behavioral problem without a behaviorally-informed solution. \emph{Psychological Science in the Public Interest}, \emph{25}(1), 1--30.
+
+\bibitem[\citeproctext]{ref-rees2018}
+Rees, J. H., Bamberg, S., Jäger, A., Victor, L., Bergmeyer, M., \& Friese, M. (2018). Breaking the habit: On the highly habitualized nature of meat consumption and implementation intentions as one effective way of reducing it. \emph{Basic and Applied Social Psychology}, \emph{40}(3), 136--147.
+
+\bibitem[\citeproctext]{ref-rosenfeld2018}
+Rosenfeld, D. L. (2018). The psychology of vegetarianism: Recent advances and future directions. \emph{Appetite}, \emph{131}, 125--138.
+
+\bibitem[\citeproctext]{ref-scarborough2023}
+Scarborough, P., Clark, M., Cobiac, L., Papier, K., Knuppel, A., Lynch, J., \ldots{} Springmann, M. (2023). Vegans, vegetarians, fish-eaters and meat-eaters in the UK show discrepant environmental impacts. \emph{Nature Food}, \emph{4}(7), 565--574.
+
+\bibitem[\citeproctext]{ref-simonsohn2022}
+Simonsohn, U., Simmons, J., \& Nelson, L. D. (2022). Above averaging in literature reviews. \emph{Nature Reviews Psychology}, \emph{1}(10), 551--552.
+
+\bibitem[\citeproctext]{ref-slingenbergh2004}
+Slingenbergh, J., Gilbert, M., Balogh, K. de, \& Wint, W. (2004). Ecological sources of zoonotic diseases. \emph{Revue Scientifique Et Technique-Office International Des {é}pizooties}, \emph{23}(2), 467--484.
+
+\bibitem[\citeproctext]{ref-slough2021}
+Slough, T., Rubenson, D., Levy, R., Alpizar Rodriguez, F., Bernedo del Carpio, M., Buntaine, M. T., et al.others. (2021). Adoption of community monitoring improves common pool resource management across contexts. \emph{Proceedings of the National Academy of Sciences}, \emph{118}(29), e2015367118.
+
+\bibitem[\citeproctext]{ref-slough2023}
+Slough, T., \& Tyson, S. A. (2023). External validity and meta-analysis. \emph{American Journal of Political Science}, \emph{67}(2), 440--455.
+
+\bibitem[\citeproctext]{ref-thornton2000}
+Thornton, A., \& Lee, P. (2000). Publication bias in meta-analysis: Its causes and consequences. \emph{Journal of Clinical Epidemiology}, \emph{53}(2), 207--216.
+
+\bibitem[\citeproctext]{ref-trewern2022}
+Trewern, J., Chenoweth, J., Christie, I., \& Halevy, S. (2022). Does promoting plant-based products in veganuary lead to increased sales, and a reduction in meat sales? A natural experiment in a supermarket setting. \emph{Public Health Nutrition}, \emph{25}(11), 3204--3214.
+
+\bibitem[\citeproctext]{ref-vlasceanu2024}
+Vlasceanu, M., Doell, K. C., Bak-Coleman, J. B., Todorova, B., Berkebile-Weinberg, M. M., Grayson, S. J., et al.others. (2024). Addressing climate change with behavioral science: A global intervention tournament in 63 countries. \emph{Science Advances}, \emph{10}(6), eadj5778.
+
+\bibitem[\citeproctext]{ref-webster2001}
+Webster, A. J. (2001). Farm animal welfare: The five freedoms and the free market. \emph{The Veterinary Journal}, \emph{161}(3), 229--237.
+
+\bibitem[\citeproctext]{ref-willett2019}
+Willett, W., Rockström, J., Loken, B., Springmann, M., Lang, T., Vermeulen, S., et al.others. (2019). Food in the anthropocene: The EAT--lancet commission on healthy diets from sustainable food systems. \emph{The Lancet}, \emph{393}(10170), 447--492.
+
+\bibitem[\citeproctext]{ref-wynes2018}
+Wynes, S., Nicholas, K. A., Zhao, J., \& Donner, S. D. (2018). Measuring what works: Quantifying greenhouse gas emission reductions of behavioural interventions to reduce driving, meat consumption, and household energy use. \emph{Environmental Research Letters}, \emph{13}(11), 113002.
+
+\bibitem[\citeproctext]{ref-yeates2011}
+Yeates, J., Röcklinsberg, H., \& Gjerris, M. (2011). Is welfare all that matters? A discussion of what should be included in policy-making regarding animals. \emph{Animal Welfare}, \emph{20}(3), 423--432.
+
+\end{CSLReferences}
+
+
+\end{document}
