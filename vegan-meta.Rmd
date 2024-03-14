@@ -192,7 +192,7 @@ advocacy_papers <- as.numeric(non_doi_paper_stats$`n`[non_doi_paper_stats$venue 
 # Venue Analysis
 venue_counts <- sort(table(paper_dat$venue), decreasing = T)
 num_venues <- length(venue_counts)
-most_common_venue <- names(sort(venue_counts, decreasing = TRUE)[1])
+most_common_venue <- noquote(names(sort(venue_counts, decreasing = TRUE)[1]))
 most_common_venue_count <- max(venue_counts)
 
 # Correcting Journal Article Counts
@@ -202,7 +202,7 @@ journal_article_counts <- paper_dat |>
   arrange(desc(n))
 
 # Cluster Assigned Analysis
-cluster_sample_stats <- paper_dat |> 
+cluster_sample_stats <- dat |> 
   filter(cluster_assigned == "Y") |> 
   summarise(n = n(),
             median = median(total_sample, na.rm = TRUE), 
@@ -210,7 +210,7 @@ cluster_sample_stats <- paper_dat |>
             max = max(total_sample, na.rm = TRUE))
 
 # Non-Clustered Sample Size Statistics
-non_cluster_sample_stats <- paper_dat |> 
+non_cluster_sample_stats <- dat |> 
   filter(cluster_assigned == "N") |> 
   summarise(n = n(),
             median = median(total_sample, na.rm = TRUE), 
@@ -218,7 +218,7 @@ non_cluster_sample_stats <- paper_dat |>
             max = max(total_sample, na.rm = TRUE))
 
 # Intervention Types Count
-intervention_types_counts <- paper_dat |> 
+intervention_types_counts <- dat |> 
   summarise(cafeteria_or_restaurant = sum(cafeteria_or_restaurant_based == "Y", na.rm = TRUE),
             multi_component = sum(multi_component == "Y", na.rm = TRUE),
             leaflet_count = sum(leaflet == "Y", na.rm = TRUE),
@@ -226,33 +226,43 @@ intervention_types_counts <- paper_dat |>
             internet_based = sum(internet == "Y", na.rm = TRUE))
 
 # Emotional Activation
-emotional_activation_stats <- paper_dat |> 
+emotional_activation_stats <- dat |> 
   summarise(emotional_activated = sum(emotional_activation == "Y", na.rm = TRUE), 
             emotional_not_activated = sum(emotional_activation == "N", na.rm = TRUE))
 
 # Pre-Analysis Plan Stats
-pre_analysis_plan_stats <- paper_dat |> 
+pre_analysis_plan_stats <- dat |> 
   summarise(pre_analysis_yes = sum(public_pre_analysis_plan != "N", na.rm = TRUE),
             pre_analysis_no = sum(public_pre_analysis_plan == "N", na.rm = TRUE))
 
 # Open Data Stats
-open_data_stats <- paper_dat |> 
+open_data_stats <- dat |> 
   summarise(open_data_yes = sum(open_data != "N", na.rm = TRUE),
             open_data_no = sum(open_data == "N", na.rm = TRUE))
-open_data_stats
+
+# self-reported?
+self_report_nums <- dat |> sum_tab(self_report)
+
+# delay 
+median_delay <- median(dat$delay)
+range_delay <- range(dat$delay)
 ```
 
 The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
 
-Out of `r num_papers` total papers, `r published_papers` were published in peer-reviewed journals. `r dissertation_papers` are dissertations, one is a preprint, and four were published by advocacy organizations. Among journal articles, `r num_venues` different journals are represented. The most common venue is *`r most_common_venue`,* with `r most_common_venue_count` papers, followed by three in _Journal of Environmental Psychology_, and two apiece in _American Journal of Public Health_, and _Frontiers in Psychology_. The remainder were published in field-specific journals for food and nutrition, sustainability, psychology, and public health, with psychology appearing to be a slight majority.
+Out of `r num_papers` total papers, `r published_papers` were published in peer-reviewed journals. `r dissertation_papers` are dissertations, one is a preprint, and four were published by advocacy organizations. Among journal articles, `r num_venues` different journals are represented. The most common venue is *`r most_common_venue`,* with `r most_common_venue_count` papers, followed by three in _Journal of Environmental Psychology_, and two apiece in _American Journal of Public Health_, and _Frontiers in Psychology_. The remainder were published in field-specific journals for food and nutrition, sustainability, psychology, and public health.
 
-(NOTE: this one should be based on study not paper). The methods of intervention in the papers are varied: `r intervention_types_counts$cafeteria_or_restaurant` were cafeteria or restaurant-based, `r intervention_types_counts$multi_component` used multi-component strategies, while `r intervention_types_counts$leaflet_count` employed leaflets. Digital mediums were also notable, with `r intervention_types_counts$video_count` using videos and `r intervention_types_counts$internet_based` being internet-based.
+This database of studies uses methodologically diverse approaches.  `r intervention_types_counts$cafeteria_or_restaurant` studies were cafeteria or restaurant-based, `r intervention_types_counts$multi_component` used multi-component strategies, meaning that their treatments comprised multiple elements which could each have induced behavioral change. `r intervention_types_counts$leaflet_count` studies employed leaflets,  `r intervention_types_counts$video_count` used videos, and `r intervention_types_counts$internet_based` were administered online.
 
-(NOTE: this should also be study) In terms of study designs, `r cluster_sample_stats$n` studies were assigned to clusters, with a median sample size of `r cluster_sample_stats$median`, ranging from `r cluster_sample_stats$min` to `r cluster_sample_stats$max`. Non-clustered studies had a similar range in sample sizes. Non-clustered studies showed a median sample size of `r non_cluster_sample_stats$median`, ranging from `r non_cluster_sample_stats$min` to `r non_cluster_sample_stats$max`.
+`r cluster_sample_stats$n` studies were assigned to clusters. This subset had a median of `r cluster_sample_stats$median` clusters in total, ranging from `r cluster_sample_stats$min` to `r cluster_sample_stats$max`. There were `r non_cluster_sample_stats$n` studies with assignment at the level of the individual, with a median sample size of `r non_cluster_sample_stats$median`, and a range from `r non_cluster_sample_stats$min` to `r non_cluster_sample_stats$max`.
 
-Emotional activation was a factor in `r emotional_activation_stats$emotional_activated` papers. Furthermore, `r open_data_stats$open_data_yes` papers made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had a pre-analysis plan.
+`r emotional_activation_stats$emotional_activated` had interventions with clearly emotionally activating content, e.g. video footage of industrial farming.
 
-### 3.2 A diverse array of theoretical approaches
+In terms of open science practices `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had publicly available pre-analysis plans.
+
+Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
+
+### 3.2 The leading theoretical approaches to reducing MAP consumption 
 
 ### Health
 
