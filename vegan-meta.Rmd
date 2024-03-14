@@ -190,7 +190,7 @@ dissertation_papers <- as.numeric(non_doi_paper_stats$`n`[non_doi_paper_stats$ve
 advocacy_papers <- as.numeric(non_doi_paper_stats$`n`[non_doi_paper_stats$venue == "advocacy org publication"])
 
 # Venue Analysis
-venue_counts <- table(paper_dat$venue)
+venue_counts <- sort(table(paper_dat$venue), decreasing = T)
 num_venues <- length(venue_counts)
 most_common_venue <- names(sort(venue_counts, decreasing = TRUE)[1])
 most_common_venue_count <- max(venue_counts)
@@ -246,11 +246,11 @@ The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Re
 
 Out of `r num_papers` total papers, `r published_papers` were published in peer-reviewed journals. `r dissertation_papers` are dissertations, one is a preprint, and four were published by advocacy organizations. Among journal articles, `r num_venues` different journals are represented. The most common venue is *`r most_common_venue`,* with `r most_common_venue_count` papers, followed by three in _Journal of Environmental Psychology_, and two apiece in _American Journal of Public Health_, and _Frontiers in Psychology_. The remainder were published in field-specific journals for food and nutrition, sustainability, psychology, and public health, with psychology appearing to be a slight majority.
 
-The methods of intervention in the studies are varied: `r intervention_types_counts$cafeteria_or_restaurant` were cafeteria or restaurant-based, `r intervention_types_counts$multi_component` used multi-component strategies, while `r intervention_types_counts$leaflet_count` employed leaflets. Digital mediums were also notable, with `r intervention_types_counts$video_count` using videos and `r intervention_types_counts$internet_based` being internet-based.
+(NOTE: this one should be based on study not paper). The methods of intervention in the papers are varied: `r intervention_types_counts$cafeteria_or_restaurant` were cafeteria or restaurant-based, `r intervention_types_counts$multi_component` used multi-component strategies, while `r intervention_types_counts$leaflet_count` employed leaflets. Digital mediums were also notable, with `r intervention_types_counts$video_count` using videos and `r intervention_types_counts$internet_based` being internet-based.
 
-In terms of study designs, `r cluster_sample_stats$n` studies were assigned to clusters, with a median sample size of `r cluster_sample_stats$median`, ranging from `r cluster_sample_stats$min` to `r cluster_sample_stats$max`. Non-clustered studies had a similar range in sample sizes. Non-clustered studies showed a median sample size of `r non_cluster_sample_stats$median`, ranging from `r non_cluster_sample_stats$min` to `r non_cluster_sample_stats$max`.
+(NOTE: this should also be study) In terms of study designs, `r cluster_sample_stats$n` studies were assigned to clusters, with a median sample size of `r cluster_sample_stats$median`, ranging from `r cluster_sample_stats$min` to `r cluster_sample_stats$max`. Non-clustered studies had a similar range in sample sizes. Non-clustered studies showed a median sample size of `r non_cluster_sample_stats$median`, ranging from `r non_cluster_sample_stats$min` to `r non_cluster_sample_stats$max`.
 
-Emotional activation was a factor in `r emotional_activation_stats$emotional_activated` studies Furthermore, `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` studies had a pre-analysis plan.
+Emotional activation was a factor in `r emotional_activation_stats$emotional_activated` papers. Furthermore, `r open_data_stats$open_data_yes` papers made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had a pre-analysis plan.
 
 ### 3.2 A diverse array of theoretical approaches
 
