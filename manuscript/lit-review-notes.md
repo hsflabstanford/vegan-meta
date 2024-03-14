@@ -58,13 +58,21 @@ Parkman 2017 does a power analysis based on results of earlier studies for study
 
 ## Subsection on "dynamic" norms within norms
 
-
 ## additional systematic reviews?
 Mention Weikertová meta of dynamic norms
 
-## as to whether norms are nudges, see Hansen, P. G. (2016). The definition of nudge and libertarian paternalism: Does the hand fit the glove? Brachem 2019 says "Injunctive social norms don’t necessarily qualify as nudges according to Hansen’s (2016) definition, as they work at least partly by changing incentives through the implication of social sanctions." But I think these norm interventions are all pretty descriptive rather than injunctive
-fit the glove
+## whether norms are nudges, 
+see Hansen, P. G. (2016). The definition of nudge and libertarian paternalism: Does the hand fit the glove? Brachem 2019 says "Injunctive social norms don’t necessarily qualify as nudges according to Hansen’s (2016) definition, as they work at least partly by changing incentives through the implication of social sanctions." But I think these norm interventions are all pretty descriptive rather than injunctive. Also see [Who can nudge for sustainable development? How nudge source renders dynamic norms (in-)effective in eliciting sustainable behavior
+](10.1016/j.jclepro.2022.133246)
 
 # why do nudges fail, by Cass: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809658
 
-## regarding social norm backlash, Albas 2023: "Moreover, some studies have even observed a so-called boomerang effect, i.e. that social norm interventions lead to undesirable effects (e.g. Clapp et al., 2003; Richter et al., 2018; Wechsler et al., 2003)."
+## regarding social norm backlash
+Albas 2023: "Moreover, some studies have even observed a so-called boomerang effect, i.e. that social norm interventions lead to undesirable effects (e.g. Clapp et al., 2003; Richter et al., 2018; Wechsler et al., 2003)."
+
+## factors that effect whether nudges work
+
+"[Fluid Intelligence, Attentiveness, Crystallized Intelligence, and Experience](https://www.pnas.org/doi/10.1073/pnas.2306281121)...affect the effectiveness of many text-based interventions, producing different observed effect sizes and explaining variations across samples"
+
+## paper with a really similar title
+[Nudges, Norms, or Just Contagion? A Theory on Influences on the Practice of (Non-)Sustainable Behavior](https://www.mdpi.com/2071-1050/12/24/10418)
