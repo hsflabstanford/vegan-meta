@@ -119,11 +119,11 @@ We also required that the full papers be available on the internet, rather than 
 Our cutoff date for papers was December 2023.
 
 ```{r where_do_studies_come_from }
-source("./code/functions/sum_tab.R")
+source("./functions/sum_tab.R")
 paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(source)
 paper_sources
 
-prior_knowledge <- as.numeric(paper_sources["prior knowledge"])
+prior_knowledge <-paper_sources["prior knowledge"]
 initial_review_papers <- as.numeric(paper_sources["Bianchi (2018a)"]) + 
   as.numeric(paper_sources["Mathur (2021)"])
 
