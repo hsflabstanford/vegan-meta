@@ -279,6 +279,8 @@ secondary_theory_tab <- dat |> sum_tab(secondary_theory)
 
 
 ```
+
+Researchers who study MAP consumption do so under many banners, e.g. [accelerating the transition to an animal-free food system](https://www.foodlabstanford.com/), [vegan economics](https://scholar.cgu.edu/joshua-tasoff/), the [psychology of human and animal intergroup relations](https://blogs.kent.ac.uk/shark/), [moral circle expansion](https://luciuscaviola.com/), and [dynamic norms and sustainability](https://sisclab.bc.edu/research/).
 ### Health
 
 @lohmann2022, @klockner2017 recommended people eat other kinds of MAP...
@@ -310,6 +312,10 @@ However, a tricky case emerged in studies that attempted to reduce red or proces
 ### Nudges
 
 are texts nudges? these articles don't frame it that way but they're very similar to articles that do we've got the megastudy but also <https://jamanetwork.com/journals/jamapediatrics/fullarticle/2801662> and <https://www.nature.com/articles/s41586-021-03843-2> and <https://www.hbs.edu/ris/Publication%20Files/text_messages_6294f05d-ef00-420d-9a44-24dfc8989d01.pdf>
+
+This literature features some creative interventions that target realistic theories of change but also some startling design limitations. The most concerning is the use of hypothetical outcomes. For instance, [Campbell-Arvai, Arvai, and Kalof (2017)](https://journals.sagepub.com/doi/10.1177/0013916512469099) intercepted college students on their way to a dining hall “under the pretence of completing a survey about their food preferences,” then led them “to a small conference room” where they were presented with different configurations of menus whose items were selected from options at the dining hall. Students told researchers which food they preferred and then left to go eat their meal, which the researchers did not track. As the authors themselves put it, this design might “be critiqued for not providing actual food choices and thus lacking any real consequences.” Along the same lines, [Bacon and Krpap (2018)](https://www.sciencedirect.com/science/article/abs/pii/S0195666317309480?via%3Dihub) asked MTurk participants to “imagine a scenario in which they were catching up with a friend for dinner in a nice restaurant one evening during the week…they were also presented with an image of a cozy table in a restaurant.” The main outcome was probability of selecting a vegetarian option from a hypothetical menu.
+
+Second, some of these studies feature a large number of subjects but assign treatment at the level of a restaurant or dining hall and include too few units for meaningful analysis. [McClain et al. 2013](https://www.tandfonline.com/doi/abs/10.1080/07448481.2012.755189) and [Reinders et al. 2017](https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-017-0496-9), for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Both studies did not meet our inclusion criteria but offer plausible theories and promising designs for future replications. Another very nice study ([Berke and Larson 2023](https://10.0.3.248/j.appet.2023.106767)) randomly assigns folks who are attending an MIT Media lab event, which serves free food, to see either a menu with vegan/vegetarian labels or no labels (all meals were vegetarian or vegan); the authors find that labels significantly decrease the proportion of vegan meals selected. We did not include this study because it lacks delayed outcomes, but we find its underlying theory very plausible. 
 
 ## 4 Meta-analytic Methods
 
