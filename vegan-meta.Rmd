@@ -272,8 +272,10 @@ Regarding dependent variables, self-reported outcomes are the norm: `r `self_rep
 
 ### 3.2 The leading theoretical approaches to reducing MAP consumption 
 ```{r echo=F, include=F}
-dat
+source('./functions/sum_tab.R')
 
+theory_tab <- dat |> sum_tab(theory)
+secondary_theory_tab <- dat |> sum_tab(secondary_theory)
 
 
 ```
