@@ -261,7 +261,9 @@ This database of studies uses methodologically diverse approaches.  `r intervent
 
 In terms of open science practices `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had publicly available pre-analysis plans.
 
-A majority of studies (`r country_dat["United States"]` of `r num_studies`) take place exclusively in the United States. with a further `r country_dat["Italy"]` in Italy and `r country_dat["United Kingdom"]` in the United Kingdom. Sweden, the Netherlands, Denmark, Canada, and Australia had one study apiece, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and 'other'
+A majority of studies (`r country_dat["United States"]` of `r num_studies`) take place exclusively in the United States. with a further `r country_dat["Italy"]` in Italy and `r country_dat["United Kingdom"]` in the United Kingdom. Sweden, the Netherlands, Denmark, Canada, and Australia had one study apiece, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and "other" [@Cooney2016].
+
+
 Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
 ### 3.2 The leading theoretical approaches to reducing MAP consumption 
