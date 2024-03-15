@@ -123,7 +123,7 @@ source("./functions/sum_tab.R")
 paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(source)
 paper_sources
 
-prior_knowledge <-paper_sources["prior knowledge"]
+prior_knowledge <- paper_sources["prior knowledge"]
 initial_review_papers <- as.numeric(paper_sources["Bianchi (2018a)"]) + 
   as.numeric(paper_sources["Mathur (2021)"])
 
@@ -133,9 +133,9 @@ second_review_papers <- as.numeric(paper_sources["Chang (2023)"]) +
 cv_papers <- as.numeric(paper_sources["CV (Sparkman)"]) + 
   as.numeric(paper_sources["CV (Jalil)"])
 
-snowball_papers <- as.numeric(paper_sources["snowball search"])
+snowball_papers <- paper_sources["snowball search"]
 
-systematic_search_papers <- as.numeric(paper_sources["systematic search"])
+systematic_search_papers <- paper_sources["systematic search"]
 ```
 
 First, we read all qualifying studies that two authors (SAG and BS) knew of at the outset, which yielded `r prior_knowledge` papers.
@@ -157,7 +157,6 @@ We first offer some descriptive statistics of our database and then provide a th
 ### 3.1 Descriptive overview of meta-analytic database
 
 ```{r descriptive_stats, echo = F, include=F}
-library(dplyr)
 library(stringr)
 library(purrr)
 
@@ -243,6 +242,8 @@ open_data_stats <- dat |>
 # self-reported?
 self_report_nums <- dat |> sum_tab(self_report)
 
+# where do studies take place and with whom?
+country_dat <- dat |> sum_tab(country)
 # delay 
 median_delay <- median(dat$delay)
 range_delay <- range(dat$delay)
@@ -260,6 +261,7 @@ This database of studies uses methodologically diverse approaches.  `r intervent
 
 In terms of open science practices `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had publicly available pre-analysis plans.
 
+A majority of studies (`r country_dat["United States"]` of `r num_studies`) take place exclusively in the United States. with a further `r country_dat["Italy"]` in Italy and `r country_dat["United Kingdom"]` in the United Kingdom. Sweden, the Netherlands, Denmark, Canada, and Australia had one study apiece, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and 'other'
 Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
 ### 3.2 The leading theoretical approaches to reducing MAP consumption 
@@ -308,11 +310,10 @@ library(purrr)
 library(sessioninfo)
 library(stringr)
 
-source('./code/functions/d_calc.R')
-source('./code/functions/var_d_calc.R')
-source('./code/functions/study_count.R')
-source('./code/functions/map_robust.R')
-
+source('./functions/d_calc.R')
+source('./functions/var_d_calc.R')
+source('./functions/study_count.R')
+source('./functions/map_robust.R')
 #' count_and_robust helper function;
 #' necessary b/c `filter |> split |> imap()` didn't work for some reason
 
