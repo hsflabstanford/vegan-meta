@@ -244,6 +244,7 @@ self_report_nums <- dat |> sum_tab(self_report)
 
 # where do studies take place and with whom?
 country_dat <- dat |> sum_tab(country)
+pop_dat<- dat |> sum_tab(population)
 # delay 
 median_delay <- median(dat$delay)
 range_delay <- range(dat$delay)
@@ -261,8 +262,9 @@ This database of studies uses methodologically diverse approaches.  `r intervent
 
 In terms of open science practices `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had publicly available pre-analysis plans.
 
-A majority of studies (`r country_dat["United States"]` of `r num_studies`) take place exclusively in the United States. with a further `r country_dat["Italy"]` in Italy and `r country_dat["United Kingdom"]` in the United Kingdom. Sweden, the Netherlands, Denmark, Canada, and Australia had one study apiece, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and "other" [@Cooney2016].
+A majority of studies (`r country_dat["United States"]` of `r num_studies`) take place exclusively in the United States. with a further `r country_dat["Italy"]` in Italy and `r country_dat["United Kingdom"]` in the United Kingdom. Germany had `r country_dat["Germany"]` studies,  Sweden, the Netherlands, Denmark, Canada, and Australia had one each, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and "other" [@Cooney2016].
 
+Most studies in this database were administered to university students: `r pop_dat["university students"]` of `r num_studies`. A further `r pop_dat["adults"]` were administered to adults, while `r pop_dat["young women"]` was delivered to young women (ages 13-25) and `r pop_dat["all ages"]` to people of all ages: one at a restaurant [@coker2022] and one online survey with an age range of 18 to 82 [@bochmann2017].
 
 Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
