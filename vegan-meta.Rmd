@@ -32,7 +32,7 @@ abstract: |
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01.
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "3274"
+wordcount: "3444"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -52,16 +52,15 @@ library(dplyr)
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
-  ungroup() |> group_by(unique_paper_id, intervention_condition) |> 
+  ungroup() |> 
+  group_by(unique_paper_id, intervention_condition) |> 
   mutate(unique_study_id = cur_group_id()) |>
   ungroup() |>
-  mutate(
-         decade = as.factor(
-      case_when(
-        year >= 2000 & year <= 2009 ~ "2000s",
-        year >= 2010 & year <= 2019  ~ "2010s",
-        year >= 2020 ~ "2020s")),
-      total_sample = n_c_post + n_c_post) |>
+  mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
+                                      year >= 2010 & year <= 2019  ~ "2010s",
+                                      year >= 2020 ~ "2020s")
+                            ),
+         total_sample = n_c_post + n_c_post) |>
   select(author, year, title, unique_paper_id, unique_study_id, everything())
   
 num_papers <- as.numeric(max(dat$unique_paper_id))
@@ -159,6 +158,7 @@ We first offer some descriptive statistics of our database and then provide a th
 ```{r descriptive_stats, echo = F, include=F}
 library(stringr)
 library(purrr)
+source('./functions/sum_tab.R')
 
 # Data preparation and basic statistics
 paper_dat <- dat |> 
@@ -244,7 +244,7 @@ self_report_nums <- dat |> sum_tab(self_report)
 
 # where do studies take place and with whom?
 country_dat <- dat |> sum_tab(country)
-pop_dat<- dat |> sum_tab(population)
+pop_dat <- dat |> sum_tab(population)
 # delay 
 median_delay <- median(dat$delay)
 range_delay <- range(dat$delay)
@@ -269,7 +269,12 @@ Most studies in this database were administered to university students: `r pop_d
 Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
 ### 3.2 The leading theoretical approaches to reducing MAP consumption 
+```{r echo=F, include=F}
+dat
 
+
+
+```
 ### Health
 
 @lohmann2022, @klockner2017 recommended people eat other kinds of MAP...
