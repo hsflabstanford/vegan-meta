@@ -41,7 +41,9 @@ mask: no
 figurelist: no
 tablelist: no
 footnotelist: no
-output: papaja::apa6_pdf
+output: 
+  papaja::apa6_pdf:
+    keep_tex: no
 editor_options: 
   chunk_output_type: console
 ---
