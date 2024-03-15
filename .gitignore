@@ -8,3 +8,4 @@ results/
 *.pdf
 *.html
 *.docx
+**/supplementary-analyses/*.{csv,sav,Rdata}

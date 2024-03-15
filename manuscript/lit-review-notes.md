@@ -70,6 +70,8 @@ Mention Weikertová meta of dynamic norms
 ## whether norms are nudges, 
 see Hansen, P. G. (2016). The definition of nudge and libertarian paternalism: Does the hand fit the glove? Brachem 2019 says "Injunctive social norms don’t necessarily qualify as nudges according to Hansen’s (2016) definition, as they work at least partly by changing incentives through the implication of social sanctions." But I think these norm interventions are all pretty descriptive rather than injunctive. Also see [Who can nudge for sustainable development? How nudge source renders dynamic norms (in-)effective in eliciting sustainable behavior
 ](10.1016/j.jclepro.2022.133246)
+Jeff Shrader says "External versus internal constraints is a nice way to think about the distinction.""
+
 
 # why do nudges fail, by Cass: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809658
 
