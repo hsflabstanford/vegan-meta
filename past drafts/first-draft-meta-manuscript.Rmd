@@ -378,4 +378,4 @@ Our code and data are also [available on Code Ocean](https://doi.org/10.24433/CO
 
 _We are grateful for funding from the [Food Systems Research Fund](https://www.fsrfund.org/)._
 
-_Thanks Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, and Matt Lerner for comments on an early draft. Thanks to Maya Mathur, Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping us assemble the database and providing guidance on their studies._
+_Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, and Matt Lerner for comments on an early draft. Thanks to Maya Mathur, Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping us assemble the database and providing guidance on their studies._
