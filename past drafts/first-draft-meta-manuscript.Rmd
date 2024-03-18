@@ -146,8 +146,6 @@ For primers on reading and writing meta-analyses, see Frank et al. 2023, [chapte
 
 Condensing an intervention to an estimate of average treatment effect and associated variance sometimes involves judgment calls. Here are the general guidelines we followed:
 
-
-
 1. We take the outcome that most clearly maps to changes in actual consumption behavior. 
 2. We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
 3. For cluster-assigned treatments, our Ns are the number of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
@@ -164,11 +162,9 @@ Our meta-analysis employs a random effects model rather than a fixed effects mod
 
 The coefficients we report are: 
 
-
-
-* Glass’s Delta (∆), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
+* Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
 * Beta (β), a regression coefficient. Linear regression tells you E(Y | X), i.e. for some value of X (or many Xs), the expected value of Y. We report this coefficient when we discuss publication bias or the effects associated with covariates. 
-* SE (standard error) is the standard deviation of the sampling distribution, e.g. ∆ or β. Smaller standard errors mean more precise estimates.
+* SE (standard error) is the standard deviation of the sampling distribution, e.g. $\Delta$ or β. Smaller standard errors mean more precise estimates.
 * P-value, a measure of statistical significance. See [Lakens (2022), chapter 1](https://lakens.github.io/statistical_inferences/01-pvalue.html) for an overview.
 
 

@@ -35,7 +35,7 @@ authornote: |
 
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "3826"
+wordcount: "5890"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -47,6 +47,7 @@ footnotelist: no
 output: 
   papaja::apa6_pdf:
     keep_tex: no
+    latex_engine: xelatex
 editor_options: 
   chunk_output_type: console
 ---
@@ -376,7 +377,27 @@ This literature features some creative interventions that target realistic theor
 
 Second, some of these studies feature a large number of subjects but assign treatment at the level of a restaurant or dining hall and include too few units for meaningful analysis. [McClain et al. 2013](https://www.tandfonline.com/doi/abs/10.1080/07448481.2012.755189) and [Reinders et al. 2017](https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-017-0496-9), for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Both studies did not meet our inclusion criteria but offer plausible theories and promising designs for future replications. Another very nice study ([Berke and Larson 2023](https://10.0.3.248/j.appet.2023.106767)) randomly assigns folks who are attending an MIT Media lab event, which serves free food, to see either a menu with vegan/vegetarian labels or no labels (all meals were vegetarian or vegan); the authors find that labels significantly decrease the proportion of vegan meals selected. We did not include this study because it lacks delayed outcomes, but we find its underlying theory very plausible. 
 
-## 4 Meta-analytic Methods
+## Meta-analytic Methods
+
+- Something or does this go into the appendix?
+
+1. We take the outcome that most clearly maps to changes in actual consumption behavior. 
+2. We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
+3. For cluster-assigned treatments, our Ns are the number of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
+4. We convert all effect sizes to estimates of standardized mean differences: Average Treatment Effect (ATE) / standard deviation (SD).
+5. When possible, we calculate ATE using [difference in differences](https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf) (DiD) — ((Treatment_posttest - Treatment_pretest) - (Control_posttest - Control_pretest)) — which we prefer to difference in means (DiM) — (Treatment_posttest - Control_posttest) — because it leads to more precise estimates. When pretest scores aren’t available, we use DiM.
+6. When possible, we standardize by the SD of the control group, a measure called Glass’s Delta (written as $\Delta$). We prefer Glass’s Delta to Cohen’s d, a measure that standardizes by the SD of the entire sample, because we want to to avoid any additional assumptions about equivalence of variance between treatment and control groups. When we don’t have enough information to calculate $\Delta$, we use d.
+7. For conversions from statistical tests like t-test or F-test, we use standard equations from [Cooper, Hedges and Valentine (2009)](https://psycnet.apa.org/record/2009-05060-000). The one exception is our difference in proportions estimator, which, to the best of our knowledge, Donald P. Green first proposed for a [previous meta-analysis](https://doi.org/10.1146/annurev-psych-071620-030619). See our [d_calc.R function on GItHub for specifics](https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R).
+8. When authors tell us that results were “not significant” but don’t specify more precisely, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
+
+Our meta-analysis employs a random effects model rather than a fixed effects model, for reasons explained [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393987/). Our code mainly uses functions from the metafor and tidyverse packages in R as well as some custom wrappers that Seth wrote for previous meta-analyses.
+
+The coefficients we report are: 
+
+* Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
+* Beta (β), a regression coefficient. Linear regression tells you E(Y | X), i.e. for some value of X (or many Xs), the expected value of Y. We report this coefficient when we discuss publication bias or the effects associated with covariates. 
+* SE (standard error) is the standard deviation of the sampling distribution, e.g. $\Delta$ or β. Smaller standard errors mean more precise estimates.
+* P-value, a measure of statistical significance. See [Lakens (2022), chapter 1](https://lakens.github.io/statistical_inferences/01-pvalue.html) for an overview.
 
 ## 5 Meta-analysis
 
@@ -415,9 +436,38 @@ dat <- dat |> mutate(d = mapply(
       se_d = sqrt(var_d))
 dat |> count_and_robust()
 
+# sign test
+sign_table <- table(dat$neg_null_pos)
+binom.test(sign_table[[3]], sum(sign_table[1:3]))
+table(dat$neg_null_pos)
+
+# figure
+fig <- dat |>
+  mutate(study_name = reorder(as.factor(paste0(author, " ", year)), desc(se_d))) |>
+  ggplot(aes(y = study_name, x = d, 
+             xmin = d - (1.96 * se_d),
+             xmax = d + (1.96 * se_d))) + 
+  geom_point(size = 1, aes(color = theory)) +
+  geom_errorbarh(height = .1, aes(color = theory)) +
+  geom_vline(xintercept = 0, color = "black", alpha = .5) +
+  geom_vline(xintercept = (dat |> map_robust())$Delta, 
+             color = 'black', lty = 'dashed') +
+  scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
+  scale_y_discrete() +
+  ylab("Study") +
+  ggtitle("Vegan meta forest plot") + 
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5,
+                                  face = "bold"),
+        legend.title = element_text(size = 15),
+        legend.text = element_text(size = 12))
+fig
+# robustness checks: pre-analysis plan
 dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
   split(~has_pap) |>  
   map(count_and_robust)
+
+# figure
 
 ```
 
