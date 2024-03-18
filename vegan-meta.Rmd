@@ -54,6 +54,8 @@ editor_options:
 
 ```{r setup, include=FALSE}
 library(dplyr)
+knitr::opts_chunk$set(fig.path = "results/figures/")
+
 
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
@@ -123,9 +125,12 @@ We also required that the full papers be available on the internet, rather than 
 
 Our cutoff date for papers was December 2023.
 
-```{r where_do_studies_come_from }
+```{r where_do_studies_come_from, echo=F, include=F}
+
 source("./functions/sum_tab.R")
-paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(source)
+
+paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> 
+  sum_tab(source)
 paper_sources
 
 prior_knowledge <- paper_sources["prior knowledge"]
@@ -461,7 +466,6 @@ fig <- dat |>
                                   face = "bold"),
         legend.title = element_text(size = 15),
         legend.text = element_text(size = 12))
-fig
 # robustness checks: pre-analysis plan
 dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
   split(~has_pap) |>  
