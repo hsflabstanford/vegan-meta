@@ -283,6 +283,12 @@ secondary_theory_tab <- dat |> sum_tab(secondary_theory)
 
 ```
 
+- In the literature writ large, there are many, many theoretical perspectives and approaches.
+- In the literature we look at, there are basically three: norms, nudges and persuasion.
+- Persuasion decomposes into three sub-categories: health, environmental, and animal welfare appeals
+- Many interventions explicitly combine multiple theoretical approaches, for example providing information about the environmental case for MAP reduction and also a norm-based message about the increasing popularity of vegetarian options [@piester2020].
+- Others arguably embody both approaches, e.g. a reminder about the 
+
 Researchers who study MAP consumption do so under many banners, e.g. [accelerating the transition to an animal-free food system](https://www.foodlabstanford.com/), [vegan economics](https://scholar.cgu.edu/joshua-tasoff/), the [psychology of human and animal intergroup relations](https://blogs.kent.ac.uk/shark/), [moral circle expansion](https://luciuscaviola.com/), and [dynamic norms and sustainability](https://sisclab.bc.edu/research/).
 ### Health
 
@@ -292,7 +298,7 @@ Researchers who study MAP consumption do so under many banners, e.g. [accelerati
 
 #### Social desirability bias..
 
-...Consider [Fehrenbach (2015)](https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar), a 2015 dissertation that tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
+...Consider @fehrenbach2015, a dissertation that tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
 Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
 
