@@ -290,6 +290,11 @@ secondary_theory_tab <- dat |> sum_tab(secondary_theory)
 norms <- dat |>   filter(str_detect(theory, "norms"))
 
 norms |> select(author, year, title, theory, secondary_theory)
+
+hybrid_norm_approaches <- norms |> 
+  mutate(theory_category = if_else(
+    str_detect(theory, "&"), "hybrid", theory)) |> 
+  sum_tab(theory_category)
 ```
 
 In the MAP reduction literature broadly, there are many, many theoretical perspectives and approaches. In the policy-relevant literature, however, interventions fall into three buckets: norms, nudges and persuasion. Persuasion approaches comprise three sub-categories: health, environmental, and animal welfare appeals. 
@@ -298,10 +303,16 @@ Many interventions explicitly combine multiple theoretical approaches, for examp
 
 #### Norms
 
-Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said
-that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
+Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
 
-Two theoretical splits characterize this literature. The first is between _descriptive_ norms that  _injunctive_ norms 
+Two theoretical splits characterize this literature. The first is between _descriptive_ and _injunctive_ norms: while "descriptive norms pertain to the behavior of a majority of people (e.g. “most people eat vegetarian at least twice a week”), injunctive norms describe what behavior most others approve or disapprove of (e.g. “most people approve of eating vegetarian at least twice a week”)" [@alblas2023, p. 993]. For example, that study's injunctive norm intervention told Dutch households with unusually high meat consumption rates that they were negative outliers, along with a frowning face symbol. The other theoretical divide is between _dynamic_ and _static_ norms. Dynamic norms emphasize how behavior is changing over time, while static norms emphasize the current state of affairs. For example, @sparkman2017 presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers.
+
+Dynamic norm messages are the predominant approach in this subset of the literature. However, many studies in this literature combine multiple approaches. 
+
+
+
+
+The other theoretical divide 
 - Divide between injunctive and descriptive norms
 - Divide between dynamic and static norms. 
 - Others arguably embody both approaches, e.g. a reminder about the fact that your peers really like the veggie burger is placed in a non-obtrusive, low-cost way: is it a nudge? We'd argue yes, if it meets the following conditions [@hansen2016]...even when papers don't necessarily describe themselves that way.
@@ -314,9 +325,6 @@ MAP reduction studies drawing on social psychological theories comprise 14 of 42
 
 Other studies conducted drawing on social psychological theories include an app that monitors people’s [meat-free pledges on their phones](https://www.sciencedirect.com/science/article/pii/S0195666321006334?via%3Dihub#sec2), or a combination of [norm-setting and messaging seeking to promote self-efficacy and the perceived feasibility](https://doi.org/10.1016/j.foodqual.2020.103997) of eating less meat.
 
-A strong study in this category is [Sparkman and Walton (2017)](https://journals.sagepub.com/doi/10.1177/0956797617719950), who presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers. The authors find that 17% of participants in the static group ordered a meatless lunch vs. 23% in the control group and 34% in the dynamic norm group.
-
-For an overview of psychological theories of vegetarianism, see [Rosenfeld (2018)](https://www.sciencedirect.com/science/article/abs/pii/S0195666318309309).
 
 ### Nudges
 - Note how few studies meet this definition
