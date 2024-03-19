@@ -160,11 +160,11 @@ Finally, we conducted a systematic search of Google Scholar for the terms [OUR S
 
 [^3]: In four cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: @abrahamse2007, @dijkstra2022, @lacroix2020 and @peacock2017. These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded. 
 
-## 3 The meta-analytic database
+## The meta-analytic database
 
 We first offer some descriptive statistics of our database and then provide a theoretical review.
 
-### 3.1 Descriptive overview of meta-analytic database
+### Descriptive overview of meta-analytic database
 
 ```{r descriptive_stats, echo = F, include=F}
 library(stringr)
@@ -279,23 +279,33 @@ Most studies in this database were administered to university students: `r pop_d
 
 Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
-### 3.2 The leading theoretical approaches to reducing MAP consumption 
-```{r echo=F, include=F}
+### The leading theoretical approaches to reducing MAP consumption 
+```{r theory_tab, echo=F, include=F}
+library(stringr)
 source('./functions/sum_tab.R')
 
 theory_tab <- dat |> sum_tab(theory)
 secondary_theory_tab <- dat |> sum_tab(secondary_theory)
 
+norms <- dat |>   filter(str_detect(theory, "norms"))
 
+norms |> select(author, year, title, theory, secondary_theory)
 ```
 
-- In the literature writ large, there are many, many theoretical perspectives and approaches.
-- In the literature we look at, there are basically three: norms, nudges and persuasion.
-- Persuasion decomposes into three sub-categories: health, environmental, and animal welfare appeals
-- Many interventions explicitly combine multiple theoretical approaches, for example providing information about the environmental case for MAP reduction and also a norm-based message about the increasing popularity of vegetarian options [@piester2020].
+In the MAP reduction literature broadly, there are many, many theoretical perspectives and approaches. In the policy-relevant literature, however, interventions fall into three buckets: norms, nudges and persuasion. Persuasion approaches comprise three sub-categories: health, environmental, and animal welfare appeals. 
+
+Many interventions explicitly combine multiple theoretical approaches, for example providing information about the environmental case for MAP reduction and also a norm-based message about the increasing popularity of vegetarian options [@piester2020]. Our counts of interventions by category equal to more than the total number of interventions in the database.
+
+#### Norms
+
+Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options](https://doi.org/10.1016/j.appet.2021.105824),” or “[The garden fresh veggie burger is a tasty choice](https://doi.org/10.1016/j.appet.2020.104842)!” One study told participants that people who eat meat are more likely to [endorse social hierarchy and embrace human dominance over nature](https://linkinghub.elsevier.com/retrieve/pii/S019566630190474X), thus making them out to be a counter-normative outgroup.
+
+- Divide between injunctive and descriptive norms
+- Divide between dynamic and static norms. 
 - Others arguably embody both approaches, e.g. a reminder about the fact that your peers really like the veggie burger is placed in a non-obtrusive, low-cost way: is it a nudge? We'd argue yes, if it meets the following conditions [@hansen2016]...even when papers don't necessarily describe themselves that way.
 
-### Norms
+
+
 (clearly need to rewrite this section and all the ones following)
 
 MAP reduction studies drawing on social psychological theories comprise 14 of 42 interventions in our database. These studies typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say things like “[More and more [retail store name] customers are choosing our veggie options](https://doi.org/10.1016/j.appet.2021.105824),” or “[The garden fresh veggie burger is a tasty choice](https://doi.org/10.1016/j.appet.2020.104842)!” One study told participants that people who eat meat are more likely to [endorse social hierarchy and embrace human dominance over nature](https://linkinghub.elsevier.com/retrieve/pii/S019566630190474X), thus making them out to be a counter-normative outgroup.
@@ -406,7 +416,7 @@ The coefficients we report are:
 
 ## 5 Meta-analysis
 
-```{r echo=F, include=F}
+```{r main_results, echo=F, include=F}
 library(metafor, quietly = T)
 library(ggplot2, warn.conflicts = F)
 library(knitr)
@@ -421,9 +431,8 @@ source('./functions/map_robust.R')
 #' count_and_robust helper function;
 #' necessary b/c `filter |> split |> imap()` didn't work for some reason
 
-  count_and_robust <- function(data) {
-      bind_cols(study_count(data), map_robust(data)) |>
-        kable('markdown')
+count_and_robust <- function(data) {
+      bind_cols(study_count(data), map_robust(data))
   }
 
 dat <- dat |> mutate(d = mapply(
@@ -439,40 +448,62 @@ dat <- dat |> mutate(d = mapply(
         n_c = n_c_post,
         n_t = n_t_post),
       se_d = sqrt(var_d))
-dat |> count_and_robust()
+main_result <- dat |> count_and_robust()
 
 # sign test
 sign_table <- table(dat$neg_null_pos)
-binom.test(sign_table[[3]], sum(sign_table[1:3]))
-table(dat$neg_null_pos)
+sign_table_test <-  binom.test(sign_table[[3]], sum(sign_table[1:3]))
+# I don't think we need the rest of this but here's some approaches to 
+'the probability of a positive result is distinguishable from a coin flip'
+
+null_proportion <- sign_table[[2]] / sum(sign_table)
+sign_table_test <- binom.test(sign_table[[3]], sum(sign_table), p = null_proportion)
+dat$positive_numeric <- ifelse(dat$neg_null_pos == 1, 1, 0)
+t_test_result <- t.test(dat$positive_numeric, mu = 0.5, alternative = "greater")
+# something like this
+```
+
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r `main_result$Delta` (se = `rmain_result$se`), p = `r main_result$p`. Though statistically significant, this effect does not meet the conventional standard for a 'small' result in the behavioral sciences. This stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
+
+Another way to assess the overall effect of this literature is with a vote counting procedure, which counts the prevalence of significant positive, null, and significant negative results in the words of the papers themselves. In our sample, `r sign_table[[3]]` studies had a positive effect, `r sign_table[[2]]` had a negative effect, and `r sign_table[[1]]` had a null effect. In other words, the average study in our sample finds a null result.  [do we need a statistical test here? I think not because it's so obvious]
+
+
+The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The size of the points corresponds to the precision of the estimate, with larger points indicating more precise estimates. The color of the points corresponds to the theoretical approach of the intervention. 
+
+```{r fig, echo=F}
+source('./functions/map_robust.R')
+count_and_robust <- function(data) {
+      bind_cols(study_count(data), map_robust(data))
+  }
 
 # figure
 fig <- dat |>
-  mutate(study_name = reorder(as.factor(paste0(author, " ", year)), desc(se_d))) |>
+  mutate(theory_category = if_else(
+    str_detect(theory, "&"), "hybrid", theory), 
+    study_name = reorder(as.factor(paste0(author, " ", year)), desc(se_d))) |>
   ggplot(aes(y = study_name, x = d, 
              xmin = d - (1.96 * se_d),
              xmax = d + (1.96 * se_d))) + 
-  geom_point(size = 1, aes(color = theory)) +
-  geom_errorbarh(height = .1, aes(color = theory)) +
+  geom_point(size = 1, aes(color = theory_category)) +
+  geom_errorbarh(height = .1, aes(color = theory_category)) +
   geom_vline(xintercept = 0, color = "black", alpha = .5) +
   geom_vline(xintercept = (dat |> map_robust())$Delta, 
              color = 'black', lty = 'dashed') +
   scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
   scale_y_discrete() +
   ylab("Study") +
-  ggtitle("Vegan meta forest plot") + 
+  ggtitle("Vegan m eta forest plot") + 
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5,
                                   face = "bold"),
         legend.title = element_text(size = 15),
         legend.text = element_text(size = 12))
 # robustness checks: pre-analysis plan
-dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
+pap_split <- dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
   split(~has_pap) |>  
   map(count_and_robust)
-
+pap_split[[1]]$Delta
 # figure
 
 ```
-
 ### Bibliography

@@ -11,7 +11,7 @@
 
 study_count <- function(dat, counting_var = "unique_study_id") {
   result <- dat |>
-    dplyr::summarise(`N (unique)` = dplyr::n_distinct(.data[[counting_var]]))
+    dplyr::summarise(N_unique = dplyr::n_distinct(.data[[counting_var]]))
 
   return(result)
 }
