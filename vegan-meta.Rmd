@@ -35,7 +35,7 @@ authornote: |
 
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6189"
+wordcount: "6434"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
