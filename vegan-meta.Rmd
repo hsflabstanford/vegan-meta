@@ -35,7 +35,7 @@ authornote: |
 
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6434"
+wordcount: "6377"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -313,9 +313,9 @@ Two theoretical splits characterize this literature. The first is between _descr
 
 Dynamic norm messages are the predominant approach in this subset of the literature. However, many studies in this literature combine multiple approaches into one intervention. @aldoh2023, for example, employ a 2x2 design where either a static norm or dynamic norm intervention conveying information about meat-eating habits in the United Kingdom is either combined with a visual cue (a graph showing the percentage of British people who took efforts to reduce their meat consumption either holding steady or going up over time) or not, These approaches are theoretically congruent, while other studies deliberately combine multiple approaches. In two cases, authors combined norms-appeals with explicit reasons to reduce MAP consumption. @hennessy2016 provided participants with one of two leaflets; the "why vegetarian" leaflet contained both "pictures of vegetarian celebrities in the why-focused leaflet to demonstrate a social norm" health, environmental, and animal welfare reasons to adopt a vegetarian diet. @lacroix2020 combine a descriptive social norm ("45% of Canadians are al- ready making efforts to reduce their consumption of meat") with environmental and health reasons to reduce consumption of red and processed meat.
 
-Finally, `r nrow(hybrid_norm_approaches)` deploy norms-based nudges in unobtrusive ways in dining halls [@piester2020, @coker2022], which arguably makes them nudges (see )  For example, @piester2020 combined a descriptive norm message with a nudge: a sign that said "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. @coker2022 combined a descriptive norm message with a nudge: a sign that said “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2].
+Finally, `r nrow(hybrid_norm_approaches)` deploy norms-based nudges in unobtrusive ways in dining halls [@piester2020, @coker2022], which arguably makes them nudges. For example, @piester2020 combined a descriptive norm message with a nudge: a sign that said "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. 
 
-- Others arguably embody both approaches, e.g. a reminder about the fact that your peers really like the veggie burger is placed in a non-obtrusive, low-cost way: is it a nudge? We'd argue yes, if it meets the following conditions [@hansen2016]...even when papers don't necessarily describe themselves that way.
+The question of whether such approaches are norms is debatable. We follow the guidance of @hansen2016, who argues... even when papers don't necessarily describe themselves that way.
 
 
 
