@@ -76,7 +76,7 @@ num_studies <- as.numeric(max(dat$unique_study_id))
 ```{r redownload_data_if_missing, echo=F, include=F, eval=F}
 library(googledrive)
 
-drive_auth()
+# drive_auth() # only if needed
 drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'), 
                path = './data/vegan-meta.csv',
                overwrite= TRUE)
@@ -84,13 +84,13 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 
 ## 1. Introduction: the three leading perspectives on changing dietary behavior
 
-Reducing consumption of meat and animal products (MAP) is vital to many policy goals. Animal agriculture is a major driver of climate change [@scarborough2023; @koneswaran2008; @goodland2009] as well as more localized environmental and public health harms [@horrigan2002; @slingenbergh2004; @graham2008; @greger2010]. Excess MAP consumption is a leading cause of premature deaths [@willett2019; @landry2023]; finally, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in their own right [@yeates2011; @webster2001; @kuruc2023].
+Reducing consumption of meat and animal products (MAP) would advance numerous policy goals. Animal agriculture is a major driver of climate change [@scarborough2023; @koneswaran2008; @goodland2009] as well as more localized environmental and public health harms [@horrigan2002; @slingenbergh2004; @graham2008; @greger2010]. Excess MAP consumption is a leading cause of premature deaths [@willett2019; @landry2023]; finally, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in its own right [@yeates2011; @webster2001; @kuruc2023].
 
-To push eating behavior in a more prosocial direction, policymakers can ban certain foods [@caro2009] or practices [@bursey2018] deemed especially cruel; campaign for vegetarianism [@trewern2022]; raise taxes on MAP products with high externalities [@springmann2018]; or change eating environments to make MAP alternatives more salient or appealing [@guthrie2015; @bianchi2018restructuring]. However, any lever which focuses on reducing supply rather than consumer demand risks backsliding through political correction [@michielsen2022]. It is essential, therefore, to assess which theoretical approaches most effectively and durably alter eating behavior. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis.
+Policymakers have many tools availabe for reducing MAP consumption. They can can ban certain foods [@caro2009] or practices [@bursey2018] deemed especially cruel; campaign for vegetarianism [@trewern2022]; raise taxes on MAP with high externalities [@springmann2018]; or change eating environments to make MAP alternatives more salient or appealing [@guthrie2015; @bianchi2018restructuring]. However, any lever which focuses on reducing supply rather than demand risks backsliding through political correction [@michielsen2022]. It is essential, therefore, to assess which theoretical approaches most effectively and durably reduce demand for MAP. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis.
 
 A previous review called on future MAP research to feature more “direct behavioral outcomes” and “long-term follow-up" [@mathur2021meta, p. 1]. Building on this, our paper restricts its quantitative synthesis to the most rigorous, policy-ready research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified `r num_studies` such interventions published in `r num_papers` papers or technical reports.
 
-Scholars have approached MAP reduction from many disciplines, including social psychology [@rosenfeld2018; @dhont2019], economics [@lusk2009], choice architecture [@bianchi2018restructuring; @mertens2022]; and environmental studies [@costello2016]. Among the studies that meet our inclusion criteria, three approaches prevail: **norms-based approaches** that make MAP seem socially undesirable, **nudges** that make MAP alternatives more salient, and **persuasion-based approaches** that attempt to change ideas about the desirability of MAP itself. Which approach is most effective at changing real world behavior has broad implications for both this particular issue and public policy in general.
+Scholars have approached MAP reduction from many disciplines, including social psychology [@rosenfeld2018; @dhont2019], economics [@lusk2009], choice architecture [@bianchi2018restructuring; @mertens2022]; and environmental studies [@costello2016]. Among the studies that meet our inclusion criteria, three approaches prevail: **norms-based approaches** that make MAP seem socially undesirable, **nudges** that make MAP alternatives more salient, and **persuasion-based approaches** that attempt to change ideas about the desirability of MAP itself. Which approach is most effective at changing real world behavior has broad implications for both this particular issue and policy in general.
 
 Our main quantitative finding is that appeals to personal health and the environment are the most effective MAP reduction strategies. We also see some evidence of change resulting from a handful of salience- and norms-based changes to some university dining halls, as well as text-based nudges to reduce MAP consumption. We find overall null results for appeals to animal welfare, studies conducted online, video treatments, and leafletting studies.
 
@@ -165,11 +165,11 @@ Finally, we conducted a systematic search of Google Scholar for the terms [OUR S
 
 [^3]: In four cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: @abrahamse2007, @dijkstra2022, @lacroix2020 and @peacock2017. These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded. 
 
-## The meta-analytic database
+## 3 The meta-analytic database
 
 We first offer some descriptive statistics of our database and then provide a theoretical review.
 
-### Descriptive overview of meta-analytic database
+### 3.1 Descriptive overview of meta-analytic database
 
 ```{r descriptive_stats, echo = F, include=F}
 library(stringr)
@@ -284,7 +284,7 @@ Most studies in this database were administered to university students: `r pop_d
 
 Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
-### The leading theoretical approaches to reducing MAP consumption 
+### 3.2 The leading theoretical approaches to reducing MAP consumption 
 ```{r theory_tab, echo=F, include=F}
 library(stringr)
 source('./functions/sum_tab.R')
@@ -310,7 +310,7 @@ In the MAP reduction literature broadly, there are many, many theoretical perspe
 
 Many interventions explicitly combine multiple theoretical approaches, for example providing information about the environmental case for MAP reduction and also a norm-based message about the increasing popularity of vegetarian options [@piester2020]. Our counts of interventions by category equal to more than the total number of interventions in the database.
 
-#### Norms
+#### 3.2.1 Norms
 
 Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
 
@@ -322,9 +322,13 @@ Finally, `r nrow(hybrid_norm_approaches)` deploy norms-based nudges in unobtrusi
 
 The question of whether such approaches are norms is debatable. We follow the guidance of @hansen2016, who argues... even when papers don't necessarily describe themselves that way.
 
+### 3.2.2 Nudges
+```{r nudge_theory, eval=F, include=F, echo=F}
+dat |> mutate(nudge_theory = if_else(
+    str_detect(theory, "nudge"), "nudge", theory)) |> split(~nudge_theory) |> map(count_and_robust)
 
 
-### Nudges
+```
 - Note how few studies meet this definition
 - it's actually a very large literature (see Bianchi 2018, [Mertens](https://www.pnas.org/doi/10.1073/pnas.2107346118), [Arno](https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-016-3272-x), and [Wynes](https://iopscience.iop.org/article/10.1088/1748-9326/aae5d7/meta) for overview. but once we started filtering by dependent variable, those numbers fell a lot; e.g. Mertens looks at just one study that meets our criteria and the rest look at vegetable intake. 
 - Another large problem is the preponderance of hypothetical outcomes
@@ -354,7 +358,7 @@ Two studies in this strand meet our inclusion criteria and also measure outcomes
 
 Health concerns motivate X of Y interventions in our database. These studies are often conducted and/or written by medical doctors. For example, [Emmons et al. (2005 a)](https://aacrjournals.org/cebp/article/14/6/1453/258325/Project-PREVENT-A-Randomized-Trial-to-Reduce) assigned individuals who had received a “diagnosis of adenomatous colorectal polyps” (which are [potentially precancerous](https://www.mountsinai.org/health-library/diseases-conditions/colorectal-polyps)) to either a usual care condition or a tailored intervention that provided counseling and materials on risk factors for colorectal cancer, “including red meat consumption, fruit and vegetable intake, multivitamin intake, alcohol, smoking, and physical inactivity.” The outcome variable was self-reported servings of red meat per week measured at an 8-month follow-up, which the authors dichotomized into “more than three servings per week of red meat” or not. Overall, there was an 18% reduction in this outcome for the treatment group and a 12% reduction for the usual care condition.
 
-One challenge to integrating these results into our database is that they often focus on red meat and/or processed meat consumption rather than MAP as a whole. There is a risk, therefore, that these interventions might induce substitution towards other animal-based products. [Klöckner & Ofstad (2017)](https://doi.org/10.1016/j.jenvp.2017.01.006), for example, recommended that subjects “substitute beef with other meats or fish,” which are arguably worse for animal welfare on a [per-ounce-of-meat](https://slatestarcodex.com/2015/09/23/vegetarianism-for-meat-eaters/) [basis](https://www.vox.com/future-perfect/22430749/beef-chicken-climate-diet-vegetarian) (see [Mathur 2022](https://www.science.org/doi/10.1126/science.abo2535) for further discussion). We did not include this study in our meta-analytic database because we cannot clearly deduce its overall effect on MAP consumption. However, we included all red and/or processed meat consumption studies that did not specifically argue for switching to other MAP products. (See [Matt-Navarro and Sparkman (forthcoming)](https://static1.squarespace.com/static/5e90e46fd1119766887d1dc3/t/646cc4f6d0b87674aa83a548/1684849910918/FishNormsInterventionBrief.pdf) for research targeting fish consumption.)
+One challenge to integrating these results into our database is that they often focus on red meat and/or processed meat consumption rather than MAP as a whole. There is a risk, therefore, that these interventions might induce substitution towards other animal-based products. [Klöckner & Ofstad (2017)](https://doi.org/10.1016/j.jenvp.2017.01.006), for example, recommended that subjects “substitute beef with other meats or fish,” which are arguably worse for animal welfare on a [per-ounce-of-meat](https://slatestarcodex.com/2015/09/23/vegetarianism-for-meat-eaters/) [basis](https://www.vox.com/future-perfect/22430749/beef-chicken-climate-diet-vegetarian) (see [Mathur 2022](https://www.science.org/doi/10.1126/science.abo2535) for further discussion). We did not include this study in our meta-analytic database because we cannot clearly deduce its overall effect on MAP consumption. However, we included all red and/or processed meat consumption studies that did not specifically argue for switching to other MAP. (See [Matt-Navarro and Sparkman (forthcoming)](https://static1.squarespace.com/static/5e90e46fd1119766887d1dc3/t/646cc4f6d0b87674aa83a548/1684849910918/FishNormsInterventionBrief.pdf) for research targeting fish consumption.)
 
 
 #### Appeals to the environment
