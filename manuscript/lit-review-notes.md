@@ -67,12 +67,14 @@ Parkman 2017 does a power analysis based on results of earlier studies for study
 ## additional systematic reviews?
 Mention Weikertová meta of dynamic norms
 
-## whether norms are nudges, 
-see Hansen, P. G. (2016). The definition of nudge and libertarian paternalism: Does the hand fit the glove? Brachem 2019 says "Injunctive social norms don’t necessarily qualify as nudges according to Hansen’s (2016) definition, as they work at least partly by changing incentives through the implication of social sanctions." But I think these norm interventions are all pretty descriptive rather than injunctive. Also see [Who can nudge for sustainable development? How nudge source renders dynamic norms (in-)effective in eliciting sustainable behavior
-](10.1016/j.jclepro.2022.133246)
+**whether norms are nudges**?
+Depends on whether they are injunctive or descriptive 
+see Hansen, P. G. (2016). The definition of nudge and libertarian paternalism: Does the hand fit the glove? Brachem 2019 says "Injunctive social norms don’t necessarily qualify as nudges according to Hansen’s (2016) definition, as they work at least partly by changing incentives through the implication of social sanctions." But I think these norm interventions are all pretty descriptive rather than injunctive. Also see [Who can nudge for sustainable development? How nudge source renders dynamic norms (in-)effective in eliciting sustainable behavior](10.1016/j.jclepro.2022.133246)
 Jeff Shrader says "External versus internal constraints is a nice way to think about the distinction.""
+It looks like the injunctive norm cite is " A focus theory of normative conduct: Recycling the concept of norms to reduce littering in public places"
 
-
+### publication bias
+Look at e.g. Griesoph 2021, in that it does not seem to be a barrier to publication to find nothing. what you do is you talk about heterogeneity and backlash effects and boomerang effects in subgroups
 **why do nudges fail, by Cass: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809658**
 
 **hetereogeneous effect sizes in behavioral science papers**
