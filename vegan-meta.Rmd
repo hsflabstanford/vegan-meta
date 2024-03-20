@@ -153,7 +153,7 @@ snowball_papers <- paper_sources["snowball search"]
 systematic_search_papers <- paper_sources["systematic search"]
 ```
 
-First, we read all qualifying studies that two authors (SAG and BS) knew of at the outset, which yielded `r prior_knowledge` papers.
+First, we read all qualifying studies that authors 1 and 3 knew of at the outset, which yielded `r prior_knowledge` papers.
 
 Second, we located and read XX previous systematic reviews, starting with @mathur2021effectiveness as well as @bianchi2018restructuring and @bianchi2018conscious. Those three reviews yielded `r initial_review_papers` additional papers. We then read and categorized papers from XX additional reviews (assisted greatly by @grundy2022, a review of reviews); From @harguess2020, @chang2023 and @wynes2018,  we learned of `r second_review_papers` additional papers.
 
