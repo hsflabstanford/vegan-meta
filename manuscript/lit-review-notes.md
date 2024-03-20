@@ -89,3 +89,8 @@ Albas 2023: "Moreover, some studies have even observed a so-called boomerang eff
 
 ## paper with a really similar title
 [Nudges, Norms, or Just Contagion? A Theory on Influences on the Practice of (Non-)Sustainable Behavior](https://www.mdpi.com/2071-1050/12/24/10418)
+
+
+### are texts nudges? 
+
+the text articles in our dataset don't frame it that way but they're very similar to articles that do we've got the megastudy but also <https://jamanetwork.com/journals/jamapediatrics/fullarticle/2801662> and <https://www.nature.com/articles/s41586-021-03843-2> and <https://www.hbs.edu/ris/Publication%20Files/text_messages_6294f05d-ef00-420d-9a44-24dfc8989d01.pdf>
