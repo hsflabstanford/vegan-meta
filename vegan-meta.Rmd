@@ -307,7 +307,7 @@ norm_nudge_approaches <- norms |>
 
 ```
 
-In the MAP reduction literature broadly, there are many, many theoretical perspectives and approaches. In the policy-relevant literature, however, interventions fall into three buckets: norms, nudges and persuasion. Persuasion approaches comprise three sub-categories: health, environmental, and animal welfare appeals. 
+Three approaches characterize the policy-relevant MAP reduction research: norms, nudges and persuasion. Persuasion approaches comprise three sub-categories: health, environmental, and animal welfare appeals. 
 
 Many interventions explicitly combine multiple theoretical approaches, for example providing information about the environmental case for MAP reduction and also a norm-based message about the increasing popularity of vegetarian options [@piester2020]. Our counts of interventions by category equal to more than the total number of interventions in the database.
 
@@ -330,7 +330,15 @@ nudge_studies <- dat |> filter(str_detect(theory, "nudge"))
 hybrid_nudge_approach_number <- sum(str_detect(nudge_studies$theory, "&"))
 
 norms_nudge_approaches <- nudge_studies |> filter(str_detect(theory, "norms"))
+
 nudge_studies |> select(author, year, theory, secondary_theory)
+
+pure_nudge_count <- sum(!str_detect(nudge_studies$theory, "&"))
+print(dat |> filter(theory == "nudge") |> select(brief_description))
+
+text_based <- nudge_studies |> filter(str_detect(secondary_theory, "text"))
+text_based_country <- noquote(unique(text_based$country))
+num_text_studies <- length(unique(text_based$unique_paper_id))
 ```
 
 As discussed above, the precise boundaries around the idea of 'nudge' can be blurry. We refer to the original definition in @thaler2009, p. 6:
@@ -339,7 +347,9 @@ As discussed above, the precise boundaries around the idea of 'nudge' can be blu
 
 We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [@ @hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes. 
 
-By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. A full `r hybrid_nudge_approach_number` of these studies are hybrid approaches. `r nrow(norms_nudge_approaches)` of these, as previously discussed, are norms-based nudges. The remaining `r nrow(nudge_studies) - nrow(norms_nudge_approaches)` are nudges that do not have a norms-based component. 
+By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. A full `r hybrid_nudge_approach_number` of these studies are hybrid approaches. `r nrow(norms_nudge_approaches)` of these, as previously discussed, are norms-based nudges (though one also has an environmental message: @piester2020). The remaining `r nrow(nudge_studies) - nrow(norms_nudge_approaches)` combine nudges with information about the health or environmental benefits of reducing MAP consumption. Two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message. The remaining `r nrow(text_based)` interventions are text-based nudges, coming from `r `num_text_studies` papers all taking place in `r text_based_country` and all with Valentina Carfora as lead author. [describe these papers a bit]
+
+`r pure_nudge_count` study is a pure nudge, @andersson2021
 
 This relative dearth of studies, specifically the lack of studies that _just_ nudge rather than combining nudges with another approach, might surprise researchers familiar with  the sprawling literature on nudges and diet. However, our inclusion criteria, specifically our focus on MAP consumption as a dependent variable, excluded the vast majority of studies we looked at. For instance, [Campbell-Arvai, Arvai, and Kalof (2017)](https://journals.sagepub.com/doi/10.1177/0013916512469099) intercepted college students on their way to a dining hall “under the pretence of completing a survey about their food preferences,” then led them “to a small conference room” where they were presented with different configurations of menus whose items were selected from options at the dining hall. Students told researchers which food they preferred and then left to go eat their meal, which the researchers did not track. As the authors themselves put it, this design might “be critiqued for not providing actual food choices and thus lacking any real consequences.” Along the same lines, [Bacon and Krpap (2018)](https://www.sciencedirect.com/science/article/abs/pii/S0195666317309480?via%3Dihub) asked MTurk participants to “imagine a scenario in which they were catching up with a friend for dinner in a nice restaurant one evening during the week…they were also presented with an image of a cozy table in a restaurant.” The main outcome was probability of selecting a vegetarian option from a hypothetical menu.
 
