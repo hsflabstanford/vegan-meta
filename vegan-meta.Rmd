@@ -118,7 +118,9 @@ We share this paper's concerns, and we address them via the following inclusion 
 
 First, we only look at randomized controlled trials for historically well-understood reasons [@cook2002; see @simonsohn2022 for discussion specific to meta-analysis]. This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
 
-Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we excluded studies that only measured consumption of particular meat products, typically red and/or processed meat. If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical].^[@klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.]  Moreover, such measures are likely to overestimate overall MAP reduction, but not in a way that allows for well-validated estimates of the magnitude of bias. We return to this point, and analyze some studies that evaluate red and/or processed meat consumption, in an appendix.
+Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we excluded studies that only measured consumption of particular meat products, typically red and/or processed meat. If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical].[^2] Moreover, such measures are likely to overestimate overall MAP reduction, but not in a way that allows for well-validated estimates of the magnitude of bias. We return to this point, and analyze some studies that evaluate red and/or processed meat consumption, in an appendix.
+
+[^2]: @klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.
 
 Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g. a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g. if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point in our quantitative results.
 
@@ -163,7 +165,7 @@ Fourth, we conducted a snowball search where we read papers our assembled papers
 
 Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded `r systematic_search_papers` more papers, bringing our total sample size to `r num_papers` papers and `r num_studies` interventions.[^3]
 
-[^3]: In three cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: @abrahamse2007, @lacroix2020 and @peacock2017. These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded. 
+[^3]: In three cases, we condensed multiple interventions into one statistical result based on how they were reported in the paper: @abrahamse2007, @lacroix2020 and @peacock2017. These studies all present substantively null results and, in their results sections, group multiple treatment arms into singular statistical results, which we recorded.
 
 ## 3 The meta-analytic database
 
@@ -268,9 +270,9 @@ range_delay <- range(dat$delay)
 
 The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
 
-Out of `r num_papers` total papers, `r published_papers` were published in peer-reviewed journals. `r dissertation_papers` are dissertations, one is a preprint, and four were published by advocacy organizations. Among journal articles, `r num_venues` different journals are represented. The most common venue is *`r most_common_venue`,* with `r most_common_venue_count` papers, followed by three in _Journal of Environmental Psychology_, and two apiece in _American Journal of Public Health_, _Frontiers in Psychology_, and _Sustainability_. The remainder were published in field journals for food and nutrition, psychology, and public health.
+Out of `r num_papers` total papers, `r published_papers` were published in peer-reviewed journals. `r dissertation_papers` are dissertations, one is a preprint, and four were published by advocacy organizations. Among journal articles, `r num_venues` different journals are represented. The most common venue is *`r most_common_venue`,* with `r most_common_venue_count` papers, followed by three in *Journal of Environmental Psychology*, and two apiece in *American Journal of Public Health*, *Frontiers in Psychology*, and *Sustainability*. The remainder were published in field journals for food and nutrition, psychology, and public health.
 
-This database of studies uses methodologically diverse approaches.  `r intervention_types_counts$cafeteria_or_restaurant` studies were conducted in a cafeteria or restaurant, `r intervention_types_counts$leaflet_count` studies employed leaflets,  `r intervention_types_counts$video_count` used videos, and `r intervention_types_counts$internet_based` were administered online.  `r intervention_types_counts$multi_component` used multi-component strategies, meaning that their treatments comprised multiple active elements intended to change behaviors.
+This database of studies uses methodologically diverse approaches. `r intervention_types_counts$cafeteria_or_restaurant` studies were conducted in a cafeteria or restaurant, `r intervention_types_counts$leaflet_count` studies employed leaflets, `r intervention_types_counts$video_count` used videos, and `r intervention_types_counts$internet_based` were administered online. `r intervention_types_counts$multi_component` used multi-component strategies, meaning that their treatments comprised multiple active elements intended to change behaviors.
 
 `r cluster_sample_stats$n` studies were assigned to clusters. This subset had a median of `r cluster_sample_stats$median` clusters in total, ranging from `r cluster_sample_stats$min` to `r cluster_sample_stats$max`. There were `r non_cluster_sample_stats$n` studies with assignment at the level of the individual, with a median sample size of `r non_cluster_sample_stats$median`, and a range from `r non_cluster_sample_stats$min` to `r non_cluster_sample_stats$max`.
 
@@ -282,9 +284,10 @@ A majority (`r country_dat["United States"]` of `r num_studies`) of studies take
 
 Most studies in this database were administered to university students: `r pop_dat["university students"]` of `r num_studies`. A further `r pop_dat["adults"]` were administered to adults, while `r pop_dat["young women"]` was delivered to young women (ages 13-25) and `r pop_dat["all ages"]` to people of all ages: one at a restaurant [@coker2022] and one online survey with an age range of 18 to 82 [@bochmann2017].
 
-Regarding dependent variables, self-reported outcomes are the norm: `r `self_report_nums['Y']` of `r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
+Regarding dependent variables, self-reported outcomes are the norm: `r`self_report_nums['Y']`of`r `num_studies` studies. Finally, the average delay between the start of treatment and outcome measurement is `r median_delay` days, with a range of `r range_delay[1]` to `r range_delay[2]` days.
 
-### 3.2 The leading theoretical approaches to reducing MAP consumption 
+### 3.2 The leading theoretical approaches to reducing MAP consumption
+
 ```{r theory_tab, echo=F, include=F}
 library(stringr)
 source('./functions/sum_tab.R')
@@ -306,15 +309,15 @@ norm_nudge_approaches <- norms |>
   filter(str_detect(theory, "nudge"))
 ```
 
-Three approaches characterize the policy-relevant MAP reduction research: norms, nudges and persuasion. Persuasion approaches comprise three sub-categories: health, environmental, and animal welfare appeals. 
+Three approaches characterize the policy-relevant MAP reduction research: norms, nudges and persuasion. Persuasion approaches comprise three sub-categories: health, environmental, and animal welfare appeals.
 
 Many interventions explicitly combine multiple theoretical approaches, for example providing information about the environmental case for MAP reduction and also a norm-based message about the increasing popularity of vegetarian options [@piester2020]. Our counts of interventions by category equal to more than the total number of interventions in the database.
 
 #### 3.2.1 Norms
 
-Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database and `r `norms_paper_count` papers. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
+Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database and `r`norms_paper_count\` papers. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
 
-Two theoretical splits characterize this literature. The first is between _descriptive_ and _injunctive_ norms: while "descriptive norms pertain to the behavior of a majority of people (e.g. “most people eat vegetarian at least twice a week”), injunctive norms describe what behavior most others approve or disapprove of (e.g. “most people approve of eating vegetarian at least twice a week” [@alblas2023, p. 993]). For example, that study's injunctive norm intervention told Dutch households with unusually high meat consumption rates that they were negative outliers, along with a frowning face symbol. The other theoretical divide is between _dynamic_ and _static_ norms. Dynamic norms emphasize how behavior is changing over time, while static norms emphasize the current state of affairs. For example, @sparkman2017 presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers.
+Two theoretical splits characterize this literature. The first is between *descriptive* and *injunctive* norms: while "descriptive norms pertain to the behavior of a majority of people (e.g. “most people eat vegetarian at least twice a week”), injunctive norms describe what behavior most others approve or disapprove of (e.g. “most people approve of eating vegetarian at least twice a week” [@alblas2023, p. 993]). For example, that study's injunctive norm intervention told Dutch households with unusually high meat consumption rates that they were negative outliers, along with a frowning face symbol. The other theoretical divide is between *dynamic* and *static* norms. Dynamic norms emphasize how behavior is changing over time, while static norms emphasize the current state of affairs. For example, @sparkman2017 presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers.
 
 Dynamic norm messages are predominant in this subset of the literature. However, many studies in this literature combine multiple approaches into one intervention. @aldoh2023, for example, employ a 2x2 design where either a static norm or dynamic norm intervention conveying information about meat-eating habits in the United Kingdom is either combined with a visual cue (a graph showing the percentage of British people who took efforts to reduce their meat consumption either holding steady or going up over time) or not, These approaches are theoretically congruent, while other studies deliberately combine multiple approaches. In two cases, authors combined norms-appeals with explicit reasons to reduce MAP consumption. @hennessy2016 provided participants with one of two leaflets; the "why vegetarian" leaflet contained both "pictures of vegetarian celebrities in the why-focused leaflet to demonstrate a social norm" health, environmental, and animal welfare reasons to adopt a vegetarian diet. @lacroix2020 combine a descriptive social norm ("45% of Canadians are al- ready making efforts to reduce their consumption of meat") with environmental and health reasons to reduce consumption of red and processed meat.
 
@@ -323,6 +326,7 @@ Finally, `r nrow(norm_nudge_approaches)` deploy what we consider to be norms-bas
 Whether these interventions are nudges is debatable. On the one hand, they seek to exploit a widespread heuristic of following group norms, and they do so by raising the salience of certain items in an unobtrusive way. On the other, They are plainly attempts to change underlying preferences by providing factual information. However, in these hybrid cases, the suggested change is implicit and can easily be ignored, which suggests a "libertarian paternalistic" perspective on behavior change [@thaler2003]. A further relevant distinction comes from @brachem2019, who argue that unlike descriptive norms, injunctive norms "work at least partly...through the implication of social sanctions" (p.9), which amount to incentives. Therefore, we coded norm-based interventions that that were cheap, unobtrusive, and descriptive as a nudge as well. This excludes, for instance, a survey with a norm message taken on the line to a dining hall because the delivery method is intrusive. obtrusive.
 
 ### 3.2.2 Nudges
+
 ```{r nudge_theory, include=F, echo=F}
 nudge_studies <- dat |> filter(str_detect(theory, "nudge"))
 
@@ -340,40 +344,30 @@ As discussed above, the precise boundaries around the idea of 'nudge' can be blu
 
 > A nudge...is any aspect of the choice architecture that alters people’s behavior in a predictable way without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid. Nudges are not mandates.
 
-We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [@ @hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes. 
+We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [\@ @hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes.
 
 By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. `r hybrid_nudge_approach_number` of these studies are combine nudges with social norm messages, as previously discussed. Further, two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message, thus combining nudge and persuasion approaches.
 
-`r pure_nudge_count` study is a pure nudge. @andersson2021 randomly altered whether the vegetarian or meat option appeared at the top of a large menu display at a university cafeteria in Sweden, along with "the amount of carbon dioxide equivalents (CO2e) emissions for each option" (p. 4). 
+`r pure_nudge_count` study is a pure nudge. @andersson2021 randomly altered whether the vegetarian or meat option appeared at the top of a large menu display at a university cafeteria in Sweden, along with "the amount of carbon dioxide equivalents (CO2e) emissions for each option" (p. 4).
 
-#### Whither the choice architecture approaches?    
+#### Whither the choice architecture approaches?
+
 This relative dearth of nudge studies might surprise researchers familiar with the sprawling literature on nudges and diet. We attribute this mainly to our strict focus on MAP consumption as a dependent variable. This entailed excluding all studies that measured only hypothetical outcomes, which were startlingly common. For instance, @campbell2014 intercepted college students on their way to a dining hall, asked them to complete a survey, and then led them to another room where students were with different hypothetical menus comprised of options from the dining hall. Students told researchers which food they preferred and then left to go eat their meal, which the researchers did not track. As the authors put it, this design might “be critiqued for not providing actual food choices and thus lacking any real consequences” (p. 16). Along the same lines, @bacon2018 asked MTurk participants to “imagine a scenario in which they were catching up with a friend for dinner in a nice restaurant one evening during the week…they were also presented with an image of a cozy table in a restaurant” (p. 17). The main outcome was probability of selecting a vegetarian option from a hypothetical menu.
 
-Second, we excluded studies that measured just red and/or processed meat consumption, e.g.  @carfora2017correlational and @carfora2017randomised, which sent text-based reminders to participants asking them to monitor their red or processed meat consumption.
+Second, we excluded studies that measured just red and/or processed meat consumption, e.g. @carfora2017correlational and @carfora2017randomised, which sent text-based reminders to participants asking them to monitor their red or processed meat consumption.
 
-We also excluded some interesting studies that assigned treatment at the level of a restaurant or dining hall and included too few units for meaningful analysis. [McClain et al. 2013](https://www.tandfonline.com/doi/abs/10.1080/07448481.2012.755189) and [Reinders et al. 2017](https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-017-0496-9), for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Along similar lines, some strong studies in dining halls with otherwise strong designs and plausible theories of change did not feature truly random assignment [@gravert2021; @garnett2020].
+We also excluded some interesting studies that assigned treatment at the level of a restaurant or dining hall and included too few units for meaningful analysis. @mcclain2013 and , for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Along similar lines, some strong studies in dining halls with otherwise strong designs and plausible theories of change did not feature truly random assignment [@gravert2021; @garnett2020].
 
-Finally, we note that prior systematic reviews of the the nudge and diet literature include studies that have (what we consider to be) disqualifying threats to internal validity, e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
+Finally, we note that prior systematic reviews of the the nudge and diet literature include studies with disqualifying threats to internal validity, such as differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
 
 ### Persuasion
 
-We now turn to direct efforts to persuade people to reduce their MAP consumption. These studies generally provide direct arguments and relevant, factual arguments for dietary change. They are divided into three subcategories: environmental, health, and animal welfare appeals.
+```{r}
+persuasion_studies <- dat |> filter(str_detect(theory, "persuasion"))
 
-#### Appeals to the environment
+```
 
-These studies focus on the environmental harms of consuming animal products and/or promote plant-based alternatives as more sustainable. This framing informs X of Y interventions in our database.
-
-Environmental arguments are communicated in a plethora of ways, including [leaflets](https://core.ac.uk/download/pdf/158315429.pdf), [signs in college cafeterias](https://doi.org/10.1016/j.appet.2020.104842), [op-eds](https://doi.org/10.1016/j.jenvp.2021.101592), [daily reminder text messages](https://doi.org/10.1016/j.jenvp.2021.101592), and [in-class lectures](https://assets.researchsquare.com/files/rs-2047134/v1_covered.pdf?c=1665164513).
-
-The landmark study in this branch of the literature is [Jalil et al. (2023)](https://doi.org/10.1038/s43016-023-00712-1), who randomly assigned undergraduate classes to hear a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption,” and then measured their subsequent food choices at the college’s dining facilities. Overall, they find that students in the treatment group “reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years.” No other study in this literature shows well-identified effects enduring this long.
-
-#### Appeals to health
-
-@lohmann2022, @klockner2017 recommended people eat other kinds of MAP...
-
-For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
-
-Health concerns motivate X of Y interventions in our database. These studies are often conducted and/or written by medical doctors.
+We now turn to direct efforts to persuade people to reduce their MAP consumption, which comprise `r nrow(persuasion_studies)` of `r num_studies` in our database, These studies generally provide direct arguments and relevant, factual arguments for dietary change. These arguments come in three varieties: animal welfare, environmental, and health.
 
 ### Appeals to animal welfare
 
@@ -391,23 +385,53 @@ animal_video_studies <- animal_studies |> filter(video == "Y")
 animal_outcome_types <- table(animal_studies$self_report)
 ```
 
-Direct appeals to eat less meat for the sake of animals’ wellbeing are involve in a plurality of interventions in our database, informing `r nrow(animal_studies)` of `r num_studies` studies. These interventions take many forms, and many are led by researchers at advocacy organizations such as Faunalytics, The Humane League, and Mercy for Animals. 
+Direct appeals to eat less meat for the sake of animals’ wellbeing are involve in a plurality of interventions in our database, informing `r nrow(animal_studies)` of `r num_studies` studies. These interventions take many forms, and many are led by researchers at advocacy organizations such as Faunalytics, The Humane League, and Mercy for Animals.
 
-`r nrow(animal_leaflet_studies)` interventions involve leaflets, and `r nrow(animal_leaflet_college_studies)` of these are administered to university students. Leafletting studies typically contain facts, details, and sometimes graphic pictures about industrial farming (see @haile2021, @norris2014 and @peacock2017 for representative examples; see \href{https://veganoutreach.org/wp-content/uploads/PPR-2015-EI.pdf} for a representative leaflet). 
+`r nrow(animal_leaflet_studies)` interventions involve leaflets, and `r nrow(animal_leaflet_college_studies)` of these are administered to university students. Leafletting studies typically contain facts, details, and sometimes graphic pictures about industrial farming (see @haile2021, @norris2014 and @peacock2017 for representative examples; see \href{https://veganoutreach.org/wp-content/uploads/PPR-2015-EI.pdf} for a representative leaflet).
 
-`r nrow(animal_video_studies)` interventions involve videos. For example, @cooney2016 used facebook ads to draw young women (ages 13-25) to a landing page with a video of farmed animal cruelty, and then asked them about their meat consumption a month later. Some videos, like that in @feltz2022, combined animal welfare appeals with information about the environmental and health impacts of industrial farming. 
+`r nrow(animal_video_studies)` interventions involve videos. For example, @cooney2016 used facebook ads to draw young women (ages 13-25) to a landing page with a video of farmed animal cruelty, and then asked them about their meat consumption a month later. Some videos, like that in @feltz2022, combined animal welfare appeals with information about the environmental and health impacts of industrial farming.
 
 Among animal welfare interventions overall, `r nrow(strict_animal_studies)` of these focus exclusively about animal welfare, while `r nrow(non_strict_animal_studies)` combine animal welfare appeals with other theoretical approaches.
 
 `r animal_outcome_types["Y"]` of these studies use self-reported outcomes. The lone exception is @haile2021, which tracked food purchases at a university dining hall.
 
+#### Appeals to the environment
+
+```{r environmental_studies, echo=F, include=F}
+environmental_studieos <- dat |> 
+  filter(str_detect(secondary_theory, "environment"))
+
+solely_environment <- environmental_studies |> 
+  filter(secondary_theory == "environment")
+
+hybrid_environment <- environmental_studies |> 
+  filter(secondary_theory != "environment")
+
+```
+
+These studies focus on the environmental harms of consuming animal products and/or promote plant-based alternatives as more sustainable. This framing informs `r nrow(environmental_studies)` of `r num_studies` interventions in our database. As with appeals to animal welfare
+
+Environmental arguments are communicated in a plethora of ways, including [leaflets](https://core.ac.uk/download/pdf/158315429.pdf), [signs in college cafeterias](https://doi.org/10.1016/j.appet.2020.104842), [op-eds](https://doi.org/10.1016/j.jenvp.2021.101592), [daily reminder text messages](https://doi.org/10.1016/j.jenvp.2021.101592), and [in-class lectures](https://assets.researchsquare.com/files/rs-2047134/v1_covered.pdf?c=1665164513).
+
+The landmark study in this branch of the literature is @jalil2023, who randomly assigned undergraduate classes to hear a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” (p. 218) and then measured their subsequent food choices at the college’s dining facilities. Overall, they find that students in the treatment group “reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years” (p. 218). Among students who said they had tried to reduce their meat consumption, 64% said they were motivated by global warming, and 33% by health; 26% said both.
+
+#### Appeals to health
+
+@lohmann2022, @klockner2017 recommended people eat other kinds of MAP...
+
+For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
+
+Health concerns motivate X of Y interventions in our database. These studies are often conducted and/or written by medical doctors.
+
 
 ### Strengths and weaknesses of the literature as a whole
+
 #### Regression to the meat: the lack of long-term outcome measurement in choice architecture approaches
-- Alter one environment, how do people compensate? Do they? To track this -- to assess general equilibrium effects -- you need to track both what people at and also what they do after they leave the dining hall. No study in our dataset does this
-Andersson 2021 (and a few others?) address this head on...
+
+-   Alter one environment, how do people compensate? Do they? To track this -- to assess general equilibrium effects -- you need to track both what people at and also what they do after they leave the dining hall. No study in our dataset does this Andersson 2021 (and a few others?) address this head on...
 
 #### Social desirability bias..
+
 ...Consider @fehrenbach2015, a dissertation that tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
 Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
@@ -428,28 +452,27 @@ In sum, using broad stroke, self-reported outcomes in a context where meat is be
 
 However, a tricky case emerged in studies that attempted to reduce red or processed meat consumption rather than MAP consumption as a whole. Some of these studies recommended that people substitute to other MAP, such as chicken or fish, but none to our knowledge measured any outcome besides red and/or processed meat. We decided to include studies focused on red and/or processed meat so long as they did not specifically advise inter-MAP substitution.
 
-
 ## Meta-analytic Methods
 
-- Something or does this go into the appendix?
+-   Something or does this go into the appendix?
 
-1. We take the outcome that most clearly maps to changes in actual consumption behavior. 
-2. We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
-3. For cluster-assigned treatments, our Ns are the number of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
-4. We convert all effect sizes to estimates of standardized mean differences: Average Treatment Effect (ATE) / standard deviation (SD).
-5. When possible, we calculate ATE using [difference in differences](https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf) (DiD) — ((Treatment_posttest - Treatment_pretest) - (Control_posttest - Control_pretest)) — which we prefer to difference in means (DiM) — (Treatment_posttest - Control_posttest) — because it leads to more precise estimates. When pretest scores aren’t available, we use DiM.
-6. When possible, we standardize by the SD of the control group, a measure called Glass’s Delta (written as $\Delta$). We prefer Glass’s Delta to Cohen’s d, a measure that standardizes by the SD of the entire sample, because we want to to avoid any additional assumptions about equivalence of variance between treatment and control groups. When we don’t have enough information to calculate $\Delta$, we use d.
-7. For conversions from statistical tests like t-test or F-test, we use standard equations from [Cooper, Hedges and Valentine (2009)](https://psycnet.apa.org/record/2009-05060-000). The one exception is our difference in proportions estimator, which, to the best of our knowledge, Donald P. Green first proposed for a [previous meta-analysis](https://doi.org/10.1146/annurev-psych-071620-030619). See our [d_calc.R function on GItHub for specifics](https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R).
-8. When authors tell us that results were “not significant” but don’t specify more precisely, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
+1.  We take the outcome that most clearly maps to changes in actual consumption behavior.
+2.  We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
+3.  For cluster-assigned treatments, our Ns are the number of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
+4.  We convert all effect sizes to estimates of standardized mean differences: Average Treatment Effect (ATE) / standard deviation (SD).
+5.  When possible, we calculate ATE using [difference in differences](https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf) (DiD) — ((Treatment_posttest - Treatment_pretest) - (Control_posttest - Control_pretest)) — which we prefer to difference in means (DiM) — (Treatment_posttest - Control_posttest) — because it leads to more precise estimates. When pretest scores aren’t available, we use DiM.
+6.  When possible, we standardize by the SD of the control group, a measure called Glass’s Delta (written as $\Delta$). We prefer Glass’s Delta to Cohen’s d, a measure that standardizes by the SD of the entire sample, because we want to to avoid any additional assumptions about equivalence of variance between treatment and control groups. When we don’t have enough information to calculate $\Delta$, we use d.
+7.  For conversions from statistical tests like t-test or F-test, we use standard equations from [Cooper, Hedges and Valentine (2009)](https://psycnet.apa.org/record/2009-05060-000). The one exception is our difference in proportions estimator, which, to the best of our knowledge, Donald P. Green first proposed for a [previous meta-analysis](https://doi.org/10.1146/annurev-psych-071620-030619). See our [d_calc.R function on GItHub for specifics](https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R).
+8.  When authors tell us that results were “not significant” but don’t specify more precisely, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
 
 Our meta-analysis employs a random effects model rather than a fixed effects model, for reasons explained [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393987/). Our code mainly uses functions from the metafor and tidyverse packages in R as well as some custom wrappers that Seth wrote for previous meta-analyses.
 
-The coefficients we report are: 
+The coefficients we report are:
 
-* Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
-* Beta (β), a regression coefficient. Linear regression tells you E(Y | X), i.e. for some value of X (or many Xs), the expected value of Y. We report this coefficient when we discuss publication bias or the effects associated with covariates. 
-* SE (standard error) is the standard deviation of the sampling distribution, e.g. $\Delta$ or β. Smaller standard errors mean more precise estimates.
-* P-value, a measure of statistical significance. See [Lakens (2022), chapter 1](https://lakens.github.io/statistical_inferences/01-pvalue.html) for an overview.
+-   Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
+-   Beta (β), a regression coefficient. Linear regression tells you E(Y \| X), i.e. for some value of X (or many Xs), the expected value of Y. We report this coefficient when we discuss publication bias or the effects associated with covariates.
+-   SE (standard error) is the standard deviation of the sampling distribution, e.g. $\Delta$ or β. Smaller standard errors mean more precise estimates.
+-   P-value, a measure of statistical significance. See [Lakens (2022), chapter 1](https://lakens.github.io/statistical_inferences/01-pvalue.html) for an overview.
 
 ## 5 Meta-analysis
 
@@ -507,12 +530,11 @@ dat |>
 
 ```
 
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r `main_result$Delta` (se = `rmain_result$se`), p = `r main_result$pval`. Though statistically significant, this effect does not meet the conventional standard for a 'small' result in the behavioral sciences. This stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. Though statistically significant, this effect does not meet the conventional standard for a 'small' result in the behavioral sciences. This stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
 
-Another way to assess the overall effect of this literature is with a vote counting procedure, which counts the prevalence of significant positive, null, and significant negative results in the words of the papers themselves. In our sample, `r sign_table[[3]]` studies had a positive effect, `r sign_table[[2]]` had a negative effect, and `r sign_table[[1]]` had a null effect. In other words, the average study in our sample finds a null result.  [do we need a statistical test here? I think not because it's so obvious]
+Another way to assess the overall effect of this literature is with a vote counting procedure, which counts the prevalence of significant positive, null, and significant negative results in the words of the papers themselves. In our sample, `r sign_table[[3]]` studies had a positive effect, `r sign_table[[2]]` had a negative effect, and `r sign_table[[1]]` had a null effect. In other words, the average study in our sample finds a null result. [do we need a statistical test here? I think not because it's so obvious]
 
-
-The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The size of the points corresponds to the precision of the estimate, with larger points indicating more precise estimates. The color of the points corresponds to the theoretical approach of the intervention. 
+The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The size of the points corresponds to the precision of the estimate, with larger points indicating more precise estimates. The color of the points corresponds to the theoretical approach of the intervention.
 
 ```{r fig, echo=F}
 source('./functions/map_robust.R')
@@ -550,10 +572,7 @@ pap_split[[1]]$Delta
 # figure
 
 ```
+
 ## Conclusion
 
-in terms of power analyses, substantially revise your expectations downwards. e.g. Binachi 2022 is powered to detect d = 0.6. Try an order of magnitude smaller
-PRICE STUDIES
-Look at Garnett studies and also [Vellinga et al. (2022)](https://doi.org/10.1186/s12889-022-13535-9)
-### Bibliography
-
+in terms of power analyses, substantially revise your expectations downwards. e.g. Binachi 2022 is powered to detect d = 0.6. Try an order of magnitude smaller PRICE STUDIES Look at Garnett studies and also [Vellinga et al. (2022)](https://doi.org/10.1186/s12889-022-13535-9) \### Bibliography
