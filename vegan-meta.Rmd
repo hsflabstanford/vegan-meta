@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6273"
+wordcount: "6344"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -348,7 +348,7 @@ We also follow guidance from @hansen2016, who argues that a nudge should refer t
 
 By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. `r hybrid_nudge_approach_number` of these studies are combine nudges with social norm messages, as previously discussed. Further, two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message, thus combining nudge and persuasion approaches.
 
-`r pure_nudge_count` study is a pure nudge. @andersson2021 randomly altered whether the vegetarian or meat option appeared at the top of a large menu display at a university cafeteria in Sweden, along with "the amount of carbon dioxide equivalents (CO2e) emissions for each option" (p. 4).
+`r pure_nudge_count` study is a pure nudge. @andersson2021 randomly altered whether the vegetarian or meat option appeared at the top of a large menu display at a university cafeteria in Sweden, along with "the amount of carbon dioxide equivalents" associated with each option. (p. 4).
 
 #### Whither the choice architecture approaches?
 
@@ -356,18 +356,18 @@ This relative dearth of nudge studies might surprise researchers familiar with t
 
 Second, we excluded studies that measured just red and/or processed meat consumption, e.g. @carfora2017correlational and @carfora2017randomised, which sent text-based reminders to participants asking them to monitor their red or processed meat consumption.
 
-We also excluded some interesting studies that assigned treatment at the level of a restaurant or dining hall and included too few units for meaningful analysis. @mcclain2013 and , for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Along similar lines, some strong studies in dining halls with otherwise strong designs and plausible theories of change did not feature truly random assignment [@gravert2021; @garnett2020].
+We also excluded some interesting studies that assigned treatment at the level of a restaurant or dining hall and included too few units for meaningful analysis. @mcclain2013 and @reinders2017, for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Along similar lines, some strong studies in dining halls with compelling theories of change and objective outcome measurements did not feature truly random assignment [@gravert2021; @garnett2020].
 
 Finally, we note that prior systematic reviews of the the nudge and diet literature include studies with disqualifying threats to internal validity, such as differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
 
 ### Persuasion
 
-```{r}
+```{r persuasion_count, echo=F, include=F}
 persuasion_studies <- dat |> filter(str_detect(theory, "persuasion"))
 
 ```
 
-We now turn to direct efforts to persuade people to reduce their MAP consumption, which comprise `r nrow(persuasion_studies)` of `r num_studies` in our database, These studies generally provide direct arguments and relevant, factual arguments for dietary change. These arguments come in three varieties: animal welfare, environmental, and health.
+We now turn to direct efforts to persuade people to reduce their MAP consumption, which comprise `r nrow(persuasion_studies)` of `r num_studies` in our database, These studies generally provide direct arguments and relevant, factual arguments for dietary change. These arguments come in three varieties: appeals toanimal welfare, the environment, and personal health.
 
 ### Appeals to animal welfare
 
@@ -383,9 +383,11 @@ non_strict_animal_studies <- animal_studies |> filter(secondary_theory != "anima
 animal_video_studies <- animal_studies |> filter(video == "Y")
 
 animal_outcome_types <- table(animal_studies$self_report)
+
+online_animal_studies <- table(animal_studies$internet)
 ```
 
-Direct appeals to eat less meat for the sake of animals’ wellbeing are involve in a plurality of interventions in our database, informing `r nrow(animal_studies)` of `r num_studies` studies. These interventions take many forms, and many are led by researchers at advocacy organizations such as Faunalytics, The Humane League, and Mercy for Animals.
+Direct appeals to eat less meat for the sake of animals’ wellbeing  inform `r nrow(animal_studies)` of `r num_studies` studies in our database. Many of these interventions are conducted by advocacy organizations such as Faunalytics, The Humane League, and Mercy for Animals. [PUT A NUMBER ON IT?]
 
 `r nrow(animal_leaflet_studies)` interventions involve leaflets, and `r nrow(animal_leaflet_college_studies)` of these are administered to university students. Leafletting studies typically contain facts, details, and sometimes graphic pictures about industrial farming (see @haile2021, @norris2014 and @peacock2017 for representative examples; see \href{https://veganoutreach.org/wp-content/uploads/PPR-2015-EI.pdf} for a representative leaflet).
 
@@ -393,12 +395,12 @@ Direct appeals to eat less meat for the sake of animals’ wellbeing are involve
 
 Among animal welfare interventions overall, `r nrow(strict_animal_studies)` of these focus exclusively about animal welfare, while `r nrow(non_strict_animal_studies)` combine animal welfare appeals with other theoretical approaches.
 
-`r animal_outcome_types["Y"]` of these studies use self-reported outcomes. The lone exception is @haile2021, which tracked food purchases at a university dining hall.
+`r animal_outcome_types["Y"]` of these studies use self-reported outcomes. The lone exception is @haile2021, which tracked food purchases at a university dining hall. Approximately half of all animal appeal studies (`r online_animal_studies["Y"]` of `r nrow(animal_studies)`) were administered online.
 
 #### Appeals to the environment
 
 ```{r environmental_studies, echo=F, include=F}
-environmental_studieos <- dat |> 
+environmental_studies <- dat |> 
   filter(str_detect(secondary_theory, "environment"))
 
 solely_environment <- environmental_studies |> 
@@ -409,19 +411,24 @@ hybrid_environment <- environmental_studies |>
 
 ```
 
-These studies focus on the environmental harms of consuming animal products and/or promote plant-based alternatives as more sustainable. This framing informs `r nrow(environmental_studies)` of `r num_studies` interventions in our database. As with appeals to animal welfare
+These studies focus on the environmental harms of consuming animal products and/or promote plant-based alternatives as more sustainable. This framing informs `r nrow(environmental_studies)` of `r num_studies` interventions in our database. The typical argument in these pieces is that MAP production and consumption leads to global warming through carbon emissions.
 
-Environmental arguments are communicated in a plethora of ways, including [leaflets](https://core.ac.uk/download/pdf/158315429.pdf), [signs in college cafeterias](https://doi.org/10.1016/j.appet.2020.104842), [op-eds](https://doi.org/10.1016/j.jenvp.2021.101592), [daily reminder text messages](https://doi.org/10.1016/j.jenvp.2021.101592), and [in-class lectures](https://assets.researchsquare.com/files/rs-2047134/v1_covered.pdf?c=1665164513).
+As with appeals to animal welfare, these interventions comprise leaflets [@hennessy2016; @bianchi2022], signs in college cafeterias [@piester2020], and videos [@bochmann2017]. One study compared the effects of reading two op-eds with "reduce" and "eliminiate" messages respectively [@sparkman2021].
 
 The landmark study in this branch of the literature is @jalil2023, who randomly assigned undergraduate classes to hear a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” (p. 218) and then measured their subsequent food choices at the college’s dining facilities. Overall, they find that students in the treatment group “reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years” (p. 218). Among students who said they had tried to reduce their meat consumption, 64% said they were motivated by global warming, and 33% by health; 26% said both.
 
-#### Appeals to health
+No other study in any strand of the literature shows positive effects lasting this long.
 
-@lohmann2022, @klockner2017 recommended people eat other kinds of MAP...
+#### Appeals to health
+  
+```{r health_studies, echo=F, include=F}
+
+
+```
+SDB...Health concerns motivate X of Y interventions in our database. 
 
 For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
-Health concerns motivate X of Y interventions in our database. These studies are often conducted and/or written by medical doctors.
 
 
 ### Strengths and weaknesses of the literature as a whole
