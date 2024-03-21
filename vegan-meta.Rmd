@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6431"
+wordcount: "6244"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -347,9 +347,9 @@ As discussed above, the precise boundaries around the idea of 'nudge' can be blu
 
 We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [@ @hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes. 
 
-By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. A full `r hybrid_nudge_approach_number` of these studies are hybrid approaches. `r nrow(norms_nudge_approaches)` of these, as previously discussed, are norms-based nudges (though one also has an environmental message: @piester2020). The remaining `r nrow(nudge_studies) - nrow(norms_nudge_approaches)` combine nudges with information about the health or environmental benefits of reducing MAP consumption. Two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message. The remaining `r nrow(text_based)` interventions are text-based nudges, coming from `r `num_text_studies` papers all taking place in `r text_based_country` and all with Valentina Carfora as lead author. [TODO: describe these papers a bit]
+By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. A full `r hybrid_nudge_approach_number` of these studies are hybrid approaches. `r nrow(norms_nudge_approaches)` of these, as previously discussed, are norms-based nudges (though one also has an environmental message: @piester2020). The remaining `r nrow(nudge_studies) - nrow(norms_nudge_approaches)` combine nudges with information about the health or environmental benefits of reducing MAP consumption. Two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message. The remaining `r nrow(text_based)` interventions are text-based nudges, coming from `r `num_text_studies` papers all taking place in `r text_based_country` and all with Valentina Carfora as lead author. @carfora2017correlational sent 116 undergratuates an initial message about the recommended weekly intake of red meat ("at most two medium portions per week (200 g)" (p. 5)), and then a week's worth of daily text message reminders ("Remember to monitor your red meat consumption for not exceeding two medium servings per week using daily food diary" (p. 5)). @carfora2017randomised follows the same basic protocol for Processed Meat Consumption  "Think about regret that you could experience if this week you exceed the recommended portion of processed meat (that is one small portions corresponding to 50 grams)", while 
 
-`r pure_nudge_count` study is a pure nudge, @andersson2021 [TODO: describe these]
+`r pure_nudge_count` study is a pure nudge, @andersson2021 [TODO: describe it]
 
 This relative dearth of studies, specifically the lack of studies that _just_ nudge rather than combining nudges with another approach, might surprise researchers familiar with  the sprawling literature on nudges and diet. One reason for this is that we excluded studies that measured only hypothetical eating outcomes, which were startlingly common. For instance, @campbell2014 intercepted college students on their way to a dining hall, asked them to complete a survey, and then led them to another room where students were with different hypothetical menus comprised of options from the dining hall. Students told researchers which food they preferred and then left to go eat their meal, which the researchers did not track. As the authors put it, this design might “be critiqued for not providing actual food choices and thus lacking any real consequences” (p. 16). Along the same lines, @bacon2018 asked MTurk participants to “imagine a scenario in which they were catching up with a friend for dinner in a nice restaurant one evening during the week…they were also presented with an image of a cozy table in a restaurant” (p. 17). The main outcome was probability of selecting a vegetarian option from a hypothetical menu.
 
@@ -480,6 +480,12 @@ sign_table_test <- binom.test(sign_table[[3]], sum(sign_table), p = null_proport
 dat$positive_numeric <- ifelse(dat$neg_null_pos == 1, 1, 0)
 t_test_result <- t.test(dat$positive_numeric, mu = 0.5, alternative = "greater")
 # something like this
+
+# processed and red meat?
+dat |> 
+  split(str_detect(dat$outcome, "red meat") | str_detect(dat$outcome, "processed meat")) |> 
+  map(count_and_robust)
+
 ```
 
 Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r `main_result$Delta` (se = `rmain_result$se`), p = `r main_result$pval`. Though statistically significant, this effect does not meet the conventional standard for a 'small' result in the behavioral sciences. This stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
