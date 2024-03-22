@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6344"
+wordcount: "6345"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -118,9 +118,9 @@ We share this paper's concerns, and we address them via the following inclusion 
 
 First, we only look at randomized controlled trials for historically well-understood reasons [@cook2002; see @simonsohn2022 for discussion specific to meta-analysis]. This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
 
-Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we excluded studies that only measured consumption of particular meat products, typically red and/or processed meat. If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical].[^2] Moreover, such measures are likely to overestimate overall MAP reduction, but not in a way that allows for well-validated estimates of the magnitude of bias. We return to this point, and analyze some studies that evaluate red and/or processed meat consumption, in an appendix.
+Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we consider studies aimed at reducing consumption of particular meat products, typically red and/or processed meat, to be looking at a separate estimand, and thus we analyzed them separately as a point of comparison.[^2].
 
-[^2]: @klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.
+[^2]: If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical]. @klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.
 
 Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g. a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g. if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point in our quantitative results.
 
@@ -580,6 +580,38 @@ pap_split[[1]]$Delta
 
 ```
 
+```{r red_meat_supplementary_analysis, echo=F, include=F}
+red_meat <- read.csv("./data/supplementary-red-and-processed-meat-data.csv") |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id())  |> 
+  ungroup() |> 
+  group_by(unique_paper_id, intervention_condition) |> 
+  mutate(unique_study_id = cur_group_id()) |>
+  ungroup() |>
+  mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
+                                      year >= 2010 & year <= 2019  ~ "2010s",
+                                      year >= 2020 ~ "2020s")),
+         total_sample = n_c_post + n_c_post) |>
+  mutate(d = mapply(
+        FUN = d_calc,
+        stat_type = eff_type,
+        stat =  u_s_d,
+        sample_sd = ctrl_sd,
+        n_t = n_t_post,
+        n_c = n_c_post),
+      var_d = mapply(
+        FUN = var_d_calc,
+        d = d,
+        n_c = n_c_post,
+        n_t = n_t_post),
+      se_d = sqrt(var_d)) |> 
+  select(-X) |> 
+  select(author, year, title, unique_paper_id, unique_study_id, everything()) 
+
+red_meat |> count_and_robust()
+# vs...
+dat |> count_and_robust()
+```
 ## Conclusion
 
 in terms of power analyses, substantially revise your expectations downwards. e.g. Binachi 2022 is powered to detect d = 0.6. Try an order of magnitude smaller PRICE STUDIES Look at Garnett studies and also [Vellinga et al. (2022)](https://doi.org/10.1186/s12889-022-13535-9) \### Bibliography
