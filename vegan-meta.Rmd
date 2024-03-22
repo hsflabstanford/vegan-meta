@@ -319,7 +319,7 @@ Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions i
 
 Two theoretical splits characterize this literature. The first is between *descriptive* and *injunctive* norms: while "descriptive norms pertain to the behavior of a majority of people (e.g. “most people eat vegetarian at least twice a week”), injunctive norms describe what behavior most others approve or disapprove of (e.g. “most people approve of eating vegetarian at least twice a week” [@alblas2023, p. 993]). For example, that study's injunctive norm intervention told Dutch households with unusually high meat consumption rates that they were negative outliers, along with a frowning face symbol. The other theoretical divide is between *dynamic* and *static* norms. Dynamic norms emphasize how behavior is changing over time, while static norms emphasize the current state of affairs. For example, @sparkman2017 presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers.
 
-Dynamic norm messages are predominant in this subset of the literature. However, many studies in this literature combine multiple approaches into one intervention. @aldoh2023, for example, employ a 2x2 design where either a static norm or dynamic norm intervention conveying information about meat-eating habits in the United Kingdom is either combined with a visual cue (a graph showing the percentage of British people who took efforts to reduce their meat consumption either holding steady or going up over time) or not, These approaches are theoretically congruent, while other studies deliberately combine multiple approaches. In two cases, authors combined norms-appeals with explicit reasons to reduce MAP consumption. @hennessy2016 provided participants with one of two leaflets; the "why vegetarian" leaflet contained both "pictures of vegetarian celebrities in the why-focused leaflet to demonstrate a social norm" health, environmental, and animal welfare reasons to adopt a vegetarian diet. @lacroix2020 combine a descriptive social norm ("45% of Canadians are al- ready making efforts to reduce their consumption of meat") with environmental and health reasons to reduce consumption of red and processed meat.
+Dynamic norm messages are predominant in this subset of the literature. However, many studies in this literature combine multiple approaches into one intervention. @aldoh2023, for example, employ a 2x2 design where either a static norm or dynamic norm intervention conveying information about meat-eating habits in the United Kingdom is either combined with a visual cue (a graph showing the percentage of British people who took efforts to reduce their meat consumption either holding steady or going up over time) or not, These approaches are theoretically congruent, while other studies deliberately combine multiple approaches. In two cases, authors combined norms-appeals with explicit reasons to reduce MAP consumption. @hennessy2016 provided participants with one of two leaflets; the "why vegetarian" leaflet contained both "pictures of vegetarian celebrities in the why-focused leaflet to demonstrate a social norm" along with health, environmental, and animal welfare reasons to adopt a vegetarian diet. @lacroix2020 combine a descriptive social norm ("45% of Canadians are al- ready making efforts to reduce their consumption of meat") with environmental and health reasons to reduce consumption of red and processed meat.
 
 Finally, `r nrow(norm_nudge_approaches)` deploy what we consider to be norms-based nudges in unobtrusive ways in dining halls. Two of four interventions in @piester2020 posted signs at a university canteen that said "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]; one of those intervention arms also included an environmental message: "Many people don’ know how much our food choices impact the environment. Eating sustainable foods is a good way we can fight climate change!" [@piester2020, p. 5]. @coker2022 placed a dynamic norm message about the growing popularity of veggie burgers in a chain of restaurants.
 
@@ -413,7 +413,7 @@ hybrid_environment <- environmental_studies |>
 
 These studies focus on the environmental harms of consuming animal products and/or promote plant-based alternatives as more sustainable. This framing informs `r nrow(environmental_studies)` of `r num_studies` interventions in our database. The typical argument in these pieces is that MAP production and consumption leads to global warming through carbon emissions.
 
-As with appeals to animal welfare, these interventions comprise leaflets [@hennessy2016; @bianchi2022], signs in college cafeterias [@piester2020], and videos [@bochmann2017]. One study compared the effects of reading two op-eds with "reduce" and "eliminiate" messages respectively [@sparkman2021].
+As with appeals to animal welfare, these interventions comprise leaflets [@hennessy2016; @bianchi2022], signs in college cafeterias [@piester2020], and videos [@bochmann2017]. One study compared the effects of reading two op-eds with "reduce" and "eliminate" messages respectively [@sparkman2021], each providing both environmental and health rationales.
 
 The landmark study in this branch of the literature is @jalil2023, who randomly assigned undergraduate classes to hear a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” (p. 218) and then measured their subsequent food choices at the college’s dining facilities. Overall, they find that students in the treatment group “reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years” (p. 218). Among students who said they had tried to reduce their meat consumption, 64% said they were motivated by global warming, and 33% by health; 26% said both.
 
@@ -422,14 +422,19 @@ No other study in any strand of the literature shows positive effects lasting th
 #### Appeals to health
   
 ```{r health_studies, echo=F, include=F}
-
-
+health_studies <- dat |> filter(str_detect(secondary_theory, "health"))
+just_health_studies <- health_studies |> filter(!str_detect(secondary_theory, "&") & 
+                                                !str_detect(theory, "&")) 
 ```
-SDB...Health concerns motivate X of Y interventions in our database. 
+
+Health concerns motivate $`r nrow(health_studies)` of `r num_studies` interventions in our database. These appeals typically stress benefits like cardiovascular gains, weight loss, or cancer prevention.
 
 For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
+Interventions with a health component typically combine it with other arguments, such as appeals to the environment [@jalil2023; @sparkman2021; @hennessy2016] or animal welfare  [@feltz2022; @norris2014]. 
 
+One noteworthy combination of 
+#### Red and Processed Meat consumption reduction efforts
 
 ### Strengths and weaknesses of the literature as a whole
 
@@ -439,21 +444,6 @@ For example, @fehrenbach2015 tested the “effectiveness of two video messages d
 
 #### Social desirability bias..
 
-...Consider @fehrenbach2015, a dissertation that tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
-
-Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
-
-This study strikes us as having a high risk of social desirability bias for three reasons.
-
-First, the study is designed to make people feel a sense of “high threat” from eating meat, and then asks them a week later about how much meat they ate. There are grounds for doubting how much respondents would accurately recount their eating habits. This problem is typical of this literature.
-
-Second, the study asks participants to recall a week’s worth of meals; previous research has found that [daily food diaries lead to more accurate reports](https://pubmed.ncbi.nlm.nih.gov/7635601/). As [Mathur et al. (2021a)](https://www.sciencedirect.com/science/article/pii/S0195666321001847) put it:
-
-> Many existing studies measure meat consumption in terms of, for example, Likert-type items that categorize the number of weekly meals containing meat (e.g., “none”, “1–5 meals”, etc.) or in terms of reductions from one’s previous consumption. When possible, using finer-grained absolute measures, such as the number of servings of poultry, beef, pork, lamb, fish, etc., would enable effect sizes to be translated into direct measures of societal impact.
-
-Third, the decline in meat-eating among the control group suggests that the intended direction of the experiment might have been crystal clear to everyone, whether they watched the video or not.
-
-In sum, using broad stroke, self-reported outcomes in a context where meat is being presented as bad for you seems like a high-risk environment for [experimenter demand effects](https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml).
 
 #### intermeat substitution
 
