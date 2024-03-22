@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6345"
+wordcount: "5962"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -120,7 +120,7 @@ First, we only look at randomized controlled trials for historically well-unders
 
 Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we consider studies aimed at reducing consumption of particular meat products, typically red and/or processed meat, to be looking at a separate estimand, and thus we analyzed them separately as a point of comparison.[^2].
 
-[^2]: If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical]. @klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.
+[^2]: If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical]; both @klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.
 
 Third, studies needed to measure MAP consumption at least a single day after treatment. For information-based studies, this was straightforward: essentially every treatment took under an hour to administer, and we looked only at studies where there was a delay of at least 24 hours before outcomes were collected. For place-based interventions, measuring this was a little trickier. Most studies in this category measured outcomes while treatment was being actively administered, e.g. a dining hall with a dynamic norms message on display counting the amount of meat sold while the sign was up. For an individual subject of such a study, there was no delay between treatment and outcome. We decided to count studies that took place for more than one day and measured outcomes continuously (e.g. if they displayed the dynamic norms message at many lunches consecutively). Arguably these studies' results will capture any adaptation to treatment, and an enduring effect over many days therefore represents an enduring effect. However, we remain concern about what happens to treated subjects once the treatment ends, and we return to this point in our quantitative results.
 
@@ -354,8 +354,6 @@ By these standards, `r nrow(nudge_studies)` intervention in our database are nud
 
 This relative dearth of nudge studies might surprise researchers familiar with the sprawling literature on nudges and diet. We attribute this mainly to our strict focus on MAP consumption as a dependent variable. This entailed excluding all studies that measured only hypothetical outcomes, which were startlingly common. For instance, @campbell2014 intercepted college students on their way to a dining hall, asked them to complete a survey, and then led them to another room where students were with different hypothetical menus comprised of options from the dining hall. Students told researchers which food they preferred and then left to go eat their meal, which the researchers did not track. As the authors put it, this design might “be critiqued for not providing actual food choices and thus lacking any real consequences” (p. 16). Along the same lines, @bacon2018 asked MTurk participants to “imagine a scenario in which they were catching up with a friend for dinner in a nice restaurant one evening during the week…they were also presented with an image of a cozy table in a restaurant” (p. 17). The main outcome was probability of selecting a vegetarian option from a hypothetical menu.
 
-Second, we excluded studies that measured just red and/or processed meat consumption, e.g. @carfora2017correlational and @carfora2017randomised, which sent text-based reminders to participants asking them to monitor their red or processed meat consumption.
-
 We also excluded some interesting studies that assigned treatment at the level of a restaurant or dining hall and included too few units for meaningful analysis. @mcclain2013 and @reinders2017, for instance, test plausible theories of change in a college cafeteria and a chain of restaurants, respectively, but had just 2 and 3 units in their respective treatment arms. Along similar lines, some strong studies in dining halls with compelling theories of change and objective outcome measurements did not feature truly random assignment [@gravert2021; @garnett2020].
 
 Finally, we note that prior systematic reviews of the the nudge and diet literature include studies with disqualifying threats to internal validity, such as differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
@@ -364,7 +362,6 @@ Finally, we note that prior systematic reviews of the the nudge and diet literat
 
 ```{r persuasion_count, echo=F, include=F}
 persuasion_studies <- dat |> filter(str_detect(theory, "persuasion"))
-
 ```
 
 We now turn to direct efforts to persuade people to reduce their MAP consumption, which comprise `r nrow(persuasion_studies)` of `r num_studies` in our database, These studies generally provide direct arguments and relevant, factual arguments for dietary change. These arguments come in three varieties: appeals toanimal welfare, the environment, and personal health.
@@ -431,12 +428,34 @@ Health concerns motivate $`r nrow(health_studies)` of `r num_studies` interventi
 
 For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
-Interventions with a health component typically combine it with other arguments, such as appeals to the environment [@jalil2023; @sparkman2021; @hennessy2016] or animal welfare  [@feltz2022; @norris2014]. 
+Interventions with a health component typically combine it with other arguments, such as appeals to the environment [@jalil2023; @sparkman2021; @hennessy2016] or animal welfare  [@feltz2022; @norris2014]. One noteworthy combination of intervention components comes from @bianchi2022, who provided participants with "free meat substitutes for the household for 4 weeks," "information leaflets about the health and environmental benefits of eating less meat," "recipes," and "success stories in the form of vignettes of people who reduced their meat intake" (p. 1358). 
 
-One noteworthy combination of 
-#### Red and Processed Meat consumption reduction efforts
+### 3.3 Red and processed meat consumption reduction efforts
 
+```{r red_and_processed_meat_studies, echo=F, include=F}
+RPMC <- read.csv("./data/RPMC-data.csv") |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id())  |> 
+  ungroup() |> 
+  group_by(unique_paper_id, intervention_condition) |> 
+  mutate(unique_study_id = cur_group_id()) |>
+  ungroup() |>
+  mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
+                                      year >= 2010 & year <= 2019  ~ "2010s",
+                                      year >= 2020 ~ "2020s")),
+         total_sample = n_c_post + n_c_post) |>
+  select(author, year, title, unique_paper_id, unique_study_id, everything()) 
+```
+
+A subset of appeals to health focus on reducing red and/or processed meat consumption (RPMC) specifically. These studies typically provide information about health risks such as cancer, heart disease, and diabetes; highlight the environmental costs of raising and slaughtering cattle; or emphasize the sustainability of other choices, including fish and poultry.
+
+We counted `r nrow(RPMC)` studies that meet our other criteria and look specifically at reducing RPMC. We consider these studies to be aiming at a related but fundamentally distinct estimand from those in our main database, and so we analyze them separately. We describe them here to provide a sense of their content, and in our meta-analysis, we analyze the RPMC separately as a point of comparison.
+
+-Three studies from 2005
+-Three text message studies
+- piester leaves study
 ### Strengths and weaknesses of the literature as a whole
+
 
 #### Regression to the meat: the lack of long-term outcome measurement in choice architecture approaches
 
@@ -570,19 +589,8 @@ pap_split[[1]]$Delta
 
 ```
 
-```{r red_meat_supplementary_analysis, echo=F, include=F}
-red_meat <- read.csv("./data/supplementary-red-and-processed-meat-data.csv") |>
-  group_by(title) |>
-  mutate(unique_paper_id = cur_group_id())  |> 
-  ungroup() |> 
-  group_by(unique_paper_id, intervention_condition) |> 
-  mutate(unique_study_id = cur_group_id()) |>
-  ungroup() |>
-  mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
-                                      year >= 2010 & year <= 2019  ~ "2010s",
-                                      year >= 2020 ~ "2020s")),
-         total_sample = n_c_post + n_c_post) |>
-  mutate(d = mapply(
+```{r RPMC_supplementary_analysis, echo=F, include=F}
+RPMC <- RPMC |>  mutate(d = mapply(
         FUN = d_calc,
         stat_type = eff_type,
         stat =  u_s_d,
@@ -595,10 +603,9 @@ red_meat <- read.csv("./data/supplementary-red-and-processed-meat-data.csv") |>
         n_c = n_c_post,
         n_t = n_t_post),
       se_d = sqrt(var_d)) |> 
-  select(-X) |> 
-  select(author, year, title, unique_paper_id, unique_study_id, everything()) 
+  select(-X)
 
-red_meat |> count_and_robust()
+RPMC |> count_and_robust()
 # vs...
 dat |> count_and_robust()
 ```
