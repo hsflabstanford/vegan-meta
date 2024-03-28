@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6325"
+wordcount: "7042"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -280,7 +280,7 @@ This database of studies uses methodologically diverse approaches. `r interventi
 
 `r open_data_stats$open_data_yes` studies made their data openly available, and `r pre_analysis_plan_stats$pre_analysis_yes` papers had publicly available pre-analysis plans.
 
-A majority (`r country_dat["United States"]` of `r num_studies`) of studies take place exclusively in the United States. with a further `r country_dat["Germany"]` in Germany and `r country_dat["United Kingdom"]` in the United Kingdom. Australia, Canada, Denmark, the Netherlands, and Sweden had one each, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and "other" [@Cooney2016].
+A majority (`r country_dat["United States"]` of `r num_studies`) of studies take place exclusively in the United States. with a further `r country_dat["Germany"]` in Germany and `r country_dat["United Kingdom"]` in the United Kingdom. Australia, Canada, Denmark, the Netherlands, and Sweden had one each, and one internet-based study had participants in the United States, United Kingdom, Canada, Australia, and "other" [@cooney2016].
 
 Most studies in this database were administered to university students: `r pop_dat["university students"]` of `r num_studies`. A further `r pop_dat["adults"]` were administered to adults, while `r pop_dat["young women"]` was delivered to young women (ages 13-25) and `r pop_dat["all ages"]` to people of all ages: one at a restaurant [@coker2022] and one online survey with an age range of 18 to 82 [@bochmann2017].
 
@@ -521,7 +521,7 @@ dat <- dat |> mutate(d = mapply(
   select(-X)
 
 main_result <- dat |> count_and_robust()
-
+sign_table <- table(dat$neg_null_pos)
 null_proportion <- sign_table[[2]] / sum(sign_table)
 
 # processed and red meat?
@@ -530,9 +530,9 @@ dat |> filter(str_detect(dat$outcome, "red meat") | str_detect(dat$outcome, "pro
 
 ```
 
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result\$pval\`. This null finding stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This null finding stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
 
-In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no stiatistically significant effects (`r`null_proportion`percent of all studies).v`r sign_table[[1]]`studies had a statistically si positive effect,`r sign_table[[3]] \` had a significant backlash effect.
+In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no stiatistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
 
 Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
@@ -560,7 +560,7 @@ fig <- dat |>
   scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
   scale_y_discrete() +
   ylab("Study") +
-  ggtitle("Vegan m eta forest plot") + 
+  ggtitle("Vegan meta forest plot") + 
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5,
                                   face = "bold"),
@@ -611,25 +611,25 @@ dat |> count_and_robust()
 -   how to interpret the distance between general effects and RPMC effects?
     -   The core unknown here is how much of this gap is being driven by substitution to other MAP products and how much
         -   Our working theory is that reductions in RPMC are driven somewhat, but not entirely, by substitution to other MAP products.
-            -   [Emmons et al. (2005a)](https://pubmed.ncbi.nlm.nih.gov/15941955/) is the best evidence we have of it, where the researchers find a reduction in red meat but no attendant increase in fruit and vegetable intake. However, [Emmons et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/15933240/) find reductions in red meat accompanied by increases in fruit and vegetable consumption. [Sorensen et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/16006422/) finds increases in fruit and vegetable intake as well (along with RMC reductions). The three Carfora et al. papers measure the effects of text messages on RPMC only measure RPMC.
-            -   Jalil et al., as always the standout study, report "the probability of **beef**, **poultry + fish**, and **meat** fell by 1.9, 3.9 and 5.6 percentage points (p.p.), respectively, whereas the probability of veg increased by 4.1 p.p." Which I guess means that "meat" is just the sum of the other two categories.
-            -   A few papers explicitly advocate that people substitute:
-                -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
-                -   [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
-            -   So we are left with intuition. Ours is that we should seriously downweight any RPMC estimates if we're trying to estimate overall reduction on MAP consumption — if I had to pick a number, I'd say 60% of the effect sizes are driven by inter-MAP substitution.
-            -   How concerned should a policymaker be about this? That depends on your goals.
-                -   for environment and health, RPMC is probably the high-value target, and any reduction is good.
-                -   For animal welfare,this is a disaster [@mathur2022ethical]
-                -   Moreover, imagine that we magically were able to scale these interventions up to the entire western world
+        -   [Emmons et al. (2005a)](https://pubmed.ncbi.nlm.nih.gov/15941955/) is the best evidence we have of it, where the researchers find a reduction in red meat but no attendant increase in fruit and vegetable intake. However, [Emmons et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/15933240/) find reductions in red meat accompanied by increases in fruit and vegetable consumption. [Sorensen et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/16006422/) finds increases in fruit and vegetable intake as well (along with RMC reductions). The three Carfora et al. papers measure the effects of text messages on RPMC only measure RPMC.
+        -   Jalil et al., as always the standout study, report "the probability of **beef**, **poultry + fish**, and **meat** fell by 1.9, 3.9 and 5.6 percentage points (p.p.), respectively, whereas the probability of veg increased by 4.1 p.p." Which I guess means that "meat" is just the sum of the other two categories.
+      -   A few papers explicitly advocate that people substitute:
+          -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
+         -   [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
+         -   So we are left with intuition. Ours is that we should seriously downweight any RPMC estimates if we're trying to estimate overall reduction on MAP consumption — if I had to pick a number, I'd say 60% of the effect sizes are driven by inter-MAP substitution.
+        -   How concerned should a policymaker be about this? That depends on your goals.
+         -   for environment and health, RPMC is probably the high-value target, and any reduction is good.
+         -   For animal welfare,this is bad [@mathur2022ethical]
+         -   Moreover, imagine that we magically were able to scale these interventions up to the entire western world
     -   So where does research go from here?
-        -   Let's start by filling in some obvious gaps.
-            -   Do a RPMC reduction study and assess effects on other MAP products too 😃
-            -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
-            -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
-            -   [[Piester et al. (2020)]{.underline}](https://linkinghub.elsevier.com/retrieve/pii/S0195666319312115) find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
-            -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3)  vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows  talk about the [allowable level ](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another? 
-            -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits. REGRESSION TO THE MEAT
-            -   one study ([[Sparkman et al. 2020]{.underline}](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [[economics team at Instacart]{.underline}](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
+    -   Let's start by filling in some obvious gaps.
+        -   Do a RPMC reduction study and assess effects on other MAP products too 😃
+        -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
+        -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
+        -   [[Piester et al. (2020)]{.underline}](https://linkinghub.elsevier.com/retrieve/pii/S0195666319312115) find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
+        -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3)  vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows  talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
+        -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
+        -   one study ([[Sparkman et al. 2020]{.underline}](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
     -   Policy lessons?
         -   don't run a leaflet study and expect it to work. We need new leaflets or new approaches.
         -   Ditto with online
