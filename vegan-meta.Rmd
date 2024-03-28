@@ -384,7 +384,7 @@ animal_outcome_types <- table(animal_studies$self_report)
 online_animal_studies <- table(animal_studies$internet)
 ```
 
-Direct appeals to eat less meat for the sake of animals’ wellbeing  inform `r nrow(animal_studies)` of `r num_studies` studies in our database. Many of these interventions are conducted by advocacy organizations such as Faunalytics, The Humane League, and Mercy for Animals. [PUT A NUMBER ON IT?]
+Direct appeals to eat less meat for the sake of animals’ wellbeing inform `r nrow(animal_studies)` of `r num_studies` studies in our database. Many of these interventions are conducted by advocacy organizations such as Faunalytics, The Humane League, and Mercy for Animals. [PUT A NUMBER ON IT?]
 
 `r nrow(animal_leaflet_studies)` interventions involve leaflets, and `r nrow(animal_leaflet_college_studies)` of these are administered to university students. Leafletting studies typically contain facts, details, and sometimes graphic pictures about industrial farming (see @haile2021, @norris2014 and @peacock2017 for representative examples; see \href{https://veganoutreach.org/wp-content/uploads/PPR-2015-EI.pdf} for a representative leaflet).
 
@@ -417,18 +417,18 @@ The landmark study in this branch of the literature is @jalil2023, who randomly 
 No other study in any strand of the literature shows positive effects lasting this long.
 
 #### Appeals to health
-  
+
 ```{r health_studies, echo=F, include=F}
 health_studies <- dat |> filter(str_detect(secondary_theory, "health"))
 just_health_studies <- health_studies |> filter(!str_detect(secondary_theory, "&") & 
                                                 !str_detect(theory, "&")) 
 ```
 
-Health concerns motivate $`r nrow(health_studies)` of `r num_studies` interventions in our database. These appeals typically stress benefits like cardiovascular gains, weight loss, or cancer prevention.
+Health concerns motivate \$`r nrow(health_studies)` of `r num_studies` interventions in our database. These appeals typically stress benefits like cardiovascular gains, weight loss, or cancer prevention.
 
 For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
-Interventions with a health component typically combine it with other arguments, such as appeals to the environment [@jalil2023; @sparkman2021; @hennessy2016] or animal welfare  [@feltz2022; @norris2014]. One noteworthy combination of intervention components comes from @bianchi2022, who provided participants with "free meat substitutes for the household for 4 weeks," "information leaflets about the health and environmental benefits of eating less meat," "recipes," and "success stories in the form of vignettes of people who reduced their meat intake" (p. 1358). 
+Interventions with a health component typically combine it with other arguments, such as appeals to the environment [@jalil2023; @sparkman2021; @hennessy2016] or animal welfare [@feltz2022; @norris2014]. One noteworthy combination of intervention components comes from @bianchi2022, who provided participants with "free meat substitutes for the household for 4 weeks," "information leaflets about the health and environmental benefits of eating less meat," "recipes," and "success stories in the form of vignettes of people who reduced their meat intake" (p. 1358).
 
 ### 3.3 Red and processed meat consumption reduction efforts
 
@@ -457,16 +457,15 @@ We counted `r nrow(RPMC)` studies that meet our other criteria and look specific
 
 `r nrow(first_decade_RPMC_studies)` studies, all published in 2005 by researchers at the Dana-Farber Institute, advocate for reducing red meat as one of many behavioral strategies for reducing cancer risk. @emmons2005cancer randomized "ten community health centers...in low-income, multiethnic neighborhoods" to either usual care or "Healthy Directions–Health Centers" (p.1200) which used "n activities and materials" (p. 1201), e.g. motivational interviews, to persuade people to increase their fruit and vegetable consumption, activity, and multivitamin intake, while reducing red meat consumption. Self-reports indicated that "twelve percent of the intervention participants reduced red meat consumption to 3 or fewer servings per week" (p. 1203), compared to no change in the control group. @sorensen2005 tested "Healthy Directions-Small Business" a companion intervention, among "working-class, multiethnic populations employed in small manufacturing businesses" (p. 1389) and found small, statistically insignificant reductions in red meat consumption. Finally @emmons2005project targeted the same behaviors as the other two studies, along with alcohol consumption and smoking, among patients who were found to be at elevated risk of colon cancer in a health screening, and found significant decreases in red meat consumption, but no overall effect on fruit and vegetable consumption.
 
-`r nrow(carfora_studies)` studies, published in `r length(unique(carfora_studies$unique_paper_id))` papers and all with Valentina Carfora as first author, test the effects of text-based reminders to reduce consumption or red or processed meat on Italian undergraduates [@carfora2017correlational; @carfora2017randomised; @carfora2019]. All three led to significant reductions in self-reported RPMC. 
+`r nrow(carfora_studies)` studies, published in `r length(unique(carfora_studies$unique_paper_id))` papers and all with Valentina Carfora as first author, test the effects of text-based reminders to reduce consumption or red or processed meat on Italian undergraduates [@carfora2017correlational; @carfora2017randomised; @carfora2019]. All three led to significant reductions in self-reported RPMC.
 
-@klockner2017 and @dijkstra2022 tested different combinations of anti-meat messaging in online settings for Norwegians and Italians, respectively, and found a combination of null and backlash results. 
+@klockner2017 and @dijkstra2022 tested different combinations of anti-meat messaging in online settings for Norwegians and Italians, respectively, and found a combination of null and backlash results.
 
-Finally, one study from @piester2020 ranked items in a university cafeteria by their sustainability with a leaf-based diagram, where more leaves corresponded to more sustainable choices. For example meals with lobster or pork were given three leaves; meals with chicken were given either three or four leaves, depending on the dish, as was macaroni and cheese; while pad thai with tofu was given five leaves. The study found a moderate, statistically nonsigificant effect of being exposed to this rating system. (We did not include this study in our main analysis because it was possible to substitute from pork or lobster to chicken and show an improvement in the dependent variable). 
-
+Finally, one study from @piester2020 ranked items in a university cafeteria by their sustainability with a leaf-based diagram, where more leaves corresponded to more sustainable choices. For example meals with lobster or pork were given three leaves; meals with chicken were given either three or four leaves, depending on the dish, as was macaroni and cheese; while pad thai with tofu was given five leaves. The study found a moderate, statistically nonsigificant effect of being exposed to this rating system. (We did not include this study in our main analysis because it was possible to substitute from pork or lobster to chicken and show an improvement in the dependent variable).
 
 ## Meta-analytic Methods
 
--   Something or does this go into the appendix?
+-   TODO: figure out how to structure this in a way that is interesting to the reader. possibly, the entire thing will go in the appendix.
 
 1.  We take the outcome that most clearly maps to changes in actual consumption behavior.
 2.  We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
@@ -490,7 +489,6 @@ The coefficients we report are:
 
 ```{r main_results, echo=F, include=F}
 library(metafor, quietly = T)
-library(ggplot2, warn.conflicts = F)
 library(knitr)
 library(purrr)
 library(sessioninfo)
@@ -500,6 +498,7 @@ source('./functions/d_calc.R')
 source('./functions/var_d_calc.R')
 source('./functions/study_count.R')
 source('./functions/map_robust.R')
+
 #' count_and_robust helper function;
 #' necessary b/c `filter |> split |> imap()` didn't work for some reason
 
@@ -523,32 +522,23 @@ dat <- dat |> mutate(d = mapply(
 
 main_result <- dat |> count_and_robust()
 
-# sign test
-sign_table <- table(dat$neg_null_pos)
-sign_table_test <-  binom.test(sign_table[[3]], sum(sign_table[1:3]))
-# I don't think we need the rest of this but here's some approaches to 
-'the probability of a positive result is distinguishable from a coin flip'
-
 null_proportion <- sign_table[[2]] / sum(sign_table)
-sign_table_test <- binom.test(sign_table[[3]], sum(sign_table), p = null_proportion)
-dat$positive_numeric <- ifelse(dat$neg_null_pos == 1, 1, 0)
-t_test_result <- t.test(dat$positive_numeric, mu = 0.5, alternative = "greater")
-# something like this
 
 # processed and red meat?
-dat |> 
-  split(str_detect(dat$outcome, "red meat") | str_detect(dat$outcome, "processed meat")) |> 
-  map(count_and_robust)
+dat |> filter(str_detect(dat$outcome, "red meat") | str_detect(dat$outcome, "processed meat")) 
+ 
 
 ```
 
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. Though statistically significant, this effect does not meet the conventional standard for a 'small' result in the behavioral sciences. This stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result\$pval\`. This null finding stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
 
-Another way to assess the overall effect of this literature is with a vote counting procedure, which counts the prevalence of significant positive, null, and significant negative results in the words of the papers themselves. In our sample, `r sign_table[[3]]` studies had a positive effect, `r sign_table[[2]]` had a negative effect, and `r sign_table[[1]]` had a null effect. In other words, the average study in our sample finds a null result. [do we need a statistical test here? I think not because it's so obvious]
+In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no stiatistically significant effects (`r`null_proportion`percent of all studies).v`r sign_table[[1]]`studies had a statistically si positive effect,`r sign_table[[3]] \` had a significant backlash effect.
 
-The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The size of the points corresponds to the precision of the estimate, with larger points indicating more precise estimates. The color of the points corresponds to the theoretical approach of the intervention.
+Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
 ```{r fig, echo=F}
+library(ggplot2, warn.conflicts = F)
+library(dplyr, warn.conflicts = F)
 source('./functions/map_robust.R')
 count_and_robust <- function(data) {
       bind_cols(study_count(data), map_robust(data))
@@ -576,12 +566,15 @@ fig <- dat |>
                                   face = "bold"),
         legend.title = element_text(size = 15),
         legend.text = element_text(size = 12))
+
+fig
 # robustness checks: pre-analysis plan
 pap_split <- dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
   split(~has_pap) |>  
   map(count_and_robust)
 pap_split[[1]]$Delta
-# figure
+
+fig
 
 ```
 
@@ -605,6 +598,46 @@ RPMC |> count_and_robust()
 # vs...
 dat |> count_and_robust()
 ```
-## Conclusion
 
-in terms of power analyses, substantially revise your expectations downwards. e.g. Binachi 2022 is powered to detect d = 0.6. Try an order of magnitude smaller PRICE STUDIES Look at Garnett studies and also [Vellinga et al. (2022)](https://doi.org/10.1186/s12889-022-13535-9) \### Bibliography
+## Discussion
+
+-   We find very little overall.
+    -   this is in contrast to previous reviews
+    -   however it's well in line with some contemporary pieces that find
+        -   behavioral change is typically weaker than attitude change or updating
+        -   self-reported intentions don't predict behavior
+        -   attitudes don't predict behavior
+        -   the kinds of structural interventions that actually change deep-seated habits are hard to evaluate in an RCT
+-   how to interpret the distance between general effects and RPMC effects?
+    -   The core unknown here is how much of this gap is being driven by substitution to other MAP products and how much
+        -   Our working theory is that reductions in RPMC are driven somewhat, but not entirely, by substitution to other MAP products.
+            -   [Emmons et al. (2005a)](https://pubmed.ncbi.nlm.nih.gov/15941955/) is the best evidence we have of it, where the researchers find a reduction in red meat but no attendant increase in fruit and vegetable intake. However, [Emmons et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/15933240/) find reductions in red meat accompanied by increases in fruit and vegetable consumption. [Sorensen et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/16006422/) finds increases in fruit and vegetable intake as well (along with RMC reductions). The three Carfora et al. papers measure the effects of text messages on RPMC only measure RPMC.
+            -   Jalil et al., as always the standout study, report "the probability of **beef**, **poultry + fish**, and **meat** fell by 1.9, 3.9 and 5.6 percentage points (p.p.), respectively, whereas the probability of veg increased by 4.1 p.p." Which I guess means that "meat" is just the sum of the other two categories.
+            -   A few papers explicitly advocate that people substitute:
+                -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
+                -   [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
+            -   So we are left with intuition. Ours is that we should seriously downweight any RPMC estimates if we're trying to estimate overall reduction on MAP consumption — if I had to pick a number, I'd say 60% of the effect sizes are driven by inter-MAP substitution.
+            -   How concerned should a policymaker be about this? That depends on your goals.
+                -   for environment and health, RPMC is probably the high-value target, and any reduction is good.
+                -   For animal welfare,this is a disaster [@mathur2022ethical]
+                -   Moreover, imagine that we magically were able to scale these interventions up to the entire western world
+    -   So where does research go from here?
+        -   Let's start by filling in some obvious gaps.
+            -   Do a RPMC reduction study and assess effects on other MAP products too 😃
+            -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
+            -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
+            -   [[Piester et al. (2020)]{.underline}](https://linkinghub.elsevier.com/retrieve/pii/S0195666319312115) find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
+            -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3)  vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows  talk about the [allowable level ](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another? 
+            -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits. REGRESSION TO THE MEAT
+            -   one study ([[Sparkman et al. 2020]{.underline}](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [[economics team at Instacart]{.underline}](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
+    -   Policy lessons?
+        -   don't run a leaflet study and expect it to work. We need new leaflets or new approaches.
+        -   Ditto with online
+        -   If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much.
+        -   no handle whatsoever on what gets people to change outside of a dining hall
+
+## Conclusion: shovel-ready interventions that we think promising
+
+in terms of power analyses, substantially revise your expectations downwards. e.g. Binachi 2022 is powered to detect d = 0.6. Try an order of magnitude smaller PRICE STUDIES Look at Garnett studies and also [Vellinga et al. (2022)](https://doi.org/10.1186/s12889-022-13535-9)
+
+Bibliography
