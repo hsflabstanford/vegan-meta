@@ -1,3 +1,9 @@
+### CAUSE, EFFECT, AND THE STRUCTURE OF THE SOCIAL WORLD
+
+Essential idea: "When it comes to the type of limited-scope interventions that lend themselves to high-quality evaluation, social change is hard to engineer."
+
+Issue: https://www.vitalcitynyc.org/articles/fixing-the-research-to-policy-pipeline
+
 ### literature this falls under
 https://www.nature.com/articles/s41562-023-01555-3
 (though not always https://www.nature.com/articles/s41586-021-04128-4)
@@ -94,3 +100,10 @@ Albas 2023: "Moreover, some studies have even observed a so-called boomerang eff
 ### are texts nudges? 
 
 the text articles in our dataset don't frame it that way but they're very similar to articles that do we've got the megastudy but also <https://jamanetwork.com/journals/jamapediatrics/fullarticle/2801662> and <https://www.nature.com/articles/s41586-021-03843-2> and <https://www.hbs.edu/ris/Publication%20Files/text_messages_6294f05d-ef00-420d-9a44-24dfc8989d01.pdf>
+
+
+#### Regression to the meat: the lack of long-term outcome measurement in choice architecture approaches
+
+-   Alter one environment, how do people compensate? Do they? To track this -- to assess general equilibrium effects -- you need to track both what people at and also what they do after they leave the dining hall. No study in our dataset does this Andersson 2021 (and a few others?) address this head on...
+
+#### Social desirability bias..

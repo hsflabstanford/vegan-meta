@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "5962"
+wordcount: "6102"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -445,28 +445,24 @@ RPMC <- read.csv("./data/RPMC-data.csv") |>
                                       year >= 2020 ~ "2020s")),
          total_sample = n_c_post + n_c_post) |>
   select(author, year, title, unique_paper_id, unique_study_id, everything()) 
+
+first_decade_RPMC_studies <- RPMC |> filter(year == 2005)
+
+carfora_studies <- RPMC |> filter(str_detect(author, "Carfora"))
 ```
 
 A subset of appeals to health focus on reducing red and/or processed meat consumption (RPMC) specifically. These studies typically provide information about health risks such as cancer, heart disease, and diabetes; highlight the environmental costs of raising and slaughtering cattle; or emphasize the sustainability of other choices, including fish and poultry.
 
 We counted `r nrow(RPMC)` studies that meet our other criteria and look specifically at reducing RPMC. We consider these studies to be aiming at a related but fundamentally distinct estimand from those in our main database, and so we analyze them separately. We describe them here to provide a sense of their content, and in our meta-analysis, we analyze the RPMC separately as a point of comparison.
 
--Three studies from 2005
--Three text message studies
-- piester leaves study
-### Strengths and weaknesses of the literature as a whole
+`r nrow(first_decade_RPMC_studies)` studies, all published in 2005 by researchers at the Dana-Farber Institute, advocate for reducing red meat as one of many behavioral strategies for reducing cancer risk. @emmons2005cancer randomized "ten community health centers...in low-income, multiethnic neighborhoods" to either usual care or "Healthy Directions–Health Centers" (p.1200) which used "n activities and materials" (p. 1201), e.g. motivational interviews, to persuade people to increase their fruit and vegetable consumption, activity, and multivitamin intake, while reducing red meat consumption. Self-reports indicated that "twelve percent of the intervention participants reduced red meat consumption to 3 or fewer servings per week" (p. 1203), compared to no change in the control group. @sorensen2005 tested "Healthy Directions-Small Business" a companion intervention, among "working-class, multiethnic populations employed in small manufacturing businesses" (p. 1389) and found small, statistically insignificant reductions in red meat consumption. Finally @emmons2005project targeted the same behaviors as the other two studies, along with alcohol consumption and smoking, among patients who were found to be at elevated risk of colon cancer in a health screening, and found significant decreases in red meat consumption, but no overall effect on fruit and vegetable consumption.
 
+`r nrow(carfora_studies)` studies, published in `r length(unique(carfora_studies$unique_paper_id))` papers and all with Valentina Carfora as first author, test the effects of text-based reminders to reduce consumption or red or processed meat on Italian undergraduates [@carfora2017correlational; @carfora2017randomised; @carfora2019]. All three led to significant reductions in self-reported RPMC. 
 
-#### Regression to the meat: the lack of long-term outcome measurement in choice architecture approaches
+@klockner2017 and @dijkstra2022 tested different combinations of anti-meat messaging in online settings for Norwegians and Italians, respectively, and found a combination of null and backlash results. 
 
--   Alter one environment, how do people compensate? Do they? To track this -- to assess general equilibrium effects -- you need to track both what people at and also what they do after they leave the dining hall. No study in our dataset does this Andersson 2021 (and a few others?) address this head on...
+Finally, one study from @piester2020 ranked items in a university cafeteria by their sustainability with a leaf-based diagram, where more leaves corresponded to more sustainable choices. For example meals with lobster or pork were given three leaves; meals with chicken were given either three or four leaves, depending on the dish, as was macaroni and cheese; while pad thai with tofu was given five leaves. The study found a moderate, statistically nonsigificant effect of being exposed to this rating system. (We did not include this study in our main analysis because it was possible to substitute from pork or lobster to chicken and show an improvement in the dependent variable). 
 
-#### Social desirability bias..
-
-
-#### intermeat substitution
-
-However, a tricky case emerged in studies that attempted to reduce red or processed meat consumption rather than MAP consumption as a whole. Some of these studies recommended that people substitute to other MAP, such as chicken or fish, but none to our knowledge measured any outcome besides red and/or processed meat. We decided to include studies focused on red and/or processed meat so long as they did not specifically advise inter-MAP substitution.
 
 ## Meta-analytic Methods
 
