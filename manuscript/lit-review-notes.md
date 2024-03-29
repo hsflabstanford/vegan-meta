@@ -53,15 +53,14 @@ Carnism as ideology: <https://www.sciencedirect.com/science/article/abs/pii/S019
 
 Do we really need to code attitudes to make this point? We can be pretty sure of it, and others have made it. Wolstenholme 2020: "Intervention studies aimed at reducing meat consumption have begun to emerge in the literature in recent years. These studies have demonstrated that information provision can be effective in encouraging individuals to reduce their meat consumption (e.g., see Bianchi et al., 2018). Although, it should be noted that much of the literature has focused on the effectiveness of interventions on changing attitudes or intentions to eat meat, while fewer studies have demonstrated the effect of informational strategies on eliciting behavior change, i.e., reducing meat consumption (see Harguess et al., 2019). This is problematic as attitudes and intentions do not always predict behavior (Kormos and Gifford, 2014; Hassan et al., 2016), including reducing ones’ meat consumption"
 
-# 2024 study that found meaningful backlash
-
+# 2024 dynamic norm backlash in supermarkets:
 <https://www.sciencedirect.com/science/article/pii/S0195666324000795>
 
 # discuss the fact that we're sometimes observing substitution to vegetarian meals rather than purely vegan (PIester et al 2020).
 
 ## do power analyses based on behavioral effects rather than attidudinal or intentional
 
-Parkman 2017 does a power analysis based on results of earlier studies for study 4: "A sample size of 100 participants per condition provides more than 80% power to detect an effect size similar to the small-to-medium-size effects found in Experiments 1 and 2 (ds = 0.31–0.41)." Probably others do this as well (I can double-check). But power analyses should be baed on behavioral effects, which tend to be smaler. Based on our literature review, we'd say folks should estimate for sufficiently powered to detect an effect size of about 0.1-0.2. Reference the Econ paper Jeff sent as well in this context.
+SParkman 2017 does a power analysis based on results of earlier studies for study 4: "A sample size of 100 participants per condition provides more than 80% power to detect an effect size similar to the small-to-medium-size effects found in Experiments 1 and 2 (ds = 0.31–0.41)." Probably others do this as well (I can double-check). But power analyses should be based on behavioral effects, which tend to be smaller. Based on our literature review, we'd say folks should estimate for sufficiently powered to detect an effect size of about 0.1-0.2. Reference the Econ paper Jeff sent as well in this context.
 
 ## Subsection on "dynamic" norms within norms
 
