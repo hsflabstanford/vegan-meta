@@ -602,7 +602,7 @@ We divide this into two sections: for researchers, and for policymakers.
 For researchers?
 1. We find very little overall.
     -   this is in contrast to previous reviews. however it's well in line with some contemporary pieces that find
-      - RCT don't scale (@dedellavigna2022)
+      - RCT don't scale (@dellavigna2022)
       -   behavioral change is typically weaker than attitude change or updating [@haaland2023]
       -   self-reported intentions don't predict behavior [@kormos2014; hassan2016]
       -   attitudes don't predict behavior [@porat2024]
