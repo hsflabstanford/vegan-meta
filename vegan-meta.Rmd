@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "7042"
+wordcount: "7064"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -464,8 +464,7 @@ We counted `r nrow(RPMC)` studies that meet our other criteria and look specific
 Finally, one study from @piester2020 ranked items in a university cafeteria by their sustainability with a leaf-based diagram, where more leaves corresponded to more sustainable choices. For example meals with lobster or pork were given three leaves; meals with chicken were given either three or four leaves, depending on the dish, as was macaroni and cheese; while pad thai with tofu was given five leaves. The study found a moderate, statistically nonsigificant effect of being exposed to this rating system. (We did not include this study in our main analysis because it was possible to substitute from pork or lobster to chicken and show an improvement in the dependent variable).
 
 ## Meta-analytic Methods
-
--   TODO: figure out how to structure this in a way that is interesting to the reader. possibly, the entire thing will go in the appendix.
+(Does this go in the appendix? What is actually necessary for readers?)
 
 1.  We take the outcome that most clearly maps to changes in actual consumption behavior.
 2.  We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
@@ -526,10 +525,8 @@ null_proportion <- sign_table[[2]] / sum(sign_table)
 
 # processed and red meat?
 dat |> filter(str_detect(dat$outcome, "red meat") | str_detect(dat$outcome, "processed meat")) 
- 
-
 ```
-
+ 
 Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This null finding stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
 
 In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no stiatistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
