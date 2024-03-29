@@ -72,6 +72,9 @@ Lesser Methods declarations
 
 Reviewing the finding (Mertens et al.)
 
+## Conclusion: shovel-ready interventions that we think promising
+I now think this goes in the appendix
+
 ## 1. A few comments on our inclusion criteria
 
 1.  Our inclusion criteria are motivated by a [previous project of Seth’s](https://doi.org/10.1017/bpp.2018.25), which found that assessing the effects of intergroup contact on prejudice, a [meta-analysis that looked at absolutely everything](https://psycnet.apa.org/record/2006-07099-004) came to much more optimistic conclusions than one that looked just at the RCTs with at least one day separating treatment and outcome measurement. I (Seth) had an intuition that we’d find something similar in the MAP reduction literature, and I proposed a project investigating this to [Benny](https://forum.effectivealtruism.org/users/benny-smith?from=post_header) when we met at [EAGxNYC](https://www.effectivealtruism.org/ea-global/events/eagxnyc) in August 2023. (Our first interaction was [on the EA forum](https://forum.effectivealtruism.org/posts/MWkG4F86p4pyE3Sx9/is-stirring-up-anger-good-for-vegan-outreach?commentId=hC2BnuBTWFuBispCz).)

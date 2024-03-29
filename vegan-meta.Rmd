@@ -601,43 +601,44 @@ dat |> count_and_robust()
 
 ## Discussion
 
--   We find very little overall.
-    -   this is in contrast to previous reviews
-    -   however it's well in line with some contemporary pieces that find
-        -   behavioral change is typically weaker than attitude change or updating
-        -   self-reported intentions don't predict behavior
-        -   attitudes don't predict behavior
-        -   the kinds of structural interventions that actually change deep-seated habits are hard to evaluate in an RCT
--   how to interpret the distance between general effects and RPMC effects?
+We divide this into two sections: for researchers, and for policymakers.
+For researchers?
+1. We find very little overall.
+    -   this is in contrast to previous reviews. however it's well in line with some contemporary pieces that find
+      - RCT don't scale (@dedellavigna2022)
+      -   behavioral change is typically weaker than attitude change or updating [@haaland2023]
+      -   self-reported intentions don't predict behavior [@kormos2014; hassan2016]
+      -   attitudes don't predict behavior [@porat2024]
+      -   the kinds of structural interventions that actually change deep-seated habits are hard to evaluate in an RCT, e.g. @stevenson2023: "When it comes to the type of limited-scope interventions that lend themselves to high-quality evaluation, social change is hard to engineer."
+
+2. how to interpret the distance between general effects and RPMC effects?
     -   The core unknown here is how much of this gap is being driven by substitution to other MAP products and how much
-        -   Our working theory is that reductions in RPMC are driven somewhat, but not entirely, by substitution to other MAP products.
-        -   [Emmons et al. (2005a)](https://pubmed.ncbi.nlm.nih.gov/15941955/) is the best evidence we have of it, where the researchers find a reduction in red meat but no attendant increase in fruit and vegetable intake. However, [Emmons et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/15933240/) find reductions in red meat accompanied by increases in fruit and vegetable consumption. [Sorensen et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/16006422/) finds increases in fruit and vegetable intake as well (along with RMC reductions). The three Carfora et al. papers measure the effects of text messages on RPMC only measure RPMC.
-        -   Jalil et al., as always the standout study, report "the probability of **beef**, **poultry + fish**, and **meat** fell by 1.9, 3.9 and 5.6 percentage points (p.p.), respectively, whereas the probability of veg increased by 4.1 p.p." Which I guess means that "meat" is just the sum of the other two categories.
-      -   A few papers explicitly advocate that people substitute:
-          -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
-         -   [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
-         -   So we are left with intuition. Ours is that we should seriously downweight any RPMC estimates if we're trying to estimate overall reduction on MAP consumption — if I had to pick a number, I'd say 60% of the effect sizes are driven by inter-MAP substitution.
-        -   How concerned should a policymaker be about this? That depends on your goals.
-         -   for environment and health, RPMC is probably the high-value target, and any reduction is good.
-         -   For animal welfare,this is bad [@mathur2022ethical]
-         -   Moreover, imagine that we magically were able to scale these interventions up to the entire western world
-    -   So where does research go from here?
+    -   Our working theory is that reductions in RPMC are driven somewhat, but not entirely, by substitution to other MAP products.
+    -   [Emmons et al. (2005a)](https://pubmed.ncbi.nlm.nih.gov/15941955/) is the best evidence we have of it, where the researchers find a reduction in red meat but no attendant increase in fruit and vegetable intake. However, [Emmons et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/15933240/) find reductions in red meat accompanied by increases in fruit and vegetable consumption. [Sorensen et al. (2005)](https://pubmed.ncbi.nlm.nih.gov/16006422/) finds increases in fruit and vegetable intake as well (along with RMC reductions). The three Carfora et al. papers measure the effects of text messages on RPMC only measure RPMC.
+    -   Jalil et al., as always the standout study, report "the probability of **beef**, **poultry + fish**, and **meat** fell by 1.9, 3.9 and 5.6 percentage points (p.p.), respectively, whereas the probability of veg increased by 4.1 p.p." Which I guess means that "meat" is just the sum of the other two categories.
+    -   A few papers explicitly advocate that people substitute:
+      -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
+      - [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
+      -   So we are left with intuition. Ours is that we should seriously downweight any RPMC estimates if we're trying to estimate overall reduction on MAP consumption — if I had to pick a number, I'd say 60% of the effect sizes are driven by inter-MAP substitution.
+3.     -   So where does research go from here?
     -   Let's start by filling in some obvious gaps.
         -   Do a RPMC reduction study and assess effects on other MAP products too 😃
         -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
         -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
         -   [[Piester et al. (2020)]{.underline}](https://linkinghub.elsevier.com/retrieve/pii/S0195666319312115) find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
-        -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3)  vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows  talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
+        -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3) vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
         -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
-        -   one study ([[Sparkman et al. 2020]{.underline}](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
-    -   Policy lessons?
-        -   don't run a leaflet study and expect it to work. We need new leaflets or new approaches.
-        -   Ditto with online
-        -   If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much.
-        -   no handle whatsoever on what gets people to change outside of a dining hall
+        -   one study ([Sparkman et al. 2020](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
 
-## Conclusion: shovel-ready interventions that we think promising
+For policymakers:        
+1. How concerned should a policymaker be about this discrepancy? That depends on your goals.
+  - for environment and health, RPMC is probably the high-value target, and any reduction is good.
+  - For animal welfare,this is bad [@mathur2022ethical]
+  - Moreover, imagine that we magically were able to scale these interventions up to the entire western world
+.2 Policy lessons?
+ - don't run a leaflet study and expect it to work. We need new leaflets or new approaches.
+ - Ditto with online
+ - If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much.
+ - no handle whatsoever on what gets people to change outside of a dining hall
 
-in terms of power analyses, substantially revise your expectations downwards. e.g. Binachi 2022 is powered to detect d = 0.6. Try an order of magnitude smaller PRICE STUDIES Look at Garnett studies and also [Vellinga et al. (2022)](https://doi.org/10.1186/s12889-022-13535-9)
-
-Bibliography
+### Bibliography
