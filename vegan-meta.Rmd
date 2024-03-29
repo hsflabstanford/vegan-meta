@@ -114,9 +114,9 @@ Meta-analysis is a powerful, flexible procedure for pooling results from many st
 
 Each of these propositions is, in theory, testable and amenable to statistical correction (see @mathur2022 and @green2024 for suggestions and strategies). However, the most fundamental challenge to meta-analysis is whether the underlying data are coherently integrable. A recent paper by @slough2023 makes this point forcefully. In their view, for studies to have "target equivalence" \textemdash the property of identifying "the same estimand" (p. 1) \textemdash they must first achieve harmonized contrasts and measurements, meaning that the "substantive comparison across studies is the same" and "the outcome of interest is the same and it is measured in the same way" (p.2). These properties are necessary for meta-analytic results to be "meaningful and interpretable" (p.2). Crucially, they cannot be achieved "solely with statistical techniques" and are instead a product of tailored "design or inclusion criteria" (p.2).
 
-We share this paper's concerns, and we address them via the following inclusion criteria.
+We build on that paper via the following inclusion criteria.
 
-First, we only look at randomized controlled trials for historically well-understood reasons [@cook2002; see @simonsohn2022 for discussion specific to meta-analysis]. This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
+First, we only look at randomized controlled trials for well-understood reasons [@cook2002; see @simonsohn2022 for discussion specific to meta-analysis]. This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
 
 Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we consider studies aimed at reducing consumption of particular meat products, typically red and/or processed meat, to be looking at a separate estimand, and thus we analyzed them separately as a point of comparison.[^2].
 
@@ -487,6 +487,7 @@ The coefficients we report are:
 ## 5 Meta-analysis
 
 ```{r main_results, echo=F, include=F}
+library(dplyr)
 library(metafor, quietly = T)
 library(knitr)
 library(purrr)
@@ -504,7 +505,18 @@ source('./functions/map_robust.R')
 count_and_robust <- function(data) {
       bind_cols(study_count(data), map_robust(data))
   }
-dat <- dat |> mutate(d = mapply(
+dat <- read.csv('./data/vegan-meta.csv')  |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id())  |> 
+  ungroup() |> 
+  group_by(unique_paper_id, intervention_condition) |> 
+  mutate(unique_study_id = cur_group_id()) |>
+  ungroup() |>
+  mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
+                                      year >= 2010 & year <= 2019  ~ "2010s",
+                                      year >= 2020 ~ "2020s")),
+         total_sample = n_c_post + n_c_post) |>
+  mutate(d = mapply(
         FUN = d_calc,
         stat_type = eff_type,
         stat =  u_s_d,
@@ -517,16 +529,23 @@ dat <- dat |> mutate(d = mapply(
         n_c = n_c_post,
         n_t = n_t_post),
       se_d = sqrt(var_d)) |> 
-  select(-X)
+  select(-X) |>   
+  select(author, year, title, unique_paper_id, unique_study_id, everything())
 
 main_result <- dat |> count_and_robust()
 sign_table <- table(dat$neg_null_pos)
 null_proportion <- sign_table[[2]] / sum(sign_table)
 
+# robustness checks: pre-analysis plan
+pap_split <- dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
+  split(~has_pap) |>  
+  map(count_and_robust)
+pap_split[[1]]$Delta
+
 # processed and red meat?
-dat |> filter(str_detect(dat$outcome, "red meat") | str_detect(dat$outcome, "processed meat")) 
 ```
  
+### An overall null effect
 Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This null finding stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
 
 In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no stiatistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
@@ -534,45 +553,15 @@ In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the r
 Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
 ```{r fig, echo=F}
-library(ggplot2, warn.conflicts = F)
-library(dplyr, warn.conflicts = F)
-source('./functions/map_robust.R')
-count_and_robust <- function(data) {
-      bind_cols(study_count(data), map_robust(data))
-  }
+library(ggplot2)
+library(rlang)
 
-# figure
-fig <- dat |>
+ dat |> 
   mutate(theory_category = if_else(
     str_detect(theory, "&"), "hybrid", theory), 
     study_name = reorder(as.factor(paste0(author, " ", year)), desc(se_d))) |>
-  ggplot(aes(y = study_name, x = d, 
-             xmin = d - (1.96 * se_d),
-             xmax = d + (1.96 * se_d))) + 
-  geom_point(size = 1, aes(color = theory_category)) +
-  geom_errorbarh(height = .1, aes(color = theory_category)) +
-  geom_vline(xintercept = 0, color = "black", alpha = .5) +
-  geom_vline(xintercept = (dat |> map_robust())$Delta, 
-             color = 'black', lty = 'dashed') +
-  scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
-  scale_y_discrete() +
-  ylab("Study") +
-  ggtitle("Vegan meta forest plot") + 
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5,
-                                  face = "bold"),
-        legend.title = element_text(size = 15),
-        legend.text = element_text(size = 12))
-
-fig
-# robustness checks: pre-analysis plan
-pap_split <- dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0, 1)) |> 
-  split(~has_pap) |>  
-  map(count_and_robust)
-pap_split[[1]]$Delta
-
-fig
-
+   gg_meta_plot(theory_category)
+ 
 ```
 
 ```{r RPMC_supplementary_analysis, echo=F, include=F}
