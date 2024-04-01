@@ -67,8 +67,26 @@ ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML wh
 **Add https://doi.org/10.1016/j.jneb.2023.09.006**
 **Add https://pubmed.ncbi.nlm.nih.gov/29364620/**
 Deviations from PAP
+## Meta-analytic Methods
 
-Lesser Methods declarations
+1.  We take the outcome that most clearly maps to changes in actual consumption behavior.
+2.  We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
+3.  For cluster-assigned treatments, our Ns are the number of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
+4.  We convert all effect sizes to estimates of standardized mean differences: Average Treatment Effect (ATE) / standard deviation (SD).
+5.  When possible, we calculate ATE using [difference in differences](https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf) (DiD) — ((Treatment_posttest - Treatment_pretest) - (Control_posttest - Control_pretest)) — which we prefer to difference in means (DiM) — (Treatment_posttest - Control_posttest) — because it leads to more precise estimates. When pretest scores aren’t available, we use DiM.
+6.  When possible, we standardize by the SD of the control group, a measure called Glass’s Delta (written as $\Delta$). We prefer Glass’s Delta to Cohen’s d, a measure that standardizes by the SD of the entire sample, because we want to to avoid any additional assumptions about equivalence of variance between treatment and control groups. When we don’t have enough information to calculate $\Delta$, we use d.
+7.  For conversions from statistical tests like t-test or F-test, we use standard equations from [Cooper, Hedges and Valentine (2009)](https://psycnet.apa.org/record/2009-05060-000). The one exception is our difference in proportions estimator, which, to the best of our knowledge, Donald P. Green first proposed for a [previous meta-analysis](https://doi.org/10.1146/annurev-psych-071620-030619). See our [d_calc.R function on GItHub for specifics](https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R).
+8.  When authors tell us that results were “not significant” but don’t specify more precisely, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
+
+Our meta-analysis employs a random effects model rather than a fixed effects model, for reasons explained [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393987/). Our code mainly uses functions from the metafor and tidyverse packages in R as well as some custom wrappers that Seth wrote for previous meta-analyses.
+
+The coefficients we report are:
+
+-   Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
+-   Beta (β), a regression coefficient. Linear regression tells you E(Y \| X), i.e. for some value of X (or many Xs), the expected value of Y. We report this coefficient when we discuss publication bias or the effects associated with covariates.
+-   SE (standard error) is the standard deviation of the sampling distribution, e.g. $\Delta$ or β. Smaller standard errors mean more precise estimates.
+-   P-value, a measure of statistical significance. See [Lakens (2022), chapter 1](https://lakens.github.io/statistical_inferences/01-pvalue.html) for an overview.
+
 
 Reviewing the finding (Mertens et al.)
 
@@ -203,3 +221,4 @@ Overall, this results suggests that appeals to animal welfare generally work at 
 5.  Finally, these are all self-reported results; as the authors put it, this might bias results if it “induce$$s$$ misreporting that is *differential* between the intervention and control group, which could potentially inflate estimates away from the null.”
 
 Overall this is a great meta-analysis and we recommend [reading it if you enjoy the subject](https://www.sciencedirect.com/science/article/pii/S0195666321001847).
+
