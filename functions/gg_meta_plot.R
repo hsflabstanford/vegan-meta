@@ -64,7 +64,6 @@ gg_meta_plot <- function(data, category_var = theory,
     coord_cartesian(ylim = c(min_y - 1.5, max_y), clip = "off")
     
     # build third portion, aesthetics
-  
     plot <- plot + 
       scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
     scale_y_discrete() +
