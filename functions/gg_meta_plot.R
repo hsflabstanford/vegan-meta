@@ -3,22 +3,20 @@
 #' This function generates a meta forest plot using ggplot2 based on the provided data and category variable.
 #'
 #' @param data A dataframe containing the data for plotting.
-#' @param category_var The variable used for color categorization in the plot.
+#' @param category_var The variable used for color categorization in the plot. uses 'theory' by default.
 #' @param title The title of the plot (default is "Vegan meta forest plot").
 #' 
 #' @return A ggplot2 object representing the meta forest plot.
 #'
-#' @import ggplot2
+#' @importFrom ggplot2 ggplot aes geom_point geom_errorbarh geom_vline scale_x_continuous scale_y_discrete 
+#' @importFrom ggplot2 ggtitle theme_minimal theme element_text labs
 #' @importFrom rlang ensym enexpr
-#' @importFrom purrr |> 
 #' @importFrom stringr str_detect
 #' @importFrom metafor map_robust
 #' @importFrom gridExtra unit
 #' @importFrom scales scale_x_continuous scale_y_discrete
 #' @importFrom grid grid.draw
 #' @importFrom gridExtra arrangeGrob
-#' @importFrom ggplot2 ggplot aes geom_point geom_errorbarh geom_vline scale_x_continuous scale_y_discrete 
-#' @importFrom ggplot2 ggtitle theme_minimal theme element_text labs
 #'
 #' @examples
 #' # Load necessary libraries
@@ -28,16 +26,13 @@
 #' library(stringr)
 #' library(metafor)
 #'
-#' # Example usage
-#' dat <- data.frame(
-#'   study_name = c("Study 1", "Study 2", "Study 3"),
-#'   d = c(0.1, 0.2, 0.3),
-#'   se_d = c(0.05, 0.06, 0.07),
-#'   category_var = c("A", "B", "A")
-#' )
-#' gg_meta_plot(dat, category_var)
-#'
-gg_meta_plot <- function(data, category_var, title = "Vegan meta forest plot") {
+gg_meta_plot <- function(data, category_var = theory, 
+                         title = "Vegan meta forest plot") {
+  if (!"study_name" %in% names(data)) {
+    # If study_name not detected, create it
+    data$study_name <- reorder(as.factor(paste0(data$author, " ", data$year)), desc(data$se_d))
+  }
+    
   # Ensure that category_var is a symbol
   convert_underscore_to_space <- function(string) {
     gsub("_", " ", string)
@@ -46,7 +41,10 @@ gg_meta_plot <- function(data, category_var, title = "Vegan meta forest plot") {
   
   # Convert underscores to spaces in the legend title
   category_label <- convert_underscore_to_space(as.character(rlang::enexpr(category_var)))
-  
+  # add overall delta estimate
+  delta <- map_robust(data)$Delta[1]
+
+  #. build first portion, the studies
   # Use !! to force evaluation of category_var within dplyr verbs
   plot <- data |>
     ggplot(aes(y = study_name, x = d, 
@@ -56,8 +54,19 @@ gg_meta_plot <- function(data, category_var, title = "Vegan meta forest plot") {
     geom_errorbarh(height = .1, aes(color = !!category_var)) +
     geom_vline(xintercept = 0, color = "black", alpha = .5) +
     geom_vline(xintercept = (data |> map_robust())$Delta, 
-               color = 'black', lty = 'dashed') +
-    scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
+               color = 'black', lty = 'dashed')
+  
+  # build second portion, the random effects model
+  min_y <- min(ggplot_build(plot)$data[[1]]$y)
+  max_y <- max(ggplot_build(plot)$data[[1]]$y)
+  plot <- plot + 
+    geom_point(y = min_y - 1 , x = delta, size = 3, shape = 5) + 
+    coord_cartesian(ylim = c(min_y - 1.5, max_y), clip = "off")
+    
+    # build third portion, aesthetics
+  
+    plot <- plot + 
+      scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
     scale_y_discrete() +
     ylab("Study") +
     ggtitle(title) + 
@@ -70,3 +79,4 @@ gg_meta_plot <- function(data, category_var, title = "Vegan meta forest plot") {
   
   return(plot)
 }
+dat |> gg_meta_plot()
