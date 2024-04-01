@@ -521,8 +521,6 @@ pap_split <- dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0,
   split(~has_pap) |>  
   map(count_and_robust)
 pap_split[[1]]$Delta
-
-# processed and red meat?
 ```
  
 ### An overall null effect
@@ -567,7 +565,7 @@ plot_dat$study_name <- reorder(factor(plot_dat$study_name, levels = ordered_leve
 
 plot_dat |> ggplot(aes(x = d, y = study_name)) +
   geom_point(data = subset(plot_dat, study_name == "RE Estimate"), 
-             size = 8, shape = 18) + # shape = 5 for a transparent diamond 
+             size = 5, shape = 18) + # shape = 5 for a transparent diamond 
   geom_point(data = subset(plot_dat, study_name != "RE Estimate"), 
              aes(color = theory_category), size = 3, shape = 18) +
   geom_errorbarh(data = subset(plot_dat, study_name != "RE Estimate"), 
