@@ -653,15 +653,15 @@ We observe a moderate, though statistically insignificant relationship between e
 ```{r publication_bias_plot, echo=F}
 pub_bias_graph <- dat |>  
   mutate(pub_status = case_when(
-    str_detect(venue, "dissertation|thesis") ~ "thesis",
-    str_detect(venue, "advocacy") ~ "advocacy org publication",
-    str_detect(doi_or_url, "osf\\.io") ~ "preprint",
-    str_detect(doi_or_url, "10\\.") ~ "publication")) |>
+    str_detect(venue, "dissertation|thesis") ~ "Thesis",
+    str_detect(venue, "advocacy") ~ "Advocacy org publication",
+    str_detect(doi_or_url, "osf\\.io") ~ "Preprint",
+    str_detect(doi_or_url, "10\\.") ~ "Publication")) |>
   ggplot(aes( x = se_d, y = d)) +
   geom_point(aes(color = pub_status), size = 2) +
   geom_smooth(method = "lm", color = "black", lty = "dotted", se = F) +
   theme_minimal() +
-  labs(x = "Standard error", y = "Effect sizes", color = "Publication type") + # Glass's \u0394 doesn't work
+  labs(x = "Standard errors", y = "Effect sizes", color = "Publication type") + # Glass's \u0394 doesn't work
   ggtitle("Relationship between standard errors and effect sizes") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5,
