@@ -650,8 +650,8 @@ publication_type_eff_size <- dat |> mutate(pub_status = case_when(
 
 We observe a moderate, though statistically insignificant relationship between effect size and standard error (b = `r eff_size_d_relationship[2,1]`), p = `r eff_size_d_relationship[2,4]`,  meaning that larger effect sizes are more likely to be imprecise estimates in our sample Figure 2 displays this relationship, color coded by publication type.
 
-```{r publication_bias_plot, echo=F, include=F}
-dat |>  
+```{r publication_bias_plot, echo=F}
+pub_bias_graph <- dat |>  
   mutate(pub_status = case_when(
     str_detect(venue, "dissertation|thesis") ~ "thesis",
     str_detect(venue, "advocacy") ~ "advocacy org publication",
@@ -666,6 +666,8 @@ dat |>
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5,
                                   face = "bold")) 
+
+pub_bias_graph
 ```
 
 As this graph suggests, we observe that dissertations and technical reports (mostly published by animal advocacy organizations) 
