@@ -799,7 +799,7 @@ On the one hand, we applaud these organizations for making their materials freel
 
 Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: 
 
-remember to lookat Haile which assesses both
+remember to look at Haile which assesses both
 ### delay?
 
 ### country?
@@ -848,7 +848,7 @@ That depends what literature you're reading. If you read the food literature, yo
 -   Do a RPMC reduction study and assess effects on other MAP products too 😃
 -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
 -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
--   @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
+-   @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? Jalil too. see [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.
 -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3) vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
 -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
 -   one study ([Sparkman et al. 2020](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
