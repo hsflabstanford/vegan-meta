@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "6744"
+wordcount: "7090"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -644,6 +644,8 @@ The variety of dependent variables
 
 ### country? 
 
+### meat vs MAP
+
 ### place-based vs general interventions
 ### Robustness to markers of study quality
 
@@ -654,7 +656,7 @@ The variety of dependent variables
 ## Discussion
 
 ### The central unanswerewd question of interMAP substitution
-Given our disappointing central findings -- a general lack of efficacy on reducing overall MAP consumption -- the most important outstanding question in our meta-analysis is how much of the gap between general effects and RPMC effects is driven by substitution to other MAP products. Evidence from the literature on this question are mixed, in part because the available dependent variables are not very fine grained. For instance, @emmons2005prevent, @emmons2005cancer, and @sorensen2005 measure changes in red meat as well as changes in fruit and vegetable intake, but do not measure consumption of other categories of MAP or of grains and legumes. @carfora2017correlational, @carfora2017randomised and @carfora2019 all measure just consumption of either red or processed meat. Interestingly, @jalil2023, though not targeting RPMC specifically, records changes in beef, poultry, fish, and vegetarian meals, and finds larger reductions in poultry and fish than it does for red meat.^[to fill in: some other studies answer related questions, e.g.https://www.sciencedirect.com/science/article/abs/pii/S2212267222010711]
+Given our disappointing central findings -- a general lack of efficacy on reducing overall MAP consumption -- the most important outstanding question in our meta-analysis is how much of the gap between general effects and RPMC effects is driven by substitution to other MAP products. Evidence from the literature on this question are mixed, in part because the available dependent variables are not very fine grained. For instance, @emmons2005project, @emmons2005cancer, and @sorensen2005 measure changes in red meat as well as changes in fruit and vegetable intake, but do not measure consumption of other categories of MAP or of grains and legumes. @carfora2017correlational, @carfora2017randomised and @carfora2019 all measure just consumption of either red or processed meat. Interestingly, @jalil2023, though not targeting RPMC specifically, records changes in beef, poultry, fish, and vegetarian meals, and finds larger reductions in poultry and fish than it does for red meat.^[to fill in: some other studies answer related questions, e.g.https://www.sciencedirect.com/science/article/abs/pii/S2212267222010711]
 
 A few papers explicitly advocate that people substitute:
   -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
