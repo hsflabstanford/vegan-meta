@@ -644,7 +644,7 @@ publication_type_eff_size <- dat |> mutate(pub_status = case_when(
     str_detect(venue, "dissertation|thesis") ~ "thesis",
     str_detect(venue, "advocacy") ~ "advocacy org publication",
     str_detect(doi_or_url, "osf\\.io") ~ "preprint",
-    str_detect(doi_or_url, "10\\.") ~ "publication")) |> 
+    str_detect(doi_or_url, "10\\.") ~ "journal")) |> 
       split(~pub_status) |> imap(~count_and_robust(.x)); publication_type_eff_size
 ```
 
@@ -654,9 +654,9 @@ We observe a moderate, though statistically insignificant relationship between e
 pub_bias_graph <- dat |>  
   mutate(pub_status = case_when(
     str_detect(venue, "dissertation|thesis") ~ "Thesis",
-    str_detect(venue, "advocacy") ~ "Advocacy org publication",
+    str_detect(venue, "advocacy") ~ "Advocacy organization",
     str_detect(doi_or_url, "osf\\.io") ~ "Preprint",
-    str_detect(doi_or_url, "10\\.") ~ "Publication")) |>
+    str_detect(doi_or_url, "10\\.") ~ "Journal article")) |>
   ggplot(aes( x = se_d, y = d)) +
   geom_point(aes(color = pub_status), size = 2) +
   geom_smooth(method = "lm", color = "black", lty = "dotted", se = F) +
@@ -679,7 +679,7 @@ We also not that a null finding on MAP consumption is equivalent to a null resul
 ### Translating standardized effect sizes to real world changes
 The specific dependent variables in this literature, as well as the different variances between populations, make it challenging to generate a "rule of thumb" for translating standardized effect sizes to real-world changes. However, we can say that the average effect size in our sample is small, and that the largest effect sizes in the literature are also small. For example, @jalil2023 found that students in the treatment group reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years. This corresponds to Glass's ∆ of 0.118. The largest effect size in the literature comes from @bianchi2022, who found a decline in meat consumed of 12 grams per day for the control group and 49 grams per day for the treatment, for a difference in difference of 37 grams per day. Relative to a standard deviation of 70 grams for the control group, this represents a Glass's ∆ of 0.52.
 
-As an example of a backlash result, study one in @feltz2022
+As an example of a backlash result, study one in @feltz2022 found that subjects who read a pamphlet titled "Compassionate Choices: If You Care about Animals, Please Consider not Eating Them" (p. 8) increased the number of times they ate meat and/or eggs in a given day by `r 11.63-9.61` times, while control subjects increased on the same scale `r 9.38-8.88` times. This corresponds to a Glass's ∆ of -0.259, relative to a standard deviation of 5.87 for the control group.
 
 ### Comparing theoretical approaches
 ```{r theoretical_approaches, echo=F, include=F}
@@ -749,7 +749,7 @@ Place-based interventions, such as those in cafeterias or restaurants, are compa
 
 ### self-report measures are not systematically different
 
-Based on past research, we expected to see evidence of self-report bias
+Based on past research, we expected to see evidence of self-report bias [@mathur2021effectiveness]
 ### delay?
 
 ### country? 
