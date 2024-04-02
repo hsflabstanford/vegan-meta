@@ -292,7 +292,7 @@ days_count <- sum(str_detect(self_report_outcomes$outcome_category, "days"))
 weight_loss_count <- sum(str_detect(self_report_outcomes$outcome_category, "weight"))
 ```
 
-Self-reported outcomes are the norm: `r self_report_count['Y']` of`r num_studies` studies. `r servings_portions_meals_count`of these studies measured MAP consumption in terms of servings, portions, or meals with MAP, while`r days_count` measured number of days on which meat was eaten and `r weight_loss_count` measured MAP consumption by weight.`r sum(self_report_outcomes$outcome_category == "self_reported_more_less_outcome")` studies asked subjects to report whether they ate more or less MAP after receiving treatment than before. One paper [@norris2014] grouped subjects' responses into a Likert-type scale from 1-5 depending on how many portions of animal products they consumed. The majority of self-reported outcomes asked just about meat rather than MAP as a whole [TODO: provide stat]
+Self-reported outcomes are the norm: `r self_report_count['Y']` of`r num_studies` studies. `r servings_portions_meals_count`of these studies measured MAP consumption in terms of servings, portions, or meals with MAP, while`r days_count` measured number of days on which meat was eaten and `r weight_loss_count` measured MAP consumption by weight.`r sum(self_report_outcomes$outcome_category == "self_reported_more_less_outcome")` studies asked subjects to report whether they ate more or less MAP after receiving treatment than before. One paper [@norris2014] grouped subjects' responses into a Likert-type scale from 1-5 depending on how many portions of animal products they consumed. The majority of self-reported outcomes asked just about meat rather than MAP as a whole [TODO: provide stat, or did I provide it somewhere else?]
 
 ```{r objective_report_tab, echo=F, include=F}
 objective_report_studies <- dat |> filter(self_report == "N") |> 
@@ -500,13 +500,7 @@ source('./functions/d_calc.R')
 source('./functions/var_d_calc.R')
 source('./functions/study_count.R')
 source('./functions/map_robust.R')
-
-#' count_and_robust helper function;
-#' necessary b/c `filter |> split |> imap()` didn't work for some reason
-
-count_and_robust <- function(data) {
-      bind_cols(study_count(data), map_robust(data))
-  }
+source('./functions/count_and_robust.R')
 dat <- dat |>
   mutate(d = mapply(
         FUN = d_calc,
@@ -762,18 +756,28 @@ Place-based interventions, such as those in cafeterias or restaurants, are compa
 ### Animal advocacy materials need a rethink
 
 ```{r animal_advocacy_org_materials, echo=F, include=F}
-advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "N", T, F)) |> 
+advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "N", F, T)) |> 
   split(~advocacy_materials) |> map(count_and_robust); advocacy_results 
+
+advocacy_org_specific_results <- dat |> split(~advocacy_org) |> map(count_and_robust); advocacy_org_specific_results
 ```
 
-As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials. Table XXX displays the effect sizes associated with these studies next to those from everything else.
+As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r `advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r `advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
 
+Table XXX displays the effect sizes associated with the materials of each animal advocacy organization in our dataset separated by the providing organization. Where N = 1, the estimate is not a meta-analytic estimate, but the results from that single study.
+
+| Organization        | N (studies)                               | Delta (se)                                                                                                           |
+|---------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Animal Rights Watch | `r advocacy_org_specific_results$'Animal Rights Watch'[['N_unique']]` | `r advocacy_org_specific_results$'Animal Rights Watch'[['Delta']]` (`r advocacy_org_specific_results$'Animal Rights Watch'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Animal Rights Watch'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Animal Rights Watch'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Animal Rights Watch'[['pval']] < 0.001, "***", "")))` |
+| Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Animals Australia'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Animals Australia'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Animals Australia'[['pval']] < 0.001, "***", "")))` |
+| Faunalytics        | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`            | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)**`r ifelse(advocacy_org_specific_results$Faunalytics[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$Faunalytics[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$Faunalytics[['pval']] < 0.001, "***", "")))` |
+| Humane League       | `r advocacy_org_specific_results$'Humane League'[['N_unique']]`       | `r advocacy_org_specific_results$'Humane League'[['Delta']]` (`r advocacy_org_specific_results$'Humane League'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Humane League'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Humane League'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Humane League'[['pval']] < 0.001, "***", "")))` |
+| Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Mercy For Animals'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Mercy For Animals'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Mercy For Animals'[['pval']] < 0.001, "***", "")))` |
+| NA (academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                    | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)**`r ifelse(advocacy_org_specific_results$N[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$N[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$N[['pval']] < 0.001, "***", "")))` |
+| Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`     | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.001, "***", "")))` |
+
+On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they Overall, the fact that the very most rigorous evaluations from
 [table XXX about here]
-
-| Materials | N (studies)                                | DELTA (se)                                                                                                                                                                                                                                                                                              |
-|-----------|-----------|---------------------------------------------------|
-| Advocacy  | `r advocacy_results$'FALSE'[['N_unique']]` | `r formatC(advocacy_results$'FALSE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
-| Academic  | `r advocacy_results$'TRUE'[['N_unique']]`  | `r formatC(advocacy_results$'TRUE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'TRUE'[['se']]`)***`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`    |
 
 ### self-report measures are not systematically different
 
