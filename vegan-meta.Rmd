@@ -764,7 +764,7 @@ As suggested earlier by our tests for publication bias, evaluations of materials
 
 [table XXX about here]
 
-| Approach        | N (studies)                                         | ∆ (se)                                                                                                                   |
+| Approach                       | N (studies)                                         | ∆ (se)                                                                                                                   |
 |-----------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | Advocacy     | `r advocacy_results$'FALSE'[['N_unique']]`          | `r advocacy_results$'FALSE'[['Delta']]` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
 | Academic   | `r advocacy_results$'TRUE'[['N_unique']]`           | `r advocacy_results$'TRUE'[['Delta']]` (`r advocacy_results$'TRUE'[['se']]`)**`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`   |
