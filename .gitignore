@@ -11,3 +11,4 @@ results/
 supplementary-analyses/**/*.csv
 supplementary-analyses/**/*.sav
 supplementary-analyses/**/*.Rdata
+*.ttt
