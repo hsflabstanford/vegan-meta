@@ -764,10 +764,10 @@ As suggested earlier by our tests for publication bias, evaluations of materials
 
 [table XXX about here]
 
-| Approach                       | N (studies)                                         | ∆ (se)                                                                                                                   |
-|-----------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| Advocacy     | `r advocacy_results$'FALSE'[['N_unique']]`          | `r advocacy_results$'FALSE'[['Delta']]` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
-| Academic   | `r advocacy_results$'TRUE'[['N_unique']]`           | `r advocacy_results$'TRUE'[['Delta']]` (`r advocacy_results$'TRUE'[['se']]`)**`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`   |
+| Materials   | N (studies)                                    | DELTA (se)                                                                                                                         |
+|-------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Advocacy    | `r advocacy_results$'FALSE'[['N_unique']]`     | `r formatC(advocacy_results$'FALSE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
+| Academic    | `r advocacy_results$'TRUE'[['N_unique']]`      | `r formatC(advocacy_results$'TRUE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'TRUE'[['se']]`)\***`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`   |
 
 
 ### self-report measures are not systematically different

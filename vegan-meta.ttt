@@ -91,21 +91,21 @@ Place-based (Cafeteria/Restaurant) & 15 & 0.06 (0.05) \\
 \efloatseparator
  
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0885}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2760}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6354}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0674}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2487}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6839}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Approach
+Materials
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 N (studies)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-∆ (se)
+DELTA (se)
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Advocacy & 16 & -0.04 (0.02)** \\
-Academic & 35 & 0.03 (0.01)*** \\
+Academic & 35 & 0.03 (0.01)**** \\
 \end{longtable}
