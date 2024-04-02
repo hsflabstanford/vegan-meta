@@ -18,8 +18,8 @@ map_robust <- function(x) {
   # Check if there is only one study in the cluster
   if (nrow(x) == 1) {
     # Directly take Delta and SE from the dataset
-    Delta <- x$d
-    se <- x$se_d
+    Delta <- round(x$d, 3)
+    se <- round(x$se_d, 3)
     pval <- NA
     
     # Return these values in a tibble

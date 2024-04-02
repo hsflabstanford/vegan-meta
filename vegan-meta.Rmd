@@ -385,7 +385,7 @@ persuasion_studies <- dat |> filter(str_detect(theory, "persuasion"))
 
 We now turn to direct efforts to persuade people to reduce their MAP consumption, which comprise `r nrow(persuasion_studies)` of `r num_studies` in our database, These studies generally provide direct arguments and relevant, factual arguments for dietary change. These arguments come in three varieties: appeals toanimal welfare, the environment, and personal health.
 
-### Appeals to animal welfare
+#### Appeals to animal welfare
 
 ```{r animal_welfare_studies, echo=F, include=F}
 animal_studies <- dat |> filter(str_detect(secondary_theory, "animal welfare"))
@@ -531,7 +531,7 @@ pap_split[[1]]$Delta
 
 ### An overall null effect
 
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `rmain_result$Delta` (se = `r main_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
 
 A vote counting procedure [@bushman1994] demonstates the same point more starkly. In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no statistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
 
@@ -542,7 +542,7 @@ Figure 1 below shows the distribution of effect sizes in our sample. The dashed 
 ```{r fig, echo=F}
 library(ggplot2)
 library(ggtext)
-library(rlang)
+library(rlang, warn.conflicts = F)
 
 bold_labels <- function(x) {
   ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)
@@ -667,7 +667,7 @@ Table XXX presents differences in average effect size by publication type.
 
 We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
 
-```{r within_journal_pub_bias}
+```{r within_journal_pub_bias, echo=F, include=F}
 within_journal_article_bias <- dat |> filter(pub_status == "Journal article") |> sum_lm(d, se_d)
 within_journal_article_bias[2,1]
 ```
@@ -760,21 +760,36 @@ advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "
   split(~advocacy_materials) |> map(count_and_robust); advocacy_results 
 
 advocacy_org_specific_results <- dat |> split(~advocacy_org) |> map(count_and_robust); advocacy_org_specific_results
+
+get_significance_stars <- function(pval) {
+  if (is.na(pval)) {
+    return("")
+  } else if (pval < 0.001) {
+    return("***")
+  } else if (pval < 0.01) {
+    return("**")
+  } else if (pval < 0.05) {
+    return("*")
+  } else {
+    return("")
+  }
+}
+
 ```
 
-As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r `advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r `advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
+As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
 
 Table XXX displays the effect sizes associated with the materials of each animal advocacy organization in our dataset separated by the providing organization. Where N = 1, the estimate is not a meta-analytic estimate, but the results from that single study.
 
-| Organization        | N (studies)                               | Delta (se)                                                                                                           |
-|---------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Animal Rights Watch | `r advocacy_org_specific_results$'Animal Rights Watch'[['N_unique']]` | `r advocacy_org_specific_results$'Animal Rights Watch'[['Delta']]` (`r advocacy_org_specific_results$'Animal Rights Watch'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Animal Rights Watch'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Animal Rights Watch'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Animal Rights Watch'[['pval']] < 0.001, "***", "")))` |
-| Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Animals Australia'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Animals Australia'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Animals Australia'[['pval']] < 0.001, "***", "")))` |
-| Faunalytics        | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`            | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)**`r ifelse(advocacy_org_specific_results$Faunalytics[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$Faunalytics[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$Faunalytics[['pval']] < 0.001, "***", "")))` |
-| Humane League       | `r advocacy_org_specific_results$'Humane League'[['N_unique']]`       | `r advocacy_org_specific_results$'Humane League'[['Delta']]` (`r advocacy_org_specific_results$'Humane League'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Humane League'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Humane League'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Humane League'[['pval']] < 0.001, "***", "")))` |
-| Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Mercy For Animals'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Mercy For Animals'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Mercy For Animals'[['pval']] < 0.001, "***", "")))` |
-| NA (academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                    | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)**`r ifelse(advocacy_org_specific_results$N[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$N[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$N[['pval']] < 0.001, "***", "")))` |
-| Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`     | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.001, "***", "")))` |
+| Organization        | N (studies) | ∆ (se) |
+|---------------------|-------------|------------|
+| NA (Academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                    | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)`r get_significance_stars(advocacy_org_specific_results$N[['pval']])` |
+| Humane League       | `r advocacy_org_specific_results$'Humane League'[['N_unique']]`       | `r advocacy_org_specific_results$'Humane League'[['Delta']]` (`r advocacy_org_specific_results$'Humane League'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Humane League'[['pval']])` |
+| Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`     | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Vegan Outreach'[['pval']])` |
+| Animal Rights Watch | `r advocacy_org_specific_results$'Animal Rights Watch'[['N_unique']]` | `r advocacy_org_specific_results$'Animal Rights Watch'[['Delta']]` (`r advocacy_org_specific_results$'Animal Rights Watch'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animal Rights Watch'[['pval']])` |
+| Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animals Australia'[['pval']])` |
+| Faunalytics         | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`            | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)`r get_significance_stars(advocacy_org_specific_results$Faunalytics[['pval']])` |
+| Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Mercy For Animals'[['pval']])` |
 
 [table XXX about here]
 
