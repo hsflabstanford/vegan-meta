@@ -2,6 +2,17 @@
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2222}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3580}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4198}}@{}}
+\caption{table XXX. * \textless{} 0.05, ** \textless{} 0.01, *** \textless{} 0.001.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Approach
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+∆ (se)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Approach
@@ -26,6 +37,17 @@ Animal Welfare & 23 & 0.00 (0.01) \\
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2857}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3619}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3524}}@{}}
+\caption{Table XXX. * \textless{} 0.05, ** \textless{} 0.01, *** \textless{} 0.001.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Method of Delivery
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+∆ (se)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Method of Delivery

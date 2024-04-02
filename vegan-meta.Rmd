@@ -700,6 +700,8 @@ persuasion_results <- dat |> filter(str_detect(theory, "persuasion")) |> count_a
 
 Table XXX presents the results of our meta-analysis by theoretical approach. Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample.
 
+[table XXX about here]
+
 Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r nudge_results$N_unique` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
 
 | Approach         | N (studies)                 | ∆ (se)                           |
@@ -709,7 +711,7 @@ Nudges are generally the most effective approach in our subset, producing statis
 | Health           | `r health_results$N_unique` | `r health_results$Delta` (`r health_results$se`)`r ifelse(health_results$pval < 0.001, "***", ifelse(health_results$pval < 0.01, "**", ifelse(health_results$pval < 0.05, "*", "")))` |
 | Environment      | `r environment_results$N_unique` | `r environment_results$Delta` (`r environment_results$se`)`r ifelse(environment_results$pval < 0.001, "***", ifelse(environment_results$pval < 0.01, "**", ifelse(environment_results$pval < 0.05, "*", "")))` |
 | Animal Welfare   | `r animal_welfare_results$N_unique` | `r animal_welfare_results$Delta` (`r animal_welfare_results$se`)`r ifelse(animal_welfare_results$pval < 0.001, "***", ifelse(animal_welfare_results$pval < 0.01, "**", ifelse(animal_welfare_results$pval < 0.05, "*", "")))` |
-
+Table: table XXX. * < 0.05, ** < 0.01, *** < 0.001.
 
 ```{r norms_in_more_detail, echo=F, include=F}
 dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic")) |> count_and_robust(); dynamic_norms_results
@@ -736,12 +738,15 @@ place_based_results <- dat |> filter(dat$cafeteria_or_restaurant_based == "Y") |
 
 We now turn to the question of method of delivery. Table XXX reports our results.
 
+[table XXX about here]
+
 | Method of Delivery           | N (studies)                          | ∆ (se)                              |
 |------------------------------|--------------------------------------|-------------------------------------|
 | Internet                     | `r internet_results$N_unique`        | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))` |
 | Pamphlet                     | `r pamphlet_results$N_unique`        | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))` |
 | Video                        | `r video_results$N_unique`           | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))` |
 | Place-based (Cafeteria/Restaurant) | `r place_based_results$N_unique` | `r place_based_results$Delta` (`r place_based_results$se`)`r ifelse(place_based_results$pval < 0.001, "***", ifelse(place_based_results$pval < 0.01, "**", ifelse(place_based_results$pval < 0.05, "*", "")))` |
+Table: Table XXX. * < 0.05, ** < 0.01, *** < 0.001.
 
 Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant. 
 
