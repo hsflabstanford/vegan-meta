@@ -62,6 +62,7 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 
 ```{r setup, include=FALSE}
 library(dplyr, warn.conflicts = F)
+library(stringr)
 knitr::opts_chunk$set(fig.path = "results/figures/")
 source("./functions/sum_tab.R")
 
@@ -671,11 +672,12 @@ Table XXX presents differences in average effect size by publication type.
 
 We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
 
-These four categories of publication -- preprint, jounral article, theses (both bachelor's and graduate), and advocacy organization materials -- are subject to different processes and incentives. One way to account for this in a check for publication bias is to look for a relationship between standard errors and effect sizes within journal articles, which would be evidence for the "file drawer problem" [@rosenthal1979file]. We find no such relationship (b = `r within_journal_article_bias[2,1]` (se = `r within_journal_article_bias[2,2]`), p = `r within_journal_article_bias[2,4]`). 
 ```{r within_journal_pub_bias}
 within_journal_article_bias <- dat |> filter(pub_status == "Journal article") |> sum_lm(d, se_d)
 within_journal_article_bias[2,1]
 ```
+
+These four categories of publication -- preprint, jounral article, theses (both bachelor's and graduate), and advocacy organization materials -- are subject to different processes and incentives. One way to account for this in a check for publication bias is to look for a relationship between standard errors and effect sizes within journal articles, which would be evidence for the "file drawer problem" [@rosenthal1979]. We find no such relationship (b = `r within_journal_article_bias[2,1]` (se = `r within_journal_article_bias[2,2]`), p = `r within_journal_article_bias[2,4]`). 
 
 Overall, this literature is not shy of publishing null results, to its credit. However, this may partly be a product of our focus on MAP consumption as a dependent variable. The typical paper in this literature presents multiple dependent variables and/or subgroup analyses, and often leads with the largest results. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract. It is possible that we would find evidence of publication bias if we looked at a wider range of dependent variables and studies. 
 
@@ -762,10 +764,10 @@ As suggested earlier by our tests for publication bias, evaluations of materials
 
 [table XXX about here]
 
-| Materials        | N (studies)                                              | DELTA (se)                                                                                                                            |
-|-----------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| General     | `r advocacy_results$'FALSE'['N_unique']`                 | `r advocacy_results$'FALSE'['Delta']` (`r advocacy_results$'FALSE'['se']`)`r ifelse(advocacy_results$'FALSE'['pval'] < 0.05, "*", ifelse(advocacy_results$'FALSE'['pval'] < 0.01, "**", ifelse(advocacy_results$'FALSE'['pval'] < 0.001, "***", "")))` |
-| Advocacy organization   | `r advocacy_results$'TRUE'['N_unique']`                  | `r advocacy_results$'TRUE'['Delta']` (`r advocacy_results$'TRUE'['se']`)`r ifelse(advocacy_results$'TRUE'['pval'] < 0.05, "*", ifelse(advocacy_results$'TRUE'['pval'] < 0.01, "**", ifelse(advocacy_results$'TRUE'['pval'] < 0.001, "***", "")))`   |
+| Approach        | N (studies)                                         | ∆ (se)                                                                                                                   |
+|-----------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| Advocacy     | `r advocacy_results$'FALSE'[['N_unique']]`          | `r advocacy_results$'FALSE'[['Delta']]` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
+| Academic   | `r advocacy_results$'TRUE'[['N_unique']]`           | `r advocacy_results$'TRUE'[['Delta']]` (`r advocacy_results$'TRUE'[['se']]`)**`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`   |
 
 
 ### self-report measures are not systematically different
