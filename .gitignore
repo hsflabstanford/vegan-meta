@@ -8,7 +8,7 @@ results/
 *.pdf
 *.html
 *.docx
+vegan-meta.ttt
 supplementary-analyses/**/*.csv
 supplementary-analyses/**/*.sav
 supplementary-analyses/**/*.Rdata
-*.ttt
