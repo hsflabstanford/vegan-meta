@@ -658,7 +658,7 @@ animal_welfare_results <- dat |> filter(str_detect(secondary_theory, "animal wel
 
 Table XXX presents the results of our meta-analysis by theoretical approach. Note that because many studies present overlapping approaches, 
 
-NUdges are generally the  The smallest effect sizes come from interventions that appeal to animal welfare. Nudges and norms-based interventions produce similar effect sizes, while persuasion interventions produce the smallest effect sizes.
+Nudges are generally the  The smallest effect sizes come from interventions that appeal to animal welfare. Nudges and norms-based interventions produce similar effect sizes, while persuasion interventions produce the smallest effect sizes.
 
 | Approach         | N (studies)                 | ∆ (se)                           |
 |------------------|-----------------------------|----------------------------------|
