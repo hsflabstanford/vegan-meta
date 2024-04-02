@@ -28,7 +28,7 @@ affiliation:
   - id: "3"
     institution: "Allied Scholars for Animal Protection "
 abstract: |
-  This paper meta-analyzes interventions intended to reduce consumption of meat and animal products (MAP), focusing on the most rigorous, policy-ready studies. Extant efforts generally embody one of three theoretical perspectives: appeals to social norms, nudges to make MAP less salient, and information-based approaches that attempt to change attitudes towards MAP itself on health, environmental, and animal welfare grounds. We find that direct appeals to the environment and personal health, along with some norm messages in cafeterias. Appeals to animal welfare, online studies, video treatments, and leafletting studies have no apparent overall effect. However, even the very best studies in this literature typically have concerning measurement limitations arising from self-reported outcomes and a lack of post-intervention follow-up. These limitations raise concerns about social desirability bias and `regression to the meat:' the possibility that someone who is nudged into eating less MAP at one meal will compensate by eating more at the next. We address these concerns with a variety of statistical corrections as well as highlighting the studies whose designs and measurement strategies convincingly address both issues. We conclude with concrete, shovel-ready suggestions for researchers and policymakers. 
+  This paper meta-analyzes interventions intended to reduce consumption of meat and animal products (MAP), focusing on the most rigorous, policy-ready studies. Extant efforts generally embody one of three theoretical perspectives: appeals to social norms, nudges to make MAP less salient, and persuasion-based approaches that attempt to change attitudes towards MAP itself on health, environmental, and animal welfare grounds. We find that nudges produce the largest results overall, though the the effects are substantively small. Some environmental and health appeals reduce MAP consumption in some rarefied settings, while appeals to animal welfare, online studies, video treatments, and leafletting studies have no apparent overall effect. By contrast, a variety of approaches are effective at reducing consumption of red and processed meat, but the extent to which this is driven by substitutions to other categories of MAP is unclear...[something about biases?] We conclude with concrete, shovel-ready suggestions for researchers and policymakers. 
   
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
@@ -53,7 +53,6 @@ editor_options:
 
 ```{r redownload_data_if_missing, echo=F, include=F, eval=F}
 library(googledrive)
-
 # drive_auth() # only if needed
 drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'), 
                path = './data/vegan-meta.csv',
@@ -87,30 +86,29 @@ num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 ```
 
-
 ## 1. Introduction: the three leading perspectives on changing dietary behavior
 
-Reducing consumption of meat and animal products (MAP) would advance numerous policy goals. Animal agriculture is a major driver of climate change [@scarborough2023; @koneswaran2008; @goodland2009] as well as more localized environmental and public health harms [@horrigan2002; @slingenbergh2004; @graham2008; @greger2010]. Excess MAP consumption is a leading cause of premature deaths [@willett2019; @landry2023]; finally, the conditions in which farmed animals live and die are increasingly recognized as a policy matter in its own right [@yeates2011; @webster2001; @kuruc2023].
+Worldwide consumption of meat and animal products (MAP) is a large and stubborn contributor to numerous policy challenges. Animal agriculture is a major driver of climate change [@scarborough2023; @koneswaran2008; @goodland2009] as well as more localized environmental and public health concerns [@horrigan2002; @slingenbergh2004; @graham2008; @greger2010]. Excess MAP consumption is a leading cause of premature deaths [@willett2019; @landry2023]; finally, how farmed animals live and die is increasingly recognized as a policy matter in its own right [@yeates2011; @webster2001; @kuruc2023].
 
-Policymakers have many tools availabe for reducing MAP consumption. They can can ban certain foods [@caro2009] or practices [@bursey2018] deemed especially cruel; campaign for vegetarianism [@trewern2022]; raise taxes on MAP with high externalities [@springmann2018]; or change eating environments to make MAP alternatives more salient or appealing [@guthrie2015; @bianchi2018restructuring]. However, any lever which focuses on reducing supply rather than demand risks backsliding through political correction [@michielsen2022]. It is essential, therefore, to assess which theoretical approaches most effectively and durably reduce demand for MAP. This paper approaches that question with a theoretically comprehensive review and methodologically focused meta-analysis.
+Policymakers have many tools available for reducing MAP consumption. They can can ban certain foods [@caro2009] or practices [@bursey2018]; campaign for vegetarianism [@trewern2022]; raise taxes on MAP with high externalities [@springmann2018]; or change eating environments to make MAP alternatives more salient or appealing [@guthrie2015; @bianchi2018restructuring]. However, any attempt to limit supply rather than reducing demand is at high risk of backsliding through political correction [@michielsen2022]. It is essential, therefore, to assess which theoretical approaches most effectively and durably reduce demand for MAP. This paper approaches that question with a meta-analysis of the most policy-relevant MAP reduction literature.
 
-A previous review called on future MAP research to feature more “direct behavioral outcomes” and “long-term follow-up" [@mathur2021meta, p. 1]. Building on this, our paper restricts its quantitative synthesis to the most rigorous, policy-ready research: randomized controlled trials with at least 25 subjects in treatment and control (or at least 10 clusters in cluster-assigned studies) that measure actual MAP consumption at least a single day after treatment begins. We identified `r num_studies` such interventions published in `r num_papers` papers or technical reports.
+A previous review called on future MAP research to feature more “direct behavioral outcomes” and “long-term follow-up" [@mathur2021meta, p. 1]. Building on this, our paper restricts its quantitative synthesis to randomized controlled trials with at least 25 subjects in treatment and control -- or at least 10 clusters in cluster-assigned studies -- that measure actual MAP consumption at least a single day after treatment begins. We identified `r num_studies` such interventions published in `r num_papers` papers or technical reports. We consider these to be the very best MAP reduction studies, and the most policy-ready.
 
-Scholars have approached MAP reduction from many disciplines, including social psychology [@rosenfeld2018; @dhont2019], economics [@lusk2009], choice architecture [@bianchi2018restructuring; @mertens2022]; and environmental studies [@costello2016]. Among the studies that meet our inclusion criteria, three approaches prevail: **norms-based approaches** that make MAP seem socially undesirable, **nudges** that make MAP alternatives more salient, and **persuasion-based approaches** that attempt to change ideas about the desirability of MAP itself. Which approach is most effective at changing real world behavior has broad implications for both this particular issue and policy in general.
+Scholars in many disciplines have studied MAP reduction, including social psychology [@rosenfeld2018; @dhont2019], economics [@lusk2009], choice architecture [@bianchi2018restructuring; @mertens2022], and environmental studies [@costello2016]. Among the studies that meet our inclusion criteria, three approaches prevail: **norms-based approaches** that make MAP seem socially undesirable, **nudges** that make MAP alternatives more salient, and **persuasion-based approaches** that attempt to change ideas about the desirability of MAP itself. Persuasion approaches decompose into health, environmental, and animal welfare appeals. Which approach among these is most effective at changing behavior has broad implications for both this particular issue and policy in general.
 
-Our main quantitative finding is that appeals to personal health and the environment are the most effective MAP reduction strategies. We also see some evidence of change resulting from a handful of salience- and norms-based changes to some university dining halls. We find overall null results for appeals to animal welfare, studies conducted online, video treatments, and leafletting studies.
+Our main quantitative finding is that while individual studies have shown encouraging results, none of the studied approaches consistently reduces MAP reduction. While we find some evidence that some approaches have succeeded in reducing consumption of red and processed meat, there is an open question about how much of that change is driven by substitution to other categories of MAP. We find strictly null results for appeals to animal welfare, studies conducted online, video treatments, and leafletting studies, and a slight backlash to evaluations of materials produced by animal advocacy organizations.
 
-However, we place low confidence in the generalizability of these findings because of two potential soruces of measurement error: social desirability bias arising from self-reported outcomes [@mathur2021effectiveness]: and, for interventions that alter a particular eating environment, a general lack of engagement with the possibility of compensatory/backlash effects down the line. We think of this as the "regression to the meat" problem: that someone who is nudged into eating less MAP at one meal may perceive a moral license [@merritt2010; @blanken2015] to eat more MAP later. If we limit our analysis to studies with deal convincingly with both threats to inference, we still conclude that appeals to the environment and health, as well as a handful of nudges and norms messages, reduce reduce MAP consumption, but in the highly specialized context of dining halls at elite American universities. For this literature to truly become shovel-ready for policymakers, it urgently needs extension and replication, along with careful attention to measurement validity.
+For nudges in particular, we note a general lack of engagement with the possibility of compensatory/backlash effects down the line. We think of this as the "regression to the meat" problem: that someone who is nudged into eating less MAP at one meal may perceive a moral license [@merritt2010; @blanken2015] to eat more MAP later. If we limit our analysis to studies with deal convincingly with both threats to inference, we conclude that appeals to the environment and health reduce reduce MAP consumption at a single elite American college. For this literature to truly become shovel-ready for policymakers, it urgently needs extension and replication, along with careful attention to measurement validity.
 
-Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions on top of this already rich set. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews but do not offer meta-analysis. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, ours is the only review to our knowledge to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.[^1]
+Our paper builds on two literatures. The first is systematic reviews of attempts to reduce MAP consumption, of which there have been 22 by our count, with two others that we know of forthcoming. (See appendix A for a complete overview). Our paper makes four contributions to this already rich set of papers. First, our database is current as of December 2023, which has significance in an emerging literature whose most credible estimates and best designs tend to be in recent publications. Second, our review is quantitative, while most previous reviews are narrative or systematic reviews. Third, among papers with a meta-analytic component, ours is (so far) unique for being theoretically comprehensive rather than focusing on the effects of a single conceptual approach. Fourth, this paper is the first review, to our knowledg,e to set strict inclusion criteria that attempt to identify the most rigorous, policy-ready research.[^1]
 
-[^1]: We'd also note that some of these reviews err strongly on the side of inclusion, and thus meta-analyze studies with serious threats to internal validity. For example, prior reviews included studies that use differential screening procedures for treatment and control [@rees2018] or that alter the treatment after assignment based on subjects' prior diets [@morren2021]; these procedures violate the 'all else equal in expectation' condition of a randomized controlled trial. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
+[^1]: Some prior reviews also err very strongly on the side of study inclusion, and thus meta-analyze designs with serious threats to internal validity. For example, prior reviews included studies that use differential screening procedures for treatment and control [@rees2018] or that alter the treatment after assignment based on subjects' prior diets [@morren2021]; these procedures violate the 'all else equal in expectation' condition of a randomized controlled trial. As @simonsohn2022 put it, combining "studies that lack internal validity or external validity, which are obtained using incorrect statistical techniques, or studies where results seem to arise from methodological artefacts" with high-quality studies creates averages that are "virtually guaranteed to lack a meaningful interpretation" (p. 551).
 
-Second, our paper contributes to a growing literature of meta-analyses, reviews, and "megastudies" [@doell2023; @milkman2021; @milkman2021megastudy] that attempt to compare the efficacy of different approaches to solving social problems. In social psychology, @paluck2021 and @porat2024 apply meta-analytic methods to testing the efficacy of different theories at reducing prejudice and sexual violence, respectively, while @vlasceanu2024 test 11 theoretically diverse interventions aimed at four "climate mitigation outcomes" (p. 1). In a related vein, @bergquist2023 provide a meta-analysis of meta-analyses for climate mitigation behaviors, and find that social comparison and financial incentives were generally effective, while information and feedback generally were not. We also build on prior reviews that that holistically assess the efficacy of choice architecture approaches versus, e.g., taxes [@list2023] or subsidies [@campos2021]. Finally, a paper from @bergman2024 compares information-based approaches to "short-term financial assistance, customized assistance during the housing search process, and connections to landlords" (p. XXX) to encourage families to move to high-opportunity areas. Our paper's approach is similar to all of these but distinct, to the best of our knowledge, for the stringency and policy focus of our meta-analytic inclusion criteria.
+Second, our paper contributes to a growing literature of meta-analyses, reviews, and "megastudies" [@doell2023; @milkman2021; @milkman2021megastudy] that attempt to compare the efficacy of different approaches to solving social problems. In social psychology, @paluck2021 and @porat2024 apply meta-analytic methods to testing the efficacy of different theories at reducing prejudice and sexual violence, respectively, while @vlasceanu2024 test 11 theoretically diverse interventions aimed at four "climate mitigation outcomes" (p. 1). In a related vein, @bergquist2023 meta-analyze meta-analyses on climate mitigation behaviors and find that social comparison and financial incentives were generally effective, while information and feedback generally were not. We also build on prior reviews that holistically assess the efficacy of choice architecture approaches versus, e.g., taxes [@list2023] or subsidies [@campos2021]. Finally, @bergman2024 compare information-based approaches to "short-term financial assistance, customized assistance during the housing search process, and connections to landlords" (p. 1) to encourage families to move to high-opportunity areas. Our paper's approach is similar to all of these but distinct, to the best of our knowledge, for the stringency and policy focus of our meta-analytic inclusion criteria.
 
-The remainder of the paper proceeds as follows. Section 2 details and motivatess the inclusion criteria and search process by which we assembled our meta-analytic database. Section 3 describes the database. We provide some descriptive statistics about the database, and then present its major theoretical approaches \textemdash environmental, health, and animal welfare appeals to MAP reduction comprising information-based strategies, norms manipulations, and nudges \textemdash and representative literature from each. For each subset, we also highlight some frequent design or measurement limitations that led us to exclude otherwise promising results. Section 4 provides an overview of our meta-analytic methods and procedures.
+The remainder of the paper proceeds as follows. Section 2 details and motivates the inclusion criteria and search process by which we assembled our meta-analytic database. Section 3 describes the database. We provide some descriptive statistics about the database, and then present its major theoretical approaches \textemdash environmental, health, and animal welfare appeals to MAP reduction comprising information-based strategies, norms manipulations, and nudges \textemdash and representative literature from each.
 
-Section 5 presents our quantitative results. We provide a mixture of pooled averages, tests for publication biases, and comparisons of different approaches. We also offer some attempts to estimate the magnitude of different biases in this literature drawn from related literatures, and to use those estimates to offer effect size corrections. These analyses are tentative, and offer readers a broad range of possibilities intended to match different priors about the severity and importance of the measurement issues we enumerate Section 6 concludes with some concrete suggestions for future MAP reduction researchers based on the results of our analyses.
+Section 5 presents our quantitative results. We provide a mixture of pooled averages, tests for publication biases, comparisons between different approaches, and the effects of moderators such as the presence of a pre-analysis plan or a longer delay between treatment and measurement. Section 6 concludes with some concrete suggestions for future MAP reduction researchers based on the results of our analyses.
 
 ## 2 Assembling the meta-analytic database
 
@@ -186,7 +184,7 @@ paper_dat <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup()
 
 # Decade Analysis
 decade_tab <- paper_dat |> count(decade)
-first_decade_papers <- as.numeric(decade_tab$`n`[decade_tab$decade == "2000s"])
+first_decade_papers <- as.numeric(decade_tab$n[decade_tab$decade == "2000s"])
 second_decade_papers <- as.numeric(decade_tab$`n`[decade_tab$decade == "2010s"])
 third_decade_papers <- as.numeric(decade_tab$`n`[decade_tab$decade == "2020s"])
 
@@ -293,7 +291,8 @@ servings_portions_meals_count <- sum(str_detect(self_report_outcomes$outcome_cat
 days_count <- sum(str_detect(self_report_outcomes$outcome_category, "days"))
 weight_loss_count <- sum(str_detect(self_report_outcomes$outcome_category, "weight"))
 ```
-Self-reported outcomes are the norm: `r self_report_count['Y']`of`r `num_studies` studies. `r servings_portions_meals_count` of these studies measured MAP consumption in terms of servings, portions, or meals with MAP, while `r days_count` measured number of days with  `r weight_loss_count` measured MAP consumption by weight. `r sum(self_report_outcomes$outcome_category == "self_reported_more_less_outcome")` studies asked subjects to report whether they ate more or less MAP after receiving treatment than before. One paper [@norris2014] grouped subjects' responses into a Likert-type scale from 1-5 depending on how many portions of animal products they consumed. The majority of self-reported outcomes asked just about meat rather than MAP as a whole [DOUBLE-CHECK AND MAYBE CODE THIS]
+
+Self-reported outcomes are the norm: `r self_report_count['Y']` of`r num_studies` studies. `r servings_portions_meals_count`of these studies measured MAP consumption in terms of servings, portions, or meals with MAP, while`r days_count` measured number of days on which meat was eaten and `r weight_loss_count` measured MAP consumption by weight.`r sum(self_report_outcomes$outcome_category == "self_reported_more_less_outcome")` studies asked subjects to report whether they ate more or less MAP after receiving treatment than before. One paper [@norris2014] grouped subjects' responses into a Likert-type scale from 1-5 depending on how many portions of animal products they consumed. The majority of self-reported outcomes asked just about meat rather than MAP as a whole [TODO: provide stat]
 
 ```{r objective_report_tab, echo=F, include=F}
 objective_report_studies <- dat |> filter(self_report == "N") |> 
@@ -304,7 +303,7 @@ objective_report_studies |> sum_tab(outcome_category)
 MAP_vs_meat <- dat |> group_by(str_detect(outcome_category, "MAP")) |> count()
 ```
 
-By contrast the `r nrow(objective_report_studies)` studies that did not rely on self-report had more homogeneous outcomes:  `r sum(str_detect(objective_report_studies$outcome_category, "porportion"))` of these studies measured the proportion of meals at a dining hall or restaurant were vegetarian or vegan, while `r sum(str_detect(objective_report_studies$outcome_category, "percent"))` -- @jalil2023 and @haile2021 -- measured percentage reductions in MAP consumption on an individual basis.
+By contrast the `r nrow(objective_report_studies)` studies that did not rely on self-report had more homogeneous outcomes: `r sum(str_detect(objective_report_studies$outcome_category, "porportion"))` of these studies measured the proportion of meals at a dining hall or restaurant were vegetarian or vegan, while `r sum(str_detect(objective_report_studies$outcome_category, "percent"))` -- @jalil2023 and @haile2021 -- measured percentage reductions in MAP consumption on an individual basis.
 
 `r MAP_vs_meat$n[1]` studies looked at reducing meat consumption, while `r MAP_vs_meat$n[2]` looked at other categories of animal product, including eggs and dairy.
 
@@ -336,7 +335,7 @@ Many interventions explicitly combine multiple theoretical approaches, for examp
 
 #### 3.2.1 Norms
 
-Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database and `r`norms_paper_count\` papers. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
+Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database and `r`norms_paper_count` papers. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
 
 Two theoretical splits characterize this literature. The first is between *descriptive* and *injunctive* norms: while "descriptive norms pertain to the behavior of a majority of people (e.g. “most people eat vegetarian at least twice a week”), injunctive norms describe what behavior most others approve or disapprove of (e.g. “most people approve of eating vegetarian at least twice a week” [@alblas2023, p. 993]). For example, that study's injunctive norm intervention told Dutch households with unusually high meat consumption rates that they were negative outliers, along with a frowning face symbol. The other theoretical divide is between *dynamic* and *static* norms. Dynamic norms emphasize how behavior is changing over time, while static norms emphasize the current state of affairs. For example, @sparkman2017 presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers.
 
@@ -364,7 +363,7 @@ As discussed above, the precise boundaries around the idea of 'nudge' can be blu
 
 > A nudge...is any aspect of the choice architecture that alters people’s behavior in a predictable way without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid. Nudges are not mandates.
 
-We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [\@ @hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes.
+We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [\@@hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes.
 
 By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. `r hybrid_nudge_approach_number` of these studies are combine nudges with social norm messages, as previously discussed. Further, two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message, thus combining nudge and persuasion approaches.
 
@@ -485,12 +484,12 @@ Finally, one study from @piester2020 ranked items in a university cafeteria by t
 
 ## 5 Meta-analysis
 
-We report all results as Glass's ∆, which standardizes by variance of the control group rather than of the entire population (we use variance of the entire sample when individual variances were not presented). We employ random effects meta-analysis. 
+We report all results as Glass's ∆, which standardizes by variance of the control group rather than of the entire population (we use variance of the entire sample when individual variances were not presented). We employ random effects meta-analysis.
 
 Further comments on our methods can be found in our appendix.
 
 ```{r main_results, echo=F, include=F}
-library(dplyr)
+library(dplyr, warn.conflicts = T)
 library(metafor, quietly = T)
 library(knitr)
 library(purrr)
@@ -522,7 +521,7 @@ dat <- dat |>
         n_c = n_c_post,
         n_t = n_t_post),
       se_d = sqrt(var_d)) |> 
-  select(-X) |>   
+  select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
 main_result <- dat |> count_and_robust()
@@ -535,13 +534,14 @@ pap_split <- dat |> mutate(has_pap = if_else(public_pre_analysis_plan == 'N', 0,
   map(count_and_robust)
 pap_split[[1]]$Delta
 ```
- 
+
 ### An overall null effect
+
 Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
 
 A vote counting procedure [@bushman1994] demonstates the same point more starkly. In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no statistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
 
-This null finding stands in marked contrast to previous reviews, which found more positive results [@mathur2021meta; @mertens2022; @bianchi2018restructuring; @chang2023]. This disparity seems to be mostly explained by our focus measuring MAP consumption, as the largest results in prior reviews tended to be for intentions, attitudes, and hypothetical choices. This was the most common reason for our excluding otherwise eligible studies from our analysis. 
+This null finding stands in marked contrast to previous reviews, which found more positive results [@mathur2021meta; @mertens2022; @bianchi2018restructuring; @chang2023]. This disparity seems to be mostly explained by our focus measuring MAP consumption, as the largest results in prior reviews tended to be for intentions, attitudes, and hypothetical choices. This was the most common reason for our excluding otherwise eligible studies from our analysis.
 
 Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
@@ -625,6 +625,7 @@ dat |> count_and_robust()
 ```
 
 ### Red meat studies produce larger effects
+
 By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and/or processed meat produced an average effect of `r RPMC_model$Delta` (se = `r RPMC_model$se`), p = `r RPMC_model$pval`. We discuss this disparity further below.
 
 ### Some evidence of publication bias
@@ -637,7 +638,7 @@ publication_type_eff_size <- dat |> split(~pub_status) |>
   map(count_and_robust); publication_type_eff_size
 ```
 
-We observe a moderate, though statistically insignificant relationship between effect size and standard error (b = `r eff_size_d_relationship[2,1]`), p = `r eff_size_d_relationship[2,4]`,  meaning that larger effect sizes are more likely to be imprecise estimates in our sample Figure 2 displays this relationship, color coded by publication type.
+We observe a moderate, though statistically insignificant relationship between effect size and standard error (b = `r eff_size_d_relationship[2,1]`), p = `r eff_size_d_relationship[2,4]`, meaning that larger effect sizes are more likely to be imprecise estimates in our sample Figure 2 displays this relationship, color coded by publication type.
 
 ```{r publication_bias_plot, echo=F}
 dat |>
@@ -659,16 +660,16 @@ publication_type_eff_size <- dat |> split(~pub_status) |>
  map(count_and_robust); publication_type_eff_size
 ```
 
-Table XXX presents differences in average effect size by publication type. 
+Table XXX presents differences in average effect size by publication type.
 
 [Table XXX about here]
 
-| Approach              | N (studies)                                   | DELTA (se)                                                          |
-|-----------------------|-----------------------------------------------|-----------------------------------------------------------------|
+| Approach              | N (studies)                                                    | DELTA (se)                                                                                                                                                                                                                                                                                                                                                           |
+|------------|------------|-------------------------------------------------|
 | Advocacy organization | `r publication_type_eff_size$'Advocacy organization'$N_unique` | `r publication_type_eff_size$'Advocacy organization'$Delta` (`r publication_type_eff_size$'Advocacy organization'$se`)`r ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.001, "***", "")))` |
-| Journal article       | `r publication_type_eff_size$'Journal article'$N_unique` | `r publication_type_eff_size$'Journal article'$Delta` (`r publication_type_eff_size$'Journal article'$se`)`r ifelse(publication_type_eff_size$'Journal article'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Journal article'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Journal article'$pval < 0.001, "***", "")))` |
-| Preprint              | `r publication_type_eff_size$Preprint$N_unique` | `r publication_type_eff_size$Preprint$Delta` (`r publication_type_eff_size$Preprint$se`)`r ifelse(publication_type_eff_size$Preprint$pval < 0.05, "*", ifelse(publication_type_eff_size$Preprint$pval < 0.01, "**", ifelse(publication_type_eff_size$Preprint$pval < 0.001, "***", "")))` |
-| Thesis                | `r publication_type_eff_size$Thesis$N_unique` | `r publication_type_eff_size$Thesis$Delta` (`r publication_type_eff_size$Thesis$se`)`r ifelse(publication_type_eff_size$Thesis$pval < 0.05, "*", ifelse(publication_type_eff_size$Thesis$pval < 0.01, "**", ifelse(publication_type_eff_size$Thesis$pval < 0.001, "***", "")))` |
+| Journal article       | `r publication_type_eff_size$'Journal article'$N_unique`       | `r publication_type_eff_size$'Journal article'$Delta` (`r publication_type_eff_size$'Journal article'$se`)`r ifelse(publication_type_eff_size$'Journal article'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Journal article'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Journal article'$pval < 0.001, "***", "")))`                               |
+| Preprint              | `r publication_type_eff_size$Preprint$N_unique`                | `r publication_type_eff_size$Preprint$Delta` (`r publication_type_eff_size$Preprint$se`)`r ifelse(publication_type_eff_size$Preprint$pval < 0.05, "*", ifelse(publication_type_eff_size$Preprint$pval < 0.01, "**", ifelse(publication_type_eff_size$Preprint$pval < 0.001, "***", "")))`                                                                            |
+| Thesis                | `r publication_type_eff_size$Thesis$N_unique`                  | `r publication_type_eff_size$Thesis$Delta` (`r publication_type_eff_size$Thesis$se`)`r ifelse(publication_type_eff_size$Thesis$pval < 0.05, "*", ifelse(publication_type_eff_size$Thesis$pval < 0.01, "**", ifelse(publication_type_eff_size$Thesis$pval < 0.001, "***", "")))`                                                                                      |
 
 We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
 
@@ -677,16 +678,18 @@ within_journal_article_bias <- dat |> filter(pub_status == "Journal article") |>
 within_journal_article_bias[2,1]
 ```
 
-These four categories of publication -- preprint, jounral article, theses (both bachelor's and graduate), and advocacy organization materials -- are subject to different processes and incentives. One way to account for this in a check for publication bias is to look for a relationship between standard errors and effect sizes within journal articles, which would be evidence for the "file drawer problem" [@rosenthal1979]. We find no such relationship (b = `r within_journal_article_bias[2,1]` (se = `r within_journal_article_bias[2,2]`), p = `r within_journal_article_bias[2,4]`). 
+These four categories of publication -- preprint, jounral article, theses (both bachelor's and graduate), and advocacy organization materials -- are subject to different processes and incentives. One way to account for this in a check for publication bias is to look for a relationship between standard errors and effect sizes within journal articles, which would be evidence for the "file drawer problem" [@rosenthal1979]. We find no such relationship (b = `r within_journal_article_bias[2,1]` (se = `r within_journal_article_bias[2,2]`), p = `r within_journal_article_bias[2,4]`).
 
-Overall, this literature is not shy of publishing null results, to its credit. However, this may partly be a product of our focus on MAP consumption as a dependent variable. The typical paper in this literature presents multiple dependent variables and/or subgroup analyses, and often leads with the largest results. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract. It is possible that we would find evidence of publication bias if we looked at a wider range of dependent variables and studies. 
+Overall, this literature is not shy of publishing null results, to its credit. However, this may partly be a product of our focus on MAP consumption as a dependent variable. The typical paper in this literature presents multiple dependent variables and/or subgroup analyses, and often leads with the largest results. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract. It is possible that we would find evidence of publication bias if we looked at a wider range of dependent variables and studies.
 
 ### Translating standardized effect sizes to real world changes
+
 The specific dependent variables in this literature, as well as the different variances between populations, make it challenging to generate a "rule of thumb" for translating standardized effect sizes to real-world changes. However, we can say that the average effect size in our sample is small, and that the largest effect sizes in the literature are also small. For example, @jalil2023 found that students in the treatment group reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years. This corresponds to Glass's ∆ of 0.118. The largest effect size in the literature comes from @bianchi2022, who found a decline in meat consumed of 12 grams per day for the control group and 49 grams per day for the treatment, for a difference in difference of 37 grams per day. Relative to a standard deviation of 70 grams for the control group, this represents a Glass's ∆ of 0.52.
 
 As an example of a backlash result, study one in @feltz2022 found that subjects who read a pamphlet titled "Compassionate Choices: If You Care about Animals, Please Consider not Eating Them" (p. 8) increased the number of times they ate meat and/or eggs in a given day by `r 11.63-9.61` times, while control subjects increased on the same scale `r 9.38-8.88` times. This corresponds to a Glass's ∆ of -0.259, relative to a standard deviation of 5.87 for the control group.
 
 ### Comparing theoretical approaches
+
 ```{r theoretical_approaches, echo=F, include=F}
 norms_results <- dat |> filter(str_detect(theory, "norms")) |> count_and_robust(); norms_results
 
@@ -708,13 +711,14 @@ Table XXX presents the results of our meta-analysis by theoretical approach. Not
 
 Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r nudge_results$N_unique` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
 
-| Approach         | N (studies)                 | Glass's DELTA (se)                           |
-|------------------|-----------------------------|----------------------------------|
-| Norms            | `r norms_results$N_unique`  | `r norms_results$Delta` (`r norms_results$se`)`r ifelse(norms_results$pval < 0.001, "***", ifelse(norms_results$pval < 0.01, "**", ifelse(norms_results$pval < 0.05, "*", "")))` |
-| Nudge            | `r nudge_results$N_unique`  | `r nudge_results$Delta` (`r nudge_results$se`)`r ifelse(nudge_results$pval < 0.001, "***", ifelse(nudge_results$pval < 0.01, "**", ifelse(nudge_results$pval < 0.05, "*", "")))` |
-| Health           | `r health_results$N_unique` | `r health_results$Delta` (`r health_results$se`)`r ifelse(health_results$pval < 0.001, "***", ifelse(health_results$pval < 0.01, "**", ifelse(health_results$pval < 0.05, "*", "")))` |
-| Environment      | `r environment_results$N_unique` | `r environment_results$Delta` (`r environment_results$se`)`r ifelse(environment_results$pval < 0.001, "***", ifelse(environment_results$pval < 0.01, "**", ifelse(environment_results$pval < 0.05, "*", "")))` |
-| Animal Welfare   | `r animal_welfare_results$N_unique` | `r animal_welfare_results$Delta` (`r animal_welfare_results$se`)`r ifelse(animal_welfare_results$pval < 0.001, "***", ifelse(animal_welfare_results$pval < 0.01, "**", ifelse(animal_welfare_results$pval < 0.05, "*", "")))` |
+| Approach       | N (studies)                         | Glass's DELTA (se)                                                                                                                                                                                                            |
+|------------|------------|-------------------------------------------------|
+| Norms          | `r norms_results$N_unique`          | `r norms_results$Delta` (`r norms_results$se`)`r ifelse(norms_results$pval < 0.001, "***", ifelse(norms_results$pval < 0.01, "**", ifelse(norms_results$pval < 0.05, "*", "")))`                                              |
+| Nudge          | `r nudge_results$N_unique`          | `r nudge_results$Delta` (`r nudge_results$se`)`r ifelse(nudge_results$pval < 0.001, "***", ifelse(nudge_results$pval < 0.01, "**", ifelse(nudge_results$pval < 0.05, "*", "")))`                                              |
+| Health         | `r health_results$N_unique`         | `r health_results$Delta` (`r health_results$se`)`r ifelse(health_results$pval < 0.001, "***", ifelse(health_results$pval < 0.01, "**", ifelse(health_results$pval < 0.05, "*", "")))`                                         |
+| Environment    | `r environment_results$N_unique`    | `r environment_results$Delta` (`r environment_results$se`)`r ifelse(environment_results$pval < 0.001, "***", ifelse(environment_results$pval < 0.01, "**", ifelse(environment_results$pval < 0.05, "*", "")))`                |
+| Animal Welfare | `r animal_welfare_results$N_unique` | `r animal_welfare_results$Delta` (`r animal_welfare_results$se`)`r ifelse(animal_welfare_results$pval < 0.001, "***", ifelse(animal_welfare_results$pval < 0.01, "**", ifelse(animal_welfare_results$pval < 0.05, "*", "")))` |
+
 Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 ```{r norms_in_more_detail, echo=F, include=F}
@@ -742,40 +746,42 @@ We now turn to the question of method of delivery. Table XXX reports our results
 
 [table XXX about here]
 
-| Method of Delivery           | N (studies)                          | Glass's DELTA (se)                              |
-|------------------------------|--------------------------------------|-------------------------------------|
-| Internet                     | `r internet_results$N_unique`        | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))` |
-| Pamphlet                     | `r pamphlet_results$N_unique`        | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))` |
-| Video                        | `r video_results$N_unique`           | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))` |
+| Method of Delivery                 | N (studies)                      | Glass's DELTA (se)                                                                                                                                                                                             |
+|-------------|-------------|-----------------------------------------------|
+| Internet                           | `r internet_results$N_unique`    | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))`                |
+| Pamphlet                           | `r pamphlet_results$N_unique`    | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))`                |
+| Video                              | `r video_results$N_unique`       | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))`                               |
 | Place-based (Cafeteria/Restaurant) | `r place_based_results$N_unique` | `r place_based_results$Delta` (`r place_based_results$se`)`r ifelse(place_based_results$pval < 0.001, "***", ifelse(place_based_results$pval < 0.01, "**", ifelse(place_based_results$pval < 0.05, "*", "")))` |
-Table: * < 0.05, ** < 0.01, *** < 0.001.
 
-Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant. 
+: * < 0.05, ** < 0.01, *** < 0.001.
+
+Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant.
 
 Place-based interventions, such as those in cafeterias or restaurants, are comparatively more effective, though still not statistically significant overall.
 
 ### Animal advocacy materials need a rethink
+
 ```{r animal_advocacy_org_materials, echo=F, include=F}
 advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "N", T, F)) |> 
   split(~advocacy_materials) |> map(count_and_robust); advocacy_results 
 ```
 
-As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption.  `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials. Table XXX displays the effect sizes associated with these studies next to those from everything else.
+As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials. Table XXX displays the effect sizes associated with these studies next to those from everything else.
 
 [table XXX about here]
 
-| Materials   | N (studies)                                    | DELTA (se)                                                                                                                         |
-|-------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Advocacy    | `r advocacy_results$'FALSE'[['N_unique']]`     | `r formatC(advocacy_results$'FALSE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
-| Academic    | `r advocacy_results$'TRUE'[['N_unique']]`      | `r formatC(advocacy_results$'TRUE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'TRUE'[['se']]`)\***`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`   |
-
+| Materials | N (studies)                                | DELTA (se)                                                                                                                                                                                                                                                                                              |
+|-----------|-----------|---------------------------------------------------|
+| Advocacy  | `r advocacy_results$'FALSE'[['N_unique']]` | `r formatC(advocacy_results$'FALSE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'FALSE'[['se']]`)**`r ifelse(advocacy_results$'FALSE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'FALSE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'FALSE'[['pval']] < 0.001, "***", "")))` |
+| Academic  | `r advocacy_results$'TRUE'[['N_unique']]`  | `r formatC(advocacy_results$'TRUE'[['Delta']], format = 'f', digits = 2)` (`r advocacy_results$'TRUE'[['se']]`)***`r ifelse(advocacy_results$'TRUE'[['pval']] < 0.05, "*", ifelse(advocacy_results$'TRUE'[['pval']] < 0.01, "**", ifelse(advocacy_results$'TRUE'[['pval']] < 0.001, "***", "")))`    |
 
 ### self-report measures are not systematically different
 
-Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite:
+Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: 
+
 ### delay?
 
-### country? 
+### country?
 
 ### meat vs MAP
 
@@ -785,46 +791,48 @@ Based on past research[@mathur2021effectiveness], we expected to see evidence of
 
 ### Addressing other sources of potential bias
 
-####  MetaUtility::prop_stronger
+#### MetaUtility::prop_stronger
+
 #### regression to the meat
+
 ## Discussion
 
 ### The central unanswerewd question of interMAP substitution
-Given our disappointing central findings -- a general lack of efficacy on reducing overall MAP consumption -- the most important outstanding question in our meta-analysis is how much of the gap between general effects and RPMC effects is driven by substitution to other MAP products. Evidence from the literature on this question are mixed, in part because the available dependent variables are not very fine grained. For instance, @emmons2005project, @emmons2005cancer, and @sorensen2005 measure changes in red meat as well as changes in fruit and vegetable intake, but do not measure consumption of other categories of MAP or of grains and legumes. @carfora2017correlational, @carfora2017randomised and @carfora2019 all measure just consumption of either red or processed meat. Interestingly, @jalil2023, though not targeting RPMC specifically, records changes in beef, poultry, fish, and vegetarian meals, and finds larger reductions in poultry and fish than it does for red meat.^[to fill in: some other studies answer related questions, e.g.https://www.sciencedirect.com/science/article/abs/pii/S2212267222010711]
 
-A few papers explicitly advocate that people substitute:
-  -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
-  - [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
+Given our disappointing central findings -- a general lack of efficacy on reducing overall MAP consumption -- the most important outstanding question in our meta-analysis is how much of the gap between general effects and RPMC effects is driven by substitution to other MAP products. Evidence from the literature on this question are mixed, in part because the available dependent variables are not very fine grained. For instance, @emmons2005project, @emmons2005cancer, and @sorensen2005 measure changes in red meat as well as changes in fruit and vegetable intake, but do not measure consumption of other categories of MAP or of grains and legumes. @carfora2017correlational, @carfora2017randomised and @carfora2019 all measure just consumption of either red or processed meat. Interestingly, @jalil2023, though not targeting RPMC specifically, records changes in beef, poultry, fish, and vegetarian meals, and finds larger reductions in poultry and fish than it does for red meat.[^4]
+
+[^4]: to fill in: some other studies answer related questions, e.g.https://www.sciencedirect.com/science/article/abs/pii/S2212267222010711
+
+A few papers explicitly advocate that people substitute: - [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC. - [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
 
 How much a policymaker should worry about this gap in our understanding depends on their goals For those focused on health, any reduction in red meat is good news, particularly the relatively large effects in [one emmons and one other ], which are aimed at people at elevated risk of cancer. From an environmental perspective, red and processed meats are also the highest-priority target, though we note that none of the reductions we see in the literature, even if they were scaled up perfectly without loss of efficacy, would make much of a dent on GHG emissions. Last, from an animal welfare perspective, the gap between regular effects and RPMC effects is potentially disastrous if it means people are substituting from red meat to other kinds of MAP that create more harms per meal.
 
 Even interpreting the RPMC results in the most optimistic light, however -- assuming that all of the effect sizes are driven by reductions in red meat consumption -- the overall effect sizes are still quite small. Anyone envisioning a radical change in how we produce and consume food will have trouble finding satisfying answers in this literature. Even @jalil2023, arguably the strongest study in the literature in terms of long-term, objective measurement, is still a test of a few hundred students at one elite liberal arts college. There are grounds for doubting its broad applicability (though we encourage decision-makers at comparable schools to heed its lessons).
 
-### Are our small results surprising? 
+### Are our small results surprising?
 
-That depends what literature you're reading. If you read the food literature, you might be shocked to see we don't find anything. If we had to guess, we'd say this is probably driven _most_ by our looking only at actual MAP consumption, which we have prior reason to think does not line up very well with intentions and attitudes [@mathur2021effectiveness]. On the other hand, the broader literature on behavior change, finds
-* self-reported intentions don't predict behavior [@kormos2014; @hassan2016],
-* neither do attitudes [@porat2024];
-* the best RCTs don't scale [@dellavigna2022];
+That depends what literature you're reading. If you read the food literature, you might be shocked to see we don't find anything. If we had to guess, we'd say this is probably driven *most* by our looking only at actual MAP consumption, which we have prior reason to think does not line up very well with intentions and attitudes [@mathur2021effectiveness]. On the other hand, the broader literature on behavior change, finds 
+
+* self-reported intentions don't predict behavior [@kormos2014; @hassan2016], 
+
+* neither do attitudes [@porat2024]; 
+
+* the best RCTs don't scale [@dellavigna2022]; 
+
 * and the kinds of structural interventions that actually change deep-seated habits are hard to evaluate in an RCT. As @stevenson2023 so aptly puts it: "When it comes to the type of limited-scope interventions that lend themselves to high-quality evaluation, social change is hard to engineer."
 
-
 ### Where should researchers go from here?
-  -   Let's start by filling in some obvious gaps.
-  -   Do a RPMC reduction study and assess effects on other MAP products too 😃
-  -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
-  -  price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
-  -  @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
-  - How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3) vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
-  -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
-  -   one study ([Sparkman et al. 2020](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
 
-For policymakers, what we think works and doesn't overall:       
-  magine that we magically were able to scale these interventions up to the entire western world
-.2 Policy lessons?
- - don't run a leaflet study and expect it to work. We need new leaflets or new approaches.
- - Ditto with online
- - If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much.
- - no handle whatsoever on what gets people to change outside of a dining hall
+-   Let's start by filling in some obvious gaps.
+-   Do a RPMC reduction study and assess effects on other MAP products too 😃
+-   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
+-   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
+-   @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? (See [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.)
+-   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3) vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
+-   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
+-   one study ([Sparkman et al. 2020](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
+
+For policymakers, what we think works and doesn't overall:
+imagine that we magically were able to scale these interventions up to the entire western world .2 Policy lessons? - don't run a leaflet study and expect it to work. We need new leaflets or new approaches. - Ditto with online - If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much. - no handle whatsoever on what gets people to change outside of a dining hall
 
 ### Bibliography
