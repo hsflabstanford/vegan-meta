@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "8038"
+wordcount: "8140"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -776,8 +776,11 @@ Table XXX displays the effect sizes associated with the materials of each animal
 | NA (academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                    | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)**`r ifelse(advocacy_org_specific_results$N[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$N[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$N[['pval']] < 0.001, "***", "")))` |
 | Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`     | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)**`r ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.05, "*", ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.01, "**", ifelse(advocacy_org_specific_results$'Vegan Outreach'[['pval']] < 0.001, "***", "")))` |
 
-On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they Overall, the fact that the very most rigorous evaluations from
 [table XXX about here]
+
+On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. On the other, this overall backlash result suggests that the approach, delivery mechanisms, and specifics of these organizations' materials are in need of a serious rethink.
+
+
 
 ### self-report measures are not systematically different
 
