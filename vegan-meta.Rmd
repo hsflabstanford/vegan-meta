@@ -63,6 +63,7 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 ```{r setup, include=FALSE}
 library(dplyr, warn.conflicts = F)
 knitr::opts_chunk$set(fig.path = "results/figures/")
+source("./functions/sum_tab.R")
 
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
@@ -134,9 +135,6 @@ We also required that the full papers be available on the internet, rather than 
 Our cutoff date for papers was December 2023.
 
 ```{r where_do_studies_come_from, echo=F, include=F}
-
-source("./functions/sum_tab.R")
-
 paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> 
   sum_tab(source)
 paper_sources
@@ -306,14 +304,19 @@ objective_report_studies <- dat |> filter(self_report == "N") |>
   select(author, year, title, outcome, outcome_category)
 
 objective_report_studies |> sum_tab(outcome_category)
+
+MAP_vs_meat <- dat |> group_by(str_detect(outcome_category, "MAP")) |> count()
 ```
+
 By contrast the `r nrow(objective_report_studies)` studies that did not rely on self-report had more homogeneous outcomes:  `r sum(str_detect(objective_report_studies$outcome_category, "porportion"))` of these studies measured the proportion of meals at a dining hall or restaurant were vegetarian or vegan, while `r sum(str_detect(objective_report_studies$outcome_category, "percent"))` -- @jalil2023 and @haile2021 -- measured percentage reductions in MAP consumption on an individual basis.
+
+`r MAP_vs_meat$n[1]` studies looked at reducing meat consumption, while `r MAP_vs_meat$n[2]` looked at other categories of animal product, including eggs and dairy.
+
 
 ### 3.2 The leading theoretical approaches to reducing MAP consumption
 
 ```{r theory_tab, echo=F, include=F}
 library(stringr)
-source('./functions/sum_tab.R')
 source('./functions/study_count.R')
 
 theory_tab <- dat |> sum_tab(theory)
@@ -346,7 +349,7 @@ Dynamic norm messages are predominant in this subset of the literature. However,
 
 Finally, `r nrow(norm_nudge_approaches)` deploy what we consider to be norms-based nudges in unobtrusive ways in dining halls. Two of four interventions in @piester2020 posted signs at a university canteen that said "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]; one of those intervention arms also included an environmental message: "Many people don’ know how much our food choices impact the environment. Eating sustainable foods is a good way we can fight climate change!" [@piester2020, p. 5]. @coker2022 placed a dynamic norm message about the growing popularity of veggie burgers in a chain of restaurants.
 
-Whether these interventions are nudges is debatable. On the one hand, they seek to exploit a widespread heuristic of following group norms, and they do so by raising the salience of certain items in an unobtrusive way. On the other, They are plainly attempts to change underlying preferences by providing factual information. However, in these hybrid cases, the suggested change is implicit and can easily be ignored, which suggests a "libertarian paternalistic" perspective on behavior change [@thaler2003]. A further relevant distinction comes from @brachem2019, who argue that unlike descriptive norms, injunctive norms "work at least partly...through the implication of social sanctions" (p.9), which amount to incentives. Therefore, we coded norm-based interventions that that were cheap, unobtrusive, and descriptive as a nudge as well. This excludes, for instance, a survey with a norm message taken on the line to a dining hall because the delivery method is intrusive. obtrusive.
+Whether these interventions are nudges is debatable. On the one hand, they seek to exploit a widespread heuristic of following group norms, and they do so by raising the salience of certain items in an unobtrusive way. On the other, They are plainly attempts to change underlying preferences by providing factual information. However, in these hybrid cases, the suggested change is implicit and can easily be ignored, which suggests a "libertarian paternalistic" perspective on behavior change [@thaler2003]. A further relevant distinction comes from @brachem2019, who argue that unlike descriptive norms, injunctive norms "work at least partly...through the implication of social sanctions" (p.9), which amount to incentives. Therefore, we coded norm-based interventions that that were cheap, unobtrusive, and descriptive as a nudge as well. This excludes, for instance, a survey with a norm message taken on the line to a dining hall because the delivery method is intrusive.
 
 ### 3.2.2 Nudges
 
@@ -360,7 +363,6 @@ norms_nudge_approaches <- nudge_studies |> filter(str_detect(theory, "norms"))
 nudge_studies |> select(author, year, theory, secondary_theory)
 
 pure_nudge_count <- sum(!str_detect(nudge_studies$theory, "&"))
-print(dat |> filter(theory == "nudge") |> select(brief_description))
 ```
 
 As discussed above, the precise boundaries around the idea of 'nudge' can be blurry. We refer to the original definition in @thaler2009, p. 6:
@@ -371,7 +373,7 @@ We also follow guidance from @hansen2016, who argues that a nudge should refer t
 
 By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. `r hybrid_nudge_approach_number` of these studies are combine nudges with social norm messages, as previously discussed. Further, two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message, thus combining nudge and persuasion approaches.
 
-`r pure_nudge_count` study is a pure nudge. @andersson2021 randomly altered whether the vegetarian or meat option appeared at the top of a large menu display at a university cafeteria in Sweden, along with "the amount of carbon dioxide equivalents" associated with each option. (p. 4).
+`r pure_nudge_count` study is a pure nudge. @andersson2021 randomly altered whether the vegetarian or meat option appeared at the top of a large menu display at a university cafeteria in Sweden, along with "the amount of carbon dioxide equivalents" associated with each option" (p. 4).
 
 #### Whither the choice architecture approaches?
 
@@ -633,6 +635,8 @@ By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and
 The variety of dependent variables
 
 ### Little evidence of publication bias
+
+We also not that a null finding on MAP consumption is equivalent to a null result overall, because papers typically present multiple dependent variables and/or subgroup analyses. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract.
 
 ### Comparing theoretical approaches
 
