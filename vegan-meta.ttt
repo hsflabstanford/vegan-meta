@@ -1,4 +1,27 @@
 \begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1704}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3481}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4815}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Approach
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DELTA (se)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Advocacy organization & 8 & -0.08 (0.04) \\
+Journal article & 33 & 0.02 (0.01)* \\
+Preprint & 4 & 0.04 (0.02) \\
+Thesis & 6 & 0.03 (0.03) \\
+\end{longtable}
+\efloatseparator
+ 
+\begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2222}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3580}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4198}}@{}}
@@ -64,4 +87,25 @@ Internet & 22 & 0.02 (0.01)* \\
 Pamphlet & 11 & -0.06 (0.04) \\
 Video & 8 & 0 (0.01) \\
 Place-based (Cafeteria/Restaurant) & 15 & 0.06 (0.05) \\
+\end{longtable}
+\efloatseparator
+ 
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0825}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2816}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6359}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Materials
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DELTA (se)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+General & 16 & -0.038 (0.02) \\
+Advocacy organization & 35 & 0.029 (0.01)* \\
 \end{longtable}

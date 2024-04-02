@@ -74,8 +74,11 @@ dat <- read.csv('./data/vegan-meta.csv')  |>
   ungroup() |>
   mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
                                       year >= 2010 & year <= 2019  ~ "2010s",
-                                      year >= 2020 ~ "2020s")
-                            ),
+                                      year >= 2020 ~ "2020s")),
+         pub_status = case_when(
+           str_detect(venue, "dissertation|thesis") ~ "Thesis",
+           str_detect(venue, "advocacy") ~ "Advocacy organization",
+           str_detect(doi_or_url, "osf\\.io") ~ "Preprint",str_detect(doi_or_url, "10\\.") ~ "Journal article"),
          total_sample = n_c_post + n_c_post) |>
   select(author, year, title, unique_paper_id, unique_study_id, everything())
   
@@ -178,16 +181,7 @@ library(purrr)
 source('./functions/sum_tab.R')
 
 # Data preparation and basic statistics
-paper_dat <- dat |> 
-  group_by(unique_paper_id) |> 
-  slice(1) |>
-  mutate(pub_status = case_when(
-    str_detect(venue, "dissertation|thesis") ~ "thesis",
-    str_detect(venue, "advocacy") ~ "advocacy org publication",
-    str_detect(doi_or_url, "osf\\.io") ~ "preprint",
-    str_detect(doi_or_url, "10\\.") ~ "publication"),
-    decade = as.character(cut(year, breaks = c(1999, 2009, 2019, 2029), labels = c("2000s", "2010s", "2020s")))) |>
-  ungroup()
+paper_dat <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup()
 
 # Decade Analysis
 decade_tab <- paper_dat |> count(decade)
@@ -449,7 +443,7 @@ just_health_studies <- health_studies |> filter(!str_detect(secondary_theory, "&
                                                 !str_detect(theory, "&")) 
 ```
 
-Health concerns motivate \$`r nrow(health_studies)` of `r num_studies` interventions in our database. These appeals typically stress benefits like cardiovascular gains, weight loss, or cancer prevention.
+Health concerns motivate `r nrow(health_studies)` of `r num_studies` interventions in our database. These appeals typically stress benefits like cardiovascular gains, weight loss, or cancer prevention.
 
 For example, @fehrenbach2015 tested the “effectiveness of two video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
 
@@ -624,11 +618,9 @@ RPMC <- RPMC |>  mutate(d = mapply(
       se_d = sqrt(var_d)) |> 
   select(-X)
 
-RPMC_model <- RPMC |> count_and_robust()
+RPMC_model <- RPMC |> count_and_robust(); RPMC_model
 # vs...
 dat |> count_and_robust()
-
-
 ```
 
 ### Red meat studies produce larger effects
@@ -640,23 +632,14 @@ By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and
 source('./functions/sum_lm.R')
 eff_size_d_relationship <- dat |> sum_lm(d, se_d)
 
-publication_type_eff_size <- dat |> mutate(pub_status = case_when(
-    str_detect(venue, "dissertation|thesis") ~ "thesis",
-    str_detect(venue, "advocacy") ~ "advocacy org publication",
-    str_detect(doi_or_url, "osf\\.io") ~ "preprint",
-    str_detect(doi_or_url, "10\\.") ~ "journal")) |> 
-      split(~pub_status) |> imap(~count_and_robust(.x)); publication_type_eff_size
+publication_type_eff_size <- dat |> split(~pub_status) |> 
+  map(count_and_robust); publication_type_eff_size
 ```
 
 We observe a moderate, though statistically insignificant relationship between effect size and standard error (b = `r eff_size_d_relationship[2,1]`), p = `r eff_size_d_relationship[2,4]`,  meaning that larger effect sizes are more likely to be imprecise estimates in our sample Figure 2 displays this relationship, color coded by publication type.
 
 ```{r publication_bias_plot, echo=F}
-pub_bias_graph <- dat |>  
-  mutate(pub_status = case_when(
-    str_detect(venue, "dissertation|thesis") ~ "Thesis",
-    str_detect(venue, "advocacy") ~ "Advocacy organization",
-    str_detect(doi_or_url, "osf\\.io") ~ "Preprint",
-    str_detect(doi_or_url, "10\\.") ~ "Journal article")) |>
+dat |>
   ggplot(aes( x = se_d, y = d)) +
   geom_point(aes(color = pub_status), size = 2) +
   geom_smooth(method = "lm", color = "black", lty = "dotted", se = F) +
@@ -666,15 +649,35 @@ pub_bias_graph <- dat |>
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5,
                                   face = "bold")) 
-
-pub_bias_graph
 ```
 
-As this graph suggests, we observe that dissertations and technical reports (mostly published by animal advocacy organizations) 
+As this graph suggests, we see systematically smaller results in reports by advocacy organizations than in other types of publication.
 
-This suggests that publication bias is not a major concern in our sample. We also observe that `r publication_type_eff_size$preprint$N_unique` of `r num_studies` studies are preprints, while `r publication_type_eff_size$publication$N_unique` are published papers.
+```{r publication_type_table, include=F, echo=F}
+publication_type_eff_size <- dat |> split(~pub_status) |> 
+ map(count_and_robust); publication_type_eff_size
+```
 
-We also not that a null finding on MAP consumption is equivalent to a null result overall, because papers typically present multiple dependent variables and/or subgroup analyses. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract.
+Table XXX presents differences in average effect size by publication type. 
+
+[Table XXX about here]
+
+| Approach              | N (studies)                                   | DELTA (se)                                                          |
+|-----------------------|-----------------------------------------------|-----------------------------------------------------------------|
+| Advocacy organization | `r publication_type_eff_size$'Advocacy organization'$N_unique` | `r publication_type_eff_size$'Advocacy organization'$Delta` (`r publication_type_eff_size$'Advocacy organization'$se`)`r ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.001, "***", "")))` |
+| Journal article       | `r publication_type_eff_size$'Journal article'$N_unique` | `r publication_type_eff_size$'Journal article'$Delta` (`r publication_type_eff_size$'Journal article'$se`)`r ifelse(publication_type_eff_size$'Journal article'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Journal article'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Journal article'$pval < 0.001, "***", "")))` |
+| Preprint              | `r publication_type_eff_size$Preprint$N_unique` | `r publication_type_eff_size$Preprint$Delta` (`r publication_type_eff_size$Preprint$se`)`r ifelse(publication_type_eff_size$Preprint$pval < 0.05, "*", ifelse(publication_type_eff_size$Preprint$pval < 0.01, "**", ifelse(publication_type_eff_size$Preprint$pval < 0.001, "***", "")))` |
+| Thesis                | `r publication_type_eff_size$Thesis$N_unique` | `r publication_type_eff_size$Thesis$Delta` (`r publication_type_eff_size$Thesis$se`)`r ifelse(publication_type_eff_size$Thesis$pval < 0.05, "*", ifelse(publication_type_eff_size$Thesis$pval < 0.01, "**", ifelse(publication_type_eff_size$Thesis$pval < 0.001, "***", "")))` |
+
+We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
+
+These four categories of publication -- preprint, jounral article, theses (both bachelor's and graduate), and advocacy organization materials -- are subject to different processes and incentives. One way to account for this in a check for publication bias is to look for a relationship between standard errors and effect sizes within journal articles, which would be evidence for the "file drawer problem" [@rosenthal1979file]. We find no such relationship (b = `r within_journal_article_bias[2,1]` (se = `r within_journal_article_bias[2,2]`), p = `r within_journal_article_bias[2,4]`). 
+```{r within_journal_pub_bias}
+within_journal_article_bias <- dat |> filter(pub_status == "Journal article") |> sum_lm(d, se_d)
+within_journal_article_bias[2,1]
+```
+
+Overall, this literature is not shy of publishing null results, to its credit. However, this may partly be a product of our focus on MAP consumption as a dependent variable. The typical paper in this literature presents multiple dependent variables and/or subgroup analyses, and often leads with the largest results. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract. It is possible that we would find evidence of publication bias if we looked at a wider range of dependent variables and studies. 
 
 ### Translating standardized effect sizes to real world changes
 The specific dependent variables in this literature, as well as the different variances between populations, make it challenging to generate a "rule of thumb" for translating standardized effect sizes to real-world changes. However, we can say that the average effect size in our sample is small, and that the largest effect sizes in the literature are also small. For example, @jalil2023 found that students in the treatment group reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years. This corresponds to Glass's ∆ of 0.118. The largest effect size in the literature comes from @bianchi2022, who found a decline in meat consumed of 12 grams per day for the control group and 49 grams per day for the treatment, for a difference in difference of 37 grams per day. Relative to a standard deviation of 70 grams for the control group, this represents a Glass's ∆ of 0.52.
@@ -695,7 +698,6 @@ animal_welfare_results <- dat |> filter(str_detect(secondary_theory, "animal wel
 
 # for general comparison
 persuasion_results <- dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust(); persuasion_results
-
 ```
 
 Table XXX presents the results of our meta-analysis by theoretical approach. Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample.
@@ -717,7 +719,6 @@ Table: * < 0.05, ** < 0.01, *** < 0.001.
 dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic")) |> count_and_robust(); dynamic_norms_results
 
 static_norms_results <- dat |> filter(str_detect(brief_description, "static")) |> count_and_robust(); static_norms_results
-
 ```
 
 Dynamic norms interventions appear to be more effective than static norms interventions: `r dynamic_norms_results$Delta` (se = `r dynamic_norms_results$se`), p = `r dynamic_norms_results$pval` versus `r static_norms_results$Delta` (se = `r static_norms_results$se`), p =`r static_norms_results$pval`.
@@ -733,7 +734,6 @@ pamphlet_results <- dat |> filter(str_detect(leaflet, "Y")) |> count_and_robust(
 video_results <- dat |> filter(str_detect(video, "Y")) |> count_and_robust(); video_results
 
 place_based_results <- dat |> filter(dat$cafeteria_or_restaurant_based == "Y") |> count_and_robust(); place_based_results
-
 ```
 
 We now turn to the question of method of delivery. Table XXX reports our results.
@@ -752,9 +752,25 @@ Here we see that internet-based and video interventions are not effective. Pamph
 
 Place-based interventions, such as those in cafeterias or restaurants, are comparatively more effective, though still not statistically significant overall.
 
+### Animal advocacy materials need a rethink
+```{r animal_advocacy_org_materials, echo=F, include=F}
+advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "N", T, F)) |> 
+  split(~advocacy_materials) |> map(count_and_robust); advocacy_results 
+```
+
+As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption.  `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials. Table XXX displays the effect sizes associated with these studies next to those from everything else.
+
+[table XXX about here]
+
+| Materials        | N (studies)                                              | DELTA (se)                                                                                                                            |
+|-----------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| General     | `r advocacy_results$'FALSE'['N_unique']`                 | `r advocacy_results$'FALSE'['Delta']` (`r advocacy_results$'FALSE'['se']`)`r ifelse(advocacy_results$'FALSE'['pval'] < 0.05, "*", ifelse(advocacy_results$'FALSE'['pval'] < 0.01, "**", ifelse(advocacy_results$'FALSE'['pval'] < 0.001, "***", "")))` |
+| Advocacy organization   | `r advocacy_results$'TRUE'['N_unique']`                  | `r advocacy_results$'TRUE'['Delta']` (`r advocacy_results$'TRUE'['se']`)`r ifelse(advocacy_results$'TRUE'['pval'] < 0.05, "*", ifelse(advocacy_results$'TRUE'['pval'] < 0.01, "**", ifelse(advocacy_results$'TRUE'['pval'] < 0.001, "***", "")))`   |
+
+
 ### self-report measures are not systematically different
 
-Based on past research, we expected to see evidence of self-report bias [@mathur2021effectiveness]
+Based on past research, we expected to see evidence of self-report bias [@mathur2021effectiveness].
 ### delay?
 
 ### country? 
