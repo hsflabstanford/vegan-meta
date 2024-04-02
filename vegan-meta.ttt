@@ -1,0 +1,45 @@
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3580}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4198}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Approach
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+∆ (se)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Norms & 21 & 0.04 (0.03) \\
+Nudge & 5 & 0.28 (0.08)* \\
+Health & 15 & 0.02 (0.01)* \\
+Environment & 13 & 0.03 (0.01)* \\
+Animal Welfare & 23 & 0.00 (0.01) \\
+\end{longtable}
+\efloatseparator
+ 
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3619}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3524}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Method of Delivery
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+∆ (se)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Internet & 22 & 0.02 (0.01)* \\
+Pamphlet & 11 & -0.06 (0.04) \\
+Video & 8 & 0 (0.01) \\
+Place-based (Cafeteria/Restaurant) & 15 & 0.06 (0.05) \\
+\end{longtable}

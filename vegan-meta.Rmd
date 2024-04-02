@@ -182,9 +182,10 @@ paper_dat <- dat |>
   group_by(unique_paper_id) |> 
   slice(1) |>
   mutate(pub_status = case_when(
+    str_detect(venue, "dissertation|thesis") ~ "thesis",
+    str_detect(venue, "advocacy") ~ "advocacy org publication",
     str_detect(doi_or_url, "osf\\.io") ~ "preprint",
-    str_detect(doi_or_url, "10\\.") ~ "publication",
-    TRUE ~ "dissertation_or_tech_report"),
+    str_detect(doi_or_url, "10\\.") ~ "publication"),
     decade = as.character(cut(year, breaks = c(1999, 2009, 2019, 2029), labels = c("2000s", "2010s", "2020s")))) |>
   ungroup()
 
@@ -633,20 +634,56 @@ dat |> count_and_robust()
 ### Red meat studies produce larger effects
 By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and/or processed meat produced an average effect of `r RPMC_model$Delta` (se = `r RPMC_model$se`), p = `r RPMC_model$pval`. We discuss this disparity further below.
 
-### Little evidence of publication bias
+### Some evidence of publication bias
+
+```{r publication_bias, echo=F, include=F}
+source('./functions/sum_lm.R')
+eff_size_d_relationship <- dat |> sum_lm(d, se_d)
+
+publication_type_eff_size <- dat |> mutate(pub_status = case_when(
+    str_detect(venue, "dissertation|thesis") ~ "thesis",
+    str_detect(venue, "advocacy") ~ "advocacy org publication",
+    str_detect(doi_or_url, "osf\\.io") ~ "preprint",
+    str_detect(doi_or_url, "10\\.") ~ "publication")) |> 
+      split(~pub_status) |> imap(~count_and_robust(.x)); publication_type_eff_size
+```
+
+We observe a moderate, though statistically insignificant relationship between effect size and standard error (b = `r eff_size_d_relationship[2,1]`), p = `r eff_size_d_relationship[2,4]`,  meaning that larger effect sizes are more likely to be imprecise estimates in our sample Figure 2 displays this relationship, color coded by publication type.
+
+```{r publication_bias_plot, echo=F, include=F}
+dat |>  
+  mutate(pub_status = case_when(
+    str_detect(venue, "dissertation|thesis") ~ "thesis",
+    str_detect(venue, "advocacy") ~ "advocacy org publication",
+    str_detect(doi_or_url, "osf\\.io") ~ "preprint",
+    str_detect(doi_or_url, "10\\.") ~ "publication")) |>
+  ggplot(aes( x = se_d, y = d)) +
+  geom_point(aes(color = pub_status), size = 2) +
+  geom_smooth(method = "lm", color = "black", lty = "dotted", se = F) +
+  theme_minimal() +
+  labs(x = "Standard error", y = "Glass's \u0394", color = "Publication type") +
+  ggtitle("Relationship between standard errors and effect sizes") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5,
+                                  face = "bold")) 
+```
+
+As this graph suggests, we observe that dissertations and technical reports (mostly published by animal advocacy organizations) 
+
+This suggests that publication bias is not a major concern in our sample. We also observe that `r publication_type_eff_size$preprint$N_unique` of `r num_studies` studies are preprints, while `r publication_type_eff_size$publication$N_unique` are published papers.
 
 We also not that a null finding on MAP consumption is equivalent to a null result overall, because papers typically present multiple dependent variables and/or subgroup analyses. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract.
 
 ### Translating standardized effect sizes to real world changes
 The specific dependent variables in this literature, as well as the different variances between populations, make it challenging to generate a "rule of thumb" for translating standardized effect sizes to real-world changes. However, we can say that the average effect size in our sample is small, and that the largest effect sizes in the literature are also small. For example, @jalil2023 found that students in the treatment group reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years. This corresponds to Glass's ∆ of 0.118. The largest effect size in the literature comes from @bianchi2022, who found a decline in meat consumed of 12 grams per day for the control group and 49 grams per day for the treatment, for a difference in difference of 37 grams per day. Relative to a standard deviation of 70 grams for the control group, this represents a Glass's ∆ of 0.52.
 
+As an example of a backlash result, study one in @feltz2022
+
 ### Comparing theoretical approaches
-```{r}
+```{r theoretical_approaches, echo=F, include=F}
 norms_results <- dat |> filter(str_detect(theory, "norms")) |> count_and_robust(); norms_results
 
 nudge_results <- dat |> filter(str_detect(theory, "nudge")) |> count_and_robust(); nudge_results
-
-persuasion_results <- dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust(); persuasion_results
 
 health_results <- dat |> filter(str_detect(secondary_theory, "health")) |> count_and_robust(); health_results
 
@@ -654,11 +691,14 @@ environment_results <- dat |> filter(str_detect(secondary_theory, "environment")
 
 animal_welfare_results <- dat |> filter(str_detect(secondary_theory, "animal welfare")) |> count_and_robust(); animal_welfare_results
 
+# for general comparison
+persuasion_results <- dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust(); persuasion_results
+
 ```
 
-Table XXX presents the results of our meta-analysis by theoretical approach. Note that because many studies present overlapping approaches, 
+Table XXX presents the results of our meta-analysis by theoretical approach. Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample.
 
-Nudges are generally the  The smallest effect sizes come from interventions that appeal to animal welfare. Nudges and norms-based interventions produce similar effect sizes, while persuasion interventions produce the smallest effect sizes.
+Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r nudge_results$N_unique` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
 
 | Approach         | N (studies)                 | ∆ (se)                           |
 |------------------|-----------------------------|----------------------------------|
@@ -669,24 +709,57 @@ Nudges are generally the  The smallest effect sizes come from interventions that
 | Animal Welfare   | `r animal_welfare_results$N_unique` | `r animal_welfare_results$Delta` (`r animal_welfare_results$se`)`r ifelse(animal_welfare_results$pval < 0.001, "***", ifelse(animal_welfare_results$pval < 0.01, "**", ifelse(animal_welfare_results$pval < 0.05, "*", "")))` |
 
 
+```{r norms_in_more_detail, echo=F, include=F}
+dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic")) |> count_and_robust(); dynamic_norms_results
 
-#### Norms results in more detail
-dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic")) |> count_and_robust(); 
+static_norms_results <- dat |> filter(str_detect(brief_description, "static")) |> count_and_robust(); static_norms_results
+
+```
+
+Dynamic norms interventions appear to be more effective than static norms interventions: `r dynamic_norms_results$Delta` (se = `r dynamic_norms_results$se`), p = `r dynamic_norms_results$pval` versus `r static_norms_results$Delta` (se = `r static_norms_results$se`), p =`r static_norms_results$pval`.
 
 ### Internet, video, and pamphlet studies are ineffective
 
+```{r delivery_methods, echo=F, include=F}
+
+internet_results <- dat |> filter(str_detect(internet, "Y")) |> count_and_robust(); internet_results
+
+pamphlet_results <- dat |> filter(str_detect(leaflet, "Y")) |> count_and_robust(); pamphlet_results
+
+video_results <- dat |> filter(str_detect(video, "Y")) |> count_and_robust(); video_results
+
+place_based_results <- dat |> filter(dat$cafeteria_or_restaurant_based == "Y") |> count_and_robust(); place_based_results
+
+```
+
+We now turn to the question of method of delivery. Table XXX reports our results.
+
+| Method of Delivery           | N (studies)                          | ∆ (se)                              |
+|------------------------------|--------------------------------------|-------------------------------------|
+| Internet                     | `r internet_results$N_unique`        | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))` |
+| Pamphlet                     | `r pamphlet_results$N_unique`        | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))` |
+| Video                        | `r video_results$N_unique`           | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))` |
+| Place-based (Cafeteria/Restaurant) | `r place_based_results$N_unique` | `r place_based_results$Delta` (`r place_based_results$se`)`r ifelse(place_based_results$pval < 0.001, "***", ifelse(place_based_results$pval < 0.01, "**", ifelse(place_based_results$pval < 0.05, "*", "")))` |
+
+Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant. 
+
+Place-based interventions, such as those in cafeterias or restaurants, are comparatively more effective, though still not statistically significant overall.
+
 ### self-report measures are not systematically different
 
+Based on past research, we expected to see evidence of self-report bias
 ### delay?
 
 ### country? 
 
 ### meat vs MAP
 
-### place-based vs general interventions
 ### Robustness to markers of study quality
 
 ### effect size over time
+
+### Addressing other sources of potential bias
+
 
 ###  MetaUtility::prop_stronger
 
