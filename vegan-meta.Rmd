@@ -704,7 +704,7 @@ Table XXX presents the results of our meta-analysis by theoretical approach. Not
 
 Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r nudge_results$N_unique` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
 
-| Approach         | N (studies)                 | ∆ (se)                           |
+| Approach         | N (studies)                 | Glass's DELTA (se)                           |
 |------------------|-----------------------------|----------------------------------|
 | Norms            | `r norms_results$N_unique`  | `r norms_results$Delta` (`r norms_results$se`)`r ifelse(norms_results$pval < 0.001, "***", ifelse(norms_results$pval < 0.01, "**", ifelse(norms_results$pval < 0.05, "*", "")))` |
 | Nudge            | `r nudge_results$N_unique`  | `r nudge_results$Delta` (`r nudge_results$se`)`r ifelse(nudge_results$pval < 0.001, "***", ifelse(nudge_results$pval < 0.01, "**", ifelse(nudge_results$pval < 0.05, "*", "")))` |
@@ -740,7 +740,7 @@ We now turn to the question of method of delivery. Table XXX reports our results
 
 [table XXX about here]
 
-| Method of Delivery           | N (studies)                          | ∆ (se)                              |
+| Method of Delivery           | N (studies)                          | Glass's DELTA (se)                              |
 |------------------------------|--------------------------------------|-------------------------------------|
 | Internet                     | `r internet_results$N_unique`        | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))` |
 | Pamphlet                     | `r pamphlet_results$N_unique`        | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))` |
