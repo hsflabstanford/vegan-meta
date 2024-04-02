@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "7090"
+wordcount: "7439"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -312,7 +312,6 @@ By contrast the `r nrow(objective_report_studies)` studies that did not rely on 
 
 `r MAP_vs_meat$n[1]` studies looked at reducing meat consumption, while `r MAP_vs_meat$n[2]` looked at other categories of animal product, including eggs and dairy.
 
-
 ### 3.2 The leading theoretical approaches to reducing MAP consumption
 
 ```{r theory_tab, echo=F, include=F}
@@ -542,9 +541,11 @@ pap_split[[1]]$Delta
 ```
  
 ### An overall null effect
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This null finding stands in marked contrast to previous reviews, which found [PUT IN RESULTS OF PREVIOUS METAS]. This diverge seems to be a product of our inclusion criteria, specifically the requirement that studies measure actual consumption behavior rather than self-reported intentions or hypothetical choices. [say more about this].
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r`main_result$Delta` (se = `rmain_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
 
-In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no stiatistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
+A vote counting procedure [@bushman1994] demonstates the same point more starkly. In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no statistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
+
+This null finding stands in marked contrast to previous reviews, which found more positive results [@mathur2021meta; @mertens2022; @bianchi2018restructuring; @chang2023]. This disparity seems to be mostly explained by our focus measuring MAP consumption, as the largest results in prior reviews tended to be for intentions, attitudes, and hypothetical choices. This was the most common reason for our excluding otherwise eligible studies from our analysis. 
 
 Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
@@ -629,15 +630,17 @@ dat |> count_and_robust()
 
 ```
 
+### Red meat studies produce larger effects
 By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and/or processed meat produced an average effect of `r RPMC_model$Delta` (se = `r RPMC_model$se`), p = `r RPMC_model$pval`.
-
-### Translating standardized effect sizes to real world changes
-The variety of dependent variables
 
 ### Little evidence of publication bias
 
 We also not that a null finding on MAP consumption is equivalent to a null result overall, because papers typically present multiple dependent variables and/or subgroup analyses. @allen2002, for example, report that "red and white meat consumption for both treatment and control groups remained constant" (p. 124), but write in their abstract that "most participants" in the treatment group reported less favorable impressions of meat, less "object identification" with meat, and greater self-reported consumption of fruits and vegetables three weeks later (p. 118). Likewise, @piester2020, over three studies, find two null effects and one significantly positive effect on MAP consumption overall, but find that women typically responded to treatment while men did not, and present gender-based results in their abstract.
 
+### Translating standardized effect sizes to real world changes
+The specific dependent variables in this literature, as well as the different variances between populations, make it challenging to generate a "rule of thumb" for translating standardized effect sizes to real-world changes. However, we can say that the average effect size in our sample is small, and that the largest effect sizes in the literature are also small. For example, @jalil2023 found that students in the treatment group reduced their meat consumption by 5.6 percentage points with no signs of reversal over 3 years. This corresponds to Glass's ∆ of 0.118. The largest effect size in the literature comes from @bianchi2022, who found a decline in meat consumed of 12 grams per day for the control group and 49 grams per day for the treatment, for a difference in difference of 37 grams per day. This corresponds to a Glass's ∆ of 0.52.
+
+0.58600000]
 ### Comparing theoretical approaches
 
 ### Internet, video, and pamphlet studies are ineffective
@@ -664,7 +667,7 @@ Given our disappointing central findings -- a general lack of efficacy on reduci
 
 A few papers explicitly advocate that people substitute:
   -   [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC.
-  - [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
+  - [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
 
 How much a policymaker should worry about this gap in our understanding depends on their goals For those focused on health, any reduction in red meat is good news, particularly the relatively large effects in [one emmons and one other ], which are aimed at people at elevated risk of cancer. From an environmental perspective, red and processed meats are also the highest-priority target, though we note that none of the reductions we see in the literature, even if they were scaled up perfectly without loss of efficacy, would make much of a dent on GHG emissions. Last, from an animal welfare perspective, the gap between regular effects and RPMC effects is potentially disastrous if it means people are substituting from red meat to other kinds of MAP that create more harms per meal.
 
