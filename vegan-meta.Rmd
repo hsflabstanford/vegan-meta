@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "8131"
+wordcount: "8626"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -59,13 +59,48 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
                overwrite= TRUE)
 ```
 
-```{r setup, include=FALSE}
+```{r libraries_and_function, include=F, echo=F}
+# libraries
 library(dplyr, warn.conflicts = F)
 library(stringr)
-knitr::opts_chunk$set(fig.path = "results/figures/")
+library(metafor)
+library(knitr)
+library(purrr)
+library(ggplot2)
+library(ggtext)
+library(rlang, warn.conflicts = F)
+
+# functions
+source('./functions/count_and_robust.R')
 source('./functions/d_calc.R')
+source('./functions/map_robust.R')
+source('./functions/study_count.R')
+source('./functions/sum_tab.R')
+source('./functions/sum_lm.R')
 source('./functions/var_d_calc.R')
 
+# little ones 
+bold_labels <- function(x) {
+  ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)
+}
+
+get_significance_stars <- function(pval) {
+  if (is.na(pval)) {
+    return("")
+  } else if (pval < 0.001) {
+    return("***")
+  } else if (pval < 0.01) {
+    return("**")
+  } else if (pval < 0.05) {
+    return("*")
+  } else {
+    return("")
+  }
+}
+knitr::opts_chunk$set(fig.path = "results/figures/")
+```
+
+```{r data, echo=F, include=F}
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
@@ -96,7 +131,8 @@ dat <- read.csv('./data/vegan-meta.csv')  |>
          se_d = sqrt(var_d)) |> 
   select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
-  
+
+# plus two useful constants
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 ```
@@ -152,7 +188,6 @@ We also required that the full papers be available on the internet, rather than 
 Our cutoff date for papers was December 2023.
 
 ```{r where_do_studies_come_from, echo=F, include=F}
-source("./functions/sum_tab.R")
 paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> 
   sum_tab(source)
 paper_sources
@@ -191,7 +226,6 @@ We first offer some descriptive statistics of our database and then provide a th
 ### 3.1 Descriptive overview of meta-analytic database
 
 ```{r descriptive_stats, echo = F, include=F}
-source('./functions/sum_tab.R')
 
 # Data preparation and basic statistics
 paper_dat <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup()
@@ -324,9 +358,6 @@ By contrast the `r nrow(objective_report_studies)` studies that did not rely on 
 ### 3.2 The leading theoretical approaches to reducing MAP consumption
 
 ```{r theory_tab, echo=F, include=F}
-library(stringr)
-source('./functions/study_count.R')
-
 theory_tab <- dat |> sum_tab(theory)
 secondary_theory_tab <- dat |> sum_tab(secondary_theory)
 
@@ -517,14 +548,6 @@ We report all results as Glass's ∆, which standardizes by variance of the cont
 Further comments on our methods can be found in our appendix.
 
 ```{r main_results, echo=F, include=F}
-suppressPackageStartupMessages(library(metafor))
-library(knitr)
-library(purrr)
-library(stringr)
-
-source('./functions/study_count.R')
-source('./functions/map_robust.R')
-source('./functions/count_and_robust.R')
 
 main_result <- dat |> count_and_robust()
 sign_table <- table(dat$neg_null_pos)
@@ -548,15 +571,7 @@ This null finding stands in marked contrast to previous reviews, which found mor
 Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
 ```{r fig, echo=F}
-library(ggplot2)
-library(ggtext)
-library(rlang, warn.conflicts = F)
-
 # this section is complex and brittle. optional TODO: make it general & robust
-bold_labels <- function(x) {
-  ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)
-}
-
 model <- dat |> map_robust()
 
 plot_dat <- dat |> 
@@ -620,7 +635,6 @@ By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and
 ### Some evidence of publication bias
 
 ```{r publication_bias, echo=F, include=F}
-source('./functions/sum_lm.R')
 eff_size_d_relationship <- dat |> sum_lm(d, se_d)
 
 publication_type_eff_size <- dat |> split(~pub_status) |> 
@@ -755,21 +769,6 @@ advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "
   split(~advocacy_materials) |> map(count_and_robust); advocacy_results 
 
 advocacy_org_specific_results <- dat |> split(~advocacy_org) |> map(count_and_robust); advocacy_org_specific_results
-
-get_significance_stars <- function(pval) {
-  if (is.na(pval)) {
-    return("")
-  } else if (pval < 0.001) {
-    return("***")
-  } else if (pval < 0.01) {
-    return("**")
-  } else if (pval < 0.05) {
-    return("*")
-  } else {
-    return("")
-  }
-}
-
 ```
 
 As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
@@ -927,6 +926,10 @@ Overall, the relationship between effect size and year of publication is tiny an
 
 #### MetaUtility::prop_stronger
 
+```{r what_is_a_significant_result}
+
+
+```
 #### regression to the meat
 
 
