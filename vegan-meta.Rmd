@@ -852,9 +852,49 @@ The majority of studies in our database (`r meat_vs_map$'FALSE'$N_unique` of `r 
 
 ### Robustness to markers of study quality
 ```{r robustness_to_study_quality, echo=F, include=F}
+pap_split_results <- dat |> 
+  mutate(has_pap = if_else(public_pre_analysis_plan == 'N', F, T)) |>
+  split(~has_pap) |> map(count_and_robust); pap_split_results
 
-
+open_data_results <- dat |> 
+  mutate(has_open_data = if_else(open_data == 'N', F, T)) |>
+  split(~has_open_data) |> map(count_and_robust); open_data_results
 ```
+
+Regarding open science practices, we find something encouraging and surprising: studies with pre-analysis plans and publicly accessible data tend to have larger effect sizes.
+
+```{r open_science_practice_results, echo=F, include=F}
+
+pap_study_results <- dat |> 
+  filter(public_pre_analysis_plan != 'N') |> 
+  count_and_robust(); pap_study_results
+  
+open_data_results <- dat |> 
+  filter(open_data != 'N') |> 
+  count_and_robust(); open_data_results
+  
+pap_and_open_data_results <- dat |>
+  filter(public_pre_analysis_plan != 'N',
+         open_data != 'N') |> 
+  count_and_robust(); pap_and_open_data_results
+
+neither_pap_nor_open_data_results <- dat |>
+  filter(public_pre_analysis_plan == 'N',
+         open_data == 'N') |> 
+  count_and_robust(); neither_pap_nor_open_data_results
+```
+
+Table XXX displays the effect sizes of studies with a public pre-analysis plan, open data, both, and neither.
+
+| Open Science Practice            | N_unique | Delta (se)                                                     |
+|----------------------------------|----------|----------------------------------------------------------------|
+| Pre-analysis Plan                | `r pap_study_results$N_unique` | `r pap_study_results$Delta` (`r pap_study_results$se`)`r get_significance_stars(pap_study_results$pval)` |
+| Open Data                        | `r open_data_results$N_unique` | `r open_data_results$Delta` (`r open_data_results$se`)`r get_significance_stars(open_data_results$pval)` |
+| Both                             | `r pap_and_open_data_results$N_unique` | `r pap_and_open_data_results$Delta` (`r pap_and_open_data_results$se`)`r get_significance_stars(pap_and_open_data_results$pval)` |
+| Neither                          | `r neither_pap_nor_open_data_results$N_unique` | `r neither_pap_nor_open_data_results$Delta` (`r neither_pap_nor_open_data_results$se`)`r get_significance_stars(neither_pap_nor_open_data_results$pval)` |
+Table: * < 0.05, ** < 0.01, *** < 0.001.
+
+Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices. 
 ### effect size over time
 
 ### Addressing other sources of potential bias
