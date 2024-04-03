@@ -837,11 +837,24 @@ Table XXX presents results separated by the country in which they took place.
 | United Kingdom                                      | `r country_results_data$'United Kingdom'$N_unique` | `r country_results_data$'United Kingdom'$Delta` (`r country_results_data$'United Kingdom'$se`) |
 | United States                                       | `r country_results_data$'United States'$N_unique` | `r country_results_data$'United States'$Delta` (`r country_results_data$'United States'$se`) |
 | United States, United Kingdom, Canada, Australia, and other | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$N_unique` | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$Delta` (`r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$se`) |
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 ### meat vs MAP
 
-### Robustness to markers of study quality
+```{r meat_vs_MAP, echo=F, include=F}
+meat_vs_map <- dat |> split(~str_detect(
+  pattern = "MAP", dat$outcome_category)) |>
+  map(count_and_robust); meat_vs_map
+  
+```
 
+The majority of studies in our database (`r meat_vs_map$'FALSE'$N_unique` of `r num_studies`) looked at reducing consumption of meat specifically, while the remaining `r meat_vs_map$'TRUE'$N_unique` studies looked at reducing consumption of meat and other animal products (typically eggs). The average effect size for the former is `r meat_vs_map$'FALSE'$Delta` (se = `r meat_vs_map$'FALSE'$se`), p = `r meat_vs_map$'FALSE'$pval`, while the average effect size for the latter is `r meat_vs_map$'TRUE'$Delta` (se = `r meat_vs_map$'TRUE'$se`), p = `r meat_vs_map$'TRUE'$pval`.
+
+### Robustness to markers of study quality
+```{r robustness_to_study_quality, echo=F, include=F}
+
+
+```
 ### effect size over time
 
 ### Addressing other sources of potential bias
