@@ -894,7 +894,7 @@ Table XXX displays the effect sizes of studies with a public pre-analysis plan, 
 | Neither                          | `r neither_pap_nor_open_data_results$N_unique` | `r neither_pap_nor_open_data_results$Delta` (`r neither_pap_nor_open_data_results$se`)`r get_significance_stars(neither_pap_nor_open_data_results$pval)` |
 Table: * < 0.05, ** < 0.01, *** < 0.001.
 
-Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices. 
+Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices [@john2012].
 ### effect size over time
 
 ### Addressing other sources of potential bias
