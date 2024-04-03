@@ -63,7 +63,8 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 library(dplyr, warn.conflicts = F)
 library(stringr)
 knitr::opts_chunk$set(fig.path = "results/figures/")
-source("./functions/sum_tab.R")
+source('./functions/d_calc.R')
+source('./functions/var_d_calc.R')
 
 dat <- read.csv('./data/vegan-meta.csv')  |>
   group_by(title) |>
@@ -79,7 +80,21 @@ dat <- read.csv('./data/vegan-meta.csv')  |>
            str_detect(venue, "dissertation|thesis") ~ "Thesis",
            str_detect(venue, "advocacy") ~ "Advocacy organization",
            str_detect(doi_or_url, "osf\\.io") ~ "Preprint",str_detect(doi_or_url, "10\\.") ~ "Journal article"),
-         total_sample = n_c_post + n_c_post) |>
+         total_sample = n_c_post + n_c_post,
+         d = mapply(
+           FUN = d_calc,
+           stat_type = eff_type,
+           stat =  u_s_d,
+           sample_sd = ctrl_sd,
+           n_t = n_t_post,
+           n_c = n_c_post),
+         var_d = mapply(
+           FUN = var_d_calc,
+           d = d,
+           n_c = n_c_post,
+           n_t = n_t_post),
+         se_d = sqrt(var_d)) |> 
+  select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
   
 num_papers <- as.numeric(max(dat$unique_paper_id))
@@ -137,6 +152,7 @@ We also required that the full papers be available on the internet, rather than 
 Our cutoff date for papers was December 2023.
 
 ```{r where_do_studies_come_from, echo=F, include=F}
+source("./functions/sum_tab.R")
 paper_sources <- dat |> group_by(unique_paper_id) |> slice(1) |> 
   sum_tab(source)
 paper_sources
@@ -175,8 +191,6 @@ We first offer some descriptive statistics of our database and then provide a th
 ### 3.1 Descriptive overview of meta-analytic database
 
 ```{r descriptive_stats, echo = F, include=F}
-library(stringr)
-library(purrr)
 source('./functions/sum_tab.R')
 
 # Data preparation and basic statistics
@@ -462,7 +476,21 @@ RPMC <- read.csv("./data/RPMC-data.csv") |>
   mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
                                       year >= 2010 & year <= 2019  ~ "2010s",
                                       year >= 2020 ~ "2020s")),
-         total_sample = n_c_post + n_c_post) |>
+         total_sample = n_c_post + n_c_post,
+         d = mapply(
+           FUN = d_calc,
+           stat_type = eff_type,
+           stat =  u_s_d,
+           sample_sd = ctrl_sd,
+           n_t = n_t_post,
+           n_c = n_c_post),
+         var_d = mapply(
+           FUN = var_d_calc,
+           d = d,
+           n_c = n_c_post,
+           n_t = n_t_post),
+         se_d = sqrt(var_d)) |> 
+  select(-one_of("X")) |>
   select(author, year, title, unique_paper_id, unique_study_id, everything()) 
 
 first_decade_RPMC_studies <- RPMC |> filter(year == 2005)
@@ -489,34 +517,14 @@ We report all results as Glass's ∆, which standardizes by variance of the cont
 Further comments on our methods can be found in our appendix.
 
 ```{r main_results, echo=F, include=F}
-library(dplyr, warn.conflicts = T)
-library(metafor, quietly = T)
+suppressPackageStartupMessages(library(metafor))
 library(knitr)
 library(purrr)
-library(sessioninfo)
 library(stringr)
 
-source('./functions/d_calc.R')
-source('./functions/var_d_calc.R')
 source('./functions/study_count.R')
 source('./functions/map_robust.R')
 source('./functions/count_and_robust.R')
-dat <- dat |>
-  mutate(d = mapply(
-        FUN = d_calc,
-        stat_type = eff_type,
-        stat =  u_s_d,
-        sample_sd = ctrl_sd,
-        n_t = n_t_post,
-        n_c = n_c_post),
-      var_d = mapply(
-        FUN = var_d_calc,
-        d = d,
-        n_c = n_c_post,
-        n_t = n_t_post),
-      se_d = sqrt(var_d)) |> 
-  select(-one_of("X")) |>   
-  select(author, year, title, unique_paper_id, unique_study_id, everything())
 
 main_result <- dat |> count_and_robust()
 sign_table <- table(dat$neg_null_pos)
@@ -544,6 +552,7 @@ library(ggplot2)
 library(ggtext)
 library(rlang, warn.conflicts = F)
 
+# this section is complex and brittle. optional TODO: make it general & robust
 bold_labels <- function(x) {
   ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)
 }
@@ -598,20 +607,6 @@ plot_dat |> ggplot(aes(x = d, y = study_name)) +
 ```
 
 ```{r RPMC_supplementary_analysis, echo=F, include=F}
-RPMC <- RPMC |>  mutate(d = mapply(
-        FUN = d_calc,
-        stat_type = eff_type,
-        stat =  u_s_d,
-        sample_sd = ctrl_sd,
-        n_t = n_t_post,
-        n_c = n_c_post),
-      var_d = mapply(
-        FUN = var_d_calc,
-        d = d,
-        n_c = n_c_post,
-        n_t = n_t_post),
-      se_d = sqrt(var_d)) |> 
-  select(-X)
 
 RPMC_model <- RPMC |> count_and_robust(); RPMC_model
 # vs...
@@ -647,7 +642,7 @@ dat |>
                                   face = "bold")) 
 ```
 
-As this graph suggests, we see systematically smaller results in reports by advocacy organizations than in other types of publication.
+As this graph suggests, we see systematically smaller results in reports by advocacy organizations than in other types of publication. This is consistent with the contention that academic papers are subject to pressure to publish significant results, but not conclusively. 
 
 ```{r publication_type_table, include=F, echo=F}
 publication_type_eff_size <- dat |> split(~pub_status) |> 
@@ -747,7 +742,7 @@ We now turn to the question of method of delivery. Table XXX reports our results
 | Video                              | `r video_results$N_unique`       | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))`                               |
 | Place-based (Cafeteria/Restaurant) | `r place_based_results$N_unique` | `r place_based_results$Delta` (`r place_based_results$se`)`r ifelse(place_based_results$pval < 0.001, "***", ifelse(place_based_results$pval < 0.01, "**", ifelse(place_based_results$pval < 0.05, "*", "")))` |
 
-: * < 0.05, ** < 0.01, *** < 0.001.
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant.
 
@@ -790,19 +785,58 @@ Table XXX displays the effect sizes associated with the materials of each animal
 | Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animals Australia'[['pval']])` |
 | Faunalytics         | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`            | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)`r get_significance_stars(advocacy_org_specific_results$Faunalytics[['pval']])` |
 | Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Mercy For Animals'[['pval']])` |
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 [table XXX about here]
 
-On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. On the other, this overall backlash result suggests that the approach, delivery mechanisms, and specifics of these organizations' materials are in need of a serious rethink.
+On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. On the other, this overall backlash result suggests that the approaches, delivery mechanisms, and specifics of these organizations' materials are in need of a rethink.
 
 ### self-report measures are not systematically different
 
-Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: 
+```{r self_report, echo=F, include=F}
+self_report_results <- dat |> split(~self_report == 'Y') |> map(count_and_robust); self_report_results
+```
+Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results$'TRUE'$N_unique ` studies with self-report outcomes have an average effect size of `r self_report_results$'TRUE'$Delta` (se = `r self_report_results$'TRUE'$se`), p = `r self_report_results$'TRUE'$pval`, while the `r self_report_results$'FALSE'$N_unique` studies with obliquely measured outcomes have an average effect size of `r self_report_results$'FALSE'$Delta` (se = `r self_report_results$'FALSE'$se`), p = `r self_report_results$'FALSE'$pval`.
 
-remember to look at Haile which assesses both
-### delay?
+```{r self_report_without_advocacy_studies, echo=F, include=F}
+dat |> filter(advocacy_org == 'N') |> split(~self_report == 'Y') |> map(count_and_robust)
+```
+
+We do not read too much into this, as there are numerous systematic differences between the two groups of studies. For instance, all of the interventions that use materials produced by advocacy organizations, which we've seen produce a backlash effect, use self-report measures. (If we remove those studies from our analysis, the studies with obliquely measured outcomes still produce a larger pooled effect). Unfortunately, no studies in our sample provide both self-reported and obliquely measured MAP consumption outcomes, so we cannot assess how well one outcome predicts the other within a given study.
+
+### delay
+
+```{r delay, echo=F, include=F}
+
+dat |> sum_lm(x = delay, y = d)
+dat |> sum_lm(x = delay_post_endline, y = d)
+
+
+```
+
+We record two delay variables: one for time elapsed between the start of intervention and the last measurement, and one for time elapsed between the end of intervention and last measurement. In both cases, we find a strict null relationship between days of delay and effect size.
 
 ### country?
+
+```{r eff_size_by_country, echo=F, include=F}
+
+country_results_data <- dat |> split(~country) |> 
+  map(count_and_robust); country_results_data
+```
+
+Table XXX presents results separated by the country in which they took place.
+
+| Country                                             | N_unique | Delta (se)                                         |
+|-----------------------------------------------------|----------|----------------------------------------------------|
+| Australia                                           | `r country_results_data$Australia$N_unique` | `r country_results_data$Australia$Delta` (`r country_results_data$Australia$se`) |
+| Canada                                              | `r country_results_data$Canada$N_unique`    | `r country_results_data$Canada$Delta` (`r country_results_data$Canada$se`) |
+| Denmark                                             | `r country_results_data$Denmark$N_unique`   | `r country_results_data$Denmark$Delta` (`r country_results_data$Denmark$se`) |
+| Germany                                             | `r country_results_data$Germany$N_unique`   | `r country_results_data$Germany$Delta` (`r country_results_data$Germany$se`) |
+| Netherlands                                         | `r country_results_data$Netherlands$N_unique` | `r country_results_data$Netherlands$Delta` (`r country_results_data$Netherlands$se`) |
+| Sweden                                              | `r country_results_data$Sweden$N_unique`    | `r country_results_data$Sweden$Delta` (`r country_results_data$Sweden$se`) |
+| United Kingdom                                      | `r country_results_data$'United Kingdom'$N_unique` | `r country_results_data$'United Kingdom'$Delta` (`r country_results_data$'United Kingdom'$se`) |
+| United States                                       | `r country_results_data$'United States'$N_unique` | `r country_results_data$'United States'$Delta` (`r country_results_data$'United States'$se`) |
+| United States, United Kingdom, Canada, Australia, and other | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$N_unique` | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$Delta` (`r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$se`) |
 
 ### meat vs MAP
 
@@ -815,6 +849,7 @@ remember to look at Haile which assesses both
 #### MetaUtility::prop_stronger
 
 #### regression to the meat
+
 
 ## Discussion
 
