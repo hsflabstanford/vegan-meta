@@ -349,7 +349,7 @@ Many interventions explicitly combine multiple theoretical approaches, for examp
 
 #### 3.2.1 Norms
 
-Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database and `r`norms_paper_count\` papers. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
+Norms-based approaches inform `r nrow(norms)` of `r num_studies` interventions in our database and `r`norms_paper_count` papers. These interventions typically try to normalize vegetarianism and veganism by creating a perception that eating plant-based meals is consistent with social norms. To do this, researchers might put up signs that say “[More and more [retail store name] customers are choosing our veggie options" [@coker2022, p. 2] or "In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020, p. 5]. One study told participants that people who eat meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002], thus making them out to be a counter-normative outgroup.
 
 Two theoretical splits characterize this literature. The first is between *descriptive* and *injunctive* norms: while "descriptive norms pertain to the behavior of a majority of people (e.g. “most people eat vegetarian at least twice a week”), injunctive norms describe what behavior most others approve or disapprove of (e.g. “most people approve of eating vegetarian at least twice a week” [@alblas2023, p. 993]). For example, that study's injunctive norm intervention told Dutch households with unusually high meat consumption rates that they were negative outliers, along with a frowning face symbol. The other theoretical divide is between *dynamic* and *static* norms. Dynamic norms emphasize how behavior is changing over time, while static norms emphasize the current state of affairs. For example, @sparkman2017 presented people waiting in line at a Stanford cafeteria the opportunity to participate in a 'survey' in exchange for a meal coupon, where the survey presented one of two norms-based messages: a 'static' message about how "30% of Americans make an effort to limit their meat consumption," or a dynamic message emphasizing how behavior is changing over time and that vegetarianism is taking off among participants' peers.
 
@@ -377,7 +377,7 @@ As discussed above, the precise boundaries around the idea of 'nudge' can be blu
 
 > A nudge...is any aspect of the choice architecture that alters people’s behavior in a predictable way without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid. Nudges are not mandates.
 
-We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [\@ @hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes.
+We also follow guidance from @hansen2016, who argues that a nudge should refer to "features that influence behaviour in ways not in accordance with that of economic rationality" (p.162) by making use of cognitive biases. By this definition,"rational persuasion or argument" [\@@hansen2016, p. 169] is not a nudge because it works on the conscious, deliberative mind rather than on automatic, prone-to-bias processes.
 
 By these standards, `r nrow(nudge_studies)` intervention in our database are nudges printed in `r length(unique(nudge_studies$doi_or_url))` papers. `r hybrid_nudge_approach_number` of these studies are combine nudges with social norm messages, as previously discussed. Further, two interventions in @piester2020 placed a message about the environmental benefits of reducing MAP consumption in a university canteen with no social norm message, thus combining nudge and persuasion approaches.
 
@@ -642,7 +642,7 @@ dat |>
                                   face = "bold")) 
 ```
 
-As this graph suggests, we see systematically smaller results in reports by advocacy organizations than in other types of publication. This is consistent with the contention that academic papers are subject to pressure to publish significant results, but not conclusively.
+As this graph suggests, we see systematically smaller results in reports by advocacy organizations than in other types of publication. This is consistent with the contention that academic papers are subject to pressure to publish significant results, but not conclusively. 
 
 ```{r publication_type_table, include=F, echo=F}
 publication_type_eff_size <- dat |> split(~pub_status) |> 
@@ -654,7 +654,7 @@ Table XXX presents differences in average effect size by publication type.
 [Table XXX about here]
 
 | Approach              | N (studies)                                                    | DELTA (se)                                                                                                                                                                                                                                                                                                                                                           |
-|---------------|---------------|-------------------------------------------|
+|------------|------------|-------------------------------------------------|
 | Advocacy organization | `r publication_type_eff_size$'Advocacy organization'$N_unique` | `r publication_type_eff_size$'Advocacy organization'$Delta` (`r publication_type_eff_size$'Advocacy organization'$se`)`r ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.001, "***", "")))` |
 | Journal article       | `r publication_type_eff_size$'Journal article'$N_unique`       | `r publication_type_eff_size$'Journal article'$Delta` (`r publication_type_eff_size$'Journal article'$se`)`r ifelse(publication_type_eff_size$'Journal article'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Journal article'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Journal article'$pval < 0.001, "***", "")))`                               |
 | Preprint              | `r publication_type_eff_size$Preprint$N_unique`                | `r publication_type_eff_size$Preprint$Delta` (`r publication_type_eff_size$Preprint$se`)`r ifelse(publication_type_eff_size$Preprint$pval < 0.05, "*", ifelse(publication_type_eff_size$Preprint$pval < 0.01, "**", ifelse(publication_type_eff_size$Preprint$pval < 0.001, "***", "")))`                                                                            |
@@ -701,14 +701,14 @@ Table XXX presents the results of our meta-analysis by theoretical approach. Not
 Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r nudge_results$N_unique` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
 
 | Approach       | N (studies)                         | Glass's DELTA (se)                                                                                                                                                                                                            |
-|---------------|---------------|-------------------------------------------|
+|------------|------------|-------------------------------------------------|
 | Norms          | `r norms_results$N_unique`          | `r norms_results$Delta` (`r norms_results$se`)`r ifelse(norms_results$pval < 0.001, "***", ifelse(norms_results$pval < 0.01, "**", ifelse(norms_results$pval < 0.05, "*", "")))`                                              |
 | Nudge          | `r nudge_results$N_unique`          | `r nudge_results$Delta` (`r nudge_results$se`)`r ifelse(nudge_results$pval < 0.001, "***", ifelse(nudge_results$pval < 0.01, "**", ifelse(nudge_results$pval < 0.05, "*", "")))`                                              |
 | Health         | `r health_results$N_unique`         | `r health_results$Delta` (`r health_results$se`)`r ifelse(health_results$pval < 0.001, "***", ifelse(health_results$pval < 0.01, "**", ifelse(health_results$pval < 0.05, "*", "")))`                                         |
 | Environment    | `r environment_results$N_unique`    | `r environment_results$Delta` (`r environment_results$se`)`r ifelse(environment_results$pval < 0.001, "***", ifelse(environment_results$pval < 0.01, "**", ifelse(environment_results$pval < 0.05, "*", "")))`                |
 | Animal Welfare | `r animal_welfare_results$N_unique` | `r animal_welfare_results$Delta` (`r animal_welfare_results$se`)`r ifelse(animal_welfare_results$pval < 0.001, "***", ifelse(animal_welfare_results$pval < 0.01, "**", ifelse(animal_welfare_results$pval < 0.05, "*", "")))` |
 
-: \* \< 0.05, \*\* \< 0.01, \*\*\* \< 0.001.
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 ```{r norms_in_more_detail, echo=F, include=F}
 dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic")) |> count_and_robust(); dynamic_norms_results
@@ -736,13 +736,13 @@ We now turn to the question of method of delivery. Table XXX reports our results
 [table XXX about here]
 
 | Method of Delivery                 | N (studies)                      | Glass's DELTA (se)                                                                                                                                                                                             |
-|---------------|---------------|------------------------------------------|
+|-------------|-------------|-----------------------------------------------|
 | Internet                           | `r internet_results$N_unique`    | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))`                |
 | Pamphlet                           | `r pamphlet_results$N_unique`    | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))`                |
 | Video                              | `r video_results$N_unique`       | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))`                               |
 | Place-based (Cafeteria/Restaurant) | `r place_based_results$N_unique` | `r place_based_results$Delta` (`r place_based_results$se`)`r ifelse(place_based_results$pval < 0.001, "***", ifelse(place_based_results$pval < 0.01, "**", ifelse(place_based_results$pval < 0.05, "*", "")))` |
 
-: \* \< 0.05, \*\* \< 0.01, \*\*\* \< 0.001.
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant.
 
@@ -772,21 +772,20 @@ get_significance_stars <- function(pval) {
 
 ```
 
-As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p \< 0.01.
+As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
 
 Table XXX displays the effect sizes associated with the materials of each animal advocacy organization in our dataset separated by the providing organization. Where N = 1, the estimate is not a meta-analytic estimate, but the results from that single study.
 
-| Organization        | N (studies)                                                           | ∆ (se)                                                                                                                                                                                                                        |
-|--------------------------------|---------------------|-------------------|
-| NA (Academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                     | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)`r get_significance_stars(advocacy_org_specific_results$N[['pval']])`                                                             |
-| Humane League       | `r advocacy_org_specific_results$'Humane League'[['N_unique']]`       | `r advocacy_org_specific_results$'Humane League'[['Delta']]` (`r advocacy_org_specific_results$'Humane League'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Humane League'[['pval']])`                   |
-| Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`      | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Vegan Outreach'[['pval']])`                |
+| Organization        | N (studies) | ∆ (se) |
+|---------------------|-------------|------------|
+| NA (Academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                    | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)`r get_significance_stars(advocacy_org_specific_results$N[['pval']])` |
+| Humane League       | `r advocacy_org_specific_results$'Humane League'[['N_unique']]`       | `r advocacy_org_specific_results$'Humane League'[['Delta']]` (`r advocacy_org_specific_results$'Humane League'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Humane League'[['pval']])` |
+| Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`     | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Vegan Outreach'[['pval']])` |
 | Animal Rights Watch | `r advocacy_org_specific_results$'Animal Rights Watch'[['N_unique']]` | `r advocacy_org_specific_results$'Animal Rights Watch'[['Delta']]` (`r advocacy_org_specific_results$'Animal Rights Watch'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animal Rights Watch'[['pval']])` |
-| Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animals Australia'[['pval']])`       |
-| Faunalytics         | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`           | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)`r get_significance_stars(advocacy_org_specific_results$Faunalytics[['pval']])`                               |
-| Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Mercy For Animals'[['pval']])`       |
-
-: \* \< 0.05, \*\* \< 0.01, \*\*\* \< 0.001.
+| Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animals Australia'[['pval']])` |
+| Faunalytics         | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`            | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)`r get_significance_stars(advocacy_org_specific_results$Faunalytics[['pval']])` |
+| Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Mercy For Animals'[['pval']])` |
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 [table XXX about here]
 
@@ -797,8 +796,7 @@ On the one hand, we applaud these organizations for making their materials freel
 ```{r self_report, echo=F, include=F}
 self_report_results <- dat |> split(~self_report == 'Y') |> map(count_and_robust); self_report_results
 ```
-
-Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results$'TRUE'$N_unique` studies with self-report outcomes have an average effect size of `r self_report_results$'TRUE'$Delta` (se = `r self_report_results$'TRUE'$se`), p = `r self_report_results$'TRUE'$pval`, while the `r self_report_results$'FALSE'$N_unique` studies with obliquely measured outcomes have an average effect size of `r self_report_results$'FALSE'$Delta` (se = `r self_report_results$'FALSE'$se`), p = `r self_report_results$'FALSE'$pval`.
+Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results$'TRUE'$N_unique ` studies with self-report outcomes have an average effect size of `r self_report_results$'TRUE'$Delta` (se = `r self_report_results$'TRUE'$se`), p = `r self_report_results$'TRUE'$pval`, while the `r self_report_results$'FALSE'$N_unique` studies with obliquely measured outcomes have an average effect size of `r self_report_results$'FALSE'$Delta` (se = `r self_report_results$'FALSE'$se`), p = `r self_report_results$'FALSE'$pval`.
 
 ```{r self_report_without_advocacy_studies, echo=F, include=F}
 dat |> filter(advocacy_org == 'N') |> split(~self_report == 'Y') |> map(count_and_robust)
@@ -828,19 +826,18 @@ country_results_data <- dat |> split(~country) |>
 
 Table XXX presents results separated by the country in which they took place.
 
-| Country                                                     | N_unique                                                                                        | Delta (se)                                                                                                                                                                               |
-|-----------------------------|---------------|----------------------------|
-| Australia                                                   | `r country_results_data$Australia$N_unique`                                                     | `r country_results_data$Australia$Delta` (`r country_results_data$Australia$se`)                                                                                                         |
-| Canada                                                      | `r country_results_data$Canada$N_unique`                                                        | `r country_results_data$Canada$Delta` (`r country_results_data$Canada$se`)                                                                                                               |
-| Denmark                                                     | `r country_results_data$Denmark$N_unique`                                                       | `r country_results_data$Denmark$Delta` (`r country_results_data$Denmark$se`)                                                                                                             |
-| Germany                                                     | `r country_results_data$Germany$N_unique`                                                       | `r country_results_data$Germany$Delta` (`r country_results_data$Germany$se`)                                                                                                             |
-| Netherlands                                                 | `r country_results_data$Netherlands$N_unique`                                                   | `r country_results_data$Netherlands$Delta` (`r country_results_data$Netherlands$se`)                                                                                                     |
-| Sweden                                                      | `r country_results_data$Sweden$N_unique`                                                        | `r country_results_data$Sweden$Delta` (`r country_results_data$Sweden$se`)                                                                                                               |
-| United Kingdom                                              | `r country_results_data$'United Kingdom'$N_unique`                                              | `r country_results_data$'United Kingdom'$Delta` (`r country_results_data$'United Kingdom'$se`)                                                                                           |
-| United States                                               | `r country_results_data$'United States'$N_unique`                                               | `r country_results_data$'United States'$Delta` (`r country_results_data$'United States'$se`)                                                                                             |
+| Country                                             | N_unique | Delta (se)                                         |
+|-----------------------------------------------------|----------|----------------------------------------------------|
+| Australia                                           | `r country_results_data$Australia$N_unique` | `r country_results_data$Australia$Delta` (`r country_results_data$Australia$se`) |
+| Canada                                              | `r country_results_data$Canada$N_unique`    | `r country_results_data$Canada$Delta` (`r country_results_data$Canada$se`) |
+| Denmark                                             | `r country_results_data$Denmark$N_unique`   | `r country_results_data$Denmark$Delta` (`r country_results_data$Denmark$se`) |
+| Germany                                             | `r country_results_data$Germany$N_unique`   | `r country_results_data$Germany$Delta` (`r country_results_data$Germany$se`) |
+| Netherlands                                         | `r country_results_data$Netherlands$N_unique` | `r country_results_data$Netherlands$Delta` (`r country_results_data$Netherlands$se`) |
+| Sweden                                              | `r country_results_data$Sweden$N_unique`    | `r country_results_data$Sweden$Delta` (`r country_results_data$Sweden$se`) |
+| United Kingdom                                      | `r country_results_data$'United Kingdom'$N_unique` | `r country_results_data$'United Kingdom'$Delta` (`r country_results_data$'United Kingdom'$se`) |
+| United States                                       | `r country_results_data$'United States'$N_unique` | `r country_results_data$'United States'$Delta` (`r country_results_data$'United States'$se`) |
 | United States, United Kingdom, Canada, Australia, and other | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$N_unique` | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$Delta` (`r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$se`) |
-
-: \* \< 0.05, \*\* \< 0.01, \*\*\* \< 0.001.
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 ### meat vs MAP
 
@@ -854,7 +851,6 @@ meat_vs_map <- dat |> split(~str_detect(
 The majority of studies in our database (`r meat_vs_map$'FALSE'$N_unique` of `r num_studies`) looked at reducing consumption of meat specifically, while the remaining `r meat_vs_map$'TRUE'$N_unique` studies looked at reducing consumption of meat and other animal products (typically eggs). The average effect size for the former is `r meat_vs_map$'FALSE'$Delta` (se = `r meat_vs_map$'FALSE'$se`), p = `r meat_vs_map$'FALSE'$pval`, while the average effect size for the latter is `r meat_vs_map$'TRUE'$Delta` (se = `r meat_vs_map$'TRUE'$se`), p = `r meat_vs_map$'TRUE'$pval`.
 
 ### Robustness to markers of study quality
-
 ```{r robustness_to_study_quality, echo=F, include=F}
 pap_split_results <- dat |> 
   mutate(has_pap = if_else(public_pre_analysis_plan == 'N', F, T)) |>
@@ -890,22 +886,23 @@ neither_pap_nor_open_data_results <- dat |>
 
 Table XXX displays the effect sizes of studies with a public pre-analysis plan, open data, both, and neither.
 
-| Open Science Practice | N_unique                                       | Delta (se)                                                                                                                                               |
-|-------------------|---------------|--------------------------------------|
-| Pre-analysis Plan     | `r pap_study_results$N_unique`                 | `r pap_study_results$Delta` (`r pap_study_results$se`)`r get_significance_stars(pap_study_results$pval)`                                                 |
-| Open Data             | `r open_data_results$N_unique`                 | `r open_data_results$Delta` (`r open_data_results$se`)`r get_significance_stars(open_data_results$pval)`                                                 |
-| Both                  | `r pap_and_open_data_results$N_unique`         | `r pap_and_open_data_results$Delta` (`r pap_and_open_data_results$se`)`r get_significance_stars(pap_and_open_data_results$pval)`                         |
-| Neither               | `r neither_pap_nor_open_data_results$N_unique` | `r neither_pap_nor_open_data_results$Delta` (`r neither_pap_nor_open_data_results$se`)`r get_significance_stars(neither_pap_nor_open_data_results$pval)` |
+| Open Science Practice            | N_unique | Delta (se)                                                     |
+|----------------------------------|----------|----------------------------------------------------------------|
+| Pre-analysis Plan                | `r pap_study_results$N_unique` | `r pap_study_results$Delta` (`r pap_study_results$se`)`r get_significance_stars(pap_study_results$pval)` |
+| Open Data                        | `r open_data_results$N_unique` | `r open_data_results$Delta` (`r open_data_results$se`)`r get_significance_stars(open_data_results$pval)` |
+| Both                             | `r pap_and_open_data_results$N_unique` | `r pap_and_open_data_results$Delta` (`r pap_and_open_data_results$se`)`r get_significance_stars(pap_and_open_data_results$pval)` |
+| Neither                          | `r neither_pap_nor_open_data_results$N_unique` | `r neither_pap_nor_open_data_results$Delta` (`r neither_pap_nor_open_data_results$se`)`r get_significance_stars(neither_pap_nor_open_data_results$pval)` |
+Table: * < 0.05, ** < 0.01, *** < 0.001.
 
-: \* \< 0.05, \*\* \< 0.01, \*\*\* \< 0.001.
-
-Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices [@john2012]. \### effect size over time
+Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices [@john2012].
+### effect size over time
 
 ### Addressing other sources of potential bias
 
 #### MetaUtility::prop_stronger
 
 #### regression to the meat
+
 
 ## Discussion
 
@@ -923,15 +920,15 @@ Even interpreting the RPMC results in the most optimistic light, however -- assu
 
 ### Are our small results surprising?
 
-That depends what literature you're reading. If you read the food literature, you might be shocked to see we don't find anything. If we had to guess, we'd say this is probably driven *most* by our looking only at actual MAP consumption, which we have prior reason to think does not line up very well with intentions and attitudes [@mathur2021effectiveness]. On the other hand, the broader literature on behavior change, finds
+That depends what literature you're reading. If you read the food literature, you might be shocked to see we don't find anything. If we had to guess, we'd say this is probably driven *most* by our looking only at actual MAP consumption, which we have prior reason to think does not line up very well with intentions and attitudes [@mathur2021effectiveness]. On the other hand, the broader literature on behavior change, finds 
 
--   self-reported intentions don't predict behavior [@kormos2014; @hassan2016],
+* self-reported intentions don't predict behavior [@kormos2014; @hassan2016], 
 
--   neither do attitudes [@porat2024];
+* neither do attitudes [@porat2024]; 
 
--   the best RCTs don't scale [@dellavigna2022];
+* the best RCTs don't scale [@dellavigna2022]; 
 
--   and the kinds of structural interventions that actually change deep-seated habits are hard to evaluate in an RCT. As @stevenson2023 so aptly puts it: "When it comes to the type of limited-scope interventions that lend themselves to high-quality evaluation, social change is hard to engineer."
+* and the kinds of structural interventions that actually change deep-seated habits are hard to evaluate in an RCT. As @stevenson2023 so aptly puts it: "When it comes to the type of limited-scope interventions that lend themselves to high-quality evaluation, social change is hard to engineer."
 
 ### Where should researchers go from here?
 
@@ -944,6 +941,7 @@ That depends what literature you're reading. If you read the food literature, yo
 -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
 -   one study ([Sparkman et al. 2020](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
 
-For policymakers, what we think works and doesn't overall: imagine that we magically were able to scale these interventions up to the entire western world .2 Policy lessons? - don't run a leaflet study and expect it to work. We need new leaflets or new approaches. - Ditto with online - If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much. - no handle whatsoever on what gets people to change outside of a dining hall
+For policymakers, what we think works and doesn't overall:
+imagine that we magically were able to scale these interventions up to the entire western world .2 Policy lessons? - don't run a leaflet study and expect it to work. We need new leaflets or new approaches. - Ditto with online - If you're a college administrator at an elite west coast college, the Jalil et al stuff is a great start,but awaiting replication. 10 classrooms is not very much. - no handle whatsoever on what gets people to change outside of a dining hall
 
 ### Bibliography
