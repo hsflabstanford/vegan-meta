@@ -510,7 +510,7 @@ We counted `r nrow(RPMC)` studies that meet our other criteria and look specific
 
 Finally, one study from @piester2020 ranked items in a university cafeteria by their sustainability with a leaf-based diagram, where more leaves corresponded to more sustainable choices. For example meals with lobster or pork were given three leaves; meals with chicken were given either three or four leaves, depending on the dish, as was macaroni and cheese; while pad thai with tofu was given five leaves. The study found a moderate, statistically nonsigificant effect of being exposed to this rating system. (We did not include this study in our main analysis because it was possible to substitute from pork or lobster to chicken and show an improvement in the dependent variable).
 
-## 5 Meta-analysis
+## Meta-analysis
 
 We report all results as Glass's ∆, which standardizes by variance of the control group rather than of the entire population (we use variance of the entire sample when individual variances were not presented). We employ random effects meta-analysis.
 
@@ -895,7 +895,33 @@ Table XXX displays the effect sizes of studies with a public pre-analysis plan, 
 Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices [@john2012].
+
 ### effect size over time
+
+In Figure XXX, we observe a slight rise in effect sizes over time, as well as a rise in the use pre-analysis plans and open data practices.
+```{r eff_size_by_year, echo=T}
+
+dat |> mutate(
+  best_practices = case_when(
+    public_pre_analysis_plan != 'N' & open_data != 'N' ~ "both",
+    public_pre_analysis_plan != 'N' ~ "pre-analysis plan", 
+    open_data != 'N' ~ "open data",
+    public_pre_analysis_plan == 'N' & open_data == 'N' ~ 'neither',
+    TRUE ~ NA)) |> 
+  ggplot(aes(y = d, x =  year)) + 
+  geom_point(aes(color = best_practices), size = 2) +
+  geom_smooth(method = "lm", color = "black", lty = "dotted", se = F) +
+  theme_minimal() +
+  labs(x = "year", y = "Effect sizes", color = "Best practices") + # Glass's \u0394 doesn't work
+  ggtitle("Relationship between publication date and effect sizes") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5,
+                                  face = "bold"))
+
+year_eff_size_relationship <- dat |> sum_lm(y = d, x = year)
+```
+
+Overall, the relationship between effect size and year of publication is tiny and not significant (b =`r year_eff_size_relationship[2,1]`, p = `r year_eff_size_relationship[2,4]`).
 
 ### Addressing other sources of potential bias
 
