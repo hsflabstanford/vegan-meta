@@ -66,6 +66,8 @@ ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML wh
 **Add https://doi.org/10.3197/jps.2021.5.2.17**
 **Add https://doi.org/10.1016/j.jneb.2023.09.006**
 **Add https://pubmed.ncbi.nlm.nih.gov/29364620/**
+**Add https://tabledebates.org/sites/default/files/2020-10/fcrn_chatham_house_0.df**
+**Add https://doi.org/10.1007/s12160-011-9308-7**
 Deviations from PAP
 ## Meta-analytic Methods
 

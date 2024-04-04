@@ -62,13 +62,14 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 ```{r libraries_and_function, include=F, echo=F}
 # libraries
 library(dplyr, warn.conflicts = F)
-library(stringr)
-library(metafor)
-library(knitr)
-library(purrr)
 library(ggplot2)
 library(ggtext)
+library(knitr)
+library(metafor)
+library(MetaUtility)
+library(purrr)
 library(rlang, warn.conflicts = F)
+library(stringr)
 
 # functions
 source('./functions/count_and_robust.R')
@@ -173,7 +174,7 @@ We build on that paper via the following inclusion criteria.
 
 First, we only look at randomized controlled trials for well-understood reasons [@cook2002; see @simonsohn2022 for discussion specific to meta-analysis]. This meant both that treatment was randomized and that there was a true, no-treatment control group for comparison.
 
-Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. Although this self-report is a potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019], it is a well-understood, widely studied problem, which means that we have reasonable priors about its magnitude, and therefore can account for it in our sensitivity analyses. However, we consider studies aimed at reducing consumption of particular meat products, typically red and/or processed meat, to be looking at a separate estimand, and thus we analyzed them separately as a point of comparison.[^2].
+Second, studies needed to measure MAP consumption directly, whether indirectly or through self-report. However, we consider studies aimed at reducing consumption of particular meat products, typically red and/or processed meat, to be looking at a separate estimand, and thus we analyzed them separately as a point of comparison.[^2].
 
 [^2]: If subjects reduce their red and/or processed meat consumption by switching to chicken or fish, this might be an improvement on environmental or health grounds but a step backwards for animal welfare [@mathur2022ethical]; both @klockner2017 and @lohmann2022 both explicitly recommended that subjects switch from red meat to other meat products.
 
@@ -795,7 +796,7 @@ On the one hand, we applaud these organizations for making their materials freel
 ```{r self_report, echo=F, include=F}
 self_report_results <- dat |> split(~self_report == 'Y') |> map(count_and_robust); self_report_results
 ```
-Based on past research[@mathur2021effectiveness], we expected to see evidence of self-report bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results$'TRUE'$N_unique ` studies with self-report outcomes have an average effect size of `r self_report_results$'TRUE'$Delta` (se = `r self_report_results$'TRUE'$se`), p = `r self_report_results$'TRUE'$pval`, while the `r self_report_results$'FALSE'$N_unique` studies with obliquely measured outcomes have an average effect size of `r self_report_results$'FALSE'$Delta` (se = `r self_report_results$'FALSE'$se`), p = `r self_report_results$'FALSE'$pval`.
+Self-reported outcomes are a well-understood potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019; @schoeller2013; @mathur2021effectiveness], and we expected to see evidence of this bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results$'TRUE'$N_unique ` studies with self-report outcomes have an average effect size of `r self_report_results$'TRUE'$Delta` (se = `r self_report_results$'TRUE'$se`), p = `r self_report_results$'TRUE'$pval`, while the `r self_report_results$'FALSE'$N_unique` studies with obliquely measured outcomes have an average effect size of `r self_report_results$'FALSE'$Delta` (se = `r self_report_results$'FALSE'$se`), p = `r self_report_results$'FALSE'$pval`.
 
 ```{r self_report_without_advocacy_studies, echo=F, include=F}
 dat |> filter(advocacy_org == 'N') |> split(~self_report == 'Y') |> map(count_and_robust)
@@ -928,6 +929,13 @@ Overall, the relationship between effect size and year of publication is tiny an
 
 ```{r what_is_a_significant_result}
 
+unabridged_model <- rma(yi = d, sei = se_d, data = dat)
+
+# prop_stronger_result <- 
+#   MetaUtility::prop_stronger(q = 0.2,
+#                              yi.name = d, vi.name = var_d, 
+#                              M = unabridged_model,
+#                              estimate.method = "calibrated")
 
 ```
 #### regression to the meat
@@ -937,8 +945,7 @@ Overall, the relationship between effect size and year of publication is tiny an
 
 ### The central unanswerewd question of interMAP substitution
 
-Given our disappointing central findings -- a general lack of efficacy on reducing overall MAP consumption -- the most important outstanding question in our meta-analysis is how much of the gap between general effects and RPMC effects is driven by substitution to other MAP products. Evidence from the literature on this question are mixed, in part because the available dependent variables are not very fine grained. For instance, @emmons2005project, @emmons2005cancer, and @sorensen2005 measure changes in red meat as well as changes in fruit and vegetable intake, but do not measure consumption of other categories of MAP or of grains and legumes. @carfora2017correlational, @carfora2017randomised and @carfora2019 all measure just consumption of either red or processed meat. Interestingly, @jalil2023, though not targeting RPMC specifically, records changes in beef, poultry, fish, and vegetarian meals, and finds larger reductions in poultry and fish than it does for red meat.[^4]
-
+Given our disappointing central findings -- a general lack of efficacy on reducing overall MAP consumption -- the most important outstanding question in our meta-analysis is how much of the gap between general effects and RPMC effects is driven by substitution to other MAP products. Evidence from the literature on this question are mixed, in part because the available dependent variables are not very fine grained. For instance, @emmons2005project, @emmons2005cancer, and @sorensen2005 measure changes in red meat as well as changes in fruit and vegetable intake, but do not measure consumption of other categories of MAP or of grains and legumes. @carfora2017correlational, @carfora2017randomised and @carfora2019 all measure just consumption of either red or processed meat. Interestingly, @jalil2023, though not targeting RPMC specifically, records changes in beef, poultry, fish, and vegetarian meals, and finds larger reductions in poultry and fish than it does for red meat. [Also mention Amiot 2018](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204590)[^4]
 [^4]: to fill in: some other studies answer related questions, e.g.https://www.sciencedirect.com/science/article/abs/pii/S2212267222010711
 
 A few papers explicitly advocate that people substitute: - [Klockner and Ostad (2017)](http://dx.doi.org/10.1016/j.jenvp.2017.01.006) advocate that people reduce RMC by three strategies: "reduce portion size for beef, substitute beef with other meats or fish, and increase the number of vegetarian meals)." But they don't measure anything besides RMC. - [Lohman et al. (2022](https://doi.org/10.1016/j.jeem.2022.102693)) find reductions in red meat, increases in some fish dishes, decreases in others, and an uptick in vegan/vegetarian meals (they don't have enough clusters to meet our sample size standards). [Larner et al. (2021)](https://kobra.uni-kassel.de/themes/Mirage2/scripts/mozilla-pdf.js/web/viewer.html?file=/bitstream/handle/123456789/12593/fofjVol9No1Art5.pdf?sequence=1&isAllowed=y#pagemode=thumbs') encourage substitution to poultry and eggs by labeling them low-impact, but again, don't report their outcomes in a way that would allow us to distinguish.
@@ -965,8 +972,10 @@ That depends what literature you're reading. If you read the food literature, yo
 -   Do a RPMC reduction study and assess effects on other MAP products too 😃
 -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
 -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
--   @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? Jalil too. see [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion.
+-   @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? Jalil too. see [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion. Also [Amiot 2018](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204590)
 -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3) vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
+- see "Unsustainable, unhealthy, or disgusting? Comparing different persuasive messages against meat consumption
+Meat eaters by dissociation: How we present, prepare and talk about meat increases willingness to eat meat by reducing empathy and disgust" and "Unsustainable, unhealthy, or disgusting? Comparing different persuasive messages against meat consumption" for discussion
 -   Do changes to menus or restaurant layouts have effects on treated consumers a week or two later, rather than just the day of? Most studies with these designs only measure outcomes while treatment is being administered or during the control period, but we also care about lasting changes in habits.REGRESSION TO THE MEAT
 -   one study ([Sparkman et al. 2020](https://www.mdpi.com/2071-1050/12/6/2453)) partnered with a grocery/restaurant delivery or meal prep service (which “abruptly closed” in the middle of their experiment). We think this is a promising strategy for deploying large-scale interventions and measuring real-world behavior. Perhaps someone at the [economics team at Instacart](https://tech.instacart.com/the-economics-team-at-instacart-94c48db951e8) is interested in pursuing this?
 

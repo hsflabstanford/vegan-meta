@@ -97,3 +97,11 @@ the text articles in our dataset don't frame it that way but they're very simila
 -   Alter one environment, how do people compensate? Do they? To track this -- to assess general equilibrium effects -- you need to track both what people at and also what they do after they leave the dining hall. No study in our dataset does this Andersson 2021 (and a few others?) address this head on...
 
 #### Social desirability bias..
+
+## are reminders about the environmental consequences of meat nudges?
+
+Dannenberg () says yes b/c people already know about that fact 
+We expected (and indeed found) that most participants would already know that a vegan diet would reduce emissions more than a vegetarian diet compared to the average diet containing meat, and that an important part of the information would not be new. Therefore, the information served mainly as a nudge (Thaler and Sunstein, 2008) that reminded participants which choice was the best from a climate perspective. Our treatments show the effect of this information nudge on food choice with and without observation by other people.
+
+### from an EA perspective
+https://medium.com/@harrisonnathan/the-actual-number-is-almost-surely-higher-92c908f36517#bcfd
