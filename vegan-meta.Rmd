@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "8657"
+wordcount: "8723"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -206,6 +206,8 @@ cv_papers <- as.numeric(paper_sources["CV (Sparkman)"]) +
 snowball_papers <- paper_sources["snowball search"]
 
 systematic_search_papers <- paper_sources["systematic search"]
+
+RP_papers <- paper_sources["RP systematic search"]
 ```
 
 First, we read all qualifying studies that authors 1 and 3 knew of at the outset, which yielded `r prior_knowledge` papers.
@@ -215,6 +217,8 @@ Second, we located and read XX previous systematic reviews, starting with @mathu
 Third, We checked the CVs of prominent researchers in the field, which yielded `r cv_papers` additional papers.
 
 Fourth, we conducted a snowball search where we read papers our assembled papers had cited, papers suggested to us by article homepages, and papers that cited articles already in our database. This yielded `r snowball_papers` papers.
+
+Fifth, we benefitted from an ongoing systematic search by researchers at Rethink Priorities, which yielded an additional `r RP_papers` papers.
 
 Finally, we conducted a systematic search of Google Scholar for the terms [OUR SEARCH TERMS ONCE WE ARE DONE]. This yielded `r systematic_search_papers` more papers, bringing our total sample size to `r num_papers` papers and `r num_studies` interventions.[^3]
 
@@ -789,7 +793,7 @@ Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 [table XXX about here]
 
-On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. On the other, this overall backlash result suggests that the approaches, delivery mechanisms, and specifics of these organizations' materials are in need of a rethink.
+On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. It might also be the case that these groups' most effective campaigns or materials have not yet been evaluated, or do not lend themselves well to evaluation (e.g. corporate campaigns). However this overall backlash result suggests that the approaches, delivery mechanisms, and specifics of the materials these organizations provide to others for re-use are in need of a rethink.
 
 ### self-report measures are not systematically different
 
