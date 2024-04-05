@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "8626"
+wordcount: "8657"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -972,6 +972,7 @@ That depends what literature you're reading. If you read the food literature, yo
 -   Do a RPMC reduction study and assess effects on other MAP products too 😃
 -   these studies are remarkably geographically concentrated. We lack rigorous evaluations of MAP reduction efforts in Latin America, Asia, and Africa.
 -   price interventions! constraints vs. preferences, focus on constraints! (Tabarrok piece on crime)
+  - also this piece found nudges didn't work but prices were much more important https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9021786/\
 -   @piester2020 find that food sustainability labels had a significant impact on women but very little impact on men. Should anti-MAP strategies generally be gender-tailored? Jalil too. see [Veul 2018](https://theses.ubn.ru.nl/items/fcd6b5e7-7981-4086-aca0-4da7d28d42b2) for further discussion. Also [Amiot 2018](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204590)
 -   How much is animal welfare advocacy activating [disgust](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189352/) [avoidance](https://www.nature.com/articles/s41598-021-91712-3) vs. empathy for animals? e.g. If videos of farmed animal lives show especially squalid or pathogenic living conditions, or if pamphlets about dairy cows talk about the [allowable level](https://genv.org/pus-in-milk/)of [blood and pus](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7649072/) in milk products, which theoretical perspective are these interventions embodying, or could empathy and disgust be compared to one another?
 - see "Unsustainable, unhealthy, or disgusting? Comparing different persuasive messages against meat consumption

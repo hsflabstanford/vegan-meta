@@ -1,3 +1,16 @@
+# 6 main takeaways.
+1. On average, these studies, which are the most rigorous in the literature, produce a strict null result.
+
+2. Animal welfare appeals generally and materials from animal advocacy organizations are especially ineffective, producing a small backlash effect on average and with no significant positive results: 2 backlashes and 11 nulls.
+
+3. Nudges seem to work better than other interventions, but the effect sizes are still small and we don't have a good grip on whether people compensate later by "regressing to the meat".
+
+4. norms studies seem to work in some instances but not others, and it's really not clear what the dividing principle is. Consider Sparkman 2020 studies 3 and 4, one works and one produces a backlash. why? Or is it all just noise?
+
+5. environmental and health appeals seem to work best in the rarefied setting of a few west coast liberal arts colleges. What settings can we generalize that to? 
+
+6. We have a stronger grasp on what reduces consumption of red and processed meat than we do for MAP in general, but we don't know how much those changes are driven by inter-MAP substitution.
+
 
 Issue: <https://www.vitalcitynyc.org/articles/fixing-the-research-to-policy-pipeline>
 
@@ -96,6 +109,8 @@ the text articles in our dataset don't frame it that way but they're very simila
 
 -   Alter one environment, how do people compensate? Do they? To track this -- to assess general equilibrium effects -- you need to track both what people at and also what they do after they leave the dining hall. No study in our dataset does this Andersson 2021 (and a few others?) address this head on...
 
+- [Curbing Portion Size Effects By Adding Smaller Portions At The Point Of Purchase](https://doi.org/10.1016/j.foodqual.2017.10.015) kind of gets at this but only in the sense of do they buy more meat right away
+
 #### Social desirability bias..
 
 ## are reminders about the environmental consequences of meat nudges?
@@ -105,3 +120,12 @@ We expected (and indeed found) that most participants would already know that a 
 
 ### from an EA perspective
 https://medium.com/@harrisonnathan/the-actual-number-is-almost-surely-higher-92c908f36517#bcfd
+
+### does the public accept being nudged?
+https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-023-17127-z
+
+### commitment mechanisms
+The Carfora studies and also https://doi.org/10.1016/j.appet.2019.06.007
+
+### GHG of different diets 
+https://www.nature.com/articles/s43016-023-00795-w/tables/2
