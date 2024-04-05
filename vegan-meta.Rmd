@@ -684,11 +684,11 @@ publication_type_eff_size_gt <- publication_type_eff_size_reformatted |>
     delta_se = "∆ (se)"
   ) |>
   tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
-
-publication_type_eff_size_gt
 ```
 
 Table XXX presents differences in average effect size by publication type.
+
+`r publication_type_eff_size_gt`
 
 [Table XXX about here]
 
@@ -791,11 +791,11 @@ delivery_method_gt_table <- delivery_method_results |>
   tab_source_note(
     source_note = "* < 0.05, ** < 0.01, *** < 0.001."
   )
-
-delivery_method_gt_table
 ```
 
 We now turn to the question of method of delivery. Table XXX reports our results.
+
+`r delivery_method_gt_table`
 
 [table XXX about here]
 
@@ -838,9 +838,10 @@ As suggested earlier by our tests for publication bias, evaluations of materials
 Table XXX displays the effect sizes associated with the materials of each animal advocacy organization in our dataset separated by the providing organization. Where N = 1, the estimate is not a meta-analytic estimate, but the results from that single study.
 
 `r advocacy_org_specific_table`
+
 [table XXX about here]
 
-On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. It might also be the case that these groups' most effective campaigns or materials have not yet been evaluated, or do not lend themselves well to evaluation (e.g. corporate campaigns). However this overall backlash result suggests that the approaches, delivery mechanisms, and specifics of the materials these organizations provide to others for re-use are in need of a rethink.
+On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. It might also be the case, in their defense, that these groups' most effective campaigns or materials have not yet been evaluated, or do not lend themselves well to evaluation (e.g. corporate campaigns). However, concerning the materials these organizations make available for others, some component of their approaches, delivery mechanisms, and content is in need of a rethink.
 
 ### self-report measures are not systematically different
 
@@ -858,11 +859,8 @@ We do not read too much into this, as there are numerous systematic differences 
 ### delay
 
 ```{r delay, echo=F, include=F}
-
 dat |> sum_lm(x = delay, y = d)
 dat |> sum_lm(x = delay_post_endline, y = d)
-
-
 ```
 
 We record two delay variables: one for time elapsed between the start of intervention and the last measurement, and one for time elapsed between the end of intervention and last measurement. In both cases, we find a strict null relationship between days of delay and effect size.
@@ -871,79 +869,103 @@ We record two delay variables: one for time elapsed between the start of interve
 
 ```{r eff_size_by_country, echo=F, include=F}
 
-country_results_data <- dat |> split(~country) |> 
-  map(count_and_robust); country_results_data
+country_results_table <- dat |> split(~country) |> 
+  map(count_and_robust) |> 
+  bind_rows(.id = "country") |> 
+  arrange(desc(N_unique)) |>
+  mutate(
+    country = if_else(country == "United States, United Kingdom, Canada, Australia, and other", "US, UK, Canada, Australia, and other", country),
+    delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)
+  ) |>
+  gt() |>
+  tab_header(
+    title = "Effect sizes by country") |>
+  cols_label(
+    country = "Country",
+    N_unique = "N (Studies)",
+    delta_se = "∆ (se)"
+  ) |>
+  tab_source_note(
+    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
+  )
 ```
 
-Table XXX presents results separated by the country in which they took place.
+Table XXX presents our results separated by country.
 
-| Country                                             | N_unique | Delta (se)                                         |
-|-----------------------------------------------------|----------|----------------------------------------------------|
-| Australia                                           | `r country_results_data$Australia$N_unique` | `r country_results_data$Australia$Delta` (`r country_results_data$Australia$se`) |
-| Canada                                              | `r country_results_data$Canada$N_unique`    | `r country_results_data$Canada$Delta` (`r country_results_data$Canada$se`) |
-| Denmark                                             | `r country_results_data$Denmark$N_unique`   | `r country_results_data$Denmark$Delta` (`r country_results_data$Denmark$se`) |
-| Germany                                             | `r country_results_data$Germany$N_unique`   | `r country_results_data$Germany$Delta` (`r country_results_data$Germany$se`) |
-| Netherlands                                         | `r country_results_data$Netherlands$N_unique` | `r country_results_data$Netherlands$Delta` (`r country_results_data$Netherlands$se`) |
-| Sweden                                              | `r country_results_data$Sweden$N_unique`    | `r country_results_data$Sweden$Delta` (`r country_results_data$Sweden$se`) |
-| United Kingdom                                      | `r country_results_data$'United Kingdom'$N_unique` | `r country_results_data$'United Kingdom'$Delta` (`r country_results_data$'United Kingdom'$se`) |
-| United States                                       | `r country_results_data$'United States'$N_unique` | `r country_results_data$'United States'$Delta` (`r country_results_data$'United States'$se`) |
-| United States, United Kingdom, Canada, Australia, and other | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$N_unique` | `r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$Delta` (`r country_results_data$'United States, United Kingdom, Canada, Australia, and other'$se`) |
-Table: * < 0.05, ** < 0.01, *** < 0.001.
+`r country_results_table`
+
+[table XXX about here]
 
 ### meat vs MAP
 
 ```{r meat_vs_MAP, echo=F, include=F}
 meat_vs_map <- dat |> split(~str_detect(
   pattern = "MAP", dat$outcome_category)) |>
-  map(count_and_robust); meat_vs_map
-  
+  map(count_and_robust) |> bind_rows(.id = 'meat_vs_map') |> 
+  mutate(
+    meat_vs_map = case_when(
+      meat_vs_map == TRUE ~ "MAP overall",
+      meat_vs_map == FALSE ~ "Meat",
+      TRUE ~ NA),
+    delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |>
+  select(meat_vs_map, N_unique, delta_se) |> 
+  gt() |>
+    tab_header(
+    title = "Table XXX",
+    subtitle = "Differences in effect studies between Meat and MAP outcomes") |>
+  cols_label(
+    meat_vs_map = "Outcome type",
+    N_unique = "N (Studies)",
+    delta_se = "∆ (se)"
+  ) |>
+  tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
 ```
 
-The majority of studies in our database (`r meat_vs_map$'FALSE'$N_unique` of `r num_studies`) looked at reducing consumption of meat specifically, while the remaining `r meat_vs_map$'TRUE'$N_unique` studies looked at reducing consumption of meat and other animal products (typically eggs). The average effect size for the former is `r meat_vs_map$'FALSE'$Delta` (se = `r meat_vs_map$'FALSE'$se`), p = `r meat_vs_map$'FALSE'$pval`, while the average effect size for the latter is `r meat_vs_map$'TRUE'$Delta` (se = `r meat_vs_map$'TRUE'$se`), p = `r meat_vs_map$'TRUE'$pval`.
+The majority of studies in our database look at meat consunmption specifically rather than meat and other animal products (typically eggs). Both categories of study find null results.
+
+`r meat_vs_map`
 
 ### Robustness to markers of study quality
 ```{r robustness_to_study_quality, echo=F, include=F}
-pap_split_results <- dat |> 
-  mutate(has_pap = if_else(public_pre_analysis_plan == 'N', F, T)) |>
-  split(~has_pap) |> map(count_and_robust); pap_split_results
+study_quality_results <- list(
+    "Pre-analysis Plan" = dat |> filter(public_pre_analysis_plan != 'N'),
+    "Open Data" = dat |> filter(open_data != 'N'),
+    "Both" = dat |> filter(public_pre_analysis_plan != 'N', open_data != 'N'),
+    "Neither" = dat |> filter(public_pre_analysis_plan == 'N', open_data == 'N')
+  ) |>
+  map(~ .x |> count_and_robust()) |>
+  bind_rows(.id = "Open Science Practice")
 
-open_data_results <- dat |> 
-  mutate(has_open_data = if_else(open_data == 'N', F, T)) |>
-  split(~has_open_data) |> map(count_and_robust); open_data_results
+study_quality_results_reformatted <- study_quality_results |> 
+  mutate(
+    delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)
+  ) |> 
+  select(`Open Science Practice`, N_unique, delta_se)
+
+study_quality_results_table <- study_quality_results_reformatted |>
+  gt() |>
+  tab_header(
+    title = "Table XXX",
+    subtitle = "Effect Sizes of Studies by Open Science Practices"
+  ) |>
+  cols_label(
+    `Open Science Practice` = "Open Science Practice",
+    N_unique = "N (Studies)",
+    delta_se = "∆ (se)"
+  ) |>
+  tab_source_note(
+    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
+  )
+
 ```
 
 Regarding open science practices, we find something encouraging and surprising: studies with pre-analysis plans and publicly accessible data tend to have larger effect sizes.
 
-```{r open_science_practice_results, echo=F, include=F}
-
-pap_study_results <- dat |> 
-  filter(public_pre_analysis_plan != 'N') |> 
-  count_and_robust(); pap_study_results
-  
-open_data_results <- dat |> 
-  filter(open_data != 'N') |> 
-  count_and_robust(); open_data_results
-  
-pap_and_open_data_results <- dat |>
-  filter(public_pre_analysis_plan != 'N',
-         open_data != 'N') |> 
-  count_and_robust(); pap_and_open_data_results
-
-neither_pap_nor_open_data_results <- dat |>
-  filter(public_pre_analysis_plan == 'N',
-         open_data == 'N') |> 
-  count_and_robust(); neither_pap_nor_open_data_results
-```
-
 Table XXX displays the effect sizes of studies with a public pre-analysis plan, open data, both, and neither.
 
-| Open Science Practice            | N_unique | Delta (se)                                                     |
-|----------------------------------|----------|----------------------------------------------------------------|
-| Pre-analysis Plan                | `r pap_study_results$N_unique` | `r pap_study_results$Delta` (`r pap_study_results$se`)`r get_significance_stars(pap_study_results$pval)` |
-| Open Data                        | `r open_data_results$N_unique` | `r open_data_results$Delta` (`r open_data_results$se`)`r get_significance_stars(open_data_results$pval)` |
-| Both                             | `r pap_and_open_data_results$N_unique` | `r pap_and_open_data_results$Delta` (`r pap_and_open_data_results$se`)`r get_significance_stars(pap_and_open_data_results$pval)` |
-| Neither                          | `r neither_pap_nor_open_data_results$N_unique` | `r neither_pap_nor_open_data_results$Delta` (`r neither_pap_nor_open_data_results$se`)`r get_significance_stars(neither_pap_nor_open_data_results$pval)` |
-Table: * < 0.05, ** < 0.01, *** < 0.001.
+`r study_quality_results_table`
+
+[Table XXX about here]
 
 Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices [@john2012].
 
@@ -990,7 +1012,6 @@ unabridged_model <- rma(yi = d, sei = se_d, data = dat)
 
 ```
 #### regression to the meat
-
 
 ## Discussion
 
