@@ -70,6 +70,7 @@ library(MetaUtility)
 library(purrr)
 library(rlang, warn.conflicts = F)
 library(stringr)
+library(gt)
 
 # functions
 source('./functions/count_and_robust.R')
@@ -86,18 +87,21 @@ bold_labels <- function(x) {
 }
 
 get_significance_stars <- function(pval) {
-  if (is.na(pval)) {
-    return("")
-  } else if (pval < 0.001) {
-    return("***")
-  } else if (pval < 0.01) {
-    return("**")
-  } else if (pval < 0.05) {
-    return("*")
-  } else {
-    return("")
-  }
+  sapply(pval, function(x) {
+    if (is.na(x)) {
+      ""
+    } else if (x < 0.001) {
+      "***"
+    } else if (x < 0.01) {
+      "**"
+    } else if (x < 0.05) {
+      "*"
+    } else {
+      ""
+    }
+  })
 }
+
 knitr::opts_chunk$set(fig.path = "results/figures/")
 ```
 
@@ -641,9 +645,6 @@ By contrast, the `r nrow(RPMC)` studies looking to reduce consumption of red and
 
 ```{r publication_bias, echo=F, include=F}
 eff_size_d_relationship <- dat |> sum_lm(d, se_d)
-
-publication_type_eff_size <- dat |> split(~pub_status) |> 
-  map(count_and_robust); publication_type_eff_size
 ```
 
 We observe a moderate, though statistically insignificant relationship between effect size and standard error (b = `r eff_size_d_relationship[2,1]`), p = `r eff_size_d_relationship[2,4]`, meaning that larger effect sizes are more likely to be imprecise estimates in our sample Figure 2 displays this relationship, color coded by publication type.
@@ -665,19 +666,25 @@ As this graph suggests, we see systematically smaller results in reports by advo
 
 ```{r publication_type_table, include=F, echo=F}
 publication_type_eff_size <- dat |> split(~pub_status) |> 
- map(count_and_robust); publication_type_eff_size
+  map(count_and_robust) |> bind_rows(.id = "Publication type") |> mutate(
+    `∆ (se)` = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)
+  ) |>
+  select(`Publication type`, N_unique, `∆ (se)`)  # Select only necessary columns
+
+publication_type_eff_size_gt <- publication_type_eff_size |>
+  gt() |>
+  tab_header(
+    title = "Table XXX",
+    subtitle = "Differences in Average Effect Size by Publication Type"
+  ) |>
+  cols_label(
+    `Publication type` = "Publication Type",
+    N_unique = "N (Studies)"
+  ) |>
+  tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
 ```
 
-Table XXX presents differences in average effect size by publication type.
-
-[Table XXX about here]
-
-| Approach              | N (studies)                                                    | DELTA (se)                                                                                                                                                                                                                                                                                                                                                           |
-|------------|------------|-------------------------------------------------|
-| Advocacy organization | `r publication_type_eff_size$'Advocacy organization'$N_unique` | `r publication_type_eff_size$'Advocacy organization'$Delta` (`r publication_type_eff_size$'Advocacy organization'$se`)`r ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Advocacy organization'$pval < 0.001, "***", "")))` |
-| Journal article       | `r publication_type_eff_size$'Journal article'$N_unique`       | `r publication_type_eff_size$'Journal article'$Delta` (`r publication_type_eff_size$'Journal article'$se`)`r ifelse(publication_type_eff_size$'Journal article'$pval < 0.05, "*", ifelse(publication_type_eff_size$'Journal article'$pval < 0.01, "**", ifelse(publication_type_eff_size$'Journal article'$pval < 0.001, "***", "")))`                               |
-| Preprint              | `r publication_type_eff_size$Preprint$N_unique`                | `r publication_type_eff_size$Preprint$Delta` (`r publication_type_eff_size$Preprint$se`)`r ifelse(publication_type_eff_size$Preprint$pval < 0.05, "*", ifelse(publication_type_eff_size$Preprint$pval < 0.01, "**", ifelse(publication_type_eff_size$Preprint$pval < 0.001, "***", "")))`                                                                            |
-| Thesis                | `r publication_type_eff_size$Thesis$N_unique`                  | `r publication_type_eff_size$Thesis$Delta` (`r publication_type_eff_size$Thesis$se`)`r ifelse(publication_type_eff_size$Thesis$pval < 0.05, "*", ifelse(publication_type_eff_size$Thesis$pval < 0.01, "**", ifelse(publication_type_eff_size$Thesis$pval < 0.001, "***", "")))`                                                                                      |
+Table `r publication_type_eff_size_gt` presents differences in average effect size by publication type.
 
 We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
 
