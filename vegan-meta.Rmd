@@ -682,9 +682,11 @@ publication_type_eff_size_gt <- publication_type_eff_size |>
     N_unique = "N (Studies)"
   ) |>
   tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
+
+publication_type_eff_size_gt
 ```
 
-Table `r publication_type_eff_size_gt` presents differences in average effect size by publication type.
+Table XXX presents differences in average effect size by publication type.
 
 We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
 
