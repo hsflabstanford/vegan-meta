@@ -172,7 +172,6 @@ Section 5 presents our quantitative results. We provide a mixture of pooled aver
 
 Meta-analysis is a powerful, flexible procedure for pooling results from many studies into a singular estimate, or cluster of estimates, denoting the relationship between a treatment and an outcome across contexts. For this to be an unbiased estimate of the true causal relationship between the two requires several additional assumptions. First, the pooled studies must each furnish an unbiased causal estimate. Second, the set of studies must be a random sample of the universe of possible studies, and not, for instance, truncated by publication bias [@thornton2000]. Third, the assembled outcomes must have a persistent, known relationship with the true outcome of interest.
 
-Each of these propositions is, in theory, testable and amenable to statistical correction (see @mathur2022 and @green2024 for suggestions and strategies). However, the most fundamental challenge to meta-analysis is whether the underlying data are coherently integrable. A recent paper by @slough2023 makes this point forcefully. In their view, for studies to have "target equivalence" \textemdash the property of identifying "the same estimand" (p. 1) \textemdash they must first achieve harmonized contrasts and measurements, meaning that the "substantive comparison across studies is the same" and "the outcome of interest is the same and it is measured in the same way" (p.2). These properties are necessary for meta-analytic results to be "meaningful and interpretable" (p.2). Crucially, they cannot be achieved "solely with statistical techniques" and are instead a product of tailored "design or inclusion criteria" (p.2).
 
 We build on that paper via the following inclusion criteria.
 
@@ -666,35 +665,37 @@ As this graph suggests, we see systematically smaller results in reports by advo
 
 ```{r publication_type_table, include=F, echo=F}
 publication_type_eff_size <- dat |> split(~pub_status) |> 
-  map(count_and_robust) |> bind_rows(.id = "Publication type") |> mutate(
-    `∆ (se)` = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)
-  ) |>
-  select(`Publication type`, N_unique, `∆ (se)`)  # Select only necessary columns
+  map(count_and_robust) |> 
+  bind_rows(.id = "publication_type"); publication_type_eff_size
 
-publication_type_eff_size_gt <- publication_type_eff_size |>
+publication_type_eff_size_reformatted <- publication_type_eff_size |> 
+  mutate(delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |>
+  select(publication_type, N_unique, delta_se) # Select only necessary columns
+
+publication_type_eff_size_gt <- publication_type_eff_size_reformatted |>
   gt() |>
   tab_header(
     title = "Table XXX",
     subtitle = "Differences in Average Effect Size by Publication Type"
   ) |>
   cols_label(
-    `Publication type` = "Publication Type",
-    N_unique = "N (Studies)"
+    publication_type = "Publication Type",
+    N_unique = "N (Studies)",
+    delta_se = "∆ (se)"
   ) |>
   tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
+
+publication_type_eff_size_gt
 ```
 
 Table XXX presents differences in average effect size by publication type.
 
-`r publication_type_eff_size_gt`
-
 [Table XXX about here]
 
-We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size$'Advocacy organization'$pval`).
+We see that all effect sizes are clustered around small, insignificant results, except for the advocacy organization category, which show a very small backlash on average (p = `r publication_type_eff_size |> filter(publication_type == "Advocacy organization") |> pull(pval)`).
 
 ```{r within_journal_pub_bias, echo=F, include=F}
 within_journal_article_bias <- dat |> filter(pub_status == "Journal article") |> sum_lm(d, se_d)
-within_journal_article_bias[2,1]
 ```
 
 These four categories of publication -- preprint, jounral article, theses (both bachelor's and graduate), and advocacy organization materials -- are subject to different processes and incentives. One way to account for this in a check for publication bias is to look for a relationship between standard errors and effect sizes within journal articles, which would be evidence for the "file drawer problem" [@rosenthal1979]. We find no such relationship (b = `r within_journal_article_bias[2,1]` (se = `r within_journal_article_bias[2,2]`), p = `r within_journal_article_bias[2,4]`).
@@ -710,35 +711,47 @@ As an example of a backlash result, study one in @feltz2022 found that subjects 
 ### Comparing theoretical approaches
 
 ```{r theoretical_approaches, echo=F, include=F}
-norms_results <- dat |> filter(str_detect(theory, "norms")) |> count_and_robust(); norms_results
+# Filter the data for each theory/approach, apply count_and_robust, and then combine
+all_results <- bind_rows(
+  dat |> filter(str_detect(theory, "norms")) |> count_and_robust() |> mutate(Approach = "Norms"),
+  dat |> filter(str_detect(theory, "nudge")) |> count_and_robust() |> mutate(Approach = "Nudge"),
+  dat |> filter(str_detect(secondary_theory, "health")) |> count_and_robust() |> mutate(Approach = "Health"),
+  dat |> filter(str_detect(secondary_theory, "environment")) |> count_and_robust() |> mutate(Approach = "Environment"),
+  dat |> filter(str_detect(secondary_theory, "animal welfare")) |> count_and_robust() |> mutate(Approach = "Animal Welfare"),
+  dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust() |> mutate(Approach = "Persuasion")
+) |> select(Approach, N_unique, everything()); all_results
 
-nudge_results <- dat |> filter(str_detect(theory, "nudge")) |> count_and_robust(); nudge_results
+# Format for gt table
+all_results_formatted <- all_results |>
+  mutate(
+    `Glass's ∆ (se)` = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)
+  ) |>
+  select(Approach, N_unique, `Glass's ∆ (se)`)
 
-health_results <- dat |> filter(str_detect(secondary_theory, "health")) |> count_and_robust(); health_results
-
-environment_results <- dat |> filter(str_detect(secondary_theory, "environment")) |> count_and_robust(); environment_results
-
-animal_welfare_results <- dat |> filter(str_detect(secondary_theory, "animal welfare")) |> count_and_robust(); animal_welfare_results
-
-# for general comparison
-persuasion_results <- dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust(); persuasion_results
+all_results_gt_table <- all_results_formatted |>
+  gt() |>
+  tab_header(
+    title = "Summary of Results by Theory/Approach",
+    subtitle = "Comparing Effect Sizes Across Different Theories"
+  ) |>
+  cols_label(
+    Approach = "Approach",
+    N_unique = "N (Studies)",
+    `Glass's ∆ (se)` = "Glass's ∆ (se)"
+  ) |>
+  tab_source_note(
+    source_note = "* < 0.05, ** < 0.01, *** < 0.001. Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample."
+  )
 ```
 
-Table XXX presents the results of our meta-analysis by theoretical approach. Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample.
+Table XXX presents the results of our meta-analysis by theoretical approach. 
+
+`r all_results_gt_table`
 
 [table XXX about here]
 
-Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r nudge_results$N_unique` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
+Nudges are generally the most effective approach in our subset, producing statistically significant results that correspond to a small effect size by convention. However, they are also the smallest set of studies (`r all_results_formatted |> filter(Approach == "Nudge") |> pull(N_unique)` of `r num_studies` studies). Health and environmental appeals, though substantively small effect sizes, produce statistically significant changes as well. Animal welfare appeals and norms-based approaches do not produce statistically or substantively significant changes in MAP consumption.
 
-| Approach       | N (studies)                         | Glass's DELTA (se)                                                                                                                                                                                                            |
-|------------|------------|-------------------------------------------------|
-| Norms          | `r norms_results$N_unique`          | `r norms_results$Delta` (`r norms_results$se`)`r ifelse(norms_results$pval < 0.001, "***", ifelse(norms_results$pval < 0.01, "**", ifelse(norms_results$pval < 0.05, "*", "")))`                                              |
-| Nudge          | `r nudge_results$N_unique`          | `r nudge_results$Delta` (`r nudge_results$se`)`r ifelse(nudge_results$pval < 0.001, "***", ifelse(nudge_results$pval < 0.01, "**", ifelse(nudge_results$pval < 0.05, "*", "")))`                                              |
-| Health         | `r health_results$N_unique`         | `r health_results$Delta` (`r health_results$se`)`r ifelse(health_results$pval < 0.001, "***", ifelse(health_results$pval < 0.01, "**", ifelse(health_results$pval < 0.05, "*", "")))`                                         |
-| Environment    | `r environment_results$N_unique`    | `r environment_results$Delta` (`r environment_results$se`)`r ifelse(environment_results$pval < 0.001, "***", ifelse(environment_results$pval < 0.01, "**", ifelse(environment_results$pval < 0.05, "*", "")))`                |
-| Animal Welfare | `r animal_welfare_results$N_unique` | `r animal_welfare_results$Delta` (`r animal_welfare_results$se`)`r ifelse(animal_welfare_results$pval < 0.001, "***", ifelse(animal_welfare_results$pval < 0.01, "**", ifelse(animal_welfare_results$pval < 0.05, "*", "")))` |
-
-Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 ```{r norms_in_more_detail, echo=F, include=F}
 dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic")) |> count_and_robust(); dynamic_norms_results
@@ -751,28 +764,40 @@ Dynamic norms interventions appear to be more effective than static norms interv
 ### Internet, video, and pamphlet studies are ineffective
 
 ```{r delivery_methods, echo=F, include=F}
+delivery_method_results <- bind_rows(
+  dat |> filter(str_detect(internet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Internet"),
+  dat |> filter(str_detect(leaflet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Pamphlet"),
+  dat |> filter(str_detect(video, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Video"),
+  dat |> filter(cafeteria_or_restaurant_based == "Y") |> count_and_robust() |> mutate(DeliveryMethod = "Place-Based"),
+  dat |> filter(cafeteria_or_restaurant_based == 'N' &
+                  !str_detect(video, "Y") &
+                  !str_detect(leaflet, "Y") &
+                  !str_detect(internet, "Y")) |> count_and_robust() |>
+  mutate(DeliveryMethod = "Everything else")) |> 
+  mutate(delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |>
+  select(DeliveryMethod, N_unique, delta_se); delivery_method_results
 
-internet_results <- dat |> filter(str_detect(internet, "Y")) |> count_and_robust(); internet_results
+delivery_method_gt_table <- delivery_method_results |>
+  gt() |>
+  tab_header(
+    title = "Summary of Results by Delivery Method",
+    subtitle = "Comparing Effect Sizes Across Different Delivery Methods"
+  ) |>
+  cols_label(
+    DeliveryMethod = "Delivery Method",
+    N_unique = "N (Studies)",
+    delta_se = "Glass's ∆ (se)"
+  ) |>
+  tab_source_note(
+    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
+  )
 
-pamphlet_results <- dat |> filter(str_detect(leaflet, "Y")) |> count_and_robust(); pamphlet_results
-
-video_results <- dat |> filter(str_detect(video, "Y")) |> count_and_robust(); video_results
-
-place_based_results <- dat |> filter(dat$cafeteria_or_restaurant_based == "Y") |> count_and_robust(); place_based_results
+delivery_method_gt_table
 ```
 
 We now turn to the question of method of delivery. Table XXX reports our results.
 
 [table XXX about here]
-
-| Method of Delivery                 | N (studies)                      | Glass's DELTA (se)                                                                                                                                                                                             |
-|-------------|-------------|-----------------------------------------------|
-| Internet                           | `r internet_results$N_unique`    | `r internet_results$Delta` (`r internet_results$se`)`r ifelse(internet_results$pval < 0.001, "***", ifelse(internet_results$pval < 0.01, "**", ifelse(internet_results$pval < 0.05, "*", "")))`                |
-| Pamphlet                           | `r pamphlet_results$N_unique`    | `r pamphlet_results$Delta` (`r pamphlet_results$se`)`r ifelse(pamphlet_results$pval < 0.001, "***", ifelse(pamphlet_results$pval < 0.01, "**", ifelse(pamphlet_results$pval < 0.05, "*", "")))`                |
-| Video                              | `r video_results$N_unique`       | `r video_results$Delta` (`r video_results$se`)`r ifelse(video_results$pval < 0.001, "***", ifelse(video_results$pval < 0.01, "**", ifelse(video_results$pval < 0.05, "*", "")))`                               |
-| Place-based (Cafeteria/Restaurant) | `r place_based_results$N_unique` | `r place_based_results$Delta` (`r place_based_results$se`)`r ifelse(place_based_results$pval < 0.001, "***", ifelse(place_based_results$pval < 0.01, "**", ifelse(place_based_results$pval < 0.05, "*", "")))` |
-
-Table: * < 0.05, ** < 0.01, *** < 0.001.
 
 Here we see that internet-based and video interventions are not effective. Pamphlet/leaflet studies produce an overall backlash effect, though this is not statistically significant.
 
@@ -781,27 +806,38 @@ Place-based interventions, such as those in cafeterias or restaurants, are compa
 ### Animal advocacy materials need a rethink
 
 ```{r animal_advocacy_org_materials, echo=F, include=F}
-advocacy_results <- dat |> mutate(advocacy_materials = if_else(advocacy_org == "N", F, T)) |> 
-  split(~advocacy_materials) |> map(count_and_robust); advocacy_results 
+advocacy_results <- dat |>
+  mutate(advocacy_materials = if_else(advocacy_org == "N", "Researcher materials", "Advocacy organization materials")) |>
+  split(~advocacy_materials) |>
+  map(count_and_robust) |>
+  bind_rows(.id = "Intervention_type"); advocacy_results
 
-advocacy_org_specific_results <- dat |> split(~advocacy_org) |> map(count_and_robust); advocacy_org_specific_results
+advocacy_org_specific_results <- dat |>
+  split(~advocacy_org) |>
+  map(count_and_robust)|>
+  bind_rows(.id = "advocacy_org") |>
+  arrange(desc(N_unique)) |>
+  mutate(
+    advocacy_org = if_else(advocacy_org == "N", 
+                           "Researchers (non-advocacy)", 
+                           advocacy_org),
+    delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), 
+                       se)) |>
+  select(advocacy_org, N_unique, delta_se); advocacy_org_specific_results
+
+advocacy_org_specific_table <- advocacy_org_specific_results |> 
+  gt() |> 
+  tab_header(
+    title = "Table XXX",
+    subtitle = "Effect sizes associated with animnal advocacy organizations"
+  )
 ```
 
-As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r advocacy_results$'TRUE'['N_unique']` studies were either conducted by animal advocacy organizations or used their materials; these have an pooled effect size of `r advocacy_results$'TRUE'$Delta` (se = `r advocacy_results$'TRUE'$se`), p = `r advocacy_results$'TRUE'$pval`. In other words, a miniscule backlash.By contrast, `r advocacy_results$'FALSE'['N_unique']` studies were not conducted by animal advocacy organizations or use their materials, and have a pooled effect size of `r advocacy_results$'FALSE'$Delta` (se = `r advocacy_results$'FALSE'$se`), p = `r advocacy_results$'FALSE'$pval`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
+As suggested earlier by our tests for publication bias, evaluations of materials provided by animal advocacy organizations are not effective at reducing MAP consumption. `r sum(advocacy_results$N_unique[advocacy_results$Intervention_type == "Advocacy organization materials"])` studies were either conducted by animal advocacy organizations or used their materials; these have a pooled effect size of `r advocacy_results$Delta[advocacy_results$Intervention_type == "Advocacy organization materials"]` (se = `r advocacy_results$se[advocacy_results$Intervention_type == "Advocacy organization materials"]`), p = `r advocacy_results$pval[advocacy_results$Intervention_type == "Advocacy organization materials"]`. In other words, a minuscule backlash. By contrast, `r sum(advocacy_results$N_unique[advocacy_results$Intervention_type == "Researcher materials"])` studies were not conducted by animal advocacy organizations or used their materials, and have a pooled effect size of `r advocacy_results$Delta[advocacy_results$Intervention_type == "Researcher materials"]` (se = `r advocacy_results$se[advocacy_results$Intervention_type == "Researcher materials"]`), p = `r advocacy_results$pval[advocacy_results$Intervention_type == "Researcher materials"]`. While we consider both of these results to be null, we observe that with the animal advocacy organizations subtracted, the remaining studies are statistically significant at p < 0.01.
 
 Table XXX displays the effect sizes associated with the materials of each animal advocacy organization in our dataset separated by the providing organization. Where N = 1, the estimate is not a meta-analytic estimate, but the results from that single study.
 
-| Organization        | N (studies) | ∆ (se) |
-|---------------------|-------------|------------|
-| NA (Academic)       | `r advocacy_org_specific_results$N[['N_unique']]`                    | `r advocacy_org_specific_results$N[['Delta']]` (`r advocacy_org_specific_results$N[['se']]`)`r get_significance_stars(advocacy_org_specific_results$N[['pval']])` |
-| Humane League       | `r advocacy_org_specific_results$'Humane League'[['N_unique']]`       | `r advocacy_org_specific_results$'Humane League'[['Delta']]` (`r advocacy_org_specific_results$'Humane League'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Humane League'[['pval']])` |
-| Vegan Outreach      | `r advocacy_org_specific_results$'Vegan Outreach'[['N_unique']]`     | `r advocacy_org_specific_results$'Vegan Outreach'[['Delta']]` (`r advocacy_org_specific_results$'Vegan Outreach'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Vegan Outreach'[['pval']])` |
-| Animal Rights Watch | `r advocacy_org_specific_results$'Animal Rights Watch'[['N_unique']]` | `r advocacy_org_specific_results$'Animal Rights Watch'[['Delta']]` (`r advocacy_org_specific_results$'Animal Rights Watch'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animal Rights Watch'[['pval']])` |
-| Animals Australia   | `r advocacy_org_specific_results$'Animals Australia'[['N_unique']]`   | `r advocacy_org_specific_results$'Animals Australia'[['Delta']]` (`r advocacy_org_specific_results$'Animals Australia'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Animals Australia'[['pval']])` |
-| Faunalytics         | `r advocacy_org_specific_results$Faunalytics[['N_unique']]`            | `r advocacy_org_specific_results$Faunalytics[['Delta']]` (`r advocacy_org_specific_results$Faunalytics[['se']]`)`r get_significance_stars(advocacy_org_specific_results$Faunalytics[['pval']])` |
-| Mercy For Animals   | `r advocacy_org_specific_results$'Mercy For Animals'[['N_unique']]`   | `r advocacy_org_specific_results$'Mercy For Animals'[['Delta']]` (`r advocacy_org_specific_results$'Mercy For Animals'[['se']]`)`r get_significance_stars(advocacy_org_specific_results$'Mercy For Animals'[['pval']])` |
-Table: * < 0.05, ** < 0.01, *** < 0.001.
-
+`r advocacy_org_specific_table`
 [table XXX about here]
 
 On the one hand, we applaud these organizations for making their materials freely available and for publishing null results when they find them. It might also be the case that these groups' most effective campaigns or materials have not yet been evaluated, or do not lend themselves well to evaluation (e.g. corporate campaigns). However this overall backlash result suggests that the approaches, delivery mechanisms, and specifics of the materials these organizations provide to others for re-use are in need of a rethink.
