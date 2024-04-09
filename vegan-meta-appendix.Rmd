@@ -71,7 +71,10 @@ ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML wh
 **Add https://doi.org/10.1017/S0029665119000971**
 **Add https://www.whp-journals.co.uk/JPS/article/view/676/489**
 **Add https://doi.org/10.1016/j.appet.2021.105662**
-**Add [Low-agency population interventions to reduce meat consumption in the UK: an umbrella review](http://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42018109901)**
+**Add [Low-agency population interventions to reduce meat consumption in the UK: an umbrella review](http://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42018109901)
+**Add 10.1016/j.scitotenv.2020.137208** 
+**Add 10.1016/j.foodpol.2020.101847**
+
 Deviations from PAP
 ## Meta-analytic Methods
 
