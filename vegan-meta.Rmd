@@ -102,7 +102,9 @@ get_significance_stars <- function(pval) {
   })
 }
 
-knitr::opts_chunk$set(fig.path = "results/figures/")
+knitr::opts_chunk$set(fig.path = "results/figures/",
+                      warning=FALSE, message=FALSE)
+
 options(scipen = 99)
 ```
 
