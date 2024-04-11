@@ -570,7 +570,7 @@ pap_split[[1]]$Delta
 
 ### An overall null effect
 
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `rmain_result$Delta` (se = `r main_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r main_result$Delta` (se = `r main_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
 
 A vote counting procedure [@bushman1994] demonstates the same point more starkly. In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no statistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
 
