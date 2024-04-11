@@ -34,7 +34,7 @@ authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
-wordcount: "8723"
+wordcount: "7947"
 bibliography: "./manuscript/vegan-refs.bib"
 floatsintext: no
 linenumbers: no
@@ -106,7 +106,7 @@ knitr::opts_chunk$set(fig.path = "results/figures/")
 ```
 
 ```{r data, echo=F, include=F}
-dat <- read.csv('./data/vegan-meta.csv')  |>
+dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
   ungroup() |> 
@@ -807,7 +807,8 @@ Place-based interventions, such as those in cafeterias or restaurants, are compa
 
 ```{r animal_advocacy_org_materials, echo=F, include=F}
 advocacy_results <- dat |>
-  mutate(advocacy_materials = if_else(advocacy_org == "N", "Researcher materials", "Advocacy organization materials")) |>
+  mutate(advocacy_materials = if_else(advocacy_org == "N", 
+                                      "Researcher materials", "Advocacy organization materials")) |>
   split(~advocacy_materials) |>
   map(count_and_robust) |>
   bind_rows(.id = "Intervention_type"); advocacy_results
@@ -969,7 +970,7 @@ Table XXX displays the effect sizes of studies with a public pre-analysis plan, 
 
 Overall, these results suggest that what strong effects we do observe are generally not driven by questionable research practices [@john2012].
 
-### effect size over time
+### effect size over the years
 
 In Figure XXX, we observe a slight rise in effect sizes over time, as well as a rise in the use pre-analysis plans and open data practices.
 ```{r eff_size_by_year, echo=T}
@@ -995,6 +996,19 @@ year_eff_size_relationship <- dat |> sum_lm(y = d, x = year)
 ```
 
 Overall, the relationship between effect size and year of publication is tiny and not significant (b =`r year_eff_size_relationship[2,1]`, p = `r year_eff_size_relationship[2,4]`).
+
+### Psychology studies
+Some studies come from a social psych perspective and are testing theories of behavioral change like TMB or the Bertolaso thing... and they find...
+
+```{r psychology_theories, echo=F, include=F}
+psych_papers <- dat |> 
+  filter(str_detect(secondary_theory, "psychology")) 
+
+psych_results <- psych_papers |>  map_robust(); psych_results
+
+psych_papers |> sum_tab(self_report) # all self-reported
+  
+```
 
 ### Addressing other sources of potential bias
 
