@@ -579,7 +579,7 @@ This null finding stands in marked contrast to previous reviews, which found mor
 
 Figure 1 below shows the distribution of effect sizes in our sample. The dashed line in the figure below represents the overall meta-analytic effect, and the black points represent individual studies. The color of the points corresponds to the theoretical approach of the intervention.
 
-```{r fig, echo=F}
+```{r fig_1, echo=F, message=F}
 # this section is complex and brittle. optional TODO: make it general & robust
 model <- dat |> map_robust()
 
@@ -975,7 +975,7 @@ Overall, these results suggest that what strong effects we do observe are genera
 
 In Figure XXX, we observe a slight rise in effect sizes over time, as well as a rise in the use pre-analysis plans and open data practices.
 
-```{r eff_size_by_year, echo=F}
+```{r fig_2, echo=F, message=F}
 
 eff_size_over_years <- dat |> mutate(
   best_practices = case_when(
