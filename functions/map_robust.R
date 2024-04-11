@@ -1,11 +1,14 @@
 #' Apply metafor::robust in a pipe sequence or to subsets using purrr's split/map
 #'
-#' This function simplifies the process of performing a robust meta-analysis on subsets of a dataset.
-#' The typical usage involves piping a dataset into the split/map paradigm: `dat |> split(~some_var) |> map(map_robust)`.
-#' Alternatively, `dat |> map_robust()` can also be used.
+#' Performs robust meta-analysis on either data subsets or the whole dataset..
+#' Its intended usage is in in context of the  split/map & pipes paradigm: 
+#' `dat |> split(~some_var) |> map(map_robust)`.
+#' 
+#' `dat |> map_robust()` will return the meta-analytic estimate for the whole dataset.
 #'
-#' NOTE: This function will FAIL SILENTLY if there is only one study in a cluster, meaning it won't 
-#' produce a meta-analysis but will instead just reproduce the meta-analytic estimate verbatim. Be careful!
+#' NOTE: If there is only one study in a cluster, this function will
+#' just reproduce that study's meta-analytic estimate verbatim. This is good for
+#' some circumstances but not others. Adapt to your needs.
 #'
 #' @importFrom metafor robust 
 #' @importFrom metafor rma
