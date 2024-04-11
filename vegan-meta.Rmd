@@ -103,6 +103,7 @@ get_significance_stars <- function(pval) {
 }
 
 knitr::opts_chunk$set(fig.path = "results/figures/")
+options(scipen = 99)
 ```
 
 ```{r data, echo=F, include=F}
