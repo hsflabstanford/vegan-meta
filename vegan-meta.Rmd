@@ -570,7 +570,7 @@ pap_split[[1]]$Delta
 
 ### An overall null effect
 
-Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r main_result$Delta` (se = `r main_result$se`), p =`r main_result$pval`. This is not a clinically or statistically significant effect.
+Our meta-analysis of `r num_studies` policy-relevant interventions yields an overall meta-analytic effect of `r main_result$Delta` (se = `r main_result$se`), p = `r main_result$pval`. This is not a clinically or statistically significant effect.
 
 A vote counting procedure [@bushman1994] demonstates the same point more starkly. In our sample, `r sign_table[[2]]` of `r num_studies` had, in the words of the relevant paper, no statistically significant effects (`r null_proportion` percent of all studies).`r sign_table[[1]]` studies had a statistically significant positive effect, while`r sign_table[[3]]` had a significant backlash effect.
 
@@ -759,7 +759,7 @@ dynamic_norms_results <- dat |> filter(str_detect(brief_description, "dynamic"))
 static_norms_results <- dat |> filter(str_detect(brief_description, "static")) |> count_and_robust(); static_norms_results
 ```
 
-Dynamic norms interventions appear to be more effective than static norms interventions: `r dynamic_norms_results$Delta` (se = `r dynamic_norms_results$se`), p = `r dynamic_norms_results$pval` versus `r static_norms_results$Delta` (se = `r static_norms_results$se`), p =`r static_norms_results$pval`.
+Dynamic norms interventions appear to be more effective than static norms interventions: `r dynamic_norms_results$Delta` (se = `r dynamic_norms_results$se`), p = `r dynamic_norms_results$pval` versus `r static_norms_results$Delta` (se = `r static_norms_results$se`), p = `r static_norms_results$pval`.
 
 ### Internet, video, and pamphlet studies are ineffective
 
@@ -995,7 +995,7 @@ dat |> mutate(
 year_eff_size_relationship <- dat |> sum_lm(y = d, x = year)
 ```
 
-Overall, the relationship between effect size and year of publication is tiny and not significant (b =`r year_eff_size_relationship[2,1]`, p = `r year_eff_size_relationship[2,4]`).
+Overall, the relationship between effect size and year of publication is tiny and not significant (b = `r year_eff_size_relationship[2,1]`, p = `r year_eff_size_relationship[2,4]`).
 
 ### Psychology studies
 Some studies come from a social psych perspective and are testing theories of behavioral change like TMB or the Bertolaso thing... and they find...
