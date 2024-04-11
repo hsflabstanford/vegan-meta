@@ -62,6 +62,7 @@ drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 ```{r libraries_and_function, include=F, echo=F}
 # libraries
 library(dplyr, warn.conflicts = F)
+library(english)
 library(ggplot2)
 library(ggtext)
 library(knitr)
@@ -71,6 +72,7 @@ library(purrr)
 library(rlang, warn.conflicts = F)
 library(stringr)
 library(gt)
+
 
 # functions
 source('./functions/count_and_robust.R')
@@ -100,6 +102,14 @@ get_significance_stars <- function(pval) {
       ""
     }
   })
+}
+
+convert_number_to_words <- function(number) {
+  if (number >= 0) {
+    return(english(number))
+  } else {
+    return(as.character(number))
+  }
 }
 
 knitr::opts_chunk$set(fig.path = "results/figures/",
