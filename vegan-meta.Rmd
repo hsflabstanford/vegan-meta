@@ -975,7 +975,7 @@ Overall, these results suggest that what strong effects we do observe are genera
 
 In Figure XXX, we observe a slight rise in effect sizes over time, as well as a rise in the use pre-analysis plans and open data practices.
 
-```{r eff_size_by_year, echo=T, include=F}
+```{r eff_size_by_year, echo=F}
 
 eff_size_over_years <- dat |> mutate(
   best_practices = case_when(
@@ -995,9 +995,8 @@ eff_size_over_years <- dat |> mutate(
                                   face = "bold"))
 
 year_eff_size_relationship <- dat |> sum_lm(y = d, x = year)
+eff_size_over_years
 ```
-
-`r eff_size_over_years`
 
 Overall, the relationship between effect size and year of publication is tiny and not significant (b = `r year_eff_size_relationship[2,1]`, p = `r year_eff_size_relationship[2,4]`).
 
