@@ -113,7 +113,7 @@ convert_number_to_words <- function(number) {
 }
 
 knitr::opts_chunk$set(fig.path = "results/figures/",
-                      warning=FALSE, message=FALSE)
+                      warning = FALSE, message = FALSE)
 
 options(scipen = 99)
 ```
@@ -1033,12 +1033,14 @@ psych_papers |> sum_tab(self_report) # all self-reported
 
 unabridged_model <- rma(yi = d, sei = se_d, data = dat)
 
-# prop_stronger_result <- 
-#   MetaUtility::prop_stronger(q = 0.2,
-#                              yi.name = d, vi.name = var_d, 
-#                              M = unabridged_model,
-#                              estimate.method = "calibrated")
-
+prop_result <- prop_stronger( q = 0.2,
+                              tail = "below",
+                              estimate.method = "calibrated",
+                              ci.method = "calibrated",
+                              dat = dat,
+                              yi.name = "d",
+                              vi.name = "var_d",
+                              R = 200)
 ```
 #### regression to the meat
 
