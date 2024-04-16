@@ -828,11 +828,10 @@ advocacy_results <- dat |>
 
 advocacy_org_specific_results <- dat |>
   split(~advocacy_org) |>
-  map(count_and_robust)|>
+  map(count_and_robust) |>
   bind_rows(.id = "advocacy_org") |>
-  arrange(desc(N_unique)) |>
-  mutate(
-    advocacy_org = if_else(advocacy_org == "N", 
+  arrange(desc(Delta)) |>
+  mutate(advocacy_org = if_else(advocacy_org == "N", 
                            "Researchers (non-advocacy)", 
                            advocacy_org),
     delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), 

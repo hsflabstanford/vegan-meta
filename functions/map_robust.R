@@ -18,6 +18,22 @@
 #' @return A tibble/data frame with meta-analysis results.
 #' @export
 map_robust <- function(x) {
+  # Function to format p-values without leading zeroes or unnecessary detail 
+  # if they're very small
+  format_pval <- function(p) {
+    if (is.na(p)) {
+      NA
+    } else if (p < 0.0001) {
+      "< .0001"
+    } else {
+      formatted_p <- formatC(p, format = "f", digits = 4)
+      if (substr(formatted_p, 1, 1) == "0") {
+        substr(formatted_p, 2, nchar(formatted_p))
+      } else {
+        formatted_p
+      }
+    }
+  }
   # Check if there is only one study in the cluster
   if (nrow(x) == 1) {
     # Directly take Delta and SE from the dataset
@@ -36,8 +52,7 @@ map_robust <- function(x) {
       N_unique = nrow(x),
       Delta = round(result$beta, 4),
       se = round(result$se, 4),
-      pval = ifelse(result$pval < 0.0001, "< 0.0001", round(result$pval, digits = 4))
-    ) |> 
+      pval = format_pval(result$pval)) |> 
       tibble::as_tibble()
     
     return(output)
