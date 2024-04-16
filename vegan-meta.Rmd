@@ -1027,6 +1027,17 @@ psych_papers |> sum_tab(self_report) # all self-reported
 
 ### Addressing other sources of potential bias
 
+### gender?
+```{r gender_analyses, echo=F, include=F}
+# doubl-check which gender-based analyses we can include? know Piester
+
+dat |> filter(str_detect(population, "women|girls")) |> 
+  select(author, year, d, se_d)
+
+# |> map(count_and_robust)
+
+```
+
 #### MetaUtility::prop_stronger
 
 ```{r what_is_a_significant_result}

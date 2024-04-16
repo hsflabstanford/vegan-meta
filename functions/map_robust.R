@@ -34,8 +34,8 @@ map_robust <- function(x) {
     # Extract relevant results and format them into a tibble/data frame
     output <- data.frame(
       N_unique = nrow(x),
-      Delta = round(result$beta, 3),
-      se = round(result$se, 3),
+      Delta = round(result$beta, 4),
+      se = round(result$se, 4),
       pval = ifelse(result$pval < 0.0001, "< 0.0001", round(result$pval, digits = 4))
     ) |> 
       tibble::as_tibble()
