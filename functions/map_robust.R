@@ -1,4 +1,4 @@
-#' Apply metafor::robust in a pipe sequence or to subsets using purrr's split/map
+#' Apply metafor::rma in a pipe sequence or to subsets using purrr's split/map
 #'
 #' Performs robust meta-analysis on either data subsets or the whole dataset..
 #' Its intended usage is in in context of the  split/map & pipes paradigm: 
@@ -45,7 +45,7 @@ map_robust <- function(x) {
     return(tibble::tibble(N_unique = nrow(x), Delta = Delta, se = se, pval = pval))
   } else {
     # Perform robust meta-analysis using metafor::robust function
-    result <- metafor::robust(x = metafor::rma(yi = x$d, vi = x$var_d), cluster = x$unique_study_id)
+    result <- metafor::rma(yi = x$d, vi = x$var_d)
     
     # Extract relevant results and format them into a tibble/data frame
     output <- data.frame(
