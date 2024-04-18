@@ -27,10 +27,9 @@ affiliation:
     institution: "Stanford University"
   - id: "3"
     institution: "Allied Scholars for Animal Protection "
-abstract: |
-  Which theoretical approach most effectively reduces consumption of meat and animal products (MAP)? We answer this by characterizing and meta-analyzing the most rigorous, policy-relevant MAP reduction research: randomized controlled trials with at least 25 subjects in treatment and control that measure MAP consumption directly at least a single day after treatment begins. Although the theoretical space of MAP reduction literature is vast, the 26 papers and 59 studies meeting our inclusion criteria (N = 38,071) embody five approaches: three avenues of persuasion (appeals to animal welfare, the environment, or health), as well as choice architecture and social norms interventions. Almost  a third of these papers (19 of 59) evaluate materials from animal advocacy organizations, 18% of which attempt to persuade people to change their diet on animal welfare grounds. We find an overall null effect on MAP consumption (59 studies, ∆ = 0.02). By contrast, studies aimed at reducing consumption of red and processed meat (RPMC) are more than ten times as effective on average (12 studies, ∆ = 0.22), but tell us  little about the net effects on animal welfare or the environment due to a lack of data about substitution to other MAP products. Overall, no approach leads to consistent, robust behavioral changes. Studies evaluating materials produced by animal advocacy organizations are especially ineffective, producing, on average, a minuscule backlash effect (20 studies, ∆ = -0.0071). While nudges appear to be the most effective approach on average (6 studies, ∆ = 0.269), this finding is hampered by a lack of data about subsequent compensatory behavior: the possibility that subjects might compensate for being nudged towards eating less MAP at one meal by eating more at the next. We advise scholars to design future studies to remedy the measurement gaps we uncover and to focus on promising approaches that have not yet been rigorously evaluated, such as price changes or time spent with farm animals.
+abstract:  |
+  Which theoretical approach most effectively reduces consumption of meat and animal products (MAP)? We answer this by characterizing and meta-analyzing the most rigorous, policy-relevant MAP reduction research: randomized controlled trials with at least 25 subjects in treatment and control that measure MAP consumption directly at least a single day after treatment begins. Although the theoretical space of MAP reduction literature is vast, the 26 papers and 59 studies meeting our inclusion criteria (N = 38,071) embody five approaches: choice architecture interventions, social norms appeals, and persuasion efforts centered around the environment, health, and animal welfare. Two-thirds of studies with animal welfare persuasion efforts (18 of 27) evaluate materials from animal advocacy organizations. We find an overall null effect of the assembled interventions on MAP consumption (59 studies, ∆ = 0.02). While studies aimed at reducing consumption of red and processed meat (RPMC) are substantially more effective (12 studies, ∆ = 0.22), we cannot say anything definitive about the net effect of these interventions on animal welfare or the environment due to a lack of data on substitution to other MAP products. While choice architectures appear to be the most effective approach on average (6 studies, ∆ = 0.269), this effect is highly uncertain because of a universal lack of follow-up data on potential compensatory behavior, i.e. eating more meat at a subsequent meal. Overall, no approach leads to consistent, robust behavioral changes. Studies evaluating materials produced by animal advocacy organizations are especially ineffective (20 studies, ∆ = -0.0071). In light of these findings, we advise scholars to design future studies to remedy existing measurement gaps and to evaluate promising approaches that have yet to be rigorously tested, such as price changes or time spent with farm animals.
 
-  
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
 
@@ -1016,17 +1015,19 @@ dat |> filter(str_detect(population, "women|girls")) |>
 library(MetaUtility)
 unabridged_model <- rma(yi = d, sei = se_d, data = dat)
 
-prop_result <- prop_stronger( q = 0.2,
-                              tail = "below",
+prop_result <- prop_stronger( q = 0.1,
+                              M = unabridged_model$beta, 
+                              t2 = unabridged_model$tau2,
+                              se.M = unabridged_model$se,
+                              tail = "above",
                               estimate.method = "calibrated",
                               ci.method = "calibrated",
                               dat = dat,
                               yi.name = "d",
                               vi.name = "var_d",
-                              R = 1000) |> 
-  mutate(se = round(se, 4),
-         bt.mn = round(bt.mn, 4)); prop_result
-# some other metautility functions
+                              bootstrap = "ifneeded",
+                              R = 200) 
+prop_result |> mutate(across(1:6, round, 3)) |> gt()
 
 new_ds <- MetaUtility::calib_ests(yi = dat$d, sei = dat$se_d)
 rma(yi = new_ds, sei = dat$se_d) # basically the same
