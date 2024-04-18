@@ -28,7 +28,7 @@ affiliation:
   - id: "3"
     institution: "Allied Scholars for Animal Protection "
 abstract: |
-  Which theoretical approach most effectively reduces consumption of meat and animal products (MAP)? We answer this by characterizing and meta-analyzing the most rigorous, policy-relevant MAP reduction research: randomized controlled trials with at least 25 subjects in treatment and control that measure MAP consumption directly at least a single day after treatment begins. Although the theoretical space of MAP reduction literature is vast, the 26 papers and 59 studies meeting our inclusion criteria (N = 38,071) embody five approaches: three avenues of persuasion (appeals to animal welfare, the environment, or health), as well as choice architecture and social norms interventions. We find an overall null effect on MAP consumption (59 studies, ∆ = 0.02). By contrast, studies aimed at reducing consumption of red and processed meat (RPMC) are more than ten times as effective on average (12 studies, ∆ = 0.22), but tell us  little about the net effects on animal welfare or the environment due to a lack of data about substitution to other MAP products. Overall, no approach leads to consistent, robust behavioral changes. Studies evaluating materials produced by animal advocacy organizations are especially ineffective, producing, on average, a minuscule backlash effect (20 studies, ∆ = -0.0071). While nudges appear to be the most effective approach on average (6 studies, ∆ = 0.269), this finding is hampered by a lack of data about intertemporal substitution effects: the possibility that subjects might compensate for being nudged towards eating less MAP at one meal by eating more at the next. We advise scholars to design future studies to remedy the measurement gaps we uncover and to focus on promising approaches that have not yet been rigorously evaluated, such as price changes or time spent with farm animals.
+  Which theoretical approach most effectively reduces consumption of meat and animal products (MAP)? We answer this by characterizing and meta-analyzing the most rigorous, policy-relevant MAP reduction research: randomized controlled trials with at least 25 subjects in treatment and control that measure MAP consumption directly at least a single day after treatment begins. Although the theoretical space of MAP reduction literature is vast, the 26 papers and 59 studies meeting our inclusion criteria (N = 38,071) embody five approaches: three avenues of persuasion (appeals to animal welfare, the environment, or health), as well as choice architecture and social norms interventions. We find an overall null effect on MAP consumption (59 studies, ∆ = 0.02). By contrast, studies aimed at reducing consumption of red and processed meat (RPMC) are more than ten times as effective on average (12 studies, ∆ = 0.22), but tell us  little about the net effects on animal welfare or the environment due to a lack of data about substitution to other MAP products. Overall, no approach leads to consistent, robust behavioral changes. Studies evaluating materials produced by animal advocacy organizations are especially ineffective, producing, on average, a minuscule backlash effect (20 studies, ∆ = -0.0071). While nudges appear to be the most effective approach on average (6 studies, ∆ = 0.269), this finding is hampered by a lack of data about subsequent compensatory behavior: the possibility that subjects might compensate for being nudged towards eating less MAP at one meal by eating more at the next. We advise scholars to design future studies to remedy the measurement gaps we uncover and to focus on promising approaches that have not yet been rigorously evaluated, such as price changes or time spent with farm animals.
 
   
 authornote: |
@@ -74,7 +74,6 @@ library(rlang, warn.conflicts = F)
 library(stringr)
 library(gt)
 
-
 # functions
 source('./functions/count_and_robust.R')
 source('./functions/d_calc.R')
@@ -83,42 +82,10 @@ source('./functions/study_count.R')
 source('./functions/sum_tab.R')
 source('./functions/sum_lm.R')
 source('./functions/var_d_calc.R')
-
-# little ones 
-bold_labels <- function(x) {
-  ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)
-}
-
-get_significance_stars <- function(pval) {
-  sapply(pval, function(x) {
-    if (is.na(x)) {
-      ""
-    } else if (x < .001) {
-      "***"
-    } else if (x < .01) {
-      "**"
-    } else if (x < .05) {
-      "*"
-    } else {
-      ""
-    }
-  })
-}
-# noting that I haven't figured out what to do with this one yet
-# but the problem I'm trying to solve is that R objects in the text
-# generally return integers (or whatever), but the grammatical conventions
-# of using integers vs spelled out numbers depend on the place in the text
-convert_number_to_words <- function(number) {
-  if (number >= 0) {
-    return(english(number))
-  } else {
-    return(as.character(number))
-  }
-}
+source('./functions/utils.R')
 
 knitr::opts_chunk$set(fig.path = "results/figures/",
                       warning = FALSE, message = FALSE)
-
 options(scipen = 99)
 ```
 
@@ -823,6 +790,8 @@ Place-based interventions, such as those in cafeterias or restaurants, are compa
 ### Animal advocacy materials need a rethink
 
 ```{r animal_advocacy_org_materials, echo=F, include=F}
+advocacy_materials_papers <- dat |> filter(advocacy_org != 'N')
+
 advocacy_results <- dat |>
   mutate(advocacy_materials = if_else(advocacy_org == "N", 
                                       "Researcher materials", "Advocacy organization materials")) |>
