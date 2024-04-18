@@ -28,7 +28,8 @@ affiliation:
   - id: "3"
     institution: "Allied Scholars for Animal Protection "
 abstract: |
-  This paper meta-analyzes interventions intended to reduce consumption of meat and animal products (MAP), focusing on the most rigorous, policy-ready studies. Extant efforts generally embody one of three theoretical perspectives: appeals to social norms, nudges to make MAP less salient, and persuasion-based approaches that attempt to change attitudes towards MAP itself on health, environmental, and animal welfare grounds. We find that nudges produce the largest results overall, though the the effects are substantively small. Some environmental and health appeals reduce MAP consumption in some rarefied settings, while appeals to animal welfare, online studies, video treatments, and leafletting studies have no apparent overall effect. By contrast, a variety of approaches are effective at reducing consumption of red and processed meat, but the extent to which this is driven by substitutions to other categories of MAP is unclear...[something about biases?] We conclude with concrete, shovel-ready suggestions for researchers and policymakers. 
+  Which theoretical approach most effectively reduces consumption of meat and animal products (MAP)? We answer this by characterizing and meta-analyzing the most rigorous, policy-relevant MAP reduction research: randomized controlled trials with at least 25 subjects in treatment and control that measure MAP consumption directly at least a single day after treatment begins. Although the theoretical space of MAP reduction literature is vast, the 26 papers and 59 studies meeting our inclusion criteria (N = 38,071) embody five approaches: three avenues of persuasion (appeals to animal welfare, the environment, or health), as well as choice architecture and social norms interventions. We find an overall null effect on MAP consumption (59 studies, ∆ = 0.02). By contrast, studies aimed at reducing consumption of red and processed meat (RPMC) are more than ten times as effective on average (12 studies, ∆ = 0.22), but tell us  little about the net effects on animal welfare or the environment due to a lack of data about substitution to other MAP products. Overall, no approach leads to consistent, robust behavioral changes. Studies evaluating materials produced by animal advocacy organizations are especially ineffective, producing, on average, a minuscule backlash effect (20 studies, ∆ = -0.0071). While nudges appear to be the most effective approach on average (6 studies, ∆ = 0.269), this finding is hampered by a lack of data about intertemporal substitution effects: the possibility that subjects might compensate for being nudged towards eating less MAP at one meal by eating more at the next. We advise scholars to design future studies to remedy the measurement gaps we uncover and to focus on promising approaches that have not yet been rigorously evaluated, such as price changes or time spent with farm animals.
+
   
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
@@ -92,18 +93,21 @@ get_significance_stars <- function(pval) {
   sapply(pval, function(x) {
     if (is.na(x)) {
       ""
-    } else if (x < 0.001) {
+    } else if (x < .001) {
       "***"
-    } else if (x < 0.01) {
+    } else if (x < .01) {
       "**"
-    } else if (x < 0.05) {
+    } else if (x < .05) {
       "*"
     } else {
       ""
     }
   })
 }
-
+# noting that I haven't figured out what to do with this one yet
+# but the problem I'm trying to solve is that R objects in the text
+# generally return integers (or whatever), but the grammatical conventions
+# of using integers vs spelled out numbers depend on the place in the text
 convert_number_to_words <- function(number) {
   if (number >= 0) {
     return(english(number))
@@ -1040,7 +1044,7 @@ dat |> filter(str_detect(population, "women|girls")) |>
 #### MetaUtility::prop_stronger
 
 ```{r what_is_a_significant_result}
-
+library(MetaUtility)
 unabridged_model <- rma(yi = d, sei = se_d, data = dat)
 
 prop_result <- prop_stronger( q = 0.2,
@@ -1050,7 +1054,17 @@ prop_result <- prop_stronger( q = 0.2,
                               dat = dat,
                               yi.name = "d",
                               vi.name = "var_d",
-                              R = 200)
+                              R = 1000) |> 
+  mutate(se = round(se, 4),
+         bt.mn = round(bt.mn, 4)); prop_result
+# some other metautility functions
+
+new_ds <- MetaUtility::calib_ests(yi = dat$d, sei = dat$se_d)
+rma(yi = new_ds, sei = dat$se_d) # basically the same
+# these methods aren't intended for a total null. then again, what is?
+```
+
+```{r what_is_a_significant_result_table, echo=F}
 ```
 #### regression to the meat
 
