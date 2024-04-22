@@ -19,7 +19,6 @@ author:
   - name: "Benny Smith"
     affiliation: "3"
     role:
-
 affiliation:
   - id: "1"
     institution: "Kahneman-Treisman Center, Princeton University"
@@ -29,10 +28,8 @@ affiliation:
     institution: "Allied Scholars for Animal Protection "
 abstract:  |
   Which theoretical approach most effectively reduces consumption of meat and animal products (MAP)? We answer this by characterizing and meta-analyzing the most rigorous, policy-relevant MAP reduction research: randomized controlled trials with at least 25 subjects in treatment and control that measure MAP consumption directly at least a single day after treatment begins. Although the theoretical space of MAP reduction literature is vast, the 26 papers and 59 studies meeting our inclusion criteria (N = 38,071) embody five approaches: choice architecture interventions, social norms appeals, and persuasion efforts centered around the environment, health, and animal welfare. Two-thirds of studies with animal welfare persuasion efforts (18 of 27) evaluate materials from animal advocacy organizations. We find an overall null effect of the assembled interventions on MAP consumption (59 studies, ∆ = 0.02). While studies aimed at reducing consumption of red and processed meat (RPMC) are substantially more effective (12 studies, ∆ = 0.22), we cannot say anything definitive about the net effect of these interventions on animal welfare or the environment due to a lack of data on substitution to other MAP products. While choice architectures appear to be the most effective approach on average (6 studies, ∆ = 0.269), this effect is highly uncertain because of a universal lack of follow-up data on potential compensatory behavior, i.e. eating more meat at a subsequent meal. Overall, no approach leads to consistent, robust behavioral changes. Studies evaluating materials produced by animal advocacy organizations are especially ineffective (20 studies, ∆ = -0.0071). In light of these findings, we advise scholars to design future studies to remedy existing measurement gaps and to evaluate promising approaches that have yet to be rigorously tested, such as price changes or time spent with farm animals.
-
 authornote: |
  This work was generously supported by the Food System Research Fund and NIH award 1R01LM013866-01. Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for helping assemble the database and providing guidance on their studies. Thanks to Jeff Shrader, Andrey Fradkin, Sofia Verduzco, and Daniel Waldinger for helpful suggestions.
-
 keywords: "meta-analysis, meta-science, meat-and-animal-products, evaluation"
 wordcount: "7947"
 bibliography: "./manuscript/vegan-refs.bib"
