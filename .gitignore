@@ -8,6 +8,7 @@ results/
 *.pdf
 *.html
 *.docx
+images/
 vegan-meta.ttt
 supplementary-analyses/**/*.csv
 supplementary-analyses/**/*.sav
