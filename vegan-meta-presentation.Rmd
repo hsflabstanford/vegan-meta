@@ -1,0 +1,67 @@
+---
+title: "Nudges, norms, and persuasion approaches to reducing MAP consumption"
+author: "Seth Green, Maya Mathur and Benny Smith"
+date: "`r Sys.Date()`"
+output: beamer_presentation
+bibliography: "./manuscript/vegan-refs.bib"
+editor_options: 
+  chunk_output_type: console
+---
+
+## Talk Outline:
+
+### Paper aim
+
+### A survey of the five literatures
+
+### Quantitative findings
+
+### Next steps
+
+## Paper aim: why another meta?
+
+We already have nearly 40 previous systematic where MAP consumption is either independent or dependent variable
+
+Most are focused on a particular strand of literature, e.g.:
+
+```{=tex}
+\begin{figure}
+\centering
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/vast-lit/meta-one.png}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/vast-lit/meta-two.png}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/vast-lit/meta-three.png}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/vast-lit/meta-four.png}
+\end{minipage}
+\end{figure}
+```
+## Why another meta (continued)
+
+The purpose of this paper is to assess the findings of the most rigorous studies, defined as 
+
+* Randomized Controlled Trial 
+
+* **Measures overall MAP consumption directly**
+
+* At least a single day after treatment starts
+
+* At least 25 subjects in treatment and control
+
+* **If cluster-assigned, at least 10 clusters**
+
+## Studies that make the cut
+```{r load_data_and_constants, echo=F, include=F}
+source('./libraries-functions-data.R')
+source('./descriptive-stats.R')
+```
+
+`r num_papers` papers, `r num_studies` interventions and `r sum(dat$n_t_post + dat$n_c_post)` subjects
+
+## References
