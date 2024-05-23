@@ -177,12 +177,12 @@ Probably the dominant approach in the literature as a whole, but only `r sum(str
 These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
 
 -   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
--   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]
--   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes. We’re committed to offering a menu that gives you a variety of choices, all with fresh ingredients" [@sparkman2020]
+-   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
+-   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
-Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...Based on your answers, it appears that your meat consumption is above-average compared to the average Dutch resident" [@alblas2023]
+Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...[I]t appears that your meat consumption is above average compared to the average Dutch resident" [@alblas2023]
 
 Injunctive: adds "How you are doing:\emoji{disappointed-face}" [@alblas2023]
 
@@ -214,7 +214,9 @@ Overall null: $\Delta$ = 0.02
 
 `r sum(dat$neg_null_pos == 0)` of `r num_studies` interventions are nulls in their own words
 
-No evidence of publication bias -
+No evidence of publication bias
+
+-   If we analyzed all outcomes, or outcomes that authors present as primary, we might find more
 
 ## This might come as a surprise...
 
