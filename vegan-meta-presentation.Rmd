@@ -182,7 +182,7 @@ These interventions try to change attitudes about people who eat/avoid MAP (both
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
-Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...Based on your answers, it appears that your meat consumption is average-average compared to the average Dutch resident" [@alblas2023]
+Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...Based on your answers, it appears that your meat consumption is above-average compared to the average Dutch resident" [@alblas2023]
 
 Injunctive: adds "How you are doing:\emoji{disappointed-face}" [@alblas2023]
 
@@ -214,14 +214,23 @@ Overall null: $\Delta$ = 0.02
 
 `r sum(dat$neg_null_pos == 0)` of `r num_studies` interventions are nulls in their own words
 
-No evidence of publication bias 
- - 
- 
-## Results: Forest plot
+No evidence of publication bias -
+
+## This might come as a surprise...
+
+Previous meta-analyses have found much larger effects, e.g. @mathur2021meta, which meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals" and found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])."
+
+This difference is overdetermined but most of it probably comes from our focus on MAP consumption (vs. attitudes & intentions)
+
+-   For @mathur2021meta, of the ten "studies with the largest calibrated estimates," nine "assessed outcomes related to intended behavior" and the tenth wasn't an RCT
+
+## Forest plot
+
 ```{r forest_plot, echo=F}
 source('./scripts/forest-plot.R')
 print(forest_plot)
 ```
+
 ## References
 
 \tiny
