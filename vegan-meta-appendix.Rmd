@@ -110,7 +110,7 @@ reviews_df |> gt()
 **Add [Low-agency population interventions to reduce meat consumption in the UK: an umbrella review](http://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42018109901)
 **Add 10.1016/j.scitotenv.2020.137208** 
 **Add 10.1016/j.foodpol.2020.101847**
-**Add ** 
+**Add 10.1287/mksc.2018.1128**
 
 Deviations from PAP
 ## Meta-analytic Methods

@@ -75,3 +75,16 @@ pop_dat <- dat |> sum_tab(population)
 # delay 
 median_delay <- median(dat$delay)
 range_delay <- range(dat$delay)
+
+### outcome types
+self_report_count <- dat |> sum_tab(self_report)
+
+self_report_outcomes <- dat |> filter(self_report == "Y") |> 
+  select(author, year, title, outcome, outcome_category) 
+
+self_report_outcome_table <- self_report_outcomes |> sum_tab(outcome_category)
+
+servings_portions_meals_count <- sum(str_detect(self_report_outcomes$outcome_category, "servings|portions|meals"))
+
+days_count <- sum(str_detect(self_report_outcomes$outcome_category, "days"))
+weight_loss_count <- sum(str_detect(self_report_outcomes$outcome_category, "weight"))

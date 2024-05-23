@@ -2,17 +2,37 @@
 title: "Nudges, norms, and persuasion approaches to reducing MAP consumption"
 author: "Seth Green, Maya Mathur and Benny Smith"
 date: "`r Sys.Date()`"
-output: beamer_presentation
+output: 
+  beamer_presentation:
+    latex_engine: xelatex
+    includes:
+      in_header: manuscript/header.tex
 bibliography: "./manuscript/vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
 ---
 
-## Talk Outline:
+## The paper in a nutshell
 
-### Paper aim
+Meta-analysis of the most rigorous research
 
-### A survey of the five literatures
+Main aim is to assess which theoretical approach produces the largest, most enduring behavioral changes
+
+Overall null result (∆ = 0.02)
+
+Individual studies [@jalil2023; @sparkman2020] are promising but no theoretical approach has a robust evidence base
+
+Animal welfare arguments are especially ineffective
+
+I worry about 'regression to the meat:' what people eat after an intervention ends or what they eat instead if we discourage red meat consumption
+
+## Talk outline:
+
+### Paper aims and methods
+
+### Descriptive overview of papers
+
+### Survey of five major theoretical approaches
 
 ### Quantitative findings
 
@@ -28,40 +48,175 @@ Most are focused on a particular strand of literature, e.g.:
 \begin{figure}
 \centering
 \begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/vast-lit/meta-one.png}
+\includegraphics[width=\linewidth]{images/meta-one.png}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/vast-lit/meta-two.png}
+\includegraphics[width=\linewidth]{images/meta-two.png}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/vast-lit/meta-three.png}
+\includegraphics[width=\linewidth]{images/meta-three.png}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/vast-lit/meta-four.png}
+\includegraphics[width=\linewidth]{images/meta-four.png}
 \end{minipage}
 \end{figure}
 ```
 ## Why another meta (continued)
 
-The purpose of this paper is to assess the findings of the most rigorous studies, defined as 
+The purpose of this paper is to assess the findings of the most rigorous studies, defined as
 
-* Randomized Controlled Trial 
+-   Randomized Controlled Trial
 
-* **Measures overall MAP consumption directly**
+-   **Measures overall MAP consumption directly**
 
-* At least a single day after treatment starts
+-   At least a single day after treatment starts
 
-* At least 25 subjects in treatment and control
+-   At least 25 subjects in treatment and control
 
-* **If cluster-assigned, at least 10 clusters**
+-   **If cluster-assigned, at least 10 clusters**
+
+Also, published in English by December 2023
 
 ## Studies that make the cut
+
 ```{r load_data_and_constants, echo=F, include=F}
 source('./libraries-functions-data.R')
 source('./descriptive-stats.R')
 ```
 
-`r num_papers` papers, `r num_studies` interventions and `r sum(dat$n_t_post + dat$n_c_post)` subjects
+`r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
+
+The earliest paper is @allen2002, the latest is @jalil2023
+
+A slight majority (`r third_decade_papers` of `r num_papers` papers) have been published since 2020
+
+## Country breakdown:
+
+| Country           | \# Interventions                  |
+|-------------------|-----------------------------------|
+| United States     | `r country_dat["United States"]`  |
+| Germany           | `r country_dat["Germany"]`        |
+| Multiple (online) | 5                                 |
+| United Kingdom    | `r country_dat["United Kingdom"]` |
+| Netherlands       | `r country_dat["Netherlands"]`    |
+| Sweden            | `r country_dat["Sweden"]`         |
+| Australia         | `r country_dat["Australia"]`      |
+| Canada            | `r country_dat["Canada"]`         |
+| Denmark           | `r country_dat["Denmark"]`        |
+
+## Settings & delivery mechanisms:
+
+`r intervention_types_counts$leaflet_count` employed leaflets
+
+`r intervention_types_counts$video_count` used videos
+
+`r intervention_types_counts$cafeteria_or_restaurant` interventions in a cafeteria or restaurant
+
+`r intervention_types_counts$internet_based` were administered online
+
+`r pop_dat["university students"]` with university students
+
+## Dependent Variables
+
+`r self_report_count['Y']` of `r num_studies` interventions have self-reported outcomes, e.g.
+
+-   diet journal asking participants how often they ate certain foods in the past seven days [@bochmann2017]
+-   Food Frequency Questionnaire (FFQ), a structured recall task [@sparkman2021]
+-   "During the three weeks of data collection, participants were asked to report their meat consumption on Mondays, Tuesdays, and Wednesdays" [@alblas2023]
+
+Objective outcomes tracked what participants ate [@jalil2023] or the proportion of meals that had MAP [@andersson2021]
+
+## Five theoretical perspectives
+
+The MAP reduction literature writ large is theoretically diverse and vast
+
+but *these* studies all embody one or more of five theoretical perspectives:
+
+-   nudges (choice architecture/behavioral economics)
+-   norms
+-   appeals to animal welfare
+-   appeals to health
+-   appeals to the environment
+
+## Nudges
+
+Nudges are everything that "shouldn’t influence behaviour, but in practice it does" [@hansen2016]
+
+**Nudge**: A change in the size of your serving spoon [@vocski2024] or placing a vegetarian meal at the top of a cafeteria menu [@andersson2021]
+
+**Not a nudge**: A change in price or a sign that says "people who eat meat are bad" (social opprobrium is an incentive)
+
+## Example nudges
+
+```{=tex}
+\begin{figure}
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{./images/spoons.jpeg}
+    \caption{Voşki et al. 2024}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{./images/nudge-norm-message.png}
+    \caption{Sparkman et al. 2020}
+  \end{minipage}
+\end{figure}
+```
+## The nudge literature is huge, and a mess
+
+Probably the dominant approach in the literature as a whole, but only `r sum(str_detect(pattern = 'n udge', string = dat$theory))` met our inclusion criteria. The rest
+
+-   only measure what people say they would eat from a hypothetical menu [@campbell2014]
+
+    -   The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from—a less-than-optimal choice
+
+-   are underpowered and/or lack random assignment, e.g. alternate treatment/control for 4 days in total [@weimer2022]
+
+    -   These limitations might be imposed by restaurant/cafeteria partners
+
+-   have serious threats to internal validity, e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]
+
+## Norms
+
+These interventions try to change attitudes about people who eat/don't eat MAP (both who and how many people do it) or try to make MAP alternatives seem popular
+
+-   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
+-   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]
+-   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes. We’re committed to offering a menu that gives you a variety of choices, all with fresh ingredients" [@sparkman2020]
+
+## Injunctive, Descriptive, Static and Dynamic Norms
+
+Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...Based on your answers, it appears that your meat consumption is average-average compared to the average Dutch resident" [@alblas2023]
+
+Injunctive: adds "How you are doing: 😞" [@alblas2023]
+
+Static: "Some people limit how much meat they eat...3 in 10 people eat less meat than they otherwise would." [@sparkman2017]
+
+Dynamic: "Some people are starting to limit how much meat they eat... in recent years, 3 in 10 people have changed their behavior and begun to eat less meat than they otherwise would" [@sparkman2017]
+
+## Appeals to animal welfare:
+
+## Appeals to the health
+
+## Appeals to the environment
+
+## Reflections on this theoretical framing
+
+The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria?
+
+A lot of studies embody *multiple* perspectives, e.g. @jalil2023 presents information on both the health and the environment. Which is doing the work?
+
+A different approach would be to separate "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but even this is imperfect: a lot of place-based changes are also messages
+
+In the end I like the distinction between: try to change MAP availability/salience; try to change attitudes about people who eat or don't eat MAP; and try to change attitudes about MAP itself
+
+But if you read the literature, you might find different divisions
+
+## Results!
 
 ## References
+
+\tiny
+
+\printbibliography
