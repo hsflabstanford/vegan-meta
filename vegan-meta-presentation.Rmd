@@ -2,11 +2,16 @@
 title: "Nudges, norms, and persuasion approaches to reducing MAP consumption"
 author: "Seth Green, Maya Mathur and Benny Smith"
 date: "`r Sys.Date()`"
-output: 
+output:
   beamer_presentation:
-    latex_engine: xelatex
+    keep_tex: true
+    latex_engine: lualatex
     includes:
       in_header: manuscript/header.tex
+header-includes:
+  - \usepackage{emoji}
+  - \setemojifont{Apple Color Emoji}
+
 bibliography: "./manuscript/vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
@@ -81,8 +86,8 @@ Also, published in English by December 2023
 ## Studies that make the cut
 
 ```{r load_data_and_constants, echo=F, include=F}
-source('./libraries-functions-data.R')
-source('./descriptive-stats.R')
+source('./scripts/libraries-functions-data.R')
+source('./scripts/descriptive-stats.R')
 ```
 
 `r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
@@ -149,27 +154,18 @@ Nudges are everything that "shouldn’t influence behaviour, but in practice it 
 
 ## Example nudges
 
-```{=tex}
-\begin{figure}
-  \centering
-  \begin{minipage}{0.49\textwidth}
-    \includegraphics[width=\linewidth]{./images/spoons.jpeg}
-    \caption{Voşki et al. 2024}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.49\textwidth}
-    \includegraphics[width=\linewidth]{./images/nudge-norm-message.png}
-    \caption{Sparkman et al. 2020}
-  \end{minipage}
-\end{figure}
+```{r example-nudges, echo=FALSE, fig.show='hold', out.width='49%', fig.cap=("images from Voşki et al. 2024 and  Sparkman et al. 2020")}
+
+knitr::include_graphics(c("./images/spoons.jpeg", "./images/nudge-norm-message.png"))
 ```
+
 ## The nudge literature is huge, and a mess
 
-Probably the dominant approach in the literature as a whole, but only `r sum(str_detect(pattern = 'n udge', string = dat$theory))` met our inclusion criteria. The rest
+Probably the dominant approach in the literature as a whole, but only `r sum(str_detect(pattern = 'nudge', string = dat$theory))` met our inclusion criteria. The rest
 
 -   only measure what people say they would eat from a hypothetical menu [@campbell2014]
 
-    -   The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from—a less-than-optimal choice
+    -   "The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from—a less-than-optimal choice"
 
 -   are underpowered and/or lack random assignment, e.g. alternate treatment/control for 4 days in total [@weimer2022]
 
@@ -179,7 +175,7 @@ Probably the dominant approach in the literature as a whole, but only `r sum(str
 
 ## Norms
 
-These interventions try to change attitudes about people who eat/don't eat MAP (both who and how many people do it) or try to make MAP alternatives seem popular
+These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
 
 -   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]
@@ -189,7 +185,7 @@ These interventions try to change attitudes about people who eat/don't eat MAP (
 
 Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...Based on your answers, it appears that your meat consumption is average-average compared to the average Dutch resident" [@alblas2023]
 
-Injunctive: adds "How you are doing: 😞" [@alblas2023]
+Injunctive: adds "How you are doing:\emoji{disappointed-face}" [@alblas2023]
 
 Static: "Some people limit how much meat they eat...3 in 10 people eat less meat than they otherwise would." [@sparkman2017]
 
@@ -203,15 +199,15 @@ Dynamic: "Some people are starting to limit how much meat they eat... in recent 
 
 ## Reflections on this theoretical framing
 
-The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria?
+The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think that a veggie burger is tasty communicating "normative" information?
 
-A lot of studies embody *multiple* perspectives, e.g. @jalil2023 presents information on both the health and the environment. Which is doing the work?
+-   Others distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
 
-A different approach would be to separate "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but even this is imperfect: a lot of place-based changes are also messages
+Many studies embody multiple perspectives, e.g. @jalil2023; which is doing the work?
 
-In the end I like the distinction between: try to change MAP availability/salience; try to change attitudes about people who eat or don't eat MAP; and try to change attitudes about MAP itself
+Ultimately, I like dividing between: try to change MAP availability/salience (nudge); try to change attitudes about people who eat/avoid MAP (norm); & try to change attitudes about MAP (persuasion)
 
-But if you read the literature, you might find different divisions
+But if you read the literature, you might find & propose different boundaries
 
 ## Results!
 

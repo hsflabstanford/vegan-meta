@@ -48,7 +48,7 @@ output:
 
 ```{r setup, echo=F, include=F}
 
-source('./libraries-functions-data.R')
+source('./scripts/libraries-functions-data.R')
 
 # plus two useful constants
 num_papers <- as.numeric(max(dat$unique_paper_id))
@@ -145,6 +145,10 @@ Finally, we conducted a systematic search of Google Scholar for the terms [OUR S
 We first offer some descriptive statistics of our database and then provide a theoretical review.
 
 ### 3.1 Descriptive overview of meta-analytic database
+
+```{r descriptive_stats, echo=F, include=F}
+source("./scripts/descriptive-stats.R")
+```
 
 The earliest paper in our sample is @allen2002, and the latest is @jalil2023. Remarkably, a majority of these papers have been published since 2020: `r first_decade_papers` in the 2000s, `r second_decade_papers` in the 2010s, and `r third_decade_papers` in the 2020s.
 
