@@ -4,7 +4,6 @@ author: "Seth Green, Maya Mathur and Benny Smith"
 date: "`r Sys.Date()`"
 output:
   beamer_presentation:
-    keep_tex: true
     latex_engine: lualatex
     includes:
       in_header: manuscript/header.tex
@@ -211,6 +210,18 @@ But if you read the literature, you might find & propose different boundaries
 
 ## Results!
 
+Overall null: $\Delta$ = 0.02
+
+`r sum(dat$neg_null_pos == 0)` of `r num_studies` interventions are nulls in their own words
+
+No evidence of publication bias 
+ - 
+ 
+## Results: Forest plot
+```{r forest_plot, echo=F}
+source('./scripts/forest-plot.R')
+print(forest_plot)
+```
 ## References
 
 \tiny
