@@ -175,7 +175,7 @@ These interventions try to change attitudes about people who eat/avoid MAP (both
 ## Norms example
 
 From @sparkman2020:
-```{r}
+```{r norms_example, echo=F, out.width='80%'}
 knitr::include_graphics('./images/norms.png')
 ```
 
@@ -183,7 +183,7 @@ knitr::include_graphics('./images/norms.png')
 
 Descriptive: "The results of last week show that the average meat consumption of Dutch residents was: 1.32 times per day...[I]t appears that your meat consumption is above average compared to the average Dutch resident" [@alblas2023]
 
-Injunctive: adds "How you are doing:\emoji{disappointed-face}" [@alblas2023]
+Injunctive: adds "How you are doing: \emoji{disappointed-face}" [@alblas2023]
 
 Static: "Some people limit how much meat they eat...3 in 10 people eat less meat than they otherwise would." [@sparkman2017]
 
@@ -191,7 +191,15 @@ Dynamic: "Some people are starting to limit how much meat they eat... in recent 
 
 ## Appeals to animal welfare:
 
-## Appeals to the health
+These argue that eating MAP is ethically bad, so you should either stop doing it or cut back significantly
+
+Often delivered through leaflets [@hennessy2016], videos designed to be "emotional and provocative" [@sparkman2021], and documentaries [@mathur2021effectiveness]
+
+Often featuring materials from animal welfare organizations e.g. Mercy For Animals [@cooney2016], Animal Equality [@bertolaso2015] and The Humane League [@peacock2017]
+
+## Appeals to health
+
+
 
 ## Appeals to the environment
 

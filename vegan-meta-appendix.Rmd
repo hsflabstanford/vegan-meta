@@ -148,12 +148,12 @@ The coefficients we report are:
     a weighted average of many point estimates, where larger, more
     precisely estimated studies influence the average proportionally
     more than smaller ones.
--   Beta (β), a regression coefficient. Linear regression tells you E(Y
+-   Beta ($\beta$), a regression coefficient. Linear regression tells you E(Y
     \| X), i.e. for some value of X (or many Xs), the expected value
     of Y. We report this coefficient when we discuss publication bias or
     the effects associated with covariates.
 -   SE (standard error) is the standard deviation of the sampling
-    distribution, e.g. $\Delta$ or β. Smaller standard errors mean more
+    distribution, e.g. $\Delta$ or $\beta$. Smaller standard errors mean more
     precise estimates.
 -   P-value, a measure of statistical significance. See [Lakens (2022),
     chapter
