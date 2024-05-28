@@ -85,18 +85,28 @@ A slight majority (`r third_decade_papers` of `r num_papers` papers) have been p
 | Canada            | `r country_dat["Canada"]`         |
 | Denmark           | `r country_dat["Denmark"]`        |
 
-## Settings & delivery mechanisms:
+## Settings & Delivery Mechanisms
 
-`r intervention_types_counts$leaflet_count` employed leaflets
-
-`r intervention_types_counts$video_count` used videos
-
-`r intervention_types_counts$cafeteria_or_restaurant` interventions in a cafeteria or restaurant
-
-`r intervention_types_counts$internet_based` were administered online
-
-`r pop_dat["university students"]` with university students
-
+```{=tex}
+\begin{columns}
+    \begin{column}{0.6\textwidth}
+        \begin{itemize}
+            \item \texttt{`r intervention_types_counts$leaflet_count`} employed leaflets
+            \item \texttt{`r intervention_types_counts$video_count`} used videos
+            \item \texttt{`r intervention_types_counts$cafeteria_or_restaurant`} interventions in a cafeteria or restaurant
+            \item \texttt{`r intervention_types_counts$internet_based`} were administered online
+            \item \texttt{`r pop_dat["university students"]`} with university students
+        \end{itemize}
+    \end{column}
+    
+    \begin{column}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{images/leaflet.png}
+         \begin{center}
+            Norris (2014)
+        \end{center}
+    \end{column}
+\end{columns}
+```
 ## Dependent Variables
 
 `r self_report_count['Y']` of `r num_studies` interventions have self-reported outcomes, e.g.
@@ -121,18 +131,20 @@ but *these* studies all embody one or more of five theoretical perspectives:
 
 ## Nudges
 
-Nudges are everything that "shouldn’t influence behaviour, but in practice it does" [@hansen2016]
+Nudges are "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives...easy and cheap to avoid" [@thaler2009, p. 6]
 
-**Nudge**: A change in the size of your serving spoon [@vocski2024] or placing a vegetarian meal at the top of a cafeteria menu [@andersson2021]
+e.g. @vocski2024 and @andersson2021:
 
-**Not a nudge**: A change in price or a sign that says "people who eat meat are bad" (social opprobrium is an incentive)
-
-## Example nudges
-
-```{r example-nudges, echo=FALSE, fig.show='hold', out.width='49%', fig.cap=("images from Voşki et al. 2024 and  Sparkman et al. 2020")}
-
-knitr::include_graphics(c("./images/spoons.jpeg", "./images/nudge-norm-message.png"))
-```
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./images/spoons.jpeg}
+\end{column}
+\begin{column}{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./images/menu.png}
+\end{column}
+\end{columns}
 
 ## The nudge literature is huge, and a mess
 
