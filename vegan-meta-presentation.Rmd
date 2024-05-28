@@ -168,17 +168,16 @@ If I might speculate about causes...
 
 These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
 
-\begin{columns}
-\begin{column}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{./images/norms.png}
-\end{column}
-\begin{column}{0.4\textwidth}
 -   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
-\note{-   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]}
-\end{column}
-\end{columns}
+-   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]}
+
+## Norms example
+
+From @sparkman2020:
+```{r}
+knitr::include_graphics('./images/norms.png')
+```
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
