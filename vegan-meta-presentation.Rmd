@@ -99,7 +99,7 @@ A slight majority (`r third_decade_papers` of `r num_papers` papers) have been p
         \end{itemize}
     \end{column}
     
-    \begin{column}{0.4\textwidth}
+    \begin{column}{0.35\textwidth}
         \includegraphics[width=\textwidth]{images/leaflet.png}
          \begin{center}
             Norris (2014)
@@ -140,7 +140,7 @@ e.g. @vocski2024 and @andersson2021:
 \centering
 \includegraphics[width=\textwidth]{./images/spoons.jpeg}
 \end{column}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.35\textwidth}
 \centering
 \includegraphics[width=\textwidth]{./images/menu.png}
 \end{column}
@@ -148,25 +148,37 @@ e.g. @vocski2024 and @andersson2021:
 
 ## The nudge literature is huge, and a mess
 
-Probably the dominant approach in the literature as a whole, but only `r sum(str_detect(pattern = 'nudge', string = dat$theory))` met our inclusion criteria. The rest
+Probably the dominant approach in the literature as a whole, but only `r num_rep(sum(str_detect(pattern = 'nudge', string = dat$theory)))` met our inclusion criteria. The rest
 
 -   only measure what people say they would eat from a hypothetical menu [@campbell2014]
 
-    -   "The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from—a less-than-optimal choice"
+    -   "The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from \textemdash a less-than-optimal choice"
 
--   are underpowered and/or lack random assignment, e.g. alternate treatment/control for 4 days in total [@weimer2022]
+-   are underpowered and/or lack random assignment
+\note{, e.g. alternate treatment/control for 4 days in total [@weimer2022]}
 
     -   These limitations might be imposed by restaurant/cafeteria partners
 
--   have serious threats to internal validity, e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]
+-   have serious threats to internal validity
+\note{e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]}
+
+If I might speculate about causes...
 
 ## Norms
 
 These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
 
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./images/norms.png}
+\end{column}
+\begin{column}{0.4\textwidth}
 -   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
--   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]
+\note{-   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]}
+\end{column}
+\end{columns}
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
@@ -206,7 +218,8 @@ No evidence of publication bias (Caveat that If we analyzed all outcomes, or out
 
 Previous meta-analyses have found much larger effects
 
--   e.g. @mathur2021meta, which meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals" and found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])."
+-   e.g. @mathur2021meta, which found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])."
+\note{meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals"}
 
 Many causes, but the biggest driver of divergence is probably our focus on MAP *consumption* vs. attitudes & intentions
 
