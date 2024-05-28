@@ -27,7 +27,7 @@ Individual studies [@jalil2023; @sparkman2020] are promising but no theoretical 
 
 Animal welfare arguments are especially ineffective
 
-I worry about 'regression to the meat:' what people eat after an intervention ends or what they eat instead if we discourage red meat consumption
+some big unknowns, e.g what people eat after an intervention ends or what the replace red meat with
 
 ## Talk outline:
 
@@ -39,7 +39,7 @@ I worry about 'regression to the meat:' what people eat after an intervention en
 
 ### Next steps
 
-## Paper aim: what makes this meta distinct 
+## Paper aim: what makes this meta distinct
 
 Assess the findings of the most rigorous studies, defined as
 
@@ -60,11 +60,12 @@ Also, published in English by December 2023
 ```{r load_data_and_constants, echo=F, include=F}
 source('./scripts/libraries-functions-data.R')
 source('./scripts/descriptive-stats.R')
- ```
+source('./scripts/red-and-processed-meat.R')
+```
 
 `r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
 
-`Supplem
+-   Supplementary dataset of `r num_RPMC_studies` studies aiming to reduce red and processed meat consumption (RPMC) w/ `r RPMC_subjects` subjects
 
 The earliest paper is @allen2002, the latest is @jalil2023
 
@@ -258,5 +259,4 @@ Most are focused on a particular strand of literature, e.g.:
 \end{minipage}
 \end{figure}
 ```
-
 ## References {.allowframebreaks}

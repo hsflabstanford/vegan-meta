@@ -1,9 +1,9 @@
 library(googledrive)
 #' run the following only if needed
-# drive_auth()
-# drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
-#               path = './data/vegan-meta.csv',
-#               overwrite = TRUE)
+drive_auth()
+drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
+              path = './data/vegan-meta.csv',
+              overwrite = TRUE)
 
 #' libraries
 library(dplyr, warn.conflicts = F)
