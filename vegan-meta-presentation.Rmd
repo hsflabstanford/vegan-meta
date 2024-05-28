@@ -135,6 +135,7 @@ Nudges are "any aspect of the choice architecture that alters people’s behavio
 
 e.g. @vocski2024 and @andersson2021:
 
+```{=tex}
 \begin{columns}
 \begin{column}{0.4\textwidth}
 \centering
@@ -145,7 +146,7 @@ e.g. @vocski2024 and @andersson2021:
 \includegraphics[width=\textwidth]{./images/menu.png}
 \end{column}
 \end{columns}
-
+```
 ## The nudge literature is huge, and a mess
 
 Probably the dominant approach in the literature as a whole, but only `r num_rep(sum(str_detect(pattern = 'nudge', string = dat$theory)))` met our inclusion criteria. The rest
@@ -154,13 +155,11 @@ Probably the dominant approach in the literature as a whole, but only `r num_rep
 
     -   "The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from \textemdash a less-than-optimal choice"
 
--   are underpowered and/or lack random assignment
-\note{, e.g. alternate treatment/control for 4 days in total [@weimer2022]}
+-   are underpowered and/or lack random assignment \note{, e.g. alternate treatment/control for 4 days in total [@weimer2022]}
 
     -   These limitations might be imposed by restaurant/cafeteria partners
 
--   have serious threats to internal validity
-\note{e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]}
+-   have serious threats to internal validity \note{e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]}
 
 If I might speculate about causes...
 
@@ -175,6 +174,7 @@ These interventions try to change attitudes about people who eat/avoid MAP (both
 ## Norms example
 
 From @sparkman2020:
+
 ```{r norms_example, echo=F, out.width='80%'}
 knitr::include_graphics('./images/norms.png')
 ```
@@ -199,34 +199,81 @@ Often featuring materials from animal welfare organizations e.g. Mercy For Anima
 
 ## Appeals to health
 
+Typically argue for benefits like cardiovascular gains, weight loss, or cancer prevention
 
+Many studies here are focused on red/processed meat (RPMC), e.g. @sorensen2005, an "integrated interventions focused on nutrition, physical activity, and occupational health and activities focused on individual risk factors" whose outcome was whether subjects had $\leq$ 3 servings of red meat per week
+
+Some of these seem likely to have a social desirabilty bias problem, e.g. @berndsen2005: "It is well known that meat (particularly hamburgers and pork) can increase cholesterol levels, which in turn increases **the prevalence of** heart and vascular diseases...there have been several meat crises: BSE, foot and mouth disease, illegal hormones in beef, to give a few examples. **The consumption** of meat contaminated with BSE can cause neurological damage, which can even result in death."
+
+-   Three weeks later, participants "indicate how many days a week they eat meat at dinner."
 
 ## Appeals to the environment
 
-## Reflections on this theoretical framing
+These are typically but not always aimed at climate change
+
+Mny studies point out that some MAP is better than others, e.g. @piester2020
+
+```{r piester_study, echo=F, out.width='60%'}
+knitr::include_graphics('./images/leafs.png')
+```
+
+## The most persuasive intervention: health + environment for college students
+
+@jalil2023 found that a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
+
+-   The really remarkable thing about this study is that it has three years of data from dining halls
+
+Two outstanding questions about this study:
+
+-   what is doing the work, the global warming appeals or the health appeals?
+
+-   If we replicate this study at different schools, will we see similar effects?
+
+## Reflections on the theoretical framing
 
 The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?
 
--   Others distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
-
-Many studies embody multiple perspectives, e.g. @jalil2023; which is doing the work?
+-   Other researchers distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
 
 Ultimately, I like dividing between: try to change MAP availability/salience (nudge); try to change attitudes about people who eat/avoid MAP (norm); & try to change attitudes about MAP (persuasion)
 
-## Results!
+## Results: how to think about them
 
-Overall null: $\Delta$ = 0.02
+Meta-analysis step one: convert each study's effects into a measure of standardized mean difference (SMD) \textemdash ($\Delta = \frac{M_1-M_2}{SD_C}$) \textemdash and its associated variance and standard error
+
+Step two average those SMDs by a procedure that gives more weight to studies with lower variance, i.e. those with larger sample sizes
+
+By convention, $\Delta$ = 0.2 is a small effect size; 0.5 is medium; and 1.0 is large
+
+## How to think about different values of $\Delta$
+
+@jalil2023: net reduction of 5.6% points; for the control group at pre-intervention, 65.5% of meals had meat with an SD of 47.5%.
+
+$\Delta = \frac{.056}{0.457} = 0.118$
+
+\note{This is considered a 'small' effect size, but it lasts for three years, so I give it a lot of credence}
+
+@feltz2022, study 1: subjects who read a pamphlet ("Compassionate Choices") increase \# times they ate meat and/or eggs/day by `r 11.63-9.61` , vs `r 9.38-8.88` more for control subjects (SD = 5.87).
+
+$\Delta =\frac{(11.63-9.61) - (9.38-8.88)}{5.87} = .259$
+
+\note{negative because that's a backlash}
+
+## Overall findings
+
+Overall null: $\Delta$ = 0.0204
 
 `r sum(dat$neg_null_pos == 0)` of `r num_studies` interventions are nulls in their own words
 
-No evidence of publication bias (Caveat that If we analyzed all outcomes, or outcomes that authors present as primary, we might find more — a lot of studies present moderated results as primary outcome)
+No evidence of publication bias (which makes sense given how many nulls we found)
+
+\note{Caveat that if we analyzed all outcomes, or outcomes that authors present as primary, we might find more -- a lot of studies present moderated results as primary outcome}
 
 ## This might come as a surprise...
 
 Previous meta-analyses have found much larger effects
 
--   e.g. @mathur2021meta, which found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])."
-\note{meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals"}
+-   e.g. @mathur2021meta, which found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])." \note{meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals"}
 
 Many causes, but the biggest driver of divergence is probably our focus on MAP *consumption* vs. attitudes & intentions
 
@@ -243,15 +290,7 @@ print(forest_plot)
 
 ## A breakdown by theory
 
-## Nudges: what we do and don't know
-
-## Norms: what we do and don't know
-
-## Appeals to animal welfare: what we do and don't know
-
-## Appeals to the environment: what we do and don't know
-
-## Appeals to health: what we do and don't know
+\note{Nudges/Norms/animal welfare/health/environment: what we do and don't knowNorms: what we do and don't know}
 
 ## Where do we go from here?
 
