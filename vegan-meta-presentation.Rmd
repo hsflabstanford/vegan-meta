@@ -10,7 +10,6 @@ output:
 header-includes:
   - \usepackage{emoji}
   - \setemojifont{Apple Color Emoji}
-
 bibliography: "./manuscript/vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
@@ -22,7 +21,7 @@ Meta-analysis of the most rigorous research
 
 Main aim is to assess which theoretical approach produces the largest, most enduring behavioral changes
 
-Overall null result (∆ = 0.02)
+Overall null result ($\Delta$ = 0.02)
 
 Individual studies [@jalil2023; @sparkman2020] are promising but no theoretical approach has a robust evidence base
 
@@ -32,9 +31,7 @@ I worry about 'regression to the meat:' what people eat after an intervention en
 
 ## Talk outline:
 
-### Paper aims and methods
-
-### Descriptive overview of papers
+### Methods and descriptive overview
 
 ### Survey of five major theoretical approaches
 
@@ -42,33 +39,9 @@ I worry about 'regression to the meat:' what people eat after an intervention en
 
 ### Next steps
 
-## Paper aim: why another meta?
+## Paper aim: what makes this meta distinct 
 
-We already have nearly 40 previous systematic where MAP consumption is either independent or dependent variable
-
-Most are focused on a particular strand of literature, e.g.:
-
-```{=tex}
-\begin{figure}
-\centering
-\begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/meta-one.png}
-\end{minipage}%
-\begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/meta-two.png}
-\end{minipage}
-
-\begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/meta-three.png}
-\end{minipage}%
-\begin{minipage}{0.5\textwidth}
-\includegraphics[width=\linewidth]{images/meta-four.png}
-\end{minipage}
-\end{figure}
-```
-## Why another meta (continued)
-
-The purpose of this paper is to assess the findings of the most rigorous studies, defined as
+Assess the findings of the most rigorous studies, defined as
 
 -   Randomized Controlled Trial
 
@@ -82,14 +55,16 @@ The purpose of this paper is to assess the findings of the most rigorous studies
 
 Also, published in English by December 2023
 
-## Studies that make the cut
+## Descriptive overview
 
 ```{r load_data_and_constants, echo=F, include=F}
 source('./scripts/libraries-functions-data.R')
 source('./scripts/descriptive-stats.R')
-```
+ ```
 
 `r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
+
+`Supplem
 
 The earliest paper is @allen2002, the latest is @jalil2023
 
@@ -198,7 +173,7 @@ Dynamic: "Some people are starting to limit how much meat they eat... in recent 
 
 ## Reflections on this theoretical framing
 
-The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think that a veggie burger is tasty communicating "normative" information?
+The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?
 
 -   Others distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
 
@@ -206,23 +181,21 @@ Many studies embody multiple perspectives, e.g. @jalil2023; which is doing the w
 
 Ultimately, I like dividing between: try to change MAP availability/salience (nudge); try to change attitudes about people who eat/avoid MAP (norm); & try to change attitudes about MAP (persuasion)
 
-But if you read the literature, you might find & propose different boundaries
-
 ## Results!
 
 Overall null: $\Delta$ = 0.02
 
 `r sum(dat$neg_null_pos == 0)` of `r num_studies` interventions are nulls in their own words
 
-No evidence of publication bias
-
--   If we analyzed all outcomes, or outcomes that authors present as primary, we might find more
+No evidence of publication bias (Caveat that If we analyzed all outcomes, or outcomes that authors present as primary, we might find more — a lot of studies present moderated results as primary outcome)
 
 ## This might come as a surprise...
 
-Previous meta-analyses have found much larger effects, e.g. @mathur2021meta, which meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals" and found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])."
+Previous meta-analyses have found much larger effects
 
-This difference is overdetermined but most of it probably comes from our focus on MAP consumption (vs. attitudes & intentions)
+-   e.g. @mathur2021meta, which meta-analyzed "100 studies assessing interventions designed to reduce meat consumption or purchase by mentioning or portraying farm animals" and found "meaningfully large effects (meta- analytic mean risk ratio [RR] = 1.22; 95% CI: [1.13, 1.33])."
+
+Many causes, but the biggest driver of divergence is probably our focus on MAP *consumption* vs. attitudes & intentions
 
 -   For @mathur2021meta, of the ten "studies with the largest calibrated estimates," nine "assessed outcomes related to intended behavior" and the tenth wasn't an RCT
 
@@ -233,8 +206,57 @@ source('./scripts/forest-plot.R')
 print(forest_plot)
 ```
 
-## References
+## A larger effect on red and processed meat consumption (RPMC)
 
-\tiny
+## A breakdown by theory
 
-\printbibliography
+## Nudges: what we do and don't know
+
+## Norms: what we do and don't know
+
+## Appeals to animal welfare: what we do and don't know
+
+## Appeals to the environment: what we do and don't know
+
+## Appeals to health: what we do and don't know
+
+## Where do we go from here?
+
+## State of knowledge
+
+## Theory building
+
+## Future studies
+
+## Policy recommendations
+
+## Thank you!
+
+## Appendix slides
+
+## Why another meta (continued)
+
+We already have nearly 40 previous systematic where MAP consumption is either independent or dependent variable
+
+Most are focused on a particular strand of literature, e.g.:
+
+```{=tex}
+\begin{figure}
+\centering
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/meta-one.png}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/meta-two.png}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/meta-three.png}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\includegraphics[width=\linewidth]{images/meta-four.png}
+\end{minipage}
+\end{figure}
+```
+
+## References {.allowframebreaks}

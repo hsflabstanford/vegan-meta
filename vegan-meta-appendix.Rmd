@@ -1,62 +1,44 @@
 ---
-title: "vegan meta appendix"
-author: "Seth Green"
-date: "`r format(Sys.Date(), '%Y-%m-%d')`"
-editor_options: 
+title: "Vegan meta appendix"
+author: "Seth Ariel Green"
+date: "`r Sys.Date()`"
+output: pdf_document
+editor_options:
   chunk_output_type: console
+  markdown:
+    wrap: 72
+bibliography: "./manuscript/vegan-refs.bib"
 ---
 
-ED NOTE: that the PDF is not rendering for some reason so I'm just doing HTML which is insane but whatever
+ED NOTE: that the PDF is not rendering for some reason so I'm just doing
+HTML which is insane but whatever
 
 ## A review of previous reviews
 
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| First Author   | Year    | Title                                                                                                                                                          | Papers Reviewed                                                                                                                              | Methods                             | Findings                                                                                                                                                                         |
-+================+=========+================================================================================================================================================================+==============================================================================================================================================+=====================================+==================================================================================================================================================================================+
-| Adelberg       | 2018    | Protests Intervention Report                                                                                                                                   | Protests                                                                                                                                     | Narrative review                    | Some protests work better than others; authors advise more protests with a specific target and a specific "ask"                                                                  |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Bianchi (a)    | 2018    | Interventions targeting conscious determinants of human behavior to reduce the demand for meat: a systematic review with qualitative comparative analysis      | Conscious determinants of eating meat                                                                                                        | Systematic review                   | Mixed results, though appeals to health appear to change intentions                                                                                                              |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Bianchi (b)    | 2018    | Restructuring physical micro-environments to reduce the demand for meat: a systematic review and qualitative comparative analysis                              | Choice architecture                                                                                                                          | Systematic review                   | Very mixed results, nothing conclusive mostly because of wide range of methods and rigor, though making vegetarian meals more salient and accessible seems to have effects       |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Byerly         | 2018    | Nudging pro-environmental behavior: evidence and opportunities                                                                                                 | Nudging literature                                                                                                                           | Systematic review                   | Behavior "nudges," e.g. making the default meal option vegetarian, can influence consumer decisions                                                                              |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Chang          | 2023    | Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis                                         | University meat reduction interventions                                                                                                      | Meta-analysis and systematic review | University meat reduction interventions were effective                                                                                                                           |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Graça          | 2019    | Reducing meat consumption and following plant-based diets: Current evidence and future directions to inform integrated transitions                             | Studies on capability, opportunity, and motivation to eat less meat                                                                          | Systematic review                   | Some evidence on motivation, little on capability and opportunity                                                                                                                |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Grieg          | 2017    | Leafleting Intervention Report                                                                                                                                 | Leafleting                                                                                                                                   | Narrative review                    | Leafleting overestimates impact, and leafleting does not seem cost-effective, though with significant uncertainty                                                                |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Grundy         | 2022    | Interventions that influence animal-product consumption: A meta-review                                                                                         | Reviews systematic reviews                                                                                                                   | Meta-meta-review                    | Environmental messaging is effective at reducing meat consumption; health messaging and nudges may also be effective but have less evidence                                      |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Harguess       | 2020    | Strategies to reduce meat consumption: A systematic literature review of experimental studies                                                                  | Experiments (though not in the sense of randomized intervention)                                                                             | Systematic review                   | Increasing knowledge alone or when combined with other methods was shown to reduce meat consumption behavior and intentions to eat meat.                                         |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Hartman        | 2017    | Consumer perception and behavior regarding sustainable protein consumption: A systematic review                                                                | Literature studying consumer awareness of meat's environmental impact, willingness to reduce meat consumption, and acceptance of substitutes | Systematic review                   | Consumers are unaware of the environmental impacts of meat, unwilling to change their behavior, and not very open to substitutes                                                 |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Hartman        | 2018    | Grocery store interventions to change food purchasing behaviors: a systematic review of randomized controlled trials                                           | RCTs conducted in grocery stores for interventions attempting to change purchasing                                                           | Systematic review                   | Grocery store interventions, such as price changes, suggested swaps, and changes to item availability, can change purchasing choices                                             |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Kwasny         | 2022    | Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001–2019                                                      | All 'interventions' 2001-2022                                                                                                                | Systematic review                   | There's been insufficient research on meat-reduction interventions, and effectiveness varies between interventions on several axes                                               |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Mathur         | 2021    | Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations                                      | Appeals to animal welfare                                                                                                                    | Meta-analysis                       | Animal welfare interventions work best on short-term and self-reported outcomes\                                                                                                 |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Mertens        | 2021    | The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains                                                   | choice architecture interventions                                                                                                            | meta-analysis                       | Food choices are particularly responsive to choice architecture interventions                                                                                                    |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Nisa           | 2019    | Meta-analysis of randomized controlled trials testing behavioral interventions to promote household action on climate change                                   | RCTs of behavioral interventions for household emissions reduction                                                                           | Meta-analysis                       | Low effect size for most interventions; nudges are the most effective intervention                                                                                               |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Rosenfeld      | 2018    | The psychology of vegetarianism: Recent advances and future directions                                                                                         | Psychological theories of vegetarianism                                                                                                      | Narrative review                    | Vegetarianism is influenced by moral values and identity, and psychological research on vegetarians is relatively new but growing                                                |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Sanchez-Sabate | 2019    | Consumer Attitudes Towards Environmental Concerns of Meat Consumption: A Systematic Review                                                                     | Consumer attitudes around meat consumption & the environment                                                                                 | Systematic review                   | Awareness of meat's environmental impacts is low, as is willingness to reduce consumption                                                                                        |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Stiles         | 2021    | Effectiveness of Strategies to Decrease Animal-Sourced Protein and/or Increase Plant-Sourced Protein in Foodservice Settings: A Systematic Literature Review   | Interventions aimed at decreasing animal protein and/or increasing plant protein in foodservice settings                                     | Systematic review                   | Menu labeling, prompting at the point of sale, and redesigning menus, recipes, and service increased uptake of target foods                                                      |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Taufik         | 2019    | Determinants of real-life behavioral interventions to stimulate more plant-based and less animal-based diets: A systematic review                              | Behavioral determinants of eating meat                                                                                                       | Systematic review                   | Relatively few real-life intervention studies have been conducted that focus on a decrease in animal-based food consumption                                                      |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Valli          | 2019    | Health-Related Values and Preferences Regarding Meat Consumption                                                                                               | Meat consumption & health considerations                                                                                                     | Systematic review                   | Consumers are not very willing to reduce meat consumption in light of health arguments                                                                                           |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Veul           | 2018    | Interventions to reduce meat consumption in OECD countries: an understanding of differences in success                                                         | Behavioral interventions for meat consumption reduction                                                                                      | Systematic review                   | Influencing thoughts about the positive effects of reduction, making substitutes available, and tailoring interventions to gender and consumer segments are effective strategies |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Wynes          | 2018    | Measuring what works: quantifying greenhouse gas emission reductions of behavioral interventions to reduce driving, meat consumption, and household energy use | Behavior change for GHG emissions reduction                                                                                                  | Narrative review                    | Nudges, such as defaults, work to reduce meat consumption                                                                                                                        |
-+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| First Author   | Year | Title                                                                                                                                                          | Papers Reviewed                                                                                                                              | Methods                             | Findings                                                                                                                                                                         |
+|------------|------------|------------|------------|------------|------------|
+| Adelberg       | 2018 | Protests Intervention Report                                                                                                                                   | Protests                                                                                                                                     | Narrative review                    | Some protests work better than others; authors advise more protests with a specific target and a specific "ask"                                                                  |
+| Bianchi (a)    | 2018 | Interventions targeting conscious determinants of human behavior to reduce the demand for meat: a systematic review with qualitative comparative analysis      | Conscious determinants of eating meat                                                                                                        | Systematic review                   | Mixed results, though appeals to health appear to change intentions                                                                                                              |
+| Bianchi (b)    | 2018 | Restructuring physical micro-environments to reduce the demand for meat: a systematic review and qualitative comparative analysis                              | Choice architecture                                                                                                                          | Systematic review                   | Very mixed results, nothing conclusive mostly because of wide range of methods and rigor, though making vegetarian meals more salient and accessible seems to have effects       |
+| Byerly         | 2018 | Nudging pro-environmental behavior: evidence and opportunities                                                                                                 | Nudging literature                                                                                                                           | Systematic review                   | Behavior "nudges," e.g. making the default meal option vegetarian, can influence consumer decisions                                                                              |
+| Chang          | 2023 | Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis                                         | University meat reduction interventions                                                                                                      | Meta-analysis and systematic review | University meat reduction interventions were effective                                                                                                                           |
+| Graça          | 2019 | Reducing meat consumption and following plant-based diets: Current evidence and future directions to inform integrated transitions                             | Studies on capability, opportunity, and motivation to eat less meat                                                                          | Systematic review                   | Some evidence on motivation, little on capability and opportunity                                                                                                                |
+| Grieg          | 2017 | Leafleting Intervention Report                                                                                                                                 | Leafleting                                                                                                                                   | Narrative review                    | Leafleting overestimates impact, and leafleting does not seem cost-effective, though with significant uncertainty                                                                |
+| Grundy         | 2022 | Interventions that influence animal-product consumption: A meta-review                                                                                         | Reviews systematic reviews                                                                                                                   | Meta-meta-review                    | Environmental messaging is effective at reducing meat consumption; health messaging and nudges may also be effective but have less evidence                                      |
+| Harguess       | 2020 | Strategies to reduce meat consumption: A systematic literature review of experimental studies                                                                  | Experiments (though not in the sense of randomized intervention)                                                                             | Systematic review                   | Increasing knowledge alone or when combined with other methods was shown to reduce meat consumption behavior and intentions to eat meat.                                         |
+| Hartman        | 2017 | Consumer perception and behavior regarding sustainable protein consumption: A systematic review                                                                | Literature studying consumer awareness of meat's environmental impact, willingness to reduce meat consumption, and acceptance of substitutes | Systematic review                   | Consumers are unaware of the environmental impacts of meat, unwilling to change their behavior, and not very open to substitutes                                                 |
+| Hartman        | 2018 | Grocery store interventions to change food purchasing behaviors: a systematic review of randomized controlled trials                                           | RCTs conducted in grocery stores for interventions attempting to change purchasing                                                           | Systematic review                   | Grocery store interventions, such as price changes, suggested swaps, and changes to item availability, can change purchasing choices                                             |
+| Kwasny         | 2022 | Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001–2019                                                      | All 'interventions' 2001-2022                                                                                                                | Systematic review                   | There's been insufficient research on meat-reduction interventions, and effectiveness varies between interventions on several axes                                               |
+| Mathur         | 2021 | Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations                                      | Appeals to animal welfare                                                                                                                    | Meta-analysis                       | Animal welfare interventions work best on short-term and self-reported outcomes                                                                                                  |
+| Mertens        | 2021 | The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains                                                   | choice architecture interventions                                                                                                            | meta-analysis                       | Food choices are particularly responsive to choice architecture interventions                                                                                                    |
+| Nisa           | 2019 | Meta-analysis of randomized controlled trials testing behavioral interventions to promote household action on climate change                                   | RCTs of behavioral interventions for household emissions reduction                                                                           | Meta-analysis                       | Low effect size for most interventions; nudges are the most effective intervention                                                                                               |
+| Rosenfeld      | 2018 | The psychology of vegetarianism: Recent advances and future directions                                                                                         | Psychological theories of vegetarianism                                                                                                      | Narrative review                    | Vegetarianism is influenced by moral values and identity, and psychological research on vegetarians is relatively new but growing                                                |
+| Sanchez-Sabate | 2019 | Consumer Attitudes Towards Environmental Concerns of Meat Consumption: A Systematic Review                                                                     | Consumer attitudes around meat consumption & the environment                                                                                 | Systematic review                   | Awareness of meat's environmental impacts is low, as is willingness to reduce consumption                                                                                        |
+| Stiles         | 2021 | Effectiveness of Strategies to Decrease Animal-Sourced Protein and/or Increase Plant-Sourced Protein in Foodservice Settings: A Systematic Literature Review   | Interventions aimed at decreasing animal protein and/or increasing plant protein in foodservice settings                                     | Systematic review                   | Menu labeling, prompting at the point of sale, and redesigning menus, recipes, and service increased uptake of target foods                                                      |
+| Taufik         | 2019 | Determinants of real-life behavioral interventions to stimulate more plant-based and less animal-based diets: A systematic review                              | Behavioral determinants of eating meat                                                                                                       | Systematic review                   | Relatively few real-life intervention studies have been conducted that focus on a decrease in animal-based food consumption                                                      |
+| Valli          | 2019 | Health-Related Values and Preferences Regarding Meat Consumption                                                                                               | Meat consumption & health considerations                                                                                                     | Systematic review                   | Consumers are not very willing to reduce meat consumption in light of health arguments                                                                                           |
+| Veul           | 2018 | Interventions to reduce meat consumption in OECD countries: an understanding of differences in success                                                         | Behavioral interventions for meat consumption reduction                                                                                      | Systematic review                   | Influencing thoughts about the positive effects of reduction, making substitutes available, and tailoring interventions to gender and consumer segments are effective strategies |
+| Wynes          | 2018 | Measuring what works: quantifying greenhouse gas emission reductions of behavioral interventions to reduce driving, meat consumption, and household energy use | Behavior change for GHG emissions reduction                                                                                                  | Narrative review                    | Nudges, such as defaults, work to reduce meat consumption                                                                                                                        |
 
 ```{r prev_reviews_as_a_table}
 library(tibble)
@@ -91,131 +73,433 @@ reviews_df <- tribble(
 reviews_df |> gt()
 
 ```
-**Add https://osf.io/preprints/psyarxiv/qfn6y**
-**Add https://www.mdpi.com/2071-1050/12/15/5924**
-**Add https://doi.org/10.1017/S1368980017001069**
-**Add https://doi.org/10.1007/s10113-016-1057-5**
-**Add https://doi.org/10.3389/fpsyg.2022.901927**
-**Add https://doi.org/10.3390/ijerph192316372**
-**Add https://doi.org/10.1016/j.appet.2019.104554**
-**Add https://doi.org/10.1186/s12889-016-3272-x**
-**Add https://doi.org/10.3197/jps.2021.5.2.17**
-**Add https://doi.org/10.1016/j.jneb.2023.09.006**
-**Add https://pubmed.ncbi.nlm.nih.gov/29364620/**
-**Add https://tabledebates.org/sites/default/files/2020-10/fcrn_chatham_house_0.df**
-**Add https://doi.org/10.1007/s12160-011-9308-7**
-**Add https://doi.org/10.1017/S0029665119000971**
-**Add https://www.whp-journals.co.uk/JPS/article/view/676/489**
-**Add https://doi.org/10.1016/j.appet.2021.105662**
-**Add [Low-agency population interventions to reduce meat consumption in the UK: an umbrella review](http://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42018109901)
-**Add 10.1016/j.scitotenv.2020.137208** 
-**Add 10.1016/j.foodpol.2020.101847**
-**Add 10.1287/mksc.2018.1128**
 
-Deviations from PAP
-## Meta-analytic Methods
+**Add <https://osf.io/preprints/psyarxiv/qfn6y>** **Add
+<https://www.mdpi.com/2071-1050/12/15/5924>** **Add
+<https://doi.org/10.1017/S1368980017001069>** **Add
+<https://doi.org/10.1007/s10113-016-1057-5>** **Add
+<https://doi.org/10.3389/fpsyg.2022.901927>** **Add
+<https://doi.org/10.3390/ijerph192316372>** **Add
+<https://doi.org/10.1016/j.appet.2019.104554>** **Add
+<https://doi.org/10.1186/s12889-016-3272-x>** **Add
+<https://doi.org/10.3197/jps.2021.5.2.17>** **Add
+<https://doi.org/10.1016/j.jneb.2023.09.006>** **Add
+<https://pubmed.ncbi.nlm.nih.gov/29364620/>** **Add
+<https://tabledebates.org/sites/default/files/2020-10/fcrn_chatham_house_0.df>**
+**Add <https://doi.org/10.1007/s12160-011-9308-7>** **Add
+<https://doi.org/10.1017/S0029665119000971>** **Add
+<https://www.whp-journals.co.uk/JPS/article/view/676/489>** **Add
+<https://doi.org/10.1016/j.appet.2021.105662>** **Add [Low-agency
+population interventions to reduce meat consumption in the UK: an
+umbrella
+review](http://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42018109901)**
+Add 10.1016/j.scitotenv.2020.137208\*\* **Add
+10.1016/j.foodpol.2020.101847** **Add 10.1287/mksc.2018.1128**
 
-1.  We take the outcome that most clearly maps to changes in actual consumption behavior.
-2.  We take the latest possible outcome to test for the presence of enduring effects, and our sample sizes are taken from the same measurement wave.
-3.  For cluster-assigned treatments, our Ns are the number of clusters rather than participants. This includes studies that cluster by day (e.g. everyone who comes to a restaurant on some day gets treated).
-4.  We convert all effect sizes to estimates of standardized mean differences: Average Treatment Effect (ATE) / standard deviation (SD).
-5.  When possible, we calculate ATE using [difference in differences](https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf) (DiD) — ((Treatment_posttest - Treatment_pretest) - (Control_posttest - Control_pretest)) — which we prefer to difference in means (DiM) — (Treatment_posttest - Control_posttest) — because it leads to more precise estimates. When pretest scores aren’t available, we use DiM.
-6.  When possible, we standardize by the SD of the control group, a measure called Glass’s Delta (written as $\Delta$). We prefer Glass’s Delta to Cohen’s d, a measure that standardizes by the SD of the entire sample, because we want to to avoid any additional assumptions about equivalence of variance between treatment and control groups. When we don’t have enough information to calculate $\Delta$, we use d.
-7.  For conversions from statistical tests like t-test or F-test, we use standard equations from [Cooper, Hedges and Valentine (2009)](https://psycnet.apa.org/record/2009-05060-000). The one exception is our difference in proportions estimator, which, to the best of our knowledge, Donald P. Green first proposed for a [previous meta-analysis](https://doi.org/10.1146/annurev-psych-071620-030619). See our [d_calc.R function on GItHub for specifics](https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R).
-8.  When authors tell us that results were “not significant” but don’t specify more precisely, we call the effect type "unspecified null" and record it as $\Delta$ = 0.01.
+Deviations from PAP \## Meta-analytic Methods
 
-Our meta-analysis employs a random effects model rather than a fixed effects model, for reasons explained [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393987/). Our code mainly uses functions from the metafor and tidyverse packages in R as well as some custom wrappers that Seth wrote for previous meta-analyses.
+1.  We take the outcome that most clearly maps to changes in actual
+    consumption behavior.
+2.  We take the latest possible outcome to test for the presence of
+    enduring effects, and our sample sizes are taken from the same
+    measurement wave.
+3.  For cluster-assigned treatments, our Ns are the number of clusters
+    rather than participants. This includes studies that cluster by day
+    (e.g. everyone who comes to a restaurant on some day gets treated).
+4.  We convert all effect sizes to estimates of standardized mean
+    differences: Average Treatment Effect (ATE) / standard deviation
+    (SD).
+5.  When possible, we calculate ATE using [difference in
+    differences](https://edge.edx.org/assets/courseware/v1/b8d2a8030b7aa5f2762a464bf7f8b0c7/c4x/BerkeleyX/CEGA101AIE/asset/Module_2.5_Difference_in_Differences.pdf)
+    (DiD) — ((Treatment_posttest - Treatment_pretest) -
+    (Control_posttest - Control_pretest)) — which we prefer to
+    difference in means (DiM) — (Treatment_posttest - Control_posttest)
+    — because it leads to more precise estimates. When pretest scores
+    aren’t available, we use DiM.
+6.  When possible, we standardize by the SD of the control group, a
+    measure called Glass’s Delta (written as $\Delta$). We prefer
+    Glass’s Delta to Cohen’s d, a measure that standardizes by the SD of
+    the entire sample, because we want to to avoid any additional
+    assumptions about equivalence of variance between treatment and
+    control groups. When we don’t have enough information to calculate
+    $\Delta$, we use d.
+7.  For conversions from statistical tests like t-test or F-test, we use
+    standard equations from [Cooper, Hedges and Valentine
+    (2009)](https://psycnet.apa.org/record/2009-05060-000). The one
+    exception is our difference in proportions estimator, which, to the
+    best of our knowledge, Donald P. Green first proposed for a
+    [previous
+    meta-analysis](https://doi.org/10.1146/annurev-psych-071620-030619).
+    See our [d_calc.R function on GItHub for
+    specifics](https://github.com/setgree/vegan-meta/blob/main/functions/d_calc.R).
+8.  When authors tell us that results were “not significant” but don’t
+    specify more precisely, we call the effect type "unspecified null"
+    and record it as $\Delta$ = 0.01.
+
+Our meta-analysis employs a random effects model rather than a fixed
+effects model, for reasons explained
+[here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393987/). Our code
+mainly uses functions from the metafor and tidyverse packages in R as
+well as some custom wrappers that Seth wrote for previous meta-analyses.
 
 The coefficients we report are:
 
--   Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate: a weighted average of many point estimates, where larger, more precisely estimated studies influence the average proportionally more than smaller ones.
--   Beta (β), a regression coefficient. Linear regression tells you E(Y \| X), i.e. for some value of X (or many Xs), the expected value of Y. We report this coefficient when we discuss publication bias or the effects associated with covariates.
--   SE (standard error) is the standard deviation of the sampling distribution, e.g. $\Delta$ or β. Smaller standard errors mean more precise estimates.
--   P-value, a measure of statistical significance. See [Lakens (2022), chapter 1](https://lakens.github.io/statistical_inferences/01-pvalue.html) for an overview.
-
+-   Glass’s Delta ($\Delta$), which indicates a meta-analytic estimate:
+    a weighted average of many point estimates, where larger, more
+    precisely estimated studies influence the average proportionally
+    more than smaller ones.
+-   Beta (β), a regression coefficient. Linear regression tells you E(Y
+    \| X), i.e. for some value of X (or many Xs), the expected value
+    of Y. We report this coefficient when we discuss publication bias or
+    the effects associated with covariates.
+-   SE (standard error) is the standard deviation of the sampling
+    distribution, e.g. $\Delta$ or β. Smaller standard errors mean more
+    precise estimates.
+-   P-value, a measure of statistical significance. See [Lakens (2022),
+    chapter
+    1](https://lakens.github.io/statistical_inferences/01-pvalue.html)
+    for an overview.
 
 Reviewing the finding (Mertens et al.)
 
 ## Conclusion: shovel-ready interventions that we think promising
+
 I now think this goes in the appendix
 
 ## 1. A few comments on our inclusion criteria
 
-1.  Our inclusion criteria are motivated by a [previous project of Seth’s](https://doi.org/10.1017/bpp.2018.25), which found that assessing the effects of intergroup contact on prejudice, a [meta-analysis that looked at absolutely everything](https://psycnet.apa.org/record/2006-07099-004) came to much more optimistic conclusions than one that looked just at the RCTs with at least one day separating treatment and outcome measurement. I (Seth) had an intuition that we’d find something similar in the MAP reduction literature, and I proposed a project investigating this to [Benny](https://forum.effectivealtruism.org/users/benny-smith?from=post_header) when we met at [EAGxNYC](https://www.effectivealtruism.org/ea-global/events/eagxnyc) in August 2023. (Our first interaction was [on the EA forum](https://forum.effectivealtruism.org/posts/MWkG4F86p4pyE3Sx9/is-stirring-up-anger-good-for-vegan-outreach?commentId=hC2BnuBTWFuBispCz).)
+1.  Our inclusion criteria are motivated by a [previous project of
+    Seth’s](https://doi.org/10.1017/bpp.2018.25), which found that
+    assessing the effects of intergroup contact on prejudice, a
+    [meta-analysis that looked at absolutely
+    everything](https://psycnet.apa.org/record/2006-07099-004) came to
+    much more optimistic conclusions than one that looked just at the
+    RCTs with at least one day separating treatment and outcome
+    measurement. I (Seth) had an intuition that we’d find something
+    similar in the MAP reduction literature, and I proposed a project
+    investigating this to
+    [Benny](https://forum.effectivealtruism.org/users/benny-smith?from=post_header)
+    when we met at
+    [EAGxNYC](https://www.effectivealtruism.org/ea-global/events/eagxnyc)
+    in August 2023. (Our first interaction was [on the EA
+    forum](https://forum.effectivealtruism.org/posts/MWkG4F86p4pyE3Sx9/is-stirring-up-anger-good-for-vegan-outreach?commentId=hC2BnuBTWFuBispCz).)
 
-2.  The standards pertaining to sample sizes are adapted from guidance in [Paluck et al. (2021)](https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-071620-030619) (on which Seth worked as an RA), which found that anti-prejudice studies with fewer than 25 subjects in treatment and control tended to produce systematically larger effects, and argued that for cluster-assigned studies, “estimating standard errors requires at least 10 clusters.”
+2.  The standards pertaining to sample sizes are adapted from guidance
+    in [Paluck et al.
+    (2021)](https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-071620-030619)
+    (on which Seth worked as an RA), which found that anti-prejudice
+    studies with fewer than 25 subjects in treatment and control tended
+    to produce systematically larger effects, and argued that for
+    cluster-assigned studies, “estimating standard errors requires at
+    least 10 clusters.”
 
-3.  Regarding our focus on MAP consumption as the key outcome: attitudes and behavioral intentions are interesting as well, and a future project might investigate the link between [attitudes](https://jacyanthis.com/Testing_the_Effectiveness.pdf)/[intentions](https://pubmed.ncbi.nlm.nih.gov/21816186/) and behavioral change. But for now, we take our cues from [Mathur et al. (2021b)](https://www.mdpi.com/2072-6643/13/12/4555), who find a substantial “discrepancy between intentions and reported consumption” and conclude that “reported intentions may be a poor proxy for reported actual consumption” (this is a well-understood problem in [dietary](https://pubmed.ncbi.nlm.nih.gov/7635601/), [health](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6125069/), [and](https://www.sciencedirect.com/science/article/abs/pii/S0148296322003848) [psychology](https://www.frontiersin.org/articles/10.3389/fpsyg.2022.923464/full) [research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2346472/)).
+3.  Regarding our focus on MAP consumption as the key outcome: attitudes
+    and behavioral intentions are interesting as well, and a future
+    project might investigate the link between
+    [attitudes](https://jacyanthis.com/Testing_the_Effectiveness.pdf)/[intentions](https://pubmed.ncbi.nlm.nih.gov/21816186/)
+    and behavioral change. But for now, we take our cues from [Mathur et
+    al. (2021b)](https://www.mdpi.com/2072-6643/13/12/4555), who find a
+    substantial “discrepancy between intentions and reported
+    consumption” and conclude that “reported intentions may be a poor
+    proxy for reported actual consumption” (this is a well-understood
+    problem in [dietary](https://pubmed.ncbi.nlm.nih.gov/7635601/),
+    [health](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6125069/),
+    [and](https://www.sciencedirect.com/science/article/abs/pii/S0148296322003848)
+    [psychology](https://www.frontiersin.org/articles/10.3389/fpsyg.2022.923464/full)
+    [research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2346472/)).
 
-4.  Regarding the delay criterion: for some in-restaurant studies, e.g. [Piester et al. (2020)](https://www.sciencedirect.com/science/article/abs/pii/S0195666319312115?via%3Dihub), any individual participant will have their outcomes measured the day that treatment was administered; in such cases, we looked for studies where either the intervention or outcome measurement period (or both) spanned multiple days. This is an imperfect solution to a hard problem. On the one hand, we want to focus on lasting effects, and the 'choose-your-meal-right-away' studies don't really work for that; on the other hand, these were some of the best studies we looked at in terms of measurement validity. So we compromised and included anything that \_lasted \_more than a single day, even if people chose the day of. [Hansen et al. (2017)](https://academic.oup.com/jpubhealth/article/43/2/392/5637580) was a challenging edge case; they ran 3 experiments, each lasting a day, but if it had been written up as 1 experiment taking place over 3 days that would have qualified.
+4.  Regarding the delay criterion: for some in-restaurant studies, e.g.
+    [Piester et al.
+    (2020)](https://www.sciencedirect.com/science/article/abs/pii/S0195666319312115?via%3Dihub),
+    any individual participant will have their outcomes measured the day
+    that treatment was administered; in such cases, we looked for
+    studies where either the intervention or outcome measurement period
+    (or both) spanned multiple days. This is an imperfect solution to a
+    hard problem. On the one hand, we want to focus on lasting effects,
+    and the 'choose-your-meal-right-away' studies don't really work for
+    that; on the other hand, these were some of the best studies we
+    looked at in terms of measurement validity. So we compromised and
+    included anything that \_lasted \_more than a single day, even if
+    people chose the day of. [Hansen et al.
+    (2017)](https://academic.oup.com/jpubhealth/article/43/2/392/5637580)
+    was a challenging edge case; they ran 3 experiments, each lasting a
+    day, but if it had been written up as 1 experiment taking place over
+    3 days that would have qualified.
 
-5.  A more conceptual note on the benefits of a focused meta-analysis: meta-analyses often have a “garbage in, garbage out” problem. When you average the results from three unreliable studies and one good one, you often end up with an average effect size that seems stronger and more precisely estimated than any individual study under review, but in a way that papers over structural weaknesses in the papers. The metaphor that comes to mind is packaging up a bunch of [subprime mortgages together into a tranche and calling it AA](https://www.youtube.com/watch?v=II4Ct2n5FiE). Others argue that this method effectively compares [apples and oranges](https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12742) — and sometimes “[apples, lice, and killer whales](https://vitamindwiki.com/The+Misuse+of+Meta-analysis+in+Nutrition+Research+%28and+vitamin+D%29+%E2%80%93+JAMA+Oct+2017).”
+5.  A more conceptual note on the benefits of a focused meta-analysis:
+    meta-analyses often have a “garbage in, garbage out” problem. When
+    you average the results from three unreliable studies and one good
+    one, you often end up with an average effect size that seems
+    stronger and more precisely estimated than any individual study
+    under review, but in a way that papers over structural weaknesses in
+    the papers. The metaphor that comes to mind is packaging up a bunch
+    of [subprime mortgages together into a tranche and calling it
+    AA](https://www.youtube.com/watch?v=II4Ct2n5FiE). Others argue that
+    this method effectively compares [apples and
+    oranges](https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12742)
+    — and sometimes “[apples, lice, and killer
+    whales](https://vitamindwiki.com/The+Misuse+of+Meta-analysis+in+Nutrition+Research+%28and+vitamin+D%29+%E2%80%93+JAMA+Oct+2017).”
 
 ## 2. Self-reported outcomes may induce social desirability bias
 
-[Mathur et al. (2021b)](https://www.mdpi.com/2072-6643/13/12/4555) argue that social desirability bias is “widespread” in the MAP reduction literature. While our meta-analysis did not find systematic differences in effect sizes between studies that measured MAP consumption either obliquely or through self-report,, we still think that Mathur et al. are basically right because for some of these studies, it’s almost impossible to imagine that participants don’t know the answer that researchers are hoping to hear. Consider [Fehrenbach (2015)](https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar), a 2015 dissertation that tested the “effectiveness of $$two$$ video messages designed to encourage Americans to reduce their meat consumption.” The study had two treatment arms and a control. Both treatment videos sought to induce a feeling of “high threat” by informing viewers of the “the negative health effects of high meat consumption;” one video also sought to induce feelings of “high efficacy” by suggesting “easy ways to reduce their meat consumption,” while the “low efficacy” group’s video “only included a very minor efficacy component in the conclusion.” The videos were 7 and 4 minutes long, respectively. Before the study, on the day of the study, and again a week later, participants were asked about their attitudes and intentions towards eating meat, as well as how much meat they’d eaten in the past 7 days.
+[Mathur et al. (2021b)](https://www.mdpi.com/2072-6643/13/12/4555) argue
+that social desirability bias is “widespread” in the MAP reduction
+literature. While our meta-analysis did not find systematic differences
+in effect sizes between studies that measured MAP consumption either
+obliquely or through self-report,, we still think that Mathur et al. are
+basically right because for some of these studies, it’s almost
+impossible to imagine that participants don’t know the answer that
+researchers are hoping to hear. Consider [Fehrenbach
+(2015)](https://www.proquest.com/docview/1712399091?fromopenview=true&pq-origsite=gscholar),
+a 2015 dissertation that tested the “effectiveness of $$two$$ video
+messages designed to encourage Americans to reduce their meat
+consumption.” The study had two treatment arms and a control. Both
+treatment videos sought to induce a feeling of “high threat” by
+informing viewers of the “the negative health effects of high meat
+consumption;” one video also sought to induce feelings of “high
+efficacy” by suggesting “easy ways to reduce their meat consumption,”
+while the “low efficacy” group’s video “only included a very minor
+efficacy component in the conclusion.” The videos were 7 and 4 minutes
+long, respectively. Before the study, on the day of the study, and again
+a week later, participants were asked about their attitudes and
+intentions towards eating meat, as well as how much meat they’d eaten in
+the past 7 days.
 
-Overall, the high threat/high efficacy group reported that they ate an average of 3.16 fewer meals involving meat in the week following the intervention than the one before it, compared to 2.11 for the high threat/low efficacy group and 1.92 for the control group. As a benchmark, the population ate meat at an average of 13.64 meals per week before the intervention (SD = 4.21).
+Overall, the high threat/high efficacy group reported that they ate an
+average of 3.16 fewer meals involving meat in the week following the
+intervention than the one before it, compared to 2.11 for the high
+threat/low efficacy group and 1.92 for the control group. As a
+benchmark, the population ate meat at an average of 13.64 meals per week
+before the intervention (SD = 4.21).
 
-This study strikes us as having a high risk of social desirability bias for three reasons.
+This study strikes us as having a high risk of social desirability bias
+for three reasons.
 
-First, the study is designed to make people feel a sense of “high threat” from eating meat, and then asks them a week later about how much meat they ate. There are grounds for doubting how much respondents would accurately recount their eating habits. This problem is typical of this literature.
+First, the study is designed to make people feel a sense of “high
+threat” from eating meat, and then asks them a week later about how much
+meat they ate. There are grounds for doubting how much respondents would
+accurately recount their eating habits. This problem is typical of this
+literature.
 
-Second, the study asks participants to recall a week’s worth of meals; previous research has found that [daily food diaries lead to more accurate reports](https://pubmed.ncbi.nlm.nih.gov/7635601/). As [Mathur et al. (2021a)](https://www.sciencedirect.com/science/article/pii/S0195666321001847) put it:
+Second, the study asks participants to recall a week’s worth of meals;
+previous research has found that [daily food diaries lead to more
+accurate reports](https://pubmed.ncbi.nlm.nih.gov/7635601/). As [Mathur
+et al.
+(2021a)](https://www.sciencedirect.com/science/article/pii/S0195666321001847)
+put it:
 
-> Many existing studies measure meat consumption in terms of, for example, Likert-type items that categorize the number of weekly meals containing meat (e.g., “none”, “1–5 meals”, etc.) or in terms of reductions from one’s previous consumption. When possible, using finer-grained absolute measures, such as the number of servings of poultry, beef, pork, lamb, fish, etc., would enable effect sizes to be translated into direct measures of societal impact.
+> Many existing studies measure meat consumption in terms of, for
+> example, Likert-type items that categorize the number of weekly meals
+> containing meat (e.g., “none”, “1–5 meals”, etc.) or in terms of
+> reductions from one’s previous consumption. When possible, using
+> finer-grained absolute measures, such as the number of servings of
+> poultry, beef, pork, lamb, fish, etc., would enable effect sizes to be
+> translated into direct measures of societal impact.
 
-Third, the decline in meat-eating among the control group suggests that the intended direction of the experiment might have been crystal clear to everyone, whether they watched the video or not.
+Third, the decline in meat-eating among the control group suggests that
+the intended direction of the experiment might have been crystal clear
+to everyone, whether they watched the video or not.
 
-In sum, using broad stroke, self-reported outcomes in a context where meat is being presented as bad for you seems like a high-risk environment for [experimenter demand effects](https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml).
+In sum, using broad stroke, self-reported outcomes in a context where
+meat is being presented as bad for you seems like a high-risk
+environment for [experimenter demand
+effects](https://www.elgaronline.com/display/edcoll/9781788110556/9781788110556.00031.xml).
 
 ## 3. Why publication bias is a problem, and a method for detecting it
 
-One of the most useful things a meta-analysis can add to our understanding of a literature is an assessment publication bias, sometimes called the [file drawer problem](https://psycnet.apa.org/record/1979-27602-001). The concern is that many academic disciplines have a bias towards positive, significant findings, so when researchers test a hypothesis and find null results, they’re more likely to either shelve the study or be unable to publish it. In this particular dataset, the fact that only 20 of 40 interventions report significant effects is already reasonably strong evidence that this particular literature (or this particular outcome *within* the experimental literature) doesn’t have that problem. But another way to test for publication bias is to see if more precise studies are systematically more likely to report smaller effects.
+One of the most useful things a meta-analysis can add to our
+understanding of a literature is an assessment publication bias,
+sometimes called the [file drawer
+problem](https://psycnet.apa.org/record/1979-27602-001). The concern is
+that many academic disciplines have a bias towards positive, significant
+findings, so when researchers test a hypothesis and find null results,
+they’re more likely to either shelve the study or be unable to publish
+it. In this particular dataset, the fact that only 20 of 40
+interventions report significant effects is already reasonably strong
+evidence that this particular literature (or this particular outcome
+*within* the experimental literature) doesn’t have that problem. But
+another way to test for publication bias is to see if more precise
+studies are systematically more likely to report smaller effects.
 
-There are a few ways to think about why you might observe such a pattern in the presence of publication bias. One is that a more precisely estimated study (one with a smaller standard error) is a lot more likely to be closer to the true effect size by dint of its precision; so if big studies show small results and small studies show big results, that’s [straw-in-the-wind evidence](https://polisci.berkeley.edu/sites/default/files/people/u3827/Understanding%20Process%20Tracing.pdf) that the small studies are drawn from a truncated distribution where small, insignificant results are more likely to be shelved. Another way to think about a potential relationship between effect size and precision is that it’s a lot easier/more tempting to shelve a small study than a big one. If you run a small study and find nothing, you might write it off and move on. But big studies take a lot of work — imagine how many hours went into a study reaching [9 million people in 516 treated areas](https://www.science.org/doi/full/10.1126/science.abd3446) — and researchers might be more inclined to try to get *something* out of a big study, i.e. see it through to publication come hell or high water.
+There are a few ways to think about why you might observe such a pattern
+in the presence of publication bias. One is that a more precisely
+estimated study (one with a smaller standard error) is a lot more likely
+to be closer to the true effect size by dint of its precision; so if big
+studies show small results and small studies show big results, that’s
+[straw-in-the-wind
+evidence](https://polisci.berkeley.edu/sites/default/files/people/u3827/Understanding%20Process%20Tracing.pdf)
+that the small studies are drawn from a truncated distribution where
+small, insignificant results are more likely to be shelved. Another way
+to think about a potential relationship between effect size and
+precision is that it’s a lot easier/more tempting to shelve a small
+study than a big one. If you run a small study and find nothing, you
+might write it off and move on. But big studies take a lot of work —
+imagine how many hours went into a study reaching [9 million people in
+516 treated
+areas](https://www.science.org/doi/full/10.1126/science.abd3446) — and
+researchers might be more inclined to try to get *something* out of a
+big study, i.e. see it through to publication come hell or high water.
 
 ## 4. Some methodological issues and trends we encountered while coding studies
 
 ### 4.1 There should be a control group and it shouldn’t receive pro-vegan messaging
 
-Four interesting studies did not meet our inclusion criteria because of issues with their control groups ([one](https://faunalytics.org/wp-content/uploads/2017/12/Animal-Equality-Report-Final.pdf), [two](https://assets.ctfassets.net/ww1ie0z745y7/5BclqQGYj8oJ6Txsj1GGQF/f6feb92bdb4cbd200b6e382a731325b1/E001R02-which-leaflet-is-more-effective-reanalysis.pdf), [three](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00607/full), [four](https://osf.io/fapu8/)). Either they didn't have one or the control group received some form of vegan messaging, e.g. people were assigned to treatment or control in a tent plastered with animal rights imagery. But the control group should be a control group.
+Four interesting studies did not meet our inclusion criteria because of
+issues with their control groups
+([one](https://faunalytics.org/wp-content/uploads/2017/12/Animal-Equality-Report-Final.pdf),
+[two](https://assets.ctfassets.net/ww1ie0z745y7/5BclqQGYj8oJ6Txsj1GGQF/f6feb92bdb4cbd200b6e382a731325b1/E001R02-which-leaflet-is-more-effective-reanalysis.pdf),
+[three](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00607/full),
+[four](https://osf.io/fapu8/)). Either they didn't have one or the
+control group received some form of vegan messaging, e.g. people were
+assigned to treatment or control in a tent plastered with animal rights
+imagery. But the control group should be a control group.
 
-That also means not to try to \_over-\_control their behavior. For instance, [one study’s control group](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.577111) “were asked not to change their diet” in any way. But *that message is a kind of treatment*. We understand the instinct to try to limit noise, but that can’t come at the expense of internal validity. A control group that gets told to do or not do something by experimenters has received an experimental stimulus. This violates the equivalence in expectation assumption that RCTs depend on for unbiased inference.
+That also means not to try to \_over-\_control their behavior. For
+instance, [one study’s control
+group](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.577111)
+“were asked not to change their diet” in any way. But *that message is a
+kind of treatment*. We understand the instinct to try to limit noise,
+but that can’t come at the expense of internal validity. A control group
+that gets told to do or not do something by experimenters has received
+an experimental stimulus. This violates the equivalence in expectation
+assumption that RCTs depend on for unbiased inference.
 
 ### 4.2 The garden of forking paths
 
-[Cooney (2014)](https://osf.io/nwcgf), "What elements make a vegetarian leaflet more effective?" is a [Humane League](https://forum.effectivealtruism.org/topics/the-humane-league) study that looked at how to make a "pro-vegetarian booklet more effective at inspiring young people to reduce their consumption of animal products." The study recruited young people at colleges and universities in the Northeastern U.S. and at various stops on the Warp Music tour (a wonderful detail!) and randomly assigned them to read one of eight booklets or a control group. The booklets presented (some combination of) information about animal cruelty, the health benefits of going vegetarian, information focused on all farm animals or just chickens, and content on either **why** participants should go vegetarian or a focus on **how** to do so. 3,233 people filled out an initial survey on their eating habits and viewed one of the booklets (or were assigned to control); 569 people filled out an endline survey 3 months later to assess long-term impacts.
+[Cooney (2014)](https://osf.io/nwcgf), "What elements make a vegetarian
+leaflet more effective?" is a [Humane
+League](https://forum.effectivealtruism.org/topics/the-humane-league)
+study that looked at how to make a "pro-vegetarian booklet more
+effective at inspiring young people to reduce their consumption of
+animal products." The study recruited young people at colleges and
+universities in the Northeastern U.S. and at various stops on the Warp
+Music tour (a wonderful detail!) and randomly assigned them to read one
+of eight booklets or a control group. The booklets presented (some
+combination of) information about animal cruelty, the health benefits of
+going vegetarian, information focused on all farm animals or just
+chickens, and content on either **why** participants should go
+vegetarian or a focus on **how** to do so. 3,233 people filled out an
+initial survey on their eating habits and viewed one of the booklets (or
+were assigned to control); 569 people filled out an endline survey 3
+months later to assess long-term impacts.
 
-The study's main findings are that information on cruelty was slightly more effective at reducing MAP consumption than health information was; that leaflets focused on *all* farm animals outperformed those focused just on chickens; and information about how to go vegetarian was more effective than arguments for going vegetarian. Overall, Cooney concludes, the study produces "strong evidence that pro-vegetarian booklets aimed at young people should focus on all main farm animals, not just chickens," and "weak evidence that booklets should focus more on the cruelty done to animals than on the health benefits of going vegetarian;" once these two elements are established, he argues, it's "unclear whether how-or why-focused booklets will be more effective at persuading people to change their diet."
+The study's main findings are that information on cruelty was slightly
+more effective at reducing MAP consumption than health information was;
+that leaflets focused on *all* farm animals outperformed those focused
+just on chickens; and information about how to go vegetarian was more
+effective than arguments for going vegetarian. Overall, Cooney
+concludes, the study produces "strong evidence that pro-vegetarian
+booklets aimed at young people should focus on all main farm animals,
+not just chickens," and "weak evidence that booklets should focus more
+on the cruelty done to animals than on the health benefits of going
+vegetarian;" once these two elements are established, he argues, it's
+"unclear whether how-or why-focused booklets will be more effective at
+persuading people to change their diet."
 
-However, each of these is an intra-treatment comparison, and ignores the control group. For a meta-analysis, the main quantity of interest is generally how a given treatment, or cluster of treatments, compares to baseline of no intervention. For these participants, three months later, "those in the control group (those who never received a booklet) reported more of a reduction in animal product consumption than those who received any of the other booklets.” Coney does not believe that the booklets actually reduced the likelihood of changing one's diet, and calls this an anomaly. He also partly attributes it to tiny sample sizes.
+However, each of these is an intra-treatment comparison, and ignores the
+control group. For a meta-analysis, the main quantity of interest is
+generally how a given treatment, or cluster of treatments, compares to
+baseline of no intervention. For these participants, three months later,
+"those in the control group (those who never received a booklet)
+reported more of a reduction in animal product consumption than those
+who received any of the other booklets.” Coney does not believe that the
+booklets actually reduced the likelihood of changing one's diet, and
+calls this an anomaly. He also partly attributes it to tiny sample
+sizes.
 
-This is a textbook example of [the garden of forking paths](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf). Choosing an analytic strategy after you've seen the data allows researchers to make *prima facie* reasonable choices that, at the aggregate level, have a way of suppressing and under-reporting backlash or unwelcome results.
+This is a textbook example of [the garden of forking
+paths](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
+Choosing an analytic strategy after you've seen the data allows
+researchers to make *prima facie* reasonable choices that, at the
+aggregate level, have a way of suppressing and under-reporting backlash
+or unwelcome results.
 
-This study would have benefited from preregistration and a clear divide in its analyses between hypotheses established *a priori* and those developed after data collection. However, and to the team’s credit, the study's code and data were [posted to the Open Science Framework](https://osf.io/rg2ve), and interested readers can reconstruct whatever analyses they think most relevant.
+This study would have benefited from preregistration and a clear divide
+in its analyses between hypotheses established *a priori* and those
+developed after data collection. However, and to the team’s credit, the
+study's code and data were [posted to the Open Science
+Framework](https://osf.io/rg2ve), and interested readers can reconstruct
+whatever analyses they think most relevant.
 
 ### 4.3 Social psychology studies were sometimes hard to read and parse for statistical information
 
-The psych studies in this literature are often drawing from theories that are unfamiliar to us. For instance, [Fehrenbach (2015)](https://www.proquest.com/docview/1712399091?pq-origsite=gscholar&fromopenview=true)is a test of the “Extended Parallel Process Model,” which [describes](https://www.healthcommcapacity.org/wp-content/uploads/2014/09/Extended-Parallel-Processing-Model.pdf) “how rational considerations (efficacy beliefs) and emotional reactions (fear of a health threat) combine to determine behavioral decisions.” This study had treatment subjects watch a video that sought to induce a feeling of “high threat” by describing the harms and dangers of meat, while also giving some subjects a sense of “high efficacy,” i.e. the sense that they are capable of altering their behavior. We don’t know anything about this strand of social psychological theory. However, for our purposes what ultimately matters is whether these interventions reduce MAP consumption or not.
+The psych studies in this literature are often drawing from theories
+that are unfamiliar to us. For instance, [Fehrenbach
+(2015)](https://www.proquest.com/docview/1712399091?pq-origsite=gscholar&fromopenview=true)is
+a test of the “Extended Parallel Process Model,” which
+[describes](https://www.healthcommcapacity.org/wp-content/uploads/2014/09/Extended-Parallel-Processing-Model.pdf)
+“how rational considerations (efficacy beliefs) and emotional reactions
+(fear of a health threat) combine to determine behavioral decisions.”
+This study had treatment subjects watch a video that sought to induce a
+feeling of “high threat” by describing the harms and dangers of meat,
+while also giving some subjects a sense of “high efficacy,” i.e. the
+sense that they are capable of altering their behavior. We don’t know
+anything about this strand of social psychological theory. However, for
+our purposes what ultimately matters is whether these interventions
+reduce MAP consumption or not.
 
-We also sometimes found the analyses presented in these studies hard to parse. In lieu of a difference of means, these studies often reported statistics that combined the ‘effects’ of the treatment itself and non-randomly assigned moderators (e.g. gender) or mediators (e.g. a score on a personality test trying to diagnose people’s reasons for resisting vegetarianism). These approaches have [notable conceptual drawbacks](https://journals.sagepub.com/doi/10.1177/0002716209351526), but for our purposes, the main drawback was that they added a lot of additional uncertainty to the process of figuring out [the average treatment effect](https://en.wikipedia.org/wiki/Average_treatment_effect): the difference in means between the treatment and the control groups at posttest. We ask that researchers in this field please heed Daniel Lakens’s [observation](https://lakens.github.io/statistical_inferences/11-meta.html) that any given study “is just a data-point in a future meta-analysis,” and make future researchers’ lives easier by clearly documenting five essential pieces of information: the control group’s sample size and mean posttest score, the treatment group’s sample size and mean posttest score, and a measure of sample variance, rather than estimator variance, i.e., the standard deviation rather than (or in addition to) a standard error. (These two quantities are [sometimes confused in meta-analyses.](https://link.springer.com/article/10.1007/s40279-022-01766-0)) Please and thank you!
+We also sometimes found the analyses presented in these studies hard to
+parse. In lieu of a difference of means, these studies often reported
+statistics that combined the ‘effects’ of the treatment itself and
+non-randomly assigned moderators (e.g. gender) or mediators (e.g. a
+score on a personality test trying to diagnose people’s reasons for
+resisting vegetarianism). These approaches have [notable conceptual
+drawbacks](https://journals.sagepub.com/doi/10.1177/0002716209351526),
+but for our purposes, the main drawback was that they added a lot of
+additional uncertainty to the process of figuring out [the average
+treatment
+effect](https://en.wikipedia.org/wiki/Average_treatment_effect): the
+difference in means between the treatment and the control groups at
+posttest. We ask that researchers in this field please heed Daniel
+Lakens’s
+[observation](https://lakens.github.io/statistical_inferences/11-meta.html)
+that any given study “is just a data-point in a future meta-analysis,”
+and make future researchers’ lives easier by clearly documenting five
+essential pieces of information: the control group’s sample size and
+mean posttest score, the treatment group’s sample size and mean posttest
+score, and a measure of sample variance, rather than estimator variance,
+i.e., the standard deviation rather than (or in addition to) a standard
+error. (These two quantities are [sometimes confused in
+meta-analyses.](https://link.springer.com/article/10.1007/s40279-022-01766-0))
+Please and thank you!
 
 ### 4.4 If you cluster, please tell us how many units per cluster
 
-[Hennessey (2016)](https://core.ac.uk/download/pdf/158315429.pdf) tells us that the average cluster has 1.6 participants, whereas [Piazza et al. (2022)](https://doi.org/10.1016/j.appet.2021.105726) say that treatment was assigned to people in groups of 2-8. We therefore estimated the number of clusters by dividing the Ns by 5 (the numeric mean of 2-8). But this isn’t very precise. It’s not a huge risk of bias, but in general, we ask researchers to please make future meta-analysis as easy as possible by reporting information like this as clearly as they can.
+[Hennessey (2016)](https://core.ac.uk/download/pdf/158315429.pdf) tells
+us that the average cluster has 1.6 participants, whereas [Piazza et al.
+(2022)](https://doi.org/10.1016/j.appet.2021.105726) say that treatment
+was assigned to people in groups of 2-8. We therefore estimated the
+number of clusters by dividing the Ns by 5 (the numeric mean of 2-8).
+But this isn’t very precise. It’s not a huge risk of bias, but in
+general, we ask researchers to please make future meta-analysis as easy
+as possible by reporting information like this as clearly as they can.
 
 ### 4.5 Measure at whatever level of fidelity makes sense
 
-[Gravert and Kurz (2019)](https://www.cambridge.org/core/journals/behavioural-public-policy/article/abs/nudging-a-la-carte-a-field-experiment-on-climatefriendly-food-choice/7EAA47F30FEAA990FC4F7EAAF9CAC0C0) look at meat, fish and veggies separately. Likewise, [Jalil et al. (2023)](https://www.nature.com/articles/s43016-023-00712-1) measure red meat and other kinds of meat separately. This reporting clarity enables all kinds of subsequent re-analyses and theory-building. If at all possible, we ask researchers to report granular data about categories of MAP consumption.
+[Gravert and Kurz
+(2019)](https://www.cambridge.org/core/journals/behavioural-public-policy/article/abs/nudging-a-la-carte-a-field-experiment-on-climatefriendly-food-choice/7EAA47F30FEAA990FC4F7EAAF9CAC0C0)
+look at meat, fish and veggies separately. Likewise, [Jalil et al.
+(2023)](https://www.nature.com/articles/s43016-023-00712-1) measure red
+meat and other kinds of meat separately. This reporting clarity enables
+all kinds of subsequent re-analyses and theory-building. If at all
+possible, we ask researchers to report granular data about categories of
+MAP consumption.
 
 ## 5. Summaries of prior reviews
 
-Here are our notes on three prior reviews: [Bianchi et al.( 2018a)](https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6) on the “conscious determinants” of MAP consumption; 2) [Bianchi et al. (2018b)](https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext) on changes to the microenvironment; and 3) [Mathur et al. (2021a)](https://www.sciencedirect.com/science/article/pii/S0195666321001847) on appeals to animal welfare.
+Here are our notes on three prior reviews: [Bianchi et al.(
+2018a)](https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6)
+on the “conscious determinants” of MAP consumption; 2) [Bianchi et al.
+(2018b)](https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext)
+on changes to the microenvironment; and 3) [Mathur et al.
+(2021a)](https://www.sciencedirect.com/science/article/pii/S0195666321001847)
+on appeals to animal welfare.
 
 #### 5.1 [Bianchi, Dorsel, Garnett, Aveyard & Jebb (2018)](https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6): “Interventions targeting conscious determinants of human behaviour to reduce the demand for meat: a systematic review with qualitative comparative analysis”
 
-This paper reviewed interventions targeting “conscious determinants” of demand for meat, and found “24 papers reporting on 29 studies” with 37 interventions.
+This paper reviewed interventions targeting “conscious determinants” of
+demand for meat, and found “24 papers reporting on 29 studies” with 37
+interventions.
 
 These Interventions were broadly group ed into information about
 
@@ -227,44 +511,222 @@ These Interventions were broadly group ed into information about
 5. or a combination thereof (N = 14). 
 ```
 
-Of the 29 studies, 15 reported “actual meat consumption,” 6 looked at “meat purchase or selection” (hypothetically), and 15 looked at “intended consumption.” (Some studies look at multiple dependent variables.)
+Of the 29 studies, 15 reported “actual meat consumption,” 6 looked at
+“meat purchase or selection” (hypothetically), and 15 looked at
+“intended consumption.” (Some studies look at multiple dependent
+variables.)
 
-Overall, the authors find that “self-monitoring and individual lifestyle counselling interventions showed promise in reducing actual consumption of meat.” However, while education about the health, environmental, and animal welfare consequences of eating meat showed promise in changing *intended* behaviors, they did not appear to change actual MAP consumption.
+Overall, the authors find that “self-monitoring and individual lifestyle
+counselling interventions showed promise in reducing actual consumption
+of meat.” However, while education about the health, environmental, and
+animal welfare consequences of eating meat showed promise in changing
+*intended* behaviors, they did not appear to change actual MAP
+consumption.
 
 #### 5.2 [Bianchi, Garnett, Dorsel, Aveyard and Jebb (2018)](https://pubmed.ncbi.nlm.nih.gov/30177007/): “Restructuring physical micro-environments to reduce the demand for meat: a systematic review and qualitative comparative analysis”
 
-This paper reviewed the [choice architecture](https://en.wikipedia.org/wiki/Choice_architecture) literature and found “14 papers reporting on 18 studies with 22 intervention conditions” that aim to reduce “demand for meat, defined as the actual or intended consumption, purchase, or selection of meat in real or virtual environments.” Of the 18 included, the authors consider 3 to have “strong” methodological quality, 11 to have medium, and 3 to be of low quality. “Six studies reported data on meat consumption,” while the remaining 12 report on either meat purchases/selection or meat purchases/selection in a virtual setting.
+This paper reviewed the [choice
+architecture](https://en.wikipedia.org/wiki/Choice_architecture)
+literature and found “14 papers reporting on 18 studies with 22
+intervention conditions” that aim to reduce “demand for meat, defined as
+the actual or intended consumption, purchase, or selection of meat in
+real or virtual environments.” Of the 18 included, the authors consider
+3 to have “strong” methodological quality, 11 to have medium, and 3 to
+be of low quality. “Six studies reported data on meat consumption,”
+while the remaining 12 report on either meat purchases/selection or meat
+purchases/selection in a virtual setting.
 
 Those 18 studies fell into 7 bins, and found the following results:
 
--   The three studies that “reduced the portion size of meat servings in restaurants or laboratory settings…significantly reduced meat consumption.” These studies literally served some people less meat than others and then observed how much meat everybody ate, e.g. [Rolls, Roe, and Meengs (2010)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2844679/). It would have been shocking to us if they hadn’t found an immediate effect; but none measured lasting changes.
--   The three observational studies that “provided meat alternatives to free­living individuals (ie, those not being observed in a laboratory setting)…were associated with significant reductions in meat purchases or consumption.”
-    -   The two of these we could find online ([Flynn, Reinert and Schiff 2013](https://www.tandfonline.com/doi/abs/10.1080/19320248.2012.758066), [Holloway, Salter, and McCullough 2012](https://www.cambridge.org/core/journals/proceedings-of-the-nutrition-society/article/dietary-intervention-to-reduce-meat-intake-by-50-in-university-students-a-pilot-study/23672007B72FA3D859CCF9A291F63BCF)) both implement very nice, behaviorally-based interventions that would benefit from randomized replication.
--   The four studies that “altered the visual aspects or the hedonic appeal of meat or meat alternatives…significantly reduced the demand for meat in virtual food choices.” All of these took place in virtual settings, meaning they didn’t measure actual eating habits.
--   The four studies that “repositioned meat products to reduce their prominence at point of purchase” found mixed results. Two of these studies “reduced or were associated with reductions in meat demand,” while two others did not see statistically significant results on meat demand.
--   The five studies that “manipulated menus and meal booking systems by changing the verbal description or label of meat or meat alternatives” had differential results by study design. A non-randomized study that altered “university meal booking systems to refer to meat options as ‘meat’ rather than ‘standard’ or ‘normal’ was associated with reduced meat purchases;” however, four randomized studies that changed verbal descriptions of items on a menu did not find an effect.
--   The [one study](https://academic.oup.com/eurpub/article/20/1/65/609696) that “used a pricing intervention” — basically it created a constant price per ounce for differently sized orders of chicken nuggets, as opposed to pricing the largest order at a lower price by weight — found no effects on meat consumption “in a simulated food choice task.”
-    -   The study surveyed people *at a fast food restaurant* but did not measure any actual food choices. This is baffling.
--   Last, the two studies that “changed multiple elements of a university canteen or of small businesses'' found mixed results. A study of a [marketing campaign at a university providing](https://pubmed.ncbi.nlm.nih.gov/23409862/) “examples of meat­free dishes at the canteen entrance, indicators of healthy meat­ free options, and educational flyers” reduced meat consumption. However this study was badly underpowered, with just two units in treatment and two in control. Meanwhile, an “18 ­month multicomponent intervention targeting red meat consumption and other health behaviours” at 18 worksites [did not meaningfully reduce meat consumption](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1449340/); further, its specific changes to the microenvironment “were not reported in detail, precluding more detailed analyses of this intervention.”
+-   The three studies that “reduced the portion size of meat servings in
+    restaurants or laboratory settings…significantly reduced meat
+    consumption.” These studies literally served some people less meat
+    than others and then observed how much meat everybody ate, e.g.
+    [Rolls, Roe, and Meengs
+    (2010)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2844679/). It
+    would have been shocking to us if they hadn’t found an immediate
+    effect; but none measured lasting changes.
+-   The three observational studies that “provided meat alternatives to
+    free­living individuals (ie, those not being observed in a laboratory
+    setting)…were associated with significant reductions in meat
+    purchases or consumption.”
+    -   The two of these we could find online ([Flynn, Reinert and
+        Schiff
+        2013](https://www.tandfonline.com/doi/abs/10.1080/19320248.2012.758066),
+        [Holloway, Salter, and McCullough
+        2012](https://www.cambridge.org/core/journals/proceedings-of-the-nutrition-society/article/dietary-intervention-to-reduce-meat-intake-by-50-in-university-students-a-pilot-study/23672007B72FA3D859CCF9A291F63BCF))
+        both implement very nice, behaviorally-based interventions that
+        would benefit from randomized replication.
+-   The four studies that “altered the visual aspects or the hedonic
+    appeal of meat or meat alternatives…significantly reduced the demand
+    for meat in virtual food choices.” All of these took place in
+    virtual settings, meaning they didn’t measure actual eating habits.
+-   The four studies that “repositioned meat products to reduce their
+    prominence at point of purchase” found mixed results. Two of these
+    studies “reduced or were associated with reductions in meat demand,”
+    while two others did not see statistically significant results on
+    meat demand.
+-   The five studies that “manipulated menus and meal booking systems by
+    changing the verbal description or label of meat or meat
+    alternatives” had differential results by study design. A
+    non-randomized study that altered “university meal booking systems
+    to refer to meat options as ‘meat’ rather than ‘standard’ or
+    ‘normal’ was associated with reduced meat purchases;” however, four
+    randomized studies that changed verbal descriptions of items on a
+    menu did not find an effect.
+-   The [one
+    study](https://academic.oup.com/eurpub/article/20/1/65/609696) that
+    “used a pricing intervention” — basically it created a constant
+    price per ounce for differently sized orders of chicken nuggets, as
+    opposed to pricing the largest order at a lower price by weight —
+    found no effects on meat consumption “in a simulated food choice
+    task.”
+    -   The study surveyed people *at a fast food restaurant* but did
+        not measure any actual food choices. This is baffling.
+-   Last, the two studies that “changed multiple elements of a
+    university canteen or of small businesses'' found mixed results. A
+    study of a [marketing campaign at a university
+    providing](https://pubmed.ncbi.nlm.nih.gov/23409862/) “examples of
+    meat­free dishes at the canteen entrance, indicators of healthy meat­
+    free options, and educational flyers” reduced meat consumption.
+    However this study was badly underpowered, with just two units in
+    treatment and two in control. Meanwhile, an “18 ­month multicomponent
+    intervention targeting red meat consumption and other health
+    behaviours” at 18 worksites [did not meaningfully reduce meat
+    consumption](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1449340/);
+    further, its specific changes to the microenvironment “were not
+    reported in detail, precluding more detailed analyses of this
+    intervention.”
 
-One noteworthy field experiment in this literature is [Sorensen et al. (2005)](https://ncbi.nlm.nih.gov/pmc/articles/PMC1449371/), which tested an intervention “designed to improve health behaviors among working-class, multiethnic populations employed in small manufacturing businesses,” and found no meaningful change in red meat consumption. Of the remaining ten studies we checked, five measured hypothetical meat choices rather than actual consumption, two featured no delay, two did not have enough clusters to qualify, and one was too barebone to draw any quantitative results from (though it too [reported null results](https://www.environment.admin.cam.ac.uk/files/report_summary_-_georgia_stewart.pdf)).
+One noteworthy field experiment in this literature is [Sorensen et al.
+(2005)](https://ncbi.nlm.nih.gov/pmc/articles/PMC1449371/), which tested
+an intervention “designed to improve health behaviors among
+working-class, multiethnic populations employed in small manufacturing
+businesses,” and found no meaningful change in red meat consumption. Of
+the remaining ten studies we checked, five measured hypothetical meat
+choices rather than actual consumption, two featured no delay, two did
+not have enough clusters to qualify, and one was too barebone to draw
+any quantitative results from (though it too [reported null
+results](https://www.environment.admin.cam.ac.uk/files/report_summary_-_georgia_stewart.pdf)).
 
 #### 5.3 [Mathur, Peacock, Reichling, Nadler, Bain, Gardner, and Robinson (2021)](https://www.sciencedirect.com/science/article/pii/S0195666321001847): Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations
 
-This paper meta-analyzes 34 papers, comprising a total of 100 recorded outcomes, that attempt to reduce MAP consumption through appeals to animal welfare. These appeals are typically undergirded by one or more of nine psychological theories: 1) changing social norms; 2) the “identifiable victim effect” where people typically have a stronger reaction to something bad happening to a named individual rather than a class or group; 3) implementation suggestions, e.g. concrete ideas for meat substitutes at breakfast; 4) meat-animal reminders that link meat to actual creatures; 5) “moral shock” tactics that highlight how horrible factory farming is; 6) mind attribution, e.g. prompting people to imagine the lived experience of a cow; 7) the “moral equivalence of farm animals and companion animals;” 8) linking physical and moral disgust; and 9) the opportunity to participate in, and identify with, a social movement.
+This paper meta-analyzes 34 papers, comprising a total of 100 recorded
+outcomes, that attempt to reduce MAP consumption through appeals to
+animal welfare. These appeals are typically undergirded by one or more
+of nine psychological theories: 1) changing social norms; 2) the
+“identifiable victim effect” where people typically have a stronger
+reaction to something bad happening to a named individual rather than a
+class or group; 3) implementation suggestions, e.g. concrete ideas for
+meat substitutes at breakfast; 4) meat-animal reminders that link meat
+to actual creatures; 5) “moral shock” tactics that highlight how
+horrible factory farming is; 6) mind attribution, e.g. prompting people
+to imagine the lived experience of a cow; 7) the “moral equivalence of
+farm animals and companion animals;” 8) linking physical and moral
+disgust; and 9) the opportunity to participate in, and identify with, a
+social movement.
 
-For whatever reason, only 24% of these articles were published in peer-reviewed journals; the remainder came from “dissertations, theses, conference proceedings, or reports by nonprofits.” Also notable is that two-thirds of the interventions took less than 5 minutes to implement. Of the 100 point estimates,75 come from randomized studies, 96 were self-assessments of MAP consumption, and 53 were measured immediately following the intervention.
+For whatever reason, only 24% of these articles were published in
+peer-reviewed journals; the remainder came from “dissertations, theses,
+conference proceedings, or reports by nonprofits.” Also notable is that
+two-thirds of the interventions took less than 5 minutes to implement.
+Of the 100 point estimates,75 come from randomized studies, 96 were
+self-assessments of MAP consumption, and 53 were measured immediately
+following the intervention.
 
-Pooling all studies together, the authors find that the interventions collectively led to a 22% increase in “subject’s probability of intending, self-reporting, or behaviorally demonstrating low versus high meat consumption, compared to the control condition.” In other words, a meaningful average effect.
+Pooling all studies together, the authors find that the interventions
+collectively led to a 22% increase in “subject’s probability of
+intending, self-reporting, or behaviorally demonstrating low versus high
+meat consumption, compared to the control condition.” In other words, a
+meaningful average effect.
 
-Overall, this results suggests that appeals to animal welfare generally work at changing behavior. However, a close look at the reported data reveals a few grounds for doubt.
+Overall, this results suggests that appeals to animal welfare generally
+work at changing behavior. However, a close look at the reported data
+reveals a few grounds for doubt.
 
-1.  Only 25 of these point estimates were both in the less-MAP direction and statistically significant outcomes; the remaining 75 either were nonsignificant or in the wrong direction.
-2.  Looking at the ten largest effect sizes, nine are intended behavior outcomes, and the tenth ([Norris and Roberts 2016](https://veganoutreach.org/ppr-2016/)) finds big results, but is not an RCT because it has no control group.
-    1.  Treatment *was* randomly assigned, just to different treatment groups. However, because the results from each treatment group were broadly similar, the authors pool all results into one random effects outcome and treat it as a pre-post outcome. We further note that the study was conducted by an advocacy group rather than independent researchers, was never published in a journal, and doesn’t provide any information on the participants besides the fact that they were mTurk participants. Incorporating these kinds of data points into our assessment of a study’s evidentiary value is tricky. Our main concern is the lack of a control group.
-3.  A delay of 7 days is associated with a curtailing of the pooled effect size to zero. The risk ratio associated with studies with a delay of at least 7 days is 0.81, with the original effect of 1.22 set as baseline; 0.81 \* 1.22 = 0.9882, which means that the treatment and control groups have effectively equivalent outcomes (or slightly lower in the treatment group).
-4.  The 21 point estimates from pre-registered studies with open data have a pooled risk ratio of 1.09, an estimate which falls just short of the conventional standard for statistical significance (p = 0.06). We’re not sticklers for this or any particular significance threshold; but when the best studies in a dataset find systematically smaller results, it suggests that a literature’s effect sizes might partly be a function of [researcher degrees of freedom](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.01832/full).
-5.  Finally, these are all self-reported results; as the authors put it, this might bias results if it “induce$$s$$ misreporting that is *differential* between the intervention and control group, which could potentially inflate estimates away from the null.”
+1.  Only 25 of these point estimates were both in the less-MAP direction
+    and statistically significant outcomes; the remaining 75 either were
+    nonsignificant or in the wrong direction.
+2.  Looking at the ten largest effect sizes, nine are intended behavior
+    outcomes, and the tenth ([Norris and Roberts
+    2016](https://veganoutreach.org/ppr-2016/)) finds big results, but
+    is not an RCT because it has no control group.
+    1.  Treatment *was* randomly assigned, just to different treatment
+        groups. However, because the results from each treatment group
+        were broadly similar, the authors pool all results into one
+        random effects outcome and treat it as a pre-post outcome. We
+        further note that the study was conducted by an advocacy group
+        rather than independent researchers, was never published in a
+        journal, and doesn’t provide any information on the participants
+        besides the fact that they were mTurk participants.
+        Incorporating these kinds of data points into our assessment of
+        a study’s evidentiary value is tricky. Our main concern is the
+        lack of a control group.
+3.  A delay of 7 days is associated with a curtailing of the pooled
+    effect size to zero. The risk ratio associated with studies with a
+    delay of at least 7 days is 0.81, with the original effect of 1.22
+    set as baseline; 0.81 \* 1.22 = 0.9882, which means that the
+    treatment and control groups have effectively equivalent outcomes
+    (or slightly lower in the treatment group).
+4.  The 21 point estimates from pre-registered studies with open data
+    have a pooled risk ratio of 1.09, an estimate which falls just short
+    of the conventional standard for statistical significance (p =
+    0.06). We’re not sticklers for this or any particular significance
+    threshold; but when the best studies in a dataset find
+    systematically smaller results, it suggests that a literature’s
+    effect sizes might partly be a function of [researcher degrees of
+    freedom](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.01832/full).
+5.  Finally, these are all self-reported results; as the authors put it,
+    this might bias results if it “induce$$s$$ misreporting that is
+    *differential* between the intervention and control group, which
+    could potentially inflate estimates away from the null.”
 
-Overall this is a great meta-analysis and we recommend [reading it if you enjoy the subject](https://www.sciencedirect.com/science/article/pii/S0195666321001847).
+Overall this is a great meta-analysis and we recommend [reading it if
+you enjoy the
+subject](https://www.sciencedirect.com/science/article/pii/S0195666321001847).
 
+### When is a norm a nudge?
+
+What exactly a nudge is, and what sorts of interventions qualify, is a
+subject of scholarly debate. @thaler2009 define a nudge as "any aspect
+of the choice architecture that alters people’s behaviour in a
+predictable way, without forbidding any options or significantly
+changing their economic incentives. To count as a mere nudge, the
+intervention must be easy and cheap to avoid" (p. 6). However, which
+incentives count as "economic" is not self-evident, and @selinger2012
+note that many of the examples cited by Thaler and Sunstein actually
+*do* alter incentives.
+
+@hausman2010 offer a revised definition of nudges as "ways of
+influencing choice without limiting the choice set or making
+alternatives appreciably more costly in terms of time, trouble, social
+sanctions, and so forth" (p. 126). By this definition, an injunctive
+norm intervention, which implies a threat of social deviance and
+therefore sanction, would not qualify.
+
+The question of whether a descriptive norm intervention is a nudge is
+trickier. @thaler2009 would say yes; they write that if "choice
+architects want to change behavior, and to do so with a nudge, they
+might simply inform people about what other people are doing" (p. 71).
+However, @hausman2010 also note that nudges are designed to address
+"flaws in individual decision-making" (p. 126). Is a tendency to conform
+a flaw or "behavioral bias" [@kantorowicz2021, p. 362]?
+
+@mols2015 thread this needle by defining "unthinking conformity" as one
+of the "human failings" which nudges are intended to address. They
+contrast this approach with "persuasion," which "appeals to an
+individual’s ability to reason, digest new information and engage in
+systematic information processing" (p. 4).
+
+Our own view is that a tendency to conform *might* be irrational or
+unthinking, but it could just as easily be the product of reflection on
+one's social identity, especially when a socially beneficial behavior is
+being proposed. If you walk into a campus cafe and see a sign saying
+that its veggie burgers are "on the rise" [@sparkman2020], perhaps that
+triggers a "herd mentality" [@mols2015, p. 3], but perhaps the patron
+thinks of their vegetarian friends, the environment, or animal welfare
+and makes a socially conscious choice. We do not know and do not assume
+that people react unthinkingly. Therefore, we do not classify the norms
+interventions in our database as nudges, though we acknowledge a
+burgeoning "norms-nudge" literature and that terminology may change over
+time (see @bicchieri2023 for discussion).

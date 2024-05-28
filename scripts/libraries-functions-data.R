@@ -1,11 +1,11 @@
 library(googledrive)
-# run the following only if needed
-# drive_auth() 
-# drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'), 
+#' run the following only if needed
+# drive_auth()
+# drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 #               path = './data/vegan-meta.csv',
 #               overwrite = TRUE)
 
-# libraries
+#' libraries
 library(dplyr, warn.conflicts = F)
 library(english)
 library(ggplot2)
@@ -18,7 +18,7 @@ library(rlang, warn.conflicts = F)
 library(stringr)
 library(gt)
 
-# functions
+#' functions
 source('./functions/count_and_robust.R')
 source('./functions/d_calc.R')
 source('./functions/map_robust.R')
@@ -28,9 +28,10 @@ source('./functions/sum_lm.R')
 source('./functions/var_d_calc.R')
 source('./functions/utils.R')
 
-
+#' options
 options(scipen = 99)
 
+#' data
 dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
@@ -62,6 +63,3 @@ dat <- read.csv('./data/vegan-meta.csv') |>
   select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
-# two useful constants
-num_papers <- as.numeric(max(dat$unique_paper_id))
-num_studies <- as.numeric(max(dat$unique_study_id))
