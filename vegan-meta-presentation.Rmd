@@ -217,26 +217,6 @@ Mny studies point out that some MAP is better than others, e.g. @piester2020
 knitr::include_graphics('./images/leafs.png')
 ```
 
-## The most persuasive intervention: health + environment for college students
-
-@jalil2023 found that a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
-
--   The really remarkable thing about this study is that it has three years of data from dining halls
-
-Two outstanding questions about this study:
-
--   what is doing the work, the global warming appeals or the health appeals?
-
--   If we replicate this study at different schools, will we see similar effects?
-
-## Reflections on the theoretical framing
-
-The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?
-
--   Other researchers distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
-
-Ultimately, I like dividing between: try to change MAP availability/salience (nudge); try to change attitudes about people who eat/avoid MAP (norm); & try to change attitudes about MAP (persuasion)
-
 ## Results: how to think about them
 
 Meta-analysis step one: convert each study's effects into a measure of standardized mean difference (SMD) \textemdash ($\Delta = \frac{M_1-M_2}{SD_C}$) \textemdash and its associated variance and standard error
@@ -277,7 +257,7 @@ Previous meta-analyses have found much larger effects
 
 Many causes, but the biggest driver of divergence is probably our focus on MAP *consumption* vs. attitudes & intentions
 
--   For @mathur2021meta, of the ten "studies with the largest calibrated estimates," nine "assessed outcomes related to intended behavior" and the tenth wasn't an RCT
+-   For @mathur2021meta, of the ten studies with the "largest calibrated estimates," nine "assessed outcomes related to intended behavior" and the tenth wasn't an RCT
 
 ## Forest plot
 
@@ -285,6 +265,8 @@ Many causes, but the biggest driver of divergence is probably our focus on MAP *
 source('./scripts/forest-plot.R')
 print(forest_plot)
 ```
+
+## Effects over time? 
 
 ## A larger effect on red and processed meat consumption (RPMC)
 
@@ -295,6 +277,28 @@ print(forest_plot)
 ## Where do we go from here?
 
 ## State of knowledge
+
+Main conclusion: measurement error \textemdash spillovers, temporal substitution, and 'regression to the meat' \textemdash  is this literature's albatross
+
+RPMC reduction: what instead?
+
+Nudged at lunch: what happens at dinner? 
+
+Upside: if you get this stuff right in *your* study, like @jalil2023 and @vocski2024 did, then you are advancing the state of knowledge substantially
+
+## Looking closely at two promising studies: Jalil et al. (2023)
+
+@jalil2023 found that a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
+
+-   The really remarkable thing about this study is that it has three years of data from dining halls
+
+Two outstanding questions about this study:
+
+-   what is doing the work, the global warming appeals or the health appeals?
+
+-   If we replicate this study at different schools, will we see similar effects?
+
+## ## Looking closely at two promising studies: Sparkman et al. (2020)
 
 ## Theory building
 
@@ -330,4 +334,13 @@ Most are focused on a particular strand of literature, e.g.:
 \end{minipage}
 \end{figure}
 ```
+
+## Reflections on the theoretical framing
+
+The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?
+
+-   Other researchers distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
+
+Ultimately, I like dividing between: try to change MAP availability/salience (nudge); try to change attitudes about people who eat/avoid MAP (norm); & try to change attitudes about MAP (persuasion)
+
 ## References {.allowframebreaks}

@@ -414,32 +414,9 @@ dat |>
 
 As this graph suggests, we see systematically smaller results in reports by advocacy organizations than in other types of publication. This is consistent with the contention that academic papers are subject to pressure to publish significant results, but not conclusively. 
 
-```{r publication_type_table, include=F, echo=F}
-publication_type_eff_size <- dat |> split(~pub_status) |> 
-  map(count_and_robust) |> 
-  bind_rows(.id = "publication_type"); publication_type_eff_size
-
-publication_type_eff_size_reformatted <- publication_type_eff_size |> 
-  mutate(delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |>
-  select(publication_type, N_unique, delta_se) # Select only necessary columns
-
-publication_type_eff_size_gt <- publication_type_eff_size_reformatted |>
-  gt() |>
-  tab_header(
-    title = "Table XXX",
-    subtitle = "Differences in Average Effect Size by Publication Type"
-  ) |>
-  cols_label(
-    publication_type = "Publication Type",
-    N_unique = "N (Studies)",
-    delta_se = "∆ (se)"
-  ) |>
-  tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
-```
-
 Table XXX presents differences in average effect size by publication type.
 
-`r publication_type_eff_size_gt`
+`r publication_type_eff_size_table`
 
 [Table XXX about here]
 
@@ -509,12 +486,16 @@ On the one hand, we applaud these organizations for making their materials freel
 ### self-report measures are not systematically different
 
 ```{r self_report, echo=F, include=F}
-self_report_results <- dat |> split(~self_report == 'Y') |> map(count_and_robust); self_report_results
+self_report_results <- dat |> split(~self_report == 'Y') |> map(count_and_robust) |>
+  bind_rows(.id = 'self_report'); self_report_results
 ```
-Self-reported outcomes are a well-understood potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019; @schoeller2013; @mathur2021effectiveness], and we expected to see evidence of this bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results$'TRUE'$N_unique ` studies with self-report outcomes have an average effect size of `r self_report_results$'TRUE'$Delta` (se = `r self_report_results$'TRUE'$se`), p = `r self_report_results$'TRUE'$pval`, while the `r self_report_results$'FALSE'$N_unique` studies with obliquely measured outcomes have an average effect size of `r self_report_results$'FALSE'$Delta` (se = `r self_report_results$'FALSE'$se`), p = `r self_report_results$'FALSE'$pval`.
+
+Self-reported outcomes are a well-understood potential source of bias [@hebert1995social; @hebert1997gender; @cerri2019; @schoeller2013; @mathur2021effectiveness], and we expected to see evidence of this bias manifesting as larger results for self-reported outcomes than for obliquely measured results. However, we find the opposite: The `r self_report_results[self_report_results$self_report == 'TRUE', 'N_unique']` studies with self-report outcomes have an average effect size of `r self_report_results[self_report_results$self_report == 'TRUE', 'Delta']` (se = `r self_report_results[self_report_results$self_report == 'TRUE', 'se']`), p = `r self_report_results[self_report_results$self_report == 'TRUE', 'pval']`, while the `r self_report_results[self_report_results$self_report == 'FALSE', 'N_unique']` studies with obliquely measured outcomes have an average effect size of `r self_report_results[self_report_results$self_report == 'FALSE', 'Delta']` (se = `r self_report_results[self_report_results$self_report == 'FALSE', 'se']`), p = `r self_report_results[self_report_results$self_report == 'FALSE', 'pval']`.
 
 ```{r self_report_without_advocacy_studies, echo=F, include=F}
-dat |> filter(advocacy_org == 'N') |> split(~self_report == 'Y') |> map(count_and_robust)
+dat |> filter(advocacy_org == 'N') |> split(~self_report == 'Y')|> 
+  map(count_and_robust) |> bind_rows(.id = 'self_report') |> 
+  gmt()
 ```
 
 We do not read too much into this, as there are numerous systematic differences between the two groups of studies. For instance, all of the interventions that use materials produced by advocacy organizations, which we've seen produce a backlash effect, use self-report measures. (If we remove those studies from our analysis, the studies with obliquely measured outcomes still produce a larger pooled effect). Unfortunately, no studies in our sample provide both self-reported and obliquely measured MAP consumption outcomes, so we cannot assess how well one outcome predicts the other within a given study.

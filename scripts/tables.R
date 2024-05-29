@@ -117,6 +117,35 @@ study_quality_results_table <- study_quality_results |>
     tab_source_note = TRUE
   )
 
+# Split by publication type
+publication_type_eff_size <- dat |> split(~pub_status) |> 
+  map(count_and_robust) |> 
+  bind_rows(.id = "publication_type") |>
+  arrange(desc(N_unique))
+
+publication_type_eff_size_table <- publication_type_eff_size |>
+  gmt(
+    title = "Effect Sizes of Studies by Publication Type",
+    col_name = publication_type,
+    col_label = "Publication Type",
+    tab_source_note = TRUE
+  )
+
+# self report within non-advocacy reports
+self_report_non_advocacy_results <- dat |>
+  filter(advocacy_org == 'N') |>
+  split(~self_report == 'Y') |>
+  map(count_and_robust) |>
+  bind_rows(.id = 'self_report') |>
+  arrange(desc(N_unique))
+
+self_report_non_advocacy_table <- self_report_non_advocacy_results |>
+  gmt(
+    title = "Results by Self-Reported Outcomes excluding advocacy publications",
+    col_name = self_report,
+    col_label = "Self Report",
+    tab_source_note = TRUE
+  )
 
 # Print the tables to verify
 print(all_results_gt_table)
@@ -125,4 +154,5 @@ print(advocacy_org_table)
 print(country_results_table)
 print(meat_vs_map_table)
 print(study_quality_results_table)
-
+print(publication_type_eff_size_table)
+print(self_report_non_advocacy_table)
