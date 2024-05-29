@@ -1,4 +1,4 @@
-#' overall results by theory
+# Overall results by theory
 # Filter the data for each theory/approach, apply count_and_robust, and then combine
 all_results <- bind_rows(
   dat |> filter(str_detect(theory, "norms")) |> count_and_robust() |> mutate(Approach = "Norms"),
@@ -6,35 +6,19 @@ all_results <- bind_rows(
   dat |> filter(str_detect(secondary_theory, "health")) |> count_and_robust() |> mutate(Approach = "Health"),
   dat |> filter(str_detect(secondary_theory, "environment")) |> count_and_robust() |> mutate(Approach = "Environment"),
   dat |> filter(str_detect(secondary_theory, "animal welfare")) |> count_and_robust() |> mutate(Approach = "Animal Welfare"),
-  dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust() |> mutate(Approach = "Persuasion")
-) |> mutate(pval = as.numeric(pval)) |> 
-  select(Approach, N_unique, everything()); all_results
+  dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust() |> mutate(Approach = "Persuasion")) |> 
+  select(Approach, N_unique, everything())
 
-# Format for gt table
-all_results_formatted <- all_results |>
-  mutate(
-    `Glass's ∆ (se)` = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)
-  ) |>
-  select(Approach, N_unique, `Glass's ∆ (se)`)
-
-all_results_formatted
-
-all_results_gt_table <- all_results_formatted |>
-  gt() |>
-  tab_header(
+all_results_gt_table <- all_results |>
+  gmt(
     title = "Summary of Results by Theory",
-    subtitle = "Comparing Effect Sizes Across Different Theories"
-  ) |>
-  cols_label(
-    Approach = "Theory",
-    N_unique = "N (Studies)",
-    `Glass's ∆ (se)` = "Glass's ∆ (se)"
-  ) |>
-  tab_source_note(
-    source_note = "* < 0.05, ** < 0.01, *** < 0.001. Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample."
+    subtitle = "Comparing Effect Sizes Across Different Theories",
+    col_name = Approach,
+    col_label = "Theory",
+    tab_source_note = "Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample."
   )
 
-# overall results by delivery method
+# Overall results by delivery method
 delivery_method_results <- bind_rows(
   dat |> filter(str_detect(internet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Internet"),
   dat |> filter(str_detect(leaflet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Pamphlet"),
@@ -43,130 +27,102 @@ delivery_method_results <- bind_rows(
   dat |> filter(cafeteria_or_restaurant_based == 'N' &
                   !str_detect(video, "Y") &
                   !str_detect(leaflet, "Y") &
-                  !str_detect(internet, "Y")) |> count_and_robust() |>
-    mutate(DeliveryMethod = "Everything else")) |> 
-  mutate(pval = as.numeric(pval)) |> 
-  mutate(delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |>
-  select(DeliveryMethod, N_unique, delta_se); delivery_method_results
+                  !str_detect(internet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Everything else")
+)
 
-delivery_method_gt_table <- delivery_method_results |>
-  gt() |>
-  tab_header(
+delivery_method_table <- delivery_method_results |>
+  gmt(
     title = "Summary of Results by Delivery Method",
-    subtitle = "Comparing Effect Sizes Across Different Delivery Methods"
-  ) |>
-  cols_label(
-    DeliveryMethod = "Delivery Method",
-    N_unique = "N (Studies)",
-    delta_se = "Glass's ∆ (se)"
-  ) |>
-  tab_source_note(
-    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
-  )
+    subtitle = "Comparing Effect Sizes Across Different Delivery Methods",
+    col_name = DeliveryMethod,
+    col_label = "Delivery Method")
 
-# advocacy org tables
-# check orgs
-dat |> filter(advocacy_org != 'N') |> 
-  select(author, year, theory, secondary_theory, advocacy_org)
-advocacy_results <- dat |>
-  mutate(advocacy_materials = if_else(advocacy_org == "N", 
-                                      "Researcher materials", 
-                                      "Advocacy organization materials")) |>
-  split(~advocacy_materials) |>
-  map(count_and_robust) |>
-  bind_rows(.id = "Intervention_type") |> 
-  mutate(pval = as.numeric(pval)); advocacy_results
-
-advocacy_org_specific_table <- dat |>
+# Results by animal advocacy organization
+advocacy_org_results <- dat |>
   split(~advocacy_org) |>
   map(count_and_robust) |>
   bind_rows(.id = "advocacy_org") |>
   arrange(desc(N_unique)) |>
-  mutate(pval = as.numeric(pval)) |> 
-  mutate(advocacy_org = if_else(advocacy_org == "N", 
-                                "Researchers (non-advocacy)", 
-                                advocacy_org),
-         stars = get_significance_stars(pval),
-         delta_se = sprintf("%.3f%s (%.3f)", Delta, stars, se)) |>
-  select(advocacy_org, N_unique, delta_se) |> 
-  gt() |> 
-  tab_header(
-    title = "Results by Animal Advocacy Organization") |>
-  cols_label(
-    advocacy_org = "Advocacy Organization",
-    N_unique = "N (Studies)",
-    delta_se = "Glass's ∆ (se)"
-  ) |>
-  tab_source_note(
-    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
+  mutate(pval = as.numeric(pval)) |>
+  mutate(
+    advocacy_org = if_else(advocacy_org == "N", 
+                           "Researchers (non-advocacy)", advocacy_org))
+
+advocacy_org_table <- advocacy_org_results |>
+  gmt(
+    title = "Results by Animal Advocacy Organization",
+    col_name = advocacy_org,
+    col_label = "Advocacy Organization",
+    tab_source_note = TRUE
   )
 
-# results by country 
-country_results_table <- dat |> split(~country) |> 
-  map(count_and_robust) |> 
-  bind_rows(.id = "country") |> 
+# Results by country
+country_results <- dat |>
+  split(~country) |>
+  map(count_and_robust) |>
+  bind_rows(.id = "country") |>
   arrange(desc(N_unique)) |>
-  mutate(pval = as.numeric(pval)) |> 
-  mutate(country = if_else(country == "United States, United Kingdom, Canada, Australia, and other", "US, UK, Canada, Australia, and other", country),
-         delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |> select(country, N_unique, delta_se) |>
-  gt() |>
-  tab_header(
-    title = "Effect sizes by country") |>
-  cols_label(
-    country = "Country",
-    N_unique = "N (Studies)",
-    delta_se = "∆ (se)"
-  ) |>
-  tab_source_note(
-    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
+  mutate(pval = as.numeric(pval)) |>
+  mutate(
+    country = if_else(
+      country == "United States, United Kingdom, Canada, Australia, and other",
+      "US, UK, Canada, Australia, and other",
+      country
+    )
   )
 
-# meat vs MAP as a general category
-meat_vs_map <- dat |> split(~str_detect(
-  pattern = "MAP", dat$outcome_category)) |>
-  map(count_and_robust) |> bind_rows(.id = 'meat_vs_map') |> 
+country_results_table <- country_results |>
+  gmt(
+    title = "Results by Country",
+    col_name = country,
+    col_label = "Country",
+    tab_source_note = TRUE
+  )
+
+# Meat vs MAP as a general category
+meat_vs_map <- dat |>
+  split(~str_detect(pattern = "MAP", dat$outcome_category)) |>
+  map(count_and_robust) |>
+  bind_rows(.id = 'meat_vs_map') |>
   mutate(
     meat_vs_map = case_when(
       meat_vs_map == TRUE ~ "MAP overall",
       meat_vs_map == FALSE ~ "Meat",
-      TRUE ~ NA),
-    pval = as.numeric(pval)) |> 
-  mutate(
-    delta_se = sprintf("%.3f%s (%.3f)", Delta, get_significance_stars(pval), se)) |>
-  select(meat_vs_map, N_unique, delta_se) |> 
-  gt() |>
-  tab_header(
-    title = "Table XXX",
-    subtitle = "Differences in effect studies between Meat and MAP outcomes") |>
-  cols_label(
-    meat_vs_map = "Outcome type",
-    N_unique = "N (Studies)",
-    delta_se = "∆ (se)"
-  ) |>
-  tab_source_note(source_note = "* < 0.05, ** < 0.01, *** < 0.001.") 
+      TRUE ~ NA
+    )
+  )
 
-study_quality_results_table <- list(
+meat_vs_map_table <- meat_vs_map |>
+  gmt(
+    title = "Differences in effect studies between Meat and MAP outcomes",
+    col_name = meat_vs_map,
+    col_label = "Outcome type"
+  )
+
+# Results by open science practices
+study_quality_results <- list(
   "Pre-analysis Plan" = dat |> filter(public_pre_analysis_plan != 'N'),
   "Open Data" = dat |> filter(open_data != 'N'),
-  "Both" = dat |> filter(public_pre_analysis_plan != 'N', open_data != 'N'),
-  "Neither" = dat |> filter(public_pre_analysis_plan == 'N', open_data == 'N')
+  "Both" = dat |> filter(public_pre_analysis_plan != 'N' & open_data != 'N'),
+  "Neither" = dat |> filter(public_pre_analysis_plan == 'N' & open_data == 'N')
 ) |>
   map(~ .x |> count_and_robust()) |>
-  bind_rows(.id = "Open Science Practice") |>
-  mutate(pval = as.numeric(pval)) |> 
-  mutate(delta_se = sprintf("%.3f%s (%.3f)", 
-                            Delta, get_significance_stars(pval), se)) |> 
-  select(`Open Science Practice`, N_unique, delta_se) |> 
-  gt() |>
-  tab_header(
-    title = "Table XXX",
-    subtitle = "Effect Sizes of Studies by Open Science Practices"
-  ) |>
-  cols_label(
-    `Open Science Practice` = "Open Science Practice",
-    N_unique = "N (Studies)",
-    delta_se = "∆ (se)"
-  ) |>
-  tab_source_note(
-    source_note = "* < 0.05, ** < 0.01, *** < 0.001."
+  bind_rows(.id = "Open Science Practice")
+
+study_quality_results_table <- study_quality_results |>
+  gmt(
+    title = "Effect Sizes of Studies by Open Science Practices",
+    col_name = 'Open Science Practice',
+    col_label = "Open Science Practice",
+    tab_source_note = TRUE
   )
+
+
+# Print the tables to verify
+print(all_results_gt_table)
+print(delivery_method_table)
+print(advocacy_org_table)
+print(country_results_table)
+print(meat_vs_map_table)
+print(study_quality_results_table)
+

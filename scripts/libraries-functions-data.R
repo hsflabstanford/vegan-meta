@@ -21,6 +21,7 @@ library(gt)
 #' functions
 source('./functions/count_and_robust.R')
 source('./functions/d_calc.R')
+source('./functions/great_meta_tables.R')
 source('./functions/map_robust.R')
 source('./functions/num_rep.R')
 source('./functions/study_count.R')
