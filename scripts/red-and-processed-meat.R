@@ -30,4 +30,6 @@ first_decade_RPMC_studies <- RPMC |> filter(year == 2005)
 carfora_studies <- RPMC |> filter(str_detect(author, "Carfora"))
 
 num_RPMC_studies <- nrow(RPMC)
-RPMC_subjects <-sum(RPMC$n_t_post) + sum(RPMC$n_c_post)
+RPMC_subjects <- sum(RPMC$n_t_post) + sum(RPMC$n_c_post)
+
+RPMC_model <- RPMC |> map_robust()

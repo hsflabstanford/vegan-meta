@@ -1,7 +1,6 @@
 #' Generate a GT Table with Custom Formatting
 #' Just making great meta-analysis tables! and dealing with Eddie Munster
 
-
 gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name, 
                 col_label = "Theory", tab_source_note = NULL) {
   # Capture the column name as a quosure
@@ -27,9 +26,9 @@ gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name,
     dplyr::mutate(pval = as.numeric(pval)) |>
     dplyr::mutate(
       stars = get_significance_stars(pval),
-      `Glass\'s \u2206 (se)` = sprintf("%.3f%s (%.3f)", Delta, stars, se)
+      `Glass's ∆ (se)` = sprintf("%.3f%s (%.3f)", Delta, stars, se)
     ) |>
-    dplyr::select(!!col_name, N_unique, `Glass\'s \u2206 (se)`) |>
+    dplyr::select(!!col_name, N_unique, `Glass's ∆ (se)`) |>
     gt::gt() |>
     gt::tab_header(
       title = title,
@@ -38,7 +37,7 @@ gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name,
     gt::cols_label(
       !!col_name := col_label,
       N_unique = "N (Studies)",
-      `Glass\'s \u2206 (se)` = "Glass\'s \u2206 (se)"
+      `Glass's ∆ (se)` = gt::md("Glass's $\\Delta$ (se)")
     )
   
   # Add the tab_source_note if provided
@@ -58,4 +57,3 @@ gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name,
   
   return(tab)
 }
-globalVariables(c("pval", "Delta", "stars", "se", "N_unique", ":="))

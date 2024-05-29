@@ -7,11 +7,19 @@ output:
     latex_engine: lualatex
     includes:
       in_header: manuscript/header.tex
+  slidy_presentation: default
+  ioslides_presentation: default
 header-includes:
-  - \usepackage{emoji}
-  - \setemojifont{Apple Color Emoji}
+- \usepackage{emoji}
+- \setemojifont{Apple Color Emoji}
+- \usepackage{booktabs}
+- \usepackage{caption}
+- \usepackage{longtable}
+- \makeatletter
+- \let\@@magyar@captionfix\relax
+- \makeatother
 bibliography: "./manuscript/vegan-refs.bib"
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -19,15 +27,15 @@ editor_options:
 
 Meta-analysis of the most rigorous research
 
-Main aim is to assess which theoretical approach produces the largest, most enduring behavioral changes
+Aim is to assess which theoretical approach produces the largest, most enduring behavioral changes
 
 Overall null result ($\Delta$ = 0.02)
 
 Individual studies [@jalil2023; @sparkman2020] are promising but no theoretical approach has a robust evidence base
 
-Animal welfare arguments are especially ineffective
+Animal welfare arguments need a rethink
 
-some big unknowns, e.g what people eat after an intervention ends or what the replace red meat with
+Two big unknowns: what people eat after an intervention ends or what the replace red meat with
 
 ## Talk outline:
 
@@ -61,6 +69,7 @@ Also, published in English by December 2023
 source('./scripts/libraries-functions-data.R')
 source('./scripts/descriptive-stats.R')
 source('./scripts/red-and-processed-meat.R')
+source('./scripts/tables.R')
 ```
 
 `r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
@@ -203,29 +212,27 @@ Typically argue for benefits like cardiovascular gains, weight loss, or cancer p
 
 Many studies here are focused on red/processed meat (RPMC), e.g. @sorensen2005, an "integrated interventions focused on nutrition, physical activity, and occupational health and activities focused on individual risk factors" whose outcome was whether subjects had $\leq$ 3 servings of red meat per week
 
-Some of these seem likely to have a social desirabilty bias problem, e.g. @berndsen2005: "It is well known that meat (particularly hamburgers and pork) can increase cholesterol levels, which in turn increases **the prevalence of** heart and vascular diseases...there have been several meat crises: BSE, foot and mouth disease, illegal hormones in beef, to give a few examples. **The consumption** of meat contaminated with BSE can cause neurological damage, which can even result in death."
-
--   Three weeks later, participants "indicate how many days a week they eat meat at dinner."
+Social desirability bias? @berndsen2005: "It is well known that meat (particularly hamburgers and pork) can increase cholesterol levels, which in turn increases **the prevalence of** heart and vascular diseases...there have been several meat crises: BSE, foot and mouth disease, illegal hormones in beef, to give a few examples. **The consumption** of meat contaminated with BSE can cause neurological damage, which can even result in death." Then they ask people how many days a week they eat meat at dinner.
 
 ## Appeals to the environment
 
 These are typically but not always aimed at climate change
 
-Mny studies point out that some MAP is better than others, e.g. @piester2020
+Many studies point out that some MAP is better than others, e.g. @piester2020
 
 ```{r piester_study, echo=F, out.width='60%'}
 knitr::include_graphics('./images/leafs.png')
 ```
 
-## Results: how to think about them
+## Results: how to think about effect sizes
 
 Meta-analysis step one: convert each study's effects into a measure of standardized mean difference (SMD) \textemdash ($\Delta = \frac{M_1-M_2}{SD_C}$) \textemdash and its associated variance and standard error
 
-Step two average those SMDs by a procedure that gives more weight to studies with lower variance, i.e. those with larger sample sizes
+Step two: average those SMDs by a procedure that gives more weight to studies with lower variance, i.e. those with larger sample sizes
 
 By convention, $\Delta$ = 0.2 is a small effect size; 0.5 is medium; and 1.0 is large
 
-## How to think about different values of $\Delta$
+## Real world correspondences of $\Delta$
 
 @jalil2023: net reduction of 5.6% points; for the control group at pre-intervention, 65.5% of meals had meat with an SD of 47.5%.
 
@@ -266,51 +273,154 @@ source('./scripts/forest-plot.R')
 print(forest_plot)
 ```
 
-## Effects over time? 
-
 ## A larger effect on red and processed meat consumption (RPMC)
 
-## A breakdown by theory
+Overall effect on RPMC is `r RPMC_model$Delta` (se = `r RPMC_model$se`), p `r RPMC_model$pval`
 
-\note{Nudges/Norms/animal welfare/health/environment: what we do and don't knowNorms: what we do and don't know}
+Still a small effect size, but from the perspective of health and the environment, this is good news
+
+But from the perspective of animal welfare...we don't know [@mathur2022ethical]
+
+## Results by theoretical approach
+
+```{r all_results_gt_table, echo=F}
+all_results_gt_table
+```
+
+## Results by delivery method
+
+```{r delivery_method_table, echo=F}
+delivery_method_table
+```
+
+## How do materials from advocacy orgnizations do?
+
+```{r advocacy_org_table, echo=F}
+advocacy_org_table
+```
+
+## What about country?
+
+```{r country_table, echo=F}
+country_results_table 
+```
+
+## Meat vs MAP ovrall?
+
+```{r meat_vs_MAP_table, echo=F}
+meat_vs_map_table
+```
+
+## Good news on the open science front
+
+```{r open_science_table, echo=F}
+study_quality_results_table
+```
 
 ## Where do we go from here?
 
+@guzzo1987 argue that literature reviews serve four purposes:
+
+-   assessing the current state of knowledge
+-   identifying directions for future research
+-   advancing theory
+-   guiding policy decisions
+
 ## State of knowledge
 
-Main conclusion: measurement error \textemdash spillovers, temporal substitution, and 'regression to the meat' \textemdash  is this literature's albatross
+Speciesism is the great unsolved problem
 
-RPMC reduction: what instead?
-
-Nudged at lunch: what happens at dinner? 
+Measurement error due to substitution, either between MAP products or over time ('regression to the meat'), is a consistent challenge
 
 Upside: if you get this stuff right in *your* study, like @jalil2023 and @vocski2024 did, then you are advancing the state of knowledge substantially
+
+Methods note: for a power calculation, your MDE should be tiny
 
 ## Looking closely at two promising studies: Jalil et al. (2023)
 
 @jalil2023 found that a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
 
--   The really remarkable thing about this study is that it has three years of data from dining halls
+-    That's three years of *objective* data from dining halls!
 
 Two outstanding questions about this study:
 
--   what is doing the work, the global warming appeals or the health appeals?
+-   what is doing the work, the environmental or the health appeals?
 
 -   If we replicate this study at different schools, will we see similar effects?
 
-## ## Looking closely at two promising studies: Sparkman et al. (2020)
+## Looking closely at Sparkman et al. (2020)
+
+Four dynamic norms interventions around the Stanford area
+
+Study one: message saying "Our meatless burgers are on the rise" at a campus sports cafe increased sale of vegetarian item from "1.4 to 1.7 percentage points," a "modest" impact
+
+Study two: A message saying "We've noticed our customers are starting to eat less meat by choosing more meatless dishes" at a virtual restaurant that "abruptly closed after 10 days of the intervention" led to a "non-significant increase, estimated at 2.6 percentage points"
+
+## Sparkman et al. (2020) continued
+
+Study three: message saying "We’ve noticed that our customers are starting to order our meatless dishes for lunch more often" at a sit-down restaurant during lunch increased sales of vegetarian meals by 2.2% (significant)
+
+Study four: the same setup as study three, except at dinner, **decreased** vegetarian sales by 3.7%
+
+So do norms work but only sometimes? Was study four a fluke? Is the true ATE a null?
 
 ## Theory building
 
+Connect your approach to its appropriate outcome
+
+-   Appeals to animal welfare militate towards elimination rather than reduction
+
+-   Apeals to health and environment militate towards cutting back, specifically on RPMC, but not necessarily towards something stricter
+
+How do your subjects think about their own MAP consumption — is each meal chosen in isolation, or do people have a "weekly meat budget"?
+
+-   If it's the first, nudging behavior without targeting attitudes should cause reduction
+
+-   If it's the second, then expect regression to the meat
+
 ## Future studies
+
+We're at the advent of a new subfield! If you get the design and measurement details right, you can break new ground
+
+Many compelling theories that haven't yet been rigorously tested, e.g. contact with farm animals or manipulations of price
+
+Many institutionalized settings are waiting to be analyzed, e.g. retirement homes or basic training for the military
+
+## Concrete future study ideas
+
+1.  Watch the movie 'Babe', and have follow-up discussion, at retirement homes
+    -   Rich array of qualitative data from staff, e.g. "Daisy usually finishes her chicken but lately she hasn't"
+
+```{=html}
+<!-- -->
+```
+2.  Give a lecture at West Point/Ranger School/wherever about the diets of Sherpas and Kenyan distance runners to dispel the idea that we need large quantities of animal protein to be awesome endurance athletes
+    -   Challenge here is to make sure equivalent things (lentil soup, ugali) are made available
+
+## Two more
+
+3.  Work with Impossible/Beyond/Whole Foods/etc. to price meat substitutes a as \<, \>, and = to meat equivalent
+    -   Can also randomize within treatments to bring price to people's attention
+
+```{=html}
+<!-- -->
+```
+4.  Incorporate visit to farm sanctuary in incoming first-year's orientation -- the contact hypothesis [@allport1954] but interspecies
+    -   With or without follow-up discussion about the experience
 
 ## Policy recommendations
 
+Nudges and norms are promising, let's figure out the scope conditions where they work
+
+Environmental and health appeals are probably best suited to reducing RPMC
+
+Animal Welfare appeals need a rethink
+
+What replicates *outside* of a university context? I don't know, so let's find out
+
 ## Thank you!
 
-## Appendix slides
-
-## Why another meta (continued)
+## Appendix slides: why another meta
 
 We already have nearly 40 previous systematic where MAP consumption is either independent or dependent variable
 
@@ -334,7 +444,6 @@ Most are focused on a particular strand of literature, e.g.:
 \end{minipage}
 \end{figure}
 ```
-
 ## Reflections on the theoretical framing
 
 The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?

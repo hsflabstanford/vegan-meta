@@ -12,7 +12,6 @@ all_results <- bind_rows(
 all_results_gt_table <- all_results |>
   gmt(
     title = "Summary of Results by Theory",
-    subtitle = "Comparing Effect Sizes Across Different Theories",
     col_name = Approach,
     col_label = "Theory",
     tab_source_note = "Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample."
@@ -33,7 +32,6 @@ delivery_method_results <- bind_rows(
 delivery_method_table <- delivery_method_results |>
   gmt(
     title = "Summary of Results by Delivery Method",
-    subtitle = "Comparing Effect Sizes Across Different Delivery Methods",
     col_name = DeliveryMethod,
     col_label = "Delivery Method")
 
@@ -58,26 +56,22 @@ advocacy_org_table <- advocacy_org_results |>
 
 # Results by country
 country_results <- dat |>
+  mutate(
+    country = if_else(
+      country == "United States, United Kingdom, Canada, Australia, and other",
+      "worldwide",
+      country)) |> 
   split(~country) |>
   map(count_and_robust) |>
   bind_rows(.id = "country") |>
   arrange(desc(N_unique)) |>
-  mutate(pval = as.numeric(pval)) |>
-  mutate(
-    country = if_else(
-      country == "United States, United Kingdom, Canada, Australia, and other",
-      "US, UK, Canada, Australia, and other",
-      country
-    )
-  )
+  mutate(pval = as.numeric(pval))
 
 country_results_table <- country_results |>
   gmt(
     title = "Results by Country",
     col_name = country,
-    col_label = "Country",
-    tab_source_note = TRUE
-  )
+    col_label = "Country")
 
 # Meat vs MAP as a general category
 meat_vs_map <- dat |>
@@ -148,11 +142,11 @@ self_report_non_advocacy_table <- self_report_non_advocacy_results |>
   )
 
 # Print the tables to verify
-print(all_results_gt_table)
-print(delivery_method_table)
-print(advocacy_org_table)
-print(country_results_table)
-print(meat_vs_map_table)
-print(study_quality_results_table)
-print(publication_type_eff_size_table)
-print(self_report_non_advocacy_table)
+# print(all_results_gt_table)
+# print(delivery_method_table)
+# print(advocacy_org_table)
+# print(country_results_table)
+# print(meat_vs_map_table)
+# print(study_quality_results_table)
+# print(publication_type_eff_size_table)
+# print(self_report_non_advocacy_table)
