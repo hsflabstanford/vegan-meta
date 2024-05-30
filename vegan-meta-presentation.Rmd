@@ -176,7 +176,7 @@ Probably the dominant approach in the literature as a whole, but only two met ou
 
 -   have serious threats to internal validity
 
-    -   e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]}
+    -   e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]
 
 If I might speculate about causes...
 
@@ -224,7 +224,7 @@ Many studies here are focused on red/processed meat (RPMC), e.g. @sorensen2005, 
 
 @berndsen2005:
 
-> It is well known that meat (particularly hamburgers and pork) can increase cholesterol levels, which in turn increases **the prevalence of** heart and vascular diseases...there have been several meat crises: BSE, foot and mouth disease, illegal hormones in beef, to give a few examples. **The consumption** of meat contaminated with BSE can cause neurological damage, which can even result in death"
+> It is well known that meat (particularly hamburgers and pork) can increase cholesterol levels, which in turn increases **the prevalence of** heart and vascular diseases...there have been several meat crises: BSE, foot and mouth disease, illegal hormones in beef, to give a few examples. **The consumption** of meat contaminated with BSE can cause neurological damage, which can even result in death
 
 Then they ask people, three weeks later, how many days in a week they eat meat at dinner
 
@@ -291,7 +291,7 @@ print(forest_plot)
 
 ## A larger effect on red and processed meat consumption (RPMC)
 
-Overall effect on RPMC is `r RPMC_model$Delta` (se = `r RPMC_model$se`), p `r RPMC_model$pval`
+Overall effect on RPMC is `r RPMC_model$Delta` (SE = `r RPMC_model$se`), p `r RPMC_model$pval`
 
 Still a small effect size, but from the perspective of health and the environment, this is good news
 
@@ -319,6 +319,12 @@ advocacy_org_table
 
 ```{r country_table, echo=F}
 country_results_table 
+```
+
+## Population?
+
+```{r setting_table, echo=F}
+population_table
 ```
 
 ## Good news on the open science front

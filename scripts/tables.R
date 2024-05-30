@@ -141,6 +141,14 @@ self_report_non_advocacy_table <- self_report_non_advocacy_results |>
     tab_source_note = TRUE
   )
 
+population_results <- dat |> split(~population) |> 
+  map(map_robust) |> bind_rows(.id = 'population') |> 
+  arrange(desc(N_unique))
+population_table <- population_results |> gmt(title = "Results by Population", 
+                                              col_name = population, 
+                                              col_label = "Population")
+# population? 
+
 # Print the tables to verify
 # print(all_results_gt_table)
 # print(delivery_method_table)
