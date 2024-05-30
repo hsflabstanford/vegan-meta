@@ -718,15 +718,7 @@ contrast this approach with "persuasion," which "appeals to an
 individual’s ability to reason, digest new information and engage in
 systematic information processing" (p. 4).
 
-Our own view is that a tendency to conform *might* be irrational or
-unthinking, but it could just as easily be the product of reflection on
-one's social identity, especially when a socially beneficial behavior is
-being proposed. If you walk into a campus cafe and see a sign saying
-that its veggie burgers are "on the rise" [@sparkman2020], perhaps that
-triggers a "herd mentality" [@mols2015, p. 3], but perhaps the patron
-thinks of their vegetarian friends, the environment, or animal welfare
-and makes a socially conscious choice. We do not know and do not assume
-that people react unthinkingly. Therefore, we do not classify the norms
+Our own view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we see no reason to assume that "unthinking conformity" is the dominant or exclusive response Therefore, we do not classify the norms
 interventions in our database as nudges, though we acknowledge a
 burgeoning "norms-nudge" literature and that terminology may change over
-time (see @bicchieri2023 for discussion).
+time (see @bicchieri2023 for discussion). We also think that a future project might investigate exactly what reactions are occuring by asking subjects, e.g., how well they recall the message, what it made them think about, etc. A high prevalence of subjects' being unable to recall the message's specifics, for instance, but nevertheless showing signs of behavioral change would be evidence in favor of the hypothesis that norms are acting through automatic rather than reflective processes.
