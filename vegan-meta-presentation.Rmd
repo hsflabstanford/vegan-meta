@@ -340,7 +340,7 @@ Methods note: for a power calculation, your MDE should be tiny
 
 @jalil2023 found that a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
 
--    That's three years of *objective* data from dining halls!
+-   That's three years of *objective* data from dining halls!
 
 Two outstanding questions about this study:
 
@@ -391,9 +391,8 @@ Many institutionalized settings are waiting to be analyzed, e.g. retirement home
 1.  Watch the movie 'Babe', and have follow-up discussion, at retirement homes
     -   Rich array of qualitative data from staff, e.g. "Daisy usually finishes her chicken but lately she hasn't"
 
-```{=html}
 <!-- -->
-```
+
 2.  Give a lecture at West Point/Ranger School/wherever about the diets of Sherpas and Kenyan distance runners to dispel the idea that we need large quantities of animal protein to be awesome endurance athletes
     -   Challenge here is to make sure equivalent things (lentil soup, ugali) are made available
 
@@ -402,9 +401,8 @@ Many institutionalized settings are waiting to be analyzed, e.g. retirement home
 3.  Work with Impossible/Beyond/Whole Foods/etc. to price meat substitutes a as \<, \>, and = to meat equivalent
     -   Can also randomize within treatments to bring price to people's attention
 
-```{=html}
 <!-- -->
-```
+
 4.  Incorporate visit to farm sanctuary in incoming first-year's orientation -- the contact hypothesis [@allport1954] but interspecies
     -   With or without follow-up discussion about the experience
 
