@@ -33,47 +33,27 @@ source('./scripts/tables.R')
 
 ## The paper in a nutshell
 
-### Research strategy
-
 -   Meta-analysis of the most rigorous research
 
--   Aim is to assess which theoretical approach produces the largest, most enduring behavioral changes
+-   Aim is to characterize the literature's main theoretical approaches and see which produces the largest, most enduring behavioral changes
+
+-   Very tiny effects on MAP overall but larger effects on red and/or processed meat (RPMC)
 
 -   Current status: final data checks and writing the manuscript
 
-### Findings
-
--   Overall null result ($\Delta$ = 0.02)
-
--   Individual studies [@jalil2023; @sparkman2020] are promising but no theoretical approach has a robust evidence base
-
--   Animal advocacy materials need a rethink
-
--   Two big unknowns: what people eat after an intervention ends or what they replace red meat with
-
-## Talk outline:
-
-### Methods and descriptive overview
-
-### Survey of five major theoretical approaches
-
-### Quantitative findings
-
-### Next steps
-
-## Paper aim: what do we learn from the best studies?
+## How do we define 'rigorous research?'
 
 We look at
 
 -   Randomized Controlled Trials
 
--   **Measures overall MAP consumption directly**
+-   **Measure overall MAP consumption directly**
 
--   At least a single day after treatment starts
+    -   At least a single day after treatment starts
 
 -   At least 25 subjects in treatment and control
 
--   **If cluster-assigned, at least 10 clusters**
+    -   **If cluster-assigned, at least 10 clusters**
 
 Also, published in English by December 2023
 
@@ -86,6 +66,8 @@ Also, published in English by December 2023
 The earliest paper is @allen2002, the latest is @jalil2023
 
 A slight majority (`r third_decade_papers` of `r num_papers` papers) have been published since 2020
+
+We disqualified about 400 studies and counting, and Jacob Peacock is working on a parallel review quantifying the literature as a whole
 
 ## Country breakdown:
 
@@ -123,27 +105,28 @@ A slight majority (`r third_decade_papers` of `r num_papers` papers) have been p
     \end{column}
 \end{columns}
 ```
-## Dependent Variables
+## Dependent Variables (Outcomes)
 
 `r self_report_count['Y']` of `r num_studies` interventions have self-reported outcomes, e.g.
 
--   diet journal asking participants how often they ate certain foods in the past seven days [@bochmann2017]
+-   Diet journal asking participants how often they ate certain foods in the past seven days [@bochmann2017]
 -   Food Frequency Questionnaire (FFQ), a structured recall task [@sparkman2021]
 -   "During the three weeks of data collection, participants were asked to report their meat consumption on Mondays, Tuesdays, and Wednesdays" [@alblas2023]
 
 Objective outcomes either track subjects' behavior [@jalil2023] or sales data at a cafeteria/resaurant [@andersson2021]
 
-## Five theoretical perspectives
+## Three theoretical perspectives
 
 The MAP reduction literature is theoretically diverse and vast
 
-But *these* studies all embody one or more of five theoretical perspectives:
+But *these* studies all embody one or more of three theoretical perspectives:
 
 -   nudges (choice architecture/behavioral economics)
 -   norms
--   appeals to animal welfare
--   appeals to health
--   appeals to the environment
+-   Persuasion approaches, which come in three varieties:
+    -   appeals to animal welfare
+    -   appeals to health
+    -   appeals to the environment
 
 ## Nudges
 
@@ -207,7 +190,7 @@ Static: "Some people limit how much meat they eat...3 in 10 people eat less meat
 
 Dynamic: "Some people are starting to limit how much meat they eat... in recent years, 3 in 10 people have changed their behavior and begun to eat less meat than they otherwise would" [@sparkman2017]
 
-## Appeals to animal welfare:
+## Persuasion: appeals to animal welfare:
 
 These argue that eating MAP is ethically bad, and you should either stop or cut back significantly
 
@@ -215,11 +198,13 @@ Often delivered through leaflets [@hennessy2016], videos designed to be "emotion
 
 Often featuring materials from animal welfare organizations e.g. Mercy For Animals [@cooney2016], Animal Equality [@bertolaso2015] and The Humane League [@peacock2017]
 
-## Appeals to health
+## Persuasion: appeals to health
 
 Typically argue for benefits like cardiovascular gains, weight loss, or cancer prevention
 
-Many studies here are focused on red/processed meat (RPMC), e.g. @sorensen2005, an "integrated interventions focused on nutrition, physical activity, and occupational health and activities focused on individual risk factors" whose outcome was whether subjects had $\leq$ 3 servings of red meat per week (self-reported)
+Many strong studies here did not meet our inclusion criteria b/c they're focused on red/processed meat (RPMC)
+
+-   @sorensen2005, an "integrated interventions focused on nutrition, physical activity, and occupational health and activities focused on individual risk factors" whose outcome was whether subjects had $\leq$ 3 servings of red meat per week (self-reported)
 
 ## Social desirability bias
 
@@ -229,7 +214,7 @@ Many studies here are focused on red/processed meat (RPMC), e.g. @sorensen2005, 
 
 Then they ask people, three weeks later, how many days in a week they eat meat at dinner
 
-## Appeals to the environment
+## Persuasion: appeals to the environment
 
 These are typically but not always aimed at climate change
 
@@ -239,30 +224,35 @@ Many studies point out that some MAP is better than others, e.g. @piester2020
 knitr::include_graphics('./images/leafs.png')
 ```
 
-## Results: how to think about effect sizes
+## Quantitative findings: how to do a meta-analysis 
 
-Meta-analysis step one: convert each study's effects into a measure of standardized mean difference (SMD) \textemdash $\Delta = \frac{M_1-M_2}{SD_C}$ \textemdash and its associated variance & standard error
+Meta-analysis is a two-step process:
 
-Step two: average those SMDs by a procedure that gives more weight to studies with lower variance, i.e. those with larger sample sizes\
-\## Real world correspondences of $\Delta$
+-    Convert each study's effects into a measure of standardized mean difference (SMD) \textemdash $\Delta = \frac{M_1-M_2}{SD_C}$ \textemdash and its associated variance & standard error
+
+-   Average those SMDs and give more weight to more precise studies, i.e. those with larger samples
+
+## Quantitative findings: how to think about effect sizes
 
 @jalil2023: net reduction of 5.6% points; for the control group at pre-intervention, 65.5% of meals had meat with an SD of 47.5%.
 
 $\Delta = \frac{.056}{0.457} = 0.118$
 
-\note{This is considered a 'small' effect size, but it lasts for three years, so I give it a lot of credence}
+\note{ADD SPACE This is considered a 'small' effect size, but it lasts for three years, so I give it a lot of credence}
 
 @feltz2022, study 1: subjects who read a pamphlet ("Compassionate Choices") increase \# times they ate meat and/or eggs/day by `r 11.63-9.61`, vs `r 9.38-8.88` more for control subjects (SD = 5.87).
 
-$\Delta =\frac{(11.63-9.61) - (9.38-8.88)}{5.87} = .259$
+$\Delta =\frac{(9.61- 11.63) - (8.88 -9.38)}{5.87} = -0.259$
 
 \note{negative because that's a backlash}
 
-## Overall findings
+## Quantitative results
 
-Overall null: $\Delta$ = 0.0204
+\note{For each study, we calculate $\Delta$ and standard error and then combine them into a single overall estimate}
 
-Not statistically or clinically significant
+Overall estimate: $\Delta$ = 0.0204 (SE = .0121), p = 0.0931
+
+-   Not statistically or clinically significant
 
 `r sum(dat$neg_null_pos == 0)` of `r num_studies` interventions are nulls in their own words
 
@@ -279,13 +269,6 @@ Previous meta-analyses have found much larger effects
 Many causes, but the biggest driver of divergence is probably our focus on MAP *consumption* vs. attitudes & intentions
 
 -   For @mathur2021meta, of the ten studies with the "largest calibrated estimates," nine "assessed outcomes related to intended behavior" and the tenth wasn't an RCT
-
-## Forest plot
-
-```{r forest_plot, echo=F}
-source('./scripts/forest-plot.R')
-print(forest_plot)
-```
 
 ## A larger effect on red and processed meat consumption (RPMC)
 
@@ -404,7 +387,7 @@ Many institutionalized settings are waiting to be analyzed, e.g. retirement home
 
 ## Two concrete future study ideas
 
-1.  Watch the movie 'Babe', and have follow-up discussion, at retirement homes
+1.  Watch the movie 'Babe', or repeat the @jalil2023 lecture, and have follow-up discussion, at retirement homes
     -   Rich array of qualitative data from staff, e.g. "Daisy usually finishes her chicken but lately she hasn't"
 2.  Give a lecture at West Point/Ranger School/wherever about the diets of Sherpas and Kenyan distance runners to dispel the idea that we need large quantities of animal protein to be awesome endurance athletes
     -   Challenge here is to make sure equivalent things (lentil soup, ugali) are made available
@@ -428,7 +411,9 @@ Animal advocacy materials need a rethink, and don't bother with pamphlets \emoji
 
 ## Thank you!
 
-Questions?
+Happy to talk more — setgree\@gmail.com
+
+### Questions?
 
 ## Appendix slides: why another meta
 
@@ -461,5 +446,22 @@ The lines between perspectives are tricky – is a norm a nudge if it's a cafete
 -   Other researchers distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
 
 Ultimately, I like dividing between: try to change MAP availability/salience (nudge); try to change attitudes about people who eat/avoid MAP (norm); & try to change attitudes about MAP (persuasion)
+
+## Forest plot
+
+```{r forest_plot, echo=F}
+source('./scripts/forest-plot.R')
+print(forest_plot)
+```
+
+## Talk outline:
+
+### Methods and descriptive overview
+
+### Survey of five major theoretical approaches
+
+### Quantitative findings
+
+### Next steps
 
 ## References {.allowframebreaks}
