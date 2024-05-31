@@ -1,6 +1,6 @@
 ---
-title: "Nudges, norms, and persuasion approaches to reducing MAP consumption"
-author: "Seth Green, Maya Mathur and Benny Smith"
+title: "Nudges, Norms, and Persuasion Approaches to Reducing MAP Consumption"
+author: "Seth Green, Maya Mathur, and Benny Smith"
 date: "`r Sys.Date()`"
 output:
   beamer_presentation:
@@ -23,9 +23,17 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r load_data_and_constants, echo=F, include=F}
+
+source('./scripts/libraries-functions-data.R')
+source('./scripts/descriptive-stats.R')
+source('./scripts/red-and-processed-meat.R')
+source('./scripts/tables.R')
+```
+
 ## The paper in a nutshell
 
-**Research strategy**
+### Research strategy
 
 -   Meta-analysis of the most rigorous research
 
@@ -33,7 +41,7 @@ editor_options:
 
 -   Current status: final data checks and writing the manuscript
 
-**Findings**
+### Findings
 
 -   Overall null result ($\Delta$ = 0.02)
 
@@ -41,7 +49,7 @@ editor_options:
 
 -   Animal advocacy materials need a rethink
 
--   Two big unknowns: what people eat after an intervention ends or what the replace red meat with
+-   Two big unknowns: what people eat after an intervention ends or what they replace red meat with
 
 ## Talk outline:
 
@@ -53,7 +61,7 @@ editor_options:
 
 ### Next steps
 
-## Paper aim: what  do we learn from the best studies?
+## Paper aim: what do we learn from the best studies?
 
 We look at
 
@@ -70,13 +78,6 @@ We look at
 Also, published in English by December 2023
 
 ## Descriptive overview
-
-```{r load_data_and_constants, echo=F, include=F}
-source('./scripts/libraries-functions-data.R')
-source('./scripts/descriptive-stats.R')
-source('./scripts/red-and-processed-meat.R')
-source('./scripts/tables.R')
-```
 
 `r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
 
@@ -186,7 +187,7 @@ These interventions try to change attitudes about people who eat/avoid MAP (both
 
 -   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
--   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]}
+-   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]
 
 ## Norms example
 
@@ -240,13 +241,10 @@ knitr::include_graphics('./images/leafs.png')
 
 ## Results: how to think about effect sizes
 
-Meta-analysis step one: convert each study's effects into a measure of standardized mean difference (SMD) \textemdash ($\Delta = \frac{M_1-M_2}{SD_C}$) \textemdash and its associated variance & standard error
+Meta-analysis step one: convert each study's effects into a measure of standardized mean difference (SMD) \textemdash $\Delta = \frac{M_1-M_2}{SD_C}$ \textemdash and its associated variance & standard error
 
-Step two: average those SMDs by a procedure that gives more weight to studies with lower variance, i.e. those with larger sample sizes
-
-By convention, $\Delta$ = 0.2 is a small effect size; $\Delta$ = 0.5 is medium; and $\Delta$ = 1.0 is large
-
-## Real world correspondences of $\Delta$
+Step two: average those SMDs by a procedure that gives more weight to studies with lower variance, i.e. those with larger sample sizes\
+\## Real world correspondences of $\Delta$
 
 @jalil2023: net reduction of 5.6% points; for the control group at pre-intervention, 65.5% of meals had meat with an SD of 47.5%.
 
@@ -254,7 +252,7 @@ $\Delta = \frac{.056}{0.457} = 0.118$
 
 \note{This is considered a 'small' effect size, but it lasts for three years, so I give it a lot of credence}
 
-@feltz2022, study 1: subjects who read a pamphlet ("Compassionate Choices") increase \# times they ate meat and/or eggs/day by `r 11.63-9.61` , vs `r 9.38-8.88` more for control subjects (SD = 5.87).
+@feltz2022, study 1: subjects who read a pamphlet ("Compassionate Choices") increase \# times they ate meat and/or eggs/day by `r 11.63-9.61`, vs `r 9.38-8.88` more for control subjects (SD = 5.87).
 
 $\Delta =\frac{(11.63-9.61) - (9.38-8.88)}{5.87} = .259$
 
@@ -337,10 +335,10 @@ study_quality_results_table
 
 @guzzo1987 argue that literature reviews serve four purposes:
 
--   assessing the current state of knowledge
--   advancing theory
--   identifying directions for future research
--   guiding policy decisions
+-   Assessing the current state of knowledge
+-   Theory-building
+-   Directions for future research
+-   Policy Implications
 
 ## State of knowledge
 
@@ -388,11 +386,13 @@ Connect your approach to its appropriate outcome
 
 -   Appeals to health & environment militate towards cutting back, specifically on RPMC, but not necessarily towards something stricter
 
-How do your subjects think about their own MAP consumption — is each meal chosen in isolation, or do people have a "weekly meat budget"?
+How do your subjects think about their own MAP consumption?
 
--   If it's the first, nudging behavior without targeting attitudes should cause reduction in consumption
+-   If each meal is chosen in isolation then, nudging behavior without targeting attitudes should cause reduction in consumption
 
--   If it's the second, then expect regression to the meat
+-   If people have a weekly "meat budget," then expect regression to the meat
+
+If you produce marginal changes, then I want to hear your plans for scaling up cheaply
 
 ## Future studies
 
