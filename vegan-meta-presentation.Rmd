@@ -224,11 +224,11 @@ Many studies point out that some MAP is better than others, e.g. @piester2020
 knitr::include_graphics('./images/leafs.png')
 ```
 
-## Quantitative findings: how to do a meta-analysis 
+## Quantitative findings: how to do a meta-analysis
 
 Meta-analysis is a two-step process:
 
--    Convert each study's effects into a measure of standardized mean difference (SMD) \textemdash $\Delta = \frac{M_1-M_2}{SD_C}$ \textemdash and its associated variance & standard error
+-   Convert each study's effects into a measure of standardized mean difference (SMD) \textemdash $\Delta = \frac{M_1-M_2}{SD_C}$ \textemdash and its associated variance & standard error
 
 -   Average those SMDs and give more weight to more precise studies, i.e. those with larger samples
 
