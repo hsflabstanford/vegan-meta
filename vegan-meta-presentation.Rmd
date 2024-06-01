@@ -374,11 +374,13 @@ How do your subjects think about their own MAP consumption?
 
 -   If people have a weekly "meat budget," then expect regression to the meat
 
-If you produce marginal changes, then I want to hear your plans for scaling up cheaply
+Marginal effects are fine, but then how do you (cheaply) scale up?  
 
 ## Future studies
 
-We're at the advent of a new subfield! If you get the design and measurement details right, you can break new ground
+We're at the advent of a new subfield! 
+
+-   If you get the design and measurement details right, you will almost certainly break new ground
 
 Many compelling theories that haven't yet been rigorously tested, e.g. contact with farm animals or manipulations of price
 
@@ -386,7 +388,7 @@ Many institutionalized settings are waiting to be analyzed, e.g. retirement home
 
 ## Two concrete future study ideas
 
-1.  Watch the movie 'Babe', or repeat the @jalil2023 lecture, and have follow-up discussion, at retirement homes
+1.  Watch the movie 'Babe', or repeat the @jalil2023 lecture, and have follow-up discussion at retirement homes
     -   Rich array of qualitative data from staff, e.g. "Daisy usually finishes her chicken but lately she hasn't"
 2.  Give a lecture at West Point/Ranger School/athletes' dining halls about the diets of Sherpas and Kenyan distance runners to dispel the idea that we need large quantities of animal protein to be awesome endurance athletes
     -   Challenge here is to make sure equivalent things (lentil soup, ugali) are made available
