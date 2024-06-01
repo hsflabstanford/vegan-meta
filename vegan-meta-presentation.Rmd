@@ -41,7 +41,7 @@ source('./scripts/tables.R')
 
 -   Current status: final data checks and writing the manuscript
 
-## How do we define 'rigorous research?'
+## How do we define 'rigorous research'?
 
 We look at
 
@@ -55,7 +55,7 @@ We look at
 
     -   **If cluster-assigned, at least 10 clusters**
 
-Also, published in English by December 2023
+Also published in English by December 2023
 
 ## Descriptive overview
 
@@ -65,9 +65,9 @@ Also, published in English by December 2023
 
 The earliest paper is @allen2002, the latest is @jalil2023
 
-A slight majority (`r third_decade_papers` of `r num_papers` papers) have been published since 2020
+`r third_decade_papers` of `r num_papers` papers were published 2020-2023
 
-We disqualified about 400 studies and counting, and Jacob Peacock is working on a parallel review quantifying the literature as a whole
+We disqualified about 400 studies and counting, and Jacob Peacock is working on a parallel review on the literature as a whole
 
 ## Country breakdown:
 
@@ -110,7 +110,6 @@ We disqualified about 400 studies and counting, and Jacob Peacock is working on 
 `r self_report_count['Y']` of `r num_studies` interventions have self-reported outcomes, e.g.
 
 -   Diet journal asking participants how often they ate certain foods in the past seven days [@bochmann2017]
--   Food Frequency Questionnaire (FFQ), a structured recall task [@sparkman2021]
 -   "During the three weeks of data collection, participants were asked to report their meat consumption on Mondays, Tuesdays, and Wednesdays" [@alblas2023]
 
 Objective outcomes either track subjects' behavior [@jalil2023] or sales data at a cafeteria/resaurant [@andersson2021]
@@ -119,7 +118,7 @@ Objective outcomes either track subjects' behavior [@jalil2023] or sales data at
 
 The MAP reduction literature is theoretically diverse and vast
 
-But *these* studies all embody one or more of three theoretical perspectives:
+But *these* studies all embody one (or more) of three theoretical perspectives:
 
 -   nudges (choice architecture/behavioral economics)
 -   norms
@@ -186,13 +185,13 @@ Descriptive: "The results of last week show that the average meat consumption of
 
 Injunctive: adds "How you are doing: \emoji{disappointed-face}" [@alblas2023]
 
-Static: "Some people limit how much meat they eat...3 in 10 people eat less meat than they otherwise would." [@sparkman2017]
+Static: "Some people limit how much meat they eat...3 in 10 people eat less meat than they otherwise would" [@sparkman2017]
 
 Dynamic: "Some people are starting to limit how much meat they eat... in recent years, 3 in 10 people have changed their behavior and begun to eat less meat than they otherwise would" [@sparkman2017]
 
 ## Persuasion: appeals to animal welfare:
 
-These argue that eating MAP is ethically bad, and you should either stop or cut back significantly
+These argue that focus on animal suffering, cuteness, etc.
 
 Often delivered through leaflets [@hennessy2016], videos designed to be "emotional and provocative" [@sparkman2021], and documentaries [@mathur2021effectiveness]
 
@@ -212,7 +211,7 @@ Many strong studies here did not meet our inclusion criteria b/c they're focused
 
 > It is well known that meat (particularly hamburgers and pork) can increase cholesterol levels, which in turn increases **the prevalence of** heart and vascular diseases...there have been several meat crises: BSE, foot and mouth disease, illegal hormones in beef, to give a few examples. **The consumption** of meat contaminated with BSE can cause neurological damage, which can even result in death
 
-Then they ask people, three weeks later, how many days in a week they eat meat at dinner
+Three weeks later, subjects are asked how many days in the past week they ate meat at dinner
 
 ## Persuasion: appeals to the environment
 
@@ -234,11 +233,11 @@ Meta-analysis is a two-step process:
 
 ## Quantitative findings: how to think about effect sizes
 
-@jalil2023: net reduction of 5.6% points; for the control group at pre-intervention, 65.5% of meals had meat with an SD of 47.5%.
+@jalil2023: net reduction of 5.6% points; for the control group at pre-intervention, 65.5% of meals had meat with an SD of 47.5%
 
-$\Delta = \frac{.056}{0.457} = 0.118$
+$\Delta = \frac{.056}{0.457} = 0.118$ \vspace{0.5cm}
 
-\note{ADD SPACE This is considered a 'small' effect size, but it lasts for three years, so I give it a lot of credence}
+\note{This is considered a 'small' effect size, but it lasts for three years, so I give it a lot of credence}
 
 @feltz2022, study 1: subjects who read a pamphlet ("Compassionate Choices") increase \# times they ate meat and/or eggs/day by `r 11.63-9.61`, vs `r 9.38-8.88` more for control subjects (SD = 5.87).
 
@@ -274,7 +273,7 @@ Many causes, but the biggest driver of divergence is probably our focus on MAP *
 
 Overall effect on RPMC is `r RPMC_model$Delta` (SE = `r RPMC_model$se`), p `r RPMC_model$pval`
 
-Still a small effect size, but from the perspective of health and the environment, this is good news
+Still a 'small' effect size, but from the perspective of health and the environment, a reduction of 1/5 of an SD is good news
 
 But from the perspective of animal welfare...we don't know [@mathur2022ethical]
 
@@ -389,12 +388,12 @@ Many institutionalized settings are waiting to be analyzed, e.g. retirement home
 
 1.  Watch the movie 'Babe', or repeat the @jalil2023 lecture, and have follow-up discussion, at retirement homes
     -   Rich array of qualitative data from staff, e.g. "Daisy usually finishes her chicken but lately she hasn't"
-2.  Give a lecture at West Point/Ranger School/wherever about the diets of Sherpas and Kenyan distance runners to dispel the idea that we need large quantities of animal protein to be awesome endurance athletes
+2.  Give a lecture at West Point/Ranger School/athletes' dining halls about the diets of Sherpas and Kenyan distance runners to dispel the idea that we need large quantities of animal protein to be awesome endurance athletes
     -   Challenge here is to make sure equivalent things (lentil soup, ugali) are made available
 
 ## Two more concrete future study ideas
 
-3.  Work with Impossible/Beyond/Whole Foods/etc. to price meat substitutes a as \<, \>, and = to meat equivalent
+3.  Test elasticity of demand w.r.t price! Work with Impossible/Beyond/Whole Foods/etc. to price meat substitutes as \<, \>, and = to meat equivalent
     -   Can also randomize within treatments to bring price to people's attention
 4.  Incorporate visit to farm sanctuary in incoming first-year's orientation -- the contact hypothesis [@allport1954] but interspecies
     -   With or without follow-up discussion about the experience
@@ -453,15 +452,5 @@ Ultimately, I like dividing between: try to change MAP availability/salience (nu
 source('./scripts/forest-plot.R')
 print(forest_plot)
 ```
-
-## Talk outline:
-
-### Methods and descriptive overview
-
-### Survey of five major theoretical approaches
-
-### Quantitative findings
-
-### Next steps
 
 ## References {.allowframebreaks}
