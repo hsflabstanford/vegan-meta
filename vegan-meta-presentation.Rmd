@@ -395,7 +395,7 @@ Many institutionalized settings are waiting to be analyzed, e.g. retirement home
 
 ## Two more concrete future study ideas
 
-3.  Test elasticity of demand w.r.t price! Work with Impossible/Beyond/Whole Foods/etc. to price meat substitutes as \<, \>, and = to meat equivalent
+3.  Estimate price elasticity of demand! Work with Impossible/Beyond/Whole Foods/etc. to price meat substitutes as \<, \>, and = to meat equivalent
     -   Can also randomize within treatments to bring price to people's attention
 4.  Incorporate visit to farm sanctuary in incoming first-year's orientation -- the contact hypothesis [@allport1954] but interspecies
     -   With or without follow-up discussion about the experience
