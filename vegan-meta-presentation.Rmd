@@ -167,7 +167,6 @@ These interventions try to change attitudes about people who eat/avoid MAP (both
 
 -   "You may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
--   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
@@ -179,7 +178,7 @@ Static: "Some people limit how much meat they eat...3 in 10 people eat less meat
 
 Dynamic: "Some people are starting to limit how much meat they eat... in recent years, 3 in 10 people have changed their behavior and begun to eat less meat than they otherwise would" [@sparkman2017]
 
-## Landmark study: Sparkman et al. (2020)
+## Landmark study #1: Sparkman et al. (2020)
 
 Four dynamic norms interventions around the Stanford area
 
@@ -211,7 +210,7 @@ gt(data.frame(
 
 ```
 
-## Persuasion: appeals to animal welfare:
+## Persuasion: appeals to animal welfare
 
 These argue that focus on animal suffering, cuteness, etc.
 
