@@ -120,12 +120,12 @@ The MAP reduction literature is theoretically diverse and vast
 
 But *these* studies all embody one (or more) of three theoretical perspectives:
 
--   nudges (choice architecture/behavioral economics)
--   norms
+-   Nudges (choice architecture/behavioral economics)
+-   Norms
 -   Persuasion approaches, which come in three varieties:
-    -   appeals to animal welfare
-    -   appeals to health
-    -   appeals to the environment
+    -   Appeals to animal welfare
+    -   Appeals to health
+    -   Appeals to the environment
 
 ## Nudges
 
@@ -159,13 +159,13 @@ Probably the dominant approach in the literature as a whole, but only two met ou
 
 -   have serious threats to internal validity
 
-    -   e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]
+\note{-   e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]}
 
 ## Norms
 
 These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
 
--   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
+-   "You may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
 -   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]
 
