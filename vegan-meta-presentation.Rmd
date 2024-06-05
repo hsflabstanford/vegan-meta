@@ -57,6 +57,8 @@ We look at
 
 Also published in English by December 2023
 
+(Also the intervention can't just be serving people less meat)
+
 ## Descriptive overview
 
 `r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
@@ -88,13 +90,11 @@ We disqualified about 400 studies and counting, and Jacob Peacock is working on 
 ```{=tex}
 \begin{columns}
     \begin{column}{0.6\textwidth}
-        \begin{itemize}
-            \item \texttt{`r intervention_types_counts$leaflet_count`} employed leaflets
-            \item \texttt{`r intervention_types_counts$video_count`} used videos
-            \item \texttt{`r intervention_types_counts$cafeteria_or_restaurant`} interventions in a cafeteria or restaurant
-            \item \texttt{`r intervention_types_counts$internet_based`} were administered online
-            \item \texttt{`r pop_dat["university students"]`} with university students
-        \end{itemize}
+            \texttt{`r intervention_types_counts$leaflet_count`} employed leaflets
+            \texttt{`r intervention_types_counts$video_count`} used videos
+            \texttt{`r intervention_types_counts$cafeteria_or_restaurant`} interventions in a cafeteria or restaurant
+            \texttt{`r intervention_types_counts$internet_based`} were administered online
+            \texttt{`r pop_dat["university students"]`} with university students
     \end{column}
     
     \begin{column}{0.35\textwidth}
@@ -161,8 +161,6 @@ Probably the dominant approach in the literature as a whole, but only two met ou
 
     -   e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]
 
-If I might speculate about causes...
-
 ## Norms
 
 These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
@@ -170,14 +168,6 @@ These interventions try to change attitudes about people who eat/avoid MAP (both
 -   "you may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
 -   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
 -   "News from [Name of Restaurant]! We’ve noticed that customers are starting to eat less meat by choosing more meatless dishes" [@sparkman2020]
-
-## Norms example
-
-From @sparkman2020:
-
-```{r norms_example, echo=F, out.width='80%'}
-knitr::include_graphics('./images/norms.png')
-```
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
@@ -188,6 +178,38 @@ Injunctive: adds "How you are doing: \emoji{disappointed-face}" [@alblas2023]
 Static: "Some people limit how much meat they eat...3 in 10 people eat less meat than they otherwise would" [@sparkman2017]
 
 Dynamic: "Some people are starting to limit how much meat they eat... in recent years, 3 in 10 people have changed their behavior and begun to eat less meat than they otherwise would" [@sparkman2017]
+
+## Landmark study: Sparkman et al. (2020)
+
+Four dynamic norms interventions around the Stanford area
+
+```{r norms_example, echo=F, out.width='80%'}
+knitr::include_graphics('./images/norms.png')
+```
+
+## Sparkman et al. continued
+
+```{r sparkman_table, echo=F}
+# Create the dataframe
+library(gt)
+gt(data.frame(
+  Study = c("One", "Two", "Three", "Four"),
+  Location = c(
+    "The Axe & Palm café",
+    "Farm Hill (virtual)",
+    "Vino Enoteca (lunch)",
+    "Vino Enoteca (dinner)"
+  ),
+  `Effect on veg sales` = c(
+    "+ 1.4 to 1.7%",
+    "+ 2.6% (non-significant)",
+    "+ 2.2%",
+    "- 3.7%"
+  ),
+  stringsAsFactors = FALSE,
+  check.names = FALSE))
+
+```
 
 ## Persuasion: appeals to animal welfare:
 
@@ -222,6 +244,18 @@ Many studies point out that some MAP is better than others, e.g. @piester2020
 ```{r piester_study, echo=F, out.width='60%'}
 knitr::include_graphics('./images/leafs.png')
 ```
+
+## Landmark study #2: Jalil et al. (2023)
+
+At a residential college, a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
+
+-   That's *three years of objective data* from dining halls!
+
+Two outstanding questions about this study:
+
+-   Theoretical attribution: what portion of the content is having effects?
+
+-   If we replicate this study at Kenyon & Kansas State, will we see similar effects in both places?
 
 ## Quantitative findings: how to do a meta-analysis
 
@@ -331,34 +365,6 @@ Lack of data on potential substitution, either between MAP products or over time
 Upside: if you get this stuff right in *your* study, like @jalil2023 and @vocski2024 did, then you are advancing the state of knowledge substantially
 
 Methods note: for a power calculation, your MDE should be tiny
-
-## Looking closely at two promising studies: Jalil et al. (2023)
-
-@jalil2023 found that a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
-
--   That's *three years of objective data* from dining halls!
-
-Two outstanding questions about this study:
-
--   Theoretical attribution: what portion of the content is having effects?
-
--   If we replicate this study at Kenyon & Kansas State, will we see similar effects in both places?
-
-## Looking closely at Sparkman et al. (2020)
-
-Four dynamic norms interventions around the Stanford area
-
-**Study one**: message saying "Our meatless burgers are on the rise" at a campus sports cafe increased sale of vegetarian item from "1.4 to 1.7 percentage points," a "modest" impact
-
-**Study two**: A message saying "We've noticed our customers are starting to eat less meat by choosing more meatless dishes" at a virtual restaurant that "*abruptly closed after 10 days of the intervention*" led to a "non-significant increase, estimated at 2.6 percentage points"
-
-## Sparkman et al. (2020) continued
-
-**Study three**: message saying "We’ve noticed that our customers are starting to order our meatless dishes for lunch more often" at a sit-down restaurant during lunch increased sales of vegetarian meals by 2.2% (significant)
-
-**Study four**: the same setup as study three, except at dinner, and it *decreased* vegetarian sales by 3.7%
-
-So do norms work but only sometimes? Was study four a fluke? Is the true ATE a null?
 
 ## Theory building
 
