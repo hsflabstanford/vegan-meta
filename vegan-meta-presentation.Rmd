@@ -1,110 +1,73 @@
 ---
 title: "Nudges, Norms, and Persuasion Approaches to Reducing MAP Consumption"
-author: "Seth Green, Maya Mathur, and Benny Smith"
+author: "Seth Green"
 date: "`r Sys.Date()`"
 output:
   beamer_presentation:
     latex_engine: lualatex
-    includes:
-      in_header: manuscript/header.tex
-  slidy_presentation: default
-  ioslides_presentation: default
+bibliography: "./manuscript/vegan-refs.bib"
 header-includes:
 - \usepackage{emoji}
-- \setemojifont{Apple Color Emoji}
 - \usepackage{booktabs}
 - \usepackage{caption}
 - \usepackage{longtable}
-- \makeatletter
-- \let\@@magyar@captionfix\relax
-- \makeatother
-bibliography: "./manuscript/vegan-refs.bib"
+- \usepackage{colortbl}
+- \usepackage{bookmark}
+- \usepackage{array}
+- \setemojifont{Apple Color Emoji}
+
 editor_options:
   chunk_output_type: console
 ---
 
 ```{r load_data_and_constants, echo=F, include=F}
-
+options(tinytex.verbose = TRUE)
 source('./scripts/libraries-functions-data.R')
 source('./scripts/descriptive-stats.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/tables.R')
 ```
 
-## The paper in a nutshell
-
--   Meta-analysis of the most rigorous research
-
--   Aim is to characterize the literature's main theoretical approaches and see which produces the largest, most enduring behavioral changes
-
--   Very tiny effects on MAP overall but larger effects on red and/or processed meat (RPMC)
-
--   Current status: final data checks and writing the manuscript
-
-## How do we define 'rigorous research'?
-
-We look at
-
--   Randomized Controlled Trials
-
--   **Measure overall MAP consumption directly**
-
-    -   At least a single day after treatment starts
-
--   At least 25 subjects in treatment and control
-
-    -   **If cluster-assigned, at least 10 clusters**
-
-Also published in English by December 2023
-
-(Also the intervention can't just be serving people less meat)
-
-## Descriptive overview
-
-`r num_papers` papers, `r num_studies` interventions, `r sum(dat$n_t_post + dat$n_c_post)` subjects
-
--   Supplementary dataset of `r num_RPMC_studies` studies aiming to reduce red and processed meat consumption (RPMC) w/ `r RPMC_subjects` subjects
-
-The earliest paper is @allen2002, the latest is @jalil2023
-
-`r third_decade_papers` of `r num_papers` papers were published 2020-2023
-
-We disqualified about 400 studies and counting, and Jacob Peacock is working on a parallel review on the literature as a whole
 
 ## Country breakdown:
-
-| Country           | \# Interventions                  |
-|-------------------|-----------------------------------|
-| United States     | `r country_dat["United States"]`  |
-| Germany           | `r country_dat["Germany"]`        |
-| Multiple (online) | 5                                 |
-| United Kingdom    | `r country_dat["United Kingdom"]` |
-| Netherlands       | `r country_dat["Netherlands"]`    |
-| Sweden            | `r country_dat["Sweden"]`         |
-| Australia         | `r country_dat["Australia"]`      |
-| Canada            | `r country_dat["Canada"]`         |
-| Denmark           | `r country_dat["Denmark"]`        |
+```{r country_breakdown, echo=F}
+data.frame(
+  Country = c("United States", "Germany", "Multiple (online)", "United Kingdom", "Netherlands", "Sweden", "Australia", "Canada", "Denmark"),
+    Interventions = c(country_dat[["United States"]],
+                      country_dat["Germany"],
+                      5,
+                      country_dat["United Kingdom"],
+                      country_dat["Netherlands"],
+                      country_dat["Sweden"],
+                      country_dat["Australia"],
+                      country_dat["Canada"],
+                      country_dat["Denmark"]))
+```
 
 ## Settings & Delivery Mechanisms
 
-```{=tex}
+```{=latex}
 \begin{columns}
     \begin{column}{0.6\textwidth}
-            \texttt{`r intervention_types_counts$leaflet_count`} employed leaflets
-            \texttt{`r intervention_types_counts$video_count`} used videos
-            \texttt{`r intervention_types_counts$cafeteria_or_restaurant`} interventions in a cafeteria or restaurant
-            \texttt{`r intervention_types_counts$internet_based`} were administered online
-            \texttt{`r pop_dat["university students"]`} with university students
+        \begin{itemize}
+            \item 11 employed leaflets
+            \item 12 used videos
+            \item 16 interventions in a cafeteria or restaurant
+            \item 26 were administered online
+            \item 29 with university students
+        \end{itemize}
     \end{column}
     
     \begin{column}{0.35\textwidth}
+        \centering
         \includegraphics[width=\textwidth]{images/leaflet.png}
-         \begin{center}
+        \begin{center}
             Norris (2014)
         \end{center}
     \end{column}
 \end{columns}
 ```
+
 ## Dependent Variables (Outcomes)
 
 `r self_report_count['Y']` of `r num_studies` interventions have self-reported outcomes, e.g.
@@ -129,7 +92,7 @@ But *these* studies all embody one (or more) of three theoretical perspectives:
 
 ## Nudges
 
-Nudges are "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives...easy and cheap to avoid" [@thaler2009, p. 6]
+Nudges are "any aspect of the choice architecture that alters people's behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives...easy and cheap to avoid" [@thaler2009, p. 6]
 
 e.g. @vocski2024 and @andersson2021:
 
@@ -145,28 +108,27 @@ e.g. @vocski2024 and @andersson2021:
 \end{column}
 \end{columns}
 ```
+
 ## The nudge literature is huge, and a mess
 
 Probably the dominant approach in the literature as a whole, but only two met our inclusion criteria. The rest
 
 -   only measure what people say they would eat from a hypothetical menu
 
-    -   "The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for—or opportunities to learn from \textemdash a less-than-optimal choice" [@campbell2014]
+    -   "The study design may also be critiqued for not providing actual food choices and thus lacking any real consequences for-or opportunities to learn from \textemdash a less-than-optimal choice" [@campbell2014]
 
--   are underpowered and/or lack random assignment \note{, e.g. alternate treatment/control for 4 days in total [@weimer2022]}
+-   are underpowered and/or lack random assignment
 
     -   These limitations might be imposed by restaurant/cafeteria partners
 
 -   have serious threats to internal validity
-
-\note{-   e.g. differential screening procedures for treatment and control [@rees2018] or changes to treatment after assignment based on subjects' prior diets [@morren2021]}
 
 ## Norms
 
 These interventions try to change attitudes about people who eat/avoid MAP (both who and how many) or try to make MAP alternatives seem popular
 
 -   "You may be interested in the findings of recent research that... people higher in Social Dominance consume greater amounts of meats, and less fruits and vegetables" [@allen2002]
--   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]
+-   "The garden fresh veggie burger is a tasty choice! In a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!" [@piester2020]
 
 ## Injunctive, Descriptive, Static and Dynamic Norms
 
@@ -190,11 +152,10 @@ knitr::include_graphics('./images/norms.png')
 
 ```{r sparkman_table, echo=F}
 # Create the dataframe
-library(gt)
-gt(data.frame(
+data.frame(
   Study = c("One", "Two", "Three", "Four"),
   Location = c(
-    "The Axe & Palm café",
+    "The Axe & Palm cafe",
     "Farm Hill (virtual)",
     "Vino Enoteca (lunch)",
     "Vino Enoteca (dinner)"
@@ -203,10 +164,9 @@ gt(data.frame(
     "+ 1.4 to 1.7%",
     "+ 2.6% (non-significant)",
     "+ 2.2%",
-    "- 3.7%"
-  ),
+    "- 3.7%"),
   stringsAsFactors = FALSE,
-  check.names = FALSE))
+  check.names = FALSE)
 
 ```
 
@@ -246,7 +206,7 @@ knitr::include_graphics('./images/leafs.png')
 
 ## Landmark study #2: Jalil et al. (2023)
 
-At a residential college, a “50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption” led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years”
+At a residential college, a "50 min talk about the role of meat consumption in global warming, along with information about the health benefits of reduced meat consumption" led to a reduction in "meat consumption by 5.6 percentage points with no signs of reversal over 3 years"
 
 -   That's *three years of objective data* from dining halls!
 
@@ -310,42 +270,6 @@ Still a 'small' effect size, but from the perspective of health and the environm
 
 But from the perspective of animal welfare...we don't know [@mathur2022ethical]
 
-## Results by theoretical approach
-
-```{r all_results_gt_table, echo=F}
-all_results_gt_table
-```
-
-## Results by delivery method
-
-```{r delivery_method_table, echo=F}
-delivery_method_table
-```
-
-## How do materials from advocacy orgnizations do?
-
-```{r advocacy_org_table, echo=F}
-advocacy_org_table
-```
-
-## What about country?
-
-```{r country_table, echo=F}
-country_results_table 
-```
-
-## Population?
-
-```{r setting_table, echo=F}
-population_table
-```
-
-## Good news on the open science front
-
-```{r open_science_table, echo=F}
-study_quality_results_table
-```
-
 ## Where do we go from here?
 
 @guzzo1987 argue that literature reviews serve four purposes:
@@ -357,7 +281,7 @@ study_quality_results_table
 
 ## State of knowledge
 
-Speciesism is the core unsolved problem for radical change — but we already knew that
+Speciesism is the core unsolved problem for radical change - but we already knew that
 
 Lack of data on potential substitution, either between MAP products or over time ('regression to the meat'), is a consistent challenge
 
@@ -379,11 +303,11 @@ How do your subjects think about their own MAP consumption?
 
 -   If people have a weekly "meat budget," then expect regression to the meat
 
-Marginal effects are fine, but then how do you (cheaply) scale up?  
+Marginal effects are fine, but then how do you (cheaply) scale up?
 
 ## Future studies
 
-We're at the advent of a new subfield! 
+We're at the advent of a new subfield!
 
 -   If you get the design and measurement details right, you will almost certainly break new ground
 
@@ -417,15 +341,13 @@ Animal advocacy materials need a rethink, and don't bother with pamphlets \emoji
 
 ## Thank you!
 
-Happy to talk more — setgree\@gmail.com
+Happy to talk more - setgree\@gmail.com
 
 ### Questions?
 
 ## Appendix slides: why another meta
 
 We already have nearly 40 previous systematic where MAP consumption is either independent or dependent variable
-
-Most are focused on a particular strand of literature, e.g.:
 
 ```{=tex}
 \begin{figure}
@@ -447,7 +369,7 @@ Most are focused on a particular strand of literature, e.g.:
 ```
 ## Reflections on the theoretical framing
 
-The lines between perspectives are tricky – is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?
+The lines between perspectives are tricky - is a norm a nudge if it's a cafeteria? Is a message saying that your peers think a veggie burger is tasty communicating a norm?
 
 -   Other researchers distinguish between "changes to the microenvironment" [@bianchi2018restructuring] and "changes to conscious determinants" [@bianchi2018conscious] but a lot of place-based changes are also aimed at conscious processes
 

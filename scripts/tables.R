@@ -1,5 +1,5 @@
 # Overall results by theory
-# Filter the data for each theory/approach, apply count_and_robust, and then combine
+
 all_results <- bind_rows(
   dat |> filter(str_detect(theory, "norms")) |> count_and_robust() |> mutate(Approach = "Norms"),
   dat |> filter(str_detect(theory, "nudge")) |> count_and_robust() |> mutate(Approach = "Nudge"),
@@ -8,14 +8,6 @@ all_results <- bind_rows(
   dat |> filter(str_detect(secondary_theory, "animal welfare")) |> count_and_robust() |> mutate(Approach = "Animal Welfare"),
   dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust() |> mutate(Approach = "Persuasion")) |> 
   select(Approach, N_unique, everything())
-
-all_results_gt_table <- all_results |>
-  gmt(
-    title = "Summary of Results by Theory",
-    col_name = Approach,
-    col_label = "Theory",
-    tab_source_note = "Note that because many studies present overlapping approaches, the numbers in this table do not sum to the total number of studies in our sample."
-  )
 
 # Overall results by delivery method
 delivery_method_results <- bind_rows(
@@ -26,14 +18,8 @@ delivery_method_results <- bind_rows(
   dat |> filter(cafeteria_or_restaurant_based == 'N' &
                   !str_detect(video, "Y") &
                   !str_detect(leaflet, "Y") &
-                  !str_detect(internet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Everything else")
-)
-
-delivery_method_table <- delivery_method_results |>
-  gmt(
-    title = "Summary of Results by Delivery Method",
-    col_name = DeliveryMethod,
-    col_label = "Delivery Method")
+                  !str_detect(internet, "Y")) |> 
+    count_and_robust() |> mutate(DeliveryMethod = "Everything else"))
 
 # Results by animal advocacy organization
 advocacy_org_results <- dat |>
@@ -45,14 +31,6 @@ advocacy_org_results <- dat |>
   mutate(
     advocacy_org = if_else(advocacy_org == "N", 
                            "Researchers (non-advocacy)", advocacy_org))
-
-advocacy_org_table <- advocacy_org_results |>
-  gmt(
-    title = "Results by Animal Advocacy Organization",
-    col_name = advocacy_org,
-    col_label = "Advocacy Organization",
-    tab_source_note = TRUE
-  )
 
 # Results by country
 country_results <- dat |>
@@ -67,12 +45,6 @@ country_results <- dat |>
   arrange(desc(N_unique)) |>
   mutate(pval = as.numeric(pval))
 
-country_results_table <- country_results |>
-  gmt(
-    title = "Results by Country",
-    col_name = country,
-    col_label = "Country")
-
 # Meat vs MAP as a general category
 meat_vs_map <- dat |>
   split(~str_detect(pattern = "MAP", dat$outcome_category)) |>
@@ -82,16 +54,7 @@ meat_vs_map <- dat |>
     meat_vs_map = case_when(
       meat_vs_map == TRUE ~ "MAP overall",
       meat_vs_map == FALSE ~ "Meat",
-      TRUE ~ NA
-    )
-  )
-
-meat_vs_map_table <- meat_vs_map |>
-  gmt(
-    title = "Differences in effect studies between Meat and MAP outcomes",
-    col_name = meat_vs_map,
-    col_label = "Outcome type"
-  )
+      TRUE ~ NA))
 
 # Results by open science practices
 study_quality_results <- list(
@@ -103,27 +66,11 @@ study_quality_results <- list(
   map(~ .x |> count_and_robust()) |>
   bind_rows(.id = "Open Science Practice")
 
-study_quality_results_table <- study_quality_results |>
-  gmt(
-    title = "Effect Sizes of Studies by Open Science Practices",
-    col_name = 'Open Science Practice',
-    col_label = "Open Science Practice",
-    tab_source_note = TRUE
-  )
-
 # Split by publication type
 publication_type_eff_size <- dat |> split(~pub_status) |> 
   map(count_and_robust) |> 
   bind_rows(.id = "publication_type") |>
   arrange(desc(N_unique))
-
-publication_type_eff_size_table <- publication_type_eff_size |>
-  gmt(
-    title = "Effect Sizes of Studies by Publication Type",
-    col_name = publication_type,
-    col_label = "Publication Type",
-    tab_source_note = TRUE
-  )
 
 # self report within non-advocacy reports
 self_report_non_advocacy_results <- dat |>
@@ -133,28 +80,69 @@ self_report_non_advocacy_results <- dat |>
   bind_rows(.id = 'self_report') |>
   arrange(desc(N_unique))
 
-self_report_non_advocacy_table <- self_report_non_advocacy_results |>
-  gmt(
-    title = "Results by Self-Reported Outcomes excluding advocacy publications",
-    col_name = self_report,
-    col_label = "Self Report",
-    tab_source_note = TRUE
-  )
 
 # population? 
 population_results <- dat |> split(~population) |> 
   map(map_robust) |> bind_rows(.id = 'population') |> 
   arrange(desc(N_unique)) 
-population_table <- population_results |> gmt(title = "Results by Population", 
-                                              col_name = population, 
-                                              col_label = "Population")
 
-# Print the tables to verify
-# print(all_results_gt_table)
-# print(delivery_method_table)
-# print(advocacy_org_table)
-# print(country_results_table)
-# print(meat_vs_map_table)
-# print(study_quality_results_table)
-# print(publication_type_eff_size_table)
-# print(self_report_non_advocacy_table)
+# gt tables
+all_results_gt_table <- all_results |>
+  gmt(
+    title = "Summary of Results by Theory",
+    col_name = Approach,
+    col_label = "Theory",
+    tab_source_note = "Note that because many studies present overlapping approaches, 
+    the numbers in this table do not sum to the total number of studies in our sample."   )
+delivery_method_table <- delivery_method_results |>
+  gmt(
+    title = "Summary of Results by Delivery Method",
+    col_name = DeliveryMethod,
+    col_label = "Delivery Method")
+
+advocacy_org_table <- advocacy_org_results |>
+  gmt(
+    title = "Results by Animal Advocacy Organization",
+    col_name = advocacy_org,
+    col_label = "Advocacy Organization",
+    tab_source_note = TRUE
+  )
+country_results_table <- country_results |>
+  gmt(
+    title = "Results by Country",
+    col_name = country,
+    col_label = "Country")
+
+meat_vs_map_table <- meat_vs_map |>
+  gmt(
+    title = "Differences in effect studies between Meat and MAP outcomes",
+    col_name = meat_vs_map,
+    col_label = "Outcome type"
+  )
+study_quality_results_table <- study_quality_results |>
+  gmt(
+    title = "Effect Sizes of Studies by Open Science Practices",
+    col_name = 'Open Science Practice',
+    col_label = "Open Science Practice",
+    tab_source_note = TRUE
+  )
+
+population_results_table <- population_results |>
+  gmt(title = "Results by Population",
+         col_name = population,
+         col_label = "Population")
+
+self_report_non_advocacy_table <- self_report_non_advocacy_results |>
+  gmt(
+    title = "Results by Self-Reported Outcomes excluding advocacy publications",
+    col_name = self_report,
+    col_label = "Self Report",
+    tab_source_note = TRUE)
+
+publication_type_eff_size_table <- publication_type_eff_size |>
+  gmt(
+    title = "Effect Sizes of Studies by Publication Type",
+    col_name = publication_type,
+    col_label = "Publication Type",
+    tab_source_note = TRUE
+  )
