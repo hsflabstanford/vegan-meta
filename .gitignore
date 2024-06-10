@@ -9,6 +9,7 @@ results/
 *.html
 *.docx
 images/
+tables/
 vegan-meta.ttt
 supplementary-analyses/**/*.csv
 supplementary-analyses/**/*.sav

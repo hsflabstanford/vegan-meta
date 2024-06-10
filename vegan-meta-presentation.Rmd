@@ -8,14 +8,7 @@ output:
 bibliography: "./manuscript/vegan-refs.bib"
 header-includes:
 - \usepackage{emoji}
-- \usepackage{booktabs}
-- \usepackage{caption}
-- \usepackage{longtable}
-- \usepackage{colortbl}
-- \usepackage{bookmark}
-- \usepackage{array}
 - \setemojifont{Apple Color Emoji}
-
 editor_options:
   chunk_output_type: console
 ---
@@ -25,28 +18,16 @@ options(tinytex.verbose = TRUE)
 source('./scripts/libraries-functions-data.R')
 source('./scripts/descriptive-stats.R')
 source('./scripts/red-and-processed-meat.R')
-source('./scripts/tables.R')
+# source('./scripts/tables.R')
 ```
-
 
 ## Country breakdown:
-```{r country_breakdown, echo=F}
-data.frame(
-  Country = c("United States", "Germany", "Multiple (online)", "United Kingdom", "Netherlands", "Sweden", "Australia", "Canada", "Denmark"),
-    Interventions = c(country_dat[["United States"]],
-                      country_dat["Germany"],
-                      5,
-                      country_dat["United Kingdom"],
-                      country_dat["Netherlands"],
-                      country_dat["Sweden"],
-                      country_dat["Australia"],
-                      country_dat["Canada"],
-                      country_dat["Denmark"]))
-```
+
+![](tables/country_breakdown_table.png){width="392"}
 
 ## Settings & Delivery Mechanisms
 
-```{=latex}
+```{=tex}
 \begin{columns}
     \begin{column}{0.6\textwidth}
         \begin{itemize}
@@ -57,17 +38,13 @@ data.frame(
             \item 29 with university students
         \end{itemize}
     \end{column}
-    
     \begin{column}{0.35\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/leaflet.png}
-        \begin{center}
-            Norris (2014)
-        \end{center}
+        Norris (2014)
     \end{column}
 \end{columns}
 ```
-
 ## Dependent Variables (Outcomes)
 
 `r self_report_count['Y']` of `r num_studies` interventions have self-reported outcomes, e.g.
@@ -75,7 +52,7 @@ data.frame(
 -   Diet journal asking participants how often they ate certain foods in the past seven days [@bochmann2017]
 -   "During the three weeks of data collection, participants were asked to report their meat consumption on Mondays, Tuesdays, and Wednesdays" [@alblas2023]
 
-Objective outcomes either track subjects' behavior [@jalil2023] or sales data at a cafeteria/resaurant [@andersson2021]
+Objective outcomes either track subjects' behavior [@jalil2023] or sales data at a cafeteria/restaurant [@andersson2021]
 
 ## Three theoretical perspectives
 
@@ -108,7 +85,6 @@ e.g. @vocski2024 and @andersson2021:
 \end{column}
 \end{columns}
 ```
-
 ## The nudge literature is huge, and a mess
 
 Probably the dominant approach in the literature as a whole, but only two met our inclusion criteria. The rest
@@ -150,25 +126,7 @@ knitr::include_graphics('./images/norms.png')
 
 ## Sparkman et al. continued
 
-```{r sparkman_table, echo=F}
-# Create the dataframe
-data.frame(
-  Study = c("One", "Two", "Three", "Four"),
-  Location = c(
-    "The Axe & Palm cafe",
-    "Farm Hill (virtual)",
-    "Vino Enoteca (lunch)",
-    "Vino Enoteca (dinner)"
-  ),
-  `Effect on veg sales` = c(
-    "+ 1.4 to 1.7%",
-    "+ 2.6% (non-significant)",
-    "+ 2.2%",
-    "- 3.7%"),
-  stringsAsFactors = FALSE,
-  check.names = FALSE)
-
-```
+![](tables/sparkman_table.png)
 
 ## Persuasion: appeals to animal welfare
 
@@ -269,6 +227,30 @@ Overall effect on RPMC is `r RPMC_model$Delta` (SE = `r RPMC_model$se`), p `r RP
 Still a 'small' effect size, but from the perspective of health and the environment, a reduction of 1/5 of an SD is good news
 
 But from the perspective of animal welfare...we don't know [@mathur2022ethical]
+
+## Results by theoretical approach
+
+![](tables/all_results_gt_table.png)
+
+## Results by delivery method
+
+![](tables/delivery_method_table.png)
+
+## How do materials from advocacy organizations do?
+
+![](tables/advocacy_org_table.png){width="687"}
+
+## What about country?
+
+![](tables/country_results_table.png){width="522"}
+
+## Population?
+
+![](tables/population_results_table.png)
+
+## Good news on the open science front
+
+![](tables/study_quality_results_table.png)
 
 ## Where do we go from here?
 

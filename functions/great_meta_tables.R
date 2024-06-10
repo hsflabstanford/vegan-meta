@@ -37,7 +37,7 @@ gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name,
     gt::cols_label(
       !!col_name := col_label,
       N_unique = "N (Studies)",
-      `Glass's ∆ (se)` = gt::md("Glass's $\\Delta$ (se)")
+      `Glass's ∆ (se)` = gt::md("Glass's ∆ (se)")
     )
   
   # Add the tab_source_note if provided
