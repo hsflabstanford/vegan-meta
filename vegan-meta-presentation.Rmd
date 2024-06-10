@@ -23,7 +23,7 @@ source('./scripts/red-and-processed-meat.R')
 
 ## Country breakdown:
 
-![](tables/country_breakdown_table.png){width="392"}
+![](tables/country_breakdown_table.png){width="196"}
 
 ## Settings & Delivery Mechanisms
 
@@ -126,7 +126,7 @@ knitr::include_graphics('./images/norms.png')
 
 ## Sparkman et al. continued
 
-![](tables/sparkman_table.png)
+![](tables/sparkman_table.png){width="500"}
 
 ## Persuasion: appeals to animal welfare
 
@@ -230,27 +230,27 @@ But from the perspective of animal welfare...we don't know [@mathur2022ethical]
 
 ## Results by theoretical approach
 
-![](tables/all_results_gt_table.png)
+![](tables/all_results_gt_table.png){width="341"}
 
 ## Results by delivery method
 
-![](tables/delivery_method_table.png)
+![](tables/delivery_method_table.png){width="433"}
 
 ## How do materials from advocacy organizations do?
 
-![](tables/advocacy_org_table.png){width="687"}
+![](tables/advocacy_org_table.png){width="344"}
 
 ## What about country?
 
-![](tables/country_results_table.png){width="522"}
+![](tables/country_results_table.png){width="261"}
 
 ## Population?
 
-![](tables/population_results_table.png)
+![](tables/population_results_table.png){width="433"}
 
 ## Good news on the open science front
 
-![](tables/study_quality_results_table.png)
+![](tables/study_quality_results_table.png){width="553"}
 
 ## Where do we go from here?
 
