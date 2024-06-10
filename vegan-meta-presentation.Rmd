@@ -126,7 +126,7 @@ knitr::include_graphics('./images/norms.png')
 
 ## Sparkman et al. continued
 
-![](tables/sparkman_table.png){width="500"}
+![](tables/sparkman_table.png){width="442"}
 
 ## Persuasion: appeals to animal welfare
 
@@ -250,7 +250,7 @@ But from the perspective of animal welfare...we don't know [@mathur2022ethical]
 
 ## Good news on the open science front
 
-![](tables/study_quality_results_table.png){width="553"}
+![](tables/study_quality_results_table.png){width="369"}
 
 ## Where do we go from here?
 
