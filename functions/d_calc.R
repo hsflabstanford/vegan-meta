@@ -41,6 +41,9 @@ d_calc <- function(stat_type, stat, sample_sd, n_t, n_c) {
   } else if (stat_type == "f_test") {
     #' Calculate Cohen's D for f test
     d <- round(sqrt((stat * (n_t + n_c)) / (n_t * n_c)), digits = 3)
+  } else if (stat_type == "eta_squared") {
+    #' Calculate Cohen's D for eta_squared
+    d <- round(sqrt(stat) / sqrt(1 - stat), digits = 3)
   } else if (stat_type == "odds_ratio") {
     #' Calculate Cohen's D for odds ratio
     d <- log(stat) * sqrt(3) / pi

@@ -4,7 +4,6 @@ library(googledrive)
 # drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 #               path = './data/vegan-meta.csv',
 #               overwrite = TRUE)
-
 #' libraries
 library(dplyr, warn.conflicts = F)
 library(english)
