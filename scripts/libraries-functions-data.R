@@ -1,5 +1,5 @@
 library(googledrive)
-#' run the following only if needed
+#' run the following only if you've made changes to the data online
 # drive_auth()
 # drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
 #               path = './data/vegan-meta.csv',
@@ -63,4 +63,3 @@ dat <- read.csv('./data/vegan-meta.csv') |>
          se_d = sqrt(var_d)) |> 
   select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
-
