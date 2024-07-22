@@ -348,14 +348,16 @@ We counted `r nrow(RPMC)` studies that meet our other criteria and look specific
 
 Finally, one study from @piester2020 ranked items in a university cafeteria by their sustainability with a leaf-based diagram, where more leaves corresponded to more sustainable choices. For example meals with lobster or pork were given three leaves; meals with chicken were given either three or four leaves, depending on the dish, as was macaroni and cheese; while pad thai with tofu was given five leaves. The study found a moderate, statistically nonsigificant effect of being exposed to this rating system. (We did not include this study in our main analysis because it was possible to substitute from pork or lobster to chicken and show an improvement in the dependent variable).
 
-## Meta-analysis
+## 4 Meta-analysis
 
 We report all results as Glass's ∆, which standardizes by variance of the control group rather than of the entire population (we use variance of the entire sample when individual variances were not presented). We employ random effects meta-analysis.
 
 Further comments on our methods can be found in our appendix.
 
 ```{r main_results, echo=F, include=F}
-
+# note that in time we're going to transition to 
+robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = 'CORR')
+# and we're going to put that in the c_calc 
 main_result <- dat |> count_and_robust()
 sign_table <- table(dat$neg_null_pos)
 null_proportion <- sign_table[[2]] / sum(sign_table)
