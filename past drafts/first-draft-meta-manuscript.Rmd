@@ -17,7 +17,6 @@ There are [strong](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/
 A previous review by [Mathur et al. (2021 b)](https://www.sciencedirect.com/science/article/pii/S0195666321001847) called on future MAP research to feature “direct behavioral outcomes” and “long-term follow-up.” Our paper shares those commitments. Therefore, while our review is theoretically comprehensive, our meta-analysis looks exclusively at randomized controlled trials (RCTs), for [well-understood reasons](https://www.sfu.ca/~palys/Campbell&Stanley-1959-Exptl&QuasiExptlDesignsForResearch.pdf), that meet the following quality criteria:
 
 
-
 1. Measurements of actual consumption of animal products, rather than (or in addition to) measures of attitudes, behavioral intentions, or hypothetical choices.
 2. At least 25 subjects in treatment and control groups or, for [cluster-randomized studies](https://www.jstor.org/stable/25791925), at least 10 clusters in total.
 3. At least a single day separating the onset of treatment from outcome measurement. This helps identify effects that endure beyond the length of a single interaction and also helps to mitigate [experimenter demand effects](https://link.springer.com/article/10.1007/s10683-009-9230-z).

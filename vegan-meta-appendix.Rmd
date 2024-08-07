@@ -13,6 +13,8 @@ bibliography: "./manuscript/vegan-refs.bib"
 ED NOTE: that the PDF is not rendering for some reason so I'm just doing
 HTML which is insane but whatever
 
+## is it no effects, or is it low power?
+[Aldoh et al. (2024)[(https://royalsocietypublishing.org/doi/full/10.1098/rsos.240407)] mention evidential threshold (they also reinforce the Piester contention that the intervention worked for women and not men, but the online experiment of girls aged 13-25 didn't work either, so maybe it's just noise?); [Van der Vliet et al. (2024)](https://www.sciencedirect.com/science/article/pii/S0195666324000795) say that a higher-powered replication is needed; [Anderson 2020](https://faunalytics.org/reduce-or-go-veg/) write "We had not anticipated that some participants wouldn’t use their voucher, so it wasn’t factored into our power analysis. With 617 participants,we only had 80% power to detect a 14% difference between the Reduction Advocacy and Vegetarian Advocacy conditions—a larger difference than we had expected to see. Therefore, it should be noted that the Reduction Advocacy vs. Vegetarian Advocacycomparisons in this study ended up being quite conservative."
 ## A review of previous reviews
 
 | First Author   | Year | Title                                                                                                                                                          | Papers Reviewed                                                                                                                              | Methods                             | Findings                                                                                                                                                                         |
