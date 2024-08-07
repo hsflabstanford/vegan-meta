@@ -1,0 +1,13 @@
+#' libraries
+library(dplyr, warn.conflicts = F)
+library(english)
+library(ggplot2)
+library(ggtext)
+library(googledrive)
+library(gt)
+library(knitr)
+library(metafor)
+library(MetaUtility)
+library(purrr)
+library(rlang, warn.conflicts = F)
+library(stringr)
