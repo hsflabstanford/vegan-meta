@@ -27,7 +27,7 @@ d_calc <- function(stat_type, stat, sample_sd, n_t, n_c) {
   #' Calculate Cohen's D or Glass's $\Delta$ based on effect size and sample SD
   if (stat_type == "d_i_d" || stat_type == "d_i_m" || stat_type == "reg_coef" ||
       stat_type == "beta") {
-    d <- round(stat / sample_sd, digits = 3)
+    d <- round(stat / sample_sd, digits = 5)
   } else if (stat_type == "d") {
     #' Directly use the reported change of SDs
     d <- stat
@@ -37,13 +37,13 @@ d_calc <- function(stat_type, stat, sample_sd, n_t, n_c) {
     d <- 0.01
   } else if (stat_type == "t_test") {
     #' Calculate Cohen's D for t test
-    d <- round(stat * sqrt((n_t + n_c) / (n_t * n_c)), digits = 3)
+    d <- round(stat * sqrt((n_t + n_c) / (n_t * n_c)), digits = 5)
   } else if (stat_type == "f_test") {
     #' Calculate Cohen's D for f test
-    d <- round(sqrt((stat * (n_t + n_c)) / (n_t * n_c)), digits = 3)
+    d <- round(sqrt((stat * (n_t + n_c)) / (n_t * n_c)), digits = 5)
   } else if (stat_type == "eta_squared") {
     #' Calculate Cohen's D for eta_squared
-    d <- round(sqrt(stat) / sqrt(1 - stat), digits = 3)
+    d <- round(sqrt(stat) / sqrt(1 - stat), digits = 5)
   } else if (stat_type == "odds_ratio") {
     #' Calculate Cohen's D for odds ratio
     d <- log(stat) * sqrt(3) / pi
