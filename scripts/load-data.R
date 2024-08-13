@@ -9,6 +9,8 @@
 options(scipen = 99)
 
 #' data
+library(dplyr)
+library(stringr)
 dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 

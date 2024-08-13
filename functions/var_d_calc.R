@@ -17,6 +17,6 @@ var_d_calc <- function(d, n_t, n_c) {
   hedge_g <- 1 - (3 / ((4 * (n_t + n_c - 2)) - 1))
   
   # Calculate variance of Cohen's D or Glass's Delta
-  result <- round((hedge_g^2) * ust_var_d, digits = 3)
+  result <- round((hedge_g^2) * ust_var_d, digits = 5)
   return(result)
 }
