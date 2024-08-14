@@ -1,0 +1,105 @@
+---
+classoptions: 
+  - sn-nature      
+  # - referee       # Optional: Use double line spacing 
+  # - lineno        # Optional: Add line numbers
+  # - iicol         # Optional: Double column layour
+title: "Durably reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis"
+titlerunning: MAP-reduction-meta
+authors: 
+  - firstname: Seth Ariel
+    lastname: Green
+    email: setgree@stanford.edu
+    affiliation: 1
+    corresponding: TRUE
+  - firstname: Maya 
+    lastname: Mathur
+    affiliation: 1
+  - firstname: Austin Benny
+    lastname: Smith 
+    affiliation: 2
+affiliations:
+  - number: 1
+    info:
+      orgdiv: Humane and Sustainable Food Lab
+      orgname: Stanford University
+  - number: 2
+    info:
+      orgname: Allied Scholars for Animal Protection 
+keywords:
+  - key
+  - dictionary
+  - word
+abstract: |
+  **Purpose**: 
+  **Methods:** 
+  **Results:** 
+  **Conclusion:**
+bibliography: "./manuscript/vegan-refs.bib"
+output: 
+  rticles::springer_article
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.path='results/figures/',
+                      out.extra = "")  # This forces knitr to label all figures.
+
+source('./scripts/libraries.R')
+source('./scripts/functions.R')
+source('./scripts/load-data.R')
+source('./scripts/red-and-processed-meat.R')
+# final thing is going to look like
+# robumeta::robu(d ~ 1, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = "HIER")
+```
+
+# Introduction {#sec1}
+
+Demand for meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
+
+Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if public opinion is not supportive.
+It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations.
+This paper answers these questions with a meta-analysis of the MAP reduction studies with the strongest designs, power, and measurement strategies.
+
+The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
+By our count, there have been over one hundred previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
+However, two prior investigations revealed three common gaps in the literature: a lack of long-term follow-ups, a preponderance of non-consumption outcomes, and inattention to the potential gap between intentions and what people actually eat [@mathur2021meta; @mathur2021effectiveness].
+Our paper puts these issues front and center by exclusively meta-analyzing randomized controlled trials (RCTs) that meet the following inclusion criteria:
+
+-   Intention to reduce overall MAP consumption, rather than (e.g.) encouraging substitution from beef to chicken [@mathur2022ethical];
+
+-   At least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
+
+-   Measures of MAP consumption, whether self-reported or observed directly, rather than (or in addition to) attitudes, intentions, beliefs or hypothetical choices;
+
+-   Outcomes recorded at least a single day after treatment begins.
+
+Additionally, studies needed to be made publicly available in English by December 2023.
+
+```{r useful_constants, include=F, echo=F}
+num_papers <- as.numeric(max(dat$unique_paper_id))
+num_studies <- as.numeric(max(dat$unique_study_id))
+num_interventions <- as.numeric(nrow(dat))
+```
+
+In total we, coded `r num_papers` papers, comprising `r num_studies` separate studies and `r num_interventions` interventions. 
+
+# Results {#sec2}
+
+# Methods {#sec3}
+
+# Discussion {#sec4}
+
+\backmatter
+
+\bmhead{Supplementary information}
+
+\bmhead{Acknowledgments}
+
+# Declarations {.unnumbered}
+
+# Appendix {#secA1}
+
+# Bibliography
