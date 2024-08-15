@@ -52,7 +52,7 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 # final thing is going to look like
-# robumeta::robu(d ~ 1, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = "HIER")
+model <-  robumeta::robu(d ~ theory, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = "HIER")
 ```
 
 # Introduction {#sec1}
