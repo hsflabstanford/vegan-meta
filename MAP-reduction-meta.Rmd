@@ -57,11 +57,10 @@ source('./scripts/red-and-processed-meat.R')
 
 # Introduction {#sec1}
 
-Demand for meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
+Consumption of meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
 
 Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if public opinion is not supportive.
 It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations.
-This paper answers these questions with a meta-analysis of the MAP reduction studies with the strongest designs, power, and measurement strategies.
 
 The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
 By our count, there have been over one hundred previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
@@ -89,12 +88,14 @@ RPMC_interventions <- as.numeric(nrow(RPMC))
 ```
 
 In total we, coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies and `r num_interventions` interventions.
-We also coded a supplementary dataset of `r RPMC_papers` aimed at reducing consumption of red and/or processed meat (RPM), comprising `r RPMC_studies` studies and `r RPMC_interventions` interventions.
-This was to provide a comparison between studies that aimed to reduce overall MAP consumption and those that only measured RPM reductions without reporting on potential substitution to other MAP products.
+We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies and `r RPMC_interventions` interventions.
+This was to provide a comparison between studies that aimed to reduce overall MAP consumption and those that only measured RPM reductions without reporting on potential substitution to other MAP products [@mathur2022ethical].
+
+Additionally, we compiled a dataset of 779 excluded studies, along with their reason(s) for exclusion.
 
 # Results {#sec2}
 
-## Three categories
+## Three theoretical categories: persuasion, choice architecture, and norms
 
 ## An overall null effect
 

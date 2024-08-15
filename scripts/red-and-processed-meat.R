@@ -26,11 +26,11 @@ RPMC <- read.csv("./data/RPMC-data.csv") |>
   select(-one_of("X")) |>
   select(author, year, title, unique_paper_id, unique_study_id, everything()) 
 
-first_decade_RPMC_studies <- RPMC |> filter(year == 2005)
-
-carfora_studies <- RPMC |> filter(str_detect(author, "Carfora"))
-
-num_RPMC_studies <- nrow(RPMC)
-RPMC_subjects <- sum(RPMC$n_t_post) + sum(RPMC$n_c_post)
-
-RPMC_model <- RPMC |> map_robust()
+# first_decade_RPMC_studies <- RPMC |> filter(year == 2005)
+# 
+# carfora_studies <- RPMC |> filter(str_detect(author, "Carfora"))
+# 
+# num_RPMC_studies <- nrow(RPMC)
+# RPMC_subjects <- sum(RPMC$n_t_post) + sum(RPMC$n_c_post)
+# 
+# RPMC_model <- RPMC |> map_robust()
