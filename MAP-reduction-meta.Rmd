@@ -15,7 +15,7 @@ authors:
   - firstname: Maya 
     lastname: Mathur
     affiliation: 1
-  - firstname: Austin Benny
+  - firstname: Benny
     lastname: Smith 
     affiliation: 2
 affiliations:
@@ -68,7 +68,7 @@ By our count, there have been over one hundred previous reviews on these questio
 However, two prior investigations revealed three common gaps in the literature: a lack of long-term follow-ups, a preponderance of non-consumption outcomes, and inattention to the potential gap between intentions and what people actually eat [@mathur2021meta; @mathur2021effectiveness].
 Our paper puts these issues front and center by exclusively meta-analyzing randomized controlled trials (RCTs) that meet the following inclusion criteria:
 
--   Intention to reduce overall MAP consumption, rather than (e.g.) encouraging substitution from beef to chicken [@mathur2022ethical];
+-   Intention to reduce overall MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish
 
 -   At least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
 
@@ -76,17 +76,29 @@ Our paper puts these issues front and center by exclusively meta-analyzing rando
 
 -   Outcomes recorded at least a single day after treatment begins.
 
-Additionally, studies needed to be made publicly available in English by December 2023.
+Additionally, studies needed to be made publicly available by December 2023 and published in English.
 
 ```{r useful_constants, include=F, echo=F}
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
+
+RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
+RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
+RPMC_interventions <- as.numeric(nrow(RPMC))
 ```
 
-In total we, coded `r num_papers` papers, comprising `r num_studies` separate studies and `r num_interventions` interventions. 
+In total we, coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies and `r num_interventions` interventions.
+We also coded a supplementary dataset of `r RPMC_papers` aimed at reducing consumption of red and/or processed meat (RPM), comprising `r RPMC_studies` studies and `r RPMC_interventions` interventions.
+This was to provide a comparison between studies that aimed to reduce overall MAP consumption and those that only measured RPM reductions without reporting on potential substitution to other MAP products.
 
 # Results {#sec2}
+
+## Three categories
+
+## An overall null effect
+
+## Red and Processed Meat is an easier target
 
 # Methods {#sec3}
 
