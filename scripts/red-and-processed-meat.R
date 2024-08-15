@@ -1,8 +1,9 @@
 RPMC <- read.csv("./data/RPMC-data.csv") |>
   group_by(title) |>
+  group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
   ungroup() |> 
-  group_by(unique_paper_id, intervention_condition) |> 
+  group_by(unique_paper_id, study_num_within_paper) |> 
   mutate(unique_study_id = cur_group_id()) |>
   ungroup() |>
   mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
