@@ -1,6 +1,7 @@
 # nicely report a metafor or robumeta object with optional suffix to denote which model
 
-# in case yi's have been transformed, applies function .transformation to put Mhat and its CI on interpretable scale (e.g., set .transformation = function(x) exp(x) if yi's are log-RRs)
+# in case yi's have been transformed, applies function .transformation to put 
+# Mhat and its CI on interpretable scale (e.g., set .transformation = function(x) exp(x) if yi's are log-RRs)
 
 # **Shat and its CI will NOT be transformed
 

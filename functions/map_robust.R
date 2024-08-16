@@ -16,9 +16,6 @@
 #'
 #' @param x The dataset or subset to perform meta-analysis on.
 #' @return A tibble/data frame with meta-analysis results.
-#' @param model The underlying model you want to use. Options are 'HIER" (from
-#'   `metarobu`), 'CORR' (from `metarobu`), and 'BASIC' (use the default model
-#'   from `metafor`)). The default for this project is `HIER`
 #' @export
 map_robust <- function(x) {
   # Function to format p-values without leading zeroes or unnecessary detail 
@@ -49,7 +46,7 @@ map_robust <- function(x) {
     return(tibble::tibble(N_unique = nrow(x), Delta = Delta, se = se, pval = pval))
   } else {
     # Perform robust meta-analysis using metafor::robust function
-    result <- metafor::rma(yi = x$d, vi = x$var_d)
+    result <- robust(x = metafor::rma(yi = x$d, vi = x$var_d), cluster = x$unique_study_id)
     
     output <- data.frame(
       N_unique = nrow(x),
