@@ -56,6 +56,17 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% From pandoc table feature
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 
 
 
@@ -102,10 +113,11 @@ University}}
 
 \section{Introduction}\label{sec1}
 
-Demand for meat and animal products (MAP) is increasingly recognized as
-a major contributor to premature deaths \citep{willett2019, landry2023},
-public health risks \citep{slingenbergh2004, graham2008}, ecological
-harms \citep{greger2010} and climate change
+Consumption of meat and animal products (MAP) is increasingly recognized
+as a major contributor to premature deaths
+\citep{willett2019, landry2023}, public health risks
+\citep{slingenbergh2004, graham2008}, ecological harms
+\citep{greger2010} and climate change
 \citep{scarborough2023, koneswaran2008} as well as an ethical crisis in
 its own right \citep{kuruc2023, singer2023}.
 
@@ -114,9 +126,7 @@ or products, risk political backlash if public opinion is not
 supportive. It is of vital importance, therefore, to assess which
 strategies and theoretical perspectives lead to the largest and most
 durable reductions in demand for MAP products, under which conditions,
-and for which populations. This paper answers these questions with a
-meta-analysis of the MAP reduction studies with the strongest designs,
-power, and measurement strategies.
+and for which populations.
 
 The research on diet and its personal, cultural, and practical
 antecedents on the one hand and its consequences for health, the
@@ -160,9 +170,55 @@ comparison between studies that aimed to reduce overall MAP consumption
 and those that only measured RPM reductions without reporting on
 potential substitution to other MAP products \citep{mathur2022ethical}.
 
+Additionally, we compiled a dataset of 779 excluded studies, along with
+their reason(s) for exclusion.
+
 \section{Results}\label{sec2}
 
-\subsection{Three categories}\label{three-categories}
+\subsection{Three theoretical categories: persuasion, choice
+architecture, and
+norms}\label{three-theoretical-categories-persuasion-choice-architecture-and-norms}
+
+Table 1
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   N_unique
+##      <int>
+## 1        1
+\end{verbatim}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2386}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1705}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1364}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2045}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Approach
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sub-approach
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+N (Studies)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N (interventions)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Glass's \(\Delta\) (SE)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Overall & & 39 & 107 & NA \\
+Nudge & & 1 & 1 & NA \\
+Norms & & NA & NA & NA \\
+Norms + Persuasion & & NA & NA & NA \\
+Persuasion (Overall) & & NA & NA & NA \\
+Persuasion & Environment & NA & NA & NA \\
+Persuasion & Health & NA & NA & NA \\
+Persuasion & Animal Welfare & NA & NA & NA \\
+\end{longtable}
 
 \subsection{An overall null effect}\label{an-overall-null-effect}
 
