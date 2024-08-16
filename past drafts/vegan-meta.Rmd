@@ -54,8 +54,6 @@ output:
 ```{r setup, echo=F, include=F}
 knitr::opts_chunk$set(fig.path='results/figures/')
 
-source('./scripts/libraries-functions-data.R')
-
 # plus two useful constants
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
