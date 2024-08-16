@@ -117,13 +117,42 @@ Additionally, we compiled a dataset of 779 excluded studies, along with their re
 Table 1 
 
 ```{r table_one}
-nudge_dat <- dat |> filter(theory == 'nudge')
-norms_dat <- dat |> filter(theory == 'norms')
+# eight cagtegories: overall, nudge, norm, norms + persuasion,
+# persuasion (overall), persuasion (health), persuasion (environment), and 
+# persuasion (animal welfare). each gets its own model.
+# the model has all the info we need
+
+#overall
+model <- dat |> map_robu()
+
+# nudge
+nudge_model <- dat |> filter(theory == 'nudge') |> map_robu()
+
+# norms
+norms_model <- dat |> filter(theory == 'norms') |> map_robu()
+
+# norms + persuasion
+norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robu()
+
+# persuasion overall
+persuasion_overall <- dat |> filter(theory == 'persuasion') |> map_robu()
+
+# persuasion (health)
+health_persuasion <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robu()
+
+# persuasion (environment)
+enviroment_persuasion <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robu()
+
+# persuasion (health)
+animal_persuasion <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robu()
+
+
+# table
 table_one <- tibble(
   Approach = c("Overall", "Nudge", "Norms", "Norms + Persuasion", 
                "Persuasion (Overall)", 
                  "Persuasion (Health)", "Persuasion (Environment)", "Persuasion (Animal Welfare"),
-  "N (Studies)" = c(num_studies, study_count(nudge_dat), NA, NA, NA, NA, NA, NA),
+  "N (Studies)" = c(model$N_studies, nudge_model$N_studies, NA, NA, NA, NA, NA),
   "N (interventions)" = c(nrow(dat), nrow(nudge_dat), NA, NA, NA, NA, NA, NA),
   "Glass's $\\Delta$ (SE)" = rep(NA, 8)) |> kable()
 table_one

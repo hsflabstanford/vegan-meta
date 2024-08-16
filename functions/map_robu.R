@@ -45,13 +45,16 @@ map_robu <- function(x, model = "CORR") {
     
     # Return these values in a tibble
     
-    return(tibble::tibble(N_unique = nrow(x), Delta = Delta, se = se, pval = pval))
+    return(tibble::tibble(N_interventions = nrow(x),
+                          N_studies = nrow(x),
+                          Delta = Delta, se = se, pval = pval))
   } else {
     # Perform robust meta-analysis using metafor::robust function
     result <- robu(formula = d ~ 1, data = x, 
                    studynum = unique_study_id, 
                    var.eff.size = var_d, modelweights = model)
     output <- data.frame(
+      N_interventions = result$M,
       N_studies = result$N,
       Delta = round(result$reg_table$b.r, 4),
       se = round(result$reg_table$SE, 4),
