@@ -122,6 +122,8 @@ Table 1
 # persuasion (animal welfare). each gets its own model.
 # the model has all the info we need
 
+# TODO: custom function that does ∆*** (SE) or whatever.
+
 #overall
 model <- dat |> map_robu()
 
@@ -152,7 +154,7 @@ table_one <- tibble(
   Approach = c("Overall", "Nudge", "Norms", "Norms + Persuasion", 
                "Persuasion (Overall)", 
                  "Persuasion (Health)", "Persuasion (Environment)", "Persuasion (Animal Welfare"),
-  "N (Studies)" = c(model$N_studies, nudge_model$N_studies, NA, NA, NA, NA, NA),
+  "N (Studies)" = c(model$N_studies, nudge_model$N_studies, NA, NA, NA, NA, NA, NA),
   "N (interventions)" = c(nrow(dat), nrow(nudge_dat), NA, NA, NA, NA, NA, NA),
   "Glass's $\\Delta$ (SE)" = rep(NA, 8)) |> kable()
 table_one
