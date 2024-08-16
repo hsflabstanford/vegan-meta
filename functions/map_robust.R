@@ -13,7 +13,6 @@
 #' @importFrom metafor robust 
 #' @importFrom metafor rma
 #' @importFrom tibble as_tibble
-#' @importFrom robumeta robu
 #'
 #' @param x The dataset or subset to perform meta-analysis on.
 #' @return A tibble/data frame with meta-analysis results.
@@ -21,7 +20,7 @@
 #'   `metarobu`), 'CORR' (from `metarobu`), and 'BASIC' (use the default model
 #'   from `metafor`)). The default for this project is `HIER`
 #' @export
-map_robust <- function(x, model = 'HIER') {
+map_robust <- function(x) {
   # Function to format p-values without leading zeroes or unnecessary detail 
   # if they're very small
   format_pval <- function(p) {
@@ -48,14 +47,10 @@ map_robust <- function(x, model = 'HIER') {
     # Return these values in a tibble
     
     return(tibble::tibble(N_unique = nrow(x), Delta = Delta, se = se, pval = pval))
-  } else if (model == 'basic') {
+  } else {
     # Perform robust meta-analysis using metafor::robust function
     result <- metafor::rma(yi = x$d, vi = x$var_d)
-    else if {model == 'HIER'}
-    result <- robumeta::robu(d ~ 1, data = x, studynum = unique_study_id, 
-                             var.eff.size = var_d, modelweights = "HIER")
-    beta <- result$b.r
-    # Extract relevant results and format them into a tibble/data frame
+    
     output <- data.frame(
       N_unique = nrow(x),
       Delta = round(result$beta, 4),
