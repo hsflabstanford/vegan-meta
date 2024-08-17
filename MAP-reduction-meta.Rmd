@@ -114,57 +114,106 @@ Additionally, we compiled a dataset of 779 excluded studies, along with their re
 
 ## Three theoretical categories: persuasion, choice architecture, and norms
 
-Table 1 
+```{r table_one, echo=F, message=F}
+library(kableExtra)
+source('./functions/meta_result_formatter.R')
 
-```{r table_one}
-# eight cagtegories: overall, nudge, norm, norms + persuasion,
+# Eight categories: overall, nudge, norm, norms + persuasion,
 # persuasion (overall), persuasion (health), persuasion (environment), and 
-# persuasion (animal welfare). each gets its own model.
-# the model has all the info we need
+# persuasion (animal welfare). Each gets its own model.
 
-# TODO: custom function that does ∆*** (SE) or whatever.
+mr <- meta_result_formatter
 
-#overall
+# Overall
 model <- dat |> map_robu()
 
-# nudge
+# Nudge
 nudge_model <- dat |> filter(theory == 'nudge') |> map_robu()
 
-# norms
+# Norms
 norms_model <- dat |> filter(theory == 'norms') |> map_robu()
 
-# norms + persuasion
+# Norms + Persuasion
 norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robu()
 
-# persuasion overall
-persuasion_overall <- dat |> filter(theory == 'persuasion') |> map_robu()
+# Persuasion Overall
+persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robu()
 
-# persuasion (health)
-health_persuasion <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robu()
-
-# persuasion (environment)
-enviroment_persuasion <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robu()
-
-# persuasion (health)
-animal_persuasion <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robu()
-
-
-# table
+# Table One
 table_one <- tibble(
-  Approach = c("Overall", "Nudge", "Norms", "Norms + Persuasion", 
-               "Persuasion (Overall)", 
-                 "Persuasion (Health)", "Persuasion (Environment)", "Persuasion (Animal Welfare"),
-  "N (Studies)" = c(model$N_studies, nudge_model$N_studies, NA, NA, NA, NA, NA, NA),
-  "N (interventions)" = c(nrow(dat), nrow(nudge_dat), NA, NA, NA, NA, NA, NA),
-  "Glass's $\\Delta$ (SE)" = rep(NA, 8)) |> kable()
+  Approach = c("\\textbf{Overall}", "Nudge", "Norms", "Norms + Persuasion", 
+               "Persuasion (Overall)"),
+  "N (Studies)" = c(model$N_studies, nudge_model$N_studies, 
+                     norms_model$N_studies, norms_persuasion_model$N_studies, 
+                     persuasion_model$N_studies),
+  "N (Interventions)" = c(model$N_interventions, nudge_model$N_interventions, 
+                           norms_model$N_interventions, norms_persuasion_model$N_interventions, 
+                           persuasion_model$N_interventions),
+  "Glass's $\\Delta$ (SE)" = c(mr(model), mr(nudge_model), mr(norms_model),
+                                mr(norms_persuasion_model), mr(persuasion_model))
+) |> 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE,
+        caption = "Nudge, norms, and persuasion approaches to MAP reduction",
+        label = "tab:table_one") |>
+  kable_styling(latex_options = "hold_position") |>
+  footnote(general_title = "",
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001", 
+           escape = FALSE)
 table_one
 
+# Persuasion (Health)
+health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robu()
+
+# Persuasion (Environment)
+environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robu()
+
+# Persuasion (Animal Welfare)
+animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robu()
+
+# Table Two
+table_two <- tibble(
+  "Persuasion Approach" = c("Health", "Environment", "Animal Welfare"),
+  "N (Studies)" = c(health_model$N_studies, 
+                    environment_model$N_studies,
+                    animal_model$N_studies),
+  "N (Interventions)" = c(health_model$N_interventions, 
+                          environment_model$N_interventions,
+                          animal_model$N_interventions),
+  "Glass's $\\Delta$ (SE)" = c(mr(health_model), 
+                               mr(environment_model), 
+                               mr(animal_model))
+) |> 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE,
+        caption = "Three types of persuasion",
+        label = "tab:table_two") |>
+  kable_styling(latex_options = "hold_position") |>
+  footnote(general_title = "", 
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001", 
+           escape = FALSE)
+table_two
 ```
 
 ## An overall null effect
 
 ## Red and Processed Meat is an easier target
 
+```{r RPMC_model, echo=F}
+# ok this won't be a table
+# rpmc_model <- RPMC |> map_robu()
+# 
+# table_three <- tibble(
+#   "N (Studies)" = rpmc_model$N_studies,
+#   "N (Interventions)" = rpmc_model$N_interventions,
+#   "Glass's $\\Delta$ (SE)" = mr(rpmc_model)) |> 
+#   kable(format = "latex", booktabs = TRUE, escape = FALSE,
+#         caption = "Meta-analytic results for red and processed meat",
+#         label = "tab:table_three") |>
+#   kable_styling(latex_options = "hold_position") |>
+#   footnote(general_title = "", 
+#            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001", 
+#            escape = FALSE)
+# table_three
+```
 # Methods {#sec3}
 
 # Discussion {#sec4}
