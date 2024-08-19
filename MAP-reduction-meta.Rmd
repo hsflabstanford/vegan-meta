@@ -52,7 +52,6 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 
-
 # final thing is going to look like
 model <-  robumeta::robu(d ~ theory, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = "CORR")
 
@@ -81,27 +80,31 @@ It is of vital importance, therefore, to assess which strategies and theoretical
 
 The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
 By our count, there have been over one hundred previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
-However, two prior investigations revealed three common gaps in the literature: a lack of long-term follow-ups, a preponderance of non-consumption outcomes, and inattention to the potential gap between intentions and what people actually eat [@mathur2021meta; @mathur2021effectiveness].
-Our paper puts these issues front and center by exclusively meta-analyzing randomized controlled trials (RCTs) that meet the following inclusion criteria:
+However, two prior investigations revealed three common gaps in the literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
+Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
 
--   Intention to reduce overall MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish
+-   were designed to reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish
 
--   At least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
+-   had least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
 
--   Measures of MAP consumption, whether self-reported or observed directly, rather than (or in addition to) attitudes, intentions, beliefs or hypothetical choices;
+-   measured MAP consumption, whether self-reported or observed directly, rather than (or in addition to) attitudes, intentions, beliefs or hypothetical choices;
 
--   Outcomes recorded at least a single day after treatment begins.
+-   recorded outcomes at least a single day after the start of treatment.
 
-Additionally, studies needed to be made publicly available by December 2023 and published in English.
+Additionally, studies needed to be publicly circulated by December 2023 and published in English.
 
 ```{r useful_constants, include=F, echo=F}
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
+n_total <-  plyr::round_any(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor)
+
 
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
 RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
 RPMC_interventions <- as.numeric(nrow(RPMC))
+n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 1000, floor)
+
 ```
 
 In total we, coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies and `r num_interventions` interventions.
@@ -112,7 +115,7 @@ Additionally, we compiled a dataset of 779 excluded studies, along with their re
 
 # Results {#sec2}
 
-## Three theoretical categories: persuasion, choice architecture, and norms
+## Three theoretical categories: persuasion, choice architecture, and norms{#sec2.1}
 
 ```{r table_one, echo=F, message=F}
 library(kableExtra)
