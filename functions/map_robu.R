@@ -29,8 +29,9 @@ map_robu <- function(x, model = "CORR") {
       "< .0001"
     } else {
       formatted_p <- formatC(p, format = "f", digits = 4)
-      if (substr(formatted_p, 1, 1) == "0") {
-        substr(formatted_p, 2, nchar(formatted_p))
+      # Remove leading zero for p-values < 1
+      if (p < 1) {
+        gsub("^0\\.", ".", formatted_p)
       } else {
         formatted_p
       }

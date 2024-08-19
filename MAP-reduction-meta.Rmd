@@ -99,7 +99,6 @@ num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
 n_total <-  plyr::round_any(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor)
 
-
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
 RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
 RPMC_interventions <- as.numeric(nrow(RPMC))
@@ -107,11 +106,12 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 
 ```
 
-In total we, coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies and `r num_interventions` interventions.
-We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies and `r RPMC_interventions` interventions.
-This was to provide a comparison between studies that aimed to reduce overall MAP consumption and those that only measured RPM reductions without reporting on potential substitution to other MAP products [@mathur2022ethical].
+In total we, coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
 
-Additionally, we compiled a dataset of 779 excluded studies, along with their reason(s) for exclusion.
+We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects.
+This was to provide a comparison between studies that aimed to reduce overall MAP consumption and those that aimed to reduce RPM and measured only changes in those categories, i.e. not recording potential substitution to other MAP products [@mathur2022ethical].
+
+Last, we compiled a third dataset of 780 excluded studies, along with their reason(s) for exclusion.
 
 # Results {#sec2}
 
@@ -132,28 +132,39 @@ model <- dat |> map_robu()
 
 # Nudge
 nudge_model <- dat |> filter(theory == 'nudge') |> map_robu()
-
+nudge_n <- dat |> filter(theory == 'nudge') |> 
+  summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 # Norms
 norms_model <- dat |> filter(theory == 'norms') |> map_robu()
+norms_n <- dat |> filter(theory == 'norms') |>
+    summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 
 # Norms + Persuasion
 norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robu()
 
+norms_pers_n <-  dat |> filter(theory == 'norms & persuasion')|>
+  summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+
 # Persuasion Overall
 persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robu()
 
+persuasion_n <- dat |> filter(theory == 'persuasion') |>
+  summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+
 # Table One
 table_one <- tibble(
-  Approach = c("\\textbf{Overall}", "Nudge", "Norms", "Norms + Persuasion", 
-               "Persuasion (Overall)"),
+  Approach = c("\\textbf{Overall}", "Nudge", "Norms", 
+               "Persuasion", "Norms + Persuasion"),
   "N (Studies)" = c(model$N_studies, nudge_model$N_studies, 
-                     norms_model$N_studies, norms_persuasion_model$N_studies, 
-                     persuasion_model$N_studies),
+                     norms_model$N_studies, persuasion_model$N_studies,
+                    norms_persuasion_model$N_studies),
   "N (Interventions)" = c(model$N_interventions, nudge_model$N_interventions, 
-                           norms_model$N_interventions, norms_persuasion_model$N_interventions, 
-                           persuasion_model$N_interventions),
+                           norms_model$N_interventions,
+                          persuasion_model$N_interventions,
+                          norms_persuasion_model$N_interventions),
+  "N (subjects)" = c(n_total, nudge_n, norms_n, persuasion_n, norms_pers_n),
   "Glass's $\\Delta$ (SE)" = c(mr(model), mr(nudge_model), mr(norms_model),
-                                mr(norms_persuasion_model), mr(persuasion_model))
+                               mr(persuasion_model),mr(norms_persuasion_model))
 ) |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
         caption = "Nudge, norms, and persuasion approaches to MAP reduction",
@@ -191,19 +202,33 @@ table_two <- tibble(
         label = "tab:table_two") |>
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "", 
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001", 
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.", 
            escape = FALSE)
 table_two
 ```
 
-## An overall null effect
+Studies in our database pursuedone or more of three main theories of change: nudges, norms, and persuasion. A handful of studies pursued norms and persuasion combined Table 1 reports the distribution of studies, interventions, and subjects (approximately) per approach. 
 
+Nudge studies manipulate features of an environment to non-obtrusively guide people towards a desired choice [@thaler2009]. Although nudges are frequently implemented in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021]. That study manipulated the salience of a plant-based dish by placing it either at the top or bottom of a menu in a university cafeteria in Sweden.
+
+Norm studies manipulate perceptions of the popularity of desired outcomes, e.g. plant-based dishes [@sparkman2021] or using re-usable mugs[@loschelder2019]. Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (e.g. a message with a frowning face for subjects who eat more meat than the average person in their country or a smiling face for those who eat less [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in a desired behavior is increasing over time [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020; @sparkman2021]. With regards to MAP reduction, this is a comparatively young literature, with the first paper appearing in 2017.
+
+The majority of studies in our literature attempt to persuade people directly to eat less meat. These appeals are typically centered around health [@lacroix2020], the environment [@carfora2023] \textemdash typically climate change \textemdash and animal welfare [@haile2021]. Many studies provide information in multiple categories at once, e.g. a video on animal welfare and health reasons to cut back  [@feltz2022] or a leaflet with information in all three categories [@hennessy2016].  Table 2 displays the distribution of persuasion studies within the three categories. (Note that because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.)
+
+Finally, a handful of studies combines norms and persuasion approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020].
+
+## An overall null effect [/an overall small effect]
+
+  - This section depends on what model we choose
+  - note the preponderance of nulls according to the studies themselves
+  - some weak evidence of publication bias (effect size goes up as SE gets bigger)
+  
 ## Red and Processed Meat is an easier target
 
 ```{r RPMC_model, echo=F}
 # ok this won't be a table
-# rpmc_model <- RPMC |> map_robu()
-# 
+rpmc_model <- RPMC |> map_robu()
+
 # table_three <- tibble(
 #   "N (Studies)" = rpmc_model$N_studies,
 #   "N (Interventions)" = rpmc_model$N_interventions,
@@ -217,11 +242,45 @@ table_two
 #            escape = FALSE)
 # table_three
 ```
+
+On average, interventions aimed at reducing consumption of red and processed meat are considerably more effective than MAP reduction interventions are: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`. Each of these studies employs persuasion, and a majority (16/19) appeal to personal health. Moreover, many of these interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
+
+However, the effect of these interventions on MAP reduction _overall_ is unknown because these studies do not report on consumption of white meat and/or fish. Red meat is of special concern for its environmental and health consequences [@grummon2023], but chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022]. For some plausible patterns of substitution, these interventions are a net positive for personal health and the environment but a net negative for animal welfare. 
+
+## Health appeals are generally moderately effective, especially when aimed at older, sicker people
+
+## Environmental appeals, especially those aimed at college students, have moderate positive effects
+
+## Animal welfare appeals are almost always ineffective
+
+## Norms work sometimes, but it is not clear why or when
+
+## Nudges seem to work but the evidence is scant
+  - we also have reason to think that they won't scale (from other fields)
+  
+## Heterogeneity by country, self-reporting,cluster assignemnt, delivery method 
+
+## These studies are often underpowered to detect effects they actually find 
+  - X studies do power calculations, and Y of those find results smaller than they're looking for, 
+  - they also plan effect sizes based on recruited sample rather than follow-up
+  - plan for small effects and attrition
+  
+## Open science practices are associated with marginally larger effect sizes
+
 # Methods {#sec3}
+
+  - Search
+  - Coding
+  - Meta-analysis
 
 # Discussion {#sec4}
 
+  - in this article, we 
+  - we are enocuraged by increasing rigor
+  - we look forward to seeing
+  
 \backmatter
+
 
 \bmhead{Supplementary information}
 
@@ -231,4 +290,8 @@ table_two
 
 # Appendix {#secA1}
 
+A LOT will go here
+
 # Bibliography
+
+# References
