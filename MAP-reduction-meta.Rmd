@@ -63,7 +63,8 @@ We address these questions with a meta-analysis of the most rigorous studies aim
 
 The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
 By our count, there have been at least 120 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
-However, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
+However, many of these prior reviews investigated particular theoretical perspectives, for example choice architecture [@bianchi2018restructuring], appeals to animal welfare @mathur2021effectiveness], or literacy interventions [@DiGennaro2024], rather than comparing the efficacy of different approaches.
+Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
 
 -   were designed to reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish
@@ -192,8 +193,8 @@ table_two <- tibble(
 table_two
 ```
 
-Studies in our database pursued one or more of three main theories of change: nudges, norms, and persuasion.
-A handful of studies pursued norms and persuasion combined Table 1 reports the distribution of studies, interventions, and subjects (approximately) per approach.
+Studies in our database pursued one or more of three main theories of change: nudges, norms, and persuasion, or a combination of norms and persuasion.
+Table 1 reports the distribution of studies, interventions, and subjects (approximately) per approach.
 
 **Nudge** studies manipulate features of an environment to non-obtrusively guide people towards a desired choice [@thaler2009].
 Although nudges are frequently implemented in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021].
@@ -236,7 +237,15 @@ significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
 significant_CIs
 ```
 
-In their own words, `r effect_size_table['0]` of - This section depends on what model we choose - note the preponderance of nulls according to the studies themselves - some weak evidence of publication bias (effect size goes up as SE gets bigger)
+This small effect may come as a surprise to readers of previous reviews, which found more positive results [@mathur2021meta; @chang2023].
+We attribute this difference to our inclusion criteria.
+For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
+([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
+
+According to their papers, `r effect_size_table['0']` of `r num_interventions` interventions had null effects.
+However, many studies present a variety of wide variety of outcomes and lead with, e.g., a gender-moderated effect [@piester2020] or the relationship between an underlying attitude measure and consumption outcomes [@Berndsen2005], or where meat reduction was just one of many strategies suggested as part of a broader program [@abramahse2007].
+
+-   This section depends on what model we choose - note the preponderance of nulls according to the studies themselves - some weak evidence of publication bias (effect size goes up as SE gets bigger)
 
 ```{r pbulication_bias_checks, include=F, message=F}
 # probably won't include this
@@ -252,7 +261,7 @@ dat |>
   labs(x = "Standard Error") +
   theme_minimal()
 
-dat |> split(~pub_status) |> map(map_robu)
+dat |> split(~pub_status_one) |> map(map_robu)
 ```
 
 ## Red and Processed Meat is an easier target
@@ -288,6 +297,8 @@ For some plausible patterns of substitution, these interventions are a net posit
 ## Environmental appeals, especially those aimed at college students, have moderate positive effects
 
 ## Animal welfare appeals are almost always ineffective
+
+Di Gennaro also finds null results on animals
 
 ## Norms work sometimes, but it is not clear why or when
 

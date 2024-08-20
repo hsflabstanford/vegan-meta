@@ -196,10 +196,10 @@ architecture, and norms}\label{sec2.1}
 \toprule
 Approach & N (Studies) & N (Interventions) & N (subjects) & Glass's $\Delta$ (SE)\\
 \midrule
-\textbf{Overall} & 39 & 107 & 78000 & 0.0603** (0.0213)\\
+\textbf{Overall} & 39 & 106 & 78000 & 0.0603** (0.0213)\\
 Nudge & 1 & 1 & 7900 & 0.1670 (0.2790)\\
 Norms & 11 & 18 & 53100 & 0.0739 (0.0352)\\
-Persuasion & 26 & 80 & 16900 & 0.0683* (0.0265)\\
+Persuasion & 26 & 79 & 16900 & 0.0683* (0.0265)\\
 Norms + Persuasion & 5 & 8 & 600 & 0.1581 (0.1905)\\
 \bottomrule
 \multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
@@ -214,18 +214,18 @@ Norms + Persuasion & 5 & 8 & 600 & 0.1581 (0.1905)\\
 \toprule
 Persuasion Approach & N (Studies) & N (Interventions) & Glass's $\Delta$ (SE)\\
 \midrule
-Health & 15 & 25 & 0.0937 (0.0429)\\
-Environment & 12 & 21 & 0.0841 (0.0582)\\
-Animal Welfare & 13 & 61 & 0.0100 (0.0130)\\
+Health & 15 & 24 & 0.0938 (0.0429)\\
+Environment & 12 & 20 & 0.0842 (0.0582)\\
+Animal Welfare & 13 & 60 & 0.0100 (0.0130)\\
 \bottomrule
 \multicolumn{4}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
 \end{tabular}
 \end{table}
 
 Studies in our database pursued one or more of three main theories of
-change: nudges, norms, and persuasion. A handful of studies pursued
-norms and persuasion combined Table 1 reports the distribution of
-studies, interventions, and subjects (approximately) per approach.
+change: nudges, norms, and persuasion, or a combination of norms and
+persuasion. Table 1 reports the distribution of studies, interventions,
+and subjects (approximately) per approach.
 
 \textbf{Nudge} studies manipulate features of an environment to
 non-obtrusively guide people towards a desired choice
@@ -278,14 +278,68 @@ side with information about changing consumer habits in society.
 \subsection{An overall small effect}\label{sec2.2}
 
 Our overall meta-analytic effect size is \(\Delta\) = 0.0603 (SE =
-0.0213), p = .0097. Figure 1 displays the distribution of effect sizes,
-grouped by paper, with each individual point representing an
-intervention. The overall effect size is plotted at the bottom.
+0.0213), p = .0097. The aggregate effect is statistically significant,
+but does not indicate a meaningful reduction.
 
-\includegraphics{results/figures/forest_plot-1} - This section depends
-on what model we choose - note the preponderance of nulls according to
-the studies themselves - some weak evidence of publication bias (effect
-size goes up as SE gets bigger)
+Figure 1 displays the distribution of effect sizes, grouped by paper,
+with each individual point representing an intervention. The overall
+effect size is plotted at the bottom.
+
+\begin{verbatim}
+## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_errorbarh()`).
+\end{verbatim}
+
+\includegraphics{results/figures/forest_plot_nulls_and_cis_-1}
+
+\begin{verbatim}
+## # A tibble: 13 x 7
+##    author     year      d  se_d neg_null_pos lower_bound upper_bound
+##    <chr>     <int>  <dbl> <dbl>        <int>       <dbl>       <dbl>
+##  1 Peacock    2017 -0.538 0.213           -1     -0.955     -0.120  
+##  2 Polanco    2022  0.356 0.174            0      0.0153     0.697  
+##  3 Polanco    2022 -0.356 0.177            0     -0.702     -0.0101 
+##  4 Piester    2020  0.509 0.189            1      0.139      0.880  
+##  5 Mattson    2020 -0.380 0.190            0     -0.754     -0.00712
+##  6 Merrill    2009  0.707 0.196            1      0.323      1.09   
+##  7 Bertolaso  2015  0.293 0.137            0      0.0249     0.560  
+##  8 Carfora    2023  0.819 0.231            0      0.366      1.27   
+##  9 Carfora    2023  0.810 0.233            0      0.353      1.27   
+## 10 Carfora    2023  0.530 0.220            0      0.0983     0.962  
+## 11 Carfora    2023  0.513 0.228            1      0.0663     0.960  
+## 12 Sparkman   2017  0.319 0.141            1      0.0433     0.595  
+## 13 Bianchi    2022  0.529 0.190            1      0.156      0.901
+\end{verbatim}
+
+This small effect may come as a surprise to readers of previous reviews,
+which found more positive results \citep{mathur2021meta, chang2023}. We
+attribute this difference to our inclusion criteria. For instance, of
+the ten largest effect sizes recorded in
+\citep{mathur2021effectiveness}, nine were non-consumption outcomes and
+the tenth came from a non-randomized design.
+(\citep{bianchi2018conscious} also found effects on intentions and
+attitudes but no evidence of effects on behavior.)
+
+According to their papers, 95 of 107 interventions had null effects.
+However, many studies present a variety of wide variety of outcomes and
+lead with, e.g., a gender-moderated effect \citep{piester2020} or the
+relationship between an underlying attitude measure and consumption
+outcomes \citep{Berndsen2005}, or where meat reduction was just one of
+many strategies suggested as part of a broader program
+\citep{abramahse2007}.
+
+\begin{itemize}
+\tightlist
+\item
+  This section depends on what model we choose - note the preponderance
+  of nulls according to the studies themselves - some weak evidence of
+  publication bias (effect size goes up as SE gets bigger)
+\end{itemize}
 
 \subsection{Red and Processed Meat is an easier
 target}\label{red-and-processed-meat-is-an-easier-target}
