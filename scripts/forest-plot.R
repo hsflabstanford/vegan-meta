@@ -1,24 +1,23 @@
 # this section is complex and brittle. optional TODO: make it general & robust
-model <- dat |> map_robust()
+model <- dat |> map_robu()
 
 plot_dat <- dat |> 
-  mutate(theory_category = if_else(str_detect(theory, "&"), "hybrid", theory),
-         lower_bound = d - (1.96 * se_d),
+  mutate(lower_bound = d - (1.96 * se_d),
          upper_bound = d + (1.96 * se_d)) |>
-  select(author, year, d, se_d, lower_bound, upper_bound, theory_category) |> 
+  select(author, year, d, se_d, lower_bound, upper_bound, theory) |> 
   add_row(author = "RE Estimate", year = NA, d = model$Delta, 
           lower_bound = model$Delta - (1.96 * model$se),
           upper_bound = model$Delta + (1.96 * model$se), 
-          theory_category = NA) |>
+          theory = NA) |>
   mutate(study_name = if_else(author == "RE Estimate", 
                               "RE Estimate", paste0(author, " ", year))) |>
-  select(study_name, d, se_d, lower_bound, upper_bound, theory_category)
+  select(study_name, d, se_d, lower_bound, upper_bound, theory)
 
 # Get unique study names excluding "RE Estimate"
-unique_studies <- unique(plot_dat$study_name[plot_dat$study_name != "RE Estimate"])
+unique_papers <- unique(plot_dat$study_name[plot_dat$study_name != "RE Estimate"])
 
 # Append "RE Estimate" to the end of the list
-ordered_levels <- c(unique_studies, "RE Estimate")
+ordered_levels <- c(unique_papers, "RE Estimate")
 
 # Set this order to study_name
 plot_dat$study_name <- reorder(factor(plot_dat$study_name, levels = ordered_levels), desc(plot_dat$se_d))
@@ -27,9 +26,9 @@ forest_plot <- plot_dat |> ggplot(aes(x = d, y = study_name)) +
   geom_point(data = subset(plot_dat, study_name == "RE Estimate"), 
              size = 5, shape = 18) + # shape = 5 for a transparent diamond 
   geom_point(data = subset(plot_dat, study_name != "RE Estimate"), 
-             aes(color = theory_category), size = 3, shape = 18) +
+             aes(color = theory), size = 3, shape = 18) +
   geom_errorbarh(data = subset(plot_dat, study_name != "RE Estimate"), 
-                 aes(xmin = lower_bound, xmax = upper_bound, color = theory_category),
+                 aes(xmin = lower_bound, xmax = upper_bound, color = theory),
                  height = .1) +
   geom_vline(xintercept = 0, color = "black", alpha = .5) +
   geom_vline(xintercept = model$Delta, 
@@ -38,9 +37,9 @@ forest_plot <- plot_dat |> ggplot(aes(x = d, y = study_name)) +
   theme(axis.text.y = element_markdown()) +  # Apply HTML formatting to y-axis text
   scale_y_discrete(labels = bold_labels) +    # Use custom function for y-axis labels
   scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
-  labs(color = "Theory category") +
+  labs(color = "Theory") +
   ylab("Study") +
-  ggtitle("Vegan meta forest plot") +
+  ggtitle("MAP reduction forest plot") +
   theme(plot.title = element_text(hjust = 0.5,
                                   face = "bold"),
         legend.title = element_text(size = 15),
