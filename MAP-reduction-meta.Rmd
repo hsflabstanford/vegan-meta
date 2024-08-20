@@ -31,10 +31,7 @@ keywords:
   - dictionary
   - word
 abstract: |
-  **Purpose**: 
-  **Methods:** 
-  **Results:** 
-  **Conclusion:**
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 78000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). Unfortunately, the pooled effect of these interventions on MAP consumption outcomes is just $\Delta$ = 0.0603, suggesting that this is effectively an unsolved problem. Reducing consumption of red and processed meat appears to be an easier target: $\Delta$ = 0.2493, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, research has generally been getting more rigorous over time, and many promising approaches remain untested.
 bibliography: "./manuscript/vegan-refs.bib"
 output: 
   rticles::springer_article
@@ -230,12 +227,14 @@ print(forest_plot)
 
 effect_size_table <- dat |> sum_tab(neg_null_pos)
 
-significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |> 
+significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
   mutate(lower_bound = d - (1.96 * se_d),
          upper_bound = d + (1.96 * se_d)) |>
   filter(lower_bound < 0 & upper_bound < 0 |
-           lower_bound > 0 & upper_bound > 0)
-significant_CIs
+           lower_bound > 0 & upper_bound > 0) |> 
+  mutate(direction = case_when
+         (lower_bound > 0 ~ 1,
+           upper_bound < 0 ~ 0))
 ```
 
 This small effect may come as a surprise to readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
@@ -246,6 +245,7 @@ For instance, of the ten largest effect sizes recorded in [@mathur2021effectiven
 As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects.
 However, many studies present a variety of wide variety of outcomes and lead with, e.g., a gender-moderated effect [@piester2020] or the relationship between an underlying attitude measure and consumption outcomes [@berndsen2005].
 Others presented meat reduction as one of many components of a broader program of behavior change [@abrahamse2007].
+We also find our methods of calculating effect sizes sometimes differ from those presented in papers, and using our estimates of $\Delta$ and standard error, `r nrow(significant_CIs)` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction`) of which are positive effects, out of `r nrow(dat)` interventions.
 
 We find some evidence of publication bias in our dataset.
 
@@ -262,7 +262,6 @@ dat |>
                                 )) +
   labs(x = "Standard Error") +
   theme_minimal()
-
 dat |> split(~pub_status) |> map(map_robu)
 ```
 
@@ -341,6 +340,17 @@ Di Gennaro also finds null results on animals
 # Appendix {#secA1}
 
 A LOT will go here
+
+### Nudge lit is a mses
+
+Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> &
+
+most interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
+
+but nudges claim to work – so what's going on?
+well, publication bias in nudge studies <https://www.pnas.org/doi/full/10.1073/pnas.2200300119> , it's easier to change beliefs <https://www.aeaweb.org/articles?id=10.1257/jel.20211658> (Effect Sizes on Beliefs versus Behavior), nudges don't scale <https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709>
+
+automatacity is not the way forward
 
 # Bibliography
 
