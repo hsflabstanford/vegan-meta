@@ -57,17 +57,18 @@ source('./scripts/red-and-processed-meat.R')
 
 Consumption of meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
 
-Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if they do not broad public support.
+Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if they do not have broad public support.
 It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations.
 We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
 
 The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
 By our count, there have been at least 120 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
-However, many of these prior reviews investigated particular theoretical perspectives, for example choice architecture [@bianchi2018restructuring], appeals to animal welfare @mathur2021effectiveness], or literacy interventions [@DiGennaro2024], rather than comparing the efficacy of different approaches.
+However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], appeals to animal welfare @mathur2021effectiveness], or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
 Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
+
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
 
--   were designed to reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish
+-   were designed to voluntarily reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish or removing meat from someone's plate
 
 -   had least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
 
@@ -91,7 +92,7 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
-In total we coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+We coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
 (Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects.
@@ -237,15 +238,16 @@ significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
 significant_CIs
 ```
 
-This small effect may come as a surprise to readers of previous reviews, which found more positive results [@mathur2021meta; @chang2023].
-We attribute this difference to our inclusion criteria.
+This small effect may come as a surprise to readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
+We attribute this difference to our stricter inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
 ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
-According to their papers, `r effect_size_table['0']` of `r num_interventions` interventions had null effects.
-However, many studies present a variety of wide variety of outcomes and lead with, e.g., a gender-moderated effect [@piester2020] or the relationship between an underlying attitude measure and consumption outcomes [@Berndsen2005], or where meat reduction was just one of many strategies suggested as part of a broader program [@abramahse2007].
+As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects.
+However, many studies present a variety of wide variety of outcomes and lead with, e.g., a gender-moderated effect [@piester2020] or the relationship between an underlying attitude measure and consumption outcomes [@Berndsen2005].
+Others presented meat reduction as one of many components of a broader program of behavior change [@abramahse2007].
 
--   This section depends on what model we choose - note the preponderance of nulls according to the studies themselves - some weak evidence of publication bias (effect size goes up as SE gets bigger)
+We find some evidence of publication bias in our dataset.
 
 ```{r pbulication_bias_checks, include=F, message=F}
 # probably won't include this
