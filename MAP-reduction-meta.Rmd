@@ -62,8 +62,8 @@ It is of vital importance, therefore, to assess which strategies and theoretical
 We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
 
 The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
-By our count, there have been at least 120 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
-However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], appeals to animal welfare @mathur2021effectiveness], or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
+By our count, there have been at least 118 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
+However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], appeals to animal welfare [@mathur2021effectiveness], or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
 Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
@@ -244,8 +244,8 @@ For instance, of the ten largest effect sizes recorded in [@mathur2021effectiven
 ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
 As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects.
-However, many studies present a variety of wide variety of outcomes and lead with, e.g., a gender-moderated effect [@piester2020] or the relationship between an underlying attitude measure and consumption outcomes [@Berndsen2005].
-Others presented meat reduction as one of many components of a broader program of behavior change [@abramahse2007].
+However, many studies present a variety of wide variety of outcomes and lead with, e.g., a gender-moderated effect [@piester2020] or the relationship between an underlying attitude measure and consumption outcomes [@berndsen2005].
+Others presented meat reduction as one of many components of a broader program of behavior change [@abrahamse2007].
 
 We find some evidence of publication bias in our dataset.
 
@@ -263,7 +263,7 @@ dat |>
   labs(x = "Standard Error") +
   theme_minimal()
 
-dat |> split(~pub_status_one) |> map(map_robu)
+dat |> split(~pub_status) |> map(map_robu)
 ```
 
 ## Red and Processed Meat is an easier target

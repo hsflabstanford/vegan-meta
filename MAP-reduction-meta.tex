@@ -125,7 +125,7 @@ as a major contributor to premature deaths
 its own right \citep{kuruc2023, singer2023}.
 
 Supply-side interventions, such as banning or taxing certain practices
-or products, risk political backlash if they do not broad public
+or products, risk political backlash if they do not have broad public
 support. It is of vital importance, therefore, to assess which
 strategies and theoretical perspectives lead to the largest and most
 durable reductions in demand for MAP products, under which conditions,
@@ -136,19 +136,26 @@ consumption.
 The research on diet and its personal, cultural, and practical
 antecedents on the one hand and its consequences for health, the
 environment, and animal welfare on the other is vast. By our count,
-there have been at least 120 previous reviews on these questions in the
+there have been at least 118 previous reviews on these questions in the
 past two decades, with at least thirty-seven focused specifically on MAP
-reduction. However, two prior investigations revealed three common gaps
-in the MAP literature: a dearth of long-term follow-ups, consumption
-outcomes, and inattention to the gap between intentions and behavior
-\citep{mathur2021meta, mathur2021effectiveness}. Our paper addresses
-these concerns by meta-analyzing randomized controlled trials (RCTs)
-that
+reduction. However, comparatively few of these are quantitative, and
+most prior reviews investigated particular approaches, for example
+choice architecture \citep{bianchi2018restructuring}, appeals to animal
+welfare \citep{mathur2021effectiveness}, or literacy interventions
+\citep{DiGennaro2024}, rather than comparing approaches to one another.
+Moreover, two prior investigations revealed three common gaps in the MAP
+literature: a dearth of long-term follow-ups, consumption outcomes, and
+inattention to the gap between intentions and behavior
+\citep{mathur2021meta, mathur2021effectiveness}.
+
+Our paper addresses these concerns by meta-analyzing randomized
+controlled trials (RCTs) that
 
 \begin{itemize}
 \item
-  were designed to reduce MAP consumption, rather than (e.g.)
-  encouraging substitution from red to white meat or fish
+  were designed to voluntarily reduce MAP consumption, rather than
+  (e.g.) encouraging substitution from red to white meat or fish or
+  removing meat from someone's plate
 \item
   had least 25 subjects each in treatment and control, or, for
   cluster-randomized trials, at least 10 clusters in total;
@@ -163,7 +170,7 @@ that
 Additionally, studies needed to be publicly circulated by December 2023
 and published in English.
 
-In total we coded 33 papers
+We coded 33 papers
 \citep{abrahamse2007, alblas2023, aldoh2023, allen2002, andersson2021, acharya2004, berndsen2005, bertolaso2015, bianchi2022, bochmann2017, bschaden2020, carfora2023, coker2022, cooney2016, fehrenbach2015, feltz2022, griesoph2021, haile2021, hatami2018, hennessy2016, jalil2023, lacroix2020, mathur2021effectiveness, mattson2020, merrill2009, norris2014, peacock2017, piester2020, polanco2022, sparkman2017, sparkman2020, sparkman2021, weingarten2022}
 comprising 39 separate studies, 107 interventions, and approximately
 78000 subjects. (Some treatments were administered at the level of day
@@ -301,45 +308,39 @@ effect size is plotted at the bottom.
 ## # A tibble: 13 x 7
 ##    author     year      d  se_d neg_null_pos lower_bound upper_bound
 ##    <chr>     <int>  <dbl> <dbl>        <int>       <dbl>       <dbl>
-##  1 Peacock    2017 -0.538 0.213           -1     -0.955     -0.120  
-##  2 Polanco    2022  0.356 0.174            0      0.0153     0.697  
-##  3 Polanco    2022 -0.356 0.177            0     -0.702     -0.0101 
-##  4 Piester    2020  0.509 0.189            1      0.139      0.880  
-##  5 Mattson    2020 -0.380 0.190            0     -0.754     -0.00712
-##  6 Merrill    2009  0.707 0.196            1      0.323      1.09   
-##  7 Bertolaso  2015  0.293 0.137            0      0.0249     0.560  
-##  8 Carfora    2023  0.819 0.231            0      0.366      1.27   
-##  9 Carfora    2023  0.810 0.233            0      0.353      1.27   
-## 10 Carfora    2023  0.530 0.220            0      0.0983     0.962  
-## 11 Carfora    2023  0.513 0.228            1      0.0663     0.960  
-## 12 Sparkman   2017  0.319 0.141            1      0.0433     0.595  
-## 13 Bianchi    2022  0.529 0.190            1      0.156      0.901
+##  1 Bertolaso  2015  0.293 0.137            0      0.0249     0.560  
+##  2 Bianchi    2022  0.529 0.190            1      0.156      0.901  
+##  3 Carfora    2023  0.819 0.231            0      0.366      1.27   
+##  4 Carfora    2023  0.810 0.233            0      0.353      1.27   
+##  5 Carfora    2023  0.530 0.220            0      0.0983     0.962  
+##  6 Carfora    2023  0.513 0.228            1      0.0663     0.960  
+##  7 Mattson    2020 -0.380 0.190            0     -0.754     -0.00712
+##  8 Merrill    2009  0.707 0.196            1      0.323      1.09   
+##  9 Peacock    2017 -0.538 0.213           -1     -0.955     -0.120  
+## 10 Piester    2020  0.509 0.189            1      0.139      0.880  
+## 11 Polanco    2022  0.356 0.174            0      0.0153     0.697  
+## 12 Polanco    2022 -0.356 0.177            0     -0.702     -0.0101 
+## 13 Sparkman   2017  0.319 0.141            1      0.0433     0.595
 \end{verbatim}
 
 This small effect may come as a surprise to readers of previous reviews,
-which found more positive results \citep{mathur2021meta, chang2023}. We
-attribute this difference to our inclusion criteria. For instance, of
-the ten largest effect sizes recorded in
-\citep{mathur2021effectiveness}, nine were non-consumption outcomes and
-the tenth came from a non-randomized design.
-(\citep{bianchi2018conscious} also found effects on intentions and
-attitudes but no evidence of effects on behavior.)
+which typically found more positive results
+\citep{mathur2021meta, meier2022, chang2023}. We attribute this
+difference to our stricter inclusion criteria. For instance, of the ten
+largest effect sizes recorded in \citep{mathur2021effectiveness}, nine
+were non-consumption outcomes and the tenth came from a non-randomized
+design. (\citep{bianchi2018conscious} also found effects on intentions
+and attitudes but no evidence of effects on behavior.)
 
-According to their papers, 95 of 107 interventions had null effects.
-However, many studies present a variety of wide variety of outcomes and
-lead with, e.g., a gender-moderated effect \citep{piester2020} or the
-relationship between an underlying attitude measure and consumption
-outcomes \citep{Berndsen2005}, or where meat reduction was just one of
-many strategies suggested as part of a broader program
-\citep{abramahse2007}.
+As told by the papers in our dataset, 95 of 107 interventions had null
+effects. However, many studies present a variety of wide variety of
+outcomes and lead with, e.g., a gender-moderated effect
+\citep{piester2020} or the relationship between an underlying attitude
+measure and consumption outcomes \citep{berndsen2005}. Others presented
+meat reduction as one of many components of a broader program of
+behavior change \citep{abrahamse2007}.
 
-\begin{itemize}
-\tightlist
-\item
-  This section depends on what model we choose - note the preponderance
-  of nulls according to the studies themselves - some weak evidence of
-  publication bias (effect size goes up as SE gets bigger)
-\end{itemize}
+We find some evidence of publication bias in our dataset.
 
 \subsection{Red and Processed Meat is an easier
 target}\label{red-and-processed-meat-is-an-easier-target}
@@ -371,6 +372,8 @@ effects}\label{environmental-appeals-especially-those-aimed-at-college-students-
 
 \subsection{Animal welfare appeals are almost always
 ineffective}\label{animal-welfare-appeals-are-almost-always-ineffective}
+
+Di Gennaro also finds null results on animals
 
 \subsection{Norms work sometimes, but it is not clear why or
 when}\label{norms-work-sometimes-but-it-is-not-clear-why-or-when}
