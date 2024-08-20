@@ -51,33 +51,19 @@ source('./scripts/libraries.R')
 source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
-
-# final thing is going to look like
-model <-  robumeta::robu(d ~ 1, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = "CORR")
-
-# model <-  robumeta::robu(d ~ theory, data = dat, studynum = unique_study_id, var.eff.size = var_d, modelweights = "HIER")
-
-dat |> 
-  ggplot(aes(x = se_d, y = d)) +
-  geom_point(size = 3, aes(color = theory, shape = self_report)) +
-  stat_smooth(method = 'lm', se = FALSE) +
-  scale_color_manual(values = c("norms" = "blue",  
-                                "norms & persuasion" = "red", 
-                                "nudge" = "green", 
-                                "persuasion" = "purple" 
-                                )) +
-  labs(x = "Standard Error") +
-  theme_minimal()
-
 ```
 
 # Introduction {#sec1}
 
 Consumption of meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
 
-Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if they do not broad public support. It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations. We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
+Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if they do not broad public support.
+It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations.
+We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
 
-The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast. By our count, there have been at least 120 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction. However, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
+The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
+By our count, there have been at least 120 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
+However, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
 
 -   were designed to reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish
@@ -104,7 +90,8 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
-In total we coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects. (Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
+In total we coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+(Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects.
 This was to provide a comparison between studies that aimed to reduce overall MAP consumption and those that aimed to reduce RPM and measured only changes in those categories, i.e. not recording potential substitution to other MAP products [@mathur2022ethical].
@@ -113,7 +100,7 @@ Last, we compiled a third dataset of 780 excluded studies, along with their reas
 
 # Results {#sec2}
 
-## Three theoretical categories: persuasion, choice architecture, and norms{#sec2.1}
+## Three theoretical categories: persuasion, choice architecture, and norms {#sec2.1}
 
 ```{r table_one, echo=F, message=F}
 library(kableExtra)
@@ -205,24 +192,69 @@ table_two <- tibble(
 table_two
 ```
 
-Studies in our database pursued one or more of three main theories of change: nudges, norms, and persuasion. A handful of studies pursued norms and persuasion combined Table 1 reports the distribution of studies, interventions, and subjects (approximately) per approach. 
+Studies in our database pursued one or more of three main theories of change: nudges, norms, and persuasion.
+A handful of studies pursued norms and persuasion combined Table 1 reports the distribution of studies, interventions, and subjects (approximately) per approach.
 
-**Nudge** studies manipulate features of an environment to non-obtrusively guide people towards a desired choice [@thaler2009]. Although nudges are frequently implemented in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021]. That study manipulated the salience of a plant-based dish by placing it either at the top or bottom of a menu in a university cafeteria in Sweden.
+**Nudge** studies manipulate features of an environment to non-obtrusively guide people towards a desired choice [@thaler2009].
+Although nudges are frequently implemented in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021].
+That study manipulated the salience of a plant-based dish by placing it either at the top or bottom of a menu in a university cafeteria in Sweden.
 
-**Norm** studies manipulate perceptions of the popularity of desired outcomes, e.g. plant-based dishes [@sparkman2021] or using re-usable mugs[@loschelder2019]. Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (e.g. a message with a frowning face for subjects who eat more meat than the average person in their country or a smiling face for those who eat less [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in a desired behavior is increasing over time [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020; @sparkman2021]. With regards to MAP reduction, this is a comparatively young literature, with the first paper appearing in 2017.
+**Norm** studies manipulate perceptions of the popularity of desired outcomes, e.g. plant-based dishes [@sparkman2021] or using re-usable mugs[@loschelder2019].
+Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (e.g. a message with a frowning face for subjects who eat more meat than the average person in their country or a smiling face for those who eat less [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in a desired behavior is increasing over time [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020; @sparkman2021].
+With regards to MAP reduction, this is a comparatively young literature, with the first paper appearing in 2017.
 
-**Persuasion** studies, which formed the majority in our database, appeal directly to people about eating less meat. Arguments are typically centered around health [@lacroix2020], the environment [@carfora2023] \textemdash typically climate change \textemdash and animal welfare [@haile2021]. Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts more dispassionately, e.g. about the relationship between diet and colorectal cancer [@hatami2018]. 
+**Persuasion** studies, which formed the majority in our database, appeal directly to people about eating less meat.
+Arguments are typically centered around health [@lacroix2020], the environment [@carfora2023] \textemdash typically climate change \textemdash and animal welfare [@haile2021].
+Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts more dispassionately, e.g. about the relationship between diet and colorectal cancer [@hatami2018].
 
-Many persuasion studies provide information in multiple categories at once, e.g. a video on animal welfare and health reasons to cut back  [@feltz2022] or a leaflet with information in all three categories [@hennessy2016].  Table 2 displays the distribution of persuasion studies within the three categories. (Note that because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.)
+Many persuasion studies provide information in multiple categories at once, e.g. a video on animal welfare and health reasons to cut back [@feltz2022] or a leaflet with information in all three categories [@hennessy2016].
+Table 2 displays the distribution of persuasion studies within the three categories.
+(Note that because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.)
 
-Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020]. These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
+Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020].
+These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
 
-## An overall null effect [/an overall small effect]
+## An overall small effect {#sec2.2}
 
-  - This section depends on what model we choose
-  - note the preponderance of nulls according to the studies themselves
-  - some weak evidence of publication bias (effect size goes up as SE gets bigger)
-  
+Our overall meta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
+The aggregate effect is statistically significant, but does not indicate a meaningful reduction.
+
+Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
+The overall effect size is plotted at the bottom.
+
+```{r forest_plot_nulls_and_cis_}
+source('./scripts/forest-plot.R')
+print(forest_plot)
+
+effect_size_table <- dat |> sum_tab(neg_null_pos)
+
+significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |> 
+  mutate(lower_bound = d - (1.96 * se_d),
+         upper_bound = d + (1.96 * se_d)) |>
+  filter(lower_bound < 0 & upper_bound < 0 |
+           lower_bound > 0 & upper_bound > 0)
+significant_CIs
+```
+
+In their own words, `r effect_size_table['0]` of - This section depends on what model we choose - note the preponderance of nulls according to the studies themselves - some weak evidence of publication bias (effect size goes up as SE gets bigger)
+
+```{r pbulication_bias_checks, include=F, message=F}
+# probably won't include this
+dat |> 
+  ggplot(aes(x = se_d, y = d)) +
+  geom_point(size = 3, aes(color = theory, shape = self_report)) +
+  stat_smooth(method = 'lm', se = FALSE) +
+  scale_color_manual(values = c("norms" = "blue",  
+                                "norms & persuasion" = "red", 
+                                "nudge" = "green", 
+                                "persuasion" = "purple" 
+                                )) +
+  labs(x = "Standard Error") +
+  theme_minimal()
+
+dat |> split(~pub_status) |> map(map_robu)
+```
+
 ## Red and Processed Meat is an easier target
 
 ```{r RPMC_model, echo=F}
@@ -243,9 +275,13 @@ rpmc_model <- RPMC |> map_robu()
 # table_three
 ```
 
-On average, interventions aimed at reducing consumption of red and processed meat are considerably more effective than MAP reduction interventions are: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`. Each of these studies employs persuasion, and a majority (16/19) appeal to personal health. Moreover, many of these interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
+On average, interventions aimed at reducing consumption of red and processed meat are considerably more effective than MAP reduction interventions are: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
+Each of these studies employs persuasion, and a majority (16/19) appeal to personal health.
+Moreover, many of these interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
 
-However, the effect of these interventions on MAP reduction _overall_ is unknown because these studies do not report on consumption of white meat and/or fish. Red meat is of special concern for its environmental and health consequences [@grummon2023], but chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022]. For some plausible patterns of substitution, these interventions are a net positive for personal health and the environment but a net negative for animal welfare. 
+However, the effect of these interventions on MAP reduction *overall* is unknown because these studies do not report on consumption of white meat and/or fish.
+Red meat is of special concern for its environmental and health consequences [@grummon2023], but chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022].
+For some plausible patterns of substitution, these interventions are a net positive for personal health and the environment but a net negative for animal welfare.
 
 ## Health appeals are generally moderately effective, especially when aimed at older, sicker people
 
@@ -256,31 +292,32 @@ However, the effect of these interventions on MAP reduction _overall_ is unknown
 ## Norms work sometimes, but it is not clear why or when
 
 ## Nudges seem to work but the evidence is scant
-  - we also have reason to think that they won't scale (from other fields)
-  
-## Heterogeneity by country, self-reporting,cluster assignemnt, delivery method 
 
-## These studies are often underpowered to detect effects they actually find 
-  - X studies do power calculations, and Y of those find results smaller than they're looking for, 
-  - they also plan effect sizes based on recruited sample rather than follow-up
-  - plan for small effects and attrition
-  
+-   we also have reason to think that they won't scale (from other fields)
+
+## Heterogeneity by country, self-reporting,cluster assignemnt, delivery method
+
+## These studies are often underpowered to detect effects they actually find
+
+-   X studies do power calculations, and Y of those find results smaller than they're looking for,
+-   they also plan effect sizes based on recruited sample rather than follow-up
+-   plan for small effects and attrition
+
 ## Open science practices are associated with marginally larger effect sizes
 
 # Methods {#sec3}
 
-  - Search
-  - Coding
-  - Meta-analysis
+-   Search
+-   Coding
+-   Meta-analysis
 
 # Discussion {#sec4}
 
-  - in this article, we 
-  - we are enocuraged by increasing rigor
-  - we look forward to seeing
-  
-\backmatter
+-   in this article, we
+-   we are enocuraged by increasing rigor
+-   we look forward to seeing
 
+\backmatter
 
 \bmhead{Supplementary information}
 

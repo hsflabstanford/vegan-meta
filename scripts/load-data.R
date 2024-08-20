@@ -21,10 +21,18 @@ dat <- read.csv('./data/vegan-meta.csv') |>
   mutate(decade = as.factor(case_when(year >= 2000 & year <= 2009 ~ "2000s",
                                       year >= 2010 & year <= 2019  ~ "2010s",
                                       year >= 2020 ~ "2020s")),
-         pub_status = case_when(
+         pub_status_one = case_when(
+           venue == "advocacy org publication" ~ 'unpublished',
+           venue == "bachelor's thesis" ~ 'unpublished',
+           venue == "Dissertation" ~ 'unpublished',
+           venue == "master's thesis" ~ 'unpublished',
+           venue == "preprint" ~ 'unpublished',
+           TRUE ~ 'published'),
+         pub_status_two = case_when(
            str_detect(venue, "dissertation|thesis") ~ "Thesis",
            str_detect(venue, "advocacy") ~ "Advocacy organization",
-           str_detect(doi_or_url, "osf\\.io") ~ "Preprint",str_detect(doi_or_url, "10\\.") ~ "Journal article"),
+           str_detect(doi_or_url, "osf\\.io") ~ "Preprint",
+           str_detect(doi_or_url, "10\\.") ~ "Journal article"),
          total_sample = n_c_post + n_c_post,
          d = mapply(
            FUN = d_calc,
