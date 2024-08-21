@@ -92,7 +92,7 @@ decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> cou
 We coded `r num_papers` papers [@abrahamse2007; @alblas2023; @aldoh2023; @allen2002; @andersson2021; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @coker2022; @cooney2016; @fehrenbach2015; @feltz2022; @griesoph2021; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @lacroix2020; @mathur2021effectiveness; @mattson2020; @merrill2009; @norris2014; @peacock2017; @piester2020; @polanco2022; @sparkman2017; @sparkman2020; @sparkman2021; @weingarten2022] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
 (Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
-We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. Last, we compiled a third dataset of 780 excluded studies, along with their reason(s) for exclusion.
+We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. Last, we compiled a third dataset of 782 excluded studies, along with their reason(s) for exclusion.
 
 # Results {#sec2}
 
@@ -227,7 +227,7 @@ This small effect may surprise readers of previous reviews, which typically foun
 
 As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects. However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.
 
-Using our estimates of $\Delta$ and standard error, we find that `r nrow(significant_CIs)` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
+Using our estimates of effect size and standard error, we find that `r nrow(significant_CIs)` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
 
 We find some evidence of publication bias in our dataset. $\Delta$ and standard error are positively correlated, though not significantly. Further as we see in table 3, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses, while interventions published by advocacy organizations produce a small backlash effect on average.
 
@@ -316,7 +316,11 @@ norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robu()
 dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
 
 ```
-The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
+The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`. [INSERT THREE SENTENCES ABOUT NULLS AND NEGATIVES AND BACKLASHES WITHIN A SINGLE STUDYs]
+
+## Nudges seem to work but the evidence is scant
+
+-   we also have reason to think that they won't scale (from other fields)
 
 ## Health appeals are generally moderately effective, especially when aimed at older, sicker people
 
@@ -326,12 +330,7 @@ The overall effect for intervention with a norms component is $\Delta$ = `r norm
 
 Di Gennaro also finds null results on animals
 
-
-## Nudges seem to work but the evidence is scant
-
--   we also have reason to think that they won't scale (from other fields)
-
-## Heterogeneity by country, self-reporting,cluster assignemnt, delivery method
+## Heterogeneity by country, self-reporting, cluster assignment, delivery method
 
 ## These studies are often underpowered to detect effects they actually find
 
