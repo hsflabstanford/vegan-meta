@@ -133,21 +133,21 @@ persuasion_n <- dat |> filter(theory == 'persuasion') |>
 
 # Table One
 table_one <- tibble(
-  Approach = c("\\textbf{Overall}", "Nudge", "Norms", 
+  Approach = c("\\textbf{Overall}", "Norms", "Nudge",
                "Persuasion", "Norms + Persuasion"),
-  "N (Studies)" = c(model$N_studies, nudge_model$N_studies, 
-                     norms_model$N_studies, persuasion_model$N_studies,
+  "N (Studies)" = c(model$N_studies, norms_model$N_studies, 
+                    nudge_model$N_studies, persuasion_model$N_studies,
                     norms_persuasion_model$N_studies),
-  "N (Interventions)" = c(model$N_interventions, nudge_model$N_interventions, 
-                           norms_model$N_interventions,
+  "N (Interventions)" = c(model$N_interventions, norms_model$N_interventions,
+                          nudge_model$N_interventions, 
                           persuasion_model$N_interventions,
                           norms_persuasion_model$N_interventions),
-  "N (subjects)" = c(n_total, nudge_n, norms_n, persuasion_n, norms_pers_n),
-  "Glass's $\\Delta$ (SE)" = c(mr(model), mr(nudge_model), mr(norms_model),
-                               mr(persuasion_model),mr(norms_persuasion_model))
-) |> 
+  "N (subjects)" = c(n_total, norms_n, nudge_n, persuasion_n, norms_pers_n),
+  "Glass's $\\Delta$ (SE)" = c(mr(model), mr(nudge_model), 
+                               mr(norms_model),mr(persuasion_model), 
+                               mr(norms_persuasion_model))) |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Nudge, norms, and persuasion approaches to MAP reduction",
+        caption = "Norm, Nudge, and persuasion approaches to MAP reduction",
         label = "tab:table_one") |>
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
