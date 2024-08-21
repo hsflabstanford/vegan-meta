@@ -308,7 +308,15 @@ For some plausible patterns of substitution, these interventions are a net posit
 
 ## Norms work sometimes, but it is not clear why or when
 
-The overall effect for norms intervention is $\Delta$ = `r norms_model$Delta` (SE = `r norms_model$se`), p = `r norms_model$pval`.
+```{r include=F, echo=F}
+norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robu()
+
+# look at the distribution of effect sizes
+
+dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
+
+```
+The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
 
 ## Health appeals are generally moderately effective, especially when aimed at older, sicker people
 
