@@ -23,9 +23,9 @@ dat <- read.csv('./data/vegan-meta.csv') |>
                                       year >= 2020 ~ "2020s")),
          pub_status = case_when(
            venue == "advocacy org publication" ~ 'advocacy_org',
-           venue == "Bachelor's thesis" ~ 'thesis',
-           venue == "Dissertation" ~ 'thesis',
-           venue == "Master's thesis" ~ 'thesis',
+           venue == "Bachelor's thesis" ~ 'Thesis',
+           venue == "Dissertation" ~ 'Thesis',
+           venue == "Master's thesis" ~ 'Thesis',
            venue == "preprint" ~ 'preprint',
            str_detect(doi_or_url, "osf") ~ 'preprint',
            str_detect(doi_or_url, "10\\.") ~ "Journal article"),

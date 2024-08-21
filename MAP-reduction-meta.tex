@@ -310,25 +310,6 @@ effect size is plotted at the bottom.
 
 \includegraphics{results/figures/forest_plot_nulls_and_cis_-1}
 
-\begin{verbatim}
-## # A tibble: 13 x 7
-##    author     year      d  se_d neg_null_pos lower_bound upper_bound
-##    <chr>     <int>  <dbl> <dbl>        <int>       <dbl>       <dbl>
-##  1 Bertolaso  2015  0.293 0.137            0      0.0249     0.560  
-##  2 Bianchi    2022  0.529 0.190            1      0.156      0.901  
-##  3 Carfora    2023  0.819 0.231            0      0.366      1.27   
-##  4 Carfora    2023  0.810 0.233            0      0.353      1.27   
-##  5 Carfora    2023  0.530 0.220            0      0.0983     0.962  
-##  6 Carfora    2023  0.513 0.228            1      0.0663     0.960  
-##  7 Mattson    2020 -0.380 0.190            0     -0.754     -0.00712
-##  8 Merrill    2009  0.707 0.196            1      0.323      1.09   
-##  9 Peacock    2017 -0.538 0.213           -1     -0.955     -0.120  
-## 10 Piester    2020  0.509 0.189            1      0.139      0.880  
-## 11 Polanco    2022  0.356 0.174            0      0.0153     0.697  
-## 12 Polanco    2022 -0.356 0.177            0     -0.702     -0.0101 
-## 13 Sparkman   2017  0.319 0.141            1      0.0433     0.595
-\end{verbatim}
-
 This small effect may come as a surprise to readers of previous reviews,
 which typically found more positive results
 \citep{mathur2021meta, meier2022, chang2023}. We attribute this
@@ -344,9 +325,35 @@ outcomes and lead with, e.g., a gender-moderated effect
 \citep{piester2020} or the relationship between an underlying attitude
 measure and consumption outcomes \citep{berndsen2005}. Others presented
 meat reduction as one of many components of a broader program of
-behavior change \citep{abrahamse2007}.
+behavior change \citep{abrahamse2007}. We also find our methods of
+calculating effect sizes sometimes differ from those presented in
+papers, and using our estimates of \(\Delta\) and standard error, 13
+interventions have 95\% confidence intervals that do not overlap with
+zero, 10 of which are positive effects, out of 107 interventions.
 
-We find some evidence of publication bias in our dataset.
+We find some evidence of publication bias in our dataset. \(\Delta\) and
+standard error are positively correlated, though not significantly.
+Further as we see in table 3, the pooled effect size of interventions
+published in peer-reviewed journals is about 9 times larger than the
+equivalent effect size in student theses, while interventions published
+by advocacy organizations tend to produce a small backlash effect on
+average.
+
+\begin{table}[!h]
+\centering
+\caption{\label{tab:tab:table_two}Difference in effect size by publication status}
+\centering
+\begin{tabular}[t]{lrrl}
+\toprule
+Publication status & N (Interventions) & N (Studies) & Glass's $\Delta$ (SE)\\
+\midrule
+Advocacy Organization & 42 & 4 & -0.0397 (0.0160)\\
+Journal article & 54 & 30 & 0.0845** (0.0246)\\
+Thesis & 11 & 5 & 0.0091 (0.0914)\\
+\bottomrule
+\multicolumn{4}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
+\end{tabular}
+\end{table}
 
 \subsection{Red and Processed Meat is an easier
 target}\label{red-and-processed-meat-is-an-easier-target}
@@ -453,6 +460,25 @@ sizes}\label{open-science-practices-are-associated-with-marginally-larger-effect
 \section{Appendix}\label{secA1}
 
 A LOT will go here
+
+\subsubsection{Nudge lit is a mses}\label{nudge-lit-is-a-mses}
+
+Theory; behavior change is just hard
+\url{https://www.nature.com/articles/s44159-024-00305-0} \& most
+interventions don't work
+\url{https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf}
+
+but nudges claim to work -- so what's going on? well, publication bias
+in nudge studies
+\url{https://www.pnas.org/doi/full/10.1073/pnas.2200300119} , it's
+easier to change beliefs
+\url{https://www.aeaweb.org/articles?id=10.1257/jel.20211658} (Effect
+Sizes on Beliefs versus Behavior), nudges don't scale
+\url{https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709}
+
+``our read is quite different'
+\url{https://www.pnas.org/doi/10.1073/pnas.2200732119} automatacity is
+not the way forward
 
 \section{Bibliography}\label{bibliography}
 
