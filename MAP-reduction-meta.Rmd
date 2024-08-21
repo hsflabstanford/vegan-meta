@@ -191,7 +191,6 @@ Table 1 reports the distribution of studies, interventions, and subjects (approx
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020; @sparkman2021].
 With regards to MAP reduction, this is a comparatively young literature, with the first paper appearing in 2017.
 
-**Nudge** studies manipulate features of an environment to non-obtrusively guide people towards a desired choice [@thaler2009]. Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021]. That study manipulated the salience of a plant-based dish by varying its placement on a menu in a university cafeteria in Sweden.
 
 **Persuasion** studies appeal directly to people about eating less meat. These studies formed the majority of our database. Arguments typically focus on health [@lacroix2020], the environment [@carfora2023] \textemdash typically climate change \textemdash and animal welfare [@haile2021].
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts more dispassionately, e.g. about the relationship between diet and cancer [@hatami2018]. Many persuasion studies combine arguments, e.g. a leaflet with information in all three categories [@hennessy2016].
@@ -225,9 +224,7 @@ significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
 
 This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].We attribute this difference to our stricter inclusion criteria. For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design. ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
-As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects. However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.
-
-Using our estimates of effect size and standard error, we find that `r nrow(significant_CIs)` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
+As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects. However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.  `r english::Words(nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r words(sum(significant_CIs$direction))` of which are positive effects, out of `r nrow(dat)` interventions.
 
 We find some evidence of publication bias in our dataset. $\Delta$ and standard error are positively correlated, though not significantly. Further as we see in table 3, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses, while interventions published by advocacy organizations produce a small backlash effect on average.
 
@@ -238,6 +235,8 @@ dat |> sum_lm(d, se_d)
 # a la the contact hypothesis re-evaluated, the implication here is that an infinitely powered
 # study would have an effect size of 0.0008
 
+# within journal articles? 
+dat |> filter(pub_status == 'Journal article') |> sum_lm()
 # A visual exploration:
 dat |>
   ggplot(aes(x = se_d, y = d)) +
@@ -250,7 +249,6 @@ dat |>
                                 )) +
   labs(x = "Standard Error") +
   theme_minimal()
-
 ```
 
 ```{r table_three, echo=F}
@@ -303,7 +301,7 @@ Each of these studies employs persuasion, and a majority (16/19) appeal to perso
 Moreover, many of these interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
 
 However, the effect of these interventions on MAP reduction *overall* is unknown because these studies do not report on consumption of white meat and/or fish.
-Red meat is of special concern for its environmental and health consequences [@grummon2023], but chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022].
+Red meat is of special concern for its environmental and health consequences [@grummon2023], but chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are a net positive for personal health and the environment but a net negative for animal welfare.
 
 ## Norms work sometimes, but it is not clear why or when
@@ -318,9 +316,9 @@ dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se
 ```
 The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`. [INSERT THREE SENTENCES ABOUT NULLS AND NEGATIVES AND BACKLASHES WITHIN A SINGLE STUDYs]
 
-## Nudges seem to work but the evidence is scant
+## The evidence for nudges on MAP consumption is scant
 
--   we also have reason to think that they won't scale (from other fields)
+Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021]. That study manipulated the salience of a plant-based dish by varying its placement on a menu in a university cafeteria in Sweden. Placing a plant-based dish at the top of the menu encouraged a decline in sales of the meat-based option, although most people then chose fish over the vegetarian option. When this pattern is accounted for, the remaining effect is $\Delta$ = `r nudge_model$Delta` (SE = `r nudge_model$se`).
 
 ## Health appeals are generally moderately effective, especially when aimed at older, sicker people
 
