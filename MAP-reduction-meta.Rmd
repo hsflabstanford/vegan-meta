@@ -100,9 +100,6 @@ Last, we compiled a third dataset of 782 excluded studies, along with their reas
 ## Three theoretical categories: persuasion, choice architecture, and norms {#sec2.1}
 
 ```{r table_one, message=F}
-library(kableExtra)
-source('./functions/meta_result_formatter.R')
-
 mr <- meta_result_formatter
 
 # Overall
@@ -204,7 +201,7 @@ Table 2 displays the distribution of persuasion studies within the three categor
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
 
-## An overall small effect {#sec2.2}
+## An overall small effect and evidence of publication bias {#sec2.2}
 
 Our overall meta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
 The aggregate effect is statistically significant, but does not indicate a meaningful reduction.
@@ -226,6 +223,12 @@ significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
   mutate(direction = case_when
          (lower_bound > 0 ~ 1,
            upper_bound < 0 ~ 0))
+pap_model <- dat |> filter(public_pre_analysis_plan != 'N') |> map_robu()
+
+## this difference is not statistically significant
+dat <- dat |> mutate(pap_yes = if_else(public_pre_analysis_plan == 'N', FALSE, TRUE))
+
+robumeta::robu(d ~ pap_yes, dat_two, unique_study_id, var_d)
 ```
 
 This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].We attribute this difference to our stricter inclusion criteria.
@@ -238,6 +241,7 @@ Using our calculations of effect size and standard error `r (nrow(significant_CI
 
 We find moderate evidence of publication bias in our dataset.
 $\Delta$ and standard error are positively correlated, though not significantly.
+Studies with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. This difference is not itself statistically significant.
 Further the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
 Interventions published by advocacy organizations produce a small backlash effect on average.
 
