@@ -373,13 +373,17 @@ Many health studies either seek to induce a sense of fear in subjects [@@berndse
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
   split(~population) |> map(map_robu)
 
+dat |> filter(str_detect(secondary_theory, 'animal')) |>  mutate(ad_yes_no = if_else(advocacy_org == 'N', FALSE, TRUE)) |> split(~ad_yes_no) |> map(map_robu)
 ```
 
 The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`. 
 
-## Animal welfare appeals are almost always ineffective
-
-Di Gennaro also finds null results on animals
+[SOMETHING]
+## Animal welfare appeals are mostly ineffective
+- null result
+- more Ds below zero than above
+- evaluations of advocacy materials are a small backlash result on average
+This result conflicts with Mathur 2021 but accords with Di Gennaro
 
 ## Heterogeneity by country, self-reporting, cluster assignment, delivery method
 
