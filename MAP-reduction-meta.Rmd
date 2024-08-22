@@ -58,8 +58,8 @@ Supply-side interventions, such as banning or taxing certain practices or produc
 It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations.
 We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
 
-The research on diet and its personal, cultural, and practical antecedents on the one hand and its consequences for health, the environment, and animal welfare on the other is vast.
-By our count, there have been at least 118 previous reviews on these questions in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
+The research on diet and its antecedents and consequences is vast.
+By our count, there have been at least 118 previous published dietary reviews in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
 However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], appeals to animal welfare [@mathur2021effectiveness], or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
 Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
@@ -99,7 +99,7 @@ Last, we compiled a third dataset of 782 excluded studies, along with their reas
 
 ## Three theoretical categories: persuasion, choice architecture, and norms {#sec2.1}
 
-```{r table_one, echo=F, message=F}
+```{r table_one, message=F}
 library(kableExtra)
 source('./functions/meta_result_formatter.R')
 
@@ -182,6 +182,7 @@ table_two <- tibble(
   footnote(general_title = "", 
            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.", 
            escape = FALSE)
+# add note that  because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.
 table_two
 ```
 
@@ -190,16 +191,15 @@ Table 1 reports the distribution of studies, interventions, and subjects (approx
 
 **Norms** studies manipulate perceptions of the popularity of desired outcomes, e.g. plant-based dishes [@sparkman2021] or using re-usable mugs[@loschelder2019].
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020; @sparkman2021].
-With regards to MAP reduction, this is a comparatively young literature, with the first paper appearing in 2017.
+The first norms study meeting our criteria was published in 2017.
 
 **Persuasion** studies appeal directly to people about eating less meat.
 These studies formed the majority of our database.
-Arguments typically focus on health [@lacroix2020], the environment [@carfora2023] \textemdash typically climate change \textemdash and animal welfare [@haile2021].
+Arguments typically focus on health [@lacroix2020], the environment [@carfora2023] \textemdash usually climate change \textemdash and animal welfare [@haile2021].
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts more dispassionately, e.g. about the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, e.g. a leaflet with information in all three categories [@hennessy2016].
 
 Table 2 displays the distribution of persuasion studies within the three categories.
-(Note that because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.)
 
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
@@ -234,13 +234,14 @@ For instance, of the ten largest effect sizes recorded in [@mathur2021effectiven
 
 As told by the papers in our dataset, `r effect_size_table['0']` of `r num_interventions` interventions had null effects.
 However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.
-`r english::Words(nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r words(sum(significant_CIs$direction))` of which are positive effects, out of `r nrow(dat)` interventions.
+Using our calculations of effect size and standard error `r (nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
 
-We find some evidence of publication bias in our dataset.
+We find moderate evidence of publication bias in our dataset.
 $\Delta$ and standard error are positively correlated, though not significantly.
-Further as we see in table 3, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses, while interventions published by advocacy organizations produce a small backlash effect on average.
+Further the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
+Interventions published by advocacy organizations produce a small backlash effect on average.
 
-```{r pbulication_bias_checks_to_verify, message=F, include=F, echo=F}
+```{r pbulication_bias_checks_to_verify, message=F, include=F}
 
 # "$\Delta$ and standard error are positively correlated, though not significantly"
 dat |> sum_lm(d, se_d)
@@ -263,7 +264,7 @@ dat |>
   theme_minimal()
 ```
 
-```{r table_three, echo=F}
+```{r table_three}
 table_three <- dat |> 
   split(~pub_status) |> 
   map(map_robu) |> 
@@ -308,13 +309,13 @@ rpmc_model <- RPMC |> map_robu()
 # table_three
 ```
 
-On average, interventions aimed at reducing consumption of red and processed meat are considerably more effective than MAP reduction interventions are: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
+On average, interventions aimed at reducing consumption of red and processed meat outperform general MAP reduction interventions: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
 Each of these studies employs persuasion, and a majority (16/19) appeal to personal health.
-Moreover, many of these interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
+Many RPM interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
 
-However, the effect of these interventions on MAP reduction *overall* is unknown because these studies do not report on consumption of white meat and/or fish.
-Red meat is of special concern for its environmental and health consequences [@grummon2023], but chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
-For some plausible patterns of substitution, these interventions are a net positive for personal health and the environment but a net negative for animal welfare.
+However, these data do not allow us to estimate the effects on MAP reduction overall is unknown because they do not report consumption of white meat and/or fish.
+Red meat is of special concern for its environmental and health consequences [@grummon2023], but eating chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
+For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
 
 ## Norms work sometimes, but it is not clear why or when
 
@@ -323,12 +324,16 @@ norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robu()
 
 # look at the distribution of effect sizes
 
-dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
+norms_studies <- dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
+
+norms_proportions  <- norms_studies |>
+  sum_tab(neg_null_pos)
 
 ```
 
 The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
-[INSERT THREE SENTENCES ABOUT NULLS AND NEGATIVES AND BACKLASHES WITHIN A SINGLE STUDYs]
+`r words(norms_proportions['0'])` of these `r nrow(norms_studies)` interventions are self-reported nulls.
+Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@sparkman2020; @mattson2020; @griesoph2021].
 
 ## The evidence for nudges on MAP consumption is scant
 
@@ -337,9 +342,40 @@ That study manipulated the salience of a plant-based dish by varying its placeme
 Placing a plant-based dish at the top of the menu encouraged a decline in sales of the meat-based option, although most people then chose fish over the vegetarian option.
 When this pattern is accounted for, the remaining effect is $\Delta$ = `r nudge_model$Delta` (SE = `r nudge_model$se`).
 
-## Health appeals are generally moderately effective, especially when aimed at older, sicker people
+## Health studies work better for RPM than for MAP
 
-## Environmental appeals, especially those aimed at college students, have moderate positive effects
+```{r health_studies, echo=F, include=F}
+health_studies <- dat |> 
+  filter(str_detect(secondary_theory, 'health')) |> 
+  select(author, year, secondary_theory, d, se_d, 
+         self_report, neg_null_pos) |> 
+  arrange(neg_null_pos, d) |> print(n = 30)
+
+health_proportions <- 
+  health_studies |> sum_tab(neg_null_pos)
+
+RPM_health_model <- RPMC |>  
+  filter(str_detect(secondary_theory, 'health')) |> map_robu()
+
+# health studies form the majority of RPM studies
+RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secondary_theory, 'health'), T,F)) |> 
+  sum_tab(health_component)
+
+```
+
+The pooled effect size for persuasion studies with a health component is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`. This is small and not significant, albeit larger than the overall pooled effect. Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC)` interventions aimed at reducing RPM consumption, and are generally more effective there: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
+
+Many health studies either seek to induce a sense of fear in subjects [@@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to reduce their MAP or RPM consumption, and then ask them to self-report their diets. We judge self-reporting bias to be a potential concern.
+
+## Environmental appeals have modest positive effects
+
+```{r environment_studies, include=F}
+dat |> filter(str_detect(secondary_theory, 'environment')) |> 
+  split(~population) |> map(map_robu)
+
+```
+
+The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`. 
 
 ## Animal welfare appeals are almost always ineffective
 
@@ -379,7 +415,7 @@ Di Gennaro also finds null results on animals
 
 A LOT will go here
 
-### Nudge lit is a mses
+### Nudge lit is a mess
 
 Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> & most interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
 
