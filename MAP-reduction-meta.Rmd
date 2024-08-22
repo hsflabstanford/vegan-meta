@@ -40,7 +40,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,
+knitr::opts_chunk$set(echo = FALSE, 
                       fig.path='results/figures/',
                       out.extra = "")  # This forces knitr to label all figures.
 
@@ -75,7 +75,7 @@ Our paper addresses these concerns by meta-analyzing randomized controlled trial
 
 Additionally, studies needed to be publicly circulated by December 2023 and published in English.
 
-```{r useful_constants, include=F, echo=F}
+```{r useful_constants}
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
@@ -209,7 +209,7 @@ The aggregate effect is statistically significant, but does not indicate a meani
 Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
 The overall effect size is plotted at the bottom.
 
-```{r forest_plot_nulls_and_cis_}
+```{r forest_plot_nulls_and_CIs, include=F}
 source('./scripts/forest-plot.R')
 print(forest_plot)
 
@@ -223,15 +223,24 @@ significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
   mutate(direction = case_when
          (lower_bound > 0 ~ 1,
            upper_bound < 0 ~ 0))
+
+# pap analysis
 pap_model <- dat |> filter(public_pre_analysis_plan != 'N') |> map_robu()
 
 ## this difference is not statistically significant
 dat <- dat |> mutate(pap_yes = if_else(public_pre_analysis_plan == 'N', FALSE, TRUE))
 
-robumeta::robu(d ~ pap_yes, dat_two, unique_study_id, var_d)
+robumeta::robu(d ~ pap_yes, dat, unique_study_id, var_d)
+
+# open data analysis
+open_data_model <- dat |> filter(open_data != 'N') |> map_robu()
+
+dat <- dat |> mutate(open_data_yes = if_else(open_data == 'N', FALSE, TRUE))
+
+robumeta::robu(d ~ open_data_yes, dat, unique_study_id, var_d)
 ```
 
-This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].We attribute this difference to our stricter inclusion criteria.
+This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023]. We attribute this difference to our stricter inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
 ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
@@ -241,11 +250,15 @@ Using our calculations of effect size and standard error `r (nrow(significant_CI
 
 We find moderate evidence of publication bias in our dataset.
 $\Delta$ and standard error are positively correlated, though not significantly.
-Studies with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. This difference is not itself statistically significant.
-Further the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
+The `r pap_model$N_studies` with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. 
+This difference is not statistically significant.
+The The `r open_data_model$N_studies` with openly available data also have a smaller overall effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`. 
+This difference is also not statistically significant.
+
+Last, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
 Interventions published by advocacy organizations produce a small backlash effect on average.
 
-```{r pbulication_bias_checks_to_verify, message=F, include=F}
+```{r pbulication_bias_checks_to_verify, include=F}
 
 # "$\Delta$ and standard error are positively correlated, though not significantly"
 dat |> sum_lm(d, se_d)
@@ -377,12 +390,15 @@ Many health studies either seek to induce a sense of fear in subjects [@@berndse
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
   split(~population) |> map(map_robu)
 
-dat |> filter(str_detect(secondary_theory, 'animal')) |>  mutate(ad_yes_no = if_else(advocacy_org == 'N', FALSE, TRUE)) |> split(~ad_yes_no) |> map(map_robu)
+dat |> filter(str_detect(secondary_theory, 'animal')) |>  
+  mutate(ad_yes_no = if_else(advocacy_org == 'N', FALSE, TRUE)) |> 
+  split(~ad_yes_no) |> map(map_robu)
 ```
 
 The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`. 
 
 [SOMETHING]
+
 ## Animal welfare appeals are mostly ineffective
 - null result
 - more Ds below zero than above
@@ -396,8 +412,6 @@ This result conflicts with Mathur 2021 but accords with Di Gennaro
 -   X studies do power calculations, and Y of those find results smaller than they're looking for,
 -   they also plan effect sizes based on recruited sample rather than follow-up
 -   plan for small effects and attrition
-
-## Open science practices are associated with marginally larger effect sizes
 
 # Methods {#sec3}
 
@@ -425,12 +439,14 @@ A LOT will go here
 
 ### Nudge lit is a mess
 
-Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> & most interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
+- Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> & most  - interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
 
-but nudges claim to work – so what's going on?
-well, publication bias in nudge studies <https://www.pnas.org/doi/full/10.1073/pnas.2200300119> , it's easier to change beliefs <https://www.aeaweb.org/articles?id=10.1257/jel.20211658> (Effect Sizes on Beliefs versus Behavior), nudges don't scale <https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709>
+- but nudges claim to work – so what's going on?
+- well, publication bias in nudge studies <https://www.pnas.org/doi/full/10.1073/pnas.2200300119> , 
+- it's easier to change beliefs <https://www.aeaweb.org/articles?id=10.1257/jel.20211658> (Effect Sizes on Beliefs versus Behavior), 
+- nudges don't scale <https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709>
 
-"our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
+- "our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
 
 # Bibliography
 
