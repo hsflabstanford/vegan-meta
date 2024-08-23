@@ -201,7 +201,7 @@ Table 2 displays the distribution of persuasion studies within the three categor
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
 
-## An overall small effect and evidence of publication bias {#sec2.2}
+## An overall small effect {#sec2.2}
 
 Our overall meta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
 The aggregate effect is statistically significant, but does not indicate a meaningful reduction.
@@ -248,14 +248,15 @@ As told by the papers in our dataset, `r effect_size_table['0']` of `r num_inter
 However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.
 Using our calculations of effect size and standard error `r (nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
 
-We find moderate evidence of publication bias in our dataset.
-$\Delta$ and standard error are positively correlated, though not significantly.
-The `r pap_model$N_studies` with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. 
-This difference is not statistically significant.
-The The `r open_data_model$N_studies` with openly available data also have a smaller overall effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`. 
-This difference is also not statistically significant.
+## Moderate evidence of publication bias  {#sec2.3}
+We conduct four tests for publication bias.
 
-Last, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
+First, in our dataset, $\Delta$ and standard error are positively correlated, though not significantly. [FIGURE?]
+Second, the `r pap_model$N_studies` with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. 
+This difference is not statistically significant.
+Third, the The `r open_data_model$N_studies` with openly available data also have a smaller overall effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`. This difference is also not statistically significant.
+
+Fourth, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
 Interventions published by advocacy organizations produce a small backlash effect on average.
 
 ```{r pbulication_bias_checks_to_verify, include=F}
@@ -306,7 +307,7 @@ table_three <- dat |>
 table_three
 ```
 
-## Red and Processed Meat is an easier target
+## Red and Processed Meat is an easier target  {#sec2.4}
 
 ```{r RPMC_model, echo=F}
 # ok this won't be a table
@@ -326,15 +327,15 @@ rpmc_model <- RPMC |> map_robu()
 # table_three
 ```
 
-On average, interventions aimed at reducing consumption of red and processed meat outperform general MAP reduction interventions: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
+On average, interventions aimed at reducing consumption of RPM outperform general MAP reduction interventions: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
 Each of these studies employs persuasion, and a majority (16/19) appeal to personal health.
 Many RPM interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
 
-However, these data do not allow us to estimate the effects on MAP reduction overall is unknown because they do not report consumption of white meat and/or fish.
+However, these studies uniformly do not collect data on white meat and/or fish consumption, and therefore their impact on MAP consumption overall is unknown.
 Red meat is of special concern for its environmental and health consequences [@grummon2023], but eating chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
 
-## Norms work sometimes, but it is not clear why or when
+## Norms work sometimes, but it is not clear why or when {#sec2.5}
 
 ```{r include=F, echo=F}
 norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robu()
@@ -350,16 +351,17 @@ norms_proportions  <- norms_studies |>
 
 The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
 `r words(norms_proportions['0'])` of these `r nrow(norms_studies)` interventions are self-reported nulls.
-Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@sparkman2020; @mattson2020; @griesoph2021].
+Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@mattson2020; @griesoph2021], and one standout paper features one significant positive result, two nulls, and one significant backlash [@sparkman2020]. 
+We do not see, in this collection of studies, a clear limiting principle for when norms interventions do or do not work.
 
-## The evidence for nudges on MAP consumption is scant
+## The evidence for nudges on MAP consumption is scant  {#sec2.6}
 
 Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021].
 That study manipulated the salience of a plant-based dish by varying its placement on a menu in a university cafeteria in Sweden.
 Placing a plant-based dish at the top of the menu encouraged a decline in sales of the meat-based option, although most people then chose fish over the vegetarian option.
 When this pattern is accounted for, the remaining effect is $\Delta$ = `r nudge_model$Delta` (SE = `r nudge_model$se`).
 
-## Health studies work better for RPM than for MAP
+## Health studies work better for RPM than for MAP  {#sec2.7}
 
 ```{r health_studies, echo=F, include=F}
 health_studies <- dat |> 
@@ -384,7 +386,7 @@ The pooled effect size for persuasion studies with a health component is $\Delta
 
 Many health studies either seek to induce a sense of fear in subjects [@@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to reduce their MAP or RPM consumption, and then ask them to self-report their diets. We judge self-reporting bias to be a potential concern.
 
-## Environmental appeals have modest positive effects
+## Environmental appeals have modest positive effects  {#sec2.8}
 
 ```{r environment_studies, include=F}
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
@@ -399,15 +401,15 @@ The pooled effect size for persuasion studies with an environmental component is
 
 [SOMETHING]
 
-## Animal welfare appeals are mostly ineffective
+## Animal welfare appeals are mostly ineffective  {#sec2.9}
 - null result
 - more Ds below zero than above
 - evaluations of advocacy materials are a small backlash result on average
 This result conflicts with Mathur 2021 but accords with Di Gennaro
 
-## Heterogeneity by country, self-reporting, cluster assignment, delivery method
+## Heterogeneity by country, self-reporting, cluster assignment, delivery method  {#sec2.10}
 
-## These studies are often underpowered to detect effects they actually find
+## These studies are often underpowered to detect effects they actually find  {#sec2.11}
 
 -   X studies do power calculations, and Y of those find results smaller than they're looking for,
 -   they also plan effect sizes based on recruited sample rather than follow-up
