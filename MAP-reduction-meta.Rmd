@@ -240,7 +240,8 @@ dat <- dat |> mutate(open_data_yes = if_else(open_data == 'N', FALSE, TRUE))
 robumeta::robu(d ~ open_data_yes, dat, unique_study_id, var_d)
 ```
 
-This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023]. We attribute this difference to our stricter inclusion criteria.
+This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
+We attribute this difference to our stricter inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
 ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
@@ -248,13 +249,16 @@ As told by the papers in our dataset, `r effect_size_table['0']` of `r num_inter
 However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.
 Using our calculations of effect size and standard error `r (nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
 
-## Moderate evidence of publication bias  {#sec2.3}
+## Moderate evidence of publication bias {#sec2.3}
+
 We conduct four tests for publication bias.
 
-First, in our dataset, $\Delta$ and standard error are positively correlated, though not significantly. [FIGURE?]
-Second, the `r pap_model$N_studies` with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. 
+First, in our dataset, $\Delta$ and standard error are positively correlated, though not significantly.
+[FIGURE?]
+Second, the `r pap_model$N_studies` with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`.
 This difference is not statistically significant.
-Third, the The `r open_data_model$N_studies` with openly available data also have a smaller overall effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`. This difference is also not statistically significant.
+Third, the The `r open_data_model$N_studies` with openly available data also have a smaller overall effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
+This difference is also not statistically significant.
 
 Fourth, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (see table 3).
 Interventions published by advocacy organizations produce a small backlash effect on average.
@@ -307,7 +311,7 @@ table_three <- dat |>
 table_three
 ```
 
-## Red and Processed Meat is an easier target  {#sec2.4}
+## Red and Processed Meat is an easier target {#sec2.4}
 
 ```{r RPMC_model, echo=F}
 # ok this won't be a table
@@ -351,17 +355,17 @@ norms_proportions  <- norms_studies |>
 
 The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
 `r words(norms_proportions['0'])` of these `r nrow(norms_studies)` interventions are self-reported nulls.
-Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@mattson2020; @griesoph2021], and one standout paper features one significant positive result, two nulls, and one significant backlash [@sparkman2020]. 
+Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@mattson2020; @griesoph2021], and one standout paper features one significant positive result, two nulls, and one significant backlash [@sparkman2020].
 We do not see, in this collection of studies, a clear limiting principle for when norms interventions do or do not work.
 
-## The evidence for nudges on MAP consumption is scant  {#sec2.6}
+## The evidence for nudges on MAP consumption is scant {#sec2.6}
 
 Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021].
 That study manipulated the salience of a plant-based dish by varying its placement on a menu in a university cafeteria in Sweden.
 Placing a plant-based dish at the top of the menu encouraged a decline in sales of the meat-based option, although most people then chose fish over the vegetarian option.
 When this pattern is accounted for, the remaining effect is $\Delta$ = `r nudge_model$Delta` (SE = `r nudge_model$se`).
 
-## Health studies work better for RPM than for MAP  {#sec2.7}
+## Health studies work better for RPM than for MAP {#sec2.7}
 
 ```{r health_studies, echo=F, include=F}
 health_studies <- dat |> 
@@ -382,11 +386,14 @@ RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secon
 
 ```
 
-The pooled effect size for persuasion studies with a health component is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`. This is small and not significant, albeit larger than the overall pooled effect. Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC)` interventions aimed at reducing RPM consumption, and are generally more effective there: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
+The pooled effect size for persuasion studies with a health component is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
+This is small and not significant, albeit larger than the overall pooled effect.
+Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC)` interventions aimed at reducing RPM consumption, and are generally more effective there: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
 
-Many health studies either seek to induce a sense of fear in subjects [@@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to reduce their MAP or RPM consumption, and then ask them to self-report their diets. We judge self-reporting bias to be a potential concern.
+Many health studies either seek to induce a sense of fear in subjects [\@ @berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to reduce their MAP or RPM consumption, and then ask them to self-report their diets.
+We judge self-reporting bias to be a potential concern.
 
-## Environmental appeals have modest positive effects  {#sec2.8}
+## Environmental appeals have modest positive effects {#sec2.8}
 
 ```{r environment_studies, include=F}
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
@@ -397,19 +404,19 @@ dat |> filter(str_detect(secondary_theory, 'animal')) |>
   split(~ad_yes_no) |> map(map_robu)
 ```
 
-The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`. 
+The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
 
 [SOMETHING]
 
-## Animal welfare appeals are mostly ineffective  {#sec2.9}
-- null result
-- more Ds below zero than above
-- evaluations of advocacy materials are a small backlash result on average
-This result conflicts with Mathur 2021 but accords with Di Gennaro
+## Animal welfare appeals are mostly ineffective {#sec2.9}
 
-## Heterogeneity by country, self-reporting, cluster assignment, delivery method  {#sec2.10}
+-   null result
+-   more Ds below zero than above
+-   evaluations of advocacy materials are a small backlash result on average This result conflicts with Mathur 2021 but accords with Di Gennaro
 
-## These studies are often underpowered to detect effects they actually find  {#sec2.11}
+## Heterogeneity by country, self-reporting, cluster assignment, delivery method {#sec2.10}
+
+## These studies are often underpowered to detect effects they actually find {#sec2.11}
 
 -   X studies do power calculations, and Y of those find results smaller than they're looking for,
 -   they also plan effect sizes based on recruited sample rather than follow-up
@@ -441,14 +448,17 @@ A LOT will go here
 
 ### Nudge lit is a mess
 
-- Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> & most  - interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
+-   Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> & most - interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
 
-- but nudges claim to work – so what's going on?
-- well, publication bias in nudge studies <https://www.pnas.org/doi/full/10.1073/pnas.2200300119> , 
-- it's easier to change beliefs <https://www.aeaweb.org/articles?id=10.1257/jel.20211658> (Effect Sizes on Beliefs versus Behavior), 
-- nudges don't scale <https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709>
+-   but nudges claim to work – so what's going on?
 
-- "our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
+-   well, publication bias in nudge studies <https://www.pnas.org/doi/full/10.1073/pnas.2200300119> ,
+
+-   it's easier to change beliefs <https://www.aeaweb.org/articles?id=10.1257/jel.20211658> (Effect Sizes on Beliefs versus Behavior),
+
+-   nudges don't scale <https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709>
+
+-   "our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
 
 # Bibliography
 
