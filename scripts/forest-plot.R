@@ -1,5 +1,5 @@
 # this section is complex and brittle. optional TODO: make it general & robust
-model <- dat |> map_robu()
+model <- dat |> map_robust()
 
 plot_dat <- dat |> 
   mutate(lower_bound = d - (1.96 * se_d),

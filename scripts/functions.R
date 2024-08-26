@@ -1,5 +1,4 @@
 #' functions
-source('./functions/map_robu.R')
 source('./functions/d_calc.R')
 source('./functions/great_meta_tables.R')
 source('./functions/map_robust.R')

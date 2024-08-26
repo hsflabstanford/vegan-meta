@@ -92,7 +92,7 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
-We coded `r num_papers` papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022;  @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+We coded `r num_papers` papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
 (Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects.
@@ -106,25 +106,25 @@ Last, we compiled a third dataset of 782 excluded studies, along with their reas
 mr <- meta_result_formatter
 
 # Overall
-model <- dat |> map_robu()
+model <- dat |> map_robust()
 
 # Nudge
-nudge_model <- dat |> filter(theory == 'nudge') |> map_robu()
+nudge_model <- dat |> filter(theory == 'nudge') |> map_robust()
 nudge_n <- dat |> filter(theory == 'nudge') |> 
   summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 # Norms
-norms_model <- dat |> filter(theory == 'norms') |> map_robu()
+norms_model <- dat |> filter(theory == 'norms') |> map_robust()
 norms_n <- dat |> filter(theory == 'norms') |>
     summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 
 # Norms + Persuasion
-norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robu()
+norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robust()
 
 norms_pers_n <-  dat |> filter(theory == 'norms & persuasion')|>
   summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 
 # Persuasion Overall
-persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robu()
+persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robust()
 
 persuasion_n <- dat |> filter(theory == 'persuasion') |>
   summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
@@ -154,13 +154,13 @@ table_one <- tibble(
 table_one
 
 # Persuasion (Health)
-health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robu()
+health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robust()
 
 # Persuasion (Environment)
-environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robu()
+environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robust()
 
 # Persuasion (Animal Welfare)
-animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robu()
+animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robust()
 
 # Table Two
 table_two <- tibble(
@@ -193,18 +193,19 @@ Table 1 reports the distribution of studies, interventions, and subjects (approx
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
 The first norms study meeting our criteria was published in 2017.
 
-**Nudge** studies [@andersson2021; @kanchanachitra2020]  manipulate aspects of physical environments to make non-MAP options more salient, e.g. placing a vegetarian meal at eye level on a billboard menu [@anderson2021] or placing fish sauce in a bowl with a serving spoon rather than in a bottle, which makes it serving it more laborious [@kanchanachitra2020].
+**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, e.g. placing a vegetarian meal at eye level on a billboard menu [@anderson2021] or placing fish sauce in a bowl with a serving spoon rather than in a bottle, which makes it serving it more laborious [@kanchanachitra2020].
 
-**Persuasion** [@kanchanachitra2020; @abrahamse2007;  @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2016; @fehrenbach2015; @feltz2022; @haile2021;  @hatami2018; @hennessy2016; @mathur2021effectiveness; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @jalil2023; @merrill2009;  @weingarten2022] studies appeal directly to people about eating less meat.
+**Persuasion** [@kanchanachitra2020; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2016; @fehrenbach2015; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @mathur2021effectiveness; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @jalil2023; @merrill2009; @weingarten2022] studies appeal directly to people about eating less meat.
 These studies formed the majority of our database.
 Arguments typically focus on health [@weingarten2022], the environment [@carfora2023] \textemdash usually climate change \textemdash and animal welfare [@haile2021].
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts more dispassionately, e.g. about the relationship between diet and cancer [@hatami2018].
-Many persuasion studies combine arguments, e.g. a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016]. Table 2 displays the distribution of persuasion studies within these categories.
+Many persuasion studies combine arguments, e.g. a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
+Table 2 displays the distribution of persuasion studies within these categories.
 
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
 
-Three papers [@piester2020; @hennessey2016 @kanchanachitra2020] evaluate multiple interventions reflecting contrasting theoretical approaches. 
+Three papers [@piester2020; @hennessy2016; @kanchanachitra2020] evaluate multiple interventions reflecting contrasting theoretical approaches.
 
 ## An overall small effect {#sec2.2}
 
@@ -214,7 +215,7 @@ The aggregate effect is statistically significant, but does not indicate a meani
 Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
 The overall effect size is plotted at the bottom.
 
-```{r forest_plot_nulls_and_CIs, include=F}
+```{r forest_plot_nulls_and_CIs}
 source('./scripts/forest-plot.R')
 print(forest_plot)
 
@@ -230,7 +231,7 @@ significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
            upper_bound < 0 ~ 0))
 
 # pap analysis
-pap_model <- dat |> filter(public_pre_analysis_plan != 'N') |> map_robu()
+pap_model <- dat |> filter(public_pre_analysis_plan != 'N') |> map_robust()
 
 ## this difference is not statistically significant
 dat <- dat |> mutate(pap_yes = if_else(public_pre_analysis_plan == 'N', FALSE, TRUE))
@@ -238,7 +239,7 @@ dat <- dat |> mutate(pap_yes = if_else(public_pre_analysis_plan == 'N', FALSE, T
 pap_difference <- robumeta::robu(d ~ pap_yes, dat, unique_study_id, var_d)
 
 # open data analysis
-open_data_model <- dat |> filter(open_data != 'N') |> map_robu()
+open_data_model <- dat |> filter(open_data != 'N') |> map_robust()
 
 dat <- dat |> mutate(open_data_yes = if_else(open_data == 'N', FALSE, TRUE))
 
@@ -296,7 +297,7 @@ dat |>
 ```{r table_three}
 table_three <- dat |> 
   split(~pub_status) |> 
-  map(map_robu) |> 
+  map(map_robust) |> 
   map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
                        meta_result_formatter(.x))) |> 
   bind_rows(.id = 'Publication status') |> 
@@ -309,7 +310,7 @@ table_three <- dat |>
     `N (Interventions)` = N_interventions) |>
  select(-c(Delta, se, pval))  |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Difference in effect size by publication status",
+        caption = "Difference in effect size by delivery method",
         label = "tab:table_two") |> 
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
@@ -323,7 +324,7 @@ table_three
 
 ```{r RPMC_model, echo=F}
 # ok this won't be a table
-rpmc_model <- RPMC |> map_robu()
+rpmc_model <- RPMC |> map_robust()
 
 # table_four <- tibble(
 #   "N (Studies)" = rpmc_model$N_studies,
@@ -349,7 +350,7 @@ For some plausible patterns of substitution, these interventions are net positiv
 ## Norms work sometimes, but it is not clear why or when {#sec2.5}
 
 ```{r include=F, echo=F}
-norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robu()
+norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robust()
 
 # look at the distribution of effect sizes
 
@@ -362,14 +363,14 @@ norms_proportions  <- norms_studies |>
 The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
 `r words(norms_proportions['0'])` of these `r nrow(norms_studies)` interventions are self-reported nulls.
 Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@mattson2020; @griesoph2021], and one paper with four studies, each featuring real-world settings and objectively measured consumption outcomes, found four one significant positive result, two nulls, and one significant backlash [@sparkman2020].
-We do not see, in this collection of studies, a clear limiting principle for when norms interventions do or do not work. Moreover, in a forthcoming meta-analysis
+We do not see, in this collection of studies, a clear limiting principle for when norms interventions do or do not work.
+Moreover, in a forthcoming meta-analysis
 
 ## The evidence for nudges on MAP consumption is scant {#sec2.6}
 
-Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one nudge study met our inclusion criteria [@andersson2021].
-That study manipulated the salience of a plant-based dish by varying its placement on a menu in a university cafeteria in Sweden.
-Placing a plant-based dish at the top of the menu encouraged a decline in sales of the meat-based option, although most people then chose fish over the vegetarian option.
-When this pattern is accounted for, the remaining effect is $\Delta$ = `r nudge_model$Delta` (SE = `r nudge_model$se`).
+Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only two nudge studies met our inclusion criteria [@andersson2021].
+Both had moderate effect sizes on the order of a few percentage points of MAP reduction.
+We discuss the nudge literature at length in our appendix.
 
 ## Health studies work better for RPM than for MAP {#sec2.7}
 
@@ -384,7 +385,7 @@ health_proportions <-
   health_studies |> sum_tab(neg_null_pos)
 
 RPM_health_model <- RPMC |>  
-  filter(str_detect(secondary_theory, 'health')) |> map_robu()
+  filter(str_detect(secondary_theory, 'health')) |> map_robust()
 
 # health studies form the majority of RPM studies
 RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secondary_theory, 'health'), T,F)) |> 
@@ -395,7 +396,7 @@ The pooled effect size for persuasion studies with a health component is $\Delta
 This is small and not significant, albeit larger than the overall pooled effect.
 Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC)` interventions aimed at reducing RPM consumption, and are generally more effective there: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
 
-Many health studies either seek to induce a sense of fear in subjects [@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to change their diets, and then ask them to self-report what they have eaten recently. 
+Many health studies either seek to induce a sense of fear in subjects [@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to change their diets, and then ask them to self-report what they have eaten recently.
 We judge self-reporting bias to be a potential concern.
 
 ## Environmental appeals have modest positive effects {#sec2.8}
@@ -404,11 +405,11 @@ We judge self-reporting bias to be a potential concern.
 # exploratory
 # do environmental 
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
-  split(~population) |> map(map_robu)
+  split(~population) |> map(map_robust)
 
 dat |> filter(str_detect(secondary_theory, 'animal')) |>  
   mutate(ad_yes_no = if_else(advocacy_org == 'N', FALSE, TRUE)) |> 
-  split(~ad_yes_no) |> map(map_robu)
+  split(~ad_yes_no) |> map(map_robust)
 
 jalil_data <- dat |> filter(author == 'Jalil')
 ```
@@ -428,7 +429,7 @@ animal_proportions['0']
 
 neg_animal_results <- dat |> filter(str_detect(secondary_theory, 'animal')) |> filter(d<0) |> count()
 
-advocacy_model <- dat |> filter(advocacy_org != 'N') |> map_robu()
+advocacy_model <- dat |> filter(advocacy_org != 'N') |> map_robust()
 ```
 
 The pooled effect size for persuasion studies with an animal welfare component is $\Delta$ = `r animal_model$Delta` (SE = `r animal_model$se`), p = `r animal_model$pval`.
@@ -443,9 +444,36 @@ These disappointing results conflict with the central conclusions of [@mathur202
 
 ```{r heterogeneity_analyses, include=F}
 
-dat |> split(~self_report) |> map(map_robu)
-dat |> split(~cluster_assigned) |> map(map_robu)
+dat |> split(~self_report) |> map(map_robust)
+dat |> split(~cluster_assigned) |> map(map_robust)
 table(dat$delivery_method)
+```
+
+```{r table_four}
+
+table_four <- dat |> 
+  mutate(grouped_delivery_method = case_when(
+    str_detect(delivery_method, "article|op-ed|leaflet|flyer|printed booklet") ~ "Printed Materials",
+    str_detect(delivery_method, "video") ~ "Video",
+    str_detect(delivery_method, "in-cafeteria") ~ "In-Cafeteria",
+    str_detect(delivery_method, "online") ~ "Online",
+    TRUE ~ "Other")) |> filter(grouped_delivery_method != 'Other') |> split(~grouped_delivery_method) |> map(map_robust, model = "RMA") |>
+  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
+                       meta_result_formatter(.x))) |> 
+  bind_rows(.id = "delivery method") |> 
+  arrange(desc(N_studies)) |> 
+  rename(
+    `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions) |>
+ select(-c(Delta, se, pval))  |> 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE,
+        caption = "Difference in effect size by publication status",
+        label = "tab:table_three") |> 
+  kable_styling(latex_options = "hold_position") |>
+  footnote(general_title = "",
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
+           escape = FALSE)
+table_four
 
 ```
 
