@@ -62,7 +62,7 @@ It is of vital importance, therefore, to assess which strategies and theoretical
 We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
 
 The research on diet and its antecedents and consequences is vast.
-By our count, there have been at least 118 previous published dietary reviews in the past two decades, with at least thirty-seven focused specifically on MAP reduction.
+By our count, there have been at least 120 previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
 However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring] or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
 Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
@@ -96,7 +96,7 @@ We coded `r num_papers` papers [@aldoh2023; @allen2002; @alblas2023; @coker2022;
 (Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects.
-Last, we compiled a third dataset of 782 excluded studies, along with their reason(s) for exclusion.
+Last, we compiled a third dataset of over 780 excluded studies, along with their reason(s) for exclusion.
 
 # Results {#sec2}
 
@@ -310,7 +310,7 @@ table_three <- dat |>
     `N (Interventions)` = N_interventions) |>
  select(-c(Delta, se, pval))  |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Difference in effect size by delivery method",
+        caption = "Difference in effect size by publication status",
         label = "tab:table_two") |> 
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
@@ -460,14 +460,14 @@ table_four <- dat |>
     TRUE ~ "Other")) |> filter(grouped_delivery_method != 'Other') |> split(~grouped_delivery_method) |> map(map_robust, model = "RMA") |>
   map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
                        meta_result_formatter(.x))) |> 
-  bind_rows(.id = "delivery method") |> 
+  bind_rows(.id = "Delivery method") |> 
   arrange(desc(N_studies)) |> 
   rename(
     `N (Studies)` = N_studies,
     `N (Interventions)` = N_interventions) |>
  select(-c(Delta, se, pval))  |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Difference in effect size by publication status",
+        caption = "Difference in effect size by delivery method",
         label = "tab:table_three") |> 
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
@@ -475,6 +475,38 @@ table_four <- dat |>
            escape = FALSE)
 table_four
 
+```
+
+```{r regional variation}
+
+table_five <- dat |> 
+  mutate(grouped_region = case_when(
+    country %in% c("United States", "Canada") ~ "North America",
+    country %in% c("United Kingdom", "Denmark", "Germany", "Italy", "Netherlands", "Sweden") ~ "Europe",
+    country %in% c("Australia") ~ "Australia",
+    country %in% c("Iran") ~ "Iran",
+    country %in% c("Thailand") ~ "Thailand",
+    str_detect(country, "worldwide|United States, United Kingdom, Canada, Australia, and other|") ~ "Worldwide",
+    TRUE ~ "Other")) |> 
+  split(~grouped_region) |> 
+  map(map_robust, model = "RMA") |> 
+  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" = meta_result_formatter(.x))) |> 
+  bind_rows(.id = "Region") |> 
+  arrange(desc(N_studies)) |> 
+  rename(
+    `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions) |>
+  select(-c(Delta, se, pval))  |> 
+  kable(format = "latex", booktabs = TRUE, escape = FALSE,
+        caption = "Difference in effect size by study region",
+        label = "tab:table_five") |> 
+  kable_styling(latex_options = "hold_position") |>
+  footnote(general_title = "",
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
+           escape = FALSE)
+
+table_five
+## still thinking about this
 ```
 
 Contrary to our expectations, reports from self-reported and objectively reported outcomes were broadly similar (X and Y)
