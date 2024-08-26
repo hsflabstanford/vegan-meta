@@ -40,9 +40,12 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      fig.path='results/figures/',
-                      out.extra = "")  # This forces knitr to label all figures.
+knitr::opts_chunk$set(
+	fig.path = "results/figures/",
+	include = FALSE,
+	out.extra = ""
+)
+  # This forces knitr to label all figures.
 
 source('./scripts/libraries.R')
 source('./scripts/functions.R')
@@ -196,7 +199,7 @@ Arguments typically focus on health [@lacroix2020], the environment [@carfora202
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts more dispassionately, e.g. about the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, e.g. a leaflet with information in all three categories [@hennessy2016].
 
-Table 2 displays the distribution of persuasion studies within the three categories.
+Table 2 displays the distribution of persuasion studies within these categories.
 
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @lacroix2020; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
@@ -274,19 +277,20 @@ dat |> sum_lm(d, se_d)
 dat |> filter(pub_status == 'Journal article') |> sum_lm()
 # A visual exploration:
 dat |>
-  ggplot(aes(x = se_d, y = d)) +
-  geom_point(size = 3, aes(color = theory, shape = pub_status)) +
-  stat_smooth(method = 'lm', se = FALSE) +
+  ggplot(aes(x = se_d, y = d, label = author)) +
+  geom_point(size = 2, aes(color = theory)) + # shape = self_report, 
+  stat_smooth(method = 'lm', se = FALSE, lty = 'dotted') +
+  ggrepel::geom_label_repel() +
   scale_color_manual(values = c("norms" = "blue",
                                 "norms & persuasion" = "red",
                                 "nudge" = "green",
                                 "persuasion" = "purple"
                                 )) +
   labs(x = "Standard Error") +
-  theme_minimal()
+  theme_minimal() 
 ```
 
-```{r table_three}
+```{r table_three, include=FALSE}
 table_three <- dat |> 
   split(~pub_status) |> 
   map(map_robu) |> 
@@ -308,6 +312,7 @@ table_three <- dat |>
   footnote(general_title = "",
            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
            escape = FALSE)
+
 table_three
 ```
 
@@ -333,9 +338,8 @@ rpmc_model <- RPMC |> map_robu()
 
 On average, interventions aimed at reducing consumption of RPM outperform general MAP reduction interventions: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
 Each of these studies employs persuasion, and a majority (16/19) appeal to personal health.
-Many RPM interventions are aimed at older people who have had serious health issues, e.g. cancer survivors [@lee2018; @james2015].
+However, these studies do not collect data on white meat and/or fish consumption, and therefore their impact on MAP consumption overall is unknown.
 
-However, these studies uniformly do not collect data on white meat and/or fish consumption, and therefore their impact on MAP consumption overall is unknown.
 Red meat is of special concern for its environmental and health consequences [@grummon2023], but eating chicken is arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
 
@@ -350,17 +354,16 @@ norms_studies <- dat |> filter(str_detect(theory, "norms")) |> select(author, ye
 
 norms_proportions  <- norms_studies |>
   sum_tab(neg_null_pos)
-
 ```
 
 The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
 `r words(norms_proportions['0'])` of these `r nrow(norms_studies)` interventions are self-reported nulls.
-Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@mattson2020; @griesoph2021], and one standout paper features one significant positive result, two nulls, and one significant backlash [@sparkman2020].
+Moreover, the spread of norms results is unusually large, with a fair number of backlash results [@mattson2020; @griesoph2021], and one paper with four studies, each featuring real-world settings and objectively measured consumption outcomes, found four one significant positive result, two nulls, and one significant backlash [@sparkman2020].
 We do not see, in this collection of studies, a clear limiting principle for when norms interventions do or do not work.
 
 ## The evidence for nudges on MAP consumption is scant {#sec2.6}
 
-Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one study that focused on MAP reduction met our inclusion criteria [@andersson2021].
+Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only one nudge study met our inclusion criteria [@andersson2021].
 That study manipulated the salience of a plant-based dish by varying its placement on a menu in a university cafeteria in Sweden.
 Placing a plant-based dish at the top of the menu encouraged a decline in sales of the meat-based option, although most people then chose fish over the vegetarian option.
 When this pattern is accounted for, the remaining effect is $\Delta$ = `r nudge_model$Delta` (SE = `r nudge_model$se`).
@@ -383,7 +386,6 @@ RPM_health_model <- RPMC |>
 # health studies form the majority of RPM studies
 RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secondary_theory, 'health'), T,F)) |> 
   sum_tab(health_component)
-
 ```
 
 The pooled effect size for persuasion studies with a health component is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
@@ -396,31 +398,61 @@ We judge self-reporting bias to be a potential concern.
 ## Environmental appeals have modest positive effects {#sec2.8}
 
 ```{r environment_studies, include=F}
+# exploratory
+# do environmental 
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
   split(~population) |> map(map_robu)
 
 dat |> filter(str_detect(secondary_theory, 'animal')) |>  
   mutate(ad_yes_no = if_else(advocacy_org == 'N', FALSE, TRUE)) |> 
   split(~ad_yes_no) |> map(map_robu)
+
+jalil_data <- dat |> filter(author == 'Jalil')
 ```
 
 The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
-
-[SOMETHING]
+The strongest evidence that these appeals produce real-world impacts is [@jalil2023], which substituted an introductory lecture in a first-year economics class for a lecture on the environment and health consequences of meat, focusing mostly on the environment, and then tracked student meal choices in dining halls for three years following.
+That study found that treatment led to an overall reduction in MAP consumption of 5.6% $\Delta$ = `r round(jalil_data$d, 3` (SE = `r jalil_data$se_d`), which is neither especially large nor statistically significant.
+However, due to its exceptional commitment to long-term, oblique outcome measurement, we consider this study to be reasonably robust evidence for this intervention's efficacy among students at liberal arts colleges.
 
 ## Animal welfare appeals are mostly ineffective {#sec2.9}
 
--   null result
--   more Ds below zero than above
--   evaluations of advocacy materials are a small backlash result on average This result conflicts with Mathur 2021 but accords with Di Gennaro
+```{r animal_welfare_studies, include=F}
+animal_proportions  <- dat |> filter(str_detect(secondary_theory, 'animal')) |>
+  sum_tab(neg_null_pos)
+
+animal_proportions['0']
+
+neg_animal_results <- dat |> filter(str_detect(secondary_theory, 'animal')) |> filter(d<0) |> count()
+
+advocacy_model <- dat |> filter(advocacy_org != 'N') |> map_robu()
+```
+
+he pooled effect size for persuasion studies with an animal welfare component is $\Delta$ = `r animal_model$Delta` (SE = `r animal_model$se`), p = `r animal_model$pval`.
+A full `r animal_proportions['0']` of `r animal_model$N_interventions` interventions in this category are self-described nulls.
+Moreover, slightly more than half — `r neg_animal_results` of `r animal_model$N_interventions` — lead to increases in MAP consumption (though just one of these effects is statistically significant).
+
+Moreover, the `r advocacy_model$N_interventions` interventions and `r advocacy_model$N_studies` studies using materials from advocacy organizations find an overall effect of `r advocacy_model$Delta` (SE = `r advocacy_model$se`), p = `r advocacy_model$pval`.
+
+These disappointing results conflict with the central conclusions of [@mathur2021effectiveness], but accord with the finding in [@DiGennaro2024] that animal welfare appeals produce a null effect on average.
 
 ## Heterogeneity by country, self-reporting, cluster assignment, delivery method {#sec2.10}
 
-## These studies are often underpowered to detect effects they actually find {#sec2.11}
+```{r heterogeneity_analyses, include=F}
 
--   X studies do power calculations, and Y of those find results smaller than they're looking for,
--   they also plan effect sizes based on recruited sample rather than follow-up
--   plan for small effects and attrition
+dat |> split(~self_report) |> map(map_robu)
+dat |> split(~cluster_assigned) |> map(map_robu)
+table(dat$delivery_method)
+
+```
+
+Contrary to our expectations, reports from self-reported and objectively reported outcomes were broadly similar (X and Y)
+
+Cluster doesn't matter
+
+Think about how to group continent and delivery method – video doesn't work, leaflets don't work, but this is confounded by other differences
+
+Think about how to group the delivery method results
 
 # Methods {#sec3}
 
@@ -430,6 +462,15 @@ The pooled effect size for persuasion studies with an environmental component is
 
 # Discussion {#sec4}
 
+## These studies are often underpowered to detect effects they actually find {#Sec4.1}
+
+-   X studies do power calculations, and Y of those find results smaller than they're looking for,
+-   they also plan effect sizes based on recruited sample rather than follow-up
+-   plan for small effects and attrition
+
+```{=html}
+<!-- -->
+```
 -   in this article, we
 -   we are enocuraged by increasing rigor
 -   we look forward to seeing
