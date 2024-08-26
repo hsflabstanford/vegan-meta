@@ -179,8 +179,8 @@ table_two <- tibble(
         caption = "Three types of persuasion",
         label = "tab:table_two") |>
   kable_styling(latex_options = "hold_position") |>
-  footnote(general_title = "", 
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.", 
+  footnote(general_title = "",
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
            escape = FALSE)
 # add note that  because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.
 table_two
@@ -277,10 +277,9 @@ dat |> sum_lm(d, se_d)
 dat |> filter(pub_status == 'Journal article') |> sum_lm()
 # A visual exploration:
 dat |>
-  ggplot(aes(x = se_d, y = d, label = author)) +
+  ggplot(aes(x = se_d, y = d)) +
   geom_point(size = 2, aes(color = theory)) + # shape = self_report, 
   stat_smooth(method = 'lm', se = FALSE, lty = 'dotted') +
-  ggrepel::geom_label_repel() +
   scale_color_manual(values = c("norms" = "blue",
                                 "norms & persuasion" = "red",
                                 "nudge" = "green",
@@ -468,9 +467,8 @@ Think about how to group the delivery method results
 -   they also plan effect sizes based on recruited sample rather than follow-up
 -   plan for small effects and attrition
 
-```{=html}
 <!-- -->
-```
+
 -   in this article, we
 -   we are enocuraged by increasing rigor
 -   we look forward to seeing
