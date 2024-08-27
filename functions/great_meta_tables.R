@@ -28,7 +28,7 @@ gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name,
       stars = get_significance_stars(pval),
       `Glass's ∆ (se)` = sprintf("%.3f%s (%.3f)", Delta, stars, se)
     ) |>
-    dplyr::select(!!col_name, N_unique, `Glass's ∆ (se)`) |>
+    dplyr::select(!!col_name, N_studies, `Glass's ∆ (se)`) |>
     gt::gt() |>
     gt::tab_header(
       title = title,
@@ -36,7 +36,7 @@ gmt <- function(dat, title = "table XXX", subtitle = NULL, col_name,
     ) |>
     gt::cols_label(
       !!col_name := col_label,
-      N_unique = "N (Studies)",
+      N_studies = "N (Studies)",
       `Glass's ∆ (se)` = gt::md("Glass's ∆ (se)")
     )
   

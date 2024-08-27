@@ -2,7 +2,8 @@
 
 # country breakdown table
 data.frame(
-  Country = c("United States", "Germany", "Multiple (online)", "United Kingdom", "Netherlands", "Sweden", "Australia", "Canada", "Denmark"),
+  Country = c("United States", "Germany", "Multiple (online)", "United Kingdom", 
+              "Netherlands", "Sweden", "Australia", "Denmark"),
     Interventions = c(country_dat[["United States"]],
                       country_dat[["Germany"]],
                       5,
@@ -10,8 +11,8 @@ data.frame(
                       country_dat[["Netherlands"]],
                       country_dat[["Sweden"]],
                       country_dat[["Australia"]],
-                      country_dat[["Canada"]],
-                      country_dat[["Denmark"]])) |> gt() |> # gtsave('./tables/country_breakdown_table.png')
+                      country_dat[["Denmark"]]))|> gt() 
+# gtsave('./tables/country_breakdown_table.png')
 # sparkman et al table
 data.frame(
   Study = c("One", "Two", "Three", "Four"),
@@ -27,38 +28,37 @@ data.frame(
     "+ 2.2%",
     "- 3.7%"),
   stringsAsFactors = FALSE,
-  check.names = FALSE) |> gt() |> # gtsave('./tables/sparkman_table.png')
+  check.names = FALSE) |> gt() # gtsave('./tables/sparkman_table.png')
 
 
 # Overall results by theory
-
 all_results <- bind_rows(
-  dat |> filter(str_detect(theory, "norms")) |> count_and_robust() |> mutate(Approach = "Norms"),
-  dat |> filter(str_detect(theory, "nudge")) |> count_and_robust() |> mutate(Approach = "Nudge"),
-  dat |> filter(str_detect(secondary_theory, "health")) |> count_and_robust() |> mutate(Approach = "Health"),
-  dat |> filter(str_detect(secondary_theory, "environment")) |> count_and_robust() |> mutate(Approach = "Environment"),
-  dat |> filter(str_detect(secondary_theory, "animal welfare")) |> count_and_robust() |> mutate(Approach = "Animal Welfare"),
-  dat |> filter(str_detect(theory, "persuasion")) |> count_and_robust() |> mutate(Approach = "Persuasion")) |> 
-  select(Approach, N_unique, everything())
+  dat |> filter(str_detect(theory, "norms")) |> map_robust() |> mutate(Approach = "Norms"),
+  dat |> filter(str_detect(theory, "nudge")) |> map_robust() |> mutate(Approach = "Nudge"),
+  dat |> filter(str_detect(secondary_theory, "health")) |> map_robust() |> mutate(Approach = "Health"),
+  dat |> filter(str_detect(secondary_theory, "environment")) |> map_robust() |> mutate(Approach = "Environment"),
+  dat |> filter(str_detect(secondary_theory, "animal welfare")) |> map_robust() |> mutate(Approach = "Animal Welfare"),
+  dat |> filter(str_detect(theory, "persuasion")) |> map_robust() |> mutate(Approach = "Persuasion")) |> 
+  select(Approach, N_studies, everything())
 
 # Overall results by delivery method
 delivery_method_results <- bind_rows(
-  dat |> filter(str_detect(internet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Internet"),
-  dat |> filter(str_detect(leaflet, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Pamphlet"),
-  dat |> filter(str_detect(video, "Y")) |> count_and_robust() |> mutate(DeliveryMethod = "Video"),
-  dat |> filter(cafeteria_or_restaurant_based == "Y") |> count_and_robust() |> mutate(DeliveryMethod = "Place-Based"),
+  dat |> filter(str_detect(internet, "Y")) |> map_robust() |> mutate(DeliveryMethod = "Internet"),
+  dat |> filter(str_detect(leaflet, "Y")) |> map_robust() |> mutate(DeliveryMethod = "Pamphlet"),
+  dat |> filter(str_detect(video, "Y")) |> map_robust() |> mutate(DeliveryMethod = "Video"),
+  dat |> filter(cafeteria_or_restaurant_based == "Y") |> map_robust() |> mutate(DeliveryMethod = "Place-Based"),
   dat |> filter(cafeteria_or_restaurant_based == 'N' &
                   !str_detect(video, "Y") &
                   !str_detect(leaflet, "Y") &
                   !str_detect(internet, "Y")) |> 
-    count_and_robust() |> mutate(DeliveryMethod = "Everything else"))
+    map_robust() |> mutate(DeliveryMethod = "Everything else"))
 
 # Results by animal advocacy organization
 advocacy_org_results <- dat |>
   split(~advocacy_org) |>
-  map(count_and_robust) |>
+  map(map_robust) |>
   bind_rows(.id = "advocacy_org") |>
-  arrange(desc(N_unique)) |>
+  arrange(desc(N_studies)) |>
   mutate(pval = as.numeric(pval)) |>
   mutate(
     advocacy_org = if_else(advocacy_org == "N", 
@@ -72,15 +72,15 @@ country_results <- dat |>
       "worldwide",
       country)) |> 
   split(~country) |>
-  map(count_and_robust) |>
+  map(map_robust) |>
   bind_rows(.id = "country") |>
-  arrange(desc(N_unique)) |>
+  arrange(desc(N_studies)) |>
   mutate(pval = as.numeric(pval))
 
 # Meat vs MAP as a general category
 meat_vs_map <- dat |>
   split(~str_detect(pattern = "MAP", dat$outcome_category)) |>
-  map(count_and_robust) |>
+  map(map_robust) |>
   bind_rows(.id = 'meat_vs_map') |>
   mutate(
     meat_vs_map = case_when(
@@ -95,35 +95,28 @@ study_quality_results <- list(
   "Both" = dat |> filter(public_pre_analysis_plan != 'N' & open_data != 'N'),
   "Neither" = dat |> filter(public_pre_analysis_plan == 'N' & open_data == 'N')
 ) |>
-  map(~ .x |> count_and_robust()) |>
+  map(~ .x |> map_robust()) |>
   bind_rows(.id = "Open Science Practice")
 
 # Split by publication type
 publication_type_eff_size <- dat |> split(~pub_status) |> 
-  map(count_and_robust) |> 
+  map(map_robust) |> 
   bind_rows(.id = "publication_type") |>
-  arrange(desc(N_unique))
+  arrange(desc(N_studies))
 
 # self report within non-advocacy reports
 self_report_non_advocacy_results <- dat |>
   filter(advocacy_org == 'N') |>
   split(~self_report == 'Y') |>
-  map(count_and_robust) |>
+  map(map_robust) |>
   bind_rows(.id = 'self_report') |>
-  arrange(desc(N_unique))
+  arrange(desc(N_studies))
 
 # population? 
 population_results <- dat |> split(~population) |> 
   map(map_robust) |> bind_rows(.id = 'population') |> 
-  arrange(desc(N_unique)) 
+  arrange(desc(N_studies)) 
 
-# gt tables
-all_results_gt_table <- all_results |>
-  gmt(
-    title = "Summary of Results by Theory",
-    col_name = Approach,
-    col_label = "Theory")
-# gtsave(all_results_gt_table, './tables/all_results_gt_table.png')
 
 delivery_method_table <- delivery_method_results |>
   gmt(
