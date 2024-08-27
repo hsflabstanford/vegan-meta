@@ -517,31 +517,64 @@ table_five
 **Search**: We employed a multi-pronged search strategy for assembling our database.
 First, we checked the bibliographies of three recent reviews [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring] for relevant studies.
 Second, we checked any possibly relevant study that either cited or was cited by studies we coded.
-Third, we
+Third, we checked the bibliographies of authors whose studies we coded.
+Fourth, we contacted leading researchers in the field with our in-progress database to see if we had missed any.
+Fifth, we rinsed and repeated with the new studies we had.
+Sixth, we conducted searched Google Scholar for certain terms that had come up in studies repeatedly (e.g. "dynamic norms + meat", "MAP reduction", "plant-based diet + effective").
+Sixth, we checked database emerging from a parallel project being conducted by Rethink Priorities.
+Seventh, we identified a further 100+ systematic reviews and checked their bibliographies.
+Eighth, we used an AI search tool (\\url{<https://undermind.ai>}) to check for unfound gray literature.
+All three authors contributed to the search.
 
--   Search
--   Coding
--   Meta-analysis
+**Coding:** For quantitative outcomes, we selected the latest possible outcome that still had sufficient subjects to meet our inclusion criteria.
+All effect sizes were standardized by the standard deviation of the outcome for the control group at baseline whenever possible (Glass's $\Delta$).
+All effect size conversions were conducted by the first author using methods and R code developed for papers [@paluck2019; @porat2024].
 
-# Discussion {#sec4}
+**Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (\\url{<https://osf.io/j5wbp>}), although the project evolved substantially over time and our final analyses do not match those initial plans.
+Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang].
 
-## These studies are often underpowered to detect effects they actually find {#Sec4.1}
+## Discussion
 
--   X studies do power calculations, and Y of those find results smaller than they're looking for,
--   they also plan effect sizes based on recruited sample rather than follow-up
--   plan for small effects and attrition
+We offer three lenses through which to view our results.
 
-<!-- -->
+First, one might focus on the small effect sizes and the moderate evidence of publication bias and conclude that what meager effects we do detect are likely overestimates, and therefore conclude that the true effect being estimated in this dataset is a null.
 
--   in this article, we
--   we are enocuraged by increasing rigor
--   we look forward to seeing
+Second, one might argue that our assembled database of studies *is* successfully changing consumption behavior, but in ranges too small for most studies to detect.
+By this light, future studies should replicate existing approaches with sufficient power to detect much smaller effects.
+
+Moreover, a change of a few percentage points, e.g. 5.4% reductions for college students in [@jalil2023], might be significant in some institutional contexts.
+For example, if a college calculates that meat consumption accounts for 20% of its carbon emissions, a 5% reduction in meat consumption achieves 1% in carbon.
+Given how cheap and easy the intervention in [@jalil2023] is to implement, it might be a comparatively cost-effective method for striving towards net zero emissions.
+
+```{r largest_eff_sizes, include=F}
+large_effs <- dat |> filter(d>=0.5) |> 
+  select(author, year, d, se_d, 
+         n_t_post, n_c_post,  n_t_total_pop, n_c_total_pop)
+
+average_total_large_effs_n <- round(mean(large_effs$n_t_post)) + round(mean(large_effs$n_c_post))
+
+```
+
+Third, one might look at the largest effect sizes in our dataset, for instance, the seven interventions with an effect size of $\Delta \geq 0.5$ [@bianchi2022; @carfora2023; @merrill2009; @piester2020] and seek to replicate and/or expand their approaches.
+However, we'd caution that these seven studies are generally small-n, with an average of `r average_total_large_effs_n` subjects.
+
+We do not have a clear preference between these interpretations.
+However, we are generally encouraged by trends in this literature.
+
+First, as previously noted, a majority of studies that meet our inclusion criteria have been published in the past few years, suggesting an overall increase in attention to design and measurement validity.
+Second, we applaud researchers and advocates in this field for publicizing null results when they find them.
+Third, we notice that the universe of possible interventions is much broader than those we analyzed, suggesting that some promising approaches have yet to be rigorously evaluated (e.g. direct contact with animals on an animal sanctuary, price gradations, high-intensity vegan meal planning, or door-to-door canvassing).
+We also note that many viable study sites are absent from our database, e.g. retirement homes, and we encourage researchers to search more broadly for potential subjects.
 
 \backmatter
 
 \bmhead{Supplementary information}
 
+All code and data are available on GitHub and Code Ocean: LINKS
+
 \bmhead{Acknowledgments}
+
+*Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for help with assembling the database and providing guidance on their studies. We gratefully acknowledge funding from the NIH (grant XXX) and Open Philanthropy (YYY).*
 
 # Declarations {.unnumbered}
 
@@ -549,7 +582,7 @@ Third, we
 
 A LOT will go here
 
-### Nudge lit is a mess
+## Nudge lit is a mess
 
 -   Theory; behavior change is just hard <https://www.nature.com/articles/s44159-024-00305-0> & most - interventions don't work <https://www.bu.edu/bulawreview/files/2023/12/STEVENSON.pdf>
 
@@ -562,8 +595,6 @@ A LOT will go here
 -   nudges don't scale <https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA18709>
 
 -   "our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
-
-# Bibliography
 
 # References
 
