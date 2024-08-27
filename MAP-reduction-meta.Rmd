@@ -195,7 +195,7 @@ Table 1 reports the distribution of studies, interventions, subjects (approximat
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
 The first norms study meeting our criteria was published in 2017.
 
-**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, e.g. placing a vegetarian meal at eye level on a billboard menu [@anderson2021] or placing fish sauce in a bowl with a serving spoon rather than in a bottle, which makes it serving it more laborious [@kanchanachitra2020].
+**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, e.g. placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or placing fish sauce in a bowl with a serving spoon rather than in a bottle, which makes it serving it more laborious [@kanchanachitra2020].
 
 **Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2016; @fehrenbach2015; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @mathur2021effectiveness; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @jalil2023; @merrill2009; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
@@ -315,7 +315,7 @@ table_three <- dat |>
  select(-c(Delta, se, pval))  |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
         caption = "Difference in effect size by publication status",
-        label = "tab:table_two") |> 
+        label = "tab:table_three") |> 
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
@@ -403,7 +403,7 @@ Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC
 Many governmental dietary guidelines [e.g.
 CANADA and the US] encourage consumers to reduce RPM and consume moderate amounts of lean meat and fish.
 
-We also observe that many health studies either seek to induce a sense of fear in subjects [@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2005; @lee2018] with health-based reasons to change their diets, and then ask them to self-report what they have eaten recently.
+We also observe that many health studies either seek to induce a sense of fear in subjects [@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2015; @lee2018] with health-based reasons to change their diets, and then ask them to self-report what they have eaten recently.
 We judge self-reporting bias to be a potential concern.
 
 ## Environmental appeals have modest positive effects {#sec2.8}
@@ -475,7 +475,7 @@ table_four <- dat |>
  select(-c(Delta, se, pval))  |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
         caption = "Difference in effect size by delivery method",
-        label = "tab:table_three") |> 
+        label = "tab:table_four") |> 
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
