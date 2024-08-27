@@ -31,7 +31,7 @@ keywords:
   - dictionary
   - word
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). Unfortunately, the pooled effect of these interventions on MAP consumption outcomes is just $\Delta$ = 0.057, suggesting that this is effectively an unsolved problem. Reducing consumption of red and processed meat appears to be an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.057, suggesting that we face an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 bibliography: "./manuscript/vegan-refs.bib"
 output: 
   rticles::springer_article
@@ -58,13 +58,13 @@ source('./scripts/red-and-processed-meat.R')
 Consumption of meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
 
 Supply-side interventions, such as banning or taxing certain practices or products, risk political backlash if they do not have broad public support.
-It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to the largest and most durable reductions in demand for MAP products, under which conditions, and for which populations.
+It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to consistent reductions in demand for MAP, under which conditions, and for which populations.
 We address these questions with a meta-analysis of the most rigorous studies aimed at reducing MAP consumption.
 
 The research on diet and its antecedents and consequences is vast.
 By our count, there have been at least 120 previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
 However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring] or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
-Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
+Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, missing consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
 
@@ -84,16 +84,19 @@ num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
 n_total <-  plyr::round_any(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor)
 
-RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
-RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
-RPMC_interventions <- as.numeric(nrow(RPMC))
-n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 1000, floor)
-
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
 We coded `r num_papers` papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
 (Some treatments were administered at the level of day or cafeteria and did not record their number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
+
+```{r red_meat_numbers, include=F}
+RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
+RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
+RPMC_interventions <- as.numeric(nrow(RPMC))
+n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 1000, floor)
+
+```
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects.
 Last, we compiled a third dataset of over 780 excluded studies, along with their reason(s) for exclusion.
@@ -112,6 +115,7 @@ model <- dat |> map_robust()
 nudge_model <- dat |> filter(theory == 'nudge') |> map_robust()
 nudge_n <- dat |> filter(theory == 'nudge') |> 
   summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+
 # Norms
 norms_model <- dat |> filter(theory == 'norms') |> map_robust()
 norms_n <- dat |> filter(theory == 'norms') |>
@@ -119,13 +123,11 @@ norms_n <- dat |> filter(theory == 'norms') |>
 
 # Norms + Persuasion
 norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robust()
-
 norms_pers_n <-  dat |> filter(theory == 'norms & persuasion')|>
   summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 
 # Persuasion Overall
 persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robust()
-
 persuasion_n <- dat |> filter(theory == 'persuasion') |>
   summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
 
