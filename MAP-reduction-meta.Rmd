@@ -472,7 +472,7 @@ table_four <- dat |>
   rename(
     `N (Studies)` = N_studies,
     `N (Interventions)` = N_interventions) |>
- select(-c(Delta, se, pval))  |> 
+ select(-c(Delta, se, pval)) |> 
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
         caption = "Difference in effect size by delivery method",
         label = "tab:table_four") |> 
