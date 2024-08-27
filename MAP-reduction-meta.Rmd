@@ -32,9 +32,9 @@ keywords:
   - word
 abstract: |
   Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.057, suggesting that we face an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
-bibliography: "./manuscript/vegan-refs.bib"
 output: 
   rticles::springer_article
+bibliography: "./manuscript/vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
 ---
@@ -133,26 +133,16 @@ persuasion_n <- dat |> filter(theory == 'persuasion') |>
 
 # Table One
 table_one <- tibble(
-  Approach = c("\\textbf{Overall}", "Norms", "Nudge",
-               "Persuasion", "Norms + Persuasion"),
-  "N (Studies)" = c(model$N_studies, norms_model$N_studies, 
-                    nudge_model$N_studies, persuasion_model$N_studies,
-                    norms_persuasion_model$N_studies),
-  "N (Interventions)" = c(model$N_interventions, norms_model$N_interventions,
-                          nudge_model$N_interventions, 
-                          persuasion_model$N_interventions,
-                          norms_persuasion_model$N_interventions),
-  "N (subjects)" = c(n_total, norms_n, nudge_n, persuasion_n, norms_pers_n),
-  "Glass's $\\Delta$ (SE)" = c(mr(model), mr(norms_model),
-                               mr(nudge_model), mr(persuasion_model), 
-                               mr(norms_persuasion_model))) |> 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Norm, Nudge, and persuasion approaches to MAP reduction",
-        label = "tab:table_one") |>
-  kable_styling(latex_options = "hold_position") |>
-  footnote(general_title = "",
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001", 
-           escape = FALSE)
+  Approach = c("\\textbf{Overall}", "Norms", "Nudge", "Persuasion", "Norms + Persuasion"),
+  "N (Studies)" = c(model$N_studies, norms_model$N_studies, nudge_model$N_studies, persuasion_model$N_studies, norms_persuasion_model$N_studies),
+  "N (Interventions)" = c(model$N_interventions, norms_model$N_interventions, nudge_model$N_interventions, persuasion_model$N_interventions, norms_persuasion_model$N_interventions),
+  "N (Subjects)" = c(n_total, norms_n, nudge_n, persuasion_n, norms_pers_n),
+  "Glass's $\\Delta$ (SE)" = c(mr(model), mr(norms_model), mr(nudge_model), mr(persuasion_model), mr(norms_persuasion_model))
+) |> meta_table_maker(
+  caption = "Norm, Nudge, and persuasion approaches to MAP reduction",
+  label = "tab:table_one",
+  footnote = TRUE)
+
 table_one
 
 # Persuasion (Health)
@@ -176,14 +166,10 @@ table_two <- tibble(
   "Glass's $\\Delta$ (SE)" = c(mr(health_model), 
                                mr(environment_model), 
                                mr(animal_model))
-) |> 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Three types of persuasion",
-        label = "tab:table_two") |>
-  kable_styling(latex_options = "hold_position") |>
-  footnote(general_title = "",
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
-           escape = FALSE)
+) |> meta_table_maker(
+    caption = "Three approaches to MAP reduction persuasion",
+    label = "tab:table_two",
+    footnote = F)
 # add note that  because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.
 table_two
 ```
@@ -264,6 +250,7 @@ Using our calculations of effect size and standard error `r (nrow(significant_CI
 We conduct four tests for publication bias.
 
 First, in our dataset, $\Delta$ and standard error are positively correlated, though not significantly.
+
 [GOOD PLACE FOR A FIGURE?]
 
 Second, the `r pap_model$N_studies` studies with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`.
@@ -313,13 +300,10 @@ table_three <- dat |>
     `N (Studies)` = N_studies,
     `N (Interventions)` = N_interventions) |>
  select(-c(Delta, se, pval))  |> 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Difference in effect size by publication status",
-        label = "tab:table_three") |> 
-  kable_styling(latex_options = "hold_position") |>
-  footnote(general_title = "",
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
-           escape = FALSE)
+  meta_table_maker(
+    caption = "Difference in effect size by publication status",
+    label = "tab:table_three",
+    footnote = TRUE)
 
 table_three
 ```
@@ -375,7 +359,6 @@ A forthcoming meta-analysis of dynamic norms interventions concludes that their 
 
 Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only two nudge studies met our inclusion criteria [@andersson2021].
 Both had moderate effect sizes on the order of a few percentage points of MAP reduction.
-We discuss the nudge literature at length in our appendix.
 
 ## Health studies work better for RPM than for MAP {#sec2.7}
 
@@ -400,8 +383,7 @@ RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secon
 The pooled effect size for persuasion studies with a health component is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
 This is small and not significant, albeit larger than the overall pooled effect.
 Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC)` interventions aimed at reducing RPM consumption, and are generally more effective there: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
-Many governmental dietary guidelines [e.g.
-CANADA and the US] encourage consumers to reduce RPM and consume moderate amounts of lean meat and fish.
+This fits with the broader context where official nutritional guidelines typically encourage consumers to reduce RPM and consume moderate amounts of lean meat and fish.
 
 We also observe that many health studies either seek to induce a sense of fear in subjects [@berndsen2005] or target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2015; @lee2018] with health-based reasons to change their diets, and then ask them to self-report what they have eaten recently.
 We judge self-reporting bias to be a potential concern.
@@ -447,14 +429,35 @@ The `r advocacy_model$N_interventions` interventions and `r advocacy_model$N_stu
 
 These disappointing results conflict with the central conclusions of [@mathur2021effectiveness], but accord with the finding in [@DiGennaro2024] that animal welfare appeals produce a null effect on average.
 
-## Heterogeneity by country, self-reporting, cluster assignment, delivery method {#sec2.10}
+## Heterogeneity by reporting, cluster assignment, delivery method, and country {#sec2.10}
+
+```{r confounding_check, include=F}
+confound_table <- dat |> filter(self_report == 'N') |> 
+  group_by(str_detect(population, 'university')) |> 
+  summarise(count = n()) |> as_tibble()
+
+```
+
+Our sample of studies is comparatively small, and many differences between studies are confounded (e.g. `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations).
+Nevertheless we offer a few tentative explorations of potential moderators of effect size.
 
 ```{r heterogeneity_analyses, include=F}
 
-dat |> split(~self_report) |> map(map_robust)
+self_report_table <- dat |> split(~self_report) |> map(map_robust)  |> 
+ bind_rows(.id = 'self-report') |>  
+  rename(
+    self_report = `self-report`,
+    N_Interventions = N_interventions,
+    N_Studies = N_studies)
+
 dat |> split(~cluster_assigned) |> map(map_robust)
 table(dat$delivery_method)
 ```
+
+Contrary to our expectations, self-reported and objectively collected outcomes were not meaningfully different: `r self_report_table[self_report_table$self_report == "N", "Delta"]` for objectively reported vs `r self_report_table[self_report_table$self_report == "Y", "Delta"]` for self-reported.
+Likewise, the difference in effect sizes for studies where treatment was assigned to clusters (e.g. cafeteria or day of treatment) vs. individuals is small.
+
+Table 4 displays the effect size associated with the four most common delivery mechanisms in our dataset, which were also the groups with enough clusters for meta-analysis to be viable.
 
 ```{r table_four}
 
@@ -464,7 +467,9 @@ table_four <- dat |>
     str_detect(delivery_method, "video") ~ "Video",
     str_detect(delivery_method, "in-cafeteria") ~ "In-Cafeteria",
     str_detect(delivery_method, "online") ~ "Online",
-    TRUE ~ "Other")) |> filter(grouped_delivery_method != 'Other') |> split(~grouped_delivery_method) |> map(map_robust, model = "RMA") |>
+    TRUE ~ "Other")) |> 
+  filter(grouped_delivery_method != 'Other') |> 
+  split(~grouped_delivery_method) |> map(map_robust) |>
   map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
                        meta_result_formatter(.x))) |> 
   bind_rows(.id = "Delivery method") |> 
@@ -473,16 +478,15 @@ table_four <- dat |>
     `N (Studies)` = N_studies,
     `N (Interventions)` = N_interventions) |>
  select(-c(Delta, se, pval)) |> 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Difference in effect size by delivery method",
-        label = "tab:table_four") |> 
-  kable_styling(latex_options = "hold_position") |>
-  footnote(general_title = "",
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
-           escape = FALSE)
+  meta_table_maker(
+    caption = "Difference in effect size by delivery method",
+    label = "tab:table_four",
+    footnote = F)
 table_four
 
 ```
+
+Table 5 displays effects associated with different regions.
 
 ```{r regional variation}
 
@@ -490,13 +494,10 @@ table_five <- dat |>
   mutate(grouped_region = case_when(
     country %in% c("United States", "Canada") ~ "North America",
     country %in% c("United Kingdom", "Denmark", "Germany", "Italy", "Netherlands", "Sweden") ~ "Europe",
-    country %in% c("Australia") ~ "Australia",
-    country %in% c("Iran") ~ "Iran",
-    country %in% c("Thailand") ~ "Thailand",
-    str_detect(country, "worldwide|United States, United Kingdom, Canada, Australia, and other|") ~ "Worldwide",
+    str_detect(country, "worldwide|United States, United Kingdom, Canada, Australia, and other|Iran|Thailand|Australia") ~ "Asia, Australia, and worldwide",
     TRUE ~ "Other")) |> 
   split(~grouped_region) |> 
-  map(map_robust, model = "RMA") |> 
+  map(map_robust) |> 
   map(~ .x |> mutate("Glass's $\\Delta$ (SE)" = meta_result_formatter(.x))) |> 
   bind_rows(.id = "Region") |> 
   arrange(desc(N_studies)) |> 
@@ -504,27 +505,19 @@ table_five <- dat |>
     `N (Studies)` = N_studies,
     `N (Interventions)` = N_interventions) |>
   select(-c(Delta, se, pval))  |> 
-  kable(format = "latex", booktabs = TRUE, escape = FALSE,
-        caption = "Difference in effect size by study region",
-        label = "tab:table_five") |> 
-  kable_styling(latex_options = "hold_position") |>
-  footnote(general_title = "",
-           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
-           escape = FALSE)
+  meta_table_maker(caption = "Difference in effect size by study region",
+        label = "tab:table_five")
 
 table_five
-## still thinking about this
+
 ```
 
-Contrary to our expectations, reports from self-reported and objectively reported outcomes were broadly similar (X and Y)
-
-Cluster doesn't matter
-
-Think about how to group continent and delivery method – video doesn't work, leaflets don't work, but this is confounded by other differences
-
-Think about how to group the delivery method results
-
 # Methods {#sec3}
+
+**Search**: We employed a multi-pronged search strategy for assembling our database.
+First, we checked the bibliographies of three recent reviews [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring] for relevant studies.
+Second, we checked any possibly relevant study that either cited or was cited by studies we coded.
+Third, we
 
 -   Search
 -   Coding
