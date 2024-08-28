@@ -39,6 +39,8 @@ editor_options:
   chunk_output_type: console
 header-includes:
   - \usepackage{comment}
+  - \usepackage{anyfontsize}
+  - \usepackage{threeparttable}
 ---
 
 ```{r setup, include=FALSE}
@@ -84,7 +86,8 @@ Additionally, studies needed to be publicly circulated by December 2023 and publ
 num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
-n_total <-  plyr::round_any(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor)
+
+n_total <-  round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor)
 
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
@@ -107,81 +110,56 @@ Last, we compiled a third dataset of over 780 excluded studies, along with their
 
 ## Three theoretical categories: persuasion, choice architecture, and norms {#sec2.1}
 
+
+Studies in our database pursued three theories of change: norms, nudges, and persuasion, or a combination of norms and persuasion.
+Table 1 reports the distribution of studies, interventions, subjects (approximately), and effect sizes per approach.
+
 ```{r table_one, message=F}
-
-mr <- meta_result_formatter
-calculate_n_total <- function(data) {
-  summarise(data, n_total = plyr::round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
-}
-
 # Overall
 model <- dat |> map_robust()
 
 # Nudge
 nudge_model <- dat |> filter(theory == 'nudge') |> map_robust()
-nudge_n <- dat |> filter(theory == 'nudge') |> 
-  calculate_n_total()
 
 # Norms
 norms_model <- dat |> filter(theory == 'norms') |> map_robust()
-norms_n <- dat |> filter(theory == 'norms') |>
-    calculate_n_total()
-
-# Norms + Persuasion
-norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robust()
-norms_pers_n <-  dat |> filter(theory == 'norms & persuasion') |>
-  calculate_n_total()
 
 # Persuasion Overall
 persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robust()
-persuasion_n <- dat |> filter(theory == 'persuasion') |>
-  calculate_n_total()
 
-# Table One
+# Norms + Persuasion
+norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robust()
+
 table_one <- tibble(
-  Approach = c("\\textbf{Overall}", "Norms", "Nudge", "Persuasion", "Norms + Persuasion"),
-  "N (Studies)" = c(model$N_studies, norms_model$N_studies, nudge_model$N_studies, persuasion_model$N_studies, norms_persuasion_model$N_studies),
-  "N (Interventions)" = c(model$N_interventions, norms_model$N_interventions, nudge_model$N_interventions, persuasion_model$N_interventions, norms_persuasion_model$N_interventions),
-  "N (Subjects)" = c(n_total, norms_n, nudge_n, persuasion_n, norms_pers_n),
-  "Glass's $\\Delta$ (SE)" = c(mr(model), mr(norms_model), mr(nudge_model), mr(persuasion_model), mr(norms_persuasion_model))
-) |> meta_table_maker(
-  caption = "Norm, Nudge, and persuasion approaches to MAP reduction",
-  label = "tab:table_one",
-  footnote = TRUE)
+  Approach = c("\\textbf{Overall}", "Norms", "Nudge", 
+               "Persuasion", 
+               "Norms + Persuasion"),
+  "N (Studies)" = c(model$N_studies,
+                    norms_model$N_studies,
+                    nudge_model$N_studies,
+                    persuasion_model$N_studies,
+                    norms_persuasion_model$N_studies),
+  "N (Interventions)" = c(model$N_interventions,
+                          norms_model$N_interventions,
+                          nudge_model$N_interventions,
+                          persuasion_model$N_interventions,
+                          norms_persuasion_model$N_interventions),
+  "N (Subjects)" = c(model$N_subjects,
+                     norms_model$N_subjects,
+                     nudge_model$N_subjects,
+                     persuasion_model$N_subjects,
+                     norms_persuasion_model$N_subjects),
+  "Glass's $\\Delta$ (SE)" = c(mr(model),
+                               mr(norms_model),
+                               mr(nudge_model),
+                               mr(persuasion_model),
+                               mr(norms_persuasion_model))) |>
+    meta_table_maker(caption = "Norm, Nudge, and persuasion approaches to MAP reduction", 
+                   label = "tab:table_one", footnote = T)
 
-table_one
-
-# Persuasion (Health)
-health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robust()
-
-# Persuasion (Environment)
-environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robust()
-
-# Persuasion (Animal Welfare)
-animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robust()
-
-# Table Two
-table_two <- tibble(
-  "Persuasion Approach" = c("Health", "Environment", "Animal Welfare"),
-  "N (Studies)" = c(health_model$N_studies, 
-                    environment_model$N_studies,
-                    animal_model$N_studies),
-  "N (Interventions)" = c(health_model$N_interventions, 
-                          environment_model$N_interventions,
-                          animal_model$N_interventions),
-  "Glass's $\\Delta$ (SE)" = c(mr(health_model), 
-                               mr(environment_model), 
-                               mr(animal_model))
-) |> meta_table_maker(
-    caption = "Three approaches to MAP reduction persuasion",
-    label = "tab:table_two",
-        footnote = F) |>
-  add_footnote("Note that because many studies present more than one category of message, the number of studies and interventions will sum  to more than the total number of persuasion studies and interventions.", notation = 'none')
-table_two
+ table_one
 ```
 
-Studies in our database pursued three theories of change: norms, nudges, and persuasion, or a combination of norms and persuasion.
-Table 1 reports the distribution of studies, interventions, subjects (approximately), and effect sizes per approach.
 
 **Norms** studies [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] manipulate the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
@@ -194,7 +172,42 @@ These studies formed the majority of our database.
 Arguments typically focus on health the environment \textemdash usually climate change \textemdash and animal welfare.
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, e.g. a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
+
 Table 2 displays the distribution of persuasion studies within these categories.
+
+```{r table_two, message=F}
+
+# Persuasion (Health)
+health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robust()
+
+# Persuasion (Environment)
+environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robust()
+
+# Persuasion (Animal Welfare)
+animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robust()
+
+table_two <- tibble(
+ "Persauasion Approach" = c("Health", 
+                            "Environment", 
+                            "Animal Welfare"),
+ "N (studies)" = c(health_model$N_studies,
+                   environment_model$N_studies,
+                   animal_model$N_studies),
+  "N (interventions)" = c(health_model$N_interventions,
+                          environment_model$N_interventions,
+                          animal_model$N_interventions),
+  "N (subjects)" = c(health_model$N_subjects,
+                     environment_model$N_subjects,
+                     animal_model$N_subjects),
+ "Glass's $\\Delta$ (SE)" = c(mr(health_model),
+                              mr(environment_model),
+                              mr(animal_model))) |>
+  meta_table_maker(caption = "Three approaches to MAP reduction persuasion", 
+                   label = "tab:table_two", footnote = F) |> 
+  add_footnote("Note: because many studies present more than one category of message, the Ns for studies, \\linebreak interventions, and subjects will sum to more than the total numbers in the persuasion category.", notation = 'none', escape = F)
+
+table_two
+```
 
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
@@ -305,7 +318,8 @@ table_three <- dat |>
   )) |>
   rename(
     `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions) |>
+    `N (Interventions)` = N_interventions,
+    `N (subjects)` = N_subjects) |>
  select(-c(Delta, se, pval))  |> 
   meta_table_maker(
     caption = "Difference in effect size by publication status",
@@ -451,11 +465,7 @@ Nevertheless we offer a few tentative explorations of potential moderators of ef
 ```{r heterogeneity_analyses, include=F}
 
 self_report_table <- dat |> split(~self_report) |> map(map_robust)  |> 
- bind_rows(.id = 'self-report') |>  
-  rename(
-    self_report = `self-report`,
-    N_Interventions = N_interventions,
-    N_Studies = N_studies)
+ bind_rows(.id = 'self_report')
 
 dat |> split(~cluster_assigned) |> map(map_robust)
 table(dat$delivery_method)
@@ -483,7 +493,8 @@ table_four <- dat |>
   arrange(desc(N_studies)) |> 
   rename(
     `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions) |>
+    `N (Interventions)` = N_interventions,
+    `N (subjects)` = N_subjects) |>
  select(-c(Delta, se, pval)) |> 
   meta_table_maker(
     caption = "Difference in effect size by delivery method",
@@ -510,7 +521,8 @@ table_five <- dat |>
   arrange(desc(N_studies)) |> 
   rename(
     `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions) |>
+    `N (Interventions)` = N_interventions,
+    `N (Subjects)` = N_subjects) |>
   select(-c(Delta, se, pval))  |> 
   meta_table_maker(caption = "Difference in effect size by study region",
         label = "tab:table_five")
@@ -569,9 +581,8 @@ We do not have a clear preference between these interpretations.
 However, we are generally encouraged by trends in this literature.
 
 First, as previously noted, a majority of studies that meet our inclusion criteria have been published in the past few years, suggesting an overall increase in attention to design and measurement validity.
-Second, we applaud researchers and advocates in this field for publicizing null results when they find them.
-Third, we notice that the universe of possible interventions is much broader than those we analyzed, suggesting that some promising approaches have yet to be rigorously evaluated (e.g. direct contact with animals on an animal sanctuary, price gradations, high-intensity vegan meal planning, or door-to-door canvassing).
-We also note that many viable study sites are absent from our database, e.g. retirement homes, and we encourage researchers to search more broadly for potential subjects.
+Second, we applaud researchers in this field for publicizing null results when they find them.
+Third, we notice that the universe of possible interventions and settings is much broader than those we analyzed, suggesting that some promising approaches await rigorous evaluation.  e.g. direct contact with animals on an animal sanctuary, price gradations, high-intensity vegan meal planning, door-to-door canvassing, or studies taking place in diverse settings such as retirement homes.
 
 \backmatter
 
@@ -586,8 +597,6 @@ All code and data are available on GitHub and Code Ocean: LINKS
 # Declarations {.unnumbered}
 
 # Appendix {#secA1}
-
-A LOT will go here
 
 ## Nudge lit is a mess
 
@@ -604,7 +613,3 @@ A LOT will go here
 -   "our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
 
 # References
-
-```{r cleanup, echo=F}
-unlink("MAP-reduction-meta_files", recursive = TRUE)
-```

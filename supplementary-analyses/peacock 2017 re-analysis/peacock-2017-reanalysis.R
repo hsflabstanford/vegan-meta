@@ -1,10 +1,10 @@
 # peacock 2017 re-analysis
 
 # we want a T1-T0 for each treatment group restricted people who have both data
-# at T1 and T0, then do a DiD vs control group changeand divide by SD of the
+# at T1 and T0, then do a DiD vs control group change and divide by SD of the
 # control group
 # data available on https://osf.io/2kpq9/
-# https://talkeco.org/wp-content/uploads/which-request-creates-the-most-diet-change-reanalysis.pdf
+# study: https://talkeco.org/wp-content/uploads/which-request-creates-the-most-diet-change-reanalysis.pdf
 
 library(dplyr)
 library(purrr)
@@ -34,5 +34,5 @@ peacock_tab <- peacock_dat |>
   ) |> select(-t_test)
 peacock_tab
 
-# got it -- and remember "Animal-Friendly Changes In Diet 
+# and remember "Animal-Friendly Changes In Diet 
 # (positive numbers indicate a reduction in consumption)"

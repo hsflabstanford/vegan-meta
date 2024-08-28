@@ -19,6 +19,8 @@ get_significance_stars <- function(pval) {
   })
 }
 
-
+round_to <- function(x, accuracy, f = round) {
+  f(x / accuracy) * accuracy
+}
 # handy shortcut 
 mr <- meta_result_formatter

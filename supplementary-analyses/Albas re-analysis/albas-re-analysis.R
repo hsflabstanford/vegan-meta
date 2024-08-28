@@ -1,5 +1,5 @@
 
-dat <- haven::read_sav('../literature/included/supplementary materials/Albas re-analysis/Albas 2023 data.sav')
+dat <- haven::read_sav('./supplementary-analyses/Albas re-analysis/albas-data.sav')
 
 # "In the final sample, 83 participants received descriptive norm only feedback
 # ... 87 participants received descriptive plus injunctive norm feedback... and
