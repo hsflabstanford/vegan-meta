@@ -24,11 +24,11 @@
 #' )
 #' meta_table_maker(data, caption = "Example Table", label = "tab:example", footnote = TRUE)
 meta_table_maker <- function(data, format = "latex", booktabs = TRUE, escape = FALSE,
-                             threeparttable = TRUE, caption = "", label = "", footnote = FALSE) {
+                             caption = "", label = "", footnote = FALSE) {
   table <- knitr::kable(data, format = format, booktabs = booktabs, escape = escape, 
-                        threeparttable = threeparttable, threparttablecaption = caption, label = label) |>
+                        caption = caption, label = label) |>
     kableExtra::kable_styling(latex_options = "hold_position")
-
+  
   if (footnote) {
     table <- table |>
       kableExtra::footnote(
