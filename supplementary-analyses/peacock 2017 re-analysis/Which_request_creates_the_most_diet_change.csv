@@ -1,0 +1,1595 @@
+•ÈÀDateApproached,Gender,Age,BookletDescrp,BookletLetter,Request,Length,CurrentRedMeat,CurrentPoultry,CurrentFish,CurrentEggs,CurrentDairy,CommentsOnBooklet,ReceivedBefore,FollowupRedMeat,FollowupPoultry,FollowupFish,FollowupEggs,FollowupDairy,RememberMostfromBooklet,Haveyousoughtoutanyadditionalinformation,OtherComments,RedMeat_Chg,Poultry_Chg,Fish_Chg,Eggs_Chg,Dairy_Chg,Total_Chg,Total_Current,Total_FollowupYN,ChangeValueYN
+Winter 2014,Female,18-22,vegan4,R,1,1,2,4,0,0,0, , , , , , , , , ,"email returned, call", , , , , , ,6, , 
+summer 2014,male,18-22,vegan4,R,1,1,3,4,0,0,0, , , , , , , , , , , , , , , , ,7, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,3,5,0,0,0, , , , , , , , , , , , , , , , ,8, , 
+summer 2014,female,18-22,vegan4,R,1,1,5,9,0,0,0, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,18-22,vegan4,R,1,1,0,4,2,1,0, , , , , , , , , , , , , , , , ,7, , 
+Summer 2014,Male,23-29,vegan4,R,1,1,0,7,0,2,0, , , , , , , , , , , , , , , , ,9, , 
+Winter 2014,male,30 or above,vegan4,R,1,1,2,7,4,3,0, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,0,7,0,4,0, , , , , , , , , , , , , , , , ,11, , 
+summer 2014,male,30 or above,vegan4,R,1,1,1,3,1,0,1, , , , , , , , , , , , , , , , ,6, , 
+Winter 2014,female,18-22,vegan4,R,1,1,2,12,1,1,1, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+Summer 2014,female,18-22,vegan4,R,1,1,10,5,2,10,1, , , , , , , , , ,"returned email, CALL", , , , , , ,28, , 
+summer 2014,female,18-22,vegan4,R,1,1,5,6,3,2,1, , , , , , , , , ,"email returned, CALL", , , , , , ,17, , 
+summer 2014,female,18-22,vegan4,R,1,1,3,2,2,3,1, , , , , , , , , ,"email returned, call", , , , , , ,11, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,0,0,2,1,10, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,0,0,3,1,10, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,female,18-22,vegan4,R,1,1,1,5,0,10,10, , , , , , , , , ,"email returned, call", , , , , , ,26, , 
+Winter 2014,male,18-22,vegan4,R,1,1,7,3,2,12,10, , , , , , , , , , , , , , , , ,34, , 
+Winter 2014,female,18-22,vegan4,R,1,1,4,6,5,12,10, , , , , , , , , , , , , , , , ,37, , 
+summer 2014,male,18-22,vegan4,R,1,1,2,13,4,15,10, , , , , , , , , , , , , , , , ,44, , 
+Summer 2014,female,23-29,vegan4,R,1,1,2,3,0,2,10, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,male,18-22,vegan4,R,1,1,7,7,2,3,10, , , , , , , , , , , , , , , , ,29, , 
+summer 2014,male,23-29,vegan4,R,1,1,8,10,0,4,10, , , , , , , , , ,"email doesn't work, call", , , , , , ,32, , 
+summer 2014,male,18-22,vegan4,R,1,1,5,4,0,4,10, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,female,18-22,vegan4,R,1,1,0,1,1,4,10, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,male,18-22,vegan4,R,1,1,8,1,2,4,10, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,female,23-29,vegan4,R,1,1,4,4,3,4,10, , , , , , , , , ,"email returned, call", , , , , , ,25, , 
+Summer 2014,male,18-22,vegan4,R,1,1,5,10,1,5,10, , , , , , , , , ,"email returned, call", , , , , , ,31, , 
+summer 2014,malw,18-22,vegan4,R,1,1,11,10,5,5,10, , , , , , , , , , , , , , , , ,41, , 
+summer 2014,female,18-22,vegan4,R,1,1,3,8,0,8,10, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,male,18-22,vegan4,R,1,1,5,7,3,9,10, , , , , , , , , ,"email returned, call", , , , , , ,34, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,0,5,0,7,11, , , , , , , , , , , , , , , , ,23, , 
+Summer 2014,male,23-29,vegan4,R,1,1,6,7,1,0,12, , , , , , , , , , , , , , , , ,26, , 
+ ,female,18-22,vegan4,R,1,1,12,12,1,11,12, , , , , , , , , , , , , , , , ,48, , 
+Winter 2014,Female,30 or above,vegan4,R,1,1,3,1,2,4,12, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,23-29,vegan4,R,1,1,0,0,0,5,12, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,female,18-22,vegan4,R,1,1,0,7,1,5,12, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,10,7,3,5,12, , , , , , , , , , , , , , , , ,37, , 
+summer 2014,female,18-22,vegan4,R,1,1,7,7,4,7,12, , , , , , , , , ,do not contact, , , , , , ,37, , 
+Spring 2014,male,23-29,vegan4,R,1,1,15,11,6,8,12, , , , , , , , , , , , , , , , ,52, , 
+Winter 2014,female,18-22,vegan4,R,1,1,7,11,14,14,14, , , , , , , , , ,"returned email, CALL", , , , , , ,60, , 
+Winter 2014,female,18-22,vegan4,R,1,1,2,2,3,2,14, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,male,23-29,vegan4,R,1,1,3,7,2,3,14, , , , , , , , , , , , , , , , ,29, , 
+summer 2014,23-29,18-22,vegan4,R,1,1,5,8,3,3,14, , , , , , , , , , , , , , , , ,33, , 
+summer 2014,female,18-22,vegan4,R,1,1,1,4,0,10,15, , , , , , , , , ,"returned email, CALL", , , , , , ,30, , 
+Winter 2014,female,18-22,vegan4,R,1,1,6,4,5,12,15, , , , , , , , , , , , , , , , ,42, , 
+summer 2014,male,13-17,vegan4,R,1,1,0,0,0,13,15, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,Female, ,vegan4,R,1,1,10,3,0,14,15, , , , , , , , , , , , , , , , ,42, , 
+Summer 2014,male,18-22,vegan4,R,1,1,9,12,10,14,15, , , , , , , , , , , , , , , , ,60, , 
+Winter 2014,female,18-22,vegan4,R,1,1,3,2,2,14,15, , , , , , , , , ,"email bounced, call", , , , , , ,36, , 
+Winter 2014,female,23-29,vegan4,R,1,1,5,9,12,15,15, , , , , , , , , , , , , , , , ,56, , 
+summer 2014,male,18-22,vegan4,R,1,1,5,2,0,2,15, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,male,18-22,vegan4,R,1,1,5,12,2,2,15, , , , , , , , , , , , , , , , ,36, , 
+summer 2014,male,30 or above,vegan4,R,1,1,1,5,7,2,15, , , , , , , , , ,"email bounced, CALL", , , , , , ,30, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,3,2,0,4,15, , , , , , , , , ,"email returned, call", , , , , , ,24, , 
+Winter 2014,female,18-22,vegan4,R,1,1,11,10,3,4,15, , , , , , , , , , , , , , , , ,43, , 
+Winter 2014,female,18-22,vegan4,R,1,1,5,6,0,5,15, , , , , , , , , , , , , , , , ,31, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,3,15,3,5,15, , , , , , , , , , , , , , , , ,41, , 
+summer 2014,male,30 or above,vegan4,R,1,1,5,11,1,6,15, , , , , , , , , , , , , , , , ,38, , 
+Winter 2014,male,18-22,vegan4,R,1,1,4,6,2,6,15, , , , , , , , , , , , , , , , ,33, , 
+Winter 2014,female,18-22,vegan4,R,1,1,2,5,1,8,15, , , , , , , , , , , , , , , , ,31, , 
+summer 2014,male,18-22,vegan4,R,1,1,5,6,1,8,15, , , , , , , , , ,"email doesn't work, call", , , , , , ,35, , 
+Winter 2014,female,18-22,vegan4,R,1,1,1,8,3,8,15, , , , , , , , , ,"email returned, call", , , , , , ,35, , 
+Winter 2014,female,23-29,vegan4,R,1,1,9,14,6,8,15, , , , , , , , , ,"email returned, call", , , , , , ,52, , 
+Summer 2014,male,23-29,vegan4,R,1,1,5,3,1,0,2, , , , , , , , , ,"email bounced, call", , , , , , ,11, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,2,1,0,1,2, , , , , , , , , , , , , , , , ,6, , 
+Summer 2014,male,30 or above,vegan4,R,1,1,1,5,0,2,2, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,female,18-22,vegan4,R,1,1,2,15,1,4,2, , , , , , , , , ,"email returned, CALL", , , , , , ,24, , 
+Summer 2014,Male,23-29,vegan4,R,1,1,3,4,2,5,2, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,vegan4,R,1,1,1,1,0,0,3, , , , , , , , , , , , , , , , ,5, , 
+Winter 2014,Female,13-17,vegan4,R,1,1,2,2,0,0,3, , , , , , , , , , , , , , , , ,7, , 
+Winter 2014,female,18-22,vegan4,R,1,1,0,3,0,0,3, , , , , , , , , ,"email returned, call", , , , , , ,6, , 
+summer 2014,female,18-22,vegan4,R,1,1, , ,1,0,3, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Female,18-22,vegan4,R,1,1,2,4,0,2,3, , , , , , , , , , , , , , , , ,11, , 
+summer 2014,female,18-22,vegan4,R,1,1,1,5,3,2,3, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,4,vegan4,R,1,1,4,3,1,3,3, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,Male,23-29,vegan4,R,1,1,4,4,3,4,3, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,female,23-29,vegan4,R,1,1,8,13,2,1,4, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,female,18-22,vegan4,R,1,1,3,2,1,2,4, , , , , , , , , ,"email bounced, call", , , , , , ,12, , 
+summer 2014,female,30 or above,vegan4,R,1,1,4,4,1,2,4, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,23-29,vegan4,R,1,1,0,3,2,2,4, , , , , , , , , , , , , , , , ,11, , 
+Summer 2014,Female,23-29,vegan4,R,1,1,2,8,0,3,4, , , , , , , , , ,"email bounced, call", , , , , , ,17, , 
+summer 2014,male,18-22,vegan4,R,1,1,0,1,2,3,4, , , , , , , , , , , , , , , , ,10, , 
+Winter 2014,female,23-29,vegan4,R,1,1,2,4,2,4,4, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,male,30 or aboe,vegan4,R,1,1,4,3,0,5,4, , , , , , , , , , , , , , , , ,16, , 
+Summer 2014,male,18-22,vegan4,R,1,1,0,9,0,7,4, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,male,23-29,vegan4,R,1,1,3,4,3,7,4, , , , , , , , , ,"email returned, call", , , , , , ,21, , 
+Winter 2014,male,18-22,vegan4,R,1,1,1,8,0,9,4, , , , , , , , , ,"email returned, call", , , , , , ,22, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,10,7,7,9,4, , , , , , , , , ,"email returned, call", , , , , , ,37, , 
+Winter 2014,female,18-22,vegan4,R,1,1,5,5,2,0,5, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,14,8,2,12,5, , , , , , , , , ,"email returned, call", , , , , , ,41, , 
+Summer 2014,female,23-29,vegan4,R,1,1,4,3,0,2,5, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,male,30 or above,vegan4,R,1,1,2,4,3,2,5, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,1,4,2,4,5, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,male,18-22,vegan4,R,1,1,3,7,3,4,5, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,female,18-22,vegan4,R,1,1,7,7,4,4,5, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,2,6,1,5,5, , , , , , , , , ,"email returned, call", , , , , , ,19, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,10,7,10,5,5, , , , , , , , , , , , , , , , ,37, , 
+summer 2014,female,18-22,vegan4,R,1,1,5,4,2,5,5, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,female,18-22,vegan4,R,1,1,4,6,5,6,5, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,male,18-22,vegan4,R,1,1,5,12,0,7,5, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,female,18-22,vegan4,R,1,1,14,7,7,0,6, , , , , , , , , , , , , , , , ,34, , 
+summer 2014,male,30 or above,vegan4,R,1,1,5,2,4,2,6, , , , , , , , , ,"email bounced, CALL", , , , , , ,19, , 
+Summer 2014,Female,23-29,vegan4,R,1,1,1,5,0,3,6, , , , , , , , , , , , , , , , ,15, , 
+Summer 2014,male,18-22,vegan4,R,1,1,0,11,1,3,6, , , , , , , , , ,do not contact, , , , , , ,21, , 
+Winter 2014,female,18-22,vegan4,R,1,1,1,3,3,3,6, , , , , , , , , ,"email returned, call", , , , , , ,16, , 
+Winter 2014,female,18-22,vegan4,R,1,1,1,3,1,4,6, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,male,18-22,vegan4,R,1,1,7,10,2,5,6, , , , , , , , , ,"email returned, CALL", , , , , , ,30, , 
+summer 2014,female,23-29,vegan4,R,1,1,7,4,8,5,6, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,30 or above,vegan4,R,1,1,2,10,1,6,6, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,male,18-22,vegan4,R,1,1,8,10,0,7,6, , , , , , , , , ,"email returned, call", , , , , , ,31, , 
+summer 2014,female,18-22,vegan4,R,1,1,2,3,1,1,7, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,Female,18-22,vegan4,R,1,1,2,7,0,2,7, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,female,18-22,vegan4,R,1,1,2,4,0,3,7, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,5,9,3,3,7, , , , , , , , , , , , , , , , ,27, , 
+Summer 2014,male,23-29,vegan4,R,1,1,8,6,4,3,7, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+summer 2014,female,18-22,vegan4,R,1,1,4,10,8,3,7, , , , , , , , , , , , , , , , ,32, , 
+Summer 2014,Female,18-22,vegan4,R,1,1,5,2,1,5,7, , , , , , , , , , , , , , , , ,20, , 
+Winter 2014,male,23-29,vegan4,R,1,1,0,0,4,5,7, , , , , , , , , , , , , , , , ,16, , 
+Summer 2014,male,18-22,vegan4,R,1,1,2,7,0,7,7, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,female,18-22,vegan4,R,1,1,1,8,5,7,7, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,5,5,0,8,7, , , , , , , , , ,"Don't contact her, she asked to be removed from list", , , , , , ,25, , 
+summer 2014,female,18-22,vegan4,R,1,1,3,5,0,3,8, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,female,18-22,vegan4,R,1,1,3,4,2,4,8, , , , , , , , , ,"email bounced, call", , , , , , ,21, , 
+summer 2014,female,18-22,vegan4,R,1,1,1,4,3,4,8, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,female,23-29,vegan4,R,1,1,7,10,0,5,8, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,13-17,vegan4,R,1,1,10,7,0,5,8, , , , , , , , , , , , , , , , ,30, , 
+Winter 2014,Male,23-29,vegan4,R,1,1,0,10,0,7,8, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,female,18-22,vegan4,R,1,1,10,4,5,8,8, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,5,8,1,0,9, , , , , , , , , ,"email returned, call", , , , , , ,23, , 
+summer 2014,male,10,vegan4,R,1,1,8,2,2,3,9, , , , , , , , , ,"email bounced, CALL", , , , , , ,24, , 
+Winter 2014,Male,18-22,vegan4,R,1,1,10,12,8,5,9, , , , , , , , , ,"email returned, call", , , , , , ,44, , 
+Winter 2014,male,18-22,vegan4,R,1,1,8,6,1,7,9, , , , , , , , , , , , , , , , ,31, , 
+summer 2014,male,18-22,vegan4,R,1,1,10,8,6,7,9, , , , , , , , , , , , , , , , ,40, , 
+summer 2014,female,18-22,vegan4,R,1,1,3,9,1,7,4, , ,99,99,99,99,99, , ,dupe, , , , , , ,24, , 
+Winter 2014,Female,18-22,vegan4,R,1,1,4,4,0,1,5, , ,10,3,0,4,7,Remembered it was about going vegetarian, , ,-6,1,0,-3,-2,-10,14,24,1
+Winter 2014,female,18-22,vegan4,R,1,1,3,3,0,2,6, , ,9,4,0,2,6,nothing, , ,-6,-1,0,0,0,-7,14,21,1
+Summer 2014,male,18-22,vegan4,R,1,1,8,2,9,1,6, , ,14,5,4,2,0, , , ,-6,-3,5,-1,6,1,26,25,1
+Summer 2014,male,18-22,vegan4,R,1,1,7,10,0,2,6, , ,10,8,8,9,10,dieting,no, ,-3,2,-8,-7,-4,-20,25,45,1
+summer 2014,female,18-22,vegan4,R,1,1,3,4,1,4,5, , ,6,6,2,6,14, , , ,-3,-2,-1,-2,-9,-17,17,34,1
+Winter 2014,male,18-22,vegan4,R,1,1,5,5,2,3,11, , ,7,5,5,10,13,just remembered taking it, , ,-2,0,-3,-7,-2,-14,26,40,1
+Winter 2014,male,18-22,vegan4,R,1,1,2,4,0,2,15, , ,4,5,0,10,15, , , ,-2,-1,0,-8,0,-11,23,34,1
+Winter 2014,female,18-22,vegan4,R,1,1,3,5,4,6,9, , ,4,12,6,8,15, , , ,-1,-7,-2,-2,-6,-18,27,45,1
+summer 2014,female,23-29,vegan4,R,1,1,2,4,2,3,2, , ,3,0,1,4,7, , , ,-1,4,1,-1,-5,-2,13,15,1
+Summer 2014,female,18-22,vegan4,R,1,1,0,3,1,0,6, , ,1,0,1,0,7, , , ,-1,3,0,0,-1,1,10,9,1
+Winter 2014,male,18-22,vegan4,R,1,1,7,7,1,1,0, , ,8,4,1,0,0,"looked up being vegan, but didn't think it was something he could do because he's an athlete", , ,-1,3,0,1,0,3,16,13,1
+summer 2014,male,18-22,vegan4,R,1,1,3,4,2,6,7, , ,3,15,3,15,1,"kind of remembers, how much chickens and animals","working out, needs 'more protein'", ,0,-11,-1,-9,6,-15,22,37,1
+Winter 2014,male,18-22,vegan4,R,1,1,0,0,0,2,7, , ,0,0,0,7,15,Didn't remember anything at all,No,"Dana asked him if he wanted emails about potentially going vegan, talking about healthy alternatves for eggs (protein) and dairy. He said YES, shoot him an email and totally tell him about it! Please CC me wahoooo! - Dana",0,0,0,-5,-8,-13,9,22,1
+Winter 2014,Female,18-22,vegan4,R,1,1,0,3,5,6,5, , ,0,10,2,7,12, , , ,0,-7,3,-1,-7,-12,19,31,1
+Summer 2014,female,23-29,vegan4,R,1,1,3,5,0,0,3, , ,3,7,0,0,7, , , ,0,-2,0,0,-4,-6,11,17,1
+summer 2014,female,18-22,vegan4,R,1,1,1,3,2,3,6, , ,1,8,1,2,9, , , ,0,-5,1,1,-3,-6,15,21,1
+Winter 2014,female,18-22,vegan4,R,1,1,0,0,1,0,2, , ,0,0,2,1,0,"not really, don't remember taking it. pictures of animals",no, ,0,0,-1,-1,2,0,3,3,1
+summer 2014,male,30 or above,vegan4,R,1,1,0,1,1,0,2, , ,0,2,1,0,1, ,"in fact I became friends of religious fellows adventists and quakers who praise for a vegetarian diet,  but today's economy and their lack of land and consumer power makes them eat sometimes beef, some others do it for health reasons,  I hope this helps in your research. However I quit those two type of meats and I rather go hungry a couple of days.",SEND THIS PERSON ALL THE VEG INFO!!!!,0,-1,0,0,1,0,4,4,1
+Summer 2014,male,23-29,vegan4,R,1,1,4,3,2,3,3, , ,4,3,0,5,3, , , ,0,0,2,-2,0,0,15,15,1
+Winter 2014,male,18-22,vegan4,R,1,1,0,0,0,0,2, , ,0,0,0,0,1,nothing specific; but was already familiar with the info, , ,0,0,0,0,1,1,2,1,1
+Winter 2014,male,18-22,vegan4,R,1,1,2,3,1,6,3, , ,2,2,4,3,3,Something to read about the pros and cons of eating meat. Don't remember any specifics., , ,0,1,-3,3,0,1,15,14,1
+Summer 2014,Female,18-22,vegan4,R,1,1,4,6,0,4,4, , ,4,5,0,4,4, , , ,0,1,0,0,0,1,18,17,1
+summer 2014,female,18-22,vegan4,R,1,1,1,4,0,5,7, , ,1,2,0,6,7, , , ,0,2,0,-1,0,1,17,16,1
+summer 2014,female,23-29,vegan4,R,1,1,2,4,2,1,3, , ,2,2,1,2,3, , , ,0,2,1,-1,0,2,12,10,1
+Winter 2014,Female,23-29,vegan4,R,1,1,0,5,0,5,7, , ,0,2,0,2,10,Did not remember the booklet at all., , ,0,3,0,3,-3,3,17,14,1
+summer 2014,male,18-22,vegan4,R,1,1,0,0,0,3,15, , ,0,0,0,2,10, , , ,0,0,0,1,5,6,18,12,1
+Summer 2014,Female,23-29,vegan4,R,1,1,9,5,1,10,7, , ,9,5,1,2,7, , , ,0,0,0,8,0,8,32,24,1
+Winter 2014,female,23-29,vegan4,R,1,1,8,8,4,4,2, , ,7,3,7,12,99, , , ,1,5,-3,-8, , ,26, ,1
+Winter 2014,Female,18-22,vegan4,R,1,1,1,10,2,3,10, , ,0,3,1,3,99, , , ,1,7,1,0, , ,26, ,1
+Winter 2014,Female,18-22,vegan4,R,1,1,1,2,0,2,4, , ,0,3,0,3,8, , , ,1,-1,0,-1,-4,-5,9,14,1
+Winter 2014,female,18-22,vegan4,R,1,1,2,3,2,0,0, , ,1,2,2,1,3, , , ,1,1,0,-1,-3,-2,7,9,1
+summer 2014,female,18-22,vegan4,R,1,1,3,9,2,5,9, , ,2,7,1,7,12, , , ,1,2,1,-2,-3,-1,28,29,1
+Winter 2014,female,18-22,vegan4,R,1,1,11,11,7,6,5, , ,10,11,7,6,6, , , ,1,0,0,0,-1,0,40,40,1
+summer 2014,male,30 or above,vegan4,R,1,1,3,3,3,4,0, , ,2,4,2,4,0, ,no, ,1,-1,1,0,0,1,13,12,1
+summer 2014,female,23-29,vegan4,R,1,1,5,8,3,3,14, , ,4,7,1,3,15, , , ,1,1,2,0,-1,3,33,30,1
+summer 2014,female,18-22,vegan4,R,1,1,2,1,1,4,4, , ,1,2,0,3,3, , , ,1,-1,1,1,1,3,12,9,1
+summer 2014,male,30 or above,vegan4,R,1,1,6,6,2,2,5, , ,5,4,2,1,4, , , ,1,2,0,1,1,5,21,16,1
+Winter 2014,female,18-22,vegan4,R,1,1,4,10,10,0,4, , ,3,2,7,0,10, , , ,1,8,3,0,-6,6,28,22,1
+summer 2014,female,18-22,vegan4,R,1,1,2,6,0,3,10, , ,1,5,2,5,0, , , ,1,1,-2,-2,10,8,21,13,1
+Winter 2014,Female,18-22,vegan4,R,1,1,3,3,0,1,6, , ,1,3,1,2,99, , , ,2,0,-1,-1, , ,13, ,1
+summer 2014,female,30 or above,vegan4,R,1,1,5,3,0,2,7, , ,3,5,7,1,7,lectured me about healthy eating choices for about 10 minutes, ,"email returned, call",2,-2,-7,1,0,-6,17,23,1
+summer 2014,female,18-22,vegan4,R,1,1,5,12,1,10,10, , ,3,7,1,5,10, , , ,2,5,0,5,0,12,38,26,1
+summer 2014,male,23-29,vegan4,R,1,1,5,10,2,10,10, , ,3,8,2,5,7, , , ,2,2,0,5,3,12,37,25,1
+Winter 2014,female,18-22,vegan4,R,1,1,4,13,4,7,7, , ,2,6,1,7,7, , , ,2,7,3,0,0,12,35,23,1
+Summer 2014,male,23-29,vegan4,R,1,1,9,3,0,3,3, , ,6,7,1,4,9, , , ,3,-4,-1,-1,-6,-9,18,27,1
+Summer 2014,male,30 or above,vegan4,R,1,1,5,5,1,5,7, , ,2,4,1,5,14,nothing,already knowledgable, ,3,1,0,0,-7,-3,23,26,1
+Summer 2014,male,18-22,vegan4,R,1,1,6,4,1,7,0, , ,3,2,0,2,7,nothing, , ,3,2,1,5,-7,4,18,14,1
+Winter 2014,male,18-22,vegan4,R,1,1,7,10,1,3,2, , ,4,5,2,5,1, , , ,3,5,-1,-2,1,6,23,17,1
+Summer 2014,male,13-17,vegan4,R,1,1,6,2,5,3,5, , ,3,1,2,2,1, , , ,3,1,3,1,4,12,21,9,1
+summer 2014,female,30 or above,vegan4,R,1,1,10,10,2,1,12, , ,7,8,0,1,5, , , ,3,2,2,0,7,14,35,21,1
+Winter 2014,Male,18-22,vegan4,R,1,1,10,5,0,2,13, , ,6,3,0,0,15,"Vegetarianism, veganism, animal cruelty. Doesn't remember any details.", , ,4,2,0,2,-2,6,30,24,1
+Summer 2014,male,18-22,vegan4,R,1,1,9,5,2,10,7, , ,4,4,4,4,4, , , ,5,1,-2,6,3,13,33,20,1
+summer 2014,male,23-29,veget4,Q,2,1,1,6,1,5,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,female,13-17,veget4,Q,2,1,1,5,0,2,0, , , , , , , , , , , , , , , , ,8, , 
+Spring 2014,female,18-22,veget4,Q,2,1,3,7,8,5,0, , , , , , , , , , , , , , , , ,23, , 
+Summer 2014,Male,30 or above,veget4,Q,2,1,14,7,3,7,1, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,male,18-22,veget4,Q,2,1,3,6,3,2,10, , , , , , , , , ,"email returned, call", , , , , , ,24, , 
+Winter 2014,female,18-22,veget4,Q,2,1,1,9,3,3,10, , , , , , , , , , , , , , , , ,26, , 
+summer 2014,female,18-22,veget4,Q,2,1,8,5,1,4,10, , , , , , , , , ,"email bounced, call", , , , , , ,28, , 
+Spring 2014,female,18-22,veget4,Q,2,1,5,10,1,6,10, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,male,18-22,veget4,Q,2,1,7,14,1,6,10, , , , , , , , , , , , , , , , ,38, , 
+Spring 2014,female,18-22,veget4,Q,2,1,0,10,1,4,11, , , , , , , , , , , , , , , , ,26, , 
+Summer 2014,male,18-22,veget4,Q,2,1,12,6,3,8,11, , , , , , , , , , , , , , , , ,40, , 
+Winter 2014,female,18-22,veget4,Q,2,1,0,6,6,10,12, , , , , , , , , , , , , , , , ,34, , 
+Summer 2014,female,18-22,veget4,Q,2,1,3,10,2,2,12, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,male,18-23,veget4,Q,2,1,10,12,9,7,13, , , , , , , , , , , , , , , , ,51, , 
+Winter 2014,female,18-22,veget4,Q,2,1,14,6,2,0,14, , , , , , , , , , , , , , , , ,36, , 
+Winter 2014,Male,18-22,veget4,Q,2,1,13,15,4,14,14, , , , , , , , , , , , , , , , ,60, , 
+Spring 2014,male,18-22,veget4,Q,2,1,1,2,0,3,14, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,female,30 or above,veget4,Q,2,1,3,9,1,1,15, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,female,18-22,veget4,Q,2,1,1,4,2,1,15, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,male,18-22,veget4,Q,2,1,15,15,4,15,15, , , , , , , , , , , , , , , , ,64, , 
+summer 2014,male,23-29,veget4,Q,2,1,2,12,5,15,15, , , , , , , , , , , , , , , , ,49, , 
+Spring 2014,female,18-22,veget4,Q,2,1,1,10,0,2,15, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,female,18-22,veget4,Q,2,1,7,9,2,5,15, , , , , , , , , , , , , , , , ,38, , 
+Winter 2014,Female,18-22,veget4,Q,2,1,7,5,0,0,2, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,Female,23-29,veget4,Q,2,1,7,10,3,2,2, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,male,30 or above,veget4,Q,2,1,3,4,1,7,2, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,Female,23-29,veget4,Q,2,1,2,1,1,1,3, , , , , , , , , , , , , , , , ,8, , 
+Summer 2014,male,18-22,veget4,Q,2,1,0,5,1,1,3, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,female,23-29,veget4,Q,2,1,1,1,2,1,3, , , , , , , , , , , , , , , , ,8, , 
+summer 2014,male,23-29,veget4,Q,2,1,2,2,1,2,3, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,Female,23-29,veget4,Q,2,1,4,8,2,2,3, , , , , , , , , ,"email returned, call", , , , , , ,19, , 
+summer 2014,female,23-29,veget4,Q,2,1,0,2,2,3,3, , , , , , , , , , , , , , , , ,10, , 
+Spring 2014,male,18-22,veget4,Q,2,1,1,3,3,4,3, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,Female,18-22,veget4,Q,2,1,3,5,0,0,4, , , , , , , , , , , , , , , , ,12, , 
+Winter 2014,male,18-22,veget4,Q,2,1,7,7,1,3,4, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,30 or above,veget4,Q,2,1,5,2,2,4,4, , , , , , , , , , , , , , , , ,17, , 
+Summer 2014,male,18-22,veget4,Q,2,1,10,11,5,7,4, , , , , , , , , , , , , , , , ,37, , 
+Winter 2014,Female,23-29,veget4,Q,2,1,8,10,5,8,4, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,female,18-22,veget4,Q,2,1,3,5,2,0,5, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,female,18-22,veget4,Q,2,1,1,2,1,1,5, , , , , , , , , , , , , , , , ,10, , 
+ ,female,23-29,veget4,Q,2,1,2,3,0,2,5, , , , , , , , , , , , , , , , ,12, , 
+ ,female,30,veget4,Q,2,1,2,4,1,3,5, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,veget4,Q,2,1,2,4,2,6,5, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014,Male,18-22,veget4,Q,2,1,1,5,1,0,6, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,female,18-22,veget4,Q,2,1,5,5,0,1,6, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+summer 2014,female,18-22,veget4,Q,2,1,4,8,0,1,6, , , , , , , , , ,"email doesn't work, call", , , , , , ,19, , 
+Winter 2014,female,18-22,veget4,Q,2,1,2,4,0,3,6, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,veget4,Q,2,1,4,3,2,3,6, , , , , , , , , ,"email bounced, call", , , , , , ,18, , 
+Spring 2014, ,23-29,veget4,Q,2,1,1,5,0,4,6, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,female,18-22,veget4,Q,2,1,0,3,3,2,7, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,Female,18-22,veget4,Q,2,1,0,0,2,3,7, , , , , , , , , , , , , , , , ,12, , 
+summer 2014,female,18-22,veget4,Q,2,1,5,5,2,5,7, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,Female,18-22,veget4,Q,2,1,2,4,2,6,7, , , , , , , , , ,"email returned, call", , , , , , ,21, , 
+Winter 2014,male,23-29,veget4,Q,2,1,10,6,1,7,7, , , , , , , , , , , , , , , , ,31, , 
+Spring 2014,female,18-22,veget4,Q,2,1,0,7,1,7,7, , , , , , , , , , , , , , , , ,22, , 
+Spring 2014,female,18-22,veget4,Q,2,1,2,4,0,3,8, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+summer 2014,male,18-22,veget4,Q,2,1,3,10,2,3,8, , , , , , , , , , , , , , , , ,26, , 
+Spring 2014,male,18-22,veget4,Q,2,1,5,4,1,5,8, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,Female,18-22,veget4,Q,2,1,2,2,0,0,9, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,male,18-22,veget4,Q,2,1,10,11,6,7,9, , , , , , , , , ,"email returned, call", , , , , , ,43, , 
+Winter 2014,female,18-22,veget4,Q,2,1,2,10,3,10,10, , ,10,5,0,15,4, , , ,-8,5,3,-5,6,1,35,34,1
+Winter 2014,Female,18-22,veget4,Q,2,1,6,3,0,1,3, , ,11,8,2,1,0,going vegan, , ,-5,-5,-2,0,3,-9,13,22,1
+Summer 2014,male,18-22,veget4,Q,2,1,7,7,0,4,8, , ,12,6,0,5,12,just remembered the questions, , ,-5,1,0,-1,-4,-9,26,35,1
+summer 2014,male,18-22,veget4,Q,2,1,5,10,8,6,8, , ,10,9,5,5,7, , , ,-5,1,3,1,1,1,37,36,1
+summer 2014,female,18-22,veget4,Q,2,1,4,8,2,3,12, , ,8,5,1,3,12, , , ,-4,3,1,0,0,0,29,29,1
+summer 2014,male,13-17,veget4,Q,2,1,4,2,0,3,4, , ,7,5,2,15,4, , , ,-3,-3,-2,-12,0,-20,13,33,1
+Winter 2014,Male,18-22,veget4,Q,2,1,5,8,3,3,10, , ,8,10,3,7,15,nothing, , ,-3,-2,0,-4,-5,-14,29,43,1
+Summer 2014,female,18-22,veget4,Q,2,1,4,5,0,2,14, , ,7,7,0,8,13, , , ,-3,-2,0,-6,1,-10,25,35,1
+Winter 2014,female,18-22,veget4,Q,2,1,4,15,2,12,10, , ,7,13,5,12,10, , , ,-3,2,-3,0,0,-4,43,47,1
+summer 2014,female,18-22,veget4,Q,2,1,2,10,2,3,4, , ,5,3,0,1,8, , , ,-3,7,2,2,-4,4,21,17,1
+Winter 2014,Female,18-22,veget4,Q,2,1,1,5,2,10,15, , ,3,12,3,13,99, , , ,-2,-7,-1,-3, , ,33, ,1
+Winter 2014,female,18-22,veget4,Q,2,1,3,10,4,9,6, , ,5,8,2,5,99, , , ,-2,2,2,4, , ,32, ,1
+summer 2014,female,18-22,veget4,Q,2,1,4,7,2,5,2, , ,6,10,1,8,3, , , ,-2,-3,1,-3,-1,-8,20,28,1
+Winter 2014,female,18-22,veget4,Q,2,1,2,7,1,3,5, , ,4,5,1,1,10, , , ,-2,2,0,2,-5,-3,18,21,1
+Winter 2014,female,18-22,veget4,Q,2,1,2,4,4,2,4, , ,4,5,2,1,4,remembered the booklet because she had seen it before,no, ,-2,-1,2,1,0,0,16,16,1
+summer 2014,female,18-22,veget4,Q,2,1,3,3,0,6,9, , ,5,7,0,5,2, , , ,-2,-4,0,1,7,2,21,19,1
+Summer 2014,male,18-22,veget4,Q,2,1,3,4,0,9,15, , ,5,4,0,5,9, , ,"returned email, call",-2,0,0,4,6,8,31,23,1
+Summer 2014,Male,18-22,veget4,Q,2,1,3,11,1,7,0, , ,4,6,3,10,5, , ,"email returned, call",-1,5,-2,-3,-5,-6,22,28,1
+Spring 2014,female,18-22,veget4,Q,2,1,1,7,2,3,12, , ,2,10,2,3,7, , , ,-1,-3,0,0,5,1,25,24,1
+Winter 2014,Female,18-22,veget4,Q,2,1,9,11,4,5,13, , ,10,10,0,0,15,NOTHING,NO,NO,-1,1,4,5,-2,7,42,35,1
+Winter 2014,female,18-22,veget4,Q,2,1,0,0,0,1,3, , ,0,0,0,2,10, , , ,0,0,0,-1,-7,-8,4,12,1
+Winter 2014,female,18-22,veget4,Q,2,1,0,0,4,4,4, , ,0,0,6,4,7, , , ,0,0,-2,0,-3,-5,12,17,1
+summer 2014,female,18-22,veget4,Q,2,1,0,3,3,1,1, , ,0,3,2,1,5,don't remember it at all, , ,0,0,1,0,-4,-3,8,11,1
+Winter 2014,male,18-22,veget4,Q,2,1,7,14,3,8,4, , ,7,10,5,10,6,nothing, , ,0,4,-2,-2,-2,-2,36,38,1
+summer 2014,female,23-29,veget4,Q,2,1,0,0,0,0,12, , ,0,0,0,0,13, , , ,0,0,0,0,-1,-1,12,13,1
+Winter 2014,female,18-22,veget4,Q,2,1,0,0,0,1,1, , ,0,0,0,0,2, , , ,0,0,0,1,-1,0,2,2,1
+summer 2014,female,18-22,veget4,Q,2,1,0,0,0,0,8, , ,0,0,0,1,6, , , ,0,0,0,-1,2,1,8,7,1
+Summer 2014,Female,18-22,veget4,Q,2,1,0,1,0,4,5, , ,0,2,0,4,2, , , ,0,-1,0,0,3,2,10,8,1
+summer 2014,female,18-22,veget4,Q,2,1,0,6,0,2,15, , ,0,4,2,6,7, , , ,0,2,-2,-4,8,4,23,19,1
+Winter 2014,female,18-22,veget4,Q,2,1,3,7,0,3,9, , ,3,3,0,4,8, , , ,0,4,0,-1,1,4,22,18,1
+summer 2014,female,18-22,veget4,Q,2,1,0,0,0,15,2, , ,0,0,0,8,4, , , ,0,0,0,7,-2,5,17,12,1
+Winter 2014,female,18-22,veget4,Q,2,1,0,0,4,6,10, , ,0,0,4,4,7,was already familiar with the information,no, ,0,0,0,2,3,5,20,15,1
+Summer 2014,Male,23-29,veget4,Q,2,1,7,5,2,15,3, , ,7,5,1,8,3, , , ,0,0,1,7,0,8,32,24,1
+Winter 2014,female,18-22,veget4,Q,2,1,0,0,10,5,13, , ,0,0,7,5,8,common animal rights survey with grotesque pictures,no, ,0,0,3,0,5,8,28,20,1
+summer 2014,female,18-22,veget4,Q,2,1,0,7,0,5,14, , ,0,5,0,0,10, , , ,0,2,0,5,4,11,26,15,1
+summer 2014,male,30 or above,veget4,Q,2,1,4,5,0,0,7, , ,3,7,1,0,15, , , ,1,-2,-1,0,-8,-10,16,26,1
+Summer 2014,Male,18-22,veget4,Q,2,1,7,7,1,3,8, , ,6,8,3,5,10,nothing,no, ,1,-1,-2,-2,-2,-6,26,32,1
+summer 2014,female,18-22,veget4,Q,2,1,7,0,0,7,7, , ,6,3,0,5,8, , , ,1,-3,0,2,-1,-1,21,22,1
+Summer 2014,Male,23-29,veget4,Q,2,1,2,0,10,5,2, , ,1,0,7,7,3, , , ,1,0,3,-2,-1,1,19,18,1
+summer 2014,male,30 or above,veget4,Q,2,1,4,3,0,3,7, , ,3,3,1,5,3, , , ,1,0,-1,-2,4,2,17,15,1
+Winter 2014,Female,18-22,veget4,Q,2,1,3,6,0,3,15, , ,2,6,0,4,10,"filling it out, pictures", , ,1,0,0,-1,5,5,27,22,1
+summer 2014,female,30 or above,veget4,Q,2,1,2,7,2,2,15, , ,1,8,1,7,6, , , ,1,-1,1,-5,9,5,28,23,1
+summer 2014,male,18-22,veget4,Q,2,1,4,9,2,12,0, , ,3,5,2,5,3, , , ,1,4,0,7,-3,9,27,18,1
+Summer 2014,Female,18-22,veget4,Q,2,1,5,4,1,2,1, , ,3,4,2,8,10, , , ,2,0,-1,-6,-9,-14,13,27,1
+summer 2014,female,18-22,veget4,Q,2,1,5,6,1,3,7, , ,3,6,1,0,4, , ,"email returned, call",2,0,0,3,3,8,22,14,1
+summer 2014,male,13-17,veget4,Q,2,1,8,3,7,13,6, , ,6,3,8,5,5, , , ,2,0,-1,8,1,10,37,27,1
+Winter 2014,female,18-22,veget4,Q,2,1,3,11,1,1,12, , ,0,11,3,3,11, , , ,3,0,-2,-2,1,0,28,28,1
+summer 2014,female,30 or above,veget4,Q,2,1,6,6,3,3,12, , ,3,7,3,3,12, , , ,3,-1,0,0,0,2,30,28,1
+summer 2014,female,18-22,veget4,Q,2,1,3,6,2,3,4, , ,0,7,1,3,5, , , ,3,-1,1,0,-1,2,18,16,1
+Winter 2014,female,18-22,veget4,Q,2,1,8,8,2,6,14, , ,5,5,2,3,10,eggs and meat not being good for you,no, ,3,3,0,3,4,13,38,25,1
+summer 2014,female,30 or above,veget4,Q,2,1,5,5,1,1,11, , ,1,7,1,2,10, , , ,4,-2,0,-1,1,2,23,21,1
+Winter 2014,female,23-29,veget4,Q,2,1,6,8,5,8,3, , ,2,3,4,6,7, , , ,4,5,1,2,-4,8,30,22,1
+Winter 2014,female,18-22,veget4,Q,2,1,9,8,13,15,4, , ,5,3,7,5,9, , , ,4,5,6,10,-5,20,49,29,1
+Summer 2014,Male,18-22,veget4,Q,2,1,12,6,3,8,2, , ,7,3,7,7,2, , ,"email bounced, CALL",5,3,-4,1,0,5,31,26,1
+Winter 2014,male,23-29,veget4,Q,2,1,15,10,3,6,4, , ,8,7,3,8,5, , , ,7,3,0,-2,-1,7,38,31,1
+summer 2014,female,18-22,veget4,Q,2,1,14,2,2,7,7, , ,2,0,2,7,7,no,no, ,12,2,0,0,0,14,32,18,1
+summer 2014,male,23-29,lessmeat4,P,3,1,5,2,1,2,0, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,4,8,0,3,0, , , , , , , , , ,"email returned, call", , , , , , ,15, , 
+summer 2014,female,23-29,lessmeat4,P,3,1,2,7,13,3,0, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,4,2,2,5,0, , , , , , , , , , , , , , , , ,13, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,7,4,0,7,0, , , , , , , , , , , , , , , , ,18, , 
+summer 2014,female,30 or above,lessmeat4,P,3,1,5,4,6,10,1, , , , , , , , , , , , , , , , ,26, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,1,7,2,1,10, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,female,23-29,lessmeat4,P,3,1,0,3,3,10,10, , , , , , , , , , , , , , , , ,26, , 
+summer 2014,female,23-29,lessmeat4,P,3,1,2,5,0,2,10, , , , , , , , , , , , , , , , ,19, , 
+Summer 2014,female,23-29,lessmeat4,P,3,1,4,3,3,2,10, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,4,10,0,3,10, , , , , , , , , , , , , , , , ,27, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,5,5,1,3,10, , , , , , , , , ,"email returned, call", , , , , , ,24, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,0,4,3,5,10, , , , , , , , , ,"email returned, call", , , , , , ,22, , 
+ ,male,23-29,lessmeat4,P,3,1,5,5,3,5,10, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,0,8,8,8,10, , , , , , , , , ,"email bounced, CALL", , , , , , ,34, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,3,10,3,5,11, , , , , , , , , , , , , , , , ,32, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,5,8,3,9,11, , , , , , , , , ,"returned email, CALL", , , , , , ,36, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,7,7,0,1,12, , , , , , , , , , , , , , , , ,27, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,14,10,5,12,12, , , , , , , , , , , , , , , , ,53, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,5,9,3,2,12, , , , , , , , , , , , , , , , ,31, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,0,12,0,7,12, , , , , , , , , , , , , , , , ,31, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,13,15,3,14,13, , , , , , , , , , , , , , , , ,58, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,4,11,0,6,13, , , , , , , , , ,"email returned, call", , , , , , ,34, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,4,15,2,4,14, , , , , , , , , , , , , , , , ,39, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,2,3,1,5,14, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,7,4,1,7,14, , , , , , , , , , , , , , , , ,33, , 
+summer 2014,female,13-17,lessmeat4,P,3,1,2,15,2,0,15, , , , , , , , , , , , , , , , ,34, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,7,4,1,1,15, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,15,15,3,1,15, , , , , , , , , , , , , , , , ,49, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,8,14,1,11,15, , , , , , , , , , , , , , , , ,49, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,7,7,1,2,15, , , , , , , , , , , , , , , , ,32, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,2,4,1,3,15, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,female,23-29,lessmeat4,P,3,1,2,5,2,5,15, , , , , , , , , , , , , , , , ,29, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,10,7,3,5,15, , , , , , , , , , , , , , , , ,40, , 
+summer 2014,female,13-17,lessmeat4,P,3,1,6,2,1,6,15, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,12,3,1,6,15, , , , , , , , , , , , , , , , ,37, , 
+ ,male,13-17,lessmeat4,P,3,1,12,10, ,9,15, , , , , , , , , , , , , , , , , , , 
+summer 2014,Female,23-29,lessmeat4,P,3,1,1,1,1,2,2, , , , , , , , , , , , , , , , ,7, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,3,5,2,2,2, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,2,9,2,2,2, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,2,7,5,2,2, , , , , , , , , ,"email bounced, CALL", , , , , , ,18, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,10,7,3,3,2, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,9,7,4,3,2, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,8,8,0,7,2, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,2,12,2,7,2, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,5,7,0,0,3, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,1,3,1,0,3, , , , , , , , , , , , , , , , ,8, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,2,3,0,1,3, , , , , , , , , , , , , , , , ,9, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,2,1,1,2,3, , , , , , , , , ,"email returned, call", , , , , , ,9, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,3,3,1,2,3, , , , , , , , , , , , , , , , ,12, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,5,3,1,2,3, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,8,8,2,3,3, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,10,10,0,4,3, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,male,13-17,lessmeat4,P,3,1,7,6,5,4,3, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,2,3,3,5,3, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,7,5,3,5,3, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,6,8,3,5,3, , , , , , , , , ,"email doesn't work, call", , , , , , ,25, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,1,4,0,0,4, , , , , , , , , , , , , , , , ,9, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,0,0,10,0,4, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,0,1,6,0,4, , , , , , , , , ,"email returned, call", , , , , , ,11, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,5,3,1,1,4, , , , , , , , , ,do not contact, , , , , , ,14, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,3,6,3,1,4, , , , , , , , , , , , , , , , ,17, , 
+ ,male,23-29,lessmeat4,P,3,1,1,2,2,2,4, , , , , , , , , ,"email returned, CALL", , , , , , ,11, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,0,4,3,2,4, , , , , , , , , , , , , , , , ,13, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,11,3,0,4,4, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,14,4,2,4,4, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,2,5,1,1,5, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,3,5,2,1,5, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,2,4,2,2,5, , , , , , , , , , , , , , , , ,15, , 
+Summer 2014,female,23-29,lessmeat4,P,3,1,2,5,5,2,5, , , , , , , , , ,"email returned, call", , , , , , ,19, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,12,11,7,4,5, , , , , , , , , , , , , , , , ,39, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,4,2,1,5,5, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,3,7,2,5,5, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,5,8,3,7,5, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,10,6,2,8,5, , , , , , , , , , , , , , , , ,31, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,6,6,1,3,6, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,2,4,1,5,6, , , , , , , , , , , , , , , , ,18, , 
+summer 2014,female,23-29,lessmeat4,P,3,1,6,3,6,6,6, , , , , , , , , ,"email doesn't work, call", , , , , , ,27, , 
+summer 2014,female,23-29,lessmeat4,P,3,1,10,7,2,1,7, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,8,5,0,15,7, , , , , , , , , , , , , , , , ,35, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,5,4,0,2,7, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,female,18-22,lessmeat4,P,3,1,2,4,2,2,7, , , , , , , , , ,"returned email, CALL", , , , , , ,17, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,4, ,0,3,7, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,23-29,lessmeat4,P,3,1,0,7,0,3,7, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,8,8,3,3,7, , , , , , , , , ,"email bounced, CALL", , , , , , ,29, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,2,4,0,4,7, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,female,23-29,lessmeat4,P,3,1, ,2,2,5,7, , , , , , , , , , , , , , , , , , , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,4,5,3,5,7, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,0,0,0,7,7, , , , , , , , , ,"email doesn't work, call", , , , , , ,14, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,3,7,2,7,7, , , , , , , , , , , , , , , , ,26, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,8,3,3,7,7, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,female,23-29,lessmeat4,P,3,1,4,10,0,2,8, , , , , , , , , ,don't contact, , , , , , ,24, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,2,7,1,4,8, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,6,10,2,4,8, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,0,9,10,7,8, , , , , , , , , , , , , , , , ,34, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,8,5,1,8,8, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,10,9,11,8,8, , , , , , , , , , , , , , , , ,46, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,10,15,11,10,9, , , , , , , , , ,"email returned, call", , , , , , ,55, , 
+summer 2014,male,18 to 22,lessmeat4,P,3,1,5,10,3,15,9, , , , , , , , , , , , , , , , ,42, , 
+summer 2014,male,23-29,lessmeat4,P,3,1,15,12,0,2,9, , , , , , , , , ,"email returned, call", , , , , , ,38, , 
+summer 2014,male,18-22,lessmeat4,P,3,1,2,4,1,3,9, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,female,18-22,lessmeat4,P,3,1,10,13,3,3,9, , , , , , , , , , , , , , , , ,38, , 
+Summer 2014,male,23-29,lessmeat4,P,3,1,10,8,11,6,9, , , , , , , , , , , , , , , , ,44, , 
+summer 2014,male,18-23,lessmeat4,P,3,1,5,6,10,7,9, , , , , , , , , ,"email bounced, call", , , , , , ,37, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,8,7,4,8,9, , , , , , , , , ,"returned email, CALL", , , , , , ,36, , 
+Summer 2014,male,18-22,lessmeat4,P,3,1,10,4,2,13,4, , ,15,5,5,15,10,"remembers trying to tell us not to eat so much eggs and chicken,", ,"email returned, call",-5,-1,-3,-2,-6,-17,33,50,1
+summer 2014,male,18-22,lessmeat4,P,3,1,7,10,4,10,15, , ,11,13,4,4,12, , , ,-4,-3,0,6,3,2,46,44,1
+Summer 2014,female,30 or above,lessmeat4,P,3,1,3,3,3,5,10, , ,6,8,1,5,15, , , ,-3,-5,2,0,-5,-11,24,35,1
+summer 2014,female,18-22,lessmeat4,P,3,1,1,9,0,3,10, , ,4,10,2,7,10,no, , ,-3,-1,-2,-4,0,-10,23,33,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,2,2,0,10, , ,3,3,2,2,7, , , ,-3,-1,0,-2,3,-3,14,17,1
+summer 2014,male,18-22,lessmeat4,P,3,1,2,7,5,3,0, , ,4,10,4,2,0, , , ,-2,-3,1,1,0,-3,17,20,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,3,5,2,1,1, , ,5,2,1,2,4, , , ,-2,3,1,-1,-3,-2,12,14,1
+summer 2014,male,30 or above,lessmeat4,P,3,1,10,10,4,5,2, , ,12,7,5,5,3, , , ,-2,3,-1,0,-1,-1,31,32,1
+Summer 2014,male,23-29,lessmeat4,P,3,1,10,10,10,0,0, , ,12,2,7,1,0, , , ,-2,8,3,-1,0,8,30,22,1
+Summer 2014,male,18-22,lessmeat4,P,3,1,6,6,1,6,11, , ,7,11,4,4,12, , , ,-1,-5,-3,2,-1,-8,30,38,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,2,5,0,0,5, , ,3,5,0,0,10, , , ,-1,0,0,0,-5,-6,12,18,1
+Summer 2014,male,18-22,lessmeat4,P,3,1,0,5,1,3,2, , ,1,4,2,5,5, , , ,-1,1,-1,-2,-3,-6,11,17,1
+summer 2014,female,13-17,lessmeat4,P,3,1,2,5,0,6,5, , ,3,6,0,7,7,remebers answering the same questions, , ,-1,-1,0,-1,-2,-5,18,23,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,2,5,2,4,7, , ,3,5,1,7,7,no, , ,-1,0,1,-3,0,-3,20,23,1
+summer 2014,female,23-29,lessmeat4,P,3,1,2,3,1,5,2, , ,3,3,3,4,2, , , ,-1,0,-2,1,0,-2,13,15,1
+summer 2014,Female,23-29,lessmeat4,P,3,1,4,6,6,1,3, , ,5,3,3,2,7,no,no, ,-1,3,3,-1,-4,0,20,20,1
+summer 2014,female,13-17,lessmeat4,P,3,1,0,15,0,2,14, , ,1,10,0,2,9,remembers it was about where meat came from, , ,-1,5,0,0,5,9,31,22,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,0,2,2,4, , ,0,3,4,2,12, , , ,0,-3,-2,0,-8,-13,8,21,1
+summer 2014,female,23-29,lessmeat4,P,3,1,7,1,1,7,5, , ,7,5,1,5,15, , , ,0,-4,0,2,-10,-12,21,33,1
+summer 2014,female,18-22,lessmeat4,P,3,1,4,4,2,5,15, , ,4,8,2,7,18, , , ,0,-4,0,-2,-3,-9,30,39,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,4,2,4,5, , ,0,5,2,4,10, , , ,0,-1,0,0,-5,-6,15,21,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,5,0,0,15, , ,0,7,0,3,15, , , ,0,-2,0,-3,0,-5,20,25,1
+summer 2014,female,18-22,lessmeat4,P,3,1,1,3,0,3,5, , ,1,4,1,5,6, , , ,0,-1,-1,-2,-1,-5,12,17,1
+Summer 2014,female,23-29,lessmeat4,P,3,1,2,5,0,5,15, , ,2,7,0,7,14, , , ,0,-2,0,-2,1,-3,27,30,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,3,3,0,7,4, , ,3,0,0,15,2, , ,"email bounced, call",0,3,0,-8,2,-3,17,20,1
+Summer 2014,female,13-17,lessmeat4,P,3,1,4,2,0,1,14, , ,4,2,0,2,15, , , ,0,0,0,-1,-1,-2,21,23,1
+Summer 2014,male,18-22,lessmeat4,P,3,1,7,9,5,5,15, , ,7,7,5,8,15, , , ,0,2,0,-3,0,-1,41,42,1
+Summer 2014,female,23-29,lessmeat4,P,3,1,0,0,0,0,0, , ,0,0,0,0,0, , , ,0,0,0,0,0,0,0,0,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,0,4,4,5, , ,0,0,4,4,5, , , ,0,0,0,0,0,0,13,13,1
+Summer 2014,male,18-22,lessmeat4,P,3,1,10,6,4,7,6, , ,10,7,4,4,8, , , ,0,-1,0,3,-2,0,33,33,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,0,1,1,0, , ,0,0,0,0,0, , , ,0,0,1,1,0,2,2,0,1
+Summer 2014,male,18-22,lessmeat4,P,3,1,5,3,3,4,9, , ,5,4,2,1,10, , , ,0,-1,1,3,-1,2,24,22,1
+summer 2014,female,18-22,lessmeat4,P,3,1,1,6,7,7,10, , ,1,6,4,8,10, , , ,0,0,3,-1,0,2,31,29,1
+Summer 2014,female,23-29,lessmeat4,P,3,1,0,2,5,2,9, , ,0,1,0,1,14,don't remember, , ,0,1,5,1,-5,2,18,16,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,2,2,1,4, , ,0,2,2,1,2, , , ,0,0,0,0,2,2,9,7,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,2,3,5,12, , ,0,1,5,7,7, , , ,0,1,-2,-2,5,2,22,20,1
+Summer 2014,male,18-22,lessmeat4,P,3,1,0,4,0,7,15, , ,0,4,0,4,15, , , ,0,0,0,3,0,3,26,23,1
+summer 2014,male,18-22,lessmeat4,P,3,1,3,8,3,6,9, , ,3,7,3,5,8, , ,"email bounced, CALL",0,1,0,1,1,3,29,26,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,0,8,0,2, , ,0,1,4,1,0, , , ,0,-1,4,-1,2,4,10,6,1
+Summer 2014,male,23-29,lessmeat4,P,3,1,3,4,2,8,7, , ,3,3,2,10,1, , , ,0,1,0,-2,6,5,24,19,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,10,0,2,10, , ,0,7,0,0,10, , ,"email returned, call",0,3,0,2,0,5,22,17,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,0,1,4,7, , ,0,0,1,1,5, , , ,0,0,0,3,2,5,12,7,1
+summer 2014,female,18-22,lessmeat4,P,3,1,3,5,6,8,5, , ,3,5,2,7,5,don't remember, , ,0,0,4,1,0,5,27,22,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,2,0,4,10, , ,0,2,0,2,6, , , ,0,0,0,2,4,6,16,10,1
+summer 2014,female,18-22,lessmeat4,P,3,1,0,10,2,5,15, , ,0,5,0,4,15, , , ,0,5,2,1,0,8,32,24,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,0,7,2,3,10, , ,0,2,1,2,5, , , ,0,5,1,1,5,12,22,10,1
+Summer 2014,female,23-29,lessmeat4,P,3,1,2,2,2,1,3, , ,1,5,1,1,5,nothing, , ,1,-3,1,0,-2,-3,10,13,1
+summer 2014,female,23-29,lessmeat4,P,3,1,7,5,2,3,10, , ,6,5,1,1,12, , , ,1,0,1,2,-2,2,27,25,1
+Summer 2014,male,23-29,lessmeat4,P,3,1,5,10,1,4,4, , ,4,10,3,3,2, , , ,1,0,-2,1,2,2,24,22,1
+summer 2014,male,23-29,lessmeat4,P,3,1,3,4,2,5,10, , ,2,6,1,3,7, , , ,1,-2,1,2,3,5,24,19,1
+summer 2014,female,18-22,lessmeat4,P,3,1,3,2,0,1,14, , ,2,1,0,1,9, , , ,1,1,0,0,5,7,20,13,1
+summer 2014,female,18-22,lessmeat4,P,3,1,5,8,1,1,7, , ,4,5,1,2,2,no, , ,1,3,0,-1,5,8,22,14,1
+Summer 2014,female,23-29,lessmeat4,P,3,1,2,4,2,0,12, , ,1,3,1,0,7,"farming practices, treatment of animals, really sad how animals",received another booklet at BU, ,1,1,1,0,5,8,20,12,1
+summer 2014,female,18-22,lessmeat4,P,3,1,2,11,4,8,5, , ,1,5,1,7,6, , , ,1,6,3,1,-1,10,30,20,1
+summer 2014,female,18-22,lessmeat4,P,3,1,2,3,1,7,12, , ,1,3,0,2,5,no, , ,1,0,1,5,7,14,25,11,1
+Summer 2014,female,23-29,lessmeat4,P,3,1,4,4,1,4,10, , ,2,4,3,7,7, , , ,2,0,-2,-3,3,0,23,23,1
+summer 2014,male,23-29,lessmeat4,P,3,1,9,4,0,6,7, , ,7,4,1,5,5, , ,"email bounced, CALL",2,0,-1,1,2,4,26,22,1
+ ,male,18-22,lessmeat4,P,3,1,4,6,0,3,7, , ,2,5,0,2,3,remember getting it, , ,2,1,0,1,4,8,20,12,1
+summer 2014,female,23-29,lessmeat4,P,3,1,10,10,0,0,2, , ,7,7,0,3,5, , , ,3,3,0,-3,-3,0,22,22,1
+summer 2014,female,18-22,lessmeat4,P,3,1,7,4,1,0,12, , ,4,4,0,0,5, , ,"email doesn't work, CALL",3,0,1,0,7,11,24,13,1
+summer 2014,male,23-29,lessmeat4,P,3,1,12,4,4,10,5, , ,9,3,2,7,2, , , ,3,1,2,3,3,12,35,23,1
+summer 2014,female,18-22,lessmeat4,P,3,1,6,6,1,9,9, , ,3,2,1,6,6, , , ,3,4,0,3,3,13,31,18,1
+Summer 2014,female,30 or above,lessmeat4,P,3,1,5,2,1,0,9, , ,1,3,1,2,7, , , ,4,-1,0,-2,2,3,17,14,1
+summer 2014,male,23-29,lessmeat4,P,3,1,7,7,0,0,7, , ,3,12,0,0,0, , , ,4,-5,0,0,7,6,21,15,1
+summer 2014,female,23-29,lessmeat4,P,3,1,6,10,3,3,4, , ,2,4,4,1,7, , , ,4,6,-1,2,-3,8,26,18,1
+summer 2014,male,18-22,lessmeat4,P,3,1,7,7,4,15,5, , ,3,4,2,8,4,no, , ,4,3,2,7,1,17,38,21,1
+summer 2014,male,23-29,lessmeat4,P,3,1,10,10,0,8,12, , ,5,7,1,4,7, , , ,5,3,-1,4,5,16,40,24,1
+summer 2014,male,30 or above,lessmeat4,P,3,1,7,4,1,7,1, , ,1,3,1,8,8, , , ,6,1,0,-1,-7,-1,20,21,1
+summer 2014,male,13-17,lessmeat4,P,3,1,8,5,5,4,8, , ,2,2,2,3,7, , ,"email doesn't work, call",6,3,3,1,1,14,30,16,1
+Summer 2014,female,18-22,lessmeat4,P,3,1,10,12,8,14,10, , ,3,5,1,10,7,lost the booklet, ,also answered call,7,7,7,4,3,28,54,26,1
+summer 2014,female,30 or above,comb4,O,4,1,0,0,0,0,0, , , , , , , , , , , , , , , , ,0, , 
+summer 2014,female,23-29,comb4,O,4,1,4,6,3,0,0, , , , , , , , , , , , , , , , ,13, , 
+summer 2014,male,23-29,comb4,O,4,1,3,3,1,1,0, , , , , , , , , , , , , , , , ,8, , 
+summer 2014,female,18-22,comb4,O,4,1,2,3,1,4,0, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,male,23-29,comb4,O,4,1,6,6,2,4,0, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,female,23-29,comb4,O,4,1,1,3,2,1,1, , , , , , , , , , , , , , , , ,8, , 
+summer 2014,male,18-22,comb4,O,4,1,3,4,2,1,1, , , , , , , , , ,"email returned, call", , , , , , ,11, , 
+Summer 2014,female,18-22,comb4,O,4,1,7,5,2,1,1, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,comb4,O,4,1,7,5,4,10,1, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,female,18-22,comb4,O,4,1,7,5,3,14,1, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,18-22,comb4,O,4,1,7,5,3,14,1, , , , , , , , , , , , , , , , ,30, , 
+Summer 2014,male,23-29,comb4,O,4,1,10,5,3,2,1, , , , , , , , , , , , , , , , ,21, , 
+Summer 2014,female,23-29,comb4,O,4,1,10,1,2,7,1, , , , , , , , , ,"email returned, call", , , , , , ,21, , 
+summer 2014,male,13-17,comb4,O,4,1,10,10,0,10,10, , , , , , , , , , , , , , , , ,40, , 
+summer 2014,male,30 or above,comb4,O,4,1,0,0,0,2,10, , , , , , , , , , , , , , , , ,12, , 
+summer 2014,female,13-17,comb4,O,4,1,5,5,0,2,10, , , , , , , , , ,"email returned, CALL", , , , , , ,22, , 
+Summer 2014,female,30 or above,comb4,O,4,1,2,4,0,3,10, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,male,18-22,comb4,O,4,1,5,3,1,3,10, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,male,18-22,comb4,O,4,1,6,4,1,3,10, , , , , , , , , , , , , , , , ,24, , 
+Summer 2014,female,18-22,comb4,O,4,1,1,5,0,4,10, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,male,18-22,comb4,O,4,1,2,2,1,4,10, , , , , , , , , ,"email returned, call", , , , , , ,19, , 
+Summer 2014,male,18-22,comb4,O,4,1,15,15,4,4,10, , , , , , , , , , , , , , , , ,48, , 
+Summer 2014,female,18-22,comb4,O,4,1,0,6,0,5,10, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,male,23-29,comb4,O,4,1,4,10,1,5,10, , , , , , , , , ,"email returned, call", , , , , , ,30, , 
+summer 2014,male,18-22,comb4,O,4,1,15,7,1,5,10, , , , , , , , , , , , , , , , ,38, , 
+Summer 2014,male,18-22,comb4,O,4,1,4,10,2,9,10, , , , , , , , , , , , , , , , ,35, , 
+Summer 2014,female,18-22,comb4,O,4,1,0,9,0,14,11, , , , , , , , , ,returned email CALL, , , , , , ,34, , 
+summer 2014,female,23-29,comb4,O,4,1,2,4,2,7,11, , , , , , , , , ,"email bounced, CALL", , , , , , ,26, , 
+summer 2014,female,18-22,comb4,O,4,1,1,6,4,9,11, , , , , , , , , ,"email returned, CALL", , , , , , ,31, , 
+Summer 2014,male,18-22,comb4,O,4,1,14,6,4,10,12, , , , , , , , , , , , , , , , ,46, , 
+Summer 2014,female,23-29,comb4,O,4,1,12,12,12,12,12, , , , , , , , , , , , , , , , ,60, , 
+summer 2014,female,18-22,comb4,O,4,1,4,4,0,3,12, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,male,18-22,comb4,O,4,1,9,6,1,4,12, , , , , , , , , , , , , , , , ,32, , 
+summer 2014,male,18-22,comb4,O,4,1,15,8,12,15,13, , , , , , , , , , , , , , , , ,63, , 
+summer 2014,male,23-29,comb4,O,4,1,5,3,7,6,13, , , , , , , , , , , , , , , , ,34, , 
+Summer 2014,female,18-22,comb4,O,4,1,2,13,0,8,13, , , , , , , , , , , , , , , , ,36, , 
+Summer 2014,female,18-22,comb4,O,4,1,6,3,1,1,14, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,male,13-17,comb4,O,4,1,10,5,3,1,14, , , , , , , , , ,"email returned, call", , , , , , ,33, , 
+summer 2014,male,18-22,comb4,O,4,1,5,10,0,0,15, , , , , , , , , , , , , , , , ,30, , 
+Summer 2014,female,18-22,comb4,O,4,1,1,3,0,0,15, , , , , , , , , ,"email returned, call", , , , , , ,19, , 
+Summer 2014,female,18-22,comb4,O,4,1,3,5,0,0,15, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,male,18-22,comb4,O,4,1,15,10, ,10,15, , , , , , , , , ,"email bounced, CALL", , , , , , , , , 
+Summer 2014,male,18-22,comb4,O,4,1,6,12,2,10,15, , , , , , , , , , , , , , , , ,45, , 
+Summer 2014,male,23-29,comb4,O,4,1,7,9,3,2,15, , , , , , , , , ,don't contact, , , , , , ,36, , 
+Summer 2014,male,23-29,comb4,O,4,1,4,4,6,2,15, , , , , , , , , , , , , , , , ,31, , 
+Summer 2014,female,18-22,comb4,O,4,1,2,7,0,4,15, , , , , , , , , , , , , , , , ,28, , 
+Summer 2014,male,18-22,comb4,O,4,1,5,5,3,8,15, , , , , , , , , , , , , , , , ,36, , 
+Summer 2014,female,18-22,comb4,O,4,1,15,13,5,9,15, , , , , , , , , ,"email returned, call", , , , , , ,57, , 
+Summer 2014,female,23-29,comb4,O,4,1,2,6,5,0,2, , , , , , , , , , , , , , , , ,15, , 
+Summer 2014,female,23-29,comb4,O,4,1,0,7,1,1,2, , , , , , , , , , , , , , , , ,11, , 
+summer 2014,female,23-29,comb4,O,4,1,6,4,2,13,2, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,female,18-22,comb4,O,4,1,1,3,0,2,2, , , , , , , , , , , , , , , , ,8, , 
+summer 2014,male,18-22,comb4,O,4,1,10,7,4,3,2, , , , , , , , , , , , , , , , ,26, , 
+summer 2014,male,23-29,comb4,O,4,1,5,9,2,6,2, , , , , , , , , ,"email doesn't work, call", , , , , , ,24, , 
+Summer 2014,female,18-22,comb4,O,4,1,1,5,5,7,2, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,female,18-22,comb4,O,4,1,0,6,12,1,3, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,male,18-22,comb4,O,4,1,15,5,3,13,3, , , , , , , , , , , , , , , , ,39, , 
+summer 2014,female,18-22,comb4,O,4,1,5,15,5,2,3, , , , , , , , , , , , , , , , ,30, , 
+Summer 2014,female,23-29,comb4,O,4,1,10,5,3,3,3, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,female,23-29,comb4,O,4,1,6,6,0,4,3, , , , , , , , , , , , , , , , ,19, , 
+Summer 2014,female,18-22,comb4,O,4,1,15,0,3,4,3, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,female,18-22,comb4,O,4,1,6,6,2,6,3, , , , , , , , , ,"email returned, call", , , , , , ,23, , 
+summer 2014,female,13-17,comb4,O,4,1,2,6,1,1,4, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,18-22,comb4,O,4,1,3,5,2,1,4, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,23-29,comb4,O,4,1,0,0,0,2,4, , , , , , , , , , , , , , , , ,6, , 
+summer 2014,male,23-29,comb4,O,4,1,2,2,3,2,4, , , , , , , , , ,"email returned, call", , , , , , ,13, , 
+Summer 2014,female,18-22,comb4,O,4,1,2,5,0,3,4, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,18-22,comb4,O,4,1,2,2,4,3,4, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,male,23-29,comb4,O,4,1,3,4,0,5,4, , , , , , , , , , , , , , , , ,16, , 
+Summer 2014,male,23-29,comb4,O,4,1,4,4,1,5,4, , , , , , , , , ,"email doesn't work, call", , , , , , ,18, , 
+summer 2014,female,23-29,comb4,O,4,1,0,4,3,5,4, , , , , , , , , , , , , , , , ,16, , 
+Summer 2014,female,18-22,comb4,O,4,1,0,5,0,0,5, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,female,23-29,comb4,O,4,1,2,4,1,1,5, , , , , , , , , , , , , , , , ,13, , 
+summer 2014,male,18-22,comb4,O,4,1,6,8,4,1,5, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,female,18-22,comb4,O,4,1,0,5,0,2,5, , , , , , , , , , , , , , , , ,12, , 
+summer 2014,male,18-22,comb4,O,4,1,4,4,1,2,5, , , , , , , , , ,"email bounced, call", , , , , , ,16, , 
+summer 2014,female,23-29,comb4,O,4,1,4,3,1,3,5, , , , , , , , , , , , , , , , ,16, , 
+Summer 2014,male,18-22,comb4,O,4,1,3,3,2,4,5, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,female,18-22,comb4,O,4,1,6,4,2,4,5, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,female,13-17,comb4,O,4,1,2,4,1,5,5, , , , , , , , , ,"email bounced, CALL", , , , , , ,17, , 
+Summer 2014,female,18-22,comb4,O,4,1,2,8,3,5,5, , , , , , , , , , , , , , , , ,23, , 
+Summer 2014,male,13-17,comb4,O,4,1,5,14,5,5,5, , , , , , , , , , , , , , , , ,34, , 
+summer 2014,male,18-22,comb4,O,4,1,5,10,3,6,5, , , , , , , , , , , , , , , , ,29, , 
+summer 2014,male,18-22,comb4,O,4,1,3,3,4,1,6, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,female,18-22,comb4,O,4,1,0,5,0,2,6, , , , , , , , , , , , , , , , ,13, , 
+summer 2014,female,23-29,comb4,O,4,1,10,2,2,3,6, , , , , , , , , , , , , , , , ,23, , 
+ ,male,18-22,comb4,O,4,1,4,10,0,4,6, , , , , , , , , ,"email returned, CALL", , , , , , ,24, , 
+summer 2014,male,18-22,comb4,O,4,1,7,3,2,4,6, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,female,18-22,comb4,O,4,1,0,5,0,5,6, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,comb4,O,4,1,4,5,3,5,6, , , , , , , , , ,"email returned, call", , , , , , ,23, , 
+Summer 2014,male,18-22,comb4,O,4,1,10,9,7,6,6, , , , , , , , , , , , , , , , ,38, , 
+summer 2014,male,18-22,comb4,O,4,1,9,6,3,7,6, , , , , , , , , ,"email returned, call", , , , , , ,31, , 
+Summer 2014,female,18-22,comb4,O,4,1,1,5,5,2,7, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,female,23-29,comb4,O,4,1,4,1,0,3,7, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,comb4,O,4,1, ,7,0,3,7, , , , , , , , , , , , , , , , , , , 
+Summer 2014,male,18-22,comb4,O,4,1,11,11,11,3,7, , , , , , , , , ,"email doesn't work, CALL", , , , , , ,43, , 
+summer 2014,female,18-22,comb4,O,4,1,6,3,2,4,7, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,male,18-22,comb4,O,4,1,5,3,6,4,7, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,male,30 or above,comb4,O,4,1,0,0,0,5,7, , , , , , , , , , , , , , , , ,12, , 
+summer 2014,male,23-29,comb4,O,4,1,4,10,1,5,7, , , , , , , , , , , , , , , , ,27, , 
+Summer 2014,female,23-29,comb4,O,4,1,3,3,3,5,7, , , , , , , , , , , , , , , , ,21, , 
+Summer 2014,female,18-22,comb4,O,4,1,2,4,0,6,7, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,male,18-22,comb4,O,4,1,3,2,1,6,7, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,male,23-29,comb4,O,4,1,10,6,3,8,7, , , , , , , , , , , , , , , , ,34, , 
+Summer 2014,female,30 or above,comb4,O,4,1,0,6,3,1,8, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,female,18-22,comb4,O,4,1,6,10,2,10,8, , , , , , , , , ,"email bounced, CALL", , , , , , ,36, , 
+Summer 2014,female,18-22,comb4,O,4,1,2,5,1,4,8, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,male,30 or above,comb4,O,4,1,3,6,4,2,9, , , , , , , , , ,"email bounced, CALL", , , , , , ,24, , 
+Summer 2014,female,18-22,comb4,O,4,1,10,10,7,5,9, , , , , , , , , ,"email returned, call", , , , , , ,41, , 
+Summer 2014,male,18-22,comb4,O,4,1,6,12,0,6,9, , , , , , , , , , , , , , , , ,33, , 
+Summer 2014,male,18-22,comb4,O,4,1,10,15,4,6,9, , , , , , , , , , , , , , , , ,44, , 
+summer 2014,male,18-22,comb4,O,4,1, ,11,2,8,10, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,Male,23-29,comb4,O,4,1,7,5,99,99,99, , , , , , , , , , , , , , , , , , , 
+Summer 2014,male,18-22,comb4,O,4,1,2,3,1,5,8, , ,15,6,1,15,15, , , ,-13,-3,0,-10,-7,-33,19,52,1
+Summer 2014,male,18-22,comb4,O,4,1,0,2,0,1,2, , ,9,3,0,1,5, , ,returned email CALL,-9,-1,0,0,-3,-13,5,18,1
+Summer 2014,male,23-29,comb4,O,4,1,0,1,0,3,3, , ,5,2,0,2,7, , ,"email bounced, CALL",-5,-1,0,1,-4,-9,7,16,1
+summer 2014,female,18-22,comb4,O,4,1,1,1,0,0,1, , ,5,10,3,7,9, , , ,-4,-9,-3,-7,-8,-31,3,34,1
+Summer 2014,female,30 or above,comb4,O,4,1,2,8,0,3,5, , ,5,10,0,5,6, , , ,-3,-2,0,-2,-1,-8,18,26,1
+Summer 2014,male,30 or above,comb4,O,4,1,0,10,5,0,0, , ,3,12,2,0,2, , , ,-3,-2,3,0,-2,-4,15,19,1
+summer 2014,female,18-22,comb4,O,4,1,2,10,5,5,1, , ,5,7,8,5,0,, , ,-3,3,-3,0,1,-2,23,25,1
+Summer 2014,female,18-22,comb4,O,4,1,7,5,2,1,15, , ,10,4,1,0,15, , , ,-3,1,1,1,0,0,30,30,1
+summer 2014,female,13-17,comb4,O,4,1,3,3,4,2,4, , ,5,7,10,6,9, , , ,-2,-4,-6,-4,-5,-21,16,37,1
+Summer 2014,female,23-29,comb4,O,4,1,2,5,5,2,2, , ,4,7,15,2,1, , , ,-2,-2,-10,0,1,-13,16,29,1
+summer 2014,male,18-22,comb4,O,4,1,3,5,0,7,0, , ,5,8,0,7,7, , , ,-2,-3,0,0,-7,-12,15,27,1
+Summer 2014,female,30 or above,comb4,O,4,1,3,3,3,8,7, , ,5,4,9,5,8, , , ,-2,-1,-6,3,-1,-7,24,31,1
+summer 2014,male,30 above,comb4,O,4,1,5,1,4,5,4, , ,7,4,1,5,7,no, ,"email returned, call",-2,-3,3,0,-3,-5,19,24,1
+Summer 2014,male,23-29,comb4,O,4,1,1,4,2,2,6, , ,3,5,2,2,7, , , ,-2,-1,0,0,-1,-4,15,19,1
+Summer 2014,female,18-22,comb4,O,4,1,1,7,0,4,13, , ,3,7,0,5,10, , , ,-2,0,0,-1,3,0,25,25,1
+Summer 2014,female,18-22,comb4,O,4,1,3,9,0,7,9, , ,5,14,0,0,0, , ,"My meals vary week to week but I will be as honest as possible. I recently had to change my diet due to medical issues and no longer can consume dairy, eggs, or fish.",-2,-5,0,7,9,9,28,19,1
+summer 2014,female,23-29,comb4,O,4,1,1,4,0,2,8, , ,2,10,0,3,10, , , ,-1,-6,0,-1,-2,-10,15,25,1
+summer 2014,female,13-17,comb4,O,4,1,4,5,2,4,5, , ,5,4,4,7,6, , , ,-1,1,-2,-3,-1,-6,20,26,1
+Summer 2014,female,23-29,comb4,O,4,1,0,5,1,2,0, , ,1,7,2,2,0, , , ,-1,-2,-1,0,0,-4,8,12,1
+Summer 2014,female,18-22,comb4,O,4,1,2,3,1,1,0, , ,3,3,2,2,1, , , ,-1,0,-1,-1,-1,-4,7,11,1
+summer 2014,female,23-29,comb4,O,4,1,0,2,0,2,10, , ,1,2,1,7,7, , , ,-1,0,-1,-5,3,-4,14,18,1
+summer 2014,female,13-17,comb4,O,4,1,2,6,1,1,4, , ,3,7,2,1,2, , , ,-1,-1,-1,0,2,-1,14,15,1
+Summer 2014,female,18-22,comb4,O,4,1,1,10,0,3,5, , ,2,8,1,4,4, , , ,-1,2,-1,-1,1,0,19,19,1
+summer 2014,female,18-22,comb4,O,4,1,0,0,1,11,3, , ,1,1,1,3,5, , , ,-1,-1,0,8,-2,4,15,11,1
+summer 2014,male,18-22,comb4,O,4,1,2,14,0,10,5, , ,3,9,0,3,11, , , ,-1,5,0,7,-6,5,31,26,1
+summer 2014,male,13-17,comb4,O,4,1,1,2,0,10,10, , ,2,4,0,5,6, , , ,-1,-2,0,5,4,6,23,17,1
+summer 2014,male, ,comb4,O,4,1,9,6,3,7,6, , ,10,2,0,5,5,no, , ,-1,4,3,2,1,9,31,22,1
+Summer 2014,female,23-29,comb4,O,4,1,0,2,3,10,10, , ,1,3,4,4,3, , , ,-1,-1,-1,6,7,10,25,15,1
+Summer 2014,female,18-22,comb4,O,4,1,1,10,4,1,10, , ,2,6,2,1,0, , , ,-1,4,2,0,10,15,26,11,1
+Summer 2014,male,18-22,comb4,O,4,1,9,13,7,12,15, , ,10,10,2,5,5, , , ,-1,3,5,7,10,24,56,32,1
+summer 2014,female,13-17,comb4,O,4,1,2,7,0,0,2, , ,2,3,0,0,15, , , ,0,4,0,0,-13,-9,11,20,1
+Summer 2014,male,23-29,comb4,O,4,1,2,1,1,1,6, , ,2,2,1,2,12,Yes I remember the survey!, , ,0,-1,0,-1,-6,-8,11,19,1
+summer 2014,female,18-22,comb4,O,4,1,0,0,0,0,10, , ,0,0,0,0,15, , , ,0,0,0,0,-5,-5,10,15,1
+summer 2014,female,18-22,comb4,O,4,1,0,0,2,2,4, , ,0,1,2,3,7,no, , ,0,-1,0,-1,-3,-5,8,13,1
+summer 2014,male,18-22,comb4,O,4,1,15,15,8,15,8, , ,15,15,10,15,8, ,no, ,0,0,-2,0,0,-2,61,63,1
+Summer 2014,female,18-22,comb4,O,4,1,0,0,3,2,0, , ,0,0,4,2,0, , , ,0,0,-1,0,0,-1,5,6,1
+summer 2014,female,13-17,comb4,O,4,1,3,6,1,3,15, , ,3,3,1,7,15, , , ,0,3,0,-4,0,-1,28,29,1
+Summer 2014,male,23-29,comb4,O,4,1,0,0,0,0,1, , ,0,0,0,0,1,doesnt remember anything/wants us on his television show?, ,"name entered incorrectly as ALEXANDRA, actually Alex. CALL",0,0,0,0,0,0,1,1,1
+summer 2014,female,18-22,comb4,O,4,1,0,0,3,7,9, , ,0,0,2,4,13, , , ,0,0,1,3,-4,0,19,19,1
+summer 2014,female,30 or above,comb4,O,4,1,1,1,3,3,3, , ,1,2,2,3,3, , , ,0,-1,1,0,0,0,11,11,1
+Summer 2014,male,23-29,comb4,O,4,1,0,0,0,7,7, , ,0,0,0,7,7, , , ,0,0,0,0,0,0,14,14,1
+Summer 2014,male,23-29,comb4,O,4,1,2,7,1,2,8, , ,2,5,1,4,8, , ,Note: Muslims don't eat pork. No problem. I respect the scientific research and always will be happy to support.,0,2,0,-2,0,0,20,20,1
+summer 2014,female,18-22,comb4,O,4,1,0,0,0,0,8, , ,0,0,0,0,7,is a vegetarian, ,"email bounced, call",0,0,0,0,1,1,8,7,1
+Summer 2014,female,18-22,comb4,O,4,1,7,9,2,7,4, , ,7,5,2,7,7, , , ,0,4,0,0,-3,1,29,28,1
+Summer 2014,female,18-22,comb4,O,4,1,0,0,0,5,5, , ,0,0,0,3,5, , , ,0,0,0,2,0,2,10,8,1
+summer 2014,female,18-22,comb4,O,4,1,1,3,1,2,15, , ,1,4,1,1,12, , , ,0,-1,0,1,3,3,22,19,1
+summer 2014,female,18-22,comb4,O,4,1,0,0,0,1,7, , ,0,0,0,1,4, , , ,0,0,0,0,3,3,8,5,1
+summer 2014,female,18-22,comb4,O,4,1,5,2,6,10,4, , ,5,1,7,6,5, , , ,0,1,-1,4,-1,3,27,24,1
+summer 2014,female,23-29,comb4,O,4,1,2,12,5,1,10, , ,2,5,10,8,1, , , ,0,7,-5,-7,9,4,30,26,1
+Summer 2014,female,30 or above,comb4,O,4,1,4,7,1,3,15, , ,4,8,0,3,10, , , ,0,-1,1,0,5,5,30,25,1
+summer 2014,female,18-22,comb4,O,4,1,1,1,0,5,15, , ,1,1,0,5,10, , , ,0,0,0,0,5,5,22,17,1
+summer 2014,male,18-22,comb4,O,4,1,2,7,0,1,10, , ,2,2,0,1,7, , , ,0,5,0,0,3,8,20,12,1
+summer 2014,female,23-29,comb4,O,4,1,0,10,14,12,4, , ,0,5,7,7,7, , , ,0,5,7,5,-3,14,40,26,1
+summer 2014,female,18-22,comb4,O,4,1,3,3,9,10,15, , ,3,3,1,3,10, , , ,0,0,8,7,5,20,40,20,1
+summer 2014,female,18-22,comb4,O,4,1,3,2,1,1,3, , ,2,5,0,5,7,,no,"email bounced, CALL",1,-3,1,-4,-4,-9,10,19,1
+Summer 2014,female,18-22,comb4,O,4,1,8,7,0,4,6, , ,7,10,1,5,9, , , ,1,-3,-1,-1,-3,-7,25,32,1
+summer 2014,male,23-29,comb4,O,4,1,3,2,1,0,3, , ,2,1,1,0,7, , , ,1,1,0,0,-4,-2,9,11,1
+Summer 2014,female,30 or above,comb4,O,4,1,3,3,1,1,2, , ,2,5,0,1,3, , , ,1,-2,1,0,-1,-1,10,11,1
+Summer 2014,female,18-22,comb4,O,4,1,3,2,0,2,5, , ,2,3,1,2,5, , , ,1,-1,-1,0,0,-1,12,13,1
+Summer 2014,female,18-22,comb4,O,4,1,2,3,1,1,10, , ,1,5,2,3,6,no, ,"email returned, call",1,-2,-1,-2,4,0,17,17,1
+Summer 2014,male,18-22,comb4,O,4,1,4,2,2,4,4, , ,3,1,3,4,4, , ,"email bounced, call",1,1,-1,0,0,1,16,15,1
+Summer 2014,male,13-17,comb4,O,4,1,5,7,0,4,11, , ,4,4,1,4,10, , ,"email bounced, call",1,3,-1,0,1,4,27,23,1
+Summer 2014,female,23-29,comb4,O,4,1,3,4,7,8,9, , ,2,3,6,8,8, , , ,1,1,1,0,1,4,31,27,1
+summer 2014,other,18-22,comb4,O,4,1,1,8,13,0,15, , ,0,7,0,7,10, , , ,1,1,13,-7,5,13,37,24,1
+summer 2014,female,18-22,comb4,O,4,1,3,9,3,3,12, , ,1,5,1,4,14,lack of citations for facts,no, ,2,4,2,-1,-2,5,30,25,1
+summer 2014,female,13-17,comb4,O,4,1,8,7,5,0,0, , ,6,6,2,0,0, , , ,2,1,3,0,0,6,20,14,1
+summer 2014,male,18-22,comb4,O,4,1,4,8,2,3,10, , ,2,5,1,2,9, , ,"email doesn't work, call",2,3,1,1,1,8,27,19,1
+Summer 2014,male,18-22,comb4,O,4,1,5,9,1,7,11, , ,3,10,1,7,3,don't remember, , ,2,-1,0,0,8,9,33,24,1
+Summer 2014,male,18-22,comb4,O,4,1,5,4,4,5,3, , ,3,1,1,3,2, , , ,2,3,3,2,1,11,21,10,1
+summer 2014,male,18-22,comb4,O,4,1,5,5,1,7,3, , ,2,8,1,10,8,no, , ,3,-3,0,-3,-5,-8,21,29,1
+summer 2014,female,23-29,comb4,O,4,1,4,6,1,1,3, , ,1,7,1,2,5, , , ,3,-1,0,-1,-2,-1,15,16,1
+Summer 2014,female,18-22,comb4,O,4,1,8,4,4,13,5, , ,5,4,10,8,4, , , ,3,0,-6,5,1,3,34,31,1
+summer 2014,male,18-22,comb4,O,4,1,3,3,1,2,9, , ,0,0,0,5,5, , , ,3,3,1,-3,4,8,18,10,1
+Summer 2014,male,13-17,comb4,O,4,1,13,15,3,5,15, , ,10,10,4,5,10, , , ,3,5,-1,0,5,12,51,39,1
+summer 2014,male,18-22,comb4,O,4,1,3,3,1,2,9, , ,0,0,0,3,3,"remembers it was about animal treatment, did not go vegetarian from it but went vegetarian for similar reasons", ,"email doesn't work, call",3,3,1,-1,6,12,18,6,1
+summer 2014,male,18-22,comb4,O,4,1,7,10,2,5,4, , ,4,5,0,3,4, ,no, ,3,5,2,2,0,12,28,16,1
+summer 2014,male,18-22,comb4,O,4,1,8,6,2,7,10, , ,5,4,0,5,7, , , ,3,2,2,2,3,12,33,21,1
+Summer 2014,male,18-22,comb4,O,4,1,12,10,1,4,2, , ,8,5,1,2,3, , , ,4,5,0,2,-1,10,29,19,1
+Summer 2014,male,13-17,comb4,O,4,1,8,8,2,4,5, , ,3,4,0,2,6, , , ,5,4,2,2,-1,12,27,15,1
+summer 2014,male,18-22,comb4,O,4,1,15,10,10,15,15, , ,10,10,10,10,10, , , ,5,0,0,5,5,15,65,50,1
+Summer 2014,male,18-22,comb4,O,4,1,9,3,0,8,15, , ,2,6,1,5,7, , ,"email returned, call",7,-3,-1,3,8,14,35,21,1
+Summer 2014,male,18-22,comb4,O,4,1,10,7,3,5,3, , ,2,1,1,2,1, , , ,8,6,2,3,2,21,28,7,1
+Summer 2014,male,18-22,comb4,O,4,1,9,15, ,12,13, , ,0,8,5,3,10, , ,"email returned, call",9,7, ,9,3, , ,26,1
+summer 2014,male,18-22,comb4,O,4,1,10,10,5,10,10, , ,1,10,3,5,2, , ,"email doesn't work, call",9,0,2,5,8,24,45,21,1
+summer 2014,female,23-29,vegan8,N,1,2,0,0,0,0,0, , , , , , , , , , , , , , , , ,0, , 
+Winter 2014,male,23-29,vegan8,N,1,2,1,0,0,1,0, , , , , , , , , ,"email returned, call", , , , , , ,2, , 
+Winter 2014,male,18-22,vegan8,N,1,2,0,2,2,1,0, , , , , , , , , ,"email returned, call", , , , , , ,5, , 
+Winter 2014,Female,23-29,vegan8,N,1,2,5,15,0,14,0, , , , , , , , , , , , , , , , ,34, , 
+Winter 2014,male,30 or above,vegan8,N,1,2,4,3,1,2,0, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,male,23-29,vegan8,N,1,2,0,12,1,6,0, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,female,30 or above,vegan8,N,1,2,5,3,3,7,0, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,male,23-29,vegan8,N,1,2,10,10,5,5,1, , , , , , , , , , , , , , , , ,31, , 
+Winter 2014,female,18-22,vegan8,N,1,2,1,4,5,10,10, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,23-29,vegan8,N,1,2,12,8,5,10,10, , , , , , , , , , , , , , , , ,45, , 
+summer 2014,female,30 or above,vegan8,N,1,2,3,3,1,2,10, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014,female,18-22,vegan8,N,1,2,12,4,1,3,10, , , , , , , , , , , , , , , , ,30, , 
+Winter 2014,female,23-29,vegan8,N,1,2,3,5,3,3,10, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,male,18-22,vegan8,N,1,2,7,9,4,5,10, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,female,18-22,vegan8,N,1,2,0,6,0,1,11, , , , , , , , , , , , , , , , ,18, , 
+summer 2014,female,18-22,vegan8,N,1,2,0,0,0,2,11, , , , , , , , , ,"email returned, CALL", , , , , , ,13, , 
+Winter 2014,Female,18-22,vegan8,N,1,2,10,12,0,8,11, , , , , , , , , , , , , , , , ,41, , 
+Winter 2014,female,18-22,vegan8,N,1,2,3,3,0,12,12, , , , , , , , , , , , , , , , ,30, , 
+Winter 2014,male,18-22,vegan8,N,1,2,8,8,4,12,12, , , , , , , , , , , , , , , , ,44, , 
+Summer 2014,Female,18-22,vegan8,N,1,2,7,12,3,7,12, , , , , , , , , ,"email returned, call", , , , , , ,41, , 
+Winter 2014,male,18-22,vegan8,N,1,2,10,3,2,3,13, , , , , , , , , , , , , , , , ,31, , 
+Winter 2014,male,18-22,vegan8,N,1,2,10,8,3,99,15, , , , , , , , , , , , , , , , , , , 
+Winter 2014,female,18-22,vegan8,N,1,2,0,7,2,1,15, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,female,23-29,vegan8,N,1,2,2,2,3,10,15, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,female,18-22,vegan8,N,1,2,7,4,9,10,15, , , , , , , , , , , , , , , , ,45, , 
+Winter 2014,female,23-29,vegan8,N,1,2,4,14,10,15,15, , , , , , , , , , , , , , , , ,58, , 
+Winter 2014,Female,18-22,vegan8,N,1,2,6,10,0,4,15, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,Female,18-22,vegan8,N,1,2,0,1,0,0,2, , , , , , , , , , , , , , , , ,3, , 
+Winter 2014,male,18-22,vegan8,N,1,2,5,7,0,0,2, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,female,13-17,vegan8,N,1,2,1,2,1,2,2, , , , , , , , , , , , , , , , ,8, , 
+Summer 2014,male,13-17,vegan8,N,1,2,5,7,0,0,3, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,female,13-17,vegan8,N,1,2,1,2,0,1,3, , , , , , , , , , , , , , , , ,7, , 
+Winter 2014,female,13-17,vegan8,N,1,2,1,2,1,1,3, , , , , , , , , , , , , , , , ,8, , 
+summer 2014,male,30 or above,vegan8,N,1,2,3,7,1,2,3, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,vegan8,N,1,2,0,2,4,4,3, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,female,18-22,vegan8,N,1,2,5,8,4,5,3, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,female,23-29,vegan8,N,1,2,3,2,5,5,3, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,female,18-22,vegan8,N,1,2,2,7,1,7,3, , , , , , , , , , , , , , , , ,20, , 
+Winter 2014,female,18-22,vegan8,N,1,2,1,3,0,0,4, , , , , , , , , ,"email returned, call", , , , , , ,8, , 
+Winter 2014,Male,18-22,vegan8,N,1,2,1,3,0,1,4, , , , , , , , , ,"email returned, call", , , , , , ,9, , 
+Winter 2014,male,18-22,vegan8,N,1,2,2,10,0,2,4, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,female,30 or above,vegan8,N,1,2,10,4,0,4,4, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Female,18-22,vegan8,N,1,2,4,5,4,4,4, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,female,30 or above,vegan8,N,1,2,3,4,3,5,4, , , , , , , , , , , , , , , , ,19, , 
+Spring 2014,female,18-22,vegan8,N,1,2,1,1,6,8,4, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,Female,18-22,vegan8,N,1,2,0,3,0,0,5, , , , , , , , , , , , , , , , ,8, , 
+Summer 2014,female,23-29,vegan8,N,1,2,2,10,0,2,5, , , , , , , , , ,"email bounced, CALL", , , , , , ,19, , 
+summer 2014,female,30 or above,vegan8,N,1,2,1,5,3,2,5, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,male,18-22,vegan8,N,1,2,2,15,0,3,5, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,male,30 or above,vegan8,N,1,2,5,7,5,3,5, , , , , , , , , ,"email returned, call", , , , , , ,25, , 
+Winter 2014,female,23-29,vegan8,N,1,2,0,0,0,5,5, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,female,23-29,vegan8,N,1,2,3,3,1,5,5, , , , , , , , , ,"email doesn't work, call", , , , , , ,17, , 
+Winter 2014,male,18-22,vegan8,N,1,2,5,6,2,6,5, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,male,18-22,vegan8,N,1,2,0,10,0,7,5, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,female,18-22,vegan8,N,1,2,7,4,3,7,5, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,male,18-22,vegan8,N,1,2,1,5,1,0,6, , , , , , , , , , , , , , , , ,13, , 
+summer 2014,female,30 or above,vegan8,N,1,2,4,2,2,2,6, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,male,23-27,vegan8,N,1,2,4,4,0,0,7, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,male,18-22,vegan8,N,1,2,7,11,7,0,7, , , , , , , , , , , , , , , , ,32, , 
+summer 2014,female,23-29,vegan8,N,1,2,0,4,5,1,7, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,23-29,vegan8,N,1,2,15,5,2,10,7, , , , , , , , , , , , , , , , ,39, , 
+Winter 2014,male,18-22,vegan8,N,1,2,10,7,1,2,7, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,male,23-29,vegan8,N,1,2,4,7,0,4,7, , , , , , , , , ,"email bounced, CALL", , , , , , ,22, , 
+Winter 2014,female,18-22,vegan8,N,1,2,3,10,5,4,7, , , , , , , , , , , , , , , , ,29, , 
+summer 2014,female,23-29,vegan8,N,1,2,4,5,1,5,7, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,female,18-22,vegan8,N,1,2,14,10,3,5,7, , , , , , , , , ,"email returned, call", , , , , , ,39, , 
+Winter 2014,female,18-22,vegan8,N,1,2,0,5,3,6,7, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,male,30 or above,vegan8,N,1,2,6,7,7,7,7, , , , , , , , , , , , , , , , ,34, , 
+summer 2014,female,30 or above,vegan8,N,1,2,7,7,7,7,7, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,male,18-22,vegan8,N,1,2,8,10,4,8,7, , , , , , , , , , , , , , , , ,37, , 
+Summer 2014,Female,23-29,vegan8,N,1,2,0,4,3,2,8, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+Winter 2014,female,18-22,vegan8,N,1,2,13,13,3,3,8, , , , , , , , , , , , , , , , ,40, , 
+summer 2014,female,18-22,vegan8,N,1,2,1,4,1,4,8, , , , , , , , , ,"email returned,call", , , , , , ,18, , 
+Winter 2014,female,18-22,vegan8,N,1,2,0,6,5,4,8, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,female,23-29,vegan8,N,1,2,10,4,2,8,8, , , , , , , , , ,"typo in email address, re-mail", , , , , , ,32, , 
+summer 2014,male,23-29,vegan8,N,1,2,3,8,2,8,8, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,male,18-22,vegan8,N,1,2,2,14,2,2,9, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,male,18-22,vegan8,N,1,2,2,5,2,2,10, , ,7,11,3,5,12,"nothing, too long ago",no, ,-5,-6,-1,-3,-2,-17,21,38,1
+Spring 2014,female,18-22,vegan8,N,1,2,5,4,3,5,5, , ,10,7,2,6,12,nothing, , ,-5,-3,1,-1,-7,-15,22,37,1
+Winter 2014,female,30 or above,vegan8,N,1,2,8,8,1,1,4, , ,12,8,3,3,3, , , ,-4,0,-2,-2,1,-7,22,29,1
+summer 2014,male,18-22,vegan8,N,1,2,4,4,1,4,7, , ,7,4,2,10,15, , , ,-3,0,-1,-6,-8,-18,20,38,1
+Winter 2014,female,30 or above,vegan8,N,1,2,2,12,2,5,2, , ,5,8,1,4,0, , , ,-3,4,1,1,2,5,23,18,1
+summer 2014,female,18-22,vegan8,N,1,2,1,6,3,7,7, , ,4,6,2,1,5, , , ,-3,0,1,6,2,6,24,18,1
+Winter 2014,Female,18-22,vegan8,N,1,2,3,7,1,2,5, , ,5,7,1,3,15, , , ,-2,0,0,-1,-10,-13,18,31,1
+summer 2014,male,23-29,vegan8,N,1,2,0,7,2,2,6, , ,2,7,1,1,4, , , ,-2,0,1,1,2,2,17,15,1
+Winter 2014,female,18-22,vegan8,N,1,2,4,5,1,3,8, , ,6,3,4,2,4,nothing, , ,-2,2,-3,1,4,2,21,19,1
+Winter 2014,Female,18-22,vegan8,N,1,2,2,4,0,1,7, , ,3,6,2,0,10, , , ,-1,-2,-2,1,-3,-7,14,21,1
+Winter 2014,female,23-29,vegan8,N,1,2,2,7,1,1,0, , ,3,8,1,2,0, , , ,-1,-1,0,-1,0,-3,11,14,1
+Winter 2014,Female,18-22,vegan8,N,1,2,2,3,0,0,1, , ,3,4,0,0,0, , , ,-1,-1,0,0,1,-1,6,7,1
+Winter 2014,male,18-22,vegan8,N,1,2,0,12,5,4,3, , ,1,9,2,11,0, , , ,-1,3,3,-7,3,1,24,23,1
+Winter 2014,female,18-22,vegan8,N,1,2,0,15,10,8,3, , ,1,15,7,7,5, , , ,-1,0,3,1,-2,1,36,35,1
+Winter 2014,male,30 or above,vegan8,N,1,2,7,7,10,5,3, , ,8,4,5,6,5, , , ,-1,3,5,-1,-2,4,32,28,1
+Winter 2014,female,18-22,vegan8,N,1,2,0,2,0,7,15, , ,0,99,0,99,99, , , ,0, ,0, , , ,24, ,1
+Winter 2014,female,23-29,vegan8,N,1,2,1,4,1,2,3, , ,1,5,3,10,7, , , ,0,-1,-2,-8,-4,-15,11,26,1
+summer 2014,female,30 or above,vegan8,N,1,2,1,3,1,3,6, , ,1,3,0,2,15, , ,"email returned, call",0,0,1,1,-9,-7,14,21,1
+summer 2014,male,23-29,vegan8,N,1,2,0,7,1,0,3, , ,0,8,1,3,5, , , ,0,-1,0,-3,-2,-6,11,17,1
+Winter 2014,female,18-22,vegan8,N,1,2,0,5,2,6,9, , ,0,5,7,5,10, , , ,0,0,-5,1,-1,-5,22,27,1
+Winter 2014,female,18-22,vegan8,N,1,2,10,8,0,3,15, , ,10,12,2,6,10,about animals and processes,no, ,0,-4,-2,-3,5,-4,36,40,1
+Winter 2014,Male,30 or above,vegan8,N,1,2,1,4,2,1,4, , ,1,2,2,1,6, , , ,0,2,0,0,-2,0,12,12,1
+Winter 2014,female,18-22,vegan8,N,1,2,0,5,0,8,12, , ,0,6,0,3,9, , ,I am not sure if this makes a difference but my answers have changed due to the fact that I have moved home for the summer and am no longer forced to be on a meal plan like I was at school.. Also all of the animal products that I consume are responsibly and locally raised while I am at home / buying groceries for myself.,0,-1,0,5,3,7,25,18,1
+summer 2014,male,18-22,vegan8,N,1,2,0,6,0,6,15, , ,0,4,0,5,7, , , ,0,2,0,1,8,11,27,16,1
+Winter 2014,male,30 or above,vegan8,N,1,2,4,6,3,4,1, , ,3,9,3,4,6, , , ,1,-3,0,0,-5,-7,18,25,1
+Summer 2014,female,13-17,vegan8,N,1,2,4,2,4,3,1, , ,3,3,5,1,2, , , ,1,-1,-1,2,-1,0,14,14,1
+summer 2014,male,23-29,vegan8,N,1,2,4,7,3,7,7, , ,3,6,4,3,7, , , ,1,1,-1,4,0,5,28,23,1
+summer 2014,male,18-22,vegan8,N,1,2,11,11,0,6,8, , ,10,6,0,4,10,No, ,"email returned, call",1,5,0,2,-2,6,36,30,1
+summer 2014,female,18-22,vegan8,N,1,2,3,6,0,7,7, , ,1,2,0,8,9, , , ,2,4,0,-1,-2,3,23,20,1
+Winter 2014,male,18-22,vegan8,N,1,2,2,10,5,15,15, , ,0,7,3,7,7, , , ,2,3,2,8,8,23,47,24,1
+Winter 2014,other,18-22,vegan8,N,1,2,6,6,3,5,10, , ,3,8,5,7,99, , , ,3,-2,-2,-2, , ,30, ,1
+summer 2014,male,18-22,vegan8,N,1,2,4,4,1,2,2, , ,1,6,0,0,1, , , ,3,-2,1,2,1,5,13,8,1
+Winter 2014,male,18-22,vegan8,N,1,2,6,5,0,0,13, , ,3,7,0,1,8,nothing, , ,3,-2,0,-1,5,5,24,19,1
+Summer 2014,female,18-22,vegan8,N,1,2,5,6,4,4,10, , ,2,3,2,6,8,chickens in a cage, , ,3,3,2,-2,2,8,29,21,1
+Winter 2014,Male,18-22,vegan8,N,1,2,13,13,13,10,10, , ,10,5,2,7,7,"Remembered that there were helpful details about animals, but he could not recall any of the details", , ,3,8,11,3,3,28,59,31,1
+Winter 2014,female,18-22,vegan8,N,1,2,10,5,0,2,15, , ,5,3,0,2,11, , , ,5,2,0,0,4,11,32,21,1
+summer 2014,female,18-22,vegan8,N,1,2,10,10,10,10,10, , ,5,2,4,3,7, ,try to go vegan little by little; try to get more iron in my meals and other proteins, ,5,8,6,7,3,29,50,21,1
+summer 2014,male,18-22,vegan8,N,1,2,7,2,5,3,3, , ,1,5,7,1,6,its about not eating animals, , ,6,-3,-2,2,-3,0,20,20,1
+Winter 2014,other,18-22,vegan8,N,1,2,13,8,6,11,14, , ,5,11,7,5,14,remember being worried about the booklet because her sister was forced off her vegan diet by her doctor, , ,8,-3,-1,6,0,10,52,42,1
+Winter 2014,male,23-29,vegan8,N,1,2,10,5,1,5,4, , ,0,12,1,5,99, , , ,10,-7,0,0, , ,25, ,1
+Winter 2014,Male,23-29,vegan8,N,1,2,15,15,0,7,4, , ,3,8,1,5,4, , , ,12,7,-1,2,0,20,41,21,1
+Winter 2014,female,18-22,veget8,M,2,2,4,4, ,5,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,male,18-22,veget8,M,2,2,4,10,2,0,0, , , , , , , , , ,"email returned, call", , , , , , ,16, , 
+Winter 2014,male,18-22,veget8,M,2,2,1,5,4,0,0, , , , , , , , , , , , , , , , ,10, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,2,0,1,0, , , , , , , , , ,"email returned, call", , , , , , ,7, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,1,1,0, , , , , , , , , ,"email returned, call", , , , , , ,2, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,4,2,10,0, , , , , , , , , ,"email returned, call", , , , , , ,20, , 
+summer 2014,male,23-29,veget8,M,2,2,1,3,0,2,0, , , , , , , , , , , , , , , , ,6, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,2,2,0, , , , , , , , , , , , , , , , ,4, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,12,0,3,0, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,4,0,5,0, , , , , , , , , ,"email returned, calll", , , , , , ,9, , 
+summer 2014,female,18-22,veget8,M,2,2,9,2,6,6,0, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,Female,18-22,veget8,M,2,2,0,0,0,0,1, , , , , , , , , , , , , , , , ,1, , 
+Winter 2014,Female,18-22,veget8,M,2,2,3,4,0,0,1, , , , , , , , , , , , , , , , ,8, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,3,0,1,1, , , , , , , , , , , , , , , , ,7, , 
+Summer 2014,male,18-22,veget8,M,2,2,15,8,3,15,1, , , , , , , , , , , , , , , , ,42, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,6,0,2,1, , , , , , , , , ,"email returned, call", , , , , , ,11, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,2,1,3,1, , , , , , , , , , , , , , , , ,8, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,0,10, , , , , , , , , , , , , , , , ,10, , 
+Winter 2014,Female,13-17,veget8,M,2,2,0,0,0,10,10, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,female,18-22,veget8,M,2,2,10,10,1,10,10, , , , , , , , , , , , , , , , ,41, , 
+Winter 2014,male,18-22,veget8,M,2,2,10,10,10,10,10, , , , , , , , , ,"email returned, call", , , , , , ,50, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,8,12,11,10, , , , , , , , , , , , , , , , ,42, , 
+Winter 2014,male,18-22,veget8,M,2,2,3,3,3,15,10, , , , , , , , , , , , , , , , ,34, , 
+Winter 2014,Male,18-22,veget8,M,2,2,3,6,2,2,10, , , , , , , , , ,"email returned, call", , , , , , ,23, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,13,3,2,10, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+summer 2014,male,23-29,veget8,M,2,2,2,4,0,3,10, , , , , , , , , ,"email bounced, CALL", , , , , , ,19, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,8,0,3,10, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,13-17,veget8,M,2,2,5,5,1,3,10, , , , , , , , , ,"email returned, call", , , , , , ,24, , 
+Winter 2014,Female,18-22,veget8,M,2,2,1,6,1,3,10, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,male,30 or above,veget8,M,2,2,7,4,2,3,10, , , , , , , , , ,Asked us not to contact him again., , , , , , ,26, , 
+summer 2014,female,18-22,veget8,M,2,2,1,4, ,4,10, , , , , , , , , , , , , , , , , , , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,4,4,10, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,male,18-22,veget8,M,2,2,4,4,2,5,10, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,female,18-22,veget8,M,2,2,10,10, ,6,10, , , , , , , , , , , , , , , , , , , 
+Winter 2014,female,18-22,veget8,M,2,2,3,9,3,9,10, , , , , , , , , , , , , , , , ,34, , 
+Winter 2014,male,18-22,veget8,M,2,2,9,3,0,2,11, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,Female,18-22,veget8,M,2,2,0,5,2,4,11, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Female,18-22,veget8,M,2,2,0,5,2,4,11, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Male,18-22,veget8,M,2,2,5,6,4,7,11, , , , , , , , , , , , , , , , ,33, , 
+Winter 2014,female,23-29,veget8,M,2,2,1,6,3,10,12, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,7,0,8,12, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+Winter 2014,Male,18-22,veget8,M,2,2,10,10,8,8,12, , , , , , , , , , , , , , , , ,48, , 
+Winter 2014,Male,18-22,veget8,M,2,2,0,0,0,3,13, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,18-22,veget8,M,2,2,0,0,0,5,13, , , , , , , , , ,"email returned, call", , , , , , ,18, , 
+Winter 2014,Male,18-22,veget8,M,2,2,4,8,1,5,13, , , , , , , , , , , , , , , , ,31, , 
+summer 2014,male,18-22,veget8,M,2,2,5,11,3,9,13, , , , , , , , , ,"email returned, call", , , , , , ,41, , 
+Winter 2014,female,23-29,veget8,M,2,2,2,5,3,14,14, , , , , , , , , , , , , , , , ,38, , 
+Winter 2014,Female,18-22,veget8,M,2,2,5,10,6,4,14, , , , , , , , , ,"email returned, call", , , , , , ,39, , 
+Winter 2014,male,13-17,veget8,M,2,2,2,5,0,99,15, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Male,18-22,veget8,M,2,2,3,4,1,0,15, , , , , , , , , ,"email reurned, call", , , , , , ,23, , 
+summer 2014,female,18-22,veget8,M,2,2,0,7,4,0,15, , , , , , , , , ,"email returned, call", , , , , , ,26, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,5,0,1,15, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,1,12,15, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,Female,18-22,veget8,M,2,2,15,15,4,12,15, , , , , , , , , , , , , , , , ,61, , 
+summer 2014,female,18-22,veget8,M,2,2,3,8,12,13,15, , , , , , , , , , , , , , , , ,51, , 
+Winter 2014,Female,18-22,veget8,M,2,2,15,15,15,15,15, , , , , , , , , , , , , , , , ,75, , 
+Winter 2014,Female,18-22,veget8,M,2,2,9,5,0,2,15, , , , , , , , , ,"email returned, call", , , , , , ,31, , 
+Winter 2014,Female,18-22,veget8,M,2,2,0,2,1,2,15, , , , , , , , , ,"email reurned, call", , , , , , ,20, , 
+Winter 2014,Female,23-29,veget8,M,2,2,0,5,0,3,15, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,Male,13-17,veget8,M,2,2,3,6,1,3,15, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,Female,18-22,veget8,M,2,2,5,10,3,3,15, , , , , , , , , , , , , , , , ,36, , 
+ ,female,18-22,veget8,M,2,2,14,2,6,3,15, , , , , , , , , ,"email returned, call", , , , , , ,40, , 
+Winter 2014,Male,18-22,veget8,M,2,2,1,12,0,5,15, , , , , , , , , , , , , , , , ,33, , 
+summer 2014,female,18-22,veget8,M,2,2,4,3,0,5,15, , , , , , , , , , , , , , , , ,27, , 
+Spring 2014,male,18-22,veget8,M,2,2,7,13,5,5,15, , , , , , , , , , , , , , , , ,45, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,1,6,15, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Male,18-22,veget8,M,2,2,7,12,0,7,15, , , , , , , , , , , , , , , , ,41, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,14,0,7,15, , , , , , , , , ,"email returned, call", , , , , , ,40, , 
+Winter 2014,Male,18-22,veget8,M,2,2,7,12,1,7,15, , , , , , , , , , , , , , , , ,42, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,5,1,7,15, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,male,18-22,veget8,M,2,2,3,7,1,7,15, , , , , , , , , , , , , , , , ,33, , 
+Winter 2014,male,18-22,veget8,M,2,2,5,9,3,7,15, , , , , , , , , , , , , , , , ,39, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,3,9,15, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,female,18-22,veget8,M,2,2,3,7,0,0,2, , , , , , , , , , , , , , , , ,12, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,1,2, , , , , , , , , , , , , , , , ,3, , 
+Winter 2014,male,23-29,veget8,M,2,2,6,7,0,2,2, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+Winter 2014,female,18-22,veget8,M,2,2,5,5,2,2,2, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,4,2,3,2, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,veget8,M,2,2,7,6,1,4,2, , , , , , , , , , , , , , , , ,20, , 
+Winter 2014,other,18-22,veget8,M,2,2,0,3,1,5,2, , , , , , , , , , , , , , , , ,11, , 
+Winter 2014,Male,18-22,veget8,M,2,2,8,9,3,6,2, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+summer 2014,male,18-22,veget8,M,2,2,4,3,4,0,3, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,1,3, , , , , , , , , , , , , , , , ,4, , 
+Winter 2014,Male,18-22,veget8,M,2,2,4,2,0,1,3, , , , , , , , , , , , , , , , ,10, , 
+Winter 2014,Female,18-22,veget8,M,2,2,3,2,1,1,3, , , , , , , , , ,"email returned, call", , , , , , ,10, , 
+Winter 2014,other,18-22,veget8,M,2,2,0,0,2,1,3, , , , , , , , , ,"email bounced, call", , , , , , ,6, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,2,1,2,3, , , , , , , , , ,"email returned, call", , , , , , ,10, , 
+Winter 2014,Male,23-29,veget8,M,2,2,0,0,0,3,3, , , , , , , , , , , , , , , , ,6, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,1,0,3,3, , , , , , , , , , , , , , , , ,7, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,2,0,3,3, , , , , , , , , , , , , , , , ,12, , 
+Winter 2014,female,23-29,veget8,M,2,2,0,4,1,3,3, , , , , , , , , , , , , , , , ,11, , 
+Winter 2014,Male,18-22,veget8,M,2,2,2,5,1,3,3, , , , , , , , , ,"email returned, call", , , , , , ,14, , 
+summer 2014,female,18-22,veget8,M,2,2,5,7,1,3,3, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014,Female,18-22,veget8,M,2,2,9,9,1,3,3, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,4,2,3,3, , , , , , , , , ,"email returned, call", , , , , , ,16, , 
+Winter 2014,Male,23-29,veget8,M,2,2,8,10,3,3,3, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,Male,18-22,veget8,M,2,2,6,4,0,4,3, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,Male,23-29,veget8,M,2,2,6,6,1,5,3, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,Male,18-22,veget8,M,2,2,10,5,2,6,3, , , , , , , , , ,"email returned, call", , , , , , ,26, , 
+Summer 2014,male,18-22,veget8,M,2,2,4,5,2,6,3, , , , , , , , , , , , , , , , ,20, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,5,2,0,4, , , , , , , , , ,"email returned, call", , , , , , ,12, , 
+Winter 2014,Female,18-22,veget8,M,2,2,0,2,0,1,4, , , , , , , , , , , , , , , , ,7, , 
+Winter 2014,male,18-22,veget8,M,2,2,3,2,0,1,4, , , , , , , , , , , , , , , , ,10, , 
+Winter 2014,female,18-22,veget8,M,2,2,15,15,1,15,4, , , , , , , , , , , , , , , , ,50, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,5,0,2,4, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,Male,18-22,veget8,M,2,2,6,6,0,2,4, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,Male,23-29,veget8,M,2,2,5,2,0,3,4, , , , , , , , , ,"email returned, call", , , , , , ,14, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,2,1,3,4, , , , , , , , , ,"email returned, call", , , , , , ,11, , 
+Winter 2014,Female,18-22,veget8,M,2,2,3,4,3,3,4, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,7,veget8,M,2,2,5,2,1,4,4, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,female,23-29,veget8,M,2,2,1,4,3,4,4, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,male,18-22,veget8,M,2,2,6,8,6,4,4, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,male,23-29,veget8,M,2,2,4,4,3,5,4, , , , , , , , , , , , , , , , ,20, , 
+Winter 2014,male,18-22,veget8,M,2,2,3,15,1,6,4, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,female,18-22,veget8,M,2,2,10,10,7,7,4, , , , , , , , , ,"email returned, call", , , , , , ,38, , 
+Summer 2014,female,18-22,veget8,M,2,2,5,8,3,8,4, , , , , , , , , ,"email bounced, CALL", , , , , , ,28, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,5,0,0,5, , , , , , , , , ,"returned email, CALL", , , , , , ,10, , 
+summer 2014,male,30 or above,veget8,M,2,2,1,2,0,1,5, , , , , , , , , , , , , , , , ,9, , 
+Winter 2014,male,18-22,veget8,M,2,2,4,5,0,1,5, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,veget8,M,2,2,15,5,2,15,5, , , , , , , , , , , , , , , , ,42, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,5,0,2,5, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,Female,23-29,veget8,M,2,2,5,4,1,2,5, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,female,18-22,veget8,M,2,2,7,7,1,2,5, , , , , , , , , ,"email returned, call", , , , , , ,22, , 
+Winter 2014,Female,18-22,veget8,M,2,2,1,15,4,2,5, , , , , , , , , ,"email returned, cal", , , , , , ,27, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,5,0,4,5, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,5,5, , , , , , , , , ,"email returned, call", , , , , , ,10, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,14,1,5,5, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,Female,18-22,veget8,M,2,2,10,5,2,7,5, , , , , , , , , ,"email returned, call", , , , , , ,29, , 
+Summer 2014,male,23-29,veget8,M,2,2,15,2,6,7,5, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,female,18-22,veget8,M,2,2,2,5,2,8,5, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,male,18-22,veget8,M,2,2,5,9,0,2,6, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,male,18-22,veget8,M,2,2,2,5,3,2,6, , , , , , , , , ,"email returned, call", , , , , , ,18, , 
+summer 2014,male,23-29,veget8,M,2,2,4,10,0,4,6, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,male,30 or above,veget8,M,2,2,10,8,3,5,6, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014, , ,veget8,M,2,2,0,0,0,6,6, , , , , , , , , , , , , , , , ,12, , 
+Winter 2014,Female,23-29,veget8,M,2,2,1,3,0,6,6, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,2,3,6,6, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+Winter 2014,Male,18-22,veget8,M,2,2,9,7,2,8,6, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,Female,18-22,veget8,M,2,2,4,7,1,0,7, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014, ,18-22,veget8,M,2,2,0,4,1,1,7, , , , , , , , , , , , , , , , ,13, , 
+Winter 2014,Male,18-22,veget8,M,2,2,8,6,2,1,7, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,male,23-29,veget8,M,2,2,7,7,2,10,7, , , , , , , , , , , , , , , , ,33, , 
+Winter 2014,Male,18-22,veget8,M,2,2,7,11,1,14,7, , , , , , , , , ,"email bounced, call", , , , , , ,40, , 
+Winter 2014,male,18-22,veget8,M,2,2,7,3,3,2,7, , , , , , , , , ,"email returned, call", , , , , , ,22, , 
+Winter 2014,Female,13-17,veget8,M,2,2,0,0,1,3,7, , , , , , , , , , , , , , , , ,11, , 
+Winter 2014,female,18-22,veget8,M,2,2,9,6,1,3,7, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,4,2,3,7, , , , , , , , , , , , , , , , ,20, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,6,2,4,7, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,10,5,4,7, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,female,18-22,veget8,M,2,2,0,4,0,5,7, , , , , , , , , , , , , , , , ,16, , 
+Winter 2014,male,18-22,veget8,M,2,2,7,4,3,5,7, , , , , , , , , ,"email returned, call", , , , , , ,26, , 
+Winter 2014,male,23-29,veget8,M,2,2,14,3,2,6,7, , , , , , , , , ,"email returned, call", , , , , , ,32, , 
+Winter 2014,female,18-22,veget8,M,2,2,1,7,5,6,7, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,male,18-22,veget8,M,2,2,10,10,4,7,7, , , , , , , , , , , , , , , , ,38, , 
+Winter 2014,female,18-22,veget8,M,2,2,5,7,10,9,7, , , , , , , , , , , , , , , , ,38, , 
+Winter 2014,male,23-29,veget8,M,2,2,14,3,0,0,8, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,Female,18-22,veget8,M,2,2,0,15,0,2,8, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,male,18-22,veget8,M,2,2,2,8,2,3,8, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,female,18-22,veget8,M,2,2,7,6,4,4,8, , , , , , , , , , , , , , , , ,29, , 
+summer 2014,female,18-22,veget8,M,2,2,1,6,5,4,8, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,Male,18-22,veget8,M,2,2,15,12,3,5,8, , , , , , , , , , , , , , , , ,43, , 
+Winter 2014,Male,18-22,veget8,M,2,2,10,4,4,7,8, , , , , , , , , ,"email returned, call", , , , , , ,33, , 
+Winter 2014,male,23-29,veget8,M,2,2,0,4,2,8,8, , , , , , , , , ,"email bounced, call", , , , , , ,22, , 
+Winter 2014,female,18-22,veget8,M,2,2,8,8,3,8,8, , , , , , , , , , , , , , , , ,35, , 
+Winter 2014,female,23-29,veget8,M,2,2,8,8,2,2,9, , , , , , , , , , , , , , , , ,29, , 
+Spring 2014,male,18-22,veget8,M,2,2,12,8,0,3,9, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,male,30 or above,veget8,M,2,2,6,7,4,3,9, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,female,18-22,veget8,M,2,2,10,9,4,3,9, , , , , , , , , , , , , , , , ,35, , 
+summer 2014,female,18-22,veget8,M,2,2,0,10,0,5,9, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,female,18-22,veget8,M,2,2,4,7,1,6,9, , , , , , , , , , , , , , , , ,27, , 
+Spring 2014,female,18-22,veget8,M,2,2,0,12,12,8,9, , , , , , , , , , , , , , , , ,41, , 
+summer 2014,male,30 or above,veget8,M,2,2,3,3,2,3,3, , ,15,2,5,7,15, , , ,-12,1,-3,-4,-12,-30,14,44,1
+Winter 2014,Female,18-22,veget8,M,2,2,2,1,3,6,6, , ,10,1,3,10,13,Didn't remember anything, , ,-8,0,0,-4,-7,-19,18,37,1
+Spring 2014,female,18-22,veget8,M,2,2,7,10,6,8,15, , ,15,7,15,10,15, , , ,-8,3,-9,-2,0,-16,46,62,1
+Winter 2014,female,18-22,veget8,M,2,2,3,1,0,4,4, , ,9,6,0,5,3, , , ,-6,-5,0,-1,1,-11,12,23,1
+Winter 2014,male,18-22,veget8,M,2,2,7,7,2,3,5, , ,13,6,2,1,10,nothing, , ,-6,1,0,2,-5,-8,24,32,1
+Winter 2014,female,18-22,veget8,M,2,2,3,4,2,3,1, , ,8,5,5,10,4, , , ,-5,-1,-3,-7,-3,-19,13,32,1
+summer 2014,female,30 or above,veget8,M,2,2,4,4,1,4,8, , ,9,5,3,5,10, , , ,-5,-1,-2,-1,-2,-11,21,32,1
+Winter 2014,Male,23-29,veget8,M,2,2,5,5,2,7,5, , ,10,5,2,8,7, , , ,-5,0,0,-1,-2,-8,24,32,1
+Winter 2014,male,18-22,veget8,M,2,2,10,10,0,7,15, , ,15,3,1,8,15,graphic images about livestock,"yes, but didnt remember what", ,-5,7,-1,-1,0,0,42,42,1
+Winter 2014,Male,18-22,veget8,M,2,2,3,2,1,6,4, , ,7,5,6,3,5,nothing, , ,-4,-3,-5,3,-1,-10,16,26,1
+Winter 2014,Female,18-22,veget8,M,2,2,2,7,0,3,4, , ,6,8,0,1,3,remebered it was about vegetarianism,no, ,-4,-1,0,2,1,-2,16,18,1
+Winter 2014,male,18-22,veget8,M,2,2,6,6,1,3,4, , ,9,9,3,7,10,nothing,no, ,-3,-3,-2,-4,-6,-18,20,38,1
+Winter 2014,female,18-22,veget8,M,2,2,4,7,3,2,15, , ,7,9,5,6,15,nothing,no, ,-3,-2,-2,-4,0,-11,31,42,1
+Winter 2014,Male,18-22,veget8,M,2,2,7,7,6,4,7, , ,10,10,2,12,6,nothing, , ,-3,-3,4,-8,1,-9,31,40,1
+Winter 2014,male,18-22,veget8,M,2,2,3,7,1,11,6, , ,6,4,8,2,8, , , ,-3,3,-7,9,-2,0,28,28,1
+Winter 2014,male,18-22,veget8,M,2,2,4,8,2,5,15, , ,7,6,2,6,10, , , ,-3,2,0,-1,5,3,34,31,1
+Winter 2014,Male,18-22,veget8,M,2,2,5,7,1,2,1, , ,7,12,0,3,99, , , ,-2,-5,1,-1, , ,16, ,1
+Winter 2014,female,18-22,veget8,M,2,2,3,2,0,0,2, , ,5,15,0,0,5,Doesn't remember anything, , ,-2,-13,0,0,-3,-18,7,25,1
+Winter 2014,Female,13-17,veget8,M,2,2,3,3,1,2,10, , ,5,5,2,5,15,"remembered there were ""lots of pictures and facts""", , ,-2,-2,-1,-3,-5,-13,19,32,1
+Winter 2014,male,18-22,veget8,M,2,2,3,9,1,3,9, , ,5,10,2,4,15,promoting vegetarian food in BU dining halls,no; can't commit to that type of life change, ,-2,-1,-1,-1,-6,-11,25,36,1
+Winter 2014,female,18-22,veget8,M,2,2,0,3,1,6,3, , ,2,5,4,4,7,nothing,no, ,-2,-2,-3,2,-4,-9,13,22,1
+summer 2014,female,18-22,veget8,M,2,2,8,9,6,5,6, , ,10,5,4,2,12,no, , ,-2,4,2,3,-6,1,34,33,1
+Winter 2014,male,18-22,veget8,M,2,2,1,1,1,1,3, , ,2,7,2,3,9, , , ,-1,-6,-1,-2,-6,-16,7,23,1
+summer 2014,female,18-22,veget8,M,2,2,1,4,2,6,0, , ,2,6,3,12,0, , , ,-1,-2,-1,-6,0,-10,13,23,1
+summer 2014,female,18-22,veget8,M,2,2,1,4,2,4,15, , ,2,6,3,7,15, , , ,-1,-2,-1,-3,0,-7,26,33,1
+Winter 2014,Female,18-22,veget8,M,2,2,1,6,1,3,10, , ,2,7,2,5,10,Remembered the booklet but nothing about it, , ,-1,-1,-1,-2,0,-5,21,26,1
+Winter 2014,Female,18-22,veget8,M,2,2,0,1,2,3,10, , ,1,0,3,5,8, , , ,-1,1,-1,-2,2,-1,16,17,1
+Winter 2014,female,18-22,veget8,M,2,2,1,4,1,1,10, , ,2,1,0,3,10, , , ,-1,3,1,-2,0,1,17,16,1
+summer 2014,female,18-22,veget8,M,2,2,0,2,2,4,15, , ,1,1,1,3,5,,no, ,-1,1,1,1,10,12,23,11,1
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,0,6, , ,0,0,0,1,99, , , ,0,0,0,-1, , ,6, ,1
+Winter 2014,male,18-22,veget8,M,2,2,0,5,0,0,6, , ,0,13,0,4,10, , , ,0,-8,0,-4,-4,-16,11,27,1
+Winter 2014,Male,18-22,veget8,M,2,2,0,0,0,0,1, , ,0,5,0,5,0,"At Northeastern. It was about going vegetarian, most of the American population is slowly converting. Advantages of going vegan and small details.", , ,0,-5,0,-5,1,-9,1,10,1
+Winter 2014,Female,18-22,veget8,M,2,2,0,0,0,5,5, , ,0,0,0,4,15, , , ,0,0,0,1,-10,-9,10,19,1
+Spring 2014,female,18-22,veget8,M,2,2,0,0,0,4,5, , ,0,6,0,9,0, , , ,0,-6,0,-5,5,-6,9,15,1
+Winter 2014,male,18-22,veget8,M,2,2,10,4,2,1,7, , ,10,5,0,6,9,nothing, , ,0,-1,2,-5,-2,-6,24,30,1
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,3,10, , ,0,0,0,2,15, , , ,0,0,0,1,-5,-4,13,17,1
+Winter 2014,female,18-22,veget8,M,2,2,1,3,1,3,4, , ,1,4,1,4,6, , , ,0,-1,0,-1,-2,-4,12,16,1
+Winter 2014,female,18-22,veget8,M,2,2,0,0,0,4,6, , ,0,0,0,6,7,"remembered getting it, but not anything specific", , ,0,0,0,-2,-1,-3,10,13,1
+Winter 2014,female,18-22,veget8,M,2,2,2,4,4,3,12, , ,2,7,9,2,8, , , ,0,-3,-5,1,4,-3,25,28,1
+Winter 2014,Male,18-22,veget8,M,2,2,15,5,10,13,0, , ,15,15,5,8,2,nothing, , ,0,-10,5,5,-2,-2,43,45,1
+Winter 2014,female,18-22,veget8,M,2,2,2,0,0,5,5, , ,2,0,2,4,5,nothing,no, ,0,0,-2,1,0,-1,12,13,1
+Winter 2014,female,18-22,veget8,M,2,2,1,6,0,3,6, , ,1,5,1,2,8, , , ,0,1,-1,1,-2,-1,16,17,1
+summer 2014,female,30 or above,veget8,M,2,2,1,3,2,2,4, , ,1,2,2,3,4, , , ,0,1,0,-1,0,0,12,12,1
+Winter 2014,female,23-29,veget8,M,2,2,0,0,0,3,7, , ,0,0,0,3,7,looked through it very quickly because she was already a vegetarian but remembered it promoted cutting out red meat and eating healthy,no, ,0,0,0,0,0,0,10,10,1
+Winter 2014,Male,18-22,veget8,M,2,2,0,0,0,0,7, , ,0,0,0,0,5, , , ,0,0,0,0,2,2,7,5,1
+Winter 2014,male,18-22,veget8,M,2,2,10,10,1,4,11, , ,10,8,2,6,8, , , ,0,2,-1,-2,3,2,36,34,1
+Winter 2014,Female,23-29,veget8,M,2,2,15,9,5,15,5, , ,15,6,4,6,15, , , ,0,3,1,9,-10,3,49,46,1
+Winter 2014,female,18-22,veget8,M,2,2,3,6,2,2,4, , ,3,3,1,4,3,"Remember leaflett about industrial framing and the information about pigs, chickens, and cows and how they were being treated.",no, ,0,3,1,-2,1,3,17,14,1
+Winter 2014,Male,18-22,veget8,M,2,2,2,14,8,3,3, , ,2,12,3,6,4, , , ,0,2,5,-3,-1,3,30,27,1
+summer 2014,male,23-29,veget8,M,2,2,3,10,6,2,3, , ,3,5,6,2,3, ,no,"email returned, call",0,5,0,0,0,5,24,19,1
+summer 2014,female,18-22,veget8,M,2,2,0,5,5,5,5, , ,0,0,4,4,6, , , ,0,5,1,1,-1,6,20,14,1
+summer 2014,female,18-22,veget8,M,2,2,1,7,3,13,5, , ,1,4,2,1,1, , , ,0,3,1,12,4,20,29,9,1
+Winter 2014,female,18-22,veget8,M,2,2,0,15,0,2,15, , ,0,0,5,0,7,2 months of being pescetarian because of the booklet,yes, ,0,15,-5,2,8,20,32,12,1
+summer 2014,female,18-22,veget8,M,2,2,4,4,1,2,4, , ,3,4,3,2,15, , , ,1,0,-2,0,-11,-12,15,27,1
+Winter 2014,female,18-22,veget8,M,2,2,4,3,1,1,6, , ,3,4,7,5,8,nothing,no, ,1,-1,-6,-4,-2,-12,15,27,1
+Winter 2014,female,18-22,veget8,M,2,2,1,2,1,3,5, , ,0,3,0,4,7, , , ,1,-1,1,-1,-2,-2,12,14,1
+Winter 2014,male,18-22,veget8,M,2,2,3,8,1,5,10, , ,2,10,1,7,8, , , ,1,-2,0,-2,2,-1,27,28,1
+Winter 2014,female,18-2,veget8,M,2,2,1,4,2,5,5, , ,0,5,1,1,8, , , ,1,-1,1,4,-3,2,17,15,1
+Winter 2014,Female,18-22,veget8,M,2,2,2,3,1,0,1, , ,1,2,0,0,1,"Remembered the survey but not very well, remembered the booklet", ,"STEPH CAN YOU EMAIL HER PLEASE!!! When prompted her about her initial comments, she was excited to try out vegan products becasue she has a lot of allergies. Asked her to send us emails about different meat free alternatives and different foods!!!",1,1,1,0,0,3,7,4,1
+Winter 2014,female,18-22,veget8,M,2,2,3,3,1,4,2, , ,2,4,2,1,1,nothing,no, ,1,-1,-1,3,1,3,13,10,1
+summer 2014,female,30 or above,veget8,M,2,2,3,6,0,1,5, , ,2,6,0,1,3, , , ,1,0,0,0,2,3,15,12,1
+Summer 2014,Male,23-29,veget8,M,2,2,6,2,1,6,14, , ,5,1,1,6,6, , , ,1,1,0,0,8,10,29,19,1
+Winter 2014,female,18-22,veget8,M,2,2,3,0,0,5,1, , ,1,1,0,9,15,nothing,no, ,2,-1,0,-4,-14,-17,9,26,1
+Spring 2014,male,23-29,veget8,M,2,2,5,6,0,3,15, , ,3,5,1,6,15, , , ,2,1,-1,-3,0,-1,29,30,1
+Winter 2014,female,18-22,veget8,M,2,2,5,10,0,13,15, , ,3,10,0,10,15,nothing,no, ,2,0,0,3,0,5,43,38,1
+Winter 2014,female,18-22,veget8,M,2,2,12,5,4,6,11, , ,10,7,2,7,7, , , ,2,-2,2,-1,4,5,38,33,1
+Winter 2014,female,18-22,veget8,M,2,2,12,12,5,5,15, , ,10,5,5,7,12,vegan,no, ,2,7,0,-2,3,10,49,39,1
+Winter 2014,male,18-22,veget8,M,2,2,6,3,3,5,12, , ,4,1,4,4,5, , , ,2,2,-1,1,7,11,29,18,1
+summer 2014,male,30 or above,veget8,M,2,2,7,5,2,5,7, , ,4,7,1,5,10, , , ,3,-2,1,0,-3,-1,26,27,1
+Winter 2014,Male,18-22,veget8,M,2,2,5,5,1,3,4, , ,2,7,2,5,1, , , ,3,-2,-1,-2,3,1,18,17,1
+Winter 2014,female,18-22,veget8,M,2,2,10,6,2,8,6, , ,6,2,2,7,4,pictures of the animals when they are dying,no, ,4,4,0,1,2,11,32,21,1
+Winter 2014,male,23-29,veget8,M,2,2,6,6,2,9,10, , ,2,7,1,8,3, , , ,4,-1,1,1,7,12,33,21,1
+Winter 2014,Male,18-22,veget8,M,2,2,13,13,6,6,7, , ,8,5,2,1,15,nothing,no, ,5,8,4,5,-8,14,45,31,1
+Winter 2014,female,18-22,veget8,M,2,2,15,4,2,0,15, , ,7,7,3,2,10, , , ,8,-3,-1,-2,5,7,36,29,1
+Winter 2014,female,30 or above,veget8,M,2,2,10,2,1,3,4, , ,2,2,2,3,3, , , ,8,0,-1,0,1,8,20,12,1
+Winter 2014,Female,18-22,veget8,M,2,2,14,14,0,0,12, , ,1,7,2,0,7, , , ,13,7,-2,0,5,23,40,17,1
+Summer 2014,male,18-22,lessmeat8,L,3,2,0,4,0,0,0, , , , , , , , , , , , , , , , ,4, , 
+Summer 2014,female,23-29,lessmeat8,L,3,2,0,2,6,2,0, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,female,30 or above,lessmeat8,L,3,2,5,14,6,3,0, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,male,23-29,lessmeat8,L,3,2,5,5,3,0,1, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,3,4,1,2,1, , , , , , , , , , , , , , , , ,11, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,0,0,0,10, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,male,23-29,lessmeat8,L,3,2,10,4,0,0,10, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,2,3,1,1,10, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,2,4,1,1,10, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,4,8,2,1,10, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,Female,23-29,lessmeat8,L,3,2,4,6,1,3,10, , , , , , , , , , , , , , , , ,24, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,1,4,2,3,10, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,1,6,3,3,10, , , , , , , , , ,"email returned, call", , , , , , ,23, , 
+Summer 2014,male,18-22,lessmeat8,L,3,2,1,13,1,4,10, , , , , , , , , , , , , , , , ,29, , 
+Summer 2014,male,23-29,lessmeat8,L,3,2,12,12,3,5,10, , , , , , , , , , , , , , , , ,42, , 
+Winter 2014,Male,18-22,lessmeat8,L,3,2,10,5,7,15,11, , , , , , , , , , , , , , , , ,48, , 
+Summer 2014,female,23-29,lessmeat8,L,3,2,0,4,0,2,11, , , , , , , , , ,"email bounced, call", , , , , , ,17, , 
+Spring 2014,male,30 or above,lessmeat8,L,3,2,5,10,3,5,12, , , , , , , , , , , , , , , , ,35, , 
+summer 2014,male,18-22,lessmeat8,L,3,2,12,14,5,7,12, , , , , , , , , , , , , , , , ,50, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,1,3,0,2,13, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,male,30 or above,lessmeat8,L,3,2,8,3,1,2,14, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,Male,23-29,lessmeat8,L,3,2,6,9,3,6,14, , , , , , , , , , , , , , , , ,38, , 
+summer 2014,male,30 or above,lessmeat8,L,3,2, ,3,1,4,15, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Male,18-22,lessmeat8,L,3,2,0,0,0,0,15, , , , , , , , , ,"email returned, call", , , , , , ,15, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,10,12,8,15,15, , , , , , , , , , , , , , , , ,60, , 
+Winter 2014,Male,18-22,lessmeat8,L,3,2,8,10,0,2,15, , , , , , , , , , , , , , , , ,35, , 
+Summer 2014,male,23-29,lessmeat8,L,3,2,13,3,0,4,15, , , , , , , , , , , , , , , , ,35, , 
+Summer 2014,Female,23-29,lessmeat8,L,3,2,1,7,0,5,15, , , , , , , , , , , , , , , , ,28, , 
+Summer 2014,male,18-22,lessmeat8,L,3,2,2,8,0,7,15, , , , , , , , , ,"email bounced, call", , , , , , ,32, , 
+summer 2014,male,18-22,lessmeat8,L,3,2,2,7,0,0,2, , , , , , , , , , , , , , , , ,11, , 
+Summer 2014,Male,18-22,lessmeat8,L,3,2,2,12,0,2,2, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,male,18-22,lessmeat8,L,3,2,10,5,2,3,2, , , , , , , , , ,"email returned, cal", , , , , , ,22, , 
+Summer 2014,male,23-29,lessmeat8,L,3,2,8,5,1,4,2, , , , , , , , , ,"email doesn't work, call", , , , , , ,20, , 
+Spring 2014,female,18-22,lessmeat8,L,3,2, ,8,10,2,4, , , , , , , , , , , , , , , , , , , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,1,5,0,3, , , , , , , , , ,"email bounced, call", , , , , , ,9, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,0,2,1,1,3, , , , , , , , , , , , , , , , ,7, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,4,8,2,10,3, , , , , , , , , ,"email returned, call", , , , , , ,27, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,2,4,2,2,3, , , , , , , , , , , , , , , , ,13, , 
+Spring 2014,female,18-22,lessmeat8,L,3,2,7,3,3,4,3, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,male,23-29,lessmeat8,L,3,2,6,6,3,4,3, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,male,30 or above,lessmeat8,L,3,2,4,1,5,5,3, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,female,23-29,lessmeat8,L,3,2,10,8,3,6,3, , , , , , , , , ,"email returned, call", , , , , , ,30, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,15,15,7,7,3, , , , , , , , , , , , , , , , ,47, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,2,1,1,4, , , , , , , , , , , , , , , , ,8, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,1,0,2,4, , , , , , , , , , , , , , , , ,7, , 
+Winter 2014,Female,18-22,lessmeat8,L,3,2,2,11,0,2,4, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,male,18-22,lessmeat8,L,3,2,2,1,1,3,4, , , , , , , , , , , , , , , , ,11, , 
+Summer 2014,female,23-29,lessmeat8,L,3,2,2,3,1,3,4, , , , , , , , , , , , , , , , ,13, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,3,5,0,1,5, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,10,6,2,7,5, , , , , , , , , , , , , , , , ,30, , 
+Summer 2014,male,18-22,lessmeat8,L,3,2,9,9,5,7,5, , , , , , , , , ,"email returned, calll", , , , , , ,35, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,1,6,0,4,6, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,18-22,lessmeat8,L,3,2,6,6,2,7,6, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,female,18-22,lessmeat8,L,3,2,0,5,0,0,7, , , , , , , , , , , , , , , , ,12, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,0,13, ,0,7, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Female,18-22,lessmeat8,L,3,2,0,3,3,0,7, , , , , , , , , , , , , , , , ,13, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,3,4,0,1,7, , , , , , , , , , , , , , , , ,15, , 
+Summer 2014,Female,30 or above,lessmeat8,L,3,2,5,4,1,1,7, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,male,18-22,lessmeat8,L,3,2,8,7,1,1,7, , , , , , , , , ,"email returned, call", , , , , , ,24, , 
+Summer 2014,Female,23-29,lessmeat8,L,3,2,7,5,2,1,7, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,23-29,lessmeat8,L,3,2,11,8,2,14,7, , , , , , , , , , , , , , , , ,42, , 
+summer 2014,female,23-29,lessmeat8,L,3,2,2,3,0,2,7, , , , , , , , , ,"email returned, call", , , , , , ,14, , 
+Summer 2014,Male,18-22,lessmeat8,L,3,2,7,3,0,2,7, , , , , , , , , , , , , , , , ,19, , 
+Summer 2014,male,23-29,lessmeat8,L,3,2,12,5,1,2,7, , , , , , , , , ,"email returned, call", , , , , , ,27, , 
+summer 2014,female,30 or above,lessmeat8,L,3,2,4,4,2,2,7, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014,male,18-22,lessmeat8,L,3,2,6,7,1,3,7, , , , , , , , , , , , , , , , ,24, , 
+Summer 2014,Male,23-29,lessmeat8,L,3,2,6,6,2,3,7, , , , , , , , , , , , , , , , ,24, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,1,10,1,5,7, , , , , , , , , , , , , , , , ,24, , 
+Summer 2014,Male,23-29,lessmeat8,L,3,2,5,2,1,5,7, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,male,23-29,lessmeat8,L,3,2,8,7,10,5,7, , , , , , , , , ,"email bounced, CALL", , , , , , ,37, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,3,0,3,7,7, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,male,18-22,lessmeat8,L,3,2,3,4,3,7,7, , , , , , , , , ,"returned email, call", , , , , , ,24, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,10,5,5,10,8, , , , , , , , , ,email returned, , , , , , ,38, , 
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,0,0,1,9, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,female,18-22,lessmeat8,L,3,2,7,9,4,4,9, , , , , , , , , , , , , , , , ,33, , 
+Spring 2014,female,18-22,lessmeat8,L,3,2,3,5,1,3,5, , ,10,7,3,3,5,pictures, , ,-7,-2,-2,0,0,-11,17,28,1
+summer 2014,male,18-22,lessmeat8,L,3,2,2,3,0,2,4, , ,6,3,1,1,5, , , ,-4,0,-1,1,-1,-5,11,16,1
+summer 2014,female,18-22,lessmeat8,L,3,2,2,3,7,3,3, , ,5,10,13,10,4, , , ,-3,-7,-6,-7,-1,-24,18,42,1
+summer 2014,female,18-22,lessmeat8,L,3,2,2,2,0,4,1, , ,5,10,2,5,3, , , ,-3,-8,-2,-1,-2,-16,9,25,1
+Summer 2014,Male,23-29,lessmeat8,L,3,2,2,4,1,5,3, , ,5,5,2,7,10, , , ,-3,-1,-1,-2,-7,-14,15,29,1
+Winter 2014,female,18-22,lessmeat8,L,3,2,4,7,2,1,6, , ,7,6,1,2,4, , , ,-3,1,1,-1,2,0,20,20,1
+Summer 2014,male,23-29,lessmeat8,L,3,2,1,1,6,6,6, , ,4,2,4,5,5,nothing, , ,-3,-1,2,1,1,0,20,20,1
+Winter 2014,Male,18-22,lessmeat8,L,3,2,5,5,3,11,3, , ,8,3,1,9,5,nothing, , ,-3,2,2,2,-2,1,27,26,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,5,0, ,10,15, , ,7,7,13,7,7,nothing, , ,-2,-7, ,3,8, , ,41,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,3,3,2,1,6, , ,5,9,2,9,14, , , ,-2,-6,0,-8,-8,-24,15,39,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,3,1,1,0,1, , ,5,7,3,1,4,remembered how the pigs were treated, , ,-2,-6,-2,-1,-3,-14,6,20,1
+summer 2014,male,30 or above,lessmeat8,L,3,2,8,5,2,5,4, , ,10,3,2,7,4,not really, ,"email returned, call",-2,2,0,-2,0,-2,24,26,1
+summer 2014,female,23-29,lessmeat8,L,3,2,7,7,5,5,7, , ,8,4,12,12,12, , , ,-1,3,-7,-7,-5,-17,31,48,1
+summer 2014,female,18-22,lessmeat8,L,3,2,0,3,5,3,6, , ,1,4,5,5,9, , , ,-1,-1,0,-2,-3,-7,17,24,1
+Summer 2014,female,23-29,lessmeat8,L,3,2,0,12,0,1,1, , ,1,12,0,3,4, , , ,-1,0,0,-2,-3,-6,14,20,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,0,5,1,3,7, , ,1,7,1,4,9, , , ,-1,-2,0,-1,-2,-6,16,22,1
+spring 2014,female,18-22,lessmeat8,L,3,2,5,5,0,0,15, , ,6,7,0,0,15, , , ,-1,-2,0,0,0,-3,25,28,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,6,0,5,4, , ,1,7,0,2,4, , , ,-1,-1,0,3,0,1,15,14,1
+Summer 2014,Male,18-22,lessmeat8,L,3,2,0,15,0,0,0, , ,1,7,1,2,1, , , ,-1,8,-1,-2,-1,3,15,12,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,1,5,1,5,7, , ,2,3,1,2,7,nothing, , ,-1,2,0,3,0,4,19,15,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,0,10,0,0,15, , ,1,5,0,0,13, , , ,-1,5,0,0,2,6,25,19,1
+Summer 2014,female,23-29,lessmeat8,L,3,2,0,14,0,1,14, , ,1,10,0,2,3, , , ,-1,4,0,-1,11,13,29,16,1
+Winter 2014,Female,18-22,lessmeat8,L,3,2,3,11,1,9,12, , ,4,2,2,7,7,"In a cafeteria, remember talking about what diet is better for you, remember that her and her friend got different surveys.",no, ,-1,9,-1,2,5,14,36,22,1
+Summer 2014,Female,23-29,lessmeat8,L,3,2,7,7,6,12,12, , ,8,0,0,6,7, , , ,-1,7,6,6,5,23,44,21,1
+summer 2014,female,18-22,lessmeat8,L,3,2,0,1,2,2,2, , ,0,2,5,5,8, , , ,0,-1,-3,-3,-6,-13,7,20,1
+summer 2014,female,18-22,lessmeat8,L,3,2,1,3,1,2,5, , ,1,8,5,5,5,chickens in cage, , ,0,-5,-4,-3,0,-12,12,24,1
+Winter 2014,Male,18-22,lessmeat8,L,3,2,10,3,1,3,5, , ,10,5,3,5,10,Don't remember anythign in specific,no, ,0,-2,-2,-2,-5,-11,22,33,1
+summer 2014,male,18-22,lessmeat8,L,3,2,4,7,2,4,5, , ,4,5,3,10,4,It was a cute girl, , ,0,2,-1,-6,1,-4,22,26,1
+Summer 2014,male,30 or above,lessmeat8,L,3,2,3,4,2,2,10, , ,3,5,4,5,6, , , ,0,-1,-2,-3,4,-2,21,23,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,0,0,0,7,0, , ,0,0,0,7,0, , , ,0,0,0,0,0,0,7,7,1
+Summer 2014,Male,13-17,lessmeat8,L,3,2,3,2,1,1,1, , ,3,2,1,1,1, ,no,"email returned, call",0,0,0,0,0,0,8,8,1
+summer 2014,female,30 or above,lessmeat8,L,3,2,0,2,1,1,5, , ,0,2,1,1,5, , , ,0,0,0,0,0,0,9,9,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,5,2,2,6,2, , ,5,5,2,1,4, , , ,0,-3,0,5,-2,0,17,17,1
+summer 2014,female,23-29,lessmeat8,L,3,2,0,0,2,1,0, , ,0,0,1,1,0, , , ,0,0,1,0,0,1,3,2,1
+Summer 2014,Male,18-22,lessmeat8,L,3,2,3,3,0,3,4, , ,3,3,0,3,3,nothing, , ,0,0,0,0,1,1,13,12,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,2,5,0,3,8, , ,2,7,0,2,6, , , ,0,-2,0,1,2,1,18,17,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,2,2,3,7,7, , ,2,5,2,5,5,nothing, , ,0,-3,1,2,2,2,21,19,1
+summer 2014,female,18-22,lessmeat8,L,3,2,0,11,1,4,4, , ,0,8,1,4,4, , , ,0,3,0,0,0,3,20,17,1
+Winter 2014,Female,23-29,lessmeat8,L,3,2,0,3,0,4,15, , ,0,5,0,3,10,nothing,no, ,0,-2,0,1,5,4,22,18,1
+summer 2014,female,18-22,lessmeat8,L,3,2,1,10,0,0,14, , ,1,8,0,5,7, , , ,0,2,0,-5,7,4,25,21,1
+summer 2014,female,18-22,lessmeat8,L,3,2,0,0,0,10,15, , ,0,0,0,10,10, , , ,0,0,0,0,5,5,25,20,1
+Winter 2014,male,18-22,lessmeat8,L,3,2,4,7,3,6,8, , ,4,4,1,8,5,no meat/no red meat/go vegan, , ,0,3,2,-2,3,6,28,22,1
+Summer 2014,male,18-22,lessmeat8,L,3,2,0,7,2,2,5, , ,0,7,0,0,2, , , ,0,0,2,2,3,7,16,9,1
+Summer 2014,female,30 or above,lessmeat8,L,3,2,3,9,2,2,9, , ,3,3,1,4,7,nothing, , ,0,6,1,-2,2,7,25,18,1
+summer 2014,female,18-22,lessmeat8,L,3,2,3,6,0,4,7, , ,3,5,0,1,3, , , ,0,1,0,3,4,8,20,12,1
+Winter 2014,female,18-22,lessmeat8,L,3,2,2,8,1,4,8, , ,1,10,2,7,13, , , ,1,-2,-1,-3,-5,-10,23,33,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,1,8,0,4,10, , ,0,8,0,5,10, , , ,1,0,0,-1,0,0,23,23,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,7,5,0,2,3, , ,6,2,1,0,3, , , ,1,3,-1,2,0,5,17,12,1
+summer 2014,female,23-29,lessmeat8,L,3,2,5,5,3,7,7, , ,4,2,4,3,7, , , ,1,3,-1,4,0,7,27,20,1
+summer 2014,female,23-29,lessmeat8,L,3,2,3,14,2,1,7, , ,2,5,2,1,5, , , ,1,9,0,0,2,12,27,15,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,1,11,3,7,10, , ,0,1,0,7,7,pictures, , ,1,10,3,0,3,17,32,15,1
+Summer 2014,Female,18-22,lessmeat8,L,3,2,2,2,0,4,10, , ,0,5,2,5,13, , , ,2,-3,-2,-1,-3,-7,18,25,1
+summer 2014,female,18-22,lessmeat8,L,3,2,4,6,8,2,14, , ,2,4,6,1,14,no, , ,2,2,2,1,0,7,34,27,1
+spring 2014,female,23-29,lessmeat8,L,3,2,3,7,1,4,15, , ,1,5,1,3,10, , , ,2,2,0,1,5,10,30,20,1
+Summer 2014,male,18-22,lessmeat8,L,3,2,2,5,1,1,3, , ,0,0,0,0,0, , , ,2,5,1,1,3,12,12,0,1
+Summer 2014,Female,13-17,lessmeat8,L,3,2,13,5,2,2,5, , ,10,8,2,2,7, , , ,3,-3,0,0,-2,-2,27,29,1
+summer 2014,female,18-22,lessmeat8,L,3,2,4,3,0,2,2, , ,1,4,3,1,3, , , ,3,-1,-3,1,-1,-1,11,12,1
+Summer 2014,female,23-29,lessmeat8,L,3,2,6,1,10,1,0, , ,3,2,1,2,5,eat more vegetables instead of meat, , ,3,-1,9,-1,-5,5,18,13,1
+Summer 2014,Female,13-17,lessmeat8,L,3,2,7,10,4,1,10, , ,4,6,2,0,7, , , ,3,4,2,1,3,13,32,19,1
+summer 2014,male,18-22,lessmeat8,L,3,2,10,13,2,4,10, , ,7,5,2,1,7, , , ,3,8,0,3,3,17,39,22,1
+Summer 2014,male,23-29,lessmeat8,L,3,2,8,6,2,2,99, , ,4,4,2,3,4,nothing, , ,4,2,0,-1, , , ,17,1
+Summer 2014,female,23-29,lessmeat8,L,3,2,12,2,2,2,10, , ,8,2,1,2,13, , , ,4,0,1,0,-3,2,28,26,1
+Summer 2014,Female,23-29,lessmeat8,L,3,2,11,5,2,12,8, , ,7,5,2,7,7,"eat more vegetables, less meat", , ,4,0,0,5,1,10,38,28,1
+Summer 2014,female,18-22,lessmeat8,L,3,2,11,9,5,5,15, , ,7,7,1,3,15, , , ,4,2,4,2,0,12,45,33,1
+Summer 2014,Female,13-17,lessmeat8,L,3,2,5,5,0,2,9, , ,0,10,0,10,7, , , ,5,-5,0,-8,2,-6,21,27,1
+Summer 2014,male,18-22,lessmeat8,L,3,2,9,7,0,2,10, , ,4,7,2,2,8,eating habits, , ,5,0,-2,0,2,5,28,23,1
+Summer 2014,female,23-29,lessmeat8,L,3,2,9,3,1,1,5, , ,2,1,0,3,15,The chicken!, , ,7,2,1,-2,-10,-2,19,21,1
+Summer 2014,male,23-29,lessmeat8,L,3,2,13,3,2,6,7, , ,4,2,1,8,15,nothing, , ,9,1,1,-2,-8,1,31,30,1
+summer 2014,female,18-22,lessmeat8,L,3,2,15,3,1,1,2, , ,5,4,0,2,0, , ,"email doesn't work, call",10,-1,1,-1,2,11,22,11,1
+Summer 2014,male,23-29,lessmeat8,L,3,2,15,15,3,6,6, , ,5,10,0,2,0, , , ,10,5,3,4,6,28,45,17,1
+Winter 2014,Male,23-29,comb8,K,4,2,1,3,1,0,0, , , , , , , , , , , , , , , , ,5, , 
+Winter 2014,Male,18-22,comb8,K,4,2,2,5,1,0,0, , , , , , , , , , , , , , , , ,8, , 
+Spring 2014,female,23-29,comb8,K,4,2,4,7,4,15,0, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,23-29,comb8,K,4,2,5,5,10,5,0, , , , , , , , , , , , , , , , ,25, , 
+summer 2014,female,18-22,comb8,K,4,2,4,4,2,8,1, , , , , , , , , , , , , , , , ,19, , 
+Spring 2014,female,18-22,comb8,K,4,2,11,15,3,1,10, , , , , , , , , , , , , , , , ,40, , 
+summer 2014,female,23-29,comb8,K,4,2,6,14,10,10,10, , , , , , , , , ,"email bounced, call", , , , , , ,50, , 
+summer 2014,female,18-22,comb8,K,4,2,15,15,8,10,10, , , , , , , , , ,"email doesn't work, call", , , , , , ,58, , 
+summer 2014,female,18-22,comb8,K,4,2,2,5,2,2,10, , , , , , , , , , , , , , , , ,21, , 
+Spring 2014,male,23-29,comb8,K,4,2,7,7,0,4,10, , , , , , , , , , , , , , , , ,28, , 
+Summer 2014,Female,13-17,comb8,K,4,2,3,3,1,4,10, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,male,23-29,comb8,K,4,2,5,3,6,4,10, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,male,13-17,comb8,K,4,2,3,5,2,6,10, , , , , , , , , ,"email returned, call", , , , , , ,26, , 
+Spring 2014,male,13-17,comb8,K,4,2,5,6,2,7,10, , , , , , , , , , , , , , , , ,30, , 
+Spring 2014,female,18-22,comb8,K,4,2,15,8,3,15,11, , , , , , , , , , , , , , , , ,52, , 
+Winter 2014,female,18-22,comb8,K,4,2,2,7,5,7,11, , , , , , , , , , , , , , , , ,32, , 
+summer 2014,male,30 or above,comb8,K,4,2,5,10,2,4,12, , , , , , , , , , , , , , , , ,33, , 
+summer 2014,male,23-29,comb8,K,4,2,10,10,5,7,12, , , , , , , , , , , , , , , , ,44, , 
+summer 2014,male,18-22,comb8,K,4,2,3,10,7,5,14, , , , , , , , , , , , , , , , ,39, , 
+summer 2014,male,18-22,comb8,K,4,2,15,8,2,11,15, , , , , , , , , , , , , , , , ,51, , 
+Spring 2014,male, ,comb8,K,4,2,12,12,4,14,15, , , , , , , , , , , , , , , , ,57, , 
+summer 2014,male,18-22,comb8,K,4,2,3,15,12,15,15, , , , , , , , , ,"email returned, call", , , , , , ,60, , 
+Spring 2014,male,18-22,comb8,K,4,2,15,15,14,15,15, , , , , , , , , , , , , , , , ,74, , 
+summer 2014,male,18-22,comb8,K,4,2,6,8,0,3,15, , , , , , , , , , , , , , , , ,32, , 
+summer 2014,female,18-22,comb8,K,4,2,4,8,3,3,15, , , , , , , , , ,"email bounced call,", , , , , , ,33, , 
+summer 2014,female,18-22,comb8,K,4,2,13,7,2,4,15, , , , , , , , , , , , , , , , ,41, , 
+summer 2014,female,23-29,comb8,K,4,2,4,4,3,4,15, , , , , , , , , ,"email bounced, call", , , , , , ,30, , 
+summer 2014,female,18-22,comb8,K,4,2,12,11,9,7,15, , , , , , , , , , , , , , , , ,54, , 
+Spring 2014,female,18-22,comb8,K,4,2,15,12,9,2,2, , , , , , , , , , , , , , , , ,40, , 
+Spring 2014,male,23-29,comb8,K,4,2,5,8,1,5,2, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,female,18-22,comb8,K,4,2,2,7,0,6,2, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,18-22,comb8,K,4,2,5,10,3,12,3, , , , , , , , , ,"email doesn't work, call", , , , , , ,33, , 
+Winter 2014,female,23-29,comb8,K,4,2,0,5,0,4,3, , , , , , , , , , , , , , , , ,12, , 
+Summer 2014,Female,23-29,comb8,K,4,2,3,5,2,4,3, , , , , , , , , , , , , , , , ,17, , 
+Spring 2014,female,18-22,comb8,K,4,2,6,6,3,4,3, , , , , , , , , , , , , , , , ,22, , 
+Summer 2014,male,18-22,comb8,K,4,2,5,11,3,5,3, , , , , , , , , , , , , , , , ,27, , 
+Spring 2014,male,18-22,comb8,K,4,2,14,7,10,2,4, , , , , , , , , ,"email returned, call", , , , , , ,37, , 
+Spring 2014,female,23-29,comb8,K,4,2,8,15,11,2,4, , , , , , , , , ,"email returned, call", , , , , , ,40, , 
+Summer 2014,Female,18-22,comb8,K,4,2,3,6,0,4,4, , , , , , , , , , , , , , , , ,17, , 
+Spring 2014,male,18-22,comb8,K,4,2,5,7,2,5,4, , , , , , , , , ,"email returned, call", , , , , , ,23, , 
+summer 2014,female,18-22,comb8,K,4,2,3,4,0,7,4, , , , , , , , , ,"email returned, call", , , , , , ,18, , 
+Winter 2014,female,13-17,comb8,K,4,2,3,5,1,3,5, , , , , , , , , ,"email returned, call", , , , , , ,17, , 
+Winter 2014,female,23-29,comb8,K,4,2,0,5,0,4,5, , , , , , , , , , , , , , , , ,14, , 
+Spring 2014,female,23-29,comb8,K,4,2,2,1,1,5,5, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,female,23-29,comb8,K,4,2,3,5,1,2,6, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,23-29,comb8,K,4,2,4,3,1,5,6, , , , , , , , , , , , , , , , ,19, , 
+Summer 2014,Female,18-22,comb8,K,4,2,0,0,7,5,6, , , , , , , , , , , , , , , , ,18, , 
+summer 2014,male,23-29,comb8,K,4,2,3,2,1,0,7, , , , , , , , , , , , , , , , ,13, , 
+summer 2014,male,23-29,comb8,K,4,2,11,4,0,10,7, , , , , , , , , , , , , , , , ,32, , 
+Spring 2014,female,18-22,comb8,K,4,2,5,8,3,12,7, , , , , , , , , ,"email returned, call", , , , , , ,35, , 
+Summer 2014,Female,18-22,comb8,K,4,2,5,3,0,2,7, , , , , , , , , , , , , , , , ,17, , 
+Summer 2014,female,30 or above,comb8,K,4,2,2,5,2,2,7, , , , , , , , , , , , , , , , ,18, , 
+Summer 2014,Female,13-17,comb8,K,4,2,2,5,5,4,7, , , , , , , , , , , , , , , , ,23, , 
+Spring 2014,female,18-22,comb8,K,4,2,14,14,3,5,7, , , , , , , , , , , , , , , , ,43, , 
+summer 2014,male,18-22,comb8,K,4,2,2,7,1,1,8, , , , , , , , , , , , , , , , ,19, , 
+Summer 2014,Male,18-22,comb8,K,4,2,10,10,7,13,8, , , , , , , , , , , , , , , , ,48, , 
+Spring 2014,female,18-22,comb8,K,4,2,5,5,2,3,8, , , , , , , , , , , , , , , , ,23, , 
+summer 2014,male,23-29,comb8,K,4,2,10,3,3,6,8, , , , , , , , , , , , , , , , ,30, , 
+Summer 2014,male,18-22,comb8,K,4,2,0,7,0,0,9, , , , , , , , , ,"email bounced, call", , , , , , ,16, , 
+Winter 2014,male,18-22,comb8,K,4,2,7,6,1,4,9, , , , , , , , , , , , , , , , ,27, , 
+summer 2014,male,18-22,comb8,K,4,2, , ,1,1,1, , ,1,1,1,0,1, ,no, , , ,0,1,0, , ,4,1
+Spring 2014,male,23-29,comb8,K,4,2,8,3,1,10,7, , ,12,5,3,7,7, , , ,-4,-2,-2,3,0,-5,29,34,1
+Winter 2014,female,30 or above,comb8,K,4,2,0,14,1,2,5, , ,4,10,1,4,4, , , ,-4,4,0,-2,1,-1,22,23,1
+Summer 2014,male,18-22,comb8,K,4,2,2,4,4,7,7, , ,4,8,10,12,15, , , ,-2,-4,-6,-5,-8,-25,24,49,1
+Summer 2014,female,23-29,comb8,K,4,2,0,4,2,2,7, , ,2,3,1,2,7, , ,"email returned, CALL",-2,1,1,0,0,0,15,15,1
+summer 2014,female,18-22,comb8,K,4,2,2,2,0,6,7, , ,3,6,1,10,10, , , ,-1,-4,-1,-4,-3,-13,17,30,1
+summer 2014,female,23-29,comb8,K,4,2,1,4,1,4,12, , ,2,4,1,5,15, , , ,-1,0,0,-1,-3,-5,22,27,1
+Winter 2014,female,18-22,comb8,K,4,2,4,7,1,5,6, , ,5,6,2,1,9,about a vegetarian diet,no, ,-1,1,-1,4,-3,0,23,23,1
+summer 2014,female,23-29,comb8,K,4,2,9,5,1,8,7, , ,10,3,1,5,7, , , ,-1,2,0,3,0,4,30,26,1
+Spring 2014,male,18-22,comb8,K,4,2,7,7,3,5,6, , ,8,4,2,5,2, , , ,-1,3,1,0,4,7,28,21,1
+summer 2014,female,18-22,comb8,K,4,2,5,7,0,15,15, , ,6,10,2,5,8, , , ,-1,-3,-2,10,7,11,42,31,1
+Summer 2014,Female,13-17,comb8,K,4,2,14,5,0,2,4, , ,14,14,0,2,4, , , ,0,-9,0,0,0,-9,25,34,1
+Summer 2014,Female,18-22,comb8,K,4,2,0,0,0,7,4, , ,0,0,0,4,10, , , ,0,0,0,3,-6,-3,11,14,1
+Summer 2014,female,18-22,comb8,K,4,2,0,0,3,3,5, , ,0,0,2,2,9, , , ,0,0,1,1,-4,-2,11,13,1
+summer 2014,female,23-29,comb8,K,4,2,8,4,0,7,4, , ,8,4,0,8,3, , , ,0,0,0,-1,1,0,23,23,1
+Summer 2014,male,23-29,comb8,K,4,2,4,4,2,1,5, , ,4,4,1,2,5, , , ,0,0,1,-1,0,0,16,16,1
+Winter 2014,male,23-29,comb8,K,4,2,10,4,1,5,5, , ,10,4,1,5,2, , , ,0,0,0,0,3,3,25,22,1
+summer 2014,female,18-22,comb8,K,4,2,2,3,0,2,8, , ,2,3,1,3,3, , , ,0,0,-1,-1,5,3,15,12,1
+summer 2014,female,18-22,comb8,K,4,2,5,7,1,4,15, , ,5,4,1,2,12, , , ,0,3,0,2,3,8,32,24,1
+summer 2014,female,23-29,comb8,K,4,2,3,6,1,2,14, , ,3,3,1,2,8, , , ,0,3,0,0,6,9,26,17,1
+Summer 2014,Female,18-22,comb8,K,4,2,0,3,0,7,14, , ,0,0,0,5,9, , , ,0,3,0,2,5,10,24,14,1
+Summer 2014,Female,18-22,comb8,K,4,2,3,6,0,6,3, , ,2,7,0,7,5,nothing, , ,1,-1,0,-1,-2,-3,18,21,1
+summer 2014,male,23-29,comb8,K,4,2,3,7,3,2,7, , ,2,5,4,6,4, , , ,1,2,-1,-4,3,1,22,21,1
+Summer 2014,Female,18-22,comb8,K,4,2,5,3,1,2,7, , ,4,2,2,3,3, , , ,1,1,-1,-1,4,4,18,14,1
+Spring 2014,female,23-29,comb8,K,4,2,3,8,2,4,11, , ,2,5,1,4,9, , , ,1,3,1,0,2,7,28,21,1
+summer 2014,male,23-29,comb8,K,4,2,4,6,2,0,4, , ,2,3,2,3,3, , , ,2,3,0,-3,1,3,16,13,1
+summer 2014,male,18-22,comb8,K,4,2,8,8,4,7,10, , ,6,6,7,8,7, , , ,2,2,-3,-1,3,3,37,34,1
+summer 2014,male,23-29,comb8,K,4,2,2,10,1,3,0, , ,0,7,1,2,0, , , ,2,3,0,1,0,6,16,10,1
+Winter 2014,male,18-22,comb8,K,4,2,8,3,0,8,3, , ,5,10,0,7,7, , , ,3,-7,0,1,-4,-7,22,29,1
+summer 2014,female,18-22,comb8,K,4,2,3,8,1,3,12, , ,0,0,3,15,10, , , ,3,8,-2,-12,2,-1,27,28,1
+Winter 2014,male,18-22,comb8,K,4,2,5,8,1,2,2, , ,2,5,1,1,6,nothing, , ,3,3,0,1,-4,3,18,15,1
+Summer 2014,female,18-22,comb8,K,4,2,8,6,1,3,10, , ,5,6,1,3,9, , , ,3,0,0,0,1,4,28,24,1
+Spring 2014,female,23-29,comb8,K,4,2,4,5,1,1,1, , ,1,2,1,1,0, , , ,3,3,0,0,1,7,12,5,1
+summer 2014,female,23-29,comb8,K,4,2,6,5,2,2,6, , ,3,2,2,2,5, , , ,3,3,0,0,1,7,21,14,1
+Spring 2014,female,23-29,comb8,K,4,2,5,6,7,7,6, , ,2,2,2,9,9, , , ,3,4,5,-2,-3,7,31,24,1
+Summer 2014,female,23-29,comb8,K,4,2,5,7,3,4,3, , ,1,2,1,3,3, , ,"email doesn't work, call",4,5,2,1,0,12,22,10,1
+summer 2014,female,18-22,comb8,K,4,2,5,3,1,3,8, , ,0,2,0,1,4,don't remeber, , ,5,1,1,2,4,13,20,7,1
+summer 2014,female,18-22,comb8,K,4,2,15,9,12,11,15, , ,10,6,12,10,10, ,no, ,5,3,0,1,5,14,62,48,1
+summer 2014,female,18-22,comb8,K,4,2,15,12,0,7,11, , ,10,6,0,2,7,no,no, ,5,6,0,5,4,20,45,25,1
+Summer 2014,female,18-22,comb8,K,4,2,14,7,0,7,14, , ,8,7,0,13,14, , , ,6,0,0,-6,0,0,42,42,1
+summer 2014,female,23-29,comb8,K,4,2,8,3,1,4,10, , ,2,1,0,3,15,The chicken!, , ,6,2,1,1,-5,5,26,21,1
+Winter 2014,male,23-29,comb8,K,4,2,7,4,2,8,7, , ,1,2,2,3,1,nothing, , ,6,2,0,5,6,19,28,9,1
+summer 2014,female,18-22,comb8,K,4,2,9,13,11,15,15, , ,2,1,2,1,2,doesn't remember the booklet, , ,7,12,9,14,13,55,63,8,1
+summer 2014,male,30 or above,comb8,K,4,2,15,9,0,7,2, , ,0,0,0,0,0,converted to a vegan diet in October/ doesnt remember anything about the booklet, ,"email returned, call",15,9,0,7,2,33,33,0,1
+Summer 2014,female,23-29,vegan16,J,1,3,5,5,3,1,0, , , , , , , , , ,"email returned, call", , , , , , ,14, , 
+summer 2014,female,23-29,vegan16,J,1,3,7,8,1,3,1, , , , , , , , , , , , , , , , ,20, , 
+Summer 2014,Female,18-22,vegan16,J,1,3,5,3,1,5,1, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,female,18-22,vegan16,J,1,3,1,7,2,4,10, , , , , , , , , , , , , , , , ,24, , 
+Spring 2014,female,18-22,vegan16,J,1,3,1,3,1,5,10, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,male,18-22,vegan16,J,1,3,7,10,2,5,10, , , , , , , , , , , , , , , , ,34, , 
+summer 2014,female,18-22,vegan16,J,1,3,2,2,3,5,10, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Female,18-22,vegan16,J,1,3,2,7,1,6,10, , , , , , , , , , , , , , , , ,26, , 
+Spring 2014,male,18-22,vegan16,J,1,3,7,3,3,11,11, , , , , , , , , , , , , , , , ,35, , 
+summer 2014,male,18-22,vegan16,J,1,3,7,7,2,7,11, , , , , , , , , , , , , , , , ,34, , 
+Summer 2014,male,18-22,vegan16,J,1,3,11,6,1,3,12, , , , , , , , , ,"email returned, call", , , , , , ,33, , 
+Summer 2014,female,18-22,vegan16,J,1,3,2,6,8,4,12, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,female,18-22,vegan16,J,1,3,1,3,6,7,12, , , , , , , , , ,do not contact, , , , , , ,29, , 
+Summer 2014,male,18-22,vegan16,J,1,3,6,13,3,12,14, , , , , , , , , , , , , , , , ,48, , 
+summer 2014,female,18-22,vegan16,J,1,3,0,0,0,1,15, , , , , , , , , ,"email returned, CALL", , , , , , ,16, , 
+summer 2014,male,18-22,vegan16,J,1,3,7,7,7,10,15, , , , , , , , , ,"email returned, call", , , , , , ,46, , 
+Winter 2014,female,18-22,vegan16,J,1,3,5,9,1,5,15, , , , , , , , , , , , , , , , ,35, , 
+summer 2014,female,23-29,vegan16,J,1,3,0,14,0,7,15, , , , , , , , , , , , , , , , ,36, , 
+summer 2014,male,18-22,vegan16,J,1,3,15,15,5,10,2, , , , , , , , , , , , , , , , ,47, , 
+summer 2014,female,18-22,vegan16,J,1,3,3,2,0,5,2, , , , , , , , , ,"email doesnt work, call", , , , , , ,12, , 
+Winter 2014,Male,18-22,vegan16,J,1,3,3,3,0,1,3, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,male,13-17,vegan16,J,1,3,5,10,3,5,3, , , , , , , , , , , , , , , , ,26, , 
+Summer 2014,female,23-29,vegan16,J,1,3,12,3,1,6,3, , , , , , , , , , , , , , , , ,25, , 
+Spring 2014,male,18-22,vegan16,J,1,3,10,15,2,7,3, , , , , , , , , , , , , , , , ,37, , 
+Summer 2014,male,23-29,vegan16,J,1,3,7,4,2,8,3, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,Female,18-22,vegan16,J,1,3,4,4,1,2,4, , , , , , , , , ,"email returned, call", , , , , , ,15, , 
+Summer 2014,female,23-29,vegan16,J,1,3,4,3,4,4,4, , , , , , , , , , , , , , , , ,19, , 
+summer 2014,female,18-22,vegan16,J,1,3,0,0,0,0,5, , , , , , , , , , , , , , , , ,5, , 
+Winter 2014,Female,18-22,vegan16,J,1,3,0,10,1,0,5, , , , , , , , , , , , , , , , ,16, , 
+Spring 2014,male,18-22,vegan16,J,1,3,8,15,8,10,5, , , , , , , , , , , , , , , , ,46, , 
+summer 2014,female,18-22,vegan16,J,1,3,0,0,3,2,5, , , , , , , , , , , , , , , , ,10, , 
+summer 2014,male,18-22,vegan16,J,1,3,2,3,2,3,5, , , , , , , , , , , , , , , , ,15, , 
+ ,male,23-29,vegan16,J,1,3,8,5,5,5,5, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+Summer 2014,Female,18-22,vegan16,J,1,3,7,7,7,2,6, , , , , , , , , , , , , , , , ,29, , 
+Winter 2014,male,18-22,vegan16,J,1,3,5,5,1,4,6, , , , , , , , , ,"email returned, call", , , , , , ,21, , 
+Spring 2014,female,18-22,vegan16,J,1,3,4,9,4,4,6, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,male,18-22,vegan16,J,1,3,5,7,2,5,6, , , , , , , , , , , , , , , , ,25, , 
+Summer 2014,male,18-22,vegan16,J,1,3,1,13,1,6,6, , , , , , , , , ,"email returned, call", , , , , , ,27, , 
+Summer 2014,Female,18-22,vegan16,J,1,3,2,10,0,7,6, , , , , , , , , ,"email returned, call", , , , , , ,25, , 
+Summer 2014,Female,18-22,vegan16,J,1,3,0,1,0,0,7, , , , , , , , , , , , , , , , ,8, , 
+Winter 2014,female,23-29,vegan16,J,1,3,2,3,3,3,7, , , , , , , , , , , , , , , , ,18, , 
+summer 2014,female,18-22,vegan16,J,1,3,2,12,1,5,7, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,Female,18-22,vegan16,J,1,3,10,12,8,1,8, , , , , , , , , , , , , , , , ,39, , 
+summer 2014,female,18-22,vegan16,J,1,3,1,7,2,4,9, , , , , , , , , , , , , , , , ,23, , 
+Summer 2014,male,23-29,vegan16,J,1,3,0,0,10,1,4, , ,12,6,14,0,5, , , ,-12,-6,-4,1,-1,-22,15,37,1
+Summer 2014,male,18-22,vegan16,J,1,3,7,7,0,0,15, , ,13,4,0,0,15, , , ,-6,3,0,0,0,-3,29,32,1
+Summer 2014,Female,18-22,vegan16,J,1,3,0,10,0,7,7, , ,5,6,0,8,15,nothing, , ,-5,4,0,-1,-8,-10,24,34,1
+Winter 2014,female,18-22,vegan16,J,1,3,8,6,3,4,14, , ,12,6,4,12,12, , , ,-4,0,-1,-8,2,-11,35,46,1
+Summer 2014,female,18-22,vegan16,J,1,3,1,4,1,1,4, , ,5,8,2,2,5,nothing, , ,-4,-4,-1,-1,-1,-11,11,22,1
+Spring 2014,male,18-22,vegan16,J,1,3,7,8,4,8,6, , ,10,10,2,15,8, , , ,-3,-2,2,-7,-2,-12,33,45,1
+Winter 2014,female,18-22,vegan16,J,1,3,0,0,3,7,11, , ,3,7,1,5,9, , , ,-3,-7,2,2,2,-4,21,25,1
+Summer 2014,Male,18-22,vegan16,J,1,3,5,8,1,10,15, , ,8,5,2,5,10,No, , ,-3,3,-1,5,5,9,39,30,1
+Summer 2014,Female,18-22,vegan16,J,1,3,1,10,3,5,0, , ,3,10,3,5,0, , , ,-2,0,0,0,0,-2,19,21,1
+Summer 2014,female,23-29,vegan16,J,1,3,0,11,0,4,9, , ,2,10,2,5,7, , , ,-2,1,-2,-1,2,-2,24,26,1
+summer 2014,female,30 or above,vegan16,J,1,3,3,7,2,4,14, , ,5,5,3,7,10, , , ,-2,2,-1,-3,4,0,30,30,1
+Summer 2014,female,18-22,vegan16,J,1,3,5,5,1,3,8, , ,7,5,0,3,6, , , ,-2,0,1,0,2,1,22,21,1
+Summer 2014,Male,18-22,vegan16,J,1,3,6,10,3,7,8, , ,8,7,3,12,0, , ,lactose intolerant,-2,3,0,-5,8,4,34,30,1
+Winter 2014,female,18-22,vegan16,J,1,3,4,4,11,4,10, , ,5,8,7,5,12, , , ,-1,-4,4,-1,-2,-4,33,37,1
+summer 2014,male,18-22,vegan16,J,1,3,4,2,9,2,6, , ,5,2,6,3,7,no, , ,-1,0,3,-1,-1,0,23,23,1
+Summer 2014,female,18-22,vegan16,J,1,3,0,0,0,4,7, , ,0,0,0,5,14, , , ,0,0,0,-1,-7,-8,11,19,1
+Summer 2014,Female,18-22,vegan16,J,1,3,0,1,0,1,7, , ,0,1,0,1,15,nothing, , ,0,0,0,0,-8,-8,9,17,1
+Summer 2014,Female,18-22,vegan16,J,1,3,5,5,1,7,10, , ,5,5,2,10,10, , , ,0,0,-1,-3,0,-4,28,32,1
+Summer 2014,Female,18-22,vegan16,J,1,3,0,3,1,3,3, , ,0,3,3,3,5,promoted going vegan and that a lot of people are going vegan, , ,0,0,-2,0,-2,-4,10,14,1
+Summer 2014,female,18-22,vegan16,J,1,3,0,0,0,0,2, , ,0,0,0,2,3, , , ,0,0,0,-2,-1,-3,2,5,1
+Summer 2014,female,23-29,vegan16,J,1,3,2,6,0,3,15, , ,2,3,1,4,15, , , ,0,3,-1,-1,0,1,26,25,1
+Summer 2014,male,18-22,vegan16,J,1,3,2,8,0,7,10, , ,2,7,0,5,10, , , ,0,1,0,2,0,3,27,24,1
+summer 2014,female,23-29,vegan16,J,1,3,1,8,3,5,8, , ,1,4,1,6,6, , , ,0,4,2,-1,2,7,25,18,1
+Summer 2014,Female,18-22,vegan16,J,1,3,2,7,1,4,15, , ,2,5,0,3,7, , , ,0,2,1,1,8,12,29,17,1
+Summer 2014,male,23-29,vegan16,J,1,3,7,3,2,6,3, , ,6,5,2,3,6, , , ,1,-2,0,3,-3,-1,21,22,1
+Summer 2014,male,18-22,vegan16,J,1,3,2,10,0,15,15, , ,1,3,0,7,12, , , ,1,7,0,8,3,19,42,23,1
+Winter 2014,male,23-29,vegan16,J,1,3,5,5,5,3,5, , ,3,6,1,3,10, , , ,2,-1,4,0,-5,0,23,23,1
+Summer 2014,Male,18-22,vegan16,J,1,3,6,8,3,0,7, , ,4,6,3,0,9, , , ,2,2,0,0,-2,2,24,22,1
+Summer 2014,male,18-22,vegan16,J,1,3,6,8,4,3,8, , ,4,6,2,3,8, , , ,2,2,2,0,0,6,29,23,1
+summer 2014,male,18-22,vegan16,J,1,3,11,6,3,6,11, , ,8,9,5,5,10,personal accounts,talked to friends, ,3,-3,-2,1,1,0,37,37,1
+Winter 2014,male,18-22,vegan16,J,1,3,4,13,2,4,5, , ,1,9,0,7,2,health hazards and animals,no, ,3,4,2,-3,3,9,28,19,1
+Summer 2014,male,18-22,vegan16,J,1,3,8,4,0,3,9, , ,4,6,0,5,9, , , ,4,-2,0,-2,0,0,24,24,1
+Summer 2014,female,18-22,vegan16,J,1,3,10,15,15,5,11, , ,5,10,7,7,3,the pictures in the booklet, , ,5,5,8,-2,8,24,56,32,1
+Winter 2014,male,23-29,veget16,I,2,3,0,2,0,1,1, , , , , , , , , ,"email returned, call", , , , , , ,4, , 
+Spring 2014,female,23-29,veget16,I,2,3,15,12,4,7,15, , , , , , , , , , , , , , , , ,53, , 
+Winter 2014,female,12,veget16,I,2,3,12,14,0,4,3, , , , , , , , , , , , , , , , ,33, , 
+Winter 2014,male,23-29,veget16,I,2,3,4,3,1,3,7, , , , , , , , , , , , , , , , ,18, , 
+Spring 2014,female,18-22,veget16,I,2,3,4,5,2,1,9, , , , , , , , , , , , , , , , ,21, , 
+Winter 2014,female,30 or above,veget16,I,2,3,1,7,0,5,1, , ,1,8,1,5,1, , , ,0,-1,-1,0,0,-2,14,16,1
+Winter 2014,Female,18-22,lessmeat16,H,3,3,7,6,0,4,1, , , , , , , , , , , , , , , , ,18, , 
+Winter 2014,male,23-29,lessmeat16,H,3,3,15,10,6,12,10, , , , , , , , , ,"email returned, call", , , , , , ,53, , 
+Spring 2014,female,18-22,lessmeat16,H,3,3,2,6,4,3,10, , , , , , , , , ,"email returned, call", , , , , , ,25, , 
+Winter 2014,male,18-22,lessmeat16,H,3,3,5,5,2,5,10, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,Female,18-22,lessmeat16,H,3,3,2,8,0,4,13, , , , , , , , , , , , , , , , ,27, , 
+Spring 2014,female,18-22,lessmeat16,H,3,3,5,9,2,8,14, , , , , , , , , , , , , , , , ,38, , 
+Summer 2014,female,18-22,lessmeat16,H,3,3,4,12,3,13,15, , , , , , , , , , , , , , , , ,47, , 
+Winter 2014,female,18-22,lessmeat16,H,3,3,15,15,3,15,15, , , , , , , , , , , , , , , , ,63, , 
+Winter 2014,Female,18-22,lessmeat16,H,3,3,1,10,0,1,2, , , , , , , , , , , , , , , , ,14, , 
+Summer 2014,female,23-29,lessmeat16,H,3,3,2,5,3,3,2, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,male,23-29,lessmeat16,H,3,3,10,5,2,3,3, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,male,23-29,lessmeat16,H,3,3,2,3,1,1,4, , , , , , , , , ,"email bounced, call", , , , , , ,11, , 
+Winter 2014,Female,30 or above,lessmeat16,H,3,3,0,0,0,4,4, , , , , , , , , , , , , , , , ,8, , 
+Winter 2014,female,18-22,lessmeat16,H,3,3,6,4,0,6,4, , , , , , , , , , , , , , , , ,20, , 
+Spring 2014,female,18-22,lessmeat16,H,3,3,5,6,0,5,7, , , , , , , , , , , , , , , , ,23, , 
+Summer 2014,female,23-29,lessmeat16,H,3,3,7,5,5,5,7, , , , , , , , , , , , , , , , ,29, , 
+Summer 2014,male,23-29,lessmeat16,H,3,3,4,1,0,7,7, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014,female,18-22,lessmeat16,H,3,3,9,1,5,1,8, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,male,18-22,lessmeat16,H,3,3,4,15,3,9,9, , , , , , , , , , , , , , , , ,40, , 
+Winter 2014,female,23-29,lessmeat16,H,3,3,1,1,1,3,3, , ,4,10,2,3,6,nothing, , ,-3,-9,-1,0,-3,-16,9,25,1
+Winter 2014,male,18-22,lessmeat16,H,3,3,7,9,4,7,5, , ,10,7,1,5,7,nothing, , ,-3,2,3,2,-2,2,32,30,1
+Winter 2014,male,23-29,lessmeat16,H,3,3,6,6,1,2,4, , ,6,6,2,3,7,"in curry, got a booklet and did the survey. It was very impressing booklet, many pages, animals with bad living environments.", , ,0,0,-1,-1,-3,-5,19,24,1
+Winter 2014,male,18-22,lessmeat16,H,3,3,3,5,0,3,6, , ,3,7,2,3,7,nothing,no, ,0,-2,-2,0,-1,-5,17,22,1
+Winter 2014,Female,18-22,lessmeat16,H,3,3,5,5,2,7,15, , ,5,10,2,3,15, , , ,0,-5,0,4,0,-1,34,35,1
+summer 2014,female,30 or above,lessmeat16,H,3,3,3,3,2,1,10, , ,2,3,2,2,4, , , ,1,0,0,-1,6,6,19,13,1
+summer 2014,male,23-29,lessmeat16,H,3,3,3,8,2,2,6, , ,0,10,5,1,5, , , ,3,-2,-3,1,1,0,21,21,1
+Summer 2014,female,18-22,comb16,G,4,3,1,1,1,1,1, , , , , , , , , ,"email doesn't work, CALL", , , , , , ,5, , 
+Winter 2014,Female,23-29,comb16,G,4,3,1,5,1,1,2, , , , , , , , , , , , , , , , ,10, , 
+Winter 2014,Female,23-29,comb16,G,4,3,1,5,1,1,2, , , , , , , , , , , , , , , , ,10, , 
+Summer 2014,female,30 or above,comb16,G,4,3,3,3,1,3,4, , , , , , , , , , , , , , , , ,14, , 
+summer 2014,male,18-22,comb16,G,4,3,3,0,2,2,3, , , , , , , , , ,"email returned, call", , , , , , ,10, , 
+summer 2014,female,18-22,comb16,G,4,3,0,0,0,3,8, , ,0,0,0,8,13, , , ,0,0,0,-5,-5,-10,11,21,1
+summer 2014,female,18-22,control,CC,5,4,0,2,0,0,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,0,7,0,0,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,0,5,1,0,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,0,0,0,1,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,8,6, ,2,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,13,11,1,10,99, , , , , , , , , ,"email returned, ca", , , , , , , , , 
+summer 2014,female,23-29,control,CC,5,4,10,10,5,14,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,15,15,15,15,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,2,1,0,2,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,2,5,1,2,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,23-29,control,CC,5,4,1,3,2,3,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,2,4,4,3,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,23-29,control,CC,5,4,8,10,6,3,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,10,7,0,4,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,7,7,2,4,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,1,7,0,5,99, , , , , , , , , ,email returned call, , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,7,4,1,5,99, , , , , , , , , ,email returned call, , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,9,7,1,5,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,3,5,2,5,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,9,5,2,5,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,2,6,2,5,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,3,5,2,6,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,3,5,4,6,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,0,0,0,7,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,9,10,0,7,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,23-29,control,CC,5,4,3,9,2,7,99, , , , , , , , , ,"email returned, CALL", , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,15,10,3,7,99, , , , , , , , , ,"returned email, CALL", , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,7,4,4,7,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,23-29,control,CC,5,4,1,8,1,8,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,13,10,7,8,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,13,13,11,9,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,7,9,5,9,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,3,9,8,9,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Female,18-22,control,CC,5,4,0,0,0,0,0, , , , , , , , , , , , , , , , ,0, , 
+Winter 2014,female,18-22,control,CC,5,4,5,7,3,0,0, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,male,23-29,control,CC,5,4,7,5,1,2,0, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,Female,18-22,control,CC,5,4,7,5,11,0,10, , , , , , , , , ,"email returned, call", , , , , , ,33, , 
+Winter 2014,Female,18-22,control,CC,5,4,2,4,1,2,10, , , , , , , , , , , , , , , , ,19, , 
+Winter 2014,Female,23-29,control,CC,5,4,2,8,1,4,10, , , , , , , , , , , , , , , , ,25, , 
+Winter 2014,Female,18-22,control,CC,5,4,4,8,2,4,10, , , , , , , , , ,"email returned, call", , , , , , ,28, , 
+Winter 2014,Female,18-22,control,CC,5,4,5,6,3,6,11, , , , , , , , , , , , , , , , ,31, , 
+Winter 2014,Female,18-22,control,CC,5,4,12,11,1,3,12, , , , , , , , , , , , , , , , ,39, , 
+Winter 2014,Female,18-22,control,CC,5,4,8,10,3,5,12, , , , , , , , , , , , , , , , ,38, , 
+Winter 2014,Male,18-22,control,CC,5,4,6,9,0,9,12, , , , , , , , , , , , , , , , ,36, , 
+Winter 2014,Female,18-22,control,CC,5,4,0,2,1,10,13, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,Female,18-22,control,CC,5,4,7,10,1,3,13, , , , , , , , , , , , , , , , ,34, , 
+Winter 2014,Female,18-22,control,CC,5,4,10,12,2,10,14, , , , , , , , , , , , , , , , ,48, , 
+Winter 2014,Female,18-22,control,CC,5,4,7,12,1,3,14, , , , , , , , , , , , , , , , ,37, , 
+Winter 2014,female,18-22,control,CC,5,4,4,5,2,2,15, , , , , , , , , , , , , , , , ,28, , 
+Winter 2014,Male,18-22,control,CC,5,4,3,10,1,3,15, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,Female,18-22,control,CC,5,4,2,4,1,4,15, , , , , , , , , , , , , , , , ,26, , 
+Winter 2014,Female,18-22,control,CC,5,4,3,7,1,5,15, , , , , , , , , , , , , , , , ,31, , 
+Winter 2014,Female,18-22,control,CC,5,4,4,8,0,6,15, , , , , , , , , , , , , , , , ,33, , 
+summer 2014,female,18-22,control,CC,5,4,5,3,4,3,2, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,Male,18-22,control,CC,5,4,3,3,0,0,3, , , , , , , , , , , , , , , , ,9, , 
+Winter 2014,Female,23-29,control,CC,5,4,2,2,1,1,3, , , , , , , , , , , , , , , , ,9, , 
+summer 2014,Male,18-22,control,CC,5,4,3,3,3,3,3, , , , , , , , , , , , , , , , ,15, , 
+summer 2014,male,23-29,control,CC,5,4,3,4,2,1,4, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,Female,18-22,control,CC,5,4,1,10,5,1,4, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,male,18-22,control,CC,5,4,6,5,3,4,4, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,female,23-29,control,CC,5,4,14,12,3,6,4, , , , , , , , , , , , , , , , ,39, , 
+Winter 2014,Female,18-22,control,CC,5,4,1,3,0,2,5, , , , , , , , , , , , , , , , ,11, , 
+Winter 2014,Female,18-22,control,CC,5,4,4,6,2,3,5, , , , , , , , , ,"email returned, call", , , , , , ,20, , 
+Winter 2014,Female,23-29,control,CC,5,4,2,4,1,5,5, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,Female,18-22,control,CC,5,4,4,8,0,4,6, , , , , , , , , , , , , , , , ,22, , 
+summer 2014,male,18-22,control,CC,5,4,6,9,2,4,6, , , , , , , , , ,"email bounced, CALL", , , , , , ,27, , 
+Winter 2014,Female,18-22,control,CC,5,4,1,4,0,6,6, , , , , , , , , , , , , , , , ,17, , 
+Winter 2014,Female,18-22,control,CC,5,4,1,12,0,1,7, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,male,18-22,control,CC,5,4,3,12,6,13,7, , , , , , , , , , , , , , , , ,41, , 
+Spring 2014,male,18-22,control,CC,5,4,8,2,3,2,7, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Male,18-22,control,CC,5,4,6,6,5,3,7, , , , , , , , , , , , , , , , ,27, , 
+Winter 2014,Female,18-22,control,CC,5,4,1,2,0,2,9, , , , , , , , , , , , , , , , ,14, , 
+Winter 2014,Female,18-22,control,CC,5,4,9,9,9,9,9, , , , , , , , , , , , , , , , ,45, , 
+summer 2014,female,18-22,control,CC,5,4,4,4,2,1,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,4,4,2,1,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,23-29,control,CC,5,4,6,9,3,1,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,18-22,control,CC,5,4,5,8,6,10,99, , , , , , , , , ,"email returned, call", , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,5,10,8,12,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male,30 or above,control,CC,5,4,4,1,2,2,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,5,4,2,2,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,female,18-22,control,CC,5,4,4,6,6,6,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Female,18-22,control,CC,5,4,0,5,1,2,10, , ,3,5,0,7,7, , , ,-3,0,1,-5,3,-4,18,22,1
+summer 2014,male,18-22,control,CC,5,4,3,12,1,4,15, , ,6,10,1,6,11, , , ,-3,2,0,-2,4,1,35,34,1
+Winter 2014,Female,18-22,control,CC,5,4,0,10,0,0,7, , ,2,10,0,5,99, , , ,-2,0,0,-5, , ,17, ,1
+summer 2014,male,18-22,control,CC,5,4,4,7,1,3,99, , ,6,7,2,3,10, , , ,-2,0,-1,0, , , ,28,1
+summer 2014,female,18-22,control,CC,5,4,0,0,1,4,99, , ,2,0,3,6,10, , , ,-2,0,-2,-2, , , ,21,1
+summer 2014,male,18-22,control,CC,5,4,5,4,3,4,99, , ,7,5,2,3,5, , , ,-2,-1,1,1, , , ,22,1
+summer 2014,female,23-29,control,CC,5,4,3,4,2,3,99, , ,5,6,3,3,7, , , ,-2,-2,-1,0, , , ,24,1
+Winter 2014,Female,18-22,control,CC,5,4,2,12,0,5,6, , ,4,10,1,5,10, , , ,-2,2,-1,0,-4,-5,25,30,1
+Winter 2014,Male,18-22,control,CC,5,4,8,9,3,4,15, , ,10,10,2,2,15, , , ,-2,-1,1,2,0,0,39,39,1
+summer 2014,female,18-22,control,CC,5,4,4,7,3,5,99, , ,5,7,4,7,0, , ,"email returned, call",-1,0,-1,-2, , , ,23,1
+summer 2014,male,18-22,control,CC,5,4,1,12,4,5,99, , ,2,10,2,5,15, , , ,-1,2,2,0, , , ,34,1
+summer 2014,male,30 0r above,control,CC,5,4,3,4,1,2,99, , ,4,4,1,3,4, , , ,-1,0,0,-1, , , ,16,1
+summer 2014,male,23-29,control,CC,5,4,0,0,0,1,99, , ,1,1,1,1,7, , , ,-1,-1,-1,0, , , ,11,1
+Winter 2014,Female,18-22,control,CC,5,4,2,4,0,0,7, , ,3,10,0,0,15, , , ,-1,-6,0,0,-8,-15,13,28,1
+Winter 2014,Female,30 or above,control,CC,5,4,0,1,4,4,1, , ,1,3,6,6,4,Remember the questions, , ,-1,-2,-2,-2,-3,-10,10,20,1
+summer 2014,male,18-22,control,CC,5,4,1,5,3,1,3, , ,2,8,8,0,3, , , ,-1,-3,-5,1,0,-8,13,21,1
+Winter 2014,Female,18-22,control,CC,5,4,6,8,0,8,6, , ,7,5,0,7,7, , , ,-1,3,0,1,-1,2,28,26,1
+Winter 2014,Male,18-22,control,CC,5,4,4,11,1,4,8, , ,5,7,0,5,9, , , ,-1,4,1,-1,-1,2,28,26,1
+Winter 2014,Female,18-22,control,CC,5,4,3,7,1,7,15, , ,4,5,1,6,10, , , ,-1,2,0,1,5,7,33,26,1
+Winter 2014,Female,18-22,control,CC,5,4,3,10,2,12,12, , ,4,8,2,2,10, , , ,-1,2,0,10,2,13,39,26,1
+summer 2014,male,23-29,control,CC,5,4,2,4,4,3,99, , ,2,4,4,3,0, ,no, ,0,0,0,0, , , ,13,1
+summer 2014,female,18-22,control,CC,5,4,0,0,10,8,99, , ,0,0,2,4,10, , ,"email returned, call",0,0,8,4, , , ,16,1
+summer 2014,female,18-22,control,CC,5,4,0,3,1,3,99, , ,0,5,3,4,3, , , ,0,-2,-2,-1, , , ,15,1
+summer 2014,female,23-29,control,CC,5,4,0,2,1,1,99, , ,0,3,2,0,5, , , ,0,-1,-1,1, , , ,10,1
+summer 2014,female,23-29,control,CC,5,4,0,1,3,1,99, , ,0,0,4,1,7, , , ,0,1,-1,0, , , ,12,1
+summer 2014,female,18-22,control,CC,5,4,0,4,0,7,99, , ,0,5,0,3,7, , , ,0,-1,0,4, , , ,15,1
+summer 2014,female,18-22,control,CC,5,4,3,6,0,5,99, , ,3,3,2,10,8, , , ,0,3,-2,-5, , , ,26,1
+Winter 2014,Female,18-22,control,CC,5,4,0,3,1,5,1, , ,0,9,3,11,5, , , ,0,-6,-2,-6,-4,-18,10,28,1
+Winter 2014,Male,18-22,control,CC,5,4,0,0,1,4,8, , ,0,0,3,8,12, , , ,0,0,-2,-4,-4,-10,13,23,1
+Winter 2014,Female,18-22,control,CC,5,4,2,10,0,4,10, , ,2,7,0,10,7,Remember the food questions, ,Replied to email as well.,0,3,0,-6,3,0,26,26,1
+Winter 2014,Female,18-22,control,CC,5,4,0,14,2,1,14, , ,0,7,3,0,20, , ,Replied to email as well.,0,7,-1,1,-6,1,31,30,1
+Winter 2014,Female,18-22,control,CC,5,4,0,0,0,0,3, , ,0,0,0,0,0, , , ,0,0,0,0,3,3,3,0,1
+Winter 2014,Female,18-22,control,CC,5,4,7,4,6,7,8, , ,7,3,4,7,7, , , ,0,1,2,0,1,4,32,28,1
+summer 2014,female,23-29,control,CC,5,4,6,9,4,5,99, , ,5,5,2,4,10, , , ,1,4,2,1, , , ,26,1
+summer 2014,male,18-22,control,CC,5,4,7,15,0,2,99, , ,6,12,0,1,12, , , ,1,3,0,1, , , ,31,1
+summer 2014,female,18-22,control,CC,5,4,2,3,1,3,99, , ,1,4,1,3,8,no, , ,1,-1,0,0, , , ,17,1
+Winter 2014,Female,18-22,control,CC,5,4,3,10,0,0,10, , ,2,7,0,0,10, ,no, ,1,3,0,0,0,4,23,19,1
+Winter 2014,Female,18-22,control,CC,5,4,7,7,3,2,9, , ,6,4,1,2,7, , , ,1,3,2,0,2,8,28,20,1
+Winter 2014,Male,18-22,control,CC,5,4,6,3,2,1,3, , ,4,3,1,1,99, , , ,2,0,1,0, , ,15, ,1
+summer 2014,female,30 or above,control,CC,5,4,2,7,1,0,99, , ,0,3,1,0,15, , , ,2,4,0,0, , , ,19,1
+summer 2014,male,23-29,control,CC,5,4,3,3,3,3,99, , ,1,1,1,4,3, , , ,2,2,2,-1, , , ,10,1
+Winter 2014,Female,18-22,control,CC,5,4,2,4,1,6,15, , ,0,4,1,6,9, , , ,2,0,0,0,6,8,28,20,1
+Winter 2014,Male,18-22,control,CC,5,4,6,9,0,7,11, , ,4,6,0,6,7, , , ,2,3,0,1,4,10,33,23,1
+Winter 2014,Male,18-22,control,CC,5,4,7,10,0,4,15, , ,5,7,0,2,10, , , ,2,3,0,2,5,12,36,24,1
+summer 2014,male,23-29,control,CC,5,4,10,7,5,10,99, , ,7,5,2,7,4, , , ,3,2,3,3, , , ,25,1
+Winter 2014,Female,18-22,control,CC,5,4,10,15,6,6,10, , ,7,11,3,5,10,Remember the food questions only, ,Nice girl came up to her,3,4,3,1,0,11,47,36,1
+summer 2014,male,18-22,control,CC,5,4,9,10,3,8,15, , ,6,4,2,1,0, , , ,3,6,1,7,15,32,45,13,1
+Winter 2014,Female,18-22,control,CC,5,4,4,6,0,6,7, , ,0,8,6,9,0, , ,"""recently, because of a new diet 0"" related to dairy",4,-2,-6,-3,7,0,23,23,1
+Winter 2014,male,18-22,control,CC,5,4,6,10,2,13,15, , ,2,4,6,10,12, , , ,4,6,-4,3,3,12,46,34,1
+Winter 2014,Male,23-29,control,CC,5,4,10,7,5,10,10, , ,6,3,2,1,15, , , ,4,4,3,9,-5,15,42,27,1
+summer 2014,male,18-22,control,CC,5,4,12,0,4,10,99, , ,7,5,5,6,0, , , ,5,-5,-1,4, , , ,23,1
+summer 2014,female,23-29,control,CC,5,4,5,2,1,1,99, , ,0,0,2,1,1, , , ,5,2,-1,0, , , ,4,1
+Winter 2014,Female,18-22,control,CC,5,4,11,3,1,1,5, , ,6,7,2,8,9, , , ,5,-4,-1,-7,-4,-11,21,32,1
+Summer 2014,male,30 or above,control,CC,5,4,15,2,3,3,7, , ,10,1,1,4,7, , , ,5,1,2,-1,0,7,30,23,1
+Winter 2014,Female,23-29,control,CC,5,4,10,9,6,11,10, , ,3,2,5,15,15, , , ,7,7,1,-4,-5,6,46,40,1
+summer 2014,male,18-22,control,CC,5,4,10,7,4,14,13, , ,3,1,1,5,2, , , ,7,6,3,9,11,36,48,12,1
+Winter 2014,Female,18-22,control,CC,5,4,14,14,0,0,12, , ,1,7,2,0,7, , , ,13,7,-2,0,5,23,40,17,1
+Winter 2014,female,18-22,,99,99,99,2,2,3,15,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Female,18-22,,99,99,99,0,0,5,6,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Male,18-22,,99,99,99,10,4,0,7,0, , , , , , , , , , , , , , , , ,21, , 
+summer 2014,male,23-29,,99,99,99,5,7,1,7,0, , , , , , , , , , , , , , , , ,20, , 
+summer 2014,female,18-22,,99,99,99,1,1,1,3,10, , , , , , , , , , , , , , , , ,16, , 
+summer 2014,male,23-29,,99,99,99,4,6,1,3,10, , , , , , , , , , , , , , , , ,24, , 
+Winter 2014,Female,18-22,,99,99,99,13,13,0,8,10, , , , , , , , , , , , , , , , ,44, , 
+Winter 2014,female,18-22,,99,99,99,0,0,2,2,11, , , , , , , , , , , , , , , , ,15, , 
+Winter 2014,female,18-22,,99,99,99,5,7,3,6,11, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,female,18-22,,99,99,99,0,5,4,7,11, , , , , , , , , , , , , , , , ,27, , 
+Summer 2014,female,13-17,,99,99,99,15,1,2,3,12, , , , , , , , , , , , , , , , ,33, , 
+Winter 2014,Female,18-22,,99,99,99,0,0,0,5,12, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,female,18-22,,99,99,99,1,5,0,5,12, , , , , , , , , , , , , , , , ,23, , 
+Winter 2014,male,18-22,,99,99,99,3,10,1,5,12, , , , , , , , , ,"email returned, call", , , , , , ,31, , 
+Summer 2014,female,30 or above,,99,99,99,0,10,4,10,13, , , , , , , , , , , , , , , , ,37, , 
+Spring 2014,other,23-29,,99,99,99,15,7,12,12,15, , , , , , , , , ,"email returned, call", , , , , , ,61, , 
+summer 2014,female,18-22,,99,99,99,3,3,3,4,15, , , , , , , , , , , , , , , , ,28, , 
+summer 2014,male, ,,99,99,99,0,1,0,2,2, , , , , , , , , , , , , , , , ,5, , 
+summer 2014,male,18-22,,99,99,99,14,9,2,3,2, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,18-22,,99,99,99,5,1,0,0,3, , , , , , , , , , , , , , , , ,9, , 
+summer 2014,female,23-29,,99,99,99,3,2,1,2,3, , , , , , , , , , , , , , , , ,11, , 
+summer 2014,female,30 or above,,99,99,99,3,1,2,2,3, , , , , , , , , , , , , , , , ,11, , 
+Summer 2014,Male,23-29,,99,99,99,15,14,5,5,3, , , , , , , , , , , , , , , , ,42, , 
+summer 2014,female,18-22,,99,99,99,1,5,6,3,4, , , , , , , , , , , , , , , , ,19, , 
+Summer 2014,male,18-22,,99,99,99,10,5,3,4,5, , , , , , , , , ,"email returned, call", , , , , , ,27, , 
+summer 2014,female,18-22,,99,99,99,5,4,3,5,5, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Male,23-29,,99,99,99,6,8,3,9,5, , , , , , , , , ,"email returned, call", , , , , , ,31, , 
+summer 2014,female,18-22,,99,99,99,8,3,3,2,6, , , , , , , , , , , , , , , , ,22, , 
+Winter 2014,Female,18-22,,99,99,99,0,3,4,4,6, , , , , , , , , , , , , , , , ,17, , 
+summer 2014,male,23-29,,99,99,99,15,10,2,10,7, , , , , , , , , , , , , , , , ,44, , 
+Summer 2014,male,18-22,,99,99,99,10,5,3,7,7, , , , , , , , , , , , , , , , ,32, , 
+Winter 2014,female,18-22,,99,99,99,2,12,5,3,8, , , , , , , , , , , , , , , , ,30, , 
+summer 2014,male,13-17,,99,99,99,8,5,5,4,8, , , , , , , , , , , , , , , , ,30, , 
+Winter 2014,Male,18-22,,99,99,99,4,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+Winter 2014,Male,23-29,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+summer 2014,male, ,,99,99,99,99,99,99,99,99, , , , , , , , , ,"email bounced, CALL", , , , , , , , , 
+summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+Summer 2014, , ,,99,99,99,99,99,99,99,99, , , , , , , , , , , , , , , , , , , 
+Summer 2014,male,23-29,,99,99,99,2,7,0,5,0, , ,7,15,1,4,4, , , ,-5,-8,-1,1,-4,-17,14,31,1
+Summer 2014,Female,23-29,,99,99,99,2,2,2,4,9, , ,5,2,1,2,15, , , ,-3,0,1,2,-6,-6,19,25,1
+summer 2014,male,18-22,,99,99,99,1,11,0,0,1, , ,4,6,0,0,2,not really, , ,-3,5,0,0,-1,1,13,12,1
+summer 2014,female,18-22,,99,99,99,2,5,7,4,2, , ,4,5,1,7,2, , , ,-2,0,6,-3,0,1,20,19,1
+Summer 2014,male,23-29,,99,99,99,5,4,8,10,10, , ,7,3,3,10,10, , , ,-2,1,5,0,0,4,37,33,1
+summer 2014,female,18-22,,99,99,99,1,15,5,15,7, , ,2,6,3,9,7, , , ,-1,9,2,6,0,16,43,27,1
+summer 2014,female,18-22,,99,99,99,8,10,6,3,7, , ,7,5,6,3,7, , , ,1,5,0,0,0,6,34,28,1
+Winter 2014,female,18-22,,99,99,99,5,1,11,15,15, , ,3,4,2,14,14,nothing, , ,2,-3,9,1,1,10,47,37,1
+Winter 2014,female,23-29,,99,99,99,15,12,4,7,15, , ,9,9,2,6,15, , , ,6,3,2,1,0,12,53,41,1

@@ -1,6 +1,5 @@
 .Rproj.user
 .Rhistory
-.RData
 .Ruserdata
 .DS_store
 cutouts.Rmd
@@ -11,7 +10,4 @@ results/
 images/
 tables/
 vegan-meta.ttt
-supplementary-analyses/**/*.csv
-supplementary-analyses/**/*.sav
-supplementary-analyses/**/*.Rdata
 *.log
