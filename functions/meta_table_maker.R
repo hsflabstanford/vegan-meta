@@ -31,7 +31,7 @@ meta_table_maker <- function(data, format = "latex", booktabs = TRUE, escape = F
     table <- table |>
       kableExtra::footnote(
         general_title = "",
-        general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001",
+        general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
         escape = FALSE
       )
   }

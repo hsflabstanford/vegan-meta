@@ -18,3 +18,7 @@ get_significance_stars <- function(pval) {
     }
   })
 }
+
+
+# handy shortcut 
+mr <- meta_result_formatter
