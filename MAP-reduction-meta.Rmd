@@ -34,14 +34,16 @@ abstract: |
   Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.057, suggesting that we face an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 output: 
   rticles::springer_article
-bibliography: "./manuscript/vegan-refs.bib"
+bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
+header-includes:
+  - \usepackage{comment}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "results/figures/",
+	fig.path = "results/",
 	echo = FALSE,
 	out.extra = ""
 )
@@ -106,7 +108,11 @@ Last, we compiled a third dataset of over 780 excluded studies, along with their
 ## Three theoretical categories: persuasion, choice architecture, and norms {#sec2.1}
 
 ```{r table_one, message=F}
+
 mr <- meta_result_formatter
+calculate_n_total <- function(data) {
+  summarise(data, n_total = plyr::round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+}
 
 # Overall
 model <- dat |> map_robust()
@@ -114,22 +120,22 @@ model <- dat |> map_robust()
 # Nudge
 nudge_model <- dat |> filter(theory == 'nudge') |> map_robust()
 nudge_n <- dat |> filter(theory == 'nudge') |> 
-  summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+  calculate_n_total()
 
 # Norms
 norms_model <- dat |> filter(theory == 'norms') |> map_robust()
 norms_n <- dat |> filter(theory == 'norms') |>
-    summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+    calculate_n_total()
 
 # Norms + Persuasion
 norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robust()
-norms_pers_n <-  dat |> filter(theory == 'norms & persuasion')|>
-  summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+norms_pers_n <-  dat |> filter(theory == 'norms & persuasion') |>
+  calculate_n_total()
 
 # Persuasion Overall
 persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robust()
 persuasion_n <- dat |> filter(theory == 'persuasion') |>
-  summarise(n_total = round_any(sum(n_t_total_pop + n_c_total_pop), 100, floor))
+  calculate_n_total()
 
 # Table One
 table_one <- tibble(
@@ -169,8 +175,8 @@ table_two <- tibble(
 ) |> meta_table_maker(
     caption = "Three approaches to MAP reduction persuasion",
     label = "tab:table_two",
-    footnote = F)
-# add note that  because many studies present more than one category of message, the number of studies and interventions will sum to more than the total number of persuasion studies and interventions.
+        footnote = F) |>
+  add_footnote("Note that because many studies present more than one category of message, the number of studies and interventions will sum  to more than the total number of persuasion studies and interventions.", notation = 'none')
 table_two
 ```
 
@@ -244,19 +250,20 @@ However, many studies present a wide variety of outcomes, or include MAP reducti
 Using our calculations of effect size and standard error `r (nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions.
 
 ## Moderate evidence of publication bias {#sec2.3}
-
-[INTRODUCTORY REMARKS ABOUT HOW PUBLICATION BIAS PUTS THE MAIN RESULT IN ONE LIGHT OR ANOTHER?]
-
-We conduct four tests for publication bias.
-
+We conduct four tests for publication bias. 
+\begin{comment} 
+introductory remarks about how this puts our main results in one light or another? 
+\end{comment}
 First, in our dataset, $\Delta$ and standard error are positively correlated, though not significantly.
 
-[GOOD PLACE FOR A FIGURE?]
+\begin{comment} 
+good place for a figure?
+\end{comment}
 
-Second, the `r pap_model$N_studies` studies with a pre-analysis plan have a smaller overall effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`.
-This difference is not statistically significant.
+Second, the `r pap_model$N_studies` studies with a pre-analysis plan have a marginally smaller effect: 
+$\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`. This difference is not statistically significant.
 
-Third, the The `r open_data_model$N_studies` with openly available data also have a smaller overall effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
+Third, the `r open_data_model$N_studies` studies with openly available data also have a marginally smaller effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
 This difference is also not statistically significant.
 
 Fourth, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (table 3).

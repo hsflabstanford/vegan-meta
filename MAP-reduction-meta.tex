@@ -45,6 +45,7 @@
 %%%%  template package for technical guidance.
 %%%%%=============================================================================%%%%
 
+\usepackage{comment}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -232,6 +233,9 @@ Health & 15 & 24 & 0.0924 (0.0440)\\
 Environment & 12 & 21 & 0.0841 (0.0582)\\
 Animal Welfare & 13 & 61 & 0.0100 (0.0130)\\
 \bottomrule
+\multicolumn{4}{l}{\textsuperscript{} Note that because many studies present more than one category of message, the number of}\\
+\multicolumn{4}{l}{studies and interventions will sum to more than the total number of persuasion studies and}\\
+\multicolumn{4}{l}{interventions.}\\
 \end{tabular}
 \end{table}
 
@@ -293,7 +297,7 @@ Figure 1 displays the distribution of effect sizes, grouped by paper,
 with each individual point representing an intervention. The overall
 effect size is plotted at the bottom.
 
-\includegraphics{results/figures/forest_plot_nulls_and_CIs-1}
+\includegraphics{results/forest_plot_nulls_and_CIs-1}
 
 This small effect may surprise readers of previous reviews, which
 typically found more positive results
@@ -314,23 +318,26 @@ zero, 10 of which are positive effects, out of 107 interventions.
 
 \subsection{Moderate evidence of publication bias}\label{sec2.3}
 
-{[}INTRODUCTORY REMARKS ABOUT HOW PUBLICATION BIAS PUTS THE MAIN RESULT
-IN ONE LIGHT OR ANOTHER?{]}
-
 We conduct four tests for publication bias.
+
+\begin{comment} 
+introductory remarks about how this puts our main results in one light or another? 
+\end{comment}
 
 First, in our dataset, \(\Delta\) and standard error are positively
 correlated, though not significantly.
 
-{[}GOOD PLACE FOR A FIGURE?{]}
+\begin{comment} 
+good place for a figure?
+\end{comment}
 
-Second, the 9 studies with a pre-analysis plan have a smaller overall
+Second, the 9 studies with a pre-analysis plan have a marginally smaller
 effect: \(\Delta\) = 0.0394 (SE = 0.022), p = .1505. This difference is
 not statistically significant.
 
-Third, the The 13 with openly available data also have a smaller overall
-effect: \(\Delta\) = 0.0269 (SE = 0.0314), p = .4330. This difference is
-also not statistically significant.
+Third, the 13 studies with openly available data also have a marginally
+smaller effect: \(\Delta\) = 0.0269 (SE = 0.0314), p = .4330. This
+difference is also not statistically significant.
 
 Fourth, the pooled effect size of interventions published in
 peer-reviewed journals is about 9 times larger than the equivalent
@@ -634,7 +641,7 @@ A LOT will go here
 \end{itemize}
 
 \renewcommand\refname{References}
-\bibliography{./manuscript/vegan-refs.bib}
+\bibliography{./vegan-refs.bib}
 
 
 \end{document}
