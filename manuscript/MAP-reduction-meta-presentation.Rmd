@@ -20,7 +20,7 @@ nocite: |
 ```{r setup, include=FALSE}
 # so that knitr labels figures
 knitr::opts_chunk$set(
-	fig.path = "results/",
+	fig.path = "../results",
 	echo = FALSE,
 	out.extra = ""
 )
@@ -34,7 +34,7 @@ source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
 source('./scripts/tables.R')
-source('./scripts/forest-plot.R')
+source('./scripts/figures.R')
 ```
 
 ## Paper in a nutshell
