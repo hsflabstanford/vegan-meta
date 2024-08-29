@@ -527,22 +527,23 @@ meat'', ``MAP reduction'', ``plant-based diet + effective''). Sixth, we
 checked database emerging from a parallel project being conducted by
 Rethink Priorities. Seventh, we identified a further 100+ systematic
 reviews and checked their bibliographies. Eighth, we used an AI search
-tool (\textbackslash url\{\url{https://undermind.ai}\}) to check for
-unfound gray literature. All three authors contributed to the search.
+tool (\url{<https://undermind.ai>}) to check for unfound gray
+literature. All three authors contributed to the search.
 
 \textbf{Coding:} For quantitative outcomes, we selected the latest
 possible outcome that still had sufficient subjects to meet our
 inclusion criteria. All effect sizes were standardized by the standard
 deviation of the outcome for the control group at baseline whenever
 possible (Glass's \(\Delta\)). All effect size conversions were
-conducted by the first author using methods and R code developed for
-papers \citep{paluck2019, porat2024}.
+conducted by the first author using methods and R code initially
+developed for previous papers
+\citep{paluck2019, paluck20201, porat2024}.
 
 \textbf{Meta-analysis:} Our initial set of analyses was pre-registered
 on the Open Science Framework in November 2023
-(\textbackslash url\{\url{https://osf.io/j5wbp}\}), although the project
-evolved substantially over time and our final analyses do not match
-those initial plans. Our analyses use functions and models from the
+(\url{<https://osf.io/j5wbp>}), although the project evolved
+substantially over time and our final analyses do not match those
+initial plans. Our analyses use functions and models from the
 \texttt{robumeta} \citep{fisher2015} and \texttt{tidyverse}
 \citep{wickham2019} packages in \texttt{R} \citep{Rlang}.
 
@@ -615,6 +616,56 @@ acknowledge funding from the NIH (grant XXX) and Open Philanthropy
 \section{Appendix}\label{secA1}
 
 \subsection{Nudge lit is a mess}\label{nudge-lit-is-a-mess}
+
+\subsection{When is a norm a nudge?}\label{when-is-a-norm-a-nudge}
+
+What exactly a nudge is, and what sorts of interventions qualify, is a
+subject of scholarly debate. \citep{thaler2009} define a nudge as ``any
+aspect of the choice architecture that alters people's behaviour in a
+predictable way, without forbidding any options or significantly
+changing their economic incentives. To count as a mere nudge, the
+intervention must be easy and cheap to avoid'' (p.~6). However, which
+incentives count as ``economic'' is not self-evident, and
+\citep{selinger2012} note that many of the examples cited by Thaler and
+Sunstein actually do alter incentives.
+
+\citep{hausman2010} offer a revised definition of nudges as ``ways of
+influencing choice without limiting the choice set or making
+alternatives appreciably more costly in terms of time, trouble, social
+sanctions, and so forth'' (p.~126). By this definition, an injunctive
+norm intervention, which implies a threat of social deviance and
+therefore sanction, would not qualify.
+
+The question of whether a descriptive norm intervention is a nudge is
+trickier. \citep{thaler2009} would say yes; they write that if ``choice
+architects want to change behavior, and to do so with a nudge, they
+might simply inform people about what other people are doing'' (p.~71).
+However, \citep{hausman2010} also note that nudges are designed to
+address ``flaws in individual decision-making'' (p.~126). Is a tendency
+to conform a flaw or ``behavioral bias''
+\citep[p.~362]{kantorowicz2021}?
+
+\citep{mols2015} thread this needle by defining ``unthinking
+conformity'' as one of the ``human failings'' which nudges are intended
+to address. They contrast this approach with ``persuasion,'' which
+``appeals to an individual's ability to reason, digest new information
+and engage in systematic information processing'' (p.~4).
+
+Our own view is that a social norm prompt might engender a rich array of
+possible reactions, both cognitive and affective, and we do not assume
+that ``unthinking conformity'' is the dominant or exclusive response.
+Therefore, we do not classify the norms interventions in our database as
+nudges, though we acknowledge a burgeoning ``norms-nudge'' literature
+and that terminology may change over time (see \citep{bicchieri2023} for
+discussion).
+
+We also think that a future project might investigate exactly what
+reactions are occurring by asking subjects, e.g., how well they recall
+the message, what it made them think about, etc. A high prevalence of
+subjects' being unable to recall the message's specifics, for instance,
+but nevertheless showing signs of behavioral change would be evidence in
+favor of the hypothesis that norms are acting through automatic rather
+than reflective processes.
 
 \begin{itemize}
 \item

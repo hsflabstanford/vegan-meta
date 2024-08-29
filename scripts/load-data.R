@@ -9,7 +9,7 @@ library(googledrive)
 options(scipen = 99)
 
 #' data
-library(dplyr)
+library(dplyr, warn.conflicts = F)
 library(stringr)
 dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
