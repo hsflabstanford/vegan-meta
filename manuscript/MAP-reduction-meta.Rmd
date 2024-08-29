@@ -49,6 +49,8 @@ knitr::opts_chunk$set(
 	echo = FALSE,
 	out.extra = ""
 )
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+setwd(rprojroot::find_rstudio_root_file())
   # This forces knitr to label all figures.
 
 source('./scripts/libraries.R')
