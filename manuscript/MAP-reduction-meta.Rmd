@@ -35,7 +35,8 @@ keywords:
 abstract: |
   Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.057, suggesting that we face an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 output: 
-  rticles::springer_article
+  rticles::springer_article:
+    keep_tex: true
 bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
@@ -154,7 +155,7 @@ The aggregate effect is statistically significant, but does not indicate a meani
 Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
 The overall effect size is plotted at the bottom.
 
-```{r forest_plot}
+```{r forest_plot, out.width='120%'}
 forest_plot
 ```
 
@@ -455,7 +456,7 @@ All code and data are available on GitHub and Code Ocean: LINKS
 
 This figure displays...
 
-```{r supplementary_figure, echo=F}
+```{r supplementary_figure, echo=F, message=F, out.width='120%'}
 supplementary_figure
 ```
 
