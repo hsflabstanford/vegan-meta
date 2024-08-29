@@ -448,7 +448,9 @@ All code and data are available on GitHub and Code Ocean: LINKS
 
 -   deviations from pre-analysis plan
 
-## Supplementary Table(s)
+## Supplementary Figure
+
+This figure displays...
 
 ```{r supplementary_figure, echo=F}
 supplementary_figure
