@@ -55,6 +55,8 @@ source('./scripts/libraries.R')
 source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
+source('./scripts/models.R')
+source('./scripts/tables.R')
 ```
 
 # Introduction {#sec1}
@@ -113,51 +115,7 @@ Last, we compiled a third dataset of over 780 excluded studies, along with their
 Studies in our database pursued three theories of change: norms, nudges, and persuasion, or a combination of norms and persuasion.
 Table 1 reports the distribution of studies, interventions, subjects (approximately), and effect sizes per approach.
 
-```{r table_one, message=F}
-# Overall
-model <- dat |> map_robust()
-
-# Nudge
-nudge_model <- dat |> filter(theory == 'nudge') |> map_robust()
-
-# Norms
-norms_model <- dat |> filter(theory == 'norms') |> map_robust()
-
-# Persuasion Overall
-persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robust()
-
-# Norms + Persuasion
-norms_persuasion_model <- dat |> filter(theory == 'norms & persuasion') |> map_robust()
-
-table_one <- tibble(
-  Approach = c("\\textbf{Overall}", "Norms", "Nudge", 
-               "Persuasion", 
-               "Norms + Persuasion"),
-  "N (Studies)" = c(model$N_studies,
-                    norms_model$N_studies,
-                    nudge_model$N_studies,
-                    persuasion_model$N_studies,
-                    norms_persuasion_model$N_studies),
-  "N (Interventions)" = c(model$N_interventions,
-                          norms_model$N_interventions,
-                          nudge_model$N_interventions,
-                          persuasion_model$N_interventions,
-                          norms_persuasion_model$N_interventions),
-  "N (Subjects)" = c(model$N_subjects,
-                     norms_model$N_subjects,
-                     nudge_model$N_subjects,
-                     persuasion_model$N_subjects,
-                     norms_persuasion_model$N_subjects),
-  "Glass's $\\Delta$ (SE)" = c(mr(model),
-                               mr(norms_model),
-                               mr(nudge_model),
-                               mr(persuasion_model),
-                               mr(norms_persuasion_model))) |>
-    meta_table_maker(caption = "Norm, Nudge, and persuasion approaches to MAP reduction", 
-                   label = "tab:table_one", footnote = T)
-
- table_one
-```
+`r table_one`
 
 **Norms** studies [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] manipulate the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
@@ -173,39 +131,7 @@ Many persuasion studies combine arguments, e.g. a lecture on the health and envi
 
 Table 2 displays the distribution of persuasion studies within these categories.
 
-```{r table_two, message=F}
-
-# Persuasion (Health)
-health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robust()
-
-# Persuasion (Environment)
-environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) |> map_robust()
-
-# Persuasion (Animal Welfare)
-animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_robust()
-
-table_two <- tibble(
- "Persauasion Approach" = c("Health", 
-                            "Environment", 
-                            "Animal Welfare"),
- "N (studies)" = c(health_model$N_studies,
-                   environment_model$N_studies,
-                   animal_model$N_studies),
-  "N (interventions)" = c(health_model$N_interventions,
-                          environment_model$N_interventions,
-                          animal_model$N_interventions),
-  "N (subjects)" = c(health_model$N_subjects,
-                     environment_model$N_subjects,
-                     animal_model$N_subjects),
- "Glass's $\\Delta$ (SE)" = c(mr(health_model),
-                              mr(environment_model),
-                              mr(animal_model))) |>
-  meta_table_maker(caption = "Three approaches to MAP reduction persuasion", 
-                   label = "tab:table_two", footnote = F) |> 
-  add_footnote("Note: because many studies present more than one category of message, the Ns for studies, \\linebreak interventions, and subjects will sum to more than the total numbers in the persuasion category.", notation = 'none', escape = F)
-
-table_two
-```
+`r table_two`
 
 Finally, a handful of studies combines **norms and persuasion** approaches [@hennessy2016; @carfora2023; @mattson2020; @piester2020].
 These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
@@ -220,10 +146,17 @@ The aggregate effect is statistically significant, but does not indicate a meani
 Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
 The overall effect size is plotted at the bottom.
 
-```{r forest_plot_nulls_and_CIs}
+```{r forest_plot}
 source('./scripts/forest-plot.R')
 print(forest_plot)
+```
 
+This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
+We attribute this difference to our stricter inclusion criteria.
+For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
+([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
+
+```{r nulls_and_cis}
 effect_size_table <- dat |> sum_tab(neg_null_pos)
 
 significant_CIs <- dat |> select(author, year, d, se_d, neg_null_pos) |>
@@ -250,11 +183,6 @@ dat <- dat |> mutate(open_data_yes = if_else(open_data == 'N', FALSE, TRUE))
 
 open_data_difference <- robumeta::robu(d ~ open_data_yes, dat, unique_study_id, var_d)
 ```
-
-This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
-We attribute this difference to our stricter inclusion criteria.
-For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
-([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
 According to papers' own analyses, `r effect_size_table['0']` of `r num_interventions` interventions had null effects on net MAP consumption.
 However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and focus on their significant results.
@@ -285,7 +213,9 @@ This difference is also not statistically significant.
 Fourth, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (table 3).
 Interventions published by advocacy organizations produce a small backlash effect on average.
 
-```{r pbulication_bias_checks_to_verify, include=F}
+\`r table_three
+
+```{r pbulication_bias_checks, include=F}
 
 # "$\Delta$ and standard error are positively correlated, though not significantly"
 dat |> sum_lm(d, se_d)
@@ -308,49 +238,7 @@ dat |>
   theme_minimal() 
 ```
 
-```{r table_three}
-table_three <- dat |> 
-  split(~pub_status) |> 
-  map(map_robust) |> 
-  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
-                       meta_result_formatter(.x))) |> 
-  bind_rows(.id = 'Publication status') |> 
-  mutate(`Publication status` = case_when(
-    `Publication status` == "advocacy_org" ~ "Advocacy Organization",
-    TRUE ~ `Publication status`
-  )) |>
-  rename(
-    `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions,
-    `N (subjects)` = N_subjects) |>
- select(-c(Delta, se, pval))  |> 
-  meta_table_maker(
-    caption = "Difference in effect size by publication status",
-    label = "tab:table_three",
-    footnote = TRUE)
-
-table_three
-```
-
 ## Red and Processed Meat is an easier target {#sec2.4}
-
-```{r RPMC_model, echo=F}
-# ok this won't be a table
-rpmc_model <- RPMC |> map_robust()
-
-# table_four <- tibble(
-#   "N (Studies)" = rpmc_model$N_studies,
-#   "N (Interventions)" = rpmc_model$N_interventions,
-#   "Glass's $\\Delta$ (SE)" = mr(rpmc_model)) |> 
-#   kable(format = "latex", booktabs = TRUE, escape = FALSE,
-#         caption = "Meta-analytic results for red and processed meat",
-#         label = "tab:table_three") |>
-#   kable_styling(latex_options = "hold_position") |>
-#   footnote(general_title = "", 
-#            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001", 
-#            escape = FALSE)
-# table_four
-```
 
 On average, interventions aimed at reducing consumption of RPM outperform general MAP reduction interventions: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
 Each of these studies employs persuasion, and a majority (16/19) appeal to personal health.
@@ -416,7 +304,9 @@ We judge self-reporting bias to be a potential concern.
 
 ```{r environment_studies, include=F}
 # exploratory
-# do environmental 
+# do encvironmental studies work better for certain groups?
+# my intuition would be they work best for college students, & Jalil study is nice evidence of that,
+# but the data don't reflect that
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
   split(~population) |> map(map_robust)
 
@@ -432,7 +322,7 @@ The strongest evidence that these appeals produce real-world impacts is [@jalil2
 That study found that treatment led to an overall reduction in MAP consumption of 5.6% $\Delta$ = `r round(jalil_data$d, 3)` (SE = `r jalil_data$se_d`), which is neither especially large nor statistically significant.
 However, due to its exceptional commitment to long-term, oblique outcome measurement, we consider this study to be reasonably robust evidence for this intervention's efficacy among students at liberal arts colleges.
 
-## Animal welfare appeals are mostly ineffective {#sec2.9}
+## Animal welfare appeals are almost always ineffective {#sec2.9}
 
 ```{r animal_welfare_studies, include=F}
 animal_proportions  <- dat |> filter(str_detect(secondary_theory, 'animal')) |>
@@ -479,60 +369,11 @@ Likewise, the difference in effect sizes for studies where treatment was assigne
 
 Table 4 displays the effect size associated with the four most common delivery mechanisms in our dataset, which were also the groups with enough clusters for meta-analysis to be viable.
 
-```{r table_four}
-
-table_four <- dat |> 
-  mutate(grouped_delivery_method = case_when(
-    str_detect(delivery_method, "article|op-ed|leaflet|flyer|printed booklet") ~ "Printed Materials",
-    str_detect(delivery_method, "video") ~ "Video",
-    str_detect(delivery_method, "in-cafeteria") ~ "In-Cafeteria",
-    str_detect(delivery_method, "online") ~ "Online",
-    TRUE ~ "Other")) |> 
-  filter(grouped_delivery_method != 'Other') |> 
-  split(~grouped_delivery_method) |> map(map_robust) |>
-  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
-                       meta_result_formatter(.x))) |> 
-  bind_rows(.id = "Delivery method") |> 
-  arrange(desc(N_studies)) |> 
-  rename(
-    `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions,
-    `N (subjects)` = N_subjects) |>
- select(-c(Delta, se, pval)) |> 
-  meta_table_maker(
-    caption = "Difference in effect size by delivery method",
-    label = "tab:table_four",
-    footnote = F)
-table_four
-
-```
+`r table_four`
 
 Table 5 displays effects associated with different regions.
 
-```{r regional variation}
-
-table_five <- dat |> 
-  mutate(grouped_region = case_when(
-    country %in% c("United States", "Canada") ~ "North America",
-    country %in% c("United Kingdom", "Denmark", "Germany", "Italy", "Netherlands", "Sweden") ~ "Europe",
-    str_detect(country, "worldwide|United States, United Kingdom, Canada, Australia, and other|Iran|Thailand|Australia") ~ "Asia, Australia, and worldwide",
-    TRUE ~ "Other")) |> 
-  split(~grouped_region) |> 
-  map(map_robust) |> 
-  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" = meta_result_formatter(.x))) |> 
-  bind_rows(.id = "Region") |> 
-  arrange(desc(N_studies)) |> 
-  rename(
-    `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions,
-    `N (Subjects)` = N_subjects) |>
-  select(-c(Delta, se, pval))  |> 
-  meta_table_maker(caption = "Difference in effect size by study region",
-        label = "tab:table_five")
-
-table_five
-
-```
+`r table_five`
 
 # Methods {#sec3}
 
@@ -550,7 +391,7 @@ All three authors contributed to the search.
 
 **Coding:** For quantitative outcomes, we selected the latest possible outcome that still had sufficient subjects to meet our inclusion criteria.
 All effect sizes were standardized by the standard deviation of the outcome for the control group at baseline whenever possible (Glass's $\Delta$).
-All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck20201; @porat2024].
+All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024].
 
 **Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (\url{<https://osf.io/j5wbp>}), although the project evolved substantially over time and our final analyses do not match those initial plans.
 Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang].

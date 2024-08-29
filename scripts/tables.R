@@ -1,180 +1,124 @@
-# descriptive results tables
-
-# country breakdown table
-data.frame(
-  Country = c("United States", "Germany", "Multiple (online)", "United Kingdom", 
-              "Netherlands", "Sweden", "Australia", "Denmark"),
-    Interventions = c(country_dat[["United States"]],
-                      country_dat[["Germany"]],
-                      5,
-                      country_dat[["United Kingdom"]],
-                      country_dat[["Netherlands"]],
-                      country_dat[["Sweden"]],
-                      country_dat[["Australia"]],
-                      country_dat[["Denmark"]]))|> gt() 
-# gtsave('./tables/country_breakdown_table.png')
-# sparkman et al table
-data.frame(
-  Study = c("One", "Two", "Three", "Four"),
-  Location = c(
-    "The Axe & Palm cafe",
-    "Farm Hill (virtual)",
-    "Vino Enoteca (lunch)",
-    "Vino Enoteca (dinner)"
-  ),
-  `Effect on veg sales` = c(
-    "+ 1.4 to 1.7%",
-    "+ 2.6% (non-significant)",
-    "+ 2.2%",
-    "- 3.7%"),
-  stringsAsFactors = FALSE,
-  check.names = FALSE) |> gt() # gtsave('./tables/sparkman_table.png')
+table_one <- tibble(
+  Approach = c("\\textbf{Overall}", "Norms", "Nudge", 
+               "Persuasion", 
+               "Norms + Persuasion"),
+  "N (Studies)" = c(model$N_studies,
+                    norms_model$N_studies,
+                    nudge_model$N_studies,
+                    persuasion_model$N_studies,
+                    norms_persuasion_model$N_studies),
+  "N (Interventions)" = c(model$N_interventions,
+                          norms_model$N_interventions,
+                          nudge_model$N_interventions,
+                          persuasion_model$N_interventions,
+                          norms_persuasion_model$N_interventions),
+  "N (Subjects)" = c(model$N_subjects,
+                     norms_model$N_subjects,
+                     nudge_model$N_subjects,
+                     persuasion_model$N_subjects,
+                     norms_persuasion_model$N_subjects),
+  "Glass's $\\Delta$ (SE)" = c(mr(model),
+                               mr(norms_model),
+                               mr(nudge_model),
+                               mr(persuasion_model),
+                               mr(norms_persuasion_model))) |>
+  meta_table_maker(caption = "Norm, Nudge, and persuasion approaches to MAP reduction", 
+                   label = "tab:table_one", footnote = T) |>
+  add_footnote("Note: Many cluster-assigned studies do not report an exact number of subjects, \\linebreak so our N of subjects are rounded estimates.", notation = 'none', escape = F)
 
 
-# Overall results by theory
-all_results <- bind_rows(
-  dat |> filter(str_detect(theory, "norms")) |> map_robust() |> mutate(Approach = "Norms"),
-  dat |> filter(str_detect(theory, "nudge")) |> map_robust() |> mutate(Approach = "Nudge"),
-  dat |> filter(str_detect(secondary_theory, "health")) |> map_robust() |> mutate(Approach = "Health"),
-  dat |> filter(str_detect(secondary_theory, "environment")) |> map_robust() |> mutate(Approach = "Environment"),
-  dat |> filter(str_detect(secondary_theory, "animal welfare")) |> map_robust() |> mutate(Approach = "Animal Welfare"),
-  dat |> filter(str_detect(theory, "persuasion")) |> map_robust() |> mutate(Approach = "Persuasion")) |> 
-  select(Approach, N_studies, everything())
 
-# Overall results by delivery method
-delivery_method_results <- bind_rows(
-  dat |> filter(str_detect(internet, "Y")) |> map_robust() |> mutate(DeliveryMethod = "Internet"),
-  dat |> filter(str_detect(leaflet, "Y")) |> map_robust() |> mutate(DeliveryMethod = "Pamphlet"),
-  dat |> filter(str_detect(video, "Y")) |> map_robust() |> mutate(DeliveryMethod = "Video"),
-  dat |> filter(cafeteria_or_restaurant_based == "Y") |> map_robust() |> mutate(DeliveryMethod = "Place-Based"),
-  dat |> filter(cafeteria_or_restaurant_based == 'N' &
-                  !str_detect(video, "Y") &
-                  !str_detect(leaflet, "Y") &
-                  !str_detect(internet, "Y")) |> 
-    map_robust() |> mutate(DeliveryMethod = "Everything else"))
+table_two <- tibble(
+  "Persauasion Approach" = c("Health", 
+                             "Environment", 
+                             "Animal Welfare"),
+  "N (studies)" = c(health_model$N_studies,
+                    environment_model$N_studies,
+                    animal_model$N_studies),
+  "N (interventions)" = c(health_model$N_interventions,
+                          environment_model$N_interventions,
+                          animal_model$N_interventions),
+  "N (subjects)" = c(health_model$N_subjects,
+                     environment_model$N_subjects,
+                     animal_model$N_subjects),
+  "Glass's $\\Delta$ (SE)" = c(mr(health_model),
+                               mr(environment_model),
+                               mr(animal_model))) |>
+  meta_table_maker(caption = "Three approaches to MAP reduction persuasion", 
+                   label = "tab:table_two", footnote = F) |> 
+  add_footnote("Note: because many studies present more than one category of message, the Ns for studies, \\linebreak interventions, and subjects will sum to more than the total numbers in the persuasion category.", notation = 'none', escape = F)
 
-# Results by animal advocacy organization
-advocacy_org_results <- dat |>
-  split(~advocacy_org) |>
-  map(map_robust) |>
-  bind_rows(.id = "advocacy_org") |>
-  arrange(desc(N_studies)) |>
-  mutate(pval = as.numeric(pval)) |>
-  mutate(
-    advocacy_org = if_else(advocacy_org == "N", 
-                           "Researchers (non-advocacy)", advocacy_org))
-
-# Results by country
-country_results <- dat |>
-  mutate(
-    country = if_else(
-      country == "United States, United Kingdom, Canada, Australia, and other",
-      "worldwide",
-      country)) |> 
-  split(~country) |>
-  map(map_robust) |>
-  bind_rows(.id = "country") |>
-  arrange(desc(N_studies)) |>
-  mutate(pval = as.numeric(pval))
-
-# Meat vs MAP as a general category
-meat_vs_map <- dat |>
-  split(~str_detect(pattern = "MAP", dat$outcome_category)) |>
-  map(map_robust) |>
-  bind_rows(.id = 'meat_vs_map') |>
-  mutate(
-    meat_vs_map = case_when(
-      meat_vs_map == TRUE ~ "MAP overall",
-      meat_vs_map == FALSE ~ "Meat",
-      TRUE ~ NA))
-
-# Results by open science practices
-study_quality_results <- list(
-  "Pre-analysis Plan" = dat |> filter(public_pre_analysis_plan != 'N'),
-  "Open Data" = dat |> filter(open_data != 'N'),
-  "Both" = dat |> filter(public_pre_analysis_plan != 'N' & open_data != 'N'),
-  "Neither" = dat |> filter(public_pre_analysis_plan == 'N' & open_data == 'N')
-) |>
-  map(~ .x |> map_robust()) |>
-  bind_rows(.id = "Open Science Practice")
-
-# Split by publication type
-publication_type_eff_size <- dat |> split(~pub_status) |> 
+table_three <- dat |> 
+  split(~pub_status) |> 
   map(map_robust) |> 
-  bind_rows(.id = "publication_type") |>
-  arrange(desc(N_studies))
+  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
+                       meta_result_formatter(.x))) |> 
+  bind_rows(.id = 'Publication status') |> 
+  mutate(`Publication status` = case_when(
+    `Publication status` == "advocacy_org" ~ "Advocacy Organization",
+    TRUE ~ `Publication status`
+  )) |>
+  rename(
+    `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions,
+    `N (subjects)` = N_subjects) |>
+  select(-c(Delta, se, pval))  |> 
+  meta_table_maker(
+    caption = "Difference in effect size by publication status",
+    label = "tab:table_three",
+    footnote = TRUE)
 
-# self report within non-advocacy reports
-self_report_non_advocacy_results <- dat |>
-  filter(advocacy_org == 'N') |>
-  split(~self_report == 'Y') |>
-  map(map_robust) |>
-  bind_rows(.id = 'self_report') |>
-  arrange(desc(N_studies))
+# we cut this one from the final 
+RPM_table <- tibble(
+  "N (Studies)" = rpmc_model$N_studies,
+  "N (Interventions)" = rpmc_model$N_interventions,
+  "Glass's $\\Delta$ (SE)" = mr(rpmc_model)) |>
+  kable(format = "latex", booktabs = TRUE, escape = FALSE,
+        caption = "Meta-analytic results for red and processed meat",
+        label = "tab:rpm_table") |>
+  kable_styling(latex_options = "hold_position") |>
+  footnote(general_title = "",
+           general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001",
+           escape = FALSE)
 
-# population? 
-population_results <- dat |> split(~population) |> 
-  map(map_robust) |> bind_rows(.id = 'population') |> 
-  arrange(desc(N_studies)) 
+table_four <- dat |> 
+  mutate(grouped_delivery_method = case_when(
+    str_detect(delivery_method, "article|op-ed|leaflet|flyer|printed booklet") ~ "Printed Materials",
+    str_detect(delivery_method, "video") ~ "Video",
+    str_detect(delivery_method, "in-cafeteria") ~ "In-Cafeteria",
+    str_detect(delivery_method, "online") ~ "Online",
+    TRUE ~ "Other")) |> 
+  filter(grouped_delivery_method != 'Other') |> 
+  split(~grouped_delivery_method) |> map(map_robust) |>
+  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
+                       meta_result_formatter(.x))) |> 
+  bind_rows(.id = "Delivery method") |> 
+  arrange(desc(N_studies)) |> 
+  rename(
+    `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions,
+    `N (subjects)` = N_subjects) |>
+  select(-c(Delta, se, pval)) |> 
+  meta_table_maker(
+    caption = "Difference in effect size by delivery method",
+    label = "tab:table_four",
+    footnote = F)
 
-
-delivery_method_table <- delivery_method_results |>
-  gmt(
-    title = "Summary of Results by Delivery Method",
-    col_name = DeliveryMethod,
-    col_label = "Delivery Method")
-# gtsave(delivery_method_table, './tables/delivery_method_table.png')
-
-advocacy_org_table <- advocacy_org_results |>
-  gmt(
-    title = "Results by Animal Advocacy Organization",
-    col_name = advocacy_org,
-    col_label = "Advocacy Organization",
-    tab_source_note = TRUE
-  )
-# gtsave(advocacy_org_table, './tables/advocacy_org_table.png')
-
-country_results_table <- country_results |>
-  gmt(
-    title = "Results by Country",
-    col_name = country,
-    col_label = "Country")
-# gtsave(country_results_table, './tables/country_results_table.png')
-
-meat_vs_map_table <- meat_vs_map |>
-  gmt(
-    title = "Differences in effect studies between Meat and MAP outcomes",
-    col_name = meat_vs_map,
-    col_label = "Outcome type")
-# gtsave(meat_vs_map_table, './tables/meat_vs_map_table.png')
-
-study_quality_results_table <- study_quality_results |>
-  gmt(
-    title = "Effect Sizes of Studies by Open Science Practices",
-    col_name = 'Open Science Practice',
-    col_label = "Open Science Practice",
-    tab_source_note = TRUE)
-# gtsave(study_quality_results_table, './tables/study_quality_results_table.png')
-
-population_results_table <- population_results |>
-  gmt(title = "Results by Population",
-         col_name = population,
-         col_label = "Population")
-# gtsave(population_results_table, './tables/population_results_table.png')
-
-self_report_non_advocacy_table <- self_report_non_advocacy_results |>
-  gmt(
-    title = "Results by Self-Reported Outcomes excluding advocacy publications",
-    col_name = self_report,
-    col_label = "Self Report",
-    tab_source_note = TRUE)
-# gtsave(self_report_non_advocacy_table, './tables/self_report_non_advocacy_table.png')
-
-publication_type_eff_size_table <- publication_type_eff_size |>
-  gmt(
-    title = "Effect Sizes of Studies by Publication Type",
-    col_name = publication_type,
-    col_label = "Publication Type",
-    tab_source_note = TRUE)
-# gtsave(publication_type_eff_size_table, './tables/publication_type_eff_size_table.png')
-
+table_five <- dat |> 
+  mutate(grouped_region = case_when(
+    country %in% c("United States", "Canada") ~ "North America",
+    country %in% c("United Kingdom", "Denmark", "Germany", "Italy", "Netherlands", "Sweden") ~ "Europe",
+    str_detect(country, "worldwide|United States, United Kingdom, Canada, Australia, and other|Iran|Thailand|Australia") ~ "Asia, Australia, and worldwide",
+    TRUE ~ "Other")) |> 
+  split(~grouped_region) |> 
+  map(map_robust) |> 
+  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" = meta_result_formatter(.x))) |> 
+  bind_rows(.id = "Region") |> 
+  arrange(desc(N_studies)) |> 
+  rename(
+    `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions,
+    `N (Subjects)` = N_subjects) |>
+  select(-c(Delta, se, pval))  |> 
+  meta_table_maker(caption = "Difference in effect size by study region",
+                   label = "tab:table_five")

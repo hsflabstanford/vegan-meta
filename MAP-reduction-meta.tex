@@ -225,6 +225,8 @@ Persuasion & 27 & 82 & 25100 & 0.0667* (0.0262)\\
 Norms + Persuasion & 4 & 5 & 300 & 0.1702 (0.2432)\\
 \bottomrule
 \multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
+\multicolumn{5}{l}{\textsuperscript{} Note: Many cluster-assigned studies do not report an exact number of subjects, \linebreak so our N}\\
+\multicolumn{5}{l}{of subjects are rounded estimates.}\\
 \end{tabular}
 \end{table}
 
@@ -300,7 +302,7 @@ Figure 1 displays the distribution of effect sizes, grouped by paper,
 with each individual point representing an intervention. The overall
 effect size is plotted at the bottom.
 
-\includegraphics{results/forest_plot_nulls_and_CIs-1}
+\includegraphics{results/forest_plot-1}
 
 This small effect may surprise readers of previous reviews, which
 typically found more positive results
@@ -347,21 +349,7 @@ peer-reviewed journals is about 9 times larger than the equivalent
 effect size in student theses (table 3). Interventions published by
 advocacy organizations produce a small backlash effect on average.
 
-\begin{table}[!h]
-\centering
-\caption{\label{tab:tab:table_three}Difference in effect size by publication status}
-\centering
-\begin{tabular}[t]{lrrrl}
-\toprule
-Publication status & N (Interventions) & N (Studies) & N (subjects) & Glass's $\Delta$ (SE)\\
-\midrule
-Advocacy Organization & 42 & 4 & 4500 & -0.0397 (0.0160)\\
-Journal article & 54 & 30 & 84900 & 0.0805** (0.0243)\\
-Thesis & 11 & 5 & 1300 & 0.0091 (0.0914)\\
-\bottomrule
-\multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
-\end{tabular}
-\end{table}
+`r table\_three
 
 \subsection{Red and Processed Meat is an easier target}\label{sec2.4}
 
@@ -441,7 +429,8 @@ its exceptional commitment to long-term, oblique outcome measurement, we
 consider this study to be reasonably robust evidence for this
 intervention's efficacy among students at liberal arts colleges.
 
-\subsection{Animal welfare appeals are mostly ineffective}\label{sec2.9}
+\subsection{Animal welfare appeals are almost always
+ineffective}\label{sec2.9}
 
 The pooled effect size for persuasion studies with an animal welfare
 component is \(\Delta\) = 0.01 (SE = 0.013), p = .4826. A full 59 of 61
@@ -536,8 +525,7 @@ inclusion criteria. All effect sizes were standardized by the standard
 deviation of the outcome for the control group at baseline whenever
 possible (Glass's \(\Delta\)). All effect size conversions were
 conducted by the first author using methods and R code initially
-developed for previous papers
-\citep{paluck2019, paluck20201, porat2024}.
+developed for previous papers \citep{paluck2019, paluck2021, porat2024}.
 
 \textbf{Meta-analysis:} Our initial set of analyses was pre-registered
 on the Open Science Framework in November 2023
