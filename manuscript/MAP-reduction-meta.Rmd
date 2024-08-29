@@ -61,9 +61,11 @@ source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
 source('./scripts/tables.R')
+source('./scripts/figures.R')
+
 ```
 
-# Introduction] {#sec1}
+# Introduction {#sec1}
 
 Consumption of meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
 
@@ -151,8 +153,7 @@ Figure 1 displays the distribution of effect sizes, grouped by paper, with each 
 The overall effect size is plotted at the bottom.
 
 ```{r forest_plot}
-source('./scripts/forest-plot.R')
-print(forest_plot)
+forest_plot
 ```
 
 This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
@@ -228,18 +229,6 @@ dat |> sum_lm(d, se_d)
 
 # within journal articles? 
 dat |> filter(pub_status == 'Journal article') |> sum_lm()
-# A visual exploration:
-dat |>
-  ggplot(aes(x = se_d, y = d)) +
-  geom_point(size = 2, aes(color = theory)) + # shape = self_report, 
-  stat_smooth(method = 'lm', se = FALSE, lty = 'dotted') +
-  scale_color_manual(values = c("norms" = "blue",
-                                "norms & persuasion" = "red",
-                                "nudge" = "green",
-                                "persuasion" = "purple"
-                                )) +
-  labs(x = "Standard Error") +
-  theme_minimal() 
 ```
 
 ## Red and Processed Meat is an easier target {#sec2.4}
@@ -466,6 +455,10 @@ All code and data are available on GitHub and Code Ocean: LINKS
 -   "our read is quite different' <https://www.pnas.org/doi/10.1073/pnas.2200732119> automatacity is not the way forward
 
 ## Supplementary Table(s)
+
+```{r supplementary_figure}
+supplementary_figure
+```
 
 ## Supplementary Discussion
 

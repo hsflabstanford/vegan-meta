@@ -1,6 +1,6 @@
 # this section is complex and brittle. optional TODO: make it general & robust
-model <- dat |> map_robust()
 
+# Figure 1
 plot_dat <- dat |> 
   mutate(lower_bound = d - (1.96 * se_d),
          upper_bound = d + (1.96 * se_d)) |>
@@ -45,3 +45,23 @@ forest_plot <- plot_dat |> ggplot(aes(x = d, y = study_name)) +
         legend.title = element_text(size = 15),
         legend.text = element_text(size = 12),
         axis.line = element_line(colour = "black")) 
+
+# Supplementary Figure 
+supplementary_figure <- dat |>
+  ggplot(aes(x = se_d, y = d)) +
+  geom_point(size = 2, aes(color = theory, shape = pub_status )) + 
+  stat_smooth(method = 'lm', se = FALSE, lty = 'dotted') +
+  scale_color_manual(values = c("norms" = "blue",
+                                "norms & persuasion" = "red",
+                                "nudge" = "green",
+                                "persuasion" = "purple"
+  )) +
+  scale_shape_manual(values = c("advocacy_org" = 16,  # Use appropriate shapes
+                                "Journal article" = 17,
+                                "Thesis" = 15),
+                     labels = c("advocacy_org" = "Advocacy organization",
+                                "Journal article" = "Journal article",
+                                "Thesis" = "Thesis")) +
+  labs(x = "Standard Error", y = "Effect Size", color = "Approach", shape = "Publication status") +
+  ggtitle("Figure S1: Test for publication bias") +
+  theme_minimal()

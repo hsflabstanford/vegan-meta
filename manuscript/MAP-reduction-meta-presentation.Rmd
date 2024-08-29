@@ -8,11 +8,13 @@ author:
 date: "`r Sys.Date()`"
 output:
   beamer_presentation:
-bibliography: "./manuscript/vegan-refs.bib"
+bibliography: './vegan-refs.bib'
 header-includes:
   - \usepackage{booktabs}
 editor_options:
   chunk_output_type: console
+nocite: |
+  @aldoh2023, @allen2002, @alblas2023, @coker2022, @griesoph2021, @piester2020, @sparkman2017, @sparkman2020, @andersson2021, @kanchanachitra2020, @bochmann2017, @bschaden2020, @cooney2016, @feltz2022, @haile2021, @mathur2021effectiveness, @peacock2017, @polanco2022, @sparkman2021, @abrahamse2007, @acharya2004, @berndsen2005, @bertolaso2015, @bianchi2022, @fehrenbach2015, @hatami2018, @jalil2023, @merrill2009, @norris2014, @weingarten2022, @carfora2023, @hennessy2016, @mattson2020
 ---
 
 ```{r setup, include=FALSE}
@@ -58,9 +60,11 @@ Meta-analysis of randomized controlled trials (RCTs) that
 -   A few studies combined persuasion with norms
 
 ## Distribution of approaches:
+
 ```{r table_one}
 table_one |> kableExtra::kable_styling(font_size = 7) 
 ```
+
 ## Distribution of persuasion interventions:
 
 ```{r table_two}
@@ -71,9 +75,10 @@ table_two |> kableExtra::kable_styling(font_size = 7)
 
 -   Meta-analytic average: $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
 -   Statistically significant but not indicating meaningful reduction
-      - Caveat that 'meaningful' depends on context
+    -   Caveat that 'meaningful' depends on context
 
 ## Forest plot
+
 ```{r forest_plot, out.width="90%"}
 forest_plot
 ```
@@ -110,7 +115,7 @@ norms_proportions  <- norms_studies |>
 
 -   Overall effect for norms interventions: $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
 -   Wide variability in outcomes, including some backlashes.
--   Unclear limiting principles for when norms work or for whom. 
+-   Unclear limiting principles for when norms work or for whom.
 -   see Sparkman et. al (2020) for standout example
 
 ## The Evidence for Nudges on MAP Consumption Is Scant
@@ -140,14 +145,13 @@ RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secon
 ```
 
 Health studies produce an average effect of$\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
--   More effective at reducing RPM than MAP: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
+- More effective at reducing RPM than MAP: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
 
 ## Environmental Appeals Have Modest Positive Effects
 
 Environmental studies produce an average effect of $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
--   Strongest evidence from a study on student dining behavior (Jalil et al.2023) which replaced an intro econ lecture for students at a small liberal arts college with a lecture on the environmental and health reasons to cut back on meat -- and then tracked student dining choices for three years
-    - Overall reduction of 5.4%
-  
+- Strongest evidence from a study on student dining behavior (Jalil et al.2023) which replaced an intro econ lecture for students at a small liberal arts college with a lecture on the environmental and health reasons to cut back on meat -- and then tracked student dining choices for three years - Overall reduction of 5.4%
+
 ## Animal Welfare Appeals Are Almost Always Ineffective
 
 ```{r animal_welfare_studies, include=F}
@@ -170,7 +174,7 @@ advocacy_model <- dat |> filter(advocacy_org != 'N') |> map_robust()
 -   No meaningful difference by self-reported outcomes or not
 -   nor by how treatment was assigned
 -   nor by delay
-- All of these were surprising to me
+-   All of these were surprising to me
 
 ## some differences by delivery method...
 
@@ -193,8 +197,10 @@ table_five |> kableExtra::kable_styling(font_size = 6.5)
 -   Overall research is getting more rigorous over time – most of these studies have been published since 2020 (the earliest was 2002)
 
 ## Thanks! Questions?
-- code and data at https://github.com/setgree/vegan-meta
-- my email is setgree@stanford.edu
 
+-   code and data at <https://github.com/setgree/vegan-meta>
+-   my email is [setgree\@stanford.edu](mailto:setgree@stanford.edu){.email}
 
-## References {.allowframebreaks}
+## Database of studies: {.allowframebreaks}
+
+\bibliography{./vegan-refs.bib}
