@@ -475,8 +475,8 @@ supplementary_figure
 
 ### Is a norm a nudge?
 
-Tallying which studies pursue which theories of change requires drawing boundaries between those theories.
-One potentially tricky boundary is between nudges and norms.
+Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories. There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023]
+.
 [@thaler2009] define a nudge as "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
 
 By this definition, an injunctive norm intervention, which implies a threat of social deviance and therefore sanction, clearly does not qualify.
@@ -489,8 +489,7 @@ Is a tendency to conform or to preconform [@sparkman2017] a flaw or "behavioral 
 They contrast this approach with "persuasion," which "appeals to an individual’s ability to reason, digest new information and engage in systematic information processing" (p. 4).
 
 Our view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
-Therefore, we do not classify the norms interventions in our database as nudges, though we acknowledge a burgeoning "norms-nudge" literature and that terminology may change over time.
-(See [@bicchieri2023] for discussion).
+Therefore, we do not classify the norms interventions in our database as nudges.
 
 We also think that a future project might investigate exactly what reactions are occurring by asking subjects, e.g., how well they recall the message, what it made them think about, etc.
 A high prevalence of subjects' being unable to recall the message's specifics, for instance, but nevertheless showing signs of behavioral change would be evidence that norms are acting through automatic rather than reflective processes.

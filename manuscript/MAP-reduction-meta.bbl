@@ -384,6 +384,11 @@
 \newblock \bibinfo{organization}{R Foundation for Statistical Computing}, \bibinfo{address}{Vienna, Austria} (\bibinfo{year}{2021}).
 \newblock \urlprefix\url{https://www.R-project.org/}.
 
+\bibitem{bicchieri2023}
+\bibinfo{author}{Bicchieri, C.}
+\newblock \bibinfo{title}{{Norm nudging and twisting preferences}}.
+\newblock \emph{\bibinfo{journal}{Behavioural Public Policy}} \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{914--923} (\bibinfo{year}{2023}).
+
 \bibitem{thaler2009}
 \bibinfo{author}{Thaler, R.~H.} \& \bibinfo{author}{Sunstein, C.~R.}
 \newblock \emph{\bibinfo{title}{{Nudge: Improving decisions about health, wealth, and happiness}}}  (\bibinfo{publisher}{Penguin}, \bibinfo{year}{2009}).
@@ -402,10 +407,5 @@
 \bibinfo{author}{Mols, F.}, \bibinfo{author}{Haslam, S.~A.}, \bibinfo{author}{Jetten, J.} \& \bibinfo{author}{Steffens, N.~K.}
 \newblock \bibinfo{title}{{Why a nudge is not enough: A social identity critique of governance by stealth}}.
 \newblock \emph{\bibinfo{journal}{European Journal of Political Research}} \textbf{\bibinfo{volume}{54}}, \bibinfo{pages}{81--98} (\bibinfo{year}{2015}).
-
-\bibitem{bicchieri2023}
-\bibinfo{author}{Bicchieri, C.}
-\newblock \bibinfo{title}{{Norm nudging and twisting preferences}}.
-\newblock \emph{\bibinfo{journal}{Behavioural Public Policy}} \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{914--923} (\bibinfo{year}{2023}).
 
 \end{thebibliography}
