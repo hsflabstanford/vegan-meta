@@ -56,6 +56,7 @@ knitr::opts_chunk$set(
 # so we can put the manuscript stuff in its own folder
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 setwd(rprojroot::find_rstudio_root_file())
+options(tinytex.clean = FALSE)
 
 
 source('./scripts/libraries.R')
@@ -497,5 +498,3 @@ A high prevalence of subjects' being unable to recall the message's specifics, f
 \newpage
 
 # References
-
-# 
