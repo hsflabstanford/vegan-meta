@@ -39,7 +39,7 @@ source('./scripts/forest-plot.R')
 
 Meta-analysis of randomized controlled trials (RCTs) that
 
--   were designed to voluntarily reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish or removing meat from someone's plate
+-   were designed to voluntarily reduce consumption of meat and animal products (MAP), rather than (e.g.) encouraging substitution from red to white meat or fish or removing meat from someone's plate
 
 -   had least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
 
@@ -69,7 +69,7 @@ table_two |> kableExtra::kable_styling(font_size = 7)
 
 ## An Overall Small Effect
 
--   Meta-analytic effect size: $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
+-   Meta-analytic average: $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
 -   Statistically significant but not indicating meaningful reduction
       - Caveat that 'meaningful' depends on context
 
@@ -91,9 +91,9 @@ table_three |> kableExtra::kable_styling(font_size = 7)
 
 ## Red and Processed Meat is an Easier Target
 
--   RPM reduction interventions outperform general MAP interventions: $\Delta$ = `r rpmc_model$Delta` (SE = `r rpmc_model$se`), p = `r rpmc_model$pval`.
+-   Red and Processed Meat (RPM) reduction interventions outperform general MAP interventions: $\Delta$ = `r rpmc_model$Delta` (SE = `r rpmc_model$se`), p = `r rpmc_model$pval`.
 -   Focus primarily on health benefits.
--   Lacking data on substitution to white meat and fish.
+-   Lacking data on substitution to white meat annd fish.
 
 ## Norms Work Sometimes, But unclear when or where
 
@@ -109,17 +109,17 @@ norms_proportions  <- norms_studies |>
 ```
 
 -   Overall effect for norms interventions: $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
--   Wide variability in outcomes, including some backlashes
--   Unclear limiting principles for norms' effectiveness 
--   see @sparkman2020 for standout example and @Weikertova2024 for a review & meta-analysis
+-   Wide variability in outcomes, including some backlashes.
+-   Unclear limiting principles for when norms work or for whom. 
+-   see Sparkman et. al (2020) for standout example
 
 ## The Evidence for Nudges on MAP Consumption Is Scant
 
 -   Nudge and diet studies is a huge literature...
--   but only two nudge studies [@andersson2021; @kanchanachitra2020] met our inclusion criteria.
--   Both showed moderate effect sizes (think a few percentage points change)
+-   but only two nudge studies met our inclusion criteria.
+-   Both showed moderate effect sizes (think a few percentage points change).
 
-## Health Studies Work Better for RPM Than for MAP
+## Health Studies Work Better for Red and Processed Meat (RPM) Than for MAP
 
 ```{r health_studies, echo=F, include=F}
 health_studies <- dat |> 
@@ -139,13 +139,13 @@ RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secon
   sum_tab(health_component)
 ```
 
--   Pooled effect size for health-based persuasion: $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
--   More effective in RPM interventions than in general MAP reduction.
+Health studies produce an average effect of$\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
+-   More effective at reducing RPM than MAP: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
 
 ## Environmental Appeals Have Modest Positive Effects
 
--   Pooled effect size for environmental appeals: $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
--   Strongest evidence from a study on student dining behavior [@jalil2023] which repalced an intro econ lecture for students at a small liberal arts college with a lecture on the environmental and health reasons to cut back on meat -- and then tracked student dining choices for three years
+Environmental studies produce an average effect of $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
+-   Strongest evidence from a study on student dining behavior (Jalil et al.2023) which replaced an intro econ lecture for students at a small liberal arts college with a lecture on the environmental and health reasons to cut back on meat -- and then tracked student dining choices for three years
     - Overall reduction of 5.4%
   
 ## Animal Welfare Appeals Are Almost Always Ineffective
@@ -176,7 +176,6 @@ advocacy_model <- dat |> filter(advocacy_org != 'N') |> map_robust()
 
 ```{r table_four}
 table_four|> kableExtra::kable_styling(font_size = 7) 
-
 ```
 
 ## And region
@@ -196,5 +195,6 @@ table_five |> kableExtra::kable_styling(font_size = 6.5)
 ## Thanks! Questions?
 - code and data at https://github.com/setgree/vegan-meta
 - my email is setgree@stanford.edu
+
 
 ## References {.allowframebreaks}
