@@ -1,0 +1,200 @@
+---
+title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis"
+titlerunning: MAP-reduction-meta
+author: 
+  - Seth Ariel Green
+  - Maya Mathur
+  - Benny Smith
+date: "`r Sys.Date()`"
+output:
+  beamer_presentation:
+bibliography: "./manuscript/vegan-refs.bib"
+header-includes:
+  - \usepackage{booktabs}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+# so that knitr labels figures
+knitr::opts_chunk$set(
+	fig.path = "results/",
+	echo = FALSE,
+	out.extra = ""
+)
+# so we can put the manuscript stuff in its own folder
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+setwd(rprojroot::find_rstudio_root_file())
+
+source('./scripts/libraries.R')
+source('./scripts/functions.R')
+source('./scripts/load-data.R')
+source('./scripts/red-and-processed-meat.R')
+source('./scripts/models.R')
+source('./scripts/tables.R')
+source('./scripts/forest-plot.R')
+```
+
+## Paper in a nutshell
+
+Meta-analysis of randomized controlled trials (RCTs) that
+
+-   were designed to voluntarily reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish or removing meat from someone's plate
+
+-   had least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
+
+-   measured MAP consumption, whether self-reported or observed directly, rather than (or in addition to) attitudes, intentions, beliefs or hypothetical choices;
+
+-   recorded outcomes at least a single day after the start of treatment
+
+## Three Theoretical Categories: Persuasion, Choice Architecture, and Norms
+
+-   Nudges (choice architecture/behavioral economics)
+-   Norms ('veggie burgers are a popular choice'/'veggie burgers are becoming more popular')
+-   Persuasion approaches:
+    -   Appeals to animal welfare
+    -   Appeals to health
+    -   Appeals to the environment
+-   A few studies combined persuasion with norms
+
+## Distribution of approaches:
+```{r table_one}
+table_one |> kableExtra::kable_styling(font_size = 7) 
+```
+## Distribution of persuasion interventions:
+
+```{r table_two}
+table_two |> kableExtra::kable_styling(font_size = 7)
+```
+
+## An Overall Small Effect
+
+-   Meta-analytic effect size: $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
+-   Statistically significant but not indicating meaningful reduction
+      - Caveat that 'meaningful' depends on context
+
+## Forest plot
+```{r forest_plot, out.width="90%"}
+forest_plot
+```
+
+## Moderate Evidence of Publication Bias
+
+-   Tests for publication bias:
+    -   $\Delta$ and SE positively correlated (not significant).
+    -   Studies with pre-analysis plans or openly available data show smaller, non-significant effects.
+    -   Peer-reviewed journal interventions show larger effect sizes
+
+```{r table_three}
+table_three |> kableExtra::kable_styling(font_size = 7) 
+```
+
+## Red and Processed Meat is an Easier Target
+
+-   RPM reduction interventions outperform general MAP interventions: $\Delta$ = `r rpmc_model$Delta` (SE = `r rpmc_model$se`), p = `r rpmc_model$pval`.
+-   Focus primarily on health benefits.
+-   Lacking data on substitution to white meat and fish.
+
+## Norms Work Sometimes, But unclear when or where
+
+```{r include=F, echo=F}
+norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robust()
+
+# look at the distribution of effect sizes
+
+norms_studies <- dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
+
+norms_proportions  <- norms_studies |>
+  sum_tab(neg_null_pos)
+```
+
+-   Overall effect for norms interventions: $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
+-   Wide variability in outcomes, including some backlashes
+-   Unclear limiting principles for norms' effectiveness 
+-   see @sparkman2020 for standout example and @Weikertova2024 for a review & meta-analysis
+
+## The Evidence for Nudges on MAP Consumption Is Scant
+
+-   Nudge and diet studies is a huge literature...
+-   but only two nudge studies [@andersson2021; @kanchanachitra2020] met our inclusion criteria.
+-   Both showed moderate effect sizes (think a few percentage points change)
+
+## Health Studies Work Better for RPM Than for MAP
+
+```{r health_studies, echo=F, include=F}
+health_studies <- dat |> 
+  filter(str_detect(secondary_theory, 'health')) |> 
+  select(author, year, secondary_theory, d, se_d, 
+         self_report, neg_null_pos) |> 
+  arrange(neg_null_pos, d) |> print(n = 30)
+
+health_proportions <- 
+  health_studies |> sum_tab(neg_null_pos)
+
+RPM_health_model <- RPMC |>  
+  filter(str_detect(secondary_theory, 'health')) |> map_robust()
+
+# health studies form the majority of RPM studies
+RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secondary_theory, 'health'), T,F)) |> 
+  sum_tab(health_component)
+```
+
+-   Pooled effect size for health-based persuasion: $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
+-   More effective in RPM interventions than in general MAP reduction.
+
+## Environmental Appeals Have Modest Positive Effects
+
+-   Pooled effect size for environmental appeals: $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
+-   Strongest evidence from a study on student dining behavior [@jalil2023] which repalced an intro econ lecture for students at a small liberal arts college with a lecture on the environmental and health reasons to cut back on meat -- and then tracked student dining choices for three years
+    - Overall reduction of 5.4%
+  
+## Animal Welfare Appeals Are Almost Always Ineffective
+
+```{r animal_welfare_studies, include=F}
+animal_proportions  <- dat |> filter(str_detect(secondary_theory, 'animal')) |>
+  sum_tab(neg_null_pos)
+
+animal_proportions['0']
+
+neg_animal_results <- dat |> filter(str_detect(secondary_theory, 'animal')) |> filter(d<0) |> count()
+
+advocacy_model <- dat |> filter(advocacy_org != 'N') |> map_robust()
+```
+
+-   Pooled effect size for animal welfare appeals: $\Delta$ = `r animal_model$Delta` (SE = `r animal_model$se`), p = `r animal_model$pval`.
+-   A full `r animal_proportions['0']` of `r animal_model$N_interventions` interventions in this category are self-described nulls.
+-   Slightly more than half (`r neg_animal_results` of `r animal_model$N_interventions`) lead to increases in MAP consumption, though just one of these effects is statistically significant.
+
+## Moderators:
+
+-   No meaningful difference by self-reported outcomes or not
+-   nor by how treatment was assigned
+-   nor by delay
+- All of these were surprising to me
+
+## some differences by delivery method...
+
+```{r table_four}
+table_four|> kableExtra::kable_styling(font_size = 7) 
+
+```
+
+## And region
+
+```{r table_five}
+table_five |> kableExtra::kable_styling(font_size = 6.5) 
+```
+
+## Conclusions
+
+-   Basically no theory has a really robust evidence base :(
+
+-   Lots of promising interventions haven't been tested yet – still lots of low-hanging fruit!
+
+-   Overall research is getting more rigorous over time – most of these studies have been published since 2020 (the earliest was 2002)
+
+## Thanks! Questions?
+- code and data at https://github.com/setgree/vegan-meta
+- my email is setgree@stanford.edu
+
+## References {.allowframebreaks}

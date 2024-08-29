@@ -28,7 +28,7 @@ meta_table_maker <- function(data, format = "latex", booktabs = TRUE, escape = F
   table <- knitr::kable(data, format = format, booktabs = booktabs, escape = escape, 
                         caption = caption, label = label) |>
     kableExtra::kable_styling(latex_options = "hold_position")
-  
+
   if (footnote) {
     table <- table |>
       kableExtra::footnote(

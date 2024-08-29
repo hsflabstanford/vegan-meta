@@ -44,14 +44,16 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
+# so that knitr labels figures
 knitr::opts_chunk$set(
 	fig.path = "results/",
 	echo = FALSE,
 	out.extra = ""
 )
+# so we can put the manuscript stuff in its own folder
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 setwd(rprojroot::find_rstudio_root_file())
-  # This forces knitr to label all figures.
+
 
 source('./scripts/libraries.R')
 source('./scripts/functions.R')
@@ -61,7 +63,7 @@ source('./scripts/models.R')
 source('./scripts/tables.R')
 ```
 
-# Introduction {#sec1}
+# Introduction] {#sec1}
 
 Consumption of meat and animal products (MAP) is increasingly recognized as a major contributor to premature deaths [@willett2019; @landry2023], public health risks [@slingenbergh2004; @graham2008], ecological harms [@greger2010] and climate change [@scarborough2023; @koneswaran2008] as well as an ethical crisis in its own right [@kuruc2023; @singer2023].
 
@@ -215,7 +217,7 @@ This difference is also not statistically significant.
 Fourth, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (table 3).
 Interventions published by advocacy organizations produce a small backlash effect on average.
 
-\`r table_three
+`r table_three`
 
 ```{r pbulication_bias_checks, include=F}
 
