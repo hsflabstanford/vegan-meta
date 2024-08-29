@@ -27,9 +27,11 @@ affiliations:
     info:
       orgname: Allied Scholars for Animal Protection 
 keywords:
-  - key
-  - dictionary
-  - word
+  - meta-analysis
+  - meat
+  - plant-based
+  - randomized controlled trial
+  
 abstract: |
   Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.057, suggesting that we face an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 output: 
@@ -80,7 +82,7 @@ Moreover, two prior investigations revealed three common gaps in the MAP literat
 
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
 
--   were designed to voluntarily reduce MAP consumption, rather than (e.g.) encouraging substitution from red to white meat or fish or removing meat from someone's plate
+-   were designed to voluntarily reduce MAP consumption, rather than encouraging substitution from red to white meat or fish or removing meat from someone's plate
 
 -   had least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
 
@@ -127,13 +129,13 @@ Table 1 reports the distribution of studies, interventions, subjects (approximat
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
 The first norms study meeting our criteria was published in 2017.
 
-**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, e.g. placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or placing fish sauce in a bowl with a serving spoon rather than in a bottle, which makes it serving it more laborious [@kanchanachitra2020].
+**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauc [@kanchanachitra2020].
 
 **Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2016; @fehrenbach2015; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @mathur2021effectiveness; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @jalil2023; @merrill2009; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
 Arguments typically focus on health the environment \textemdash usually climate change \textemdash and animal welfare.
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
-Many persuasion studies combine arguments, e.g. a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
+Many persuasion studies combine arguments, such as a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
 
 Table 2 displays the distribution of persuasion studies within these categories.
 
@@ -345,7 +347,7 @@ confound_table <- dat |> filter(self_report == 'N') |>
 
 ```
 
-Our sample of studies is comparatively small, and many differences between studies are confounded (e.g. `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations).
+Our sample of studies is comparatively small, and many differences between studies are confounded (for example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations).
 Nevertheless we offer a few tentative explorations of potential moderators of effect size.
 
 ```{r heterogeneity_analyses, include=F}
@@ -353,8 +355,8 @@ Nevertheless we offer a few tentative explorations of potential moderators of ef
 self_report_table <- dat |> split(~self_report) |> map(map_robust)  |> 
  bind_rows(.id = 'self_report')
 
-dat |> split(~cluster_assigned) |> map(map_robust)
-table(dat$delivery_method)
+cluster_results <- dat |> split(~cluster_assigned) |> map(map_robust)
+delivery_table <- table(dat$delivery_method)
 ```
 
 Contrary to our expectations, self-reported and objectively collected outcomes were not meaningfully different: `r self_report_table[self_report_table$self_report == "N", "Delta"]` for objectively reported vs `r self_report_table[self_report_table$self_report == "Y", "Delta"]` for self-reported.
@@ -376,7 +378,7 @@ Second, we checked any possibly relevant study that either cited or was cited by
 Third, we checked the bibliographies of authors whose studies we coded.
 Fourth, we contacted leading researchers in the field with our in-progress database to see if we had missed any.
 Fifth, we rinsed and repeated with the new studies we had.
-Sixth, we conducted searched Google Scholar for certain terms that had come up in studies repeatedly (e.g. "dynamic norms + meat", "MAP reduction", "plant-based diet + effective").
+Sixth, we conducted searched Google Scholar for certain terms that had come up in studies repeatedly (e.g. "dynamic norms + meat", "MAP reduction", and "plant-based diet + effective").
 Sixth, we checked database emerging from a parallel project being conducted by Rethink Priorities.
 Seventh, we identified a further 100+ systematic reviews and checked their bibliographies.
 Eighth, we used an AI search tool (\url{<https://undermind.ai>}) to check for unfound gray literature.
@@ -399,9 +401,9 @@ First, one might focus on the small effect sizes and the moderate evidence of pu
 Second, one might argue that our assembled database of studies *is* successfully changing consumption behavior, but in ranges too small for most studies to detect.
 By this light, future studies should replicate existing approaches with sufficient power to detect much smaller effects.
 
-Moreover, a change of a few percentage points, e.g. 5.4% reductions for college students in [@jalil2023], might be significant in some institutional contexts.
-For example, if a college calculates that meat consumption accounts for 20% of its carbon emissions, a 5% reduction in meat consumption achieves 1% in carbon.
-Given how cheap and easy the intervention in [@jalil2023] is to implement, it might be a comparatively cost-effective method for striving towards net zero emissions.
+Moreover, a change of a few percentage points might be significant in some contexts.
+For example, if a college calculates that meat consumption accounts for 20% of its carbon emissions, a 5.4% reduction in meat consumption [@jalil2023] achieves a 1% reduction in carbon output.
+Whether or not that is a cost-effective method depends on the alternatives.
 
 ```{r largest_eff_sizes, include=F}
 large_effs <- dat |> filter(d>=0.5) |> 
@@ -442,7 +444,8 @@ All code and data are available on GitHub and Code Ocean: LINKS
 ## Supplementary Methods
 
 -   Question for Maya – what else should go here?
-    I'd favor a discussion of meta-analytic models and the fact that our results are a bit sensitive to differences
+
+    -   e.g. a discussion meta-analytic models and the fact that our results are a bit sensitive to differences
 
 -   difference in proportions calculator briefly
 
@@ -470,23 +473,20 @@ supplementary_figure
 
 ### Is a norm a nudge?
 
-Counting which studies pursue which theories of change requires drawing boundaries around those theories.
+Tallying which studies pursue which theories of change requires drawing boundaries between those theories.
 One potentially tricky boundary is between nudges and norms.
-[@thaler2009] define a nudge as "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6).
-However, which incentives count as economic is not self-evident; others have noted that many of the examples cited by Thaler and Sunstein actually do alter incentives [@selinger2012].
+[@thaler2009] define a nudge as "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
 
-[@hausman2010] offer a revised definition of nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
-By this definition, an injunctive norm intervention, which implies a threat of social deviance and therefore sanction, does not qualify.
-
-The question of whether a descriptive norm intervention is a nudge is trickier.
+By this definition, an injunctive norm intervention, which implies a threat of social deviance and therefore sanction, clearly does not qualify.
+Whether a descriptive norm can be a nudge is trickier.
 [@thaler2009] would likely say yes; they write that if "choice architects want to change behavior, and to do so with a nudge, they might simply inform people about what other people are doing" (p. 71).
-However, [@hausman2010] also note that nudges are designed to address "flaws in individual decision-making" (p. 126).
+However, [@hausman2010] also note that nudges are designed to address "flaws in individual decision-making" (p. 126), which captures the flavor of most of the nudge studies we looked at.
 Is a tendency to conform or to preconform [@sparkman2017] a flaw or "behavioral bias" [@kantorowicz2021, p. 362]?
 
 [@mols2015] thread this needle by defining "unthinking conformity" as one of the "human failings" which nudges are intended to address.
 They contrast this approach with "persuasion," which "appeals to an individual’s ability to reason, digest new information and engage in systematic information processing" (p. 4).
 
-Our own view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
+Our view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
 Therefore, we do not classify the norms interventions in our database as nudges, though we acknowledge a burgeoning "norms-nudge" literature and that terminology may change over time.
 (See [@bicchieri2023] for discussion).
 

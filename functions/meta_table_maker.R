@@ -20,9 +20,9 @@
 #' data <- tibble::tibble(
 #'   Approach = c("A", "B"),
 #'   "N (Studies)" = c(100, 150),
-#'   "Effect Size" = c(0.2, 0.3)
-#' )
-#' meta_table_maker(data, caption = "Example Table", label = "tab:example", footnote = TRUE)
+#'   "Effect Size" = c(0.2, 0.3)) |>
+#' meta_table_maker(data, caption = "Example Table", 
+#' label = "tab:example", footnote = TRUE)
 meta_table_maker <- function(data, format = "latex", booktabs = TRUE, escape = FALSE,
                              caption = "", label = "", footnote = FALSE) {
   table <- knitr::kable(data, format = format, booktabs = booktabs, escape = escape, 
