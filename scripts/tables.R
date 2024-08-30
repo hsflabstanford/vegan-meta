@@ -123,20 +123,22 @@ table_five <- dat |>
   meta_table_maker(caption = "Difference in effect size by study region",
                    label = "tab:table_five")
 
-
-supplementary_table <- dat |> group_by(unique_paper_id) |> 
-  slice(1) |> ungroup() |>
+supplementary_table <- dat |> 
+  group_by(unique_paper_id) |> 
+  slice(1) |> 
+  ungroup() |>
   mutate(source_group = case_when(
-    str_detect(source, "Ammann|Chang|Bianchi|Gennaro|Harguess|Mathur|Ronto|Wynes") ~ 'prior review',
-    str_detect(source, 'CV') ~ 'researcher CV',
-    str_detect(source, 'internet search') ~ 'internet search',
-    str_detect(source, 'prior knowledge') ~ 'prior knowledge',
+    str_detect(source, "Ammann|Chang|Bianchi|Gennaro|Harguess|Mathur|Ronto|Wynes") ~ 'Prior literature review',
+    str_detect(source, 'CV') ~ 'Researcher CVs',
+    str_detect(source, 'internet search') ~ 'Internet search',
+    str_detect(source, 'prior knowledge') ~ 'Prior knowledge',
     str_detect(source, 'RP research') ~ 'Rethink Priorities search',
-    str_detect(source, 'snowball search') ~ 'snowball search',
-    str_detect(source, 'systematic search') ~ 'systematic search',
+    str_detect(source, 'snowball search') ~ 'Snowball search',
+    str_detect(source, 'systematic search') ~ 'Systematic search',
     str_detect(source, 'undermind.ai') ~ 'AI search tool',
     TRUE ~ 'other')) |> 
   sum_tab(source_group) |> 
-  enframe(name = "Source", value = "Count") |>
+  enframe(name = "Source", value = "Count") |> 
   arrange(desc(Count)) |> 
-  meta_table_maker()
+  meta_table_maker(caption = "\\textbf{Table S1}: Sources of studies in dataset", 
+                   label = 'tab:supp_table')

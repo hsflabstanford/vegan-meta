@@ -48,6 +48,7 @@
 \usepackage{comment}
 \usepackage{anyfontsize}
 \usepackage{threeparttable}
+\usepackage{caption}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -247,7 +248,7 @@ norms study meeting our criteria was published in 2017.
 manipulate aspects of physical environments to make non-MAP options more
 salient, such as placing a vegetarian meal at eye level on a billboard
 menu \citep{andersson2021} or making it more laborious for people to
-serve themselves fish sauc \citep{kanchanachitra2020}.
+serve themselves fish sauce \citep{kanchanachitra2020}.
 
 \textbf{Persuasion} studies
 \citep{kanchanachitra2020, abrahamse2007, acharya2004, berndsen2005, bertolaso2015, bianchi2022, bochmann2017, bschaden2020, carfora2023, cooney2016, fehrenbach2015, feltz2022, haile2021, hatami2018, hennessy2016, mathur2021effectiveness, norris2014, peacock2017, polanco2022, sparkman2021, jalil2023, merrill2009, weingarten2022}
@@ -528,8 +529,8 @@ meat'', ``MAP reduction'', and ``plant-based diet + effective''). Sixth,
 we checked database emerging from a parallel project being conducted by
 Rethink Priorities. Seventh, we identified a further 100+ systematic
 reviews and checked their bibliographies. Eighth, we used an AI search
-tool (\url{<https://undermind.ai>}) to check for unfound gray
-literature. All three authors contributed to the search.
+tool (\url{<https://undermind.ai>}) to check for gray literature. All
+three authors contributed to the search.
 
 \textbf{Coding:} For quantitative outcomes, we selected the latest
 possible outcome that still had sufficient subjects to meet our
@@ -600,7 +601,8 @@ retirement homes.
 
 \bmhead{Supplementary information}
 
-All code and data are available on GitHub and Code Ocean: LINKS
+All code data, and documentation are available on GitHub
+(\url{https://github.com/setgree/vegan-meta}) and Code Ocean {[}LINK{]}
 
 \bmhead{Acknowledgments}
 
@@ -660,25 +662,25 @@ correspond to the venue where results were published.
 \subsection{Supplementary Table}\label{supplementary-table}
 
 Table S1 displays the category of source where we learned of papers in
-our main dataset.
+our main dataset. \captionsetup[table]{labelformat=empty}
 
 \begin{table}[!h]
 \centering
-\caption{\label{tab:}}
+\caption{\label{tab:tab:supp_table}\textbf{Table S1}: Sources of studies in dataset}
 \centering
 \begin{tabular}[t]{lr}
 \toprule
 Source & Count\\
 \midrule
-prior review & 15\\
-snowball search & 6\\
-prior knowledge & 3\\
-systematic search & 3\\
-researcher CV & 2\\
+Prior literature review & 15\\
+Snowball search & 6\\
+Prior knowledge & 3\\
+Systematic search & 3\\
+Researcher CVs & 2\\
 \addlinespace
 Rethink Priorities search & 2\\
 AI search tool & 1\\
-internet search & 1\\
+Internet search & 1\\
 \bottomrule
 \end{tabular}
 \end{table}

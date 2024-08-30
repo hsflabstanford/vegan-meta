@@ -44,6 +44,8 @@ header-includes:
   - \usepackage{comment}
   - \usepackage{anyfontsize}
   - \usepackage{threeparttable}
+  - \usepackage{caption}
+
 ---
 
 ```{r setup, include=FALSE}
@@ -431,7 +433,7 @@ e.g. direct contact with animals on an animal sanctuary, price gradations, high-
 
 \bmhead{Supplementary information}
 
-All code and data are available on GitHub and Code Ocean: LINKS
+All code data, and documentation are available on GitHub (\url{https://github.com/setgree/vegan-meta}) and Code Ocean [LINK]
 
 \bmhead{Acknowledgments}
 
@@ -468,6 +470,7 @@ supplementary_figure
 
 ## Supplementary Table
 Table S1 displays the category of source where we learned of papers in our main dataset.
+\captionsetup[table]{labelformat=empty}
 ```{r supp_table}
 supplementary_table
 ```
