@@ -23,7 +23,7 @@ table_one <- tibble(
                                mr(persuasion_model),
                                mr(norms_persuasion_model))) |>
   meta_table_maker(caption = "Norm, Nudge, and persuasion approaches to MAP reduction", 
-                   label = "tab:table_one", footnote = T) |>
+                   label = "table_one", footnote = T) |>
   add_footnote("Note: Many cluster-assigned studies do not report an exact number of subjects, \\linebreak so our N of subjects are rounded estimates.", notation = 'none', escape = F)
 
 
@@ -45,7 +45,7 @@ table_two <- tibble(
                                mr(environment_model),
                                mr(animal_model))) |>
   meta_table_maker(caption = "Three approaches to MAP reduction persuasion", 
-                   label = "tab:table_two", footnote = F) |> 
+                   label = "table_two", footnote = F) |> 
   add_footnote("Note: because many studies present more than one category of message, the Ns for studies, \\linebreak interventions, and subjects will sum to more than the total numbers in the persuasion category.", notation = 'none', escape = F)
 
 table_three <- dat |> 
@@ -65,7 +65,7 @@ table_three <- dat |>
   select(-c(Delta, se, pval))  |> 
   meta_table_maker(
     caption = "Difference in effect size by publication status",
-    label = "tab:table_three",
+    label = "table_three",
     footnote = TRUE)
 
 # we cut this one from the final 
@@ -75,7 +75,7 @@ RPM_table <- tibble(
   "Glass's $\\Delta$ (SE)" = mr(rpmc_model)) |>
   kable(format = "latex", booktabs = TRUE, escape = FALSE,
         caption = "Meta-analytic results for red and processed meat",
-        label = "tab:rpm_table") |>
+        label = "rpm_table") |>
   kable_styling(latex_options = "hold_position") |>
   footnote(general_title = "",
            general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001",
@@ -101,7 +101,7 @@ table_four <- dat |>
   select(-c(Delta, se, pval)) |> 
   meta_table_maker(
     caption = "Difference in effect size by delivery method",
-    label = "tab:table_four",
+    label = "table_four",
     footnote = F)
 
 table_five <- dat |> 
@@ -121,9 +121,9 @@ table_five <- dat |>
     `N (Subjects)` = N_subjects) |>
   select(-c(Delta, se, pval))  |> 
   meta_table_maker(caption = "Difference in effect size by study region",
-                   label = "tab:table_five")
+                   label = "table_five")
 
-supplementary_table <- dat |> 
+supplementary_table_one <- dat |> 
   group_by(unique_paper_id) |> 
   slice(1) |> 
   ungroup() |>
@@ -141,4 +141,22 @@ supplementary_table <- dat |>
   enframe(name = "Source", value = "Count") |> 
   arrange(desc(Count)) |> 
   meta_table_maker(caption = "\\textbf{Table S1}: Sources of papers in dataset", 
-                   label = 'tab:supp_table')
+                   label = 'supp_table_one')
+
+supplementary_table_two <- dat |> 
+  split(~theory) |> 
+  map(map_robust, model = 'RMA') |> 
+  map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
+                       meta_result_formatter(.x))) |> 
+  bind_rows(.id = 'Approach') |> 
+  rename(
+    `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions,
+    `N (subjects)` = N_subjects) |>
+  mutate(`Approach` = str_replace(`Approach`, "&", "+")) |>  # Escaping & in Approach columns
+  select(-c(Delta, se, pval))  |> 
+  meta_table_maker(
+    caption = "\\textbf{Table S2}: Approach by theory with alternate estimation methods ",
+    label = "supp_table_two",
+    footnote = FALSE)
+
