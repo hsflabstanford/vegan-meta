@@ -57,8 +57,7 @@ knitr::opts_chunk$set(
 # so we can put the manuscript stuff in its own folder
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 setwd(rprojroot::find_rstudio_root_file())
-# options(tinytex.clean = FALSE) # uncomment this to get the .bbl files
-
+options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file
 
 source('./scripts/libraries.R')
 source('./scripts/functions.R')
@@ -419,7 +418,7 @@ average_total_large_effs_n <- round(mean(large_effs$n_t_post)) + round(mean(larg
 ```
 
 Third, one might look at the largest effect sizes in our dataset, for instance, the seven interventions with an effect size of $\Delta \geq 0.5$ [@bianchi2022; @carfora2023; @merrill2009; @piester2020] and seek to replicate and/or expand their approaches.
-However, we'd caution that these seven studies are generally small-n, with an average of `r average_total_large_effs_n` subjects.
+However, we'd caution that these seven interventions are comparatively small, with an average of `r average_total_large_effs_n` subjects.
 
 We do not have a clear preference between these interpretations.
 However, we are generally encouraged by trends in this literature.
@@ -450,7 +449,9 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 ### Converting difference in proportions to standardized mean difference
 
 Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
-We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence (e.g. 43% of people chose to ate meat at a given meal = 0.43) and then convert to Glass's $\Delta$.
+We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence.
+For example, if 50% of the treatment group ate vegetarian meals vs 45% for the control group, then Glass's $\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1$.
+
 
 ### Four deviations from pre-analysis plan
 
@@ -476,7 +477,7 @@ Upon discussion, the team's statistician (MBM) suggested that the `CORR` model f
 
 Using our original model from `metafor`, we detect a pooled effect size of `r alt_model$Delta` (SE = `r alt_model$se`), p = `r alt_model$pval`.
 In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
-Table S2 provides an overview of alternate esimates by our main theoretical approaches.
+Table S2 provides an overview of alternate estimates by our main theoretical approaches.
 
 Fourth, we added many moderators to our dataset that we did not plan on, such as a broad category for delivery method, whether a study was intended to be emotionally activating, or whether a program had multiple components.
 We did not end up focusing on these in our main paper but include them in our dataset in case they are of interest.
@@ -509,39 +510,39 @@ supplementary_table_two
 
 ### Edge cases for study inclusion
 
--   discuss some studies that we did include but weren't sure about
+Arguably the hardest decision in meta-analysis is what studies to include or exclude. By far the most common reason was the wrong dependent variable (e.g. attitudinal or intentional outcomes). However, many cases were harder and required some discussion. Here were a few difficult cases.
 
--   some studies that we didn't include and why
+Some studies limit dietary portions or switch what people are served (e.g. children being served more vegetables at lunchtime). We did not include these studies because they were essentially guaranteed to have effects that were either positive or at least bounded at zero. However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded.
 
-    -   maybe one illustrative example for each inclusion criteria
+Other studies induce a form of treatment in their control groups, for instance asked to take a pledge to go vegetarian or encouraged not to change one's diet over the course of study, which could potentially induce changes relative to baseline consumption patterns. We only analyzed studies where with a pure control group or an unrelated placebo.
 
-    -   & some unexpected coding challenges
+Another common design limitation we encountered was treatment assigned at the level of alternating weeks at a cafeteria. Generally these studies did not have enough weeks to meet our sample size requirements, but we also noted that simply alternating weeks is not random assignment and it is possible that consumption patterns will not be equivalent between treatment and control groups in expectation.
+
+Last, we encountered many studies that measured fruit and or/vegetable consumption but not MAP consumption. In some cases, it might have been possible to make some strong assumptions about substitution and estimate a MAP effect size, but we decided to focus on studies that reported this information directly.
 
 ### Is a norm a nudge?
 
 Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories.
-There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023] .
-[@thaler2009] define a nudge as "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
+There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023]. 
+The canonical definition of nudge [@thaler2009] is "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. 
+To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while others [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
 
 By this definition, an injunctive norm intervention, which implies a threat of social deviance and therefore sanction, clearly does not qualify.
-Whether a descriptive norm can be a nudge is trickier.
-[@thaler2009] would likely say yes; they write that if "choice architects want to change behavior, and to do so with a nudge, they might simply inform people about what other people are doing" (p. 71).
-However, [@hausman2010] also note that nudges are designed to address "flaws in individual decision-making" (p. 126), which captures the flavor of most of the nudge studies we looked at.
-Is a tendency to conform or to preconform [@sparkman2017] a flaw or "behavioral bias" [@kantorowicz2021, p. 362]?
-
-[@mols2015] thread this needle by defining "unthinking conformity" as one of the "human failings" which nudges are intended to address.
-They contrast this approach with "persuasion," which "appeals to an individual’s ability to reason, digest new information and engage in systematic information processing" (p. 4).
+Whether a descriptive norm can be a nudge is trickier. 
+Nudges are generally designed to address "flaws in individual decision-making" [@hausman2010, p. 126], while others identify "unthinking conformity" as an example of a "human failing" that nudges take as their "starting point"  [@mols2015, p. 4].
 
 Our view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
 Therefore, we do not classify the norms interventions in our database as nudges.
 
-We also think that a future project might investigate exactly what reactions are occurring by asking subjects, e.g., how well they recall the message, what it made them think about, etc.
-A high prevalence of subjects' being unable to recall the message's specifics, for instance, but nevertheless showing signs of behavioral change would be evidence that norms are acting through automatic rather than reflective processes.
+A future project might investigate exactly what reactions are occurring by asking subjects how well they recall a quick norms message and what it made them think about.
+A high prevalence of subjects who are unable to recall the message's specifics but nevertheless reveal treatment effects would be evidence that norms are acting through automatic rather than reflective processes.
 
 ### A lack of follow-up data in cafeteria-based interventions
 
-One potential source of measurement error that we cannot easily correct for is the possibility that a subject who is 'nudged' into eating less meat at one meal eats more at the next, i.e. "regression to the meat." Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect.
-We encourage future researchers to collect follow-up data whenever possible.
+One potential source of measurement error that we cannot easily correct for is the possibility that a subject who is guided towards eating less meat at one meal eats more at the next, i.e. "regression to the meat." 
+Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect.
+We encourage researchers in this field to collect follow-up outcomes whenever possible.
+
 \newpage
 
 # References
