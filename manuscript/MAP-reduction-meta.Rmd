@@ -466,6 +466,11 @@ The colors correspond to theoretical approach and the shapes correspond to the v
 supplementary_figure
 ```
 
+## Supplementary Table
+Table S1 displays the category of source where we learned of papers in our main dataset.
+```{r supp_table}
+supplementary_table
+```
 ## Supplementary Discussion
 
 ### Edge cases for study inclusion
