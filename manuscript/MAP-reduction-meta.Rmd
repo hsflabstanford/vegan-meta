@@ -394,7 +394,7 @@ All effect sizes were standardized by the standard deviation of the outcome for 
 All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator created for [@paluck2021] and detailed in the appendix of [@porat2024].
 
 **Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (\url{<https://osf.io/j5wbp>}), although the project evolved substantially over time and our final analyses do not match those initial plans.
-Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang].
+Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang]. Our analysis uses robust variance estimation methods [@hedges2010].
 
 # Discussion
 
@@ -453,10 +453,12 @@ Conventional methods of converting binary outcomes to estimates of standardized 
 We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence (e.g. 43% of people chose to ate meat at a given meal = 0.43) and then convert to Glass's $\Delta$.
 
 ### deviations from pre-analysis plan
+Our pre-analysis plan registered some general principles and hypothesses for our search process, but did not otherwise do much to constrain how or where we searched. It also included a synthesized dataset and some mock analyses that resemble our final analyses in general form. However, as the project evolved over time, we made four substantive changes to our paper that we did not anticipate at the pre-analysis stage.
 
-1.  separating out red and processed meat studies from everything else
+First, we separated studies looking at reductions in red and processed meat from everything else. Our initial draft took these at face value as estimates of net MAP reduction. However, we later decided that RPM reduction was fundamentally a separate estimand, and that without firm data on substitution to other kinds of MAP, we could not say anything definite about the net effect on demand for MAP.
+
+Second, and related, we initially included searched for studies that were not necessarily aimed at achieving overall MAP reduction, but rather a generally healthier diet with some amount of chicken and/or fish, for instance the Mediterranean diet. Many of these studies had measurement strategies that would otherwise have qualified them, i.e they measured MAP consumption overall or 
 2.  Switching from `metafor::rma` to `robumeta::robu`
-3.  Question of intent: removing studies that encourage eating more fish
 4.  Adding in more moderators
 
 ## Supplementary Figure

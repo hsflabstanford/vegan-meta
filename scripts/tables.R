@@ -140,5 +140,5 @@ supplementary_table <- dat |>
   sum_tab(source_group) |> 
   enframe(name = "Source", value = "Count") |> 
   arrange(desc(Count)) |> 
-  meta_table_maker(caption = "\\textbf{Table S1}: Sources of studies in dataset", 
+  meta_table_maker(caption = "\\textbf{Table S1}: Sources of papers in dataset", 
                    label = 'tab:supp_table')
