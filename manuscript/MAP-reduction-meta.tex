@@ -99,7 +99,7 @@ animal products is an unsolved problem: results from a meta-analysis}
 \author*[1]{\fnm{Seth
 Ariel} \sur{Green} }\email{\href{mailto:setgree@stanford.edu}{\nolinkurl{setgree@stanford.edu}}}
 
-\author[1]{\fnm{Maya} \sur{Mathur} }
+\author[1]{\fnm{Maya B.} \sur{Mathur} }
 
 \author[2]{\fnm{Benny} \sur{Smith} }
 
@@ -636,10 +636,10 @@ Bernoulli distribution with \(p(1 - p)\), where p is the proportion of
 some event's occurrence (e.g.~43\% of people chose to ate meat at a
 given meal = 0.43) and then convert to Glass's \(\Delta\).
 
-\subsubsection{deviations from pre-analysis
-plan}\label{deviations-from-pre-analysis-plan}
+\subsubsection{Four deviations from pre-analysis
+plan}\label{four-deviations-from-pre-analysis-plan}
 
-Our pre-analysis plan registered some general principles and hypothesses
+Our pre-analysis plan registered some general principles and hypotheses
 for our search process, but did not otherwise do much to constrain how
 or where we searched. It also included a synthesized dataset and some
 mock analyses that resemble our final analyses in general form. However,
@@ -658,17 +658,31 @@ were not necessarily aimed at achieving overall MAP reduction, but
 rather a generally healthier diet with some amount of chicken and/or
 fish, for instance the Mediterranean diet. Many of these studies had
 measurement strategies that would otherwise have qualified them, i.e
-they measured MAP consumption overall or
+they measured MAP consumption overall or measured consumption in many
+categories. However, we ultimately concluded that these were a separate
+estimand as well, and we did not want to add noise to the estimate of
+studies that were aimed more specifically at reducing MAP consumption
+rather than causing inter-MAP substitution.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Switching from \texttt{metafor::rma} to \texttt{robumeta::robu}
-\item
-  Adding in more moderators
-\end{enumerate}
+Third, our initial analyses used the random effects model from
+\texttt{metafor} to calculate pooled effect sizes. However, as we
+assembled our dataset, we noticed that many papers had, across
+interventions, non-independent observations, typically in the form of
+multiple treatments compared to a single control group. Upon discussion,
+the team's statistician (MBM) suggested that the \texttt{CORR} model
+from the \texttt{robumeta} package would be a better fit.
+
+Using our original model from \texttt{metafor}, we detect a pooled
+effect size of 0.024 (SE = 0.012), p = .0425. In relative terms, this is
+substantially smaller, but in absolute terms, both this model and our
+main model produce very small estimates. Table S2 provides an overview
+of alternate esimates by our main theoretical approaches.
+
+Fourth, we added many moderators to our dataset that we did not plan on,
+such as a broad category for delivery method, whether a study was
+intended to be emotionally activating, or whether a program had multiple
+components. We did not end up focusing on these in our main paper but
+include them in our dataset in case they are of interest.
 
 \subsection{Supplementary Figure}\label{supplementary-figure}
 
@@ -709,7 +723,6 @@ using standard random effects estimation methods from the
 \texttt{metafor} package (rather than the robust variance estimation
 methods we ended up using from the \texttt{robumeta} package).
 
-\captionsetup[table]{labelformat=empty}
 \begin{table}[!h]
 \centering
 \caption{\label{tab:supp_table_two}\textbf{Table S2}: Approach by theory with alternate estimation methods }
@@ -792,7 +805,15 @@ but nevertheless showing signs of behavioral change would be evidence
 that norms are acting through automatic rather than reflective
 processes.
 
-\newpage
+\subsubsection{A lack of follow-up data in cafeteria-based
+interventions}\label{a-lack-of-follow-up-data-in-cafeteria-based-interventions}
+
+One potential source of measurement error that we cannot easily correct
+for is the possibility that a subject who is `nudged' into eating less
+meat at one meal eats more at the next, i.e.~``regression to the meat.''
+Most cafeteria-based studies we looked at were not designed to measure
+this kind of spillover effect. We encourage future researchers to
+collect follow-up data whenever possible. \newpage
 
 \renewcommand\refname{References}
 \bibliography{./vegan-refs.bib}

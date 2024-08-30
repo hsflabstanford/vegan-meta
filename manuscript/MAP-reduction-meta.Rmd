@@ -12,7 +12,7 @@ authors:
     email: setgree@stanford.edu
     affiliation: 1
     corresponding: TRUE
-  - firstname: Maya 
+  - firstname: Maya B.
     lastname: Mathur
     affiliation: 1
   - firstname: Benny
@@ -45,7 +45,6 @@ header-includes:
   - \usepackage{anyfontsize}
   - \usepackage{threeparttable}
   - \usepackage{caption}
-
 ---
 
 ```{r setup, include=FALSE}
@@ -394,7 +393,8 @@ All effect sizes were standardized by the standard deviation of the outcome for 
 All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator created for [@paluck2021] and detailed in the appendix of [@porat2024].
 
 **Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (\url{<https://osf.io/j5wbp>}), although the project evolved substantially over time and our final analyses do not match those initial plans.
-Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang]. Our analysis uses robust variance estimation methods [@hedges2010].
+Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang].
+Our analysis uses robust variance estimation methods [@hedges2010].
 
 # Discussion
 
@@ -452,18 +452,34 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
 We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence (e.g. 43% of people chose to ate meat at a given meal = 0.43) and then convert to Glass's $\Delta$.
 
-### deviations from pre-analysis plan
-Our pre-analysis plan registered some general principles and hypothesses for our search process, but did not otherwise do much to constrain how or where we searched. It also included a synthesized dataset and some mock analyses that resemble our final analyses in general form. However, as the project evolved over time, we made four substantive changes to our paper that we did not anticipate at the pre-analysis stage.
+### Four deviations from pre-analysis plan
 
-First, we separated studies looking at reductions in red and processed meat from everything else. Our initial draft took these at face value as estimates of net MAP reduction. However, we later decided that RPM reduction was fundamentally a separate estimand, and that without firm data on substitution to other kinds of MAP, we could not say anything definite about the net effect on demand for MAP.
+Our pre-analysis plan registered some general principles and hypotheses for our search process, but did not otherwise do much to constrain how or where we searched.
+It also included a synthesized dataset and some mock analyses that resemble our final analyses in general form.
+However, as the project evolved over time, we made four substantive changes to our paper that we did not anticipate at the pre-analysis stage.
 
-Second, and related, we initially included searched for studies that were not necessarily aimed at achieving overall MAP reduction, but rather a generally healthier diet with some amount of chicken and/or fish, for instance the Mediterranean diet. Many of these studies had measurement strategies that would otherwise have qualified them, i.e they measured MAP consumption overall or measured consumption in many categories. 
+First, we separated studies looking at reductions in red and processed meat from everything else.
+Our initial draft took these at face value as estimates of net MAP reduction.
+However, we later decided that RPM reduction was fundamentally a separate estimand, and that without firm data on substitution to other kinds of MAP, we could not say anything definite about the net effect on demand for MAP.
+
+Second, and related, we initially included searched for studies that were not necessarily aimed at achieving overall MAP reduction, but rather a generally healthier diet with some amount of chicken and/or fish, for instance the Mediterranean diet.
+Many of these studies had measurement strategies that would otherwise have qualified them, i.e they measured MAP consumption overall or measured consumption in many categories.
+However, we ultimately concluded that these were a separate estimand as well, and we did not want to add noise to the estimate of studies that were aimed more specifically at reducing MAP consumption rather than causing inter-MAP substitution.
 
 ```{r alt_model, include=F}
 alt_model <- dat |> map_robust(model = 'RMA')
 ```
-2.  Switching from `metafor::rma` to `robumeta::robu`
-4.  Adding in more moderators
+
+Third, our initial analyses used the random effects model from `metafor` to calculate pooled effect sizes.
+However, as we assembled our dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group.
+Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package would be a better fit.
+
+Using our original model from `metafor`, we detect a pooled effect size of `r alt_model$Delta` (SE = `r alt_model$se`), p = `r alt_model$pval`.
+In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
+Table S2 provides an overview of alternate esimates by our main theoretical approaches.
+
+Fourth, we added many moderators to our dataset that we did not plan on, such as a broad category for delivery method, whether a study was intended to be emotionally activating, or whether a program had multiple components.
+We did not end up focusing on these in our main paper but include them in our dataset in case they are of interest.
 
 ## Supplementary Figure
 
@@ -475,15 +491,16 @@ supplementary_figure
 ```
 
 ## Supplementary Tables
+
 Table S1 displays the category of source where we learned of papers in our main dataset.
 \captionsetup[table]{labelformat=empty}
+
 ```{r supp_table_one}
 supplementary_table_one
 ```
 
 Table S2 displays the pooled effect size by theoretical approach when using standard random effects estimation methods from the `metafor` package (rather than the robust variance estimation methods we ended up using from the `robumeta` package).
 
-\captionsetup[table]{labelformat=empty}
 ```{r supp_table_two}
 supplementary_table_two
 ```
@@ -521,6 +538,10 @@ Therefore, we do not classify the norms interventions in our database as nudges.
 We also think that a future project might investigate exactly what reactions are occurring by asking subjects, e.g., how well they recall the message, what it made them think about, etc.
 A high prevalence of subjects' being unable to recall the message's specifics, for instance, but nevertheless showing signs of behavioral change would be evidence that norms are acting through automatic rather than reflective processes.
 
+### A lack of follow-up data in cafeteria-based interventions
+
+One potential source of measurement error that we cannot easily correct for is the possibility that a subject who is 'nudged' into eating less meat at one meal eats more at the next, i.e. "regression to the meat." Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect.
+We encourage future researchers to collect follow-up data whenever possible.
 \newpage
 
 # References
