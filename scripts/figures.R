@@ -62,6 +62,6 @@ supplementary_figure <- dat |>
                      labels = c("advocacy_org" = "Advocacy organization",
                                 "Journal article" = "Journal article",
                                 "Thesis" = "Thesis")) +
-  labs(x = "Standard Error", y = "Effect Size", color = "Approach", shape = "Publication status") +
+  labs(x = "Standard Error", y = "Effect Size", color = "Approach", shape = "Publication venue") +
   ggtitle("Figure S1: Test for publication bias") +
   theme_minimal()

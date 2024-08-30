@@ -301,7 +301,7 @@ Figure 1 displays the distribution of effect sizes, grouped by paper,
 with each individual point representing an intervention. The overall
 effect size is plotted at the bottom.
 
-\includegraphics[width=1.2\linewidth,]{../results/forest_plot-1}
+\includegraphics[width=1.2\linewidth,]{./figures/forest_plot-1}
 
 This small effect may surprise readers of previous reviews, which
 typically found more positive results
@@ -621,27 +621,41 @@ acknowledge funding from the NIH (grant XXX) and Open Philanthropy
 
 \subsection{Supplementary Methods}\label{supplementary-methods}
 
-\begin{itemize}
-\item
-  Question for Maya -- what else should go here?
+\subsubsection{Converting difference in proportions to standardized mean
+difference}\label{converting-difference-in-proportions-to-standardized-mean-difference}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    e.g.~a discussion meta-analytic models and the fact that our results
-    are a bit sensitive to differences
-  \end{itemize}
+Conventional methods of converting binary outcomes to estimates of
+standardized mean difference have some notable downsides, e.g.~any given
+odds ratio is compatible with multiple possible effect sizes depending
+on the rate of occurrence of the dependent variable \citep{gomila2021}.
+We address this by treating all binary variables as draws from a
+Bernoulli distribution with \(p(1 - p)\), where p is the proportion of
+some event's occurrence (e.g.~43\% of people chose to ate meat at a
+given meal = 0.43) and then convert to Glass's \(\Delta\).
+
+\subsubsection{deviations from pre-analysis
+plan}\label{deviations-from-pre-analysis-plan}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  difference in proportions calculator briefly
+  separating out red and processed meat studies from everything else
 \item
-  deviations from pre-analysis plan
-\end{itemize}
+  Switching from \texttt{metafor::rma} to \texttt{robumeta::robu}
+\item
+  Question of intent: removing studies that encourage eating more fish
+\item
+  Adding in more moderators
+\end{enumerate}
 
 \subsection{Supplementary Figure}\label{supplementary-figure}
 
-This figure displays\ldots{}
+This figure displays the relationship between standard error and effect
+size. The colors correspond to theoretical approach and the shapes
+correspond to the venue where results were published.
 
-\includegraphics[width=1.2\linewidth,]{../results/supplementary_figure-1}
+\includegraphics[width=1.2\linewidth,]{./figures/supplementary_figure-1}
 
 \subsection{Supplementary Discussion}\label{supplementary-discussion}
 

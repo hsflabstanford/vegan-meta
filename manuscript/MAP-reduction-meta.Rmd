@@ -49,14 +49,14 @@ header-includes:
 ```{r setup, include=FALSE}
 # so that knitr labels figures
 knitr::opts_chunk$set(
-	fig.path = "../results/",
+	fig.path = "./figures/",
 	echo = FALSE,
 	out.extra = ""
 )
 # so we can put the manuscript stuff in its own folder
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 setwd(rprojroot::find_rstudio_root_file())
-options(tinytex.clean = FALSE)
+# options(tinytex.clean = FALSE) # uncomment this to get the .bbl files
 
 
 source('./scripts/libraries.R')
@@ -445,17 +445,22 @@ All code and data are available on GitHub and Code Ocean: LINKS
 
 ## Supplementary Methods
 
--   Question for Maya – what else should go here?
+### Converting difference in proportions to standardized mean difference
 
-    -   e.g. a discussion meta-analytic models and the fact that our results are a bit sensitive to differences
+Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
+We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence (e.g. 43% of people chose to ate meat at a given meal = 0.43) and then convert to Glass's $\Delta$.
 
--   difference in proportions calculator briefly
+### deviations from pre-analysis plan
 
--   deviations from pre-analysis plan
+1.  separating out red and processed meat studies from everything else
+2.  Switching from `metafor::rma` to `robumeta::robu`
+3.  Question of intent: removing studies that encourage eating more fish
+4.  Adding in more moderators
 
 ## Supplementary Figure
 
-This figure displays...
+This figure displays the relationship between standard error and effect size.
+The colors correspond to theoretical approach and the shapes correspond to the venue where results were published.
 
 ```{r supplementary_figure, echo=F, message=F, out.width='120%'}
 supplementary_figure
@@ -469,14 +474,14 @@ supplementary_figure
 
 -   some studies that we didn't include and why
 
-    -    maybe one illustrative example for each inclusion criteria
+    -   maybe one illustrative example for each inclusion criteria
 
-    -    & some unexpected coding challenges
+    -   & some unexpected coding challenges
 
 ### Is a norm a nudge?
 
-Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories. There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023]
-.
+Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories.
+There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023] .
 [@thaler2009] define a nudge as "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
 
 By this definition, an injunctive norm intervention, which implies a threat of social deviance and therefore sanction, clearly does not qualify.
