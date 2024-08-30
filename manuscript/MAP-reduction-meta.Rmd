@@ -394,7 +394,7 @@ All effect size conversions were conducted by the first author using methods and
 **Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (\url{<https://osf.io/j5wbp>}), although the project evolved substantially over time and our final analyses do not match those initial plans.
 Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang].
 
-## Discussion
+# Discussion
 
 We offer three lenses through which to view our results.
 
