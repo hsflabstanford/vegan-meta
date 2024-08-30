@@ -131,7 +131,7 @@ Table 1 reports the distribution of studies, interventions, subjects (approximat
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
 The first norms study meeting our criteria was published in 2017.
 
-**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauc [@kanchanachitra2020].
+**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020].
 
 **Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2016; @fehrenbach2015; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @mathur2021effectiveness; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @jalil2023; @merrill2009; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
@@ -301,7 +301,7 @@ We judge self-reporting bias to be a potential concern.
 
 ```{r environment_studies, include=F}
 # exploratory
-# do encvironmental studies work better for certain groups?
+# do environmental studies work better for certain groups?
 # my intuition would be they work best for college students, & Jalil study is nice evidence of that,
 # but the data don't reflect that
 dat |> filter(str_detect(secondary_theory, 'environment')) |> 
@@ -383,7 +383,7 @@ Fifth, we rinsed and repeated with the new studies we had.
 Sixth, we conducted searched Google Scholar for certain terms that had come up in studies repeatedly (e.g. "dynamic norms + meat", "MAP reduction", and "plant-based diet + effective").
 Sixth, we checked database emerging from a parallel project being conducted by Rethink Priorities.
 Seventh, we identified a further 100+ systematic reviews and checked their bibliographies.
-Eighth, we used an AI search tool (\url{<https://undermind.ai>}) to check for unfound gray literature.
+Eighth, we used an AI search tool (\url{<https://undermind.ai>}) to check for gray literature.
 All three authors contributed to the search.
 
 **Coding:** For quantitative outcomes, we selected the latest possible outcome that still had sufficient subjects to meet our inclusion criteria.
