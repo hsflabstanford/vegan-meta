@@ -79,7 +79,7 @@ We address these questions with a meta-analysis of the most rigorous studies aim
 
 The research on diet and its antecedents and consequences is vast.
 By our count, there have been at least 120 previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
-However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring] or literacy interventions [@DiGennaro2024], rather than comparing approaches to one another.
+However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], rather than comparing approaches to one another.
 Moreover, two prior investigations revealed three common gaps in the MAP literature: a dearth of long-term follow-ups, missing consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
 Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
@@ -160,11 +160,12 @@ The overall effect size is plotted at the bottom.
 forest_plot
 ```
 
-This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @chang2023].
+This small effect may surprise readers of previous reviews, which typically found more positive results [@mathur2021meta; @meier2022; @mertens2022].
 We attribute this difference to our stricter inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
+\begin{comment}
 ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
-
+\end{comment}
 ```{r nulls_and_cis}
 effect_size_table <- dat |> sum_tab(neg_null_pos)
 
@@ -338,8 +339,9 @@ Slightly more than half (`r neg_animal_results` of `r animal_model$N_interventio
 
 The `r advocacy_model$N_interventions` interventions and `r advocacy_model$N_studies` studies using materials from advocacy organizations find an overall effect of `r advocacy_model$Delta` (SE = `r advocacy_model$se`), p = `r advocacy_model$pval`.
 
+\begin{comment}
 These disappointing results conflict with the central conclusions of [@mathur2021effectiveness], but accord with the finding in [@DiGennaro2024] that animal welfare appeals produce a null effect on average.
-
+\end{comment}
 ## Heterogeneity by reporting, cluster assignment, delivery method, and country {#sec2.10}
 
 ```{r confounding_check, include=F}
@@ -382,7 +384,7 @@ Fourth, we contacted leading researchers in the field with our in-progress datab
 Fifth, we rinsed and repeated with the new studies we had.
 Sixth, we conducted searched Google Scholar for certain terms that had come up in studies repeatedly (e.g. "dynamic norms + meat", "MAP reduction", and "plant-based diet + effective").
 Sixth, we checked database emerging from a parallel project being conducted by Rethink Priorities.
-Seventh, we identified a further 100+ systematic reviews and checked their bibliographies.
+Seventh, we identified a further 100+ systematic reviews and checked their bibliographies, and obtained qualified studies from six of those reviews [@ammann2023; @chang2023; @DiGennaro2024; @harguess2020;@ronto2022;@wynes2018].
 Eighth, we used an AI search tool (\url{<https://undermind.ai>}) to check for gray literature.
 All three authors contributed to the search.
 
@@ -452,7 +454,6 @@ Conventional methods of converting binary outcomes to estimates of standardized 
 We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence.
 For example, if 50% of the treatment group ate vegetarian meals vs 45% for the control group, then Glass's $\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1$.
 
-
 ### Four deviations from pre-analysis plan
 
 Our pre-analysis plan registered some general principles and hypotheses for our search process, but did not otherwise do much to constrain how or where we searched.
@@ -510,26 +511,33 @@ supplementary_table_two
 
 ### Edge cases for study inclusion
 
-Arguably the hardest decision in meta-analysis is what studies to include or exclude. By far the most common reason was the wrong dependent variable (e.g. attitudinal or intentional outcomes). However, many cases were harder and required some discussion. Here were a few difficult cases.
+Arguably the hardest decision in meta-analysis is what studies to include or exclude.
+By far the most common reason was the wrong dependent variable (e.g. attitudinal or intentional outcomes).
+However, many cases were harder and required some discussion.
+Here were a few difficult cases.
 
-Some studies limit dietary portions or switch what people are served (e.g. children being served more vegetables at lunchtime). We did not include these studies because they were essentially guaranteed to have effects that were either positive or at least bounded at zero. However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded.
+Some studies limit dietary portions or switch what people are served (e.g. children being served more vegetables at lunchtime).
+We did not include these studies because they were essentially guaranteed to have effects that were either positive or at least bounded at zero.
+However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded.
 
-Other studies induce a form of treatment in their control groups, for instance asked to take a pledge to go vegetarian or encouraged not to change one's diet over the course of study, which could potentially induce changes relative to baseline consumption patterns. We only analyzed studies where with a pure control group or an unrelated placebo.
+Other studies induce a form of treatment in their control groups, for instance asked to take a pledge to go vegetarian or encouraged not to change one's diet over the course of study, which could potentially induce changes relative to baseline consumption patterns.
+We only analyzed studies where with a pure control group or an unrelated placebo.
 
-Another common design limitation we encountered was treatment assigned at the level of alternating weeks at a cafeteria. Generally these studies did not have enough weeks to meet our sample size requirements, but we also noted that simply alternating weeks is not random assignment and it is possible that consumption patterns will not be equivalent between treatment and control groups in expectation.
+Another common design limitation we encountered was treatment assigned at the level of alternating weeks at a cafeteria.
+Generally these studies did not have enough weeks to meet our sample size requirements, but we also noted that simply alternating weeks is not random assignment and it is possible that consumption patterns will not be equivalent between treatment and control groups in expectation.
 
-Last, we encountered many studies that measured fruit and or/vegetable consumption but not MAP consumption. In some cases, it might have been possible to make some strong assumptions about substitution and estimate a MAP effect size, but we decided to focus on studies that reported this information directly.
+Last, we encountered many studies that measured fruit and or/vegetable consumption but not MAP consumption.
+In some cases, it might have been possible to make some strong assumptions about substitution and estimate a MAP effect size, but we decided to focus on studies that reported this information directly.
 
 ### Is a norm a nudge?
 
 Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories.
-There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023]. 
-The canonical definition of nudge [@thaler2009] is "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. 
-To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while others [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
+There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023].
+The canonical definition of nudge [@thaler2009] is "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while others [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
 
 By this definition, an injunctive norm intervention, which implies a threat of social deviance and therefore sanction, clearly does not qualify.
-Whether a descriptive norm can be a nudge is trickier. 
-Nudges are generally designed to address "flaws in individual decision-making" [@hausman2010, p. 126], while others identify "unthinking conformity" as an example of a "human failing" that nudges take as their "starting point"  [@mols2015, p. 4].
+Whether a descriptive norm can be a nudge is trickier.
+Nudges are generally designed to address "flaws in individual decision-making" [@hausman2010, p. 126], while others identify "unthinking conformity" as an example of a "human failing" that nudges take as their "starting point" [@mols2015, p. 4].
 
 Our view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
 Therefore, we do not classify the norms interventions in our database as nudges.
@@ -539,8 +547,7 @@ A high prevalence of subjects who are unable to recall the message's specifics b
 
 ### A lack of follow-up data in cafeteria-based interventions
 
-One potential source of measurement error that we cannot easily correct for is the possibility that a subject who is guided towards eating less meat at one meal eats more at the next, i.e. "regression to the meat." 
-Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect.
+One potential source of measurement error that we cannot easily correct for is the possibility that a subject who is guided towards eating less meat at one meal eats more at the next, i.e. "regression to the meat." Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect.
 We encourage researchers in this field to collect follow-up outcomes whenever possible.
 
 \newpage
