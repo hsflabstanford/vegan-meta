@@ -51,12 +51,6 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
- cat("
-\\usepackage{fancyhdr}
-\\pagestyle{fancy}
-\\fancyfoot[C]{Last updated: \\today}
-")
-
 # so that knitr labels figures
 knitr::opts_chunk$set(
 	fig.path = "./figures/",
