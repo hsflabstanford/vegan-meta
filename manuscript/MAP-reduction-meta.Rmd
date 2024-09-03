@@ -1,9 +1,9 @@
 ---
 classoptions: 
   - sn-nature      
-  # - referee       # Optional: Use double line spacing 
+  - referee       # Optional: Use double line spacing 
   # - lineno        # Optional: Add line numbers
-  # - iicol         # Optional: Double column layour
+  # - iicol         # Optional: Double column layout
 title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis"
 titlerunning: MAP-reduction-meta
 authors: 
@@ -34,6 +34,7 @@ keywords:
   
 abstract: |
   Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of especially rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 90000 subjects. We find that these papers employ either a nudge, norms, or persuasion approach to changing behavior (some papers combine norms and persuasion). The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.057, suggesting that we face an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
     keep_tex: true
@@ -47,7 +48,15 @@ header-includes:
   - \usepackage{caption}
 ---
 
+---
+
 ```{r setup, include=FALSE}
+ cat("
+\\usepackage{fancyhdr}
+\\pagestyle{fancy}
+\\fancyfoot[C]{Last updated: \\today}
+")
+
 # so that knitr labels figures
 knitr::opts_chunk$set(
 	fig.path = "./figures/",
