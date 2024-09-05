@@ -23,8 +23,8 @@ table_one <- tibble(
                                mr(persuasion_model),
                                mr(norms_persuasion_model))) |>
   meta_table_maker(caption = "Norm, Nudge, and persuasion approaches to MAP reduction", 
-                   label = "table_one", footnote = T) |>
-  add_footnote("Note: Many cluster-assigned studies do not report an exact number of subjects, \\linebreak so our N of subjects are rounded estimates.", notation = 'none', escape = F)
+                   label = "table_one", footnote = T) 
+# add_footnote("Note: Many cluster-assigned studies do not report an exact number of subjects, \\linebreak so our N of subjects are rounded estimates.", notation = 'none', escape = F)
 
 
 
@@ -128,10 +128,10 @@ supplementary_table_one <- dat |>
   slice(1) |> 
   ungroup() |>
   mutate(source_group = case_when(
-    str_detect(source, "Ammann|Chang|Bianchi|Gennaro|Harguess|Mathur|Ronto|Wynes") ~ 'Prior literature review',
+    str_detect(source, "Ammann|Chang|Bianchi|Gennaro|Harguess|Mathur|Ronto|Wynes") ~ 'Prior literature reviews',
     str_detect(source, 'CV') ~ 'Researcher CVs',
     str_detect(source, 'internet search') ~ 'Internet search',
-    str_detect(source, 'prior knowledge') ~ 'Prior knowledge',
+    str_detect(source, 'prior knowledge') ~ "pre-existing knowledge",
     str_detect(source, 'RP research') ~ 'Rethink Priorities search',
     str_detect(source, 'snowball search') ~ 'Snowball search',
     str_detect(source, 'systematic search') ~ 'Systematic search',

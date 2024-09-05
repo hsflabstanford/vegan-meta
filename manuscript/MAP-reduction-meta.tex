@@ -11,7 +11,7 @@
 %%                                                                 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[sn-nature,referee,pdflatex]{sn-jnl}
+\documentclass[sn-nature,pdflatex]{sn-jnl}
 
 %%%% Standard Packages
 %%<additional latex packages if required can be included here>
@@ -47,7 +47,6 @@
 
 \usepackage{comment}
 \usepackage{anyfontsize}
-\usepackage{threeparttable}
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -112,21 +111,20 @@ University}}
 \abstract{Which theoretical approach leads to the broadest and most
 enduring reductions in consumptions of meat and animal products (MAP)?
 We address these questions with a theoretical review and meta-analysis
-of especially rigorous Randomized Controlled Trials (RCTs). We
-meta-analyze 33 papers comprising 39 studies,107 interventions, and
-approximately 90000 subjects. We find that these papers employ either a
-nudge, norms, or persuasion approach to changing behavior (some papers
-combine norms and persuasion). The pooled effect of these interventions
-on MAP consumption outcomes is \(\Delta\) = 0.057, suggesting that we
-face an unsolved problem. Reducing consumption of red and processed meat
-is an easier target: \(\Delta\) = 0.249, but because of missing data on
-potential substitution to other MAP, we can't say anything definitive
-about the consequences of these interventions on animal welfare. We
-further explore effect size heterogeneity by approach, population, and
-study features. We conclude that while no theoretical approach provides
-a proven remedy to MAP consumption, designs and measurement strategies
-have generally been improving over time, and many promising
-interventions await rigorous evaluation.}
+of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33
+papers comprising 39 studies,107 interventions, and approximately 90000
+subjects. We find that these papers employ nudge, norms, or persuasion
+approaches to changing behavior. The pooled effect of these
+interventions on MAP consumption outcomes is \(\Delta\) = 0.057,
+indicating an unsolved problem. Reducing consumption of red and
+processed meat is an easier target: \(\Delta\) = 0.249, but because of
+missing data on potential substitution to other MAP, we can't say
+anything definitive about the consequences of these interventions on
+animal welfare. We further explore effect size heterogeneity by
+approach, population, and study features. We conclude that while no
+theoretical approach provides a proven remedy to MAP consumption,
+designs and measurement strategies have generally been improving over
+time, and many promising interventions await rigorous evaluation.}
 
 \keywords{meta-analysis, meat, plant-based, randomized controlled trial}
 
@@ -147,12 +145,10 @@ as a major contributor to premature deaths
 its own right \citep{kuruc2023, singer2023}.
 
 Supply-side interventions, such as banning or taxing certain practices
-or products, risk political backlash if they do not have broad public
-support. It is of vital importance, therefore, to assess which
-strategies and theoretical perspectives lead to consistent reductions in
-demand for MAP, under which conditions, and for which populations. We
-address these questions with a meta-analysis of the most rigorous
-studies aimed at reducing MAP consumption.
+or products, risk political backlash if they lack broad public support.
+It is of vital importance, therefore, to assess which strategies and
+theoretical perspectives lead to consistent reductions in demand for
+MAP, under which conditions, and for which populations.
 
 The research on diet and its antecedents and consequences is vast. By
 our count, there have been at least 120 previous published dietary
@@ -161,9 +157,9 @@ on MAP reduction. However, comparatively few of these are quantitative,
 and most prior reviews investigated particular approaches, for example
 choice architecture \citep{bianchi2018restructuring}, rather than
 comparing approaches to one another. Moreover, two prior investigations
-revealed three common gaps in the MAP literature: a dearth of long-term
-follow-ups, missing consumption outcomes, and inattention to the gap
-between intentions and behavior
+revealed three common gaps in the MAP reduction literature: a dearth of
+long-term follow-ups, missing consumption outcomes, and inattention to
+the gap between intentions and behavior
 \citep{mathur2021meta, mathur2021effectiveness}.
 
 Our paper addresses these concerns by meta-analyzing randomized
@@ -172,8 +168,8 @@ controlled trials (RCTs) that
 \begin{itemize}
 \item
   were designed to voluntarily reduce MAP consumption, rather than
-  encouraging substitution from red to white meat or fish or removing
-  meat from someone's plate
+  encouraging substitution from red meat to white meat or to fish, or
+  removing items from someone's plate
 \item
   had least 25 subjects each in treatment and control, or, for
   cluster-randomized trials, at least 10 clusters in total;
@@ -188,50 +184,26 @@ controlled trials (RCTs) that
 Additionally, studies needed to be publicly circulated by December 2023
 and published in English.
 
-We coded 33 papers
+We coded 33 such papers
 \citep{aldoh2023, allen2002, alblas2023, coker2022, griesoph2021, piester2020, sparkman2017, sparkman2020, andersson2021, kanchanachitra2020, bochmann2017, bschaden2020, cooney2016, feltz2022, haile2021, mathur2021effectiveness, peacock2017, polanco2022, sparkman2021, abrahamse2007, acharya2004, berndsen2005, bertolaso2015, bianchi2022, fehrenbach2015, hatami2018, jalil2023, merrill2009, norris2014, weingarten2022, carfora2023, hennessy2016, mattson2020}
 comprising 39 separate studies, 107 interventions, and approximately
-90000 subjects. (Some treatments were administered at the level of day
-or cafeteria and did not record their number of human subjects.) The
-earliest paper was published in 2002 \citep{allen2002}, and a majority
-(19 of 33) have been published since 2020.
+90000 subjects. (This is an approximation because some interventions
+were administered at the level of day or cafeteria and did not record a
+precise number of human subjects.) The earliest paper was published in
+2002 \citep{allen2002}, and a majority (19 of 33) have been published
+since 2020.
 
 We also coded a supplementary dataset of 14 papers aimed at reducing,
 and measuring, consumption of red and/or processed meat (RPM)
 \citep{carfora2017correlational, carfora2017randomised, carfora2019, carfora2019informational, delichatsios2001, dijkstra2022, emmons2005cancer, emmons2005project, jaacks2014, james2015, lee2018, perino2022, schatzkin2000, sorensen2005},
 comprising 14 studies, 19 interventions, and approximately 8000
-subjects. Last, we compiled a third dataset of over 780 excluded
+subjects. We also coded an additional XXX papers that we disqualified
+for methodological reasons but that we include in a supplementary
+robustness check. Last, we compiled a third dataset of over 780 excluded
 studies, along with their reason(s) for exclusion.
 
-\section{Results}\label{sec2}
-
-\subsection{Three theoretical categories: persuasion, choice
-architecture, and norms}\label{sec2.1}
-
 Studies in our database pursued three theories of change: norms, nudges,
-and persuasion, or a combination of norms and persuasion. Table 1
-reports the distribution of studies, interventions, subjects
-(approximately), and effect sizes per approach.
-
-\begin{table}[!h]
-\centering
-\caption{\label{tab:table_one}Norm, Nudge, and persuasion approaches to MAP reduction}
-\centering
-\begin{tabular}[t]{lrrrl}
-\toprule
-Approach & N (Studies) & N (Interventions) & N (Subjects) & Glass's $\Delta$ (SE)\\
-\midrule
-\textbf{Overall} & 39 & 107 & 90800 & 0.0570* (0.0210)\\
-Norms & 11 & 18 & 53100 & 0.0640 (0.0320)\\
-Nudge & 2 & 2 & 12000 & 0.1710* (0.0080)\\
-Persuasion & 27 & 82 & 25100 & 0.0670* (0.0260)\\
-Norms + Persuasion & 4 & 5 & 300 & 0.1700 (0.2430)\\
-\bottomrule
-\multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
-\multicolumn{5}{l}{\textsuperscript{} Note: Many cluster-assigned studies do not report an exact number of subjects, \linebreak so our N}\\
-\multicolumn{5}{l}{of subjects are rounded estimates.}\\
-\end{tabular}
-\end{table}
+and persuasion, or a combination of norms and persuasion.
 
 \textbf{Norms} studies
 \citep{aldoh2023, allen2002, alblas2023, coker2022, griesoph2021, piester2020, sparkman2017, sparkman2020}
@@ -255,18 +227,67 @@ serve themselves fish sauce \citep{kanchanachitra2020}.
 \textbf{Persuasion} studies
 \citep{kanchanachitra2020, abrahamse2007, acharya2004, berndsen2005, bertolaso2015, bianchi2022, bochmann2017, bschaden2020, carfora2023, cooney2016, fehrenbach2015, feltz2022, haile2021, hatami2018, hennessy2016, mathur2021effectiveness, norris2014, peacock2017, polanco2022, sparkman2021, jalil2023, merrill2009, weingarten2022}
 appeal directly to people to eat less MAP. These studies formed the
-majority of our database. Arguments typically focus on health the
-environment \textemdash usually climate change \textemdash and animal
-welfare. Some are designed to be emotionally activating, e.g.~presenting
-upsetting footage of factory farms \citep{bertolaso2015}, while others
-present facts about, e.g., the relationship between diet and cancer
-\citep{hatami2018}. Many persuasion studies combine arguments, such as a
-lecture on the health and environmental consequences of eating meat
-\citep{jalil2023} or a leaflet with information in all three categories
-\citep{hennessy2016}.
+majority of our database. Arguments focus on health, the environment
+(usually climate change), and animal welfare. Some are designed to be
+emotionally activating, e.g.~presenting upsetting footage of factory
+farms \citep{bertolaso2015}, while others present facts about, e.g., the
+relationship between diet and cancer \citep{hatami2018}. Many persuasion
+studies combine arguments, such as a lecture on the health and
+environmental consequences of eating meat \citep{jalil2023} or a leaflet
+with information in all three categories \citep{hennessy2016}.
 
-Table 2 displays the distribution of persuasion studies within these
-categories.
+Finally, a handful of studies combines \textbf{norms and persuasion}
+approaches \citep{hennessy2016, carfora2023, mattson2020, piester2020}.
+These interventions typically suggest reasons to eat less meat side by
+side with information about changing consumer habits in society.
+
+Three papers \citep{piester2020, hennessy2016, kanchanachitra2020}
+evaluate multiple interventions reflecting contrasting theoretical
+approaches.
+
+\begin{comment} 
+Note that two interventions also provide free meat alternatives?
+\end{comment}
+
+\section{Results}\label{sec2}
+
+\subsection{An overall small effect with some heterogeneity by
+approach}\label{sec2.1}
+
+Our overall meta-analytic effect size is \(\Delta\) = 0.057 (SE =
+0.021), p = .0127. The aggregate effect is statistically significant,
+but does not indicate a meaningful reduction.
+
+Figure 1 displays the distribution of effect sizes, grouped by paper,
+with each individual point representing an intervention. The overall
+effect size is plotted at the bottom.
+
+\includegraphics[width=1.2\linewidth,]{./figures/forest_plot-1}
+
+Table 1 reports the number of studies, interventions, and subjects
+(approximately) per approach, as well as the pooled effect sizes per
+approach.
+
+\begin{table}[!h]
+\centering
+\caption{\label{tab:table_one}Norm, Nudge, and persuasion approaches to MAP reduction}
+\centering
+\begin{tabular}[t]{lrrrl}
+\toprule
+Approach & N (Studies) & N (Interventions) & N (Subjects) & Glass's $\Delta$ (SE)\\
+\midrule
+\textbf{Overall} & 39 & 107 & 90800 & 0.0570* (0.0210)\\
+Norms & 11 & 18 & 53100 & 0.0640 (0.0320)\\
+Nudge & 2 & 2 & 12000 & 0.1710* (0.0080)\\
+Persuasion & 27 & 82 & 25100 & 0.0670* (0.0260)\\
+Norms + Persuasion & 4 & 5 & 300 & 0.1700 (0.2430)\\
+\bottomrule
+\multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
+\end{tabular}
+\end{table}
+
+Table 2 displays the numbers and findings of persuasion interventions by
+topic.
 
 \begin{table}[!h]
 \centering
@@ -285,28 +306,7 @@ Animal Welfare & 13 & 61 & 14600 & 0.0100 (0.0130)\\
 \end{tabular}
 \end{table}
 
-Finally, a handful of studies combines \textbf{norms and persuasion}
-approaches \citep{hennessy2016, carfora2023, mattson2020, piester2020}.
-These interventions typically suggest reasons to eat less meat side by
-side with information about changing consumer habits in society.
-
-Three papers \citep{piester2020, hennessy2016, kanchanachitra2020}
-evaluate multiple interventions reflecting contrasting theoretical
-approaches.
-
-\subsection{An overall small effect}\label{sec2.2}
-
-Our overall meta-analytic effect size is \(\Delta\) = 0.057 (SE =
-0.021), p = .0127. The aggregate effect is statistically significant,
-but does not indicate a meaningful reduction.
-
-Figure 1 displays the distribution of effect sizes, grouped by paper,
-with each individual point representing an intervention. The overall
-effect size is plotted at the bottom.
-
-\includegraphics[width=1.2\linewidth,]{./figures/forest_plot-1}
-
-This small effect may surprise readers of previous reviews, which
+These small effects may surprise readers of previous reviews, which
 typically found more positive results
 \citep{mathur2021meta, meier2022, mertens2022}. We attribute this
 difference to our stricter inclusion criteria. For instance, of the ten
@@ -314,19 +314,17 @@ largest effect sizes recorded in \citep{mathur2021effectiveness}, nine
 were non-consumption outcomes and the tenth came from a non-randomized
 design.
 
-\begin{comment}
-([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
-\end{comment}
-
-According to papers' own analyses, 95 of 107 interventions had null
+Per the papers' own calculations, 95 of 107 interventions had null
 effects on net MAP consumption. However, many studies present a wide
 variety of outcomes, or include MAP reduction as one of many components
-of a broader program of behavior change, and focus on their significant
-results. Using our calculations of effect size and standard error 13
-interventions have 95\% confidence intervals that do not overlap with
-zero, 10 of which are positive effects, out of 107 interventions.
+of a broader program of behavior change, and present significant results
+as well.
 
-\subsection{Moderate evidence of publication bias}\label{sec2.3}
+\begin{comment}
+Using our calculations of effect size and standard error 13 interventions have 95% confidence intervals that do not overlap with zero, 10 of which are positive effects, out of 107 interventions.
+\end{comment}
+
+\subsection{Moderate evidence of publication bias}\label{sec2.2}
 
 We conduct four tests for publication bias.
 
@@ -337,11 +335,7 @@ introductory remarks about how this puts our main results in one light or anothe
 First, in our dataset, \(\Delta\) and standard error are positively
 correlated, though not significantly.
 
-\begin{comment} 
-good place for a figure?
-\end{comment}
-
-Second, the 9 studies with a pre-analysis plan have a marginally smaller
+Second, the 9 studies with pre-analysis plans have a marginally smaller
 effect: \(\Delta\) = 0.039 (SE = 0.022), p = .1505. This difference is
 not statistically significant.
 
@@ -370,42 +364,38 @@ Thesis & 11 & 5 & 1300 & 0.0090 (0.0910)\\
 \end{tabular}
 \end{table}
 
-\subsection{Red and Processed Meat is an easier target}\label{sec2.4}
+\subsection{Red and Processed Meat is an easier target}\label{sec2.3}
 
-On average, interventions aimed at reducing consumption of RPM
-outperform general MAP reduction interventions: \(\Delta\) = 0.249
-\text{(SE = 0.071)}, p = .0045. Each of these studies employs
-persuasion, and a majority (16/19) appeal to personal health. However,
-these studies do not collect data on white meat and/or fish consumption,
-and therefore their impact on MAP consumption overall is unknown.
+On average, interventions aimed at reducing consumption of red and
+processed meat (RPM) outperform general MAP reduction interventions:
+\(\Delta\) = 0.249 \text{(SE = 0.071)}, p = .0045. Each of the RPM
+reduction studies employs persuasion, and a majority (16 of 19) appeal
+to personal health. However, these studies do not collect data on white
+meat and/or fish consumption, and therefore their impact on MAP
+consumption overall is unknown.
 
-Red meat is of special concern for its environmental and health
-consequences \citep{grummon2023}, but eating chicken is arguably worse
-for animals on a pound-for-pound basis \citep{mathur2022ethical}. For
-some plausible patterns of substitution, these interventions are net
-positive for health and the environment and net negative for animal
-welfare.
+RPM is of special concern for its environmental and health consequences
+\citep{grummon2023}, but some categories of meat considered sustainable
+are arguably worse for animals on a pound-for-pound basis
+\citep{mathur2022ethical}. For some plausible patterns of substitution,
+these interventions are net positive for health and the environment and
+net negative for animal welfare.
 
 \subsection{Norms work sometimes, but it is not clear why or
-when}\label{sec2.5}
+when}\label{sec2.4}
 
 The overall effect for intervention with a norms component is \(\Delta\)
 = 0.071 (SE = 0.054), p = .2125. Of these 23 interventions, 19 are
 self-reported nulls. Moreover, the spread of norms results is unusually
-large, with a fair number of backlash results
-\citep{mattson2020, griesoph2021}, and one paper with four studies, each
+large. For example, one standout paper with four included studies, each
 featuring real-world settings and objectively measured consumption
-outcomes, finding one significant positive result, two nulls, and one
+outcomes, finds one significant positive result, two nulls, and one
 significant backlash \citep{sparkman2020}. We do not see, in this
 collection of studies, a clear limiting principle for when norms
 interventions achieve their goals.
 
-A forthcoming meta-analysis of dynamic norms interventions concludes
-that their overall effects on MAP consumption are negligible
-\citep{Weikertova2024}.
-
 \subsection{The evidence for nudges on MAP consumption is
-scant}\label{sec2.6}
+scant}\label{sec2.5}
 
 Although nudges are common in the diet literature writ large
 \citep{olafsson2024, cadario2020, szaszi2018}, only two nudge studies
@@ -413,43 +403,45 @@ met our inclusion criteria \citep{andersson2021}. Both had moderate
 effect sizes on the order of a few percentage points of MAP reduction.
 
 \subsection{Health studies work better for RPM than for
-MAP}\label{sec2.7}
+MAP}\label{sec2.6}
 
 The pooled effect size for persuasion studies with a health component is
 \(\Delta\) = 0.092 (SE = 0.044), p = .0706. This is small and not
-significant, albeit larger than the overall pooled effect. Health
-appeals are a component of 16 of 19 interventions aimed at reducing RPM
-consumption, and are generally more effective there: \(\Delta\) = 0.255
-(SE = 0.07), p = .0035. This fits with the broader context where
-official nutritional guidelines typically encourage consumers to reduce
-RPM and consume moderate amounts of lean meat and fish.
+significant, albeit larger than the overall pooled effect.
 
-We also observe that many health studies either seek to induce a sense
-of fear in subjects \citep{berndsen2005} or target people who are at
-risk of cancer \citep{hatami2018} or cancer survivors
-\citep{james2015, lee2018} with health-based reasons to change their
-diets, and then ask them to self-report what they have eaten recently.
-We judge self-reporting bias to be a potential concern.
+Health appeals are a component of 16 of 19 interventions aimed at
+reducing RPM consumption, and are generally more effective there:
+\(\Delta\) = 0.255 (SE = 0.07), p = .0035. This fits with the broader
+context where official nutritional guidelines typically encourage
+consumers to reduce RPM and consume moderate amounts of lean meat and
+fish.
+
+We also judge many health studies to be at elevated risk of
+self-reporting bias. For example, one study seeks to induce a sense of
+fear in subjects \citep{berndsen2005}, while others target people who
+are at risk of cancer \citep{hatami2018} or cancer survivors
+\citep{james2015, lee2018} with reasons they should change their diet,
+and then ask subjects to self-report what they have eaten recently.
 
 \subsection{Environmental appeals have modest positive
-effects}\label{sec2.8}
+effects}\label{sec2.7}
 
 The pooled effect size for persuasion studies with an environmental
 component is \(\Delta\) = 0.084 (SE = 0.058), p = .1880. The strongest
 evidence that these appeals produce real-world impacts is
 \citep{jalil2023}, which substituted an introductory lecture in a
-first-year economics class for a lecture on the environment and health
+first-year economics class for a lecture on the environmental and health
 consequences of meat, focusing mostly on the environment, and then
 tracked student meal choices in dining halls for three years following.
 That study found that treatment led to an overall reduction in MAP
-consumption of 5.6\% \(\Delta\) = 0.118 (SE = 0.5717429), which is
-neither especially large nor statistically significant. However, due to
-its exceptional commitment to long-term, oblique outcome measurement, we
-consider this study to be reasonably robust evidence for this
-intervention's efficacy among students at liberal arts colleges.
+consumption of 5.6\% (\(\Delta\) = 0.118 (SE = 0.5717429)). Due to this
+study's exceptional commitment to long-term, oblique outcome
+measurement, we consider it to be reasonably strong evidence for this
+intervention's efficacy among the population from which the sample was
+drawn.
 
 \subsection{Animal welfare appeals are almost always
-ineffective}\label{sec2.9}
+ineffective}\label{sec2.8}
 
 The pooled effect size for persuasion studies with an animal welfare
 component is \(\Delta\) = 0.01 (SE = 0.013), p = .4826. A full 59 of 61
@@ -457,20 +449,16 @@ interventions in this category are self-described nulls. Slightly more
 than half (32 of 61) lead to increases in MAP consumption, though just
 one of these effects is statistically significant.
 
-The 52 interventions and 10 studies using materials from advocacy
+The 10 studies and 52 interventions using materials from advocacy
 organizations find an overall effect of -0.007 (SE = 0.021), p = .7656.
 
-\begin{comment}
-These disappointing results conflict with the central conclusions of [@mathur2021effectiveness], but accord with the finding in [@DiGennaro2024] that animal welfare appeals produce a null effect on average.
-\end{comment}
-
 \subsection{Heterogeneity by reporting, cluster assignment, delivery
-method, and country}\label{sec2.10}
+method, and country}\label{sec2.9}
 
 Our sample of studies is comparatively small, and many differences
-between studies are confounded (for example, 20 of 21 interventions with
+between studies are confounded. For example, 20 of 21 interventions with
 objectively reported outcomes are also studies of university
-populations). Nevertheless we offer a few tentative explorations of
+populations. Nevertheless we offer a few tentative explorations of
 potential moderators of effect size.
 
 Contrary to our expectations, self-reported and objectively collected
@@ -516,6 +504,12 @@ Asia, Australia, and worldwide & 10 & 5 & 14300 & 0.0000 (0.0720)\\
 \end{tabular}
 \end{table}
 
+There was no meaningful relationship between delay and effect size.
+
+Interventions with adult subjects are moderately more effective
+(\(\Delta\) =0.106 (SE = 0.037), p = .0152) than those with a university
+population ( (\(\Delta\) =0.023 (SE = 0.028), p = .4339)),
+
 \section{Methods}\label{sec3}
 
 \textbf{Search}: We employed a multi-pronged search strategy for
@@ -523,43 +517,48 @@ assembling our database. First, we checked the bibliographies of three
 recent reviews
 \citep{mathur2021meta, bianchi2018conscious, bianchi2018restructuring}
 for relevant studies. Second, we checked any possibly relevant study
-that either cited or was cited by studies we coded. Third, we checked
-the bibliographies of authors whose studies we coded. Fourth, we
-contacted leading researchers in the field with our in-progress database
-to see if we had missed any. Fifth, we rinsed and repeated with the new
-studies we had. Sixth, we conducted searched Google Scholar for certain
-terms that had come up in studies repeatedly (e.g.~``dynamic norms +
-meat'', ``MAP reduction'', and ``plant-based diet + effective''). Sixth,
-we checked database emerging from a parallel project being conducted by
-Rethink Priorities. Seventh, we identified a further 100+ systematic
-reviews and checked their bibliographies, and obtained qualified studies
-from six of those reviews
+that either cited or was cited by studies we from our first round of
+coding Third, we checked the bibliographies of authors whose studies we
+coded. Fourth, we contacted leading researchers in the field with our
+in-progress database to see if we had missed any. Fifth, we repeated
+steps two and three with new studies we had. Sixth, we searched Google
+Scholar for terms that had come up in studies repeatedly (e.g.~``dynamic
+norms + meat'', ``MAP reduction'', and ``plant-based diet +
+effective'').
+
+\begin{comment} 
+does this need more description? This is not entirely reproducible I think but TBH it was not a major source of studies in our database
+\end{comment}
+
+Sixth, we checked database emerging from a parallel project being
+conducted by Rethink Priorities. Seventh, we identified a further 100+
+systematic reviews and checked their bibliographies, and obtained
+qualified studies from six of those reviews
 \citep{ammann2023, chang2023, DiGennaro2024, harguess2020, ronto2022, wynes2018}.
 Eighth, we used an AI search tool (\url{<https://undermind.ai>}) to
 check for gray literature. All three authors contributed to the search.
 
 \textbf{Coding:} For quantitative outcomes, we selected the latest
-possible outcome that still had sufficient subjects to meet our
-inclusion criteria. Sample sizes were drawn from the same post-test. All
-effect sizes were standardized by the standard deviation of the outcome
-for the control group at baseline whenever possible (Glass's
-\(\Delta\)). All effect size conversions were conducted by the first
-author using methods and R code initially developed for previous papers
+possible outcome that had enouugh subjects to meet our inclusion
+criteria. Sample sizes were drawn from the same post-test. All effect
+sizes were standardized by the standard deviation of the outcome for the
+control group at baseline whenever possible (Glass's \(\Delta\)). All
+effect size conversions were conducted by the first author using methods
+and R code initially developed for previous papers
 \citep{paluck2019, paluck2021, porat2024} using standard techniques from
 \citep{cooper2019}, with the exception of a difference in proportion
-estimator created for \citep{paluck2021} and detailed in the appendix of
-\citep{porat2024}.
+estimator created for \citep{paluck2021} and explained in our appendix.
 
 \textbf{Meta-analysis:} Our initial set of analyses was pre-registered
 on the Open Science Framework in November 2023
 (\url{<https://osf.io/j5wbp>}), although the project evolved
-substantially over time and our final analyses do not match those
-initial plans. Our analyses use functions and models from the
+substantially over time. We describe four important deviations in our
+appendix. Our analyses use functions and models from the
 \texttt{robumeta} \citep{fisher2015} and \texttt{tidyverse}
 \citep{wickham2019} packages in \texttt{R} \citep{Rlang}. Our analysis
 uses robust variance estimation methods \citep{hedges2010}.
 
-\section{Discussion}\label{discussion}
+\section{Discussion}\label{Sec4}
 
 We offer three lenses through which to view our results.
 
@@ -577,9 +576,9 @@ effects.
 Moreover, a change of a few percentage points might be significant in
 some contexts. For example, if a college calculates that meat
 consumption accounts for 20\% of its carbon emissions, a 5.4\% reduction
-in meat consumption \citep{jalil2023} achieves a 1\% reduction in carbon
-output. Whether or not that is a cost-effective method depends on the
-alternatives.
+in meat consumption \citep{jalil2023} achieves about a 1\% reduction in
+carbon output. Whether this is a cost-effective method of reducing
+carbon output depends on the alternatives.
 
 Third, one might look at the largest effect sizes in our dataset, for
 instance, the seven interventions with an effect size of
@@ -595,14 +594,13 @@ However, we are generally encouraged by trends in this literature.
 First, as previously noted, a majority of studies that meet our
 inclusion criteria have been published in the past few years, suggesting
 an overall increase in attention to design and measurement validity.
-Second, we applaud researchers in this field for publicizing null
-results when they find them. Third, we notice that the universe of
-possible interventions and settings is much broader than those we
-analyzed, suggesting that some promising approaches await rigorous
-evaluation. e.g.~direct contact with animals on an animal sanctuary,
-price gradations, high-intensity vegan meal planning, door-to-door
-canvassing, or studies taking place in diverse settings such as
-retirement homes.
+Second, we applaud researchers in this field for publishing null results
+when they find them. Third, we notice that the universe of possible
+interventions and settings is much broader than those we analyzed,
+suggesting that some promising approaches await rigorous evaluation.
+e.g.~direct contact with animals on an animal sanctuary, price
+gradations, high-intensity vegan meal planning, door-to-door canvassing,
+or studies taking place in diverse settings such as retirement homes.
 
 \backmatter
 
@@ -653,23 +651,20 @@ mock analyses that resemble our final analyses in general form. However,
 as the project evolved over time, we made four substantive changes to
 our paper that we did not anticipate at the pre-analysis stage.
 
-First, we separated studies looking at reductions in red and processed
-meat from everything else. Our initial draft took these at face value as
-estimates of net MAP reduction. However, we later decided that RPM
-reduction was fundamentally a separate estimand, and that without firm
-data on substitution to other kinds of MAP, we could not say anything
-definite about the net effect on demand for MAP.
+First, our initial draft combined RPM and MAP studies, taking the former
+as providing face value estaimtes of the latter. However, we later
+decided that RPM reduction was fundamentally a separate estimand, and
+that without firm data on substitution to other kinds of MAP, we could
+not say anything definite about the net effect on demand for MAP.
 
-Second, and related, we initially included searched for studies that
-were not necessarily aimed at achieving overall MAP reduction, but
-rather a generally healthier diet with some amount of chicken and/or
-fish, for instance the Mediterranean diet. Many of these studies had
-measurement strategies that would otherwise have qualified them, i.e
-they measured MAP consumption overall or measured consumption in many
-categories. However, we ultimately concluded that these were a separate
-estimand as well, and we did not want to add noise to the estimate of
-studies that were aimed more specifically at reducing MAP consumption
-rather than causing inter-MAP substitution.
+Second, and related, we initially included studies that were not
+necessarily aimed at achieving overall MAP reduction, but rather a
+generally healthier diet with some amount of chicken and/or fish, for
+instance the Mediterranean diet. Many of these studies had otherwise
+qualifying measurement strategies. However, we ultimately concluded that
+these were a separate estimand as well, and we did not want to add noise
+to the estimate of studies that were aimed more specifically at reducing
+MAP consumption rather than causing inter-MAP substitution.
 
 Third, our initial analyses used the random effects model from
 \texttt{metafor} to calculate pooled effect sizes. However, as we
@@ -712,9 +707,9 @@ our main dataset. \captionsetup[table]{labelformat=empty}
 \toprule
 Source & Count\\
 \midrule
-Prior literature review & 15\\
+Prior literature reviews & 15\\
 Snowball search & 6\\
-Prior knowledge & 3\\
+pre-existing knowledge & 3\\
 Systematic search & 3\\
 Researcher CVs & 2\\
 \addlinespace
@@ -752,10 +747,10 @@ persuasion & 82 & 27 & 25100 & 0.0180 (0.0130)\\
 inclusion}\label{edge-cases-for-study-inclusion}
 
 Arguably the hardest decision in meta-analysis is what studies to
-include or exclude. By far the most common reason was the wrong
-dependent variable (e.g.~attitudinal or intentional outcomes). However,
-many cases were harder and required some discussion. Here were a few
-difficult cases.
+include or exclude. By far the most common reason for exclusion was
+category of dependent variable (e.g.~measuring attitudinal or
+intentional outcomes). However, many cases were harder and required some
+discussion. Here are a few cases we found difficult.
 
 Some studies limit dietary portions or switch what people are served
 (e.g.~children being served more vegetables at lunchtime). We did not
@@ -766,24 +761,36 @@ we did include studies that provided free access to meat alternatives
 intervention had concluded.
 
 Other studies induce a form of treatment in their control groups, for
-instance asked to take a pledge to go vegetarian or encouraged not to
-change one's diet over the course of study, which could potentially
-induce changes relative to baseline consumption patterns. We only
-analyzed studies where with a pure control group or an unrelated
-placebo.
+instance asking subjects to take a pledge to go vegetarian or
+encouraging them not to change their diet over the course of study,
+which could potentially induce changes relative to baseline consumption
+patterns. Our main database only includes studies with a pure control
+group or an unrelated placebo. However, we include these studies in our
+supplementary robustness check.
+
+A few studies recruit an already motivated population, e.g.~people
+looking to cut back on their MAP consumption. We consider this a
+separate estimand and do not include these studies in our main dataset,
+but we do include them in our supplementary robustness check.
 
 Another common design limitation we encountered was treatment assigned
 at the level of alternating weeks at a cafeteria. Generally these
 studies did not have enough weeks to meet our sample size requirements,
-but we also noted that simply alternating weeks is not random assignment
-and it is possible that consumption patterns will not be equivalent
-between treatment and control groups in expectation.
+but we also note that simply alternating weeks is not random assignment,
+and it is possible that consumption patterns in these studies will not
+be equivalent between groups in expectation.
 
 Last, we encountered many studies that measured fruit and or/vegetable
 consumption but not MAP consumption. In some cases, it might have been
-possible to make some strong assumptions about substitution and estimate
-a MAP effect size, but we decided to focus on studies that reported this
-information directly.
+possible to add assumptions about substitution and estimate effect
+sizes, but we decided to focus on studies that reported this information
+directly.
+
+\subsection{Robustness check: including X additional studies that with
+near-random
+assignment}\label{robustness-check-including-x-additional-studies-that-with-near-random-assignment}
+
+{[}TO FILL IN{]}
 
 \subsubsection{Is a norm a nudge?}\label{is-a-norm-a-nudge}
 
@@ -815,11 +822,11 @@ Therefore, we do not classify the norms interventions in our database as
 nudges.
 
 A future project might investigate exactly what reactions are occurring
-by asking subjects how well they recall a quick norms message and what
-it made them think about. A high prevalence of subjects who are unable
-to recall the message's specifics but nevertheless reveal treatment
-effects would be evidence that norms are acting through automatic rather
-than reflective processes.
+by asking subjects how well they recall a norms message and what it made
+them think about. A high prevalence of subjects who are unable to recall
+the message's specifics but nevertheless cut back on MAP consumption
+would be evidence that norms are acting through automatic rather than
+reflective processes.
 
 \subsubsection{A lack of follow-up data in cafeteria-based
 interventions}\label{a-lack-of-follow-up-data-in-cafeteria-based-interventions}
@@ -828,8 +835,23 @@ One potential source of measurement error that we cannot easily correct
 for is the possibility that a subject who is guided towards eating less
 meat at one meal eats more at the next, i.e.~``regression to the meat.''
 Most cafeteria-based studies we looked at were not designed to measure
-this kind of spillover effect. We encourage researchers in this field to
-collect follow-up outcomes whenever possible.
+this kind of spillover effect, although such designs are possible
+\citep{vocski2024}. We encourage researchers in this field to collect
+follow-up outcomes.
+
+\subsubsection{Notes on prior reviews}\label{notes-on-prior-reviews}
+
+TO FILL IN: a few sentences about the reviews that contributed studies
+to our search. Then a bit about reviews that we found otherwise
+noteworthy. Then, a few notes on where our conclusions do or do not
+converge with prior reviews, e.g. - A forthcoming meta-analysis of
+dynamic norms interventions concludes that their overall effects on MAP
+consumption are negligible \citep{Weikertova2024}. - These disappointing
+results {[}animal advocacy{]} conflict with the central conclusions of
+\citep{mathur2021effectiveness}, but accord with the finding in
+\citep{DiGennaro2024} that animal welfare appeals produce a null effect
+on average. - (\citep{bianchi2018conscious} also found effects on
+intentions and attitudes but no evidence of effects on behavior.)
 
 \newpage
 
