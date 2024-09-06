@@ -17,11 +17,16 @@ dat |> filter(!is.na(pastweek_veg)) |> group_by(treatb1b2) |> summarise(baseline
 # now trying to reproduce figure 6
 dat |> filter(!is.na(pastweek_veg3)) |> group_by(treatb1b2) |> summarise(final_outcome = mean(pastweek_veg3),
                                                                         final_sd = sd(pastweek_veg3)) 
+# that's not right
+dat |> group_by(treatb1b2) |> filter(!is.na(past3d_veg2)) |> s
+ummarise(final_outcome = mean(past3d_veg2))
+# that's probably right. figure 6 has a typo about which data it is reporting,
+# should be 3 day not 7. To do d_i_d, we'll take the seven day data. 
 
-# maybe they eliminate anyone with impossible answers?
-dat |> filter(!is.na(pastweek_veg3)) |> filter(pastweek_veg3 < 8) |> group_by(treatb1b2) |> summarise(final_outcome = mean(pastweek_veg3)) 
-
-# not sure what's going on here but I do notice substantial baseline differences. we do d_i_d whenever we can. might be a data issue
-# but if the baseline numbers line up, that's prima facie evdience that 
+# not sure what's going on here
+# but I do notice substantial baseline differences. 
+# we do d_i_d whenever we can. might be a data issue
+# The figure 6 numbers don't really line up with the data at all nor the numbers in table 3
+# I am starting to think there was a mistake
 # Ns
 dat |>  group_by(treatb1b2) |> filter(!is.na(pastweek_veg3)) |> filter(pastweek_veg3 < 8) |> summarise(n = n())

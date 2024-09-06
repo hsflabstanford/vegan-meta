@@ -49,15 +49,18 @@ table_two <- tibble(
   add_footnote("Note: because many studies present more than one category of message, the Ns for studies, \\linebreak interventions, and subjects will sum to more than the total numbers in the persuasion category.", notation = 'none', escape = F)
 
 table_three <- dat |> 
-  split(~pub_status) |> 
+  mutate(pub_table_var = if_else(pub_status == 'Journal article', 
+                             'Journal Article', 
+                             'Advocacy, preprints, and theses')) |>
+  split(~pub_table_var) |> 
   map(map_robust) |> 
   map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
                        meta_result_formatter(.x))) |> 
   bind_rows(.id = 'Publication status') |> 
-  mutate(`Publication status` = case_when(
-    `Publication status` == "advocacy_org" ~ "Advocacy Organization",
-    TRUE ~ `Publication status`
-  )) |>
+  # mutate(`Publication status` = case_when(
+  #   `Publication status` == "advocacy_org" ~ "Advocacy Organization",
+  #   TRUE ~ `Publication status`
+  # )) |>
   rename(
     `N (Studies)` = N_studies,
     `N (Interventions)` = N_interventions,

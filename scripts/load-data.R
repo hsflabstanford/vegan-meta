@@ -27,6 +27,7 @@ dat <- read.csv('./data/vegan-meta.csv') |>
            venue == "Dissertation" ~ 'Thesis',
            venue == "Master's thesis" ~ 'Thesis',
            venue == "preprint" ~ 'preprint',
+           venue == "SSRN (preprint)" ~ 'preprint',
            str_detect(doi_or_url, "osf") ~ 'preprint',
            str_detect(doi_or_url, "10\\.") ~ "Journal article"),
          total_sample = n_c_post + n_c_post, d = mapply(

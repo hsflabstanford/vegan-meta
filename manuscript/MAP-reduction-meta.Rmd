@@ -33,7 +33,7 @@ keywords:
   - randomized controlled trial
   
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 33 papers comprising 39 studies,107 interventions, and approximately 87000 subjects. We find that these papers employ nudge, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.058, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 35 papers comprising 39 studies,107 interventions, and approximately 87000 subjects. We find that these papers employ nudge, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.06, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -105,7 +105,7 @@ n_total <-  round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, 
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
-We coded `r num_papers` such papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+We coded `r num_papers` such papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
 (This is an approximation because some interventions were administered at the level of day or cafeteria and did not record a precise number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 ```{r red_meat_numbers, include=F}
@@ -127,7 +127,7 @@ The first norms study meeting our criteria was published in 2017.
 
 **Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020].
 
-**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @berndsen2005; @bertolaso2015; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2016; @fehrenbach2015; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @mathur2021effectiveness; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @jalil2023; @merrill2009; @weingarten2022] appeal directly to people to eat less MAP.
+**Persuasion** studies [@kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banjerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
 Arguments focus on health, the environment (usually climate change), and animal welfare.
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
@@ -221,8 +221,7 @@ This difference is not statistically significant.
 Third, the `r open_data_model$N_studies` studies with openly available data also have a marginally smaller effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
 This difference is also not statistically significant.
 
-Fourth, the pooled effect size of interventions published in peer-reviewed journals is about 9 times larger than the equivalent effect size in student theses (table 3).
-Interventions published by advocacy organizations produce a small backlash effect on average.
+Fourth, the pooled effect size of interventions published in peer-reviewed journals is about five times larger than the pooled effect size from everything else (advocacy organization publications, preprints, and student theses).
 
 `r table_three`
 
@@ -252,7 +251,7 @@ However, these studies do not collect data on white meat and/or fish consumption
 RPM is of special concern for its environmental and health consequences [@grummon2023], but some categories of meat considered sustainable are arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
 
-\b
+
 ## Norms work sometimes, but it is not clear why or when {#sec2.4}
 
 ```{r include=F, echo=F}
@@ -272,12 +271,12 @@ Moreover, the spread of norms results is unusually large. For example, one stand
 We do not see, in this collection of studies, a clear limiting principle for when norms interventions achieve their goals.
 
 
-## The evidence for nudges on MAP consumption is scant {#sec2.5}
+## The evidence for nudges on MAP consumption is promising, but scant {#sec2.5}
 
-Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only two nudge studies met our inclusion criteria [@andersson2021].
+Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only three nudge studies from two papers [@@kanchanachitra2020; @andersson2021] met our inclusion criteria.
 Both had moderate effect sizes on the order of a few percentage points of MAP reduction.
 
-Had our search extended to 2024, we would have likely included many more studies, many of which find small or null effects [cite]
+TO INCLUDE: Had our search extended to 2024, we would have likely included many more studies, many of which find small or null effects [cite]
 
 ## Health studies work better for RPM than for MAP {#sec2.6}
 
@@ -394,7 +393,7 @@ Table 5 displays effects associated with different regions.
 
 `r table_five`
 
-Interventions with adult subjects are moderately more effective ($\Delta$ =`r adult_results$Delta` (SE = `r adult_results$se`), p = `r adult_results$pval`) than those with a university population ( ($\Delta$ =`r university_results$Delta` (SE = `r university_results$se`), p = `r university_results$pval`)),
+Interventions with adult subjects are moderately more effective ($\Delta$ =`r adult_results$Delta` (SE = `r adult_results$se`), p = `r adult_results$pval`) than those with a university population ( ($\Delta$ =`r university_results$Delta` (SE = `r university_results$se`), p = `r university_results$pval`).
 
 # Methods {#sec3}
 
@@ -482,6 +481,7 @@ really hard to get a handle on how to systematically search this literature beca
 meat purchases information nudge
 nudge theory meat purchasing
 meat alternatives default nudge
+
 ### Converting difference in proportions to standardized mean difference
 
 Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
@@ -568,9 +568,9 @@ In some cases, it might have been possible to add assumptions about substitution
 
 [TO FILL IN]
 
-### Is a norm a nudge?
+### Defining the boundaries of nudge interventions
 
-Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories.
+Tallying how many studies pursue a given theory of change requires drawing boundaries between those theories. This required judgment calls about which studies embodied a nudge approach.
 There is some scholarly debate about whether norms intervention qualify as nudges [@bicchieri2023].
 The canonical definition of nudge [@thaler2009] is "any aspect of the choice architecture that alters people’s behaviour in a predictable way, without forbidding any options or significantly changing their economic incentives. To count as a mere nudge, the intervention must be easy and cheap to avoid" (p. 6), while others [@hausman2010] define nudges as "ways of influencing choice without limiting the choice set or making alternatives appreciably more costly in terms of time, trouble, social sanctions, and so forth" (p. 126).
 
@@ -579,10 +579,12 @@ Whether a descriptive norm can be a nudge is trickier.
 Nudges are generally designed to address "flaws in individual decision-making" [@hausman2010, p. 126], while others identify "unthinking conformity" as an example of a "human failing" that nudges take as their "starting point" [@mols2015, p. 4].
 
 Our view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
-Therefore, we do not classify the norms interventions in our database as nudges.
+Therefore, we do not classify the norms interventions in our database as nudges. (A future project might investigate exactly what reactions are occurring by asking subjects how well they recall a norms message and what it made them think about. A high prevalence of subjects who are unable to recall the message's specifics but nevertheless cut back on MAP consumption would be evidence that norms are acting through automatic rather than reflective processes.)
 
-A future project might investigate exactly what reactions are occurring by asking subjects how well they recall a norms message and what it made them think about.
-A high prevalence of subjects who are unable to recall the message's specifics but nevertheless cut back on MAP consumption would be evidence that norms are acting through automatic rather than reflective processes.
+Likewise, providing reasoned arguments for cutting back on MAP consumption is not a nudge because they are not aimed at flaws in decision-making, but rather a standard model of 
+knowledge, attitude, and practice. This was true even if the information was delivered in an unobtrusive way, e.g. a daily email [@banerjee2019].
+
+### Psychological conditioning as a distinct approach
 
 ### A lack of follow-up data in cafeteria-based interventions
 
@@ -591,10 +593,12 @@ We encourage researchers in this field to collect follow-up outcomes.
 
 ### Notes on prior reviews
 TO FILL IN: a few sentences about the reviews that contributed studies to our search. Then a bit about reviews that we found otherwise noteworthy. Then, a few notes on where our conclusions do or do not converge with prior reviews, e.g.
-  - A forthcoming meta-analysis of dynamic norms interventions concludes that their overall effects on MAP consumption are negligible [@Weikertova2024].
-  - These disappointing results [animal advocacy] conflict with the central conclusions of [@mathur2021effectiveness], but accord with the finding in [@DiGennaro2024] that animal welfare appeals produce a null effect on average.
-  - ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
+  - A forthcoming meta-analysis of dynamic norms interventions concludes that their overall effects on MAP consumption are negligible [@Weikertova2024].
+  
+  - These disappointing results [animal advocacy] conflict with the central conclusions of [@mathur2021effectiveness], but accord with the finding in [@DiGennaro2024] that animal welfare appeals produce a null effect on average.
+  
+  - ([@bianchi2018conscious] also found effects on intentions and attitudes but no evidence of effects on behavior.)
 
 \newpage
 
