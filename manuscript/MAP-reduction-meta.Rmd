@@ -247,9 +247,12 @@ On average, interventions aimed at reducing consumption of red and processed mea
 Each of the RPM reduction studies employs persuasion, and a majority (`r health_rpm_studies` of `r nrow(RPMC)`) appeal to personal health.
 However, these studies do not collect data on white meat and/or fish consumption, and therefore their impact on MAP consumption overall is unknown.
 
+[INSERT BIT ABOUT SHREEDAR, e.g. the one study in our main dataset that tarted RMPC and looked at shifts to vegetarian meals found much smaller effects]
+
 RPM is of special concern for its environmental and health consequences [@grummon2023], but some categories of meat considered sustainable are arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
 
+\b
 ## Norms work sometimes, but it is not clear why or when {#sec2.4}
 
 ```{r include=F, echo=F}

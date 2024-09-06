@@ -9,11 +9,19 @@ dat <- read_dta('./supplementary-analyses/Shreedar 2021/Parts123_OSF.dta')
 dat |> filter(!is.na(past3d_veg2)) |> group_by(treatb1b2) |> summarise(final_outcome = mean(past3d_veg2)) 
 #  these numbers line up perfectly with figure 5
 
+dat |> filter(!is.na(pastweek_veg)) |> group_by(treatb1b2) |> summarise(baseline_outcome = mean(pastweek_veg),
+                                                                        baseline_sd = sd(pastweek_veg)) 
+# these numbers line up exactly with table 3, good
+# SD is 2.29
+
 # now trying to reproduce figure 6
-dat |> filter(!is.na(pastweek_veg3)) |> group_by(treatb1b2) |> summarise(final_outcome = mean(pastweek_veg3) -2 ) 
+dat |> filter(!is.na(pastweek_veg3)) |> group_by(treatb1b2) |> summarise(final_outcome = mean(pastweek_veg3),
+                                                                        final_sd = sd(pastweek_veg3)) 
 
 # maybe they eliminate anyone with impossible answers?
 dat |> filter(!is.na(pastweek_veg3)) |> filter(pastweek_veg3 < 8) |> group_by(treatb1b2) |> summarise(final_outcome = mean(pastweek_veg3)) 
 
-# it's close enough. just need the SD
-dat |> filter(treatb1b2 == 0) |> filter(!is.na(pastweek_veg3)) |> summarise(sd_ctrl = sd(pastweek_veg3))
+# not sure what's going on here but I do notice substantial baseline differences. we do d_i_d whenever we can. might be a data issue
+# but if the baseline numbers line up, that's prima facie evdience that 
+# Ns
+dat |>  group_by(treatb1b2) |> filter(!is.na(pastweek_veg3)) |> filter(pastweek_veg3 < 8) |> summarise(n = n())
