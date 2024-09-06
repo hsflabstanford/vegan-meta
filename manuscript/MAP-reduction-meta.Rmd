@@ -117,7 +117,7 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 ```
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. We also coded an additional XXX papers that we disqualified for methodological reasons but that we include in a supplementary robustness check.
-Last, we compiled a third dataset of over 780 excluded studies, along with their reason(s) for exclusion.
+Last, we compiled a third dataset of over 800 excluded studies, along with their reason(s) for exclusion.
 
 Studies in our database pursued three theories of change: norms, nudges, and persuasion, or a combination of norms and persuasion.
 
@@ -276,6 +276,8 @@ We do not see, in this collection of studies, a clear limiting principle for whe
 
 Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only two nudge studies met our inclusion criteria [@andersson2021].
 Both had moderate effect sizes on the order of a few percentage points of MAP reduction.
+
+Had our search extended to 2024, we would have likely included many more studies, many of which find small or null effects [cite]
 
 ## Health studies work better for RPM than for MAP {#sec2.6}
 
@@ -473,6 +475,13 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 ## Supplementary Methods
 
+### Search terms
+really hard to get a handle on how to systematically search this literature because of diverse language (no single disciplinary home)
+
+"random" "nudge" "meat"
+meat purchases information nudge
+nudge theory meat purchasing
+meat alternatives default nudge
 ### Converting difference in proportions to standardized mean difference
 
 Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
