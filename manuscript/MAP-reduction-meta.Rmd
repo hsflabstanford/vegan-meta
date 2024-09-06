@@ -345,7 +345,14 @@ Slightly more than half (`r neg_animal_results` of `r animal_model$N_interventio
 
 The  `r advocacy_model$N_studies` studies and `r advocacy_model$N_interventions` interventions using materials from advocacy organizations find an overall effect of `r advocacy_model$Delta` (SE = `r advocacy_model$se`), p = `r advocacy_model$pval`.
 
-## Heterogeneity by reporting, cluster assignment, delivery method, and country {#sec2.9}
+## Mixed evidence of effect delay over time
+
+No clear relationship between outcome and days of delay
+Look at studies that measure at multiple time points
+
+
+
+## Heterogeneity by reporting, cluster assignment, delivery method, and country {#sec2.10}
 
 ```{r confounding_check, include=F}
 confound_table <- dat |> filter(self_report == 'N') |> 
@@ -384,8 +391,6 @@ Table 4 displays the effect size associated with the four most common delivery m
 Table 5 displays effects associated with different regions.
 
 `r table_five`
-
-There was no meaningful relationship between delay and effect size.
 
 Interventions with adult subjects are moderately more effective ($\Delta$ =`r adult_results$Delta` (SE = `r adult_results$se`), p = `r adult_results$pval`) than those with a university population ( ($\Delta$ =`r university_results$Delta` (SE = `r university_results$se`), p = `r university_results$pval`)),
 
