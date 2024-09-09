@@ -1,122 +1,130 @@
-"","author","Year","Title","DOI.or.URL"
-"1","Adam",2016,"What is the effectiveness of obesity related interventions at retail grocery stores and supermarkets? —a systematic review","https://doi.org/10.1186/s12889-016-3985-x"
-"2","Adelberg",2018,"Protests Intervention Report","https://animalcharityevaluators.org/wp-content/uploads/2022/04/protest-intervention-report.pdf"
-"3","Afshin",2017,"The prospective impact of food pricing on improving dietary consumption: A systematic review and meta-analysis.","http://doi.org/10.1371/journal.pone.0172277"
-"4","Al-Khudairy",2019,"Choice architecture interventions to improve diet and/or dietary behaviour by healthcare staff in high-income countries: a systematic review","http://doi.org/10.1136/bmjopen-2018-023687"
-"5","Allan",2016,"Environmental interventions for altering eating behaviours of employees in the workplace: a systematic review","http://doi.org/10.1111/obr.12470"
-"6","Alwarith",2019,"Nutrition interventions in rheumatoid arthritis: the potential use of plant-based diets. A review","https://doi.org/10.3389/fnut.2019.00141"
-"7","Ammann",2023,"A review on policy instruments for sustainable food consumption","https://doi.org/10.1016/j.spc.2023.01.012"
-"8","Arno",2016,"The efficacy of nudge theory strategies in influencing adult dietary behaviour: a systematic review and meta-analysis","https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-016-3272-x"
-"9","Atanasova",2022,"The impact of the consumer and neighbourhood food environment on dietary intake and obesity-related outcomes: A systematic review of causal impact studies","https://doi.org/10.1016/j.socscimed.2022.114879"
-"10","Barlow",2016,"Unhealthy diets, obesity and time discounting: a systematic literature review and network analysis","https://doi.org/10.1111%2Fobr.12431"
-"11","Benningstad",2020,"Dissociating meat from its animal origins: A systematic literature review","https://www.sciencedirect.com/science/article/pii/S019566631930724X?via%3Dihub"
-"12","Bergquist",2023,"Field interventions for climate change mitigation behaviors: A second-order meta-analysis","https://doi.org/10.1073%2Fpnas.2214851120"
-"13","Bianchi (a)",2018,"Interventions targeting conscious determinants of human behaviour to reduce the demand for meat: a systematic review with qualitative comparative analysis","https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6"
-"14","Bianchi (b)",2018,"Restructuring physical micro-environments to reduce the demand for meat: a systematic review and qualitative comparative analysis","https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext"
-"15","Blackford",2021,"Nudging interventions on sustainable food consumption: a systematic review","https://www.whp-journals.co.uk/JPS/article/view/676"
-"16","Blaga",2017,"Use and effectiveness of behavioural economics in interventions for lifestyle risk factors of non-communicable diseases: a systematic review with policy implications","http://doi.org/10.1177/1757913917720233"
-"17","Bleich",2017,"A Systematic Review of Calorie Labeling and Modified Calorie Labeling Interventions: Impact on Consumer and Restaurant Behavior","https://doi.org/10.1002/oby.21940"
-"18","Broers",2017,"A systematic review and meta-analysis of the effectiveness of nudging to increase fruit and vegetable choice","https://doi.org/10.1093/eurpub/ckx085"
-"19","Bucher",2016,"Nudging consumers towards healthier choices: a systematic review of positional influences on food choice","https://doi.org/10.1017/S0007114516001653"
-"20","Byerly",2018,"Nudging pro-environmental behavior: evidence and opportunities","https://doi.org/10.1002/fee.1777"
-"21","Cadario",2019,"Which Healthy Eating Nudges Work Best? A Meta-Analysis of Field Experiments","https://doi.org/10.1287/mksc.2018.1128"
-"22","Cecchini",2016,"Impact of food labelling systems on food choices and eating behaviours: A systematic review and meta-analysis of randomized studies","https://doi.org/10.1111/obr.12364"
-"23","Cesareo",2022,"The effectiveness of nudging interventions to promote healthy eating choices: A systematic review and an intervention among Italian university students","https://www.sciencedirect.com/science/article/abs/pii/S0195666321005699?via%3Dihub"
-"24","Chang",2023,"Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis","https://www.frontiersin.org/articles/10.3389/fsufs.2023.1103060/full"
-"25","Cook",2023,"Consumer Interaction with Sustainability Labelling on Food Products: A Narrative Literature Review","https://www.cabidigitallibrary.org/doi/pdf/10.5555/20230383996"
-"26","Cruwys",2015,"Social modeling of eating: A review of when and why social influence affects food intake and choice","https://www.cabidigitallibrary.org/doi/pdf/10.5555/20230383996"
-"27","Deliens",2016,"Dietary interventions among university students: A systematic review","https://doi.org/10.1016/j.appet.2016.05.003"
-"28","Di Gennaro",2024,"How may we effectively motivate people to reduce the consumption of meat? Results of a meta-analysis of randomized clinical trials","https://doi.org/10.1016/j.ypmed.2024.108007"
-"29","Diepeveen",2013,"Public acceptability of government intervention to change health-related Behaviours: a systematic review ","https://doi.org/10.1186/1471-2458-13-756"
-"30","Ensaff",2021,"A nudge in the right direction: the role of food choice architecture in changing populations' diets","https://www.cambridge.org/core/journals/proceedings-of-the-nutrition-society/article/nudge-in-the-right-direction-the-role-of-food-choice-architecture-in-changing-populations-diets/C9920D90BE1B3BF41C1EAADFB9814BB2"
-"31","Fernandes",2016,"Influence of menu labeling on food choices in real-life settings: a systematic review ","https://doi.org/10.1093/nutrit/nuw013"
-"32","Fonseca",2022,"Consumers' attitudes towawrds animal suffering: a systematic review on awareness, willingness and dietary change","https://www.mdpi.com/1660-4601/19/23/16372"
-"33","Gallagher",2011,"Health Message Framing Effects on Attitudes, Intentions, and Behavior: A Meta-analytic Review ","https://doi.org/10.1007/s12160-011-9308-7"
-"34","Gardner",2023,"Interventions to strengthen environmental sustainability of school food systems: narrative scoping review","https://doi.org/10.3390/ijerph20115916"
-"35","Garnett",2020,"Policies and actions to shift eating patterns: What works?","https://tabledebates.org/sites/default/files/2020-10/fcrn_chatham_house_0.pdf"
-"36","Govindaraju",2018,"Dietary Patterns and Quality of Life in Older Adults: A Systematic Review","http://doi.org/10.3390/nu10080971"
-"37","Graça",2019,"Reducing meat consumption and following plant-based diets: Current evidence and future directions to inform integrated transitions","https://doi.org/10.1016/j.tifs.2019.07.046"
-"38","Grieg",2017,"Leafleting Intervention Report","https://animalcharityevaluators.org/wp-content/uploads/2022/04/leafleting-intervention-report.pdf"
-"39","Grundy",2022,"Interventions that influence animal-product consumption: A meta-review","https://www.sciencedirect.com/science/article/pii/S2666833521000976"
-"40","Habumugisha",2024,"Reducing meat and/or dairy consumption in adults: a systematic review and meta-analysis of effects on protein intake, anthropometric values, and body composition ","https://doi.org/10.1093/nutrit/nuad055"
-"41","Harguess",2020,"Strategies to reduce meat consumption: A systematic literature review of experimental studies","https://doi.org/10.1016/j.appet.2019.104478"
-"42","Hartmann",2017,"Consumer perception and behaviour regarding sustainable protein consumption: A systematic review","https://doi.org/10.1016/j.tifs.2016.12.006"
-"43","Hartmann-Boyce",2018,"Grocery store interventions to change food purchasing behaviors: a systematic review of randomized controlled trials","https://doi.org/10.1093/ajcn/nqy045"
-"44","Hendrie",2017,"Strategies to increase children's vegetable intake in home and community settings: a systematic review of literature","http://doi.org/10.1111/mcn.12276"
-"45","Holden",2016,"Whether smaller plates reduce consumption depends on who’s serving and who’s looking: A meta-analysis","https://doi.org/10.1086/684441"
-"46","Hollands",2013,"Altering micro-environments to change population health behaviour: Toward an evidence base for choice architecture interventions","https://doi.org/10.1186/1471-2458-13-1218"
-"47","Kelly",2013,"Systematic Review of Dietary Interventions With College Students: Directions for Future Research and Practice","http://doi.org/10.1016/j.jneb.2012.10.012"
-"48","Kiszko",2014,"The Influence of Calorie Labeling on Food Orders and Consumption: A Review of the Literature","http://doi.org/10.1007/s10900-014-9876-0"
-"49","Kwasny",2022,"Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001–2019","https://www.sciencedirect.com/science/article/pii/S0195666321006462"
-"50","Littlewood",2016,"Menu labelling is effective in reducing energy ordered and consumed: A systematic review and meta-analysis of recent studies","http://doi.org/10.1017/S1368980015003468"
-"51","Long",2015,"Systematic review and meta-analysis of the impact of restaurant menu calorie labeling","http://doi.org/10.2105/AJPH.2015.302570"
-"52","Lonkila",2022,"Promises of meat and milk alternatives: An integrative literature review on emergent research themes","https://link.springer.com/article/10.1007/s10460-020-10184-9"
-"53","Lycett",2017,"‘Nudge’ interventions for improving children's dietary behaviors in the home: A systematic review","http://doi.org/10.1016/j.obmed.2017.06.001"
-"54","Marcano-Olivier",2019,"Using Nudges to Promote Healthy Food Choices in the School Dining Room: A Systematic Review of Previous Investigations","http://doi.org/10.1111/josh.12861"
-"55","Marquez",2020,"Nutritional interventions and supplementation for rheumatoid arthritis patients: A systematic review for clinical application, Part 1: Dieting","http://doi.org/10.46439/rheumatology.1.006"
-"56","Mathur",2021,"Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations","https://www.sciencedirect.com/science/article/pii/S0195666321001847"
-"57","McEachan",2011,"Prospective prediction of health-related behaviours with the theory of planned behaviour: A meta-analysis.","http://dx.doi.org/10.1080/17437199.2010.521684"
-"58","McHugh",2024,"Mediterranean-style dietary interventions in adults with cancer: a systematic review of the methodological approaches, feasibility, and preliminary efficacy","http://doi.org/10.1038/s41430-024-01426-8"
-"59","Meier",2022,"Review: Do green defaults reduce meat consumption?","https://www.sciencedirect.com/science/article/pii/S0306919222000768"
-"60","Mertens",2021,"The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains","https://doi.org/10.1073/pnas.2107346118"
-"61","Metcalfe",2020,"A systematic review of school meal nudge interventions to improve youth food behaviors","http://doi.org/10.1186/s12966-020-00983-y"
-"62","Nathan",2019,"The effectiveness of lunchbox interventions on improving the foods and beverages packed and consumed by children at centre-based care or school: a systematic review and meta-analysis","http://doi.org/10.1186/s12966-019-0798-1"
-"63","Nguyen",2021,"Alternative protein consumption: A systematic review and future research directions","https://doi.org/10.1111/ijcs.12797"
-"64","Ni Mhurchu",2010,"Effects of worksite health promotion interventions on employee diets: a systematic review","http://doi.org/10.1186/1471-2458-10-62"
-"65","Nikolaou",2014,"Calorie-labelling: Does it impact on calorie purchase in catering outlets and the views of young adults?","https://doi.org/10.1038/ijo.2014.162"
-"66","Nisa",2019,"Meta-analysis of randomised controlled trials testing behavioural interventions to promote household action on climate change","https://doi.org/10.1038/s41467-019-12457-2"
-"67","Nørnberg ",2016,"Choice architecture interventions for increased vegetable intake and behaviour change in a school setting: a systematic review","https://doi.org/10.1177/1757913915596017"
-"68","Ólafsson",2024,"Tactics In Practice: The Science Of Plant-Based Defaults And Nudges","https://faunalytics.org/tactics-in-practice-the-science-of-plant-based-defaults-and-nudges/"
-"69","Onwezen",2024,"A meta-review of consumer behaviour studies on meat reduction and alternative protein acceptance","https://doi.org/10.1016/j.foodqual.2023.105067"
-"70","Ottrey",2010,"Hospital menu interventions: a systematic review of research.","http://doi.org/10.1108/IJHCQA-04-2015-0051"
-"71","Ozdemir",2014,"A review of literature on restaurant menus: Specifying the managerial issues","https://doi.org/10.1016/j.ijgfs.2013.12.001"
-"72","Pandey",2023,"Nudging Toward Sustainable Food Consumption at University Canteens: A Systematic Review and Meta-Analysis","https://www.jneb.org/article/S1499-4046(23)00503-1/fulltext"
-"73","Papies",2023,"How (not) to talk about plant-based foods: using language to support the transition to sustainable diets","http://doi.org/10.1017/S0029665123004858"
-"74","Patnode",2022,"Behavioral Counseling Interventions to Promote a Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults Without Known Cardiovascular Disease Risk Factors: Updated Systematic Review for the U.S. Preventive Services Task Force","https://www.ncbi.nlm.nih.gov/books/NBK583091/"
-"75","Pitt",2017,"Exploring the influence of local food environments on food behaviours: a systematic review of qualitative literature","https://www.cambridge.org/core/journals/public-health-nutrition/article/exploring-the-influence-of-local-food-environments-on-food-behaviours-a-systematic-review-of-qualitative-literature/939CACFF88880F83FAE0C68BA299B37E"
-"76","Pomerleau",2005,"Interventions Designed to Increase Adult Fruit and Vegetable Intake Can Be Effective: A Systematic Review of the Literatur","https://doi.org/10.1093/jn/135.10.2486"
-"77","Potter",2021,"The Effects of Environmental Sustainability Labels on Selection, Purchase, and Consumption of Food and Drink Products: A Systematic Review","https://doi.org/10.1177/0013916521995473"
-"78","Rau",2022,"A systematic review to assess the evidence-based effectiveness, content, and success factors of behavior change interventions for enhancing pro-environmental behavior in individuals","https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.901927/full"
-"79","Reisch",2021,"Mitigating climate change via food consumption and food waste: a systematic map of behavioral interventions","https://doi.org/10.1016/j.jclepro.2020.123717"
-"80","Reynolds",2020,"Low-agency population interventions to reduce meat consumption","https://www.foodsecurity.ac.uk/publications/low-agency-population-interventions-to-reduce-meat-consumption.pdf"
-"81","Robinson",2014,"What Everyone Else Is Eating: A Systematic Review and Meta-Analysis of the Effect of Informational Eating Norms on Eating Behavior","https://www.jandonline.org/article/S2212-2672(13)01680-8/abstract"
-"82","Ronto",2022,"Identifying effective interventions to promote consumption of protein-rich foods from lower ecological footprint sources: A systematic literature review","http://doi.org/10.1371/journal.pgph.0000209"
-"83","Roque",2022,"Plant-based school meals as levers of sustainable food transitions: a narrative review and conceptual framework","https://doi.org/10.1016/j.jafr.2022.100429"
-"84","Rosenfeld",2018,"The psychology of vegetarianism: Recent advances and future directions","https://www.sciencedirect.com/science/article/abs/pii/S0195666318309309"
-"85","Roy",2015,"Food environment interventions to improve the dietary behavior of young adults in tertiary education settings: A systematic literature review.","https://www.sciencedirect.com/science/article/abs/pii/S2212267215011144"
-"86","Ruddock",2019,"A systematic review and meta-analysis of the social facilitation of eating","http://doi.org/10.1093/ajcn/nqz155"
-"87","Rust",2020,"How to transition to reduced-meat diets that benefit people and the planet","http://doi.org/10.1016/j.scitotenv.2020.137208"
-"88","Salehi",2023,"Forty-five years of research on vegetarianism and veganism: A systematic and comprehensive literature review of quantitative studies","https://www.sciencedirect.com/science/article/pii/S240584402303298X"
-"89","Sanchez-Sabate",2019,"Consumer Attitudes Towards Environmental Concerns of Meat Consumption: A Systematic Review","https://doi.org/10.3390/ijerph16071220"
-"90","Savoie-Roskos",2017,"Increasing fruit and vegetable intake among children and youth through gardening-based interventions: a systematic review","http://doi.org/10.1016/j.jand.2016.10.014"
-"91","Siddiqui",2022,"Consumer acceptance of alternative proteins: A systematic review of current alternative protein sources and interventions adapted to increase their acceptability","https://doi.org/10.3390/su142215370"
-"92","Sinclair",2014,"The influence of menu labeling on calories selected or consumed: A systematic review and meta-analysis. ","https://doi.org/10.1016/j.jand.2014.05.014"
-"93","Skov",2013,"Choice architecture as a means to change eating behaviour in self-service settings: A systematic review","https://doi.org/10.1111/j.1467-789X.2012.01054.x"
-"94","Stiles",2021,"Effectiveness of Strategies to Decrease Animal-Sourced Protein and/or Increase Plant-Sourced Protein in Foodservice Settings: A Systematic Literature Review","https://www.jandonline.org/article/S2212-2672(21)01572-0/fulltext"
-"95","Stoll-Kleemann",2016,"Reducing meat consumption in developed and transition countries to counter climate change and biodiversity loss: a review of influence factors","https://link.springer.com/article/10.1007/s10113-016-1057-5"
-"96","Szazi",2018,"A systematic scoping review of the choice architecture movement: toward understanding when and why nudges work","https://doi.org/10.1002/bdm.2035"
-"97","Taufik",2019,"Determinants of real-life behavioural interventions to stimulate more plant-based and less animal-based diets: A systematic review","https://doi.org/10.1016/j.tifs.2019.09.019"
-"98","Temme",2020,"Demand-side food policies for public and planetary health","https://www.mdpi.com/2071-1050/12/15/5924"
-"99","Termannsen",2022,"Effects of vegan diets on cardiometabolic health: A systematic review and meta-analysis of randomized controlled trials","https://doi.org/10.1111/obr.13462"
-"100","Thapa",2014,"Behavioral Economics in the School Lunchroom: Can it Affect Food Supplier Decisions? A Systematic Review","http://dx.doi.org/10.22004/ag.econ.164604"
-"101","Valdivia",2015,"Community-Based Restaurant Interventions to Promote Healthy Eating: A Systematic Review","http://doi.org/10.5888/pcd12.140455"
-"102","Valli",2019,"Health-Related Values and Preferences Regarding Meat Consumption","https://doi.org/10.7326/M19-1326"
-"103","Valli",2022,"People’s Values and Preferences about Meat Consumption in View of the Potential Environmental Impacts of Meat: A Mixed-methods Systematic Review","https://doi.org/10.3390/ijerph20010286"
-"104","Vandenbroele",2018,"Nudging to get our food choices on a sustainable track","https://www.cambridge.org/core/journals/proceedings-of-the-nutrition-society/article/nudging-to-get-our-food-choices-on-a-sustainable-track/2A6298BAC8152AE42E95DEC8768FA69E"
-"105","Vartanian",2015,"Modeling of food intake: a meta-analytic review","https://doi.org/10.1080/15534510.2015.1008037"
-"106","Vecchio",2019,"Increasing healthy food choices through nudges: A systematic review","https://doi.org/10.1016/j.foodqual.2019.05.014"
-"107","Veul",2018,"Interventions to reduce meat consumption in OECD countries: an understanding of differences in succes","https://theses.ubn.ru.nl/handle/123456789/6391"
-"108","Wadi",2024,"Investigating intervention components and their effectiveness in promoting environmentally sustainable diets: a systematic review","https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(24)00064-0/fulltext"
-"109","Weikertova",2024,"Dynamic norms do not promote vegetarian food preferences: two experiments and a meta-analysis","https://osf.io/preprints/psyarxiv/qfn6y"
-"110","Weinrich",2019,"Opportunities for the adoption of health-based sustainable dietary patterns: A review on consumer research of meat substitutes","https://doi.org/10.3390/su11154028"
-"111","Wilson",2016,"Nudging healthier food and beverage choices through salience and priming. Evidence from a systematic review","10.1016/j.foodqual.2016.02.009"
-"112","Wolfenden",2018,"Strategies to improve the implementation of workplace‐based policies or practices targeting tobacco, alcohol, diet, physical activity and obesity","https://doi.org/10.1002/14651858.CD012439.pub2"
-"113","Wrenn",2013,"Resonance of Moral Shocks in Abolitionist Animal Rights Advocacy: Overcoming Contextual Constraints","https://doi.org/10.1163/15685306-12341271"
-"114","Wu",2019,"The influence of diet quality and dietary behavior on health-related quality of life in the general population of children and adolescents: a systematic review and meta-analysis","http://doi.iorg/10.1007/s11136-019-02162-4"
-"115","Wynes",2018,"Measuring what works: quantifying greenhouse gas emission reductions of behavioural interventions to reduce driving, meat consumption, and household energy use","https://iopscience.iop.org/article/10.1088/1748-9326/aae5d7/meta"
-"116","Yip",2013,"Systematic review of reducing population meat consumption to reduce greenhouse gas emissions and obtain health benefits: effectiveness and models assessments","https://doi.org/10.1007/s00038-013-0484-z"
-"117","Zeraatkar",2019,"Effect of lower versus higher red meat intake on cardiometabolic and cancer outcomes. A systematic review of randomized trials","http://doi.org/10.7326/M19-0622"
-"118","Zlatevska",2014,"Sizing up the Effect of Portion Size on Consumption: A Meta-Analytic Review","https://doi.org/10.1509/jm.12.0303"
-"119","Laiou",2021,"Can “Nudging” Play a Role to Promote Pro-Environmental Behaviour?","https://doi.org/10.1016/j.foodpol.2021.102103"
-"120","Wee",2021,"Review: Nudge interventions to promote healthy diets and physical activity","https://doi.org/10.1016/j.envc.2021.100364"
-"121","Steenhuis",2009,"Portion size: review and framework for interventions","https://ijbnpa.biomedcentral.com/articles/10.1186/1479-5868-6-58?report=reader"
+First author,Year,Title,DOI or URL
+Adam,2016,What is the effectiveness of obesity related interventions at retail grocery stores and supermarkets? —a systematic review,https://doi.org/10.1186/s12889-016-3985-x
+Adelberg,2018,Protests Intervention Report,https://animalcharityevaluators.org/wp-content/uploads/2022/04/protest-intervention-report.pdf
+Afshin,2017,The prospective impact of food pricing on improving dietary consumption: A systematic review and meta-analysis.,http://doi.org/10.1371/journal.pone.0172277
+Al-Khudairy,2019,Choice architecture interventions to improve diet and/or dietary behaviour by healthcare staff in high-income countries: a systematic review,http://doi.org/10.1136/bmjopen-2018-023687
+Allan,2016,Environmental interventions for altering eating behaviours of employees in the workplace: a systematic review,http://doi.org/10.1111/obr.12470
+Alwarith,2019,Nutrition interventions in rheumatoid arthritis: the potential use of plant-based diets. A review,https://doi.org/10.3389/fnut.2019.00141
+Ammann,2023,A review on policy instruments for sustainable food consumption,https://doi.org/10.1016/j.spc.2023.01.012
+Arno,2016,The efficacy of nudge theory strategies in influencing adult dietary behaviour: a systematic review and meta-analysis,https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-016-3272-x
+Atanasova,2022,The impact of the consumer and neighbourhood food environment on dietary intake and obesity-related outcomes: A systematic review of causal impact studies,https://doi.org/10.1016/j.socscimed.2022.114879
+Barlow,2016,"Unhealthy diets, obesity and time discounting: a systematic literature review and network analysis",https://doi.org/10.1111%2Fobr.12431
+Benningstad,2020,Dissociating meat from its animal origins: A systematic literature review,https://www.sciencedirect.com/science/article/pii/S019566631930724X?via%3Dihub
+Bergquist,2023,Field interventions for climate change mitigation behaviors: A second-order meta-analysis,https://doi.org/10.1073%2Fpnas.2214851120
+Bianchi (a),2018,Interventions targeting conscious determinants of human behaviour to reduce the demand for meat: a systematic review with qualitative comparative analysis,https://ijbnpa.biomedcentral.com/articles/10.1186/s12966-018-0729-6
+Bianchi (b),2018,Restructuring physical micro-environments to reduce the demand for meat: a systematic review and qualitative comparative analysis,https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(18)30188-8/fulltext
+Blackford,2021,Nudging interventions on sustainable food consumption: a systematic review,https://www.whp-journals.co.uk/JPS/article/view/676
+Blaga,2017,Use and effectiveness of behavioural economics in interventions for lifestyle risk factors of non-communicable diseases: a systematic review with policy implications,http://doi.org/10.1177/1757913917720233
+Bleich,2017,A Systematic Review of Calorie Labeling and Modified Calorie Labeling Interventions: Impact on Consumer and Restaurant Behavior,https://doi.org/10.1002/oby.21940
+Broers,2017,A systematic review and meta-analysis of the effectiveness of nudging to increase fruit and vegetable choice,https://doi.org/10.1093/eurpub/ckx085
+Bucher,2016,Nudging consumers towards healthier choices: a systematic review of positional influences on food choice,https://doi.org/10.1017/S0007114516001653
+Burstein,2024,Promoting sustainable consumption among university students: a systematic literature review,10.1108/IJSHE-09-2022-0298
+Byerly,2018,Nudging pro-environmental behavior: evidence and opportunities,https://doi.org/10.1002/fee.1777
+Cadario,2019,Which Healthy Eating Nudges Work Best? A Meta-Analysis of Field Experiments,https://doi.org/10.1287/mksc.2018.1128
+Cecchini,2016,Impact of food labelling systems on food choices and eating behaviours: A systematic review and meta-analysis of randomized studies,https://doi.org/10.1111/obr.12364
+Cesareo,2022,The effectiveness of nudging interventions to promote healthy eating choices: A systematic review and an intervention among Italian university students,https://www.sciencedirect.com/science/article/abs/pii/S0195666321005699?via%3Dihub
+Chang,2023,Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis,https://www.frontiersin.org/articles/10.3389/fsufs.2023.1103060/full
+Cook,2023,Consumer Interaction with Sustainability Labelling on Food Products: A Narrative Literature Review,https://www.cabidigitallibrary.org/doi/pdf/10.5555/20230383996
+Cruwys,2015,Social modeling of eating: A review of when and why social influence affects food intake and choice,https://www.cabidigitallibrary.org/doi/pdf/10.5555/20230383996
+Deliens,2016,Dietary interventions among university students: A systematic review,https://doi.org/10.1016/j.appet.2016.05.003
+Di Gennaro,2024,How may we effectively motivate people to reduce the consumption of meat? Results of a meta-analysis of randomized clinical trials,https://doi.org/10.1016/j.ypmed.2024.108007
+Diepeveen,2013,Public acceptability of government intervention to change health-related Behaviours: a systematic review ,https://doi.org/10.1186/1471-2458-13-756
+Ensaff,2021,A nudge in the right direction: the role of food choice architecture in changing populations' diets,https://www.cambridge.org/core/journals/proceedings-of-the-nutrition-society/article/nudge-in-the-right-direction-the-role-of-food-choice-architecture-in-changing-populations-diets/C9920D90BE1B3BF41C1EAADFB9814BB2
+Fernandes,2016,Influence of menu labeling on food choices in real-life settings: a systematic review ,https://doi.org/10.1093/nutrit/nuw013
+Fonseca,2022,"Consumers' attitudes towawrds animal suffering: a systematic review on awareness, willingness and dietary change",https://www.mdpi.com/1660-4601/19/23/16372
+Gallagher,2011,"Health Message Framing Effects on Attitudes, Intentions, and Behavior: A Meta-analytic Review ",https://doi.org/10.1007/s12160-011-9308-7
+Gardner,2023,Interventions to strengthen environmental sustainability of school food systems: narrative scoping review,https://doi.org/10.3390/ijerph20115916
+Garnett,2020,Policies and actions to shift eating patterns: What works?,https://tabledebates.org/sites/default/files/2020-10/fcrn_chatham_house_0.pdf
+Govindaraju,2018,Dietary Patterns and Quality of Life in Older Adults: A Systematic Review,http://doi.org/10.3390/nu10080971
+Graça,2019,Reducing meat consumption and following plant-based diets: Current evidence and future directions to inform integrated transitions,https://doi.org/10.1016/j.tifs.2019.07.046
+Grieg,2017,Leafleting Intervention Report,https://animalcharityevaluators.org/wp-content/uploads/2022/04/leafleting-intervention-report.pdf
+Grundy,2022,Interventions that influence animal-product consumption: A meta-review,https://www.sciencedirect.com/science/article/pii/S2666833521000976
+Habumugisha,2024,"Reducing meat and/or dairy consumption in adults: a systematic review and meta-analysis of effects on protein intake, anthropometric values, and body composition ",https://doi.org/10.1093/nutrit/nuad055
+Harguess,2020,Strategies to reduce meat consumption: A systematic literature review of experimental studies,https://doi.org/10.1016/j.appet.2019.104478
+Hartmann,2017,Consumer perception and behaviour regarding sustainable protein consumption: A systematic review,https://doi.org/10.1016/j.tifs.2016.12.006
+Hartmann-Boyce,2018,Grocery store interventions to change food purchasing behaviors: a systematic review of randomized controlled trials,https://doi.org/10.1093/ajcn/nqy045
+Hendrie,2017,Strategies to increase children's vegetable intake in home and community settings: a systematic review of literature,http://doi.org/10.1111/mcn.12276
+Holden,2016,Whether smaller plates reduce consumption depends on who’s serving and who’s looking: A meta-analysis,https://doi.org/10.1086/684441
+Hollands,2013,Altering micro-environments to change population health behaviour: Toward an evidence base for choice architecture interventions,https://doi.org/10.1186/1471-2458-13-1218
+Kahn-Marshall,2012,Making Healthy Behaviors the Easy Choice for Employees: A Review of the Literature on Environmental and Policy Changes in Worksite Health Promotion,doi.org/10.1177/1090198111434153
+Kelly,2013,Systematic Review of Dietary Interventions With College Students: Directions for Future Research and Practice,http://doi.org/10.1016/j.jneb.2012.10.012
+Kiszko,2014,The Influence of Calorie Labeling on Food Orders and Consumption: A Review of the Literature,http://doi.org/10.1007/s10900-014-9876-0
+Kwasny,2022,"Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001–2019",https://www.sciencedirect.com/science/article/pii/S0195666321006462
+Laiou,2021,Can “Nudging” Play a Role to Promote Pro-Environmental Behaviour?,https://doi.org/10.1016/j.foodpol.2021.102103
+Littlewood,2016,Menu labelling is effective in reducing energy ordered and consumed: A systematic review and meta-analysis of recent studies,http://doi.org/10.1017/S1368980015003468
+Long,2015,Systematic review and meta-analysis of the impact of restaurant menu calorie labeling,http://doi.org/10.2105/AJPH.2015.302570
+Lonkila,2022,Promises of meat and milk alternatives: An integrative literature review on emergent research themes,https://link.springer.com/article/10.1007/s10460-020-10184-9
+Lycett,2017,‘Nudge’ interventions for improving children's dietary behaviors in the home: A systematic review,http://doi.org/10.1016/j.obmed.2017.06.001
+Marcano-Olivier,2019,Using Nudges to Promote Healthy Food Choices in the School Dining Room: A Systematic Review of Previous Investigations,http://doi.org/10.1111/josh.12861
+Marquez,2020,"Nutritional interventions and supplementation for rheumatoid arthritis patients: A systematic review for clinical application, Part 1: Dieting",http://doi.org/10.46439/rheumatology.1.006
+Mathur,2021,Interventions to reduce meat consumption by appealing to animal welfare: Meta-analysis and evidence-based recommendations,https://www.sciencedirect.com/science/article/pii/S0195666321001847
+McEachan,2011,Prospective prediction of health-related behaviours with the theory of planned behaviour: A meta-analysis.,http://dx.doi.org/10.1080/17437199.2010.521684
+McHugh,2024,"Mediterranean-style dietary interventions in adults with cancer: a systematic review of the methodological approaches, feasibility, and preliminary efficacy",http://doi.org/10.1038/s41430-024-01426-8
+Meier,2022,Review: Do green defaults reduce meat consumption?,https://www.sciencedirect.com/science/article/pii/S0306919222000768
+Mertens,2021,The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains,https://doi.org/10.1073/pnas.2107346118
+Metcalfe,2020,A systematic review of school meal nudge interventions to improve youth food behaviors,http://doi.org/10.1186/s12966-020-00983-y
+Nathan,2019,The effectiveness of lunchbox interventions on improving the foods and beverages packed and consumed by children at centre-based care or school: a systematic review and meta-analysis,http://doi.org/10.1186/s12966-019-0798-1
+Nguyen,2021,Alternative protein consumption: A systematic review and future research directions,https://doi.org/10.1111/ijcs.12797
+Ni Mhurchu,2010,Effects of worksite health promotion interventions on employee diets: a systematic review,http://doi.org/10.1186/1471-2458-10-62
+Nikolaou,2014,Calorie-labelling: Does it impact on calorie purchase in catering outlets and the views of young adults?,https://doi.org/10.1038/ijo.2014.162
+Nisa,2019,Meta-analysis of randomised controlled trials testing behavioural interventions to promote household action on climate change,https://doi.org/10.1038/s41467-019-12457-2
+Nørnberg ,2016,Choice architecture interventions for increased vegetable intake and behaviour change in a school setting: a systematic review,https://doi.org/10.1177/1757913915596017
+Ólafsson,2024,Tactics In Practice: The Science Of Plant-Based Defaults And Nudges,https://faunalytics.org/tactics-in-practice-the-science-of-plant-based-defaults-and-nudges/
+Onwezen,2024,A meta-review of consumer behaviour studies on meat reduction and alternative protein acceptance,https://doi.org/10.1016/j.foodqual.2023.105067
+Ottrey,2010,Hospital menu interventions: a systematic review of research.,http://doi.org/10.1108/IJHCQA-04-2015-0051
+Ozdemir,2014,A review of literature on restaurant menus: Specifying the managerial issues,https://doi.org/10.1016/j.ijgfs.2013.12.001
+Pandey,2023,Nudging Toward Sustainable Food Consumption at University Canteens: A Systematic Review and Meta-Analysis,https://www.jneb.org/article/S1499-4046(23)00503-1/fulltext
+Papies,2023,How (not) to talk about plant-based foods: using language to support the transition to sustainable diets,http://doi.org/10.1017/S0029665123004858
+Patnode,2022,Behavioral Counseling Interventions to Promote a Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults Without Known Cardiovascular Disease Risk Factors: Updated Systematic Review for the U.S. Preventive Services Task Force,https://www.ncbi.nlm.nih.gov/books/NBK583091/
+Pitt,2017,Exploring the influence of local food environments on food behaviours: a systematic review of qualitative literature,https://www.cambridge.org/core/journals/public-health-nutrition/article/exploring-the-influence-of-local-food-environments-on-food-behaviours-a-systematic-review-of-qualitative-literature/939CACFF88880F83FAE0C68BA299B37E
+Pomerleau,2005,Interventions Designed to Increase Adult Fruit and Vegetable Intake Can Be Effective: A Systematic Review of the Literatur,https://doi.org/10.1093/jn/135.10.2486
+Potter,2021,"The Effects of Environmental Sustainability Labels on Selection, Purchase, and Consumption of Food and Drink Products: A Systematic Review",https://doi.org/10.1177/0013916521995473
+Rau,2022,"A systematic review to assess the evidence-based effectiveness, content, and success factors of behavior change interventions for enhancing pro-environmental behavior in individuals",https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.901927/full
+Reisch,2021,Mitigating climate change via food consumption and food waste: a systematic map of behavioral interventions,https://doi.org/10.1016/j.jclepro.2020.123717
+Reynolds,2020,Low-agency population interventions to reduce meat consumption,https://www.foodsecurity.ac.uk/publications/low-agency-population-interventions-to-reduce-meat-consumption.pdf
+Robinson,2014,What Everyone Else Is Eating: A Systematic Review and Meta-Analysis of the Effect of Informational Eating Norms on Eating Behavior,https://www.jandonline.org/article/S2212-2672(13)01680-8/abstract
+Ronto,2022,Identifying effective interventions to promote consumption of protein-rich foods from lower ecological footprint sources: A systematic literature review,http://doi.org/10.1371/journal.pgph.0000209
+Roque,2022,Plant-based school meals as levers of sustainable food transitions: a narrative review and conceptual framework,https://doi.org/10.1016/j.jafr.2022.100429
+Rosenfeld,2018,The psychology of vegetarianism: Recent advances and future directions,https://www.sciencedirect.com/science/article/abs/pii/S0195666318309309
+Roy,2015,Food environment interventions to improve the dietary behavior of young adults in tertiary education settings: A systematic literature review.,https://www.sciencedirect.com/science/article/abs/pii/S2212267215011144
+Ruddock,2019,A systematic review and meta-analysis of the social facilitation of eating,http://doi.org/10.1093/ajcn/nqz155
+Rust,2020,How to transition to reduced-meat diets that benefit people and the planet,http://doi.org/10.1016/j.scitotenv.2020.137208
+Salehi,2023,Forty-five years of research on vegetarianism and veganism: A systematic and comprehensive literature review of quantitative studies,https://www.sciencedirect.com/science/article/pii/S240584402303298X
+Sanchez-Sabate,2019,Consumer Attitudes Towards Environmental Concerns of Meat Consumption: A Systematic Review,https://doi.org/10.3390/ijerph16071220
+Savoie-Roskos,2017,Increasing fruit and vegetable intake among children and youth through gardening-based interventions: a systematic review,http://doi.org/10.1016/j.jand.2016.10.014
+Siddiqui,2022,Consumer acceptance of alternative proteins: A systematic review of current alternative protein sources and interventions adapted to increase their acceptability,https://doi.org/10.3390/su142215370
+Sinclair,2014,The influence of menu labeling on calories selected or consumed: A systematic review and meta-analysis. ,https://doi.org/10.1016/j.jand.2014.05.014
+Skov,2013,Choice architecture as a means to change eating behaviour in self-service settings: A systematic review,https://doi.org/10.1111/j.1467-789X.2012.01054.x
+Steenhuis,2009,Portion size: review and framework for interventions,https://ijbnpa.biomedcentral.com/articles/10.1186/1479-5868-6-58?report=reader
+Stiles,2021,Effectiveness of Strategies to Decrease Animal-Sourced Protein and/or Increase Plant-Sourced Protein in Foodservice Settings: A Systematic Literature Review,https://www.jandonline.org/article/S2212-2672(21)01572-0/fulltext
+Stoll-Kleemann,2016,Reducing meat consumption in developed and transition countries to counter climate change and biodiversity loss: a review of influence factors,https://link.springer.com/article/10.1007/s10113-016-1057-5
+Szazi,2018,A systematic scoping review of the choice architecture movement: toward understanding when and why nudges work,https://doi.org/10.1002/bdm.2035
+Taufik,2019,Determinants of real-life behavioural interventions to stimulate more plant-based and less animal-based diets: A systematic review,https://doi.org/10.1016/j.tifs.2019.09.019
+Temme,2020,Demand-side food policies for public and planetary health,https://www.mdpi.com/2071-1050/12/15/5924
+Termannsen,2022,Effects of vegan diets on cardiometabolic health: A systematic review and meta-analysis of randomized controlled trials,https://doi.org/10.1111/obr.13462
+Thapa,2014,Behavioral Economics in the School Lunchroom: Can it Affect Food Supplier Decisions? A Systematic Review,http://dx.doi.org/10.22004/ag.econ.164604
+Valdivia,2015,Community-Based Restaurant Interventions to Promote Healthy Eating: A Systematic Review,http://doi.org/10.5888/pcd12.140455
+Valli,2019,Health-Related Values and Preferences Regarding Meat Consumption,https://doi.org/10.7326/M19-1326
+Valli,2022,People’s Values and Preferences about Meat Consumption in View of the Potential Environmental Impacts of Meat: A Mixed-methods Systematic Review,https://doi.org/10.3390/ijerph20010286
+Vandenbroele,2018,Nudging to get our food choices on a sustainable track,https://www.cambridge.org/core/journals/proceedings-of-the-nutrition-society/article/nudging-to-get-our-food-choices-on-a-sustainable-track/2A6298BAC8152AE42E95DEC8768FA69E
+Vartanian,2015,Modeling of food intake: a meta-analytic review,https://doi.org/10.1080/15534510.2015.1008037
+Vecchio,2019,Increasing healthy food choices through nudges: A systematic review,https://doi.org/10.1016/j.foodqual.2019.05.014
+Veul,2018,Interventions to reduce meat consumption in OECD countries: an understanding of differences in succes,https://theses.ubn.ru.nl/handle/123456789/6391
+Wadi,2024,Investigating intervention components and their effectiveness in promoting environmentally sustainable diets: a systematic review,https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(24)00064-0/fulltext
+Wee,2021,Review: Nudge interventions to promote healthy diets and physical activity,https://doi.org/10.1016/j.envc.2021.100364
+Weikertova,2024,Dynamic norms do not promote vegetarian food preferences: two experiments and a meta-analysis,https://osf.io/preprints/psyarxiv/qfn6y
+Weinrich,2019,Opportunities for the adoption of health-based sustainable dietary patterns: A review on consumer research of meat substitutes,https://doi.org/10.3390/su11154028
+Wilson,2016,Nudging healthier food and beverage choices through salience and priming. Evidence from a systematic review,10.1016/j.foodqual.2016.02.009
+Wolfenden,2018,"Strategies to improve the implementation of workplace‐based policies or practices targeting tobacco, alcohol, diet, physical activity and obesity",https://doi.org/10.1002/14651858.CD012439.pub2
+Wrenn,2013,Resonance of Moral Shocks in Abolitionist Animal Rights Advocacy: Overcoming Contextual Constraints,https://doi.org/10.1163/15685306-12341271
+Wu,2019,The influence of diet quality and dietary behavior on health-related quality of life in the general population of children and adolescents: a systematic review and meta-analysis,http://doi.iorg/10.1007/s11136-019-02162-4
+Wynes,2018,"Measuring what works: quantifying greenhouse gas emission reductions of behavioural interventions to reduce driving, meat consumption, and household energy use",https://iopscience.iop.org/article/10.1088/1748-9326/aae5d7/meta
+Yip,2013,Systematic review of reducing population meat consumption to reduce greenhouse gas emissions and obtain health benefits: effectiveness and models assessments,https://doi.org/10.1007/s00038-013-0484-z
+Zeraatkar,2019,Effect of lower versus higher red meat intake on cardiometabolic and cancer outcomes. A systematic review of randomized trials,http://doi.org/10.7326/M19-0622
+Zlatevska,2014,Sizing up the Effect of Portion Size on Consumption: A Meta-Analytic Review,https://doi.org/10.1509/jm.12.0303
+Bourke,2024,Behavioural Factors Influencing Consumer Acceptance of Sustainable Healthy Food: A Review and Research Agenda, https://doi.org/10.1111/ijcs.13078
+Banerjee,2023,Nudge Plus: Putting Citizens at the Heart of Behavioural Public Policy,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4315671
+Nejad,2024,Individual-level consumption reduction: Literature review and research propositions,10.1016/j.jclepro.2024.143420
+Dagevos,2021,Finding flexitarians: Current studies on meat eaters and meat reducers,10.1016/j.tifs.2021.06.021
+Weidema,,,
+Onge,2021,Using Nudges To Make Change For Animals,https://faunalytics.org/using-nudges-to-make-change-for-animals
