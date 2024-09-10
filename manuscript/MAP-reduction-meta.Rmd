@@ -33,7 +33,7 @@ keywords:
   - randomized controlled trial
   
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 35 papers comprising 39 studies,107 interventions, and approximately 87000 subjects. We find that these papers employ nudge, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.06, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 37 papers comprising 43 studies,115 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.065, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -119,13 +119,13 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. We also coded an additional XXX papers that we disqualified for methodological reasons but that we include in a supplementary robustness check.
 Last, we compiled a third dataset of over 800 excluded studies, along with their reason(s) for exclusion.
 
-Studies in our database pursued three theories of change: norms, nudges, and persuasion, or a combination of norms and persuasion.
+Studies in our database pursued three theories of change: norms, choice architecture, and persuasion, or a combination of norms and persuasion.
 
 **Norms** studies [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] manipulate the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
 The first norms study meeting our criteria was published in 2017.
 
-**Nudge** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020].
+**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020].
 
 **Persuasion** studies [@kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banjerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
@@ -271,7 +271,7 @@ Moreover, the spread of norms results is unusually large. For example, one stand
 We do not see, in this collection of studies, a clear limiting principle for when norms interventions achieve their goals.
 
 
-## The evidence for nudges on MAP consumption is promising, but scant {#sec2.5}
+## The evidence for choice architecture on MAP consumption is promising, but scant {#sec2.5}
 
 Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only three nudge studies from two papers [@@kanchanachitra2020; @andersson2021] met our inclusion criteria.
 Both had moderate effect sizes on the order of a few percentage points of MAP reduction.

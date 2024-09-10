@@ -2,7 +2,7 @@
 model <- dat |> map_robust()
 
 # Nudge
-nudge_model <- dat |> filter(theory == 'nudge') |> map_robust()
+choice_model <- dat |> filter(str_detect(theory, 'choice architecture')) |> map_robust()
 
 # Norms
 norms_model <- dat |> filter(theory == 'norms') |> map_robust()
