@@ -127,7 +127,7 @@ The first norms study meeting our criteria was published in 2017.
 
 **Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020].
 
-**Persuasion** studies [@kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banjerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022] appeal directly to people to eat less MAP.
+**Persuasion** studies [@kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
 Arguments focus on health, the environment (usually climate change), and animal welfare.
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
