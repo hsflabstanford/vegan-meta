@@ -9,6 +9,7 @@
 options(scipen = 99)
 
 #' data
+# source('./scripts/functions.R')
 library(dplyr, warn.conflicts = F)
 library(stringr)
 dat <- read.csv('./data/vegan-meta.csv') |>
@@ -22,13 +23,11 @@ dat <- read.csv('./data/vegan-meta.csv') |>
                                       year >= 2010 & year <= 2019  ~ "2010s",
                                       year >= 2020 ~ "2020s")),
          pub_status = case_when(
-           venue == "advocacy org publication" ~ 'advocacy_org',
-           venue == "Bachelor's thesis" ~ 'Thesis',
+           venue == "advocacy org publication" ~ 'Advocacy Organization',
+           venue == "Bachelor's Thesis" ~ 'Thesis',
            venue == "Dissertation" ~ 'Thesis',
-           venue == "Master's thesis" ~ 'Thesis',
-           venue == "preprint" ~ 'preprint',
-           venue == "SSRN (preprint)" ~ 'preprint',
-           str_detect(doi_or_url, "osf") ~ 'preprint',
+           venue == "Master's Thesis" ~ 'Thesis',
+           venue == "SSRN (Preprint)" ~ 'Preprint',
            str_detect(doi_or_url, "10\\.") ~ "Journal article"),
          total_sample = n_c_post + n_c_post, d = mapply(
            FUN = d_calc,
@@ -44,4 +43,7 @@ dat <- read.csv('./data/vegan-meta.csv') |>
            n_t = n_t_post),
          se_d = sqrt(var_d)) |> 
   select(-one_of("X")) |>   
+  mutate(theory_category = if_else(str_detect(theory, "Persuasion &"), 
+                                   "Persuasion Plus",
+                                   theory)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything())

@@ -2,19 +2,16 @@
 model <- dat |> map_robust()
 
 # Nudge
-choice_model <- dat |> filter(str_detect(theory, 'choice architecture')) |> map_robust()
+choice_model <- dat |> filter(str_detect(theory, 'Choice Architecture')) |> map_robust()
 
 # psychology
-psychology_model <- dat |> filter(theory == 'psychology') |> map_robust()
+psychology_model <- dat |> filter(theory == 'Psychology') |> map_robust()
 
 # Persuasion Overall
-persuasion_model <- dat |> filter(theory == 'persuasion') |> map_robust()
+persuasion_model <- dat |> filter(theory == 'Persuasion') |> map_robust()
 
-# choice and persuasion
-choice_persuasion_model <- dat |> filter(theory == 'choice architecture & persuasion') |> map_robust()
-
-# psychology + Persuasion
-psychology_persuasion_model <- dat |> filter(theory == 'persuasion & psychology') |> map_robust()
+# persuasion plus
+persuasion_plus_model <- dat |> filter(str_detect(theory, "Persuasion &")) |> map_robust()
 
 # Persuasion (Health)
 health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robust()
@@ -27,3 +24,4 @@ animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> map_rob
 
 # red and processed meat model
 rpmc_model <- RPMC |> map_robust()
+
