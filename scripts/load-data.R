@@ -1,9 +1,9 @@
 #' run the following only if you've made changes to the data online
 # library(googledrive)
 # drive_auth()
-# drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
-#               path = './data/vegan-meta.csv',
-#               overwrite = TRUE)
+drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
+              path = './data/vegan-meta.csv',
+              overwrite = TRUE)
 
 #' options
 options(scipen = 99)
@@ -47,3 +47,24 @@ dat <- read.csv('./data/vegan-meta.csv') |>
                                    "Persuasion Plus",
                                    theory)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything())
+
+
+# supplementary data
+# library(googlesheets4)
+# library(readr)
+# library(dplyr)
+# # Read the specific sheet (either by index or by name)
+# read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk', 
+#                                sheet = 'excluded-studies') |> 
+#   write_csv('./data/excluded-studies.csv')
+# 
+# read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk', 
+#            sheet = 'RPMC-data') |> 
+#   write_csv('./data/RPMC-data.csv')
+# 
+# read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk', 
+#            sheet = 'review-of-reviews') |> 
+#   select(Author, Year, Title, DOI_or_URL) |>
+#   write_csv('./data/review-of-reviews.csv')
+
+
