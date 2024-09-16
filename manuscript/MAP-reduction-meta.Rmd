@@ -576,8 +576,9 @@ Our view is that a social norm prompt might engender a rich array of possible re
 Therefore, we do not classify the norms interventions in our database as nudges. (A future project might investigate exactly what reactions are occurring by asking subjects how well they recall a norms message and what it made them think about. A high prevalence of subjects who are unable to recall the message's specifics but nevertheless cut back on MAP consumption would be evidence that norms are acting through automatic rather than reflective processes.)
 
 Likewise, providing reasoned arguments for cutting back on MAP consumption is not a nudge because they are not aimed at flaws in decision-making, but rather a standard model of 
-knowledge, attitude, and practice. This was true even if the information was delivered in an unobtrusive way, e.g. a daily email [@banerjee2019].
+knowledge, attitude, and practice. This was true even if the information was deliveredin an unobtrusive way, e.g. a daily email [@banerjee2019].
 
+Garnett 2020 says "A third set of interventions that target non-conscious processes and the contexts in which behaviours occur—so-called ‘nudging’ or ‘choice architecture’ approaches—hold promise but are largely untested". Nothing unconscious about a pledge or receiving a daily text
 ### Psychological conditioning as a distinct approach
 
 ### A lack of follow-up data in cafeteria-based interventions
