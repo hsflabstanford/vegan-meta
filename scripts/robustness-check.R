@@ -32,3 +32,18 @@ robustness_dat <- read.csv('./data/robustness-check.csv') |>
                                    "Persuasion Plus",
                                    theory)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything())
+
+
+new_dat <- full_join(dat, robustness_dat)
+
+# models
+
+## partial model
+
+robustness_dat |> map_robu()
+
+full_model <- new_dat |> map_robust()
+
+# everything?
+
+full_dat <- full_join(new_dat, RPMC)
