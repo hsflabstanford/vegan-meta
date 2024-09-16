@@ -52,7 +52,7 @@ dat <- read.csv('./data/vegan-meta.csv') |>
 ## supplementary data
 # library(googlesheets4)
 # library(readr)
-# library(dplyr)
+# library(dplyr, warn.conflicts = F)
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
 #                                sheet = 'excluded-studies') |>
 #   write_csv('./data/excluded-studies.csv')
@@ -65,5 +65,8 @@ dat <- read.csv('./data/vegan-meta.csv') |>
 #            sheet = 'review-of-reviews') |>
 #   select(Author, Year, Title, DOI_or_URL) |>
 #   write_csv('./data/review-of-reviews.csv')
-
+# 
+# read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
+#            sheet = 'robustness-data') |>
+#   write_csv('./data/robustness-check.csv')
 
