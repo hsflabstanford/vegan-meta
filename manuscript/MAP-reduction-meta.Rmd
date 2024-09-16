@@ -565,6 +565,13 @@ Last, we encountered many studies that measured fruit and or/vegetable consumpti
 In some cases, it might have been possible to add assumptions about substitution and estimate effect sizes, but we decided to focus on studies that reported this information directly.
 
 ## Robustness check: including X additional studies that with near-random assignment
+  - much larger effect size on average in these studies
+  - still only looking at consumption outcomes
+  - robustness studies get excluded for one of eight reasons: horse race design, no delay, underpowered, not randomized randomization issue, statistical issue, encourages substitution to fish, and portion size change
+  - mention that the default studies lead the way here but we are concerned about net effect not effect on one meal. What happens after the default gets changed is not clear. If it's a great vegan meal, it might be habit-forming in the good direction. If it's a bad one, it might be habit-forming in the wrong direction. If it's perceived as "not quite a full meal," people might be more inclined to eat meat at the next meal. Who knows?
+  - do effect sizes by each exclusion category?  (or at least the main ones)
+  - amalgamate everything -- get bigger effect size. amalgamate the RPMC studies -- get even bigger effect sizes
+
 
 [TO FILL IN]
 
