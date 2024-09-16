@@ -43,9 +43,6 @@ dat <- read.csv('./data/vegan-meta.csv') |>
            n_t = n_t_post),
          se_d = sqrt(var_d)) |> 
   select(-one_of("X")) |>   
-  mutate(theory_category = if_else(str_detect(theory, "Persuasion &"), 
-                                   "Persuasion Plus",
-                                   theory)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
 

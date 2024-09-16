@@ -28,22 +28,21 @@ robustness_dat <- read.csv('./data/robustness-check.csv') |>
            n_c = n_c_post,
            n_t = n_t_post),
          se_d = sqrt(var_d)) |> 
-  mutate(theory_category = if_else(str_detect(theory, "Persuasion &"), 
-                                   "Persuasion Plus",
-                                   theory)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
-
-new_dat <- full_join(dat, robustness_dat)
 
 # models
 
 ## partial model
 
-robustness_dat |> map_robu()
+robustness_dat |> map_robust()
 
-full_model <- new_dat |> map_robust()
+# merge robustness data and main data
+new_dat <- full_join(dat, robustness_dat)
+
+new_model <- new_dat |> map_robust()
 
 # everything?
 
 full_dat <- full_join(new_dat, RPMC)
+full_model <- full_dat |> map_robust()
