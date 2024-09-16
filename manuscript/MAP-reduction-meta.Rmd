@@ -33,7 +33,7 @@ keywords:
   - randomized controlled trial
   
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 36 papers comprising 42 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.065, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.256, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 36 papers comprising 42 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.064, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -551,7 +551,7 @@ Here are a few cases we found difficult.
 
 Some studies limit dietary portions or switch what people are served (e.g. children being served more vegetables at lunchtime).
 We did not include these studies because they were essentially guaranteed to have effects that were either positive or at least bounded at zero.
-However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded.
+However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded. (There were not enough of these studies in our main dataset to analyze this approach separately, but their effect sizes are `dat |> filter(author == 'Acharya') |> pull(d)` and `dat |> filter(author == 'Bianchi') |> pull(d)` respectively.)
 
 Other studies induce a form of treatment in their control groups, for instance asking subjects to take a pledge to go vegetarian or encouraging them not to change their diet over the course of study, which could potentially induce changes relative to baseline consumption patterns.
 Our main database only includes studies with a pure control group or an unrelated placebo. However, we include these studies in our supplementary robustness check.
@@ -585,6 +585,7 @@ Likewise, providing reasoned arguments for cutting back on MAP consumption is no
 knowledge, attitude, and practice. This was true even if the information was deliveredin an unobtrusive way, e.g. a daily email [@banerjee2019].
 
 Garnett 2020 says "A third set of interventions that target non-conscious processes and the contexts in which behaviours occur—so-called ‘nudging’ or ‘choice architecture’ approaches—hold promise but are largely untested". Nothing unconscious about a pledge or receiving a daily text
+
 ### Psychological conditioning as a distinct approach
 
 ### A lack of follow-up data in cafeteria-based interventions
