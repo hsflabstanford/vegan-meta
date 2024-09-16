@@ -137,7 +137,7 @@ Arguments focus on health, the environment (usually climate change), and animal 
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, such as a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
 
-**Psychology**studies -- REDO THIS WHOLE SECTION [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] typically pursue a norms-based theory of change by manipulating the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
+**Psychology** studies -- REDO THIS WHOLE SECTION [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] typically pursue a norms-based theory of change by manipulating the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
 Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020]. Others [BRIEFLY OUTLINE OTHER PSYCHOLOGY APPROACHES]
 The first psychology study meeting our criteria was published in 2017.
 
@@ -198,7 +198,7 @@ dat <- dat |> mutate(open_data_yes = if_else(open_data == 'N', FALSE, TRUE))
 open_data_difference <- robumeta::robu(d ~ open_data_yes, dat, unique_study_id, var_d)
 ```
 
-Per the papers' own calculations, `r effect_size_table['0']` of `r num_interventions` interventions had null effects on net MAP consumption.
+Per the papers' own calculations and data, `r effect_size_table['0']` of `r num_interventions` interventions had null effects on net MAP consumption.
 However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and present significant results as well.
 ```{=tex}
 \begin{comment}

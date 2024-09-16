@@ -151,16 +151,17 @@ theoretical perspectives lead to consistent reductions in demand for
 MAP, under which conditions, and for which populations.
 
 The research on diet and its antecedents and consequences is vast. By
-our count, there have been at least 120 previous published dietary
-reviews in the past two decades, with at least 37 focused specifically
-on MAP reduction. However, comparatively few of these are quantitative,
-and most prior reviews investigated particular approaches, for example
-choice architecture \citep{bianchi2018restructuring}, rather than
-comparing approaches to one another. Moreover, two prior investigations
-revealed three common gaps in the MAP reduction literature: a dearth of
-long-term follow-ups, missing consumption outcomes, and inattention to
-the gap between intentions and behavior
-\citep{mathur2021meta, mathur2021effectiveness}.
+our count, there have been at least
+\texttt{round\_to(nrow(read.csv(\textquotesingle{}./data/review-of-reviews.csv\textquotesingle{})),\ 10)}
+previous published dietary reviews in the past two decades, with at
+least 37 focused specifically on MAP reduction. However, comparatively
+few of these are quantitative, and most prior reviews investigated
+particular approaches, for example choice architecture
+\citep{bianchi2018restructuring}, rather than comparing approaches to
+one another. Moreover, two prior investigations revealed three common
+gaps in the MAP reduction literature: a dearth of long-term follow-ups,
+missing consumption outcomes, and inattention to the gap between
+intentions and behavior \citep{mathur2021meta, mathur2021effectiveness}.
 
 Our paper addresses these concerns by meta-analyzing randomized
 controlled trials (RCTs) that
@@ -186,12 +187,18 @@ and published in English.
 
 We coded 37 such papers
 \citep{aldoh2023, allen2002, alblas2023, coker2022, griesoph2021, piester2020, sparkman2017, sparkman2020, andersson2021, kanchanachitra2020, bochmann2017, bschaden2020, cooney2016, feltz2022, haile2021, mathur2021effectiveness, peacock2017, polanco2022, sparkman2021, abrahamse2007, acharya2004, banerjee2019, berndsen2005, bertolaso2015, bianchi2022, fehrenbach2015, hatami2018, jalil2023, merrill2009, norris2014, shreedhar2021, weingarten2022, carfora2023, hennessy2016, mattson2020}
-comprising 43 separate studies, 115 interventions, and approximately
-89000 subjects. (This is an approximation because some interventions
-were administered at the level of day or cafeteria and did not record a
-precise number of human subjects.) The earliest paper was published in
-2002 \citep{allen2002}, and a majority (20 of 37) have been published
-since 2020.
+comprising 44 separate studies, 115 interventions, and approximately
+89000 subjects.
+
+\begin{comment} 
+make sure to edit this to include new studies!
+\end{comment}
+
+(This is an approximation because some interventions were administered
+at the level of day or cafeteria and did not record a precise number of
+human subjects.) The earliest paper was published in 2002
+\citep{allen2002}, and a majority (20 of 37) have been published since
+2020.
 
 We also coded a supplementary dataset of 18 papers aimed at reducing,
 and measuring, consumption of red and/or processed meat (RPM)
@@ -199,31 +206,23 @@ and measuring, consumption of red and/or processed meat (RPM)
 comprising 18 studies, 25 interventions, and approximately 60000
 subjects. We also coded an additional XXX papers that we disqualified
 for methodological reasons but that we include in a supplementary
-robustness check, and finally a dataset of 853 studies that we excluded
+robustness check, and finally a dataset of 895 studies that we excluded
 entirely along with their reasons for exclusion.
 
-Studies in our database pursued three theories of change: norms, choice
-architecture, and persuasion, or a combination of norms and persuasion.
-
-\textbf{PSYCHOLOGY}studies -- REDO THIS WHOLE SECTION
-\citep{aldoh2023, allen2002, alblas2023, coker2022, griesoph2021, piester2020, sparkman2017, sparkman2020}
-manipulate the perceived popularity of desired outcomes,
-e.g.~plant-based dishes \citep{sparkman2017}. Norms might be descriptive
-(``33\% of British people\ldots successfully engaged in one or
-more\ldots behaviours to eat less meat'' \citep{aldoh2023}), injunctive
-(a message with a frowning face for subjects who eat more meat than the
-average person in their country \citep{alblas2023}), or dynamic,
-i.e.~they tell subjects that the number of people engaging in desired
-behavior is increasing
-\citep{aldoh2023, coker2022, sparkman2017, sparkman2020}. The first
-norms study meeting our criteria was published in 2017.
+Studies in our database pursued three theories of change: choice
+architecture, psychology, and persuasion, or a combination of persuasion
+and psychology.
 
 \textbf{Choice Architecture} studies
 \citep{andersson2021, kanchanachitra2020} manipulate aspects of physical
 environments to make non-MAP options more salient, such as placing a
 vegetarian meal at eye level on a billboard menu \citep{andersson2021}
 or making it more laborious for people to serve themselves fish sauce
-\citep{kanchanachitra2020}.
+\citep{kanchanachitra2020}. (A handful of other studies {[}NAME THEM{]}
+identify their interventions as nudges, but do not alter the actual
+architecture of a choice, instead doing {[}WHAT THEY DO{]}. Our
+quantitative results are presented both with and without these studies
+included with the choice architecture studies.)
 
 \textbf{Persuasion} studies
 \citep{kanchanachitra2020, bochmann2017, bschaden2020, cooney2016, feltz2022, haile2021, mathur2021effectiveness, peacock2017, polanco2022, sparkman2021, abrahamse2007, acharya2004, banerjee2019, berndsen2005, bertolaso2015, bianchi2022, fehrenbach2015, hatami2018, jalil2023, merrill2009, norris2014, shreedhar2021, weingarten2022}
@@ -237,20 +236,34 @@ studies combine arguments, such as a lecture on the health and
 environmental consequences of eating meat \citep{jalil2023} or a leaflet
 with information in all three categories \citep{hennessy2016}.
 
+\textbf{Psychology} studies -- REDO THIS WHOLE SECTION
+\citep{aldoh2023, allen2002, alblas2023, coker2022, griesoph2021, piester2020, sparkman2017, sparkman2020}
+typically pursue a norms-based theory of change by manipulating the
+perceived popularity of desired outcomes, e.g.~plant-based dishes
+\citep{sparkman2017}. Norms might be descriptive (``33\% of British
+people\ldots successfully engaged in one or more\ldots behaviours to eat
+less meat'' \citep{aldoh2023}), injunctive (a message with a frowning
+face for subjects who eat more meat than the average person in their
+country \citep{alblas2023}), or dynamic, i.e.~they tell subjects that
+the number of people engaging in desired behavior is increasing
+\citep{aldoh2023, coker2022, sparkman2017, sparkman2020}. Others
+{[}BRIEFLY OUTLINE OTHER PSYCHOLOGY APPROACHES{]} The first psychology
+study meeting our criteria was published in 2017.
+
 Finally, a sizable group of interventions combines \textbf{persuasion}
-approaches with other approaches REDO THIS SECTION TO MENTION FREE MEAT
-ALTERNATIVES AND STUFF
-\citep{hennessy2016, carfora2023, mattson2020, piester2020}. These
+approaches with \textbf{psychological} appeals that attempt to {[}REDO
+THIS SECTION{]}
+\citep{hennessy2016, carfora2023, mattson2020, piester2020}. {[}These
 interventions typically suggest reasons to eat less meat side by side
-with information about changing consumer habits in society.
+with information about changing consumer habits in society.{]}
 
 \section{Results}\label{sec2}
 
 \subsection{An overall small effect with some heterogeneity by
 approach}\label{sec2.1}
 
-Our overall meta-analytic effect size is \(\Delta\) = 0.063 (SE =
-0.022), p = .0077. The aggregate effect is statistically significant,
+Our overall meta-analytic effect size is \(\Delta\) = 0.064 (SE =
+0.022), p = .0081. The aggregate effect is statistically significant,
 but does not indicate a meaningful reduction.
 
 Figure 1 displays the distribution of effect sizes, grouped by paper,
@@ -265,17 +278,17 @@ approach.
 
 \begin{table}[!h]
 \centering
-\caption{\label{tab:table_one}Norm, Nudge, and persuasion approaches to MAP reduction}
+\caption{\label{tab:table_one}Choice architecture, Persuasion, Psychology, and Persuasion + Psychology approaches to MAP reduction}
 \centering
 \begin{tabular}[t]{lrrrl}
 \toprule
 Approach & N (Studies) & N (Interventions) & N (Subjects) & Glass's $\Delta$ (SE)\\
 \midrule
-\textbf{Overall} & 43 & 115 & 89000 & 0.0630** (0.0220)\\
-Psychology & 12 & 19 & 53300 & 0.0850 (0.0390)\\
-Choice Architecture & 3 & 4 & 12400 & 0.2650 (0.0300)\\
-Persuasion & 25 & 77 & 21800 & 0.0600* (0.0280)\\
-Persuasion Plus & 10 & 16 & 1600 & 0.1440 (0.0810)\\
+\textbf{Overall} & 44 & 115 & 89000 & 0.0640** (0.0220)\\
+Choice Architecture & 2 & 3 & 12200 & 0.2120 (0.0950)\\
+Persuasion & 26 & 79 & 22100 & 0.0620* (0.0270)\\
+Psychology & 13 & 19 & 53300 & 0.0890 (0.0450)\\
+Persuasion + Psychology & 8 & 14 & 1200 & 0.1280 (0.1100)\\
 \bottomrule
 \multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
 \end{tabular}
@@ -309,11 +322,11 @@ largest effect sizes recorded in \citep{mathur2021effectiveness}, nine
 were non-consumption outcomes and the tenth came from a non-randomized
 design.
 
-Per the papers' own calculations, 99 of 115 interventions had null
-effects on net MAP consumption. However, many studies present a wide
-variety of outcomes, or include MAP reduction as one of many components
-of a broader program of behavior change, and present significant results
-as well.
+Per the papers' own calculations and data, 99 of 115 interventions had
+null effects on net MAP consumption. However, many studies present a
+wide variety of outcomes, or include MAP reduction as one of many
+components of a broader program of behavior change, and present
+significant results as well.
 
 \begin{comment}
 Using our calculations of effect size and standard error 15 interventions have 95% confidence intervals that do not overlap with zero, 12 of which are positive effects, out of 115 interventions.
@@ -352,7 +365,7 @@ preprints, and student theses).
 Publication status & N (Interventions) & N (Studies) & N (subjects) & Glass's $\Delta$ (SE)\\
 \midrule
 Advocacy, preprints, and theses & 56 & 11 & 6800 & 0.0110 (0.0430)\\
-Journal Article & 59 & 32 & 82100 & 0.0810** (0.0260)\\
+Journal Article & 59 & 33 & 82100 & 0.0830** (0.0270)\\
 \bottomrule
 \multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
 \end{tabular}
@@ -362,7 +375,7 @@ Journal Article & 59 & 32 & 82100 & 0.0810** (0.0260)\\
 
 On average, interventions aimed at reducing consumption of red and
 processed meat (RPM) outperform general MAP reduction interventions:
-\(\Delta\) = 0.256 \text{(SE = 0.06)}, p = .0008. Each of the RPM
+\(\Delta\) = 0.258 \text{(SE = 0.06)}, p = .0007. Each of the RPM
 reduction studies employs persuasion, and a majority (19 of 25) appeal
 to personal health. However, these studies do not collect data on white
 meat and/or fish consumption, and therefore their impact on MAP
@@ -475,7 +488,7 @@ populations. Nevertheless we offer a few tentative explorations of
 potential moderators of effect size.
 
 Contrary to our expectations, self-reported and objectively collected
-outcomes were not meaningfully different: 0.074 for objectively reported
+outcomes were not meaningfully different: 0.076 for objectively reported
 vs 0.059 for self-reported. Likewise, the difference in effect sizes for
 studies where treatment was assigned to clusters (e.g.~cafeteria or day
 of treatment) vs.~individuals is small.
@@ -493,7 +506,7 @@ enough clusters for meta-analysis to be viable.
 Delivery method & N (Interventions) & N (Studies) & N (subjects) & Glass's $\Delta$ (SE)\\
 \midrule
 Printed Materials & 57 & 13 & 10900 & 0.0140 (0.0270)\\
-In-Cafeteria & 19 & 10 & 68300 & 0.0660 (0.0390)\\
+In-Cafeteria & 19 & 11 & 68300 & 0.0710 (0.0500)\\
 Video & 16 & 10 & 5400 & 0.0120 (0.0170)\\
 Online & 9 & 4 & 2000 & 0.0660 (0.0250)\\
 \bottomrule
@@ -510,7 +523,7 @@ Table 5 displays effects associated with different regions.
 \toprule
 Region & N (Interventions) & N (Studies) & N (Subjects) & Glass's $\Delta$ (SE)\\
 \midrule
-North America & 71 & 22 & 40700 & 0.0460 (0.0230)\\
+North America & 71 & 23 & 40700 & 0.0490 (0.0260)\\
 Europe & 33 & 16 & 37700 & 0.1140* (0.0490)\\
 Asia, Australia, and worldwide & 11 & 5 & 10500 & 0.0010 (0.0730)\\
 \bottomrule
@@ -519,7 +532,7 @@ Asia, Australia, and worldwide & 11 & 5 & 10500 & 0.0010 (0.0730)\\
 
 Interventions with adult subjects are moderately more effective
 (\(\Delta\) = 0.091 (SE = 0.036), p = .0261) than those with a
-university population ( (\(\Delta\) = 0.056 (SE = 0.036), p = .1468).
+university population ( (\(\Delta\) = 0.06 (SE = 0.04), p = .1543).
 
 \section{Methods}\label{sec3}
 
@@ -754,9 +767,9 @@ methods we ended up using from the \texttt{robumeta} package).
 Approach & N (Interventions) & N (Studies) & N (subjects) & Glass's $\Delta$ (SE)\\
 \midrule
 Choice Architecture & 3 & 2 & 12200 & 0.2420 (0.2300)\\
-Persuasion & 77 & 25 & 21800 & 0.0050 (0.0130)\\
-Persuasion Plus & 16 & 10 & 1600 & 0.1820** (0.0590)\\
-Psychology & 19 & 12 & 53300 & 0.0370 (0.0280)\\
+Persuasion & 79 & 26 & 22100 & 0.0090 (0.0130)\\
+Persuasion + Psychology & 14 & 8 & 1200 & 0.1800* (0.0730)\\
+Psychology & 19 & 13 & 53300 & 0.0370 (0.0280)\\
 \bottomrule
 \multicolumn{5}{l}{\rule{0pt}{1em}* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.}\\
 \end{tabular}
@@ -852,11 +865,15 @@ automatic rather than reflective processes.)
 Likewise, providing reasoned arguments for cutting back on MAP
 consumption is not a nudge because they are not aimed at flaws in
 decision-making, but rather a standard model of knowledge, attitude, and
-practice. This was true even if the information was delivered in an
+practice. This was true even if the information was deliveredin an
 unobtrusive way, e.g.~a daily email \citep{banerjee2019}.
 
-\subsubsection{Psychological conditioning as a distinct
-approach}\label{psychological-conditioning-as-a-distinct-approach}
+Garnett 2020 says ``A third set of interventions that target
+non-conscious processes and the contexts in which behaviours
+occur---so-called `nudging' or `choice architecture' approaches---hold
+promise but are largely untested''. Nothing unconscious about a pledge
+or receiving a daily text \#\#\# Psychological conditioning as a
+distinct approach
 
 \subsubsection{A lack of follow-up data in cafeteria-based
 interventions}\label{a-lack-of-follow-up-data-in-cafeteria-based-interventions}

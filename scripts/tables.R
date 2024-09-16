@@ -155,6 +155,7 @@ supplementary_table_two <- dat |>
   bind_rows(.id = 'Approach') |> 
   rename(
     `N (Studies)` = N_studies,
+    `N (Interventions)` = N_interventions,
     `N (subjects)` = N_subjects) |>
   mutate(`Approach` = str_replace(`Approach`, "&", "+")) |>  # Escaping & in Approach columns
   select(-c(Delta, se, pval)) |> 
