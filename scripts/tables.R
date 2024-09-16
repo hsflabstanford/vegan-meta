@@ -1,28 +1,29 @@
 table_one <- tibble(
-  Approach = c("\\textbf{Overall}", "Psychology", "Choice Architecture", 
+  Approach = c("\\textbf{Overall}", "Choice Architecture", 
                "Persuasion", 
-               "Persuasion Plus"),
+               "Psychology",
+               "Persuasion + Psychology"),
   "N (Studies)" = c(model$N_studies,
-                    psychology_model$N_studies,
                     choice_model$N_studies,
                     persuasion_model$N_studies,
-                    persuasion_plus_model$N_studies),
+                    psychology_model$N_studies,
+                    persuasion_psychology_model$N_studies),
   "N (Interventions)" = c(model$N_interventions,
-                          psychology_model$N_interventions,
                           choice_model$N_interventions,
                           persuasion_model$N_interventions,
-                          persuasion_plus_model$N_interventions),
+                          psychology_model$N_interventions,
+                          persuasion_psychology_model$N_interventions),
   "N (Subjects)" = c(model$N_subjects,
-                     psychology_model$N_subjects,
                      choice_model$N_subjects,
                      persuasion_model$N_subjects,
-                     persuasion_plus_model$N_subjects),
+                     psychology_model$N_subjects,
+                     persuasion_psychology_model$N_subjects),
   "Glass's $\\Delta$ (SE)" = c(mr(model),
-                               mr(psychology_model),
                                mr(choice_model),
                                mr(persuasion_model),
-                               mr(persuasion_plus_model))) |>
-  meta_table_maker(caption = "Norm, Nudge, and persuasion approaches to MAP reduction", 
+                               mr(psychology_model),
+                               mr(persuasion_psychology_model))) |>
+  meta_table_maker(caption = "Choice architecture, Persuasion, Psychology, and Persuasion + Psychology approaches to MAP reduction", 
                    label = "table_one", footnote = T) 
 # add_footnote("Note: Many cluster-assigned studies do not report an exact number of subjects, \\linebreak so our N of subjects are rounded estimates.", notation = 'none', escape = F)
 
@@ -147,17 +148,16 @@ supplementary_table_one <- dat |>
                    label = 'supp_table_one')
 
 supplementary_table_two <- dat |> 
-  split(~theory_category) |> 
+  split(~theory) |> 
   map(map_robust, model = 'RMA') |> 
   map(~ .x |> mutate("Glass's $\\Delta$ (SE)" =
                        meta_result_formatter(.x))) |> 
   bind_rows(.id = 'Approach') |> 
   rename(
     `N (Studies)` = N_studies,
-    `N (Interventions)` = N_interventions,
     `N (subjects)` = N_subjects) |>
   mutate(`Approach` = str_replace(`Approach`, "&", "+")) |>  # Escaping & in Approach columns
-  select(-c(Delta, se, pval))  |> 
+  select(-c(Delta, se, pval)) |> 
   meta_table_maker(
     caption = "\\textbf{Table S2}: Approach by theory with alternate estimation methods ",
     label = "supp_table_two",

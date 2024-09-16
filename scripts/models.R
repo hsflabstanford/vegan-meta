@@ -11,7 +11,7 @@ psychology_model <- dat |> filter(theory == 'Psychology') |> map_robust()
 persuasion_model <- dat |> filter(theory == 'Persuasion') |> map_robust()
 
 # persuasion plus
-persuasion_plus_model <- dat |> filter(str_detect(theory, "Persuasion &")) |> map_robust()
+persuasion_psychology_model <- dat |> filter(str_detect(theory, "Persuasion & Psychology")) |> map_robust()
 
 # Persuasion (Health)
 health_model <- dat |> filter(str_detect(secondary_theory, 'health')) |> map_robust()

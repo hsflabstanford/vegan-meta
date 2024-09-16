@@ -79,7 +79,7 @@ Supply-side interventions, such as banning or taxing certain practices or produc
 It is of vital importance, therefore, to assess which strategies and theoretical perspectives lead to consistent reductions in demand for MAP, under which conditions, and for which populations.
 
 The research on diet and its antecedents and consequences is vast.
-By our count, there have been at least 120 previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
+By our count, there have been at least `round_to(nrow(read.csv('./data/review-of-reviews.csv')), 10)` previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
 However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], rather than comparing approaches to one another.
 Moreover, two prior investigations revealed three common gaps in the MAP reduction literature: a dearth of long-term follow-ups, missing consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
@@ -106,6 +106,12 @@ decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> cou
 ```
 
 We coded `r num_papers` such papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+```{=tex}
+\begin{comment} 
+make sure to edit this to include new studies!
+\end{comment}
+```
+
 (This is an approximation because some interventions were administered at the level of day or cafeteria and did not record a precise number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 ```{r red_meat_numbers, include=F}
@@ -121,13 +127,9 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 
 We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. We also coded an additional XXX papers that we disqualified for methodological reasons but that we include in a supplementary robustness check, and finally a dataset of `r excluded_count` studies that we excluded entirely along with their reasons for exclusion.
 
-Studies in our database pursued three theories of change: norms, choice architecture, and persuasion, or a combination of norms and persuasion.
+Studies in our database pursued three theories of change: choice architecture, psychology, and persuasion, or a combination of persuasion and psychology.
 
-**PSYCHOLOGY**studies -- REDO THIS WHOLE SECTION [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] manipulate the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
-Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020].
-The first norms study meeting our criteria was published in 2017.
-
-**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020].
+**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to make non-MAP options more salient, such as placing a vegetarian meal at eye level on a billboard menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020]. (A handful of other studies [NAME THEM] identify their interventions as nudges, but do not alter the actual architecture of a choice, instead doing [WHAT THEY DO]. Our quantitative results are presented both with and without these studies included with the choice architecture studies.)
 
 **Persuasion** studies [@kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022] appeal directly to people to eat less MAP.
 These studies formed the majority of our database.
@@ -135,8 +137,12 @@ Arguments focus on health, the environment (usually climate change), and animal 
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, such as a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
 
-Finally, a sizable group of interventions combines **persuasion** approaches with other approaches REDO THIS SECTION TO MENTION FREE MEAT ALTERNATIVES AND STUFF [@hennessy2016; @carfora2023; @mattson2020; @piester2020].
-These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.
+**Psychology**studies -- REDO THIS WHOLE SECTION [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] typically pursue a norms-based theory of change by manipulating the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
+Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020]. Others [BRIEFLY OUTLINE OTHER PSYCHOLOGY APPROACHES]
+The first psychology study meeting our criteria was published in 2017.
+
+Finally, a sizable group of interventions combines **persuasion** approaches with **psychological** appeals that attempt to [REDO THIS SECTION]  [@hennessy2016; @carfora2023; @mattson2020; @piester2020].
+[These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society.]
 
 # Results {#sec2}
 

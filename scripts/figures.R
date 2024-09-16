@@ -4,14 +4,14 @@
 plot_dat <- dat |> 
   mutate(lower_bound = d - (1.96 * se_d),
          upper_bound = d + (1.96 * se_d)) |>
-  select(author, year, d, se_d, lower_bound, upper_bound, theory_category) |> 
+  select(author, year, d, se_d, lower_bound, upper_bound, theory) |> 
   add_row(author = "RE Estimate", year = NA, d = model$Delta, 
           lower_bound = model$Delta - (1.96 * model$se),
           upper_bound = model$Delta + (1.96 * model$se), 
-          theory_category = NA) |>
+          theory = NA) |>
   mutate(study_name = if_else(author == "RE Estimate", 
                               "RE Estimate", paste0(author, " ", year))) |>
-  select(study_name, d, se_d, lower_bound, upper_bound, theory_category)
+  select(study_name, d, se_d, lower_bound, upper_bound, theory)
 
 # Get unique study names excluding "RE Estimate"
 unique_papers <- unique(plot_dat$study_name[plot_dat$study_name != "RE Estimate"])
@@ -26,9 +26,9 @@ forest_plot <- plot_dat |> ggplot(aes(x = d, y = study_name)) +
   geom_point(data = subset(plot_dat, study_name == "RE Estimate"), 
              size = 5, shape = 18) + # shape = 5 for a transparent diamond 
   geom_point(data = subset(plot_dat, study_name != "RE Estimate"), 
-             aes(color = theory_category), size = 3, shape = 18) +
+             aes(color = theory), size = 3, shape = 18) +
   geom_errorbarh(data = subset(plot_dat, study_name != "RE Estimate"), 
-                 aes(xmin = lower_bound, xmax = upper_bound, color = theory_category),
+                 aes(xmin = lower_bound, xmax = upper_bound, color = theory),
                  height = .1) +
   geom_vline(xintercept = 0, color = "black", alpha = .5) +
   geom_vline(xintercept = model$Delta, 
@@ -49,10 +49,10 @@ forest_plot <- plot_dat |> ggplot(aes(x = d, y = study_name)) +
 # Supplementary Figure 
 supplementary_figure <- dat |> 
   ggplot(aes(x = se_d, y = d)) +
-  geom_point(size = 2, aes(color = theory_category, shape = pub_status)) + 
+  geom_point(size = 2, aes(color = theory, shape = pub_status)) + 
   stat_smooth(method = 'lm', se = FALSE, lty = 'dotted') +
   scale_color_manual(values = c("Psychology" = "blue",
-                                "Persuasion Plus" = "red",
+                                "Persuasion & Psychology" = "red",
                                 "Choice Architecture" = "green",
                                 "Persuasion" = "purple"))+
   scale_shape_manual(values = c("Advocacy Organization" = 16,  # Use appropriate shapes
