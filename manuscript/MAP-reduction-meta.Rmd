@@ -33,7 +33,7 @@ keywords:
   - randomized controlled trial
   
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials (RCTs). We meta-analyze 36 papers comprising 42 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.064, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials. We meta-analyze 36 papers comprising 42 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.064, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -68,7 +68,6 @@ source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
 source('./scripts/tables.R')
 source('./scripts/figures.R')
-
 ```
 
 # Introduction {#sec1}
@@ -80,16 +79,18 @@ It is of vital importance, therefore, to assess which strategies and theoretical
 
 The research on diet and its antecedents and consequences is vast.
 By our count, there have been at least `round_to(nrow(read.csv('./data/review-of-reviews.csv')), 10)` previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
-However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], rather than comparing approaches to one another.
+However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], rather than comparing the efficacy of different strategies. 
 Moreover, two prior investigations revealed three common gaps in the MAP reduction literature: a dearth of long-term follow-ups, missing consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness].
 
-Our paper addresses these concerns by meta-analyzing randomized controlled trials (RCTs) that
+Our paper addresses these concerns by meta-analyzing randomized controlled trials that
 
 -   were designed to voluntarily reduce MAP consumption, rather than encouraging substitution from red meat to white meat or to fish, or removing items from someone's plate
 
 -   had least 25 subjects each in treatment and control, or, for cluster-randomized trials, at least 10 clusters in total;
 
 -   measured MAP consumption, whether self-reported or observed directly, rather than (or in addition to) attitudes, intentions, beliefs or hypothetical choices;
+
+-   featured a pure control group, rather than comparing multiple treatments
 
 -   recorded outcomes at least a single day after the start of treatment.
 
@@ -105,7 +106,9 @@ n_total <-  round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, 
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
-We coded `r num_papers` such papers [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @andersson2021; @kanchanachitra2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+We coded `r num_papers` such papers [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022; @aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
+
+FIX THIS LATER
 ```{=tex}
 \begin{comment} 
 make sure to edit this to include new studies!
@@ -123,9 +126,16 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 # also supplementary_numbers
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 
+
 ```
 
-We also coded a supplementary dataset of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. We also coded an additional XXX papers that we disqualified for methodological reasons but that we include in a supplementary robustness check, and finally a dataset of `r excluded_count` studies that we excluded entirely along with their reasons for exclusion.
+We also coded a few supplementary datasets. 
+First is a collection of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. 
+
+```{r robust_data, include=F}
+
+```
+Second is a dataset of `r robust_num_papers` papers that we disqualified for methodological reasons but that we include in a supplementary robustness check [] and finally a dataset of `r excluded_count` studies that we excluded entirely along with their reasons for exclusion.
 
 Studies in our database pursued three theories of change: choice architecture, psychology, and persuasion, or a combination of persuasion and psychology.
 
@@ -565,6 +575,10 @@ Last, we encountered many studies that measured fruit and or/vegetable consumpti
 In some cases, it might have been possible to add assumptions about substitution and estimate effect sizes, but we decided to focus on studies that reported this information directly.
 
 ## Robustness check: including X additional studies that with near-random assignment
+
+```{r robustness_script, include=F}
+source('./scripts/robustness-check.R')
+```
   - much larger effect size on average in these studies
   - still only looking at consumption outcomes
   - robustness studies get excluded for one of eight reasons: horse race design, no delay, underpowered, not randomized randomization issue, statistical issue, encourages substitution to fish, and portion size change

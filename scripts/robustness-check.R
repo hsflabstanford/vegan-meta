@@ -31,6 +31,15 @@ robustness_dat <- read.csv('./data/robustness-check.csv') |>
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
 
+# how many studies? 
+robust_num_papers <- as.numeric(max(robustness_dat$unique_paper_id))
+robust_num_studies <- as.numeric(max(robustness_dat$unique_study_id))
+robust_num_interventions <- as.numeric(nrow(robustness_dat))
+robust_n_total <-  round_to(x = sum(robustness_dat$n_c_total_pop) + 
+                              sum(robustness_dat$n_t_total_pop), 1000, floor)
+
+
+
 # models
 
 ## partial model
