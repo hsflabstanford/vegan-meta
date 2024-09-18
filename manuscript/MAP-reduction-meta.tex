@@ -197,12 +197,12 @@ precise number of human subjects.) The earliest paper was published in
 2002 \citep{allen2002}, and a majority (19 of 36) have been published
 since 2020.
 
-We also coded four supplementary datasets. First is a collection of 16
+We also coded four supplementary datasets. First is a collection of 17
 papers
 \citep{anderson2017, carfora2017correlational, carfora2017randomised, carfora2019, carfora2019informational, delichatsios2001talking, dijkstra2022, emmons2005cancer, emmons2005project, jaacks2014, james2015, lee2018, perino2022, schatzkin2000, sorensen2005, wolstenholme2020}
 aimed at reducing, and measuring, consumption of red and/or processed
-meat (RPM), comprising 16 studies, 24 interventions, and approximately
-10000 subjects.
+meat (RPM), comprising 17 studies, 25 interventions, and approximately
+35000 subjects.
 
 Second is a dataset of 14 studies that we disqualified for
 methodological reasons but that we include in a supplementary robustness
@@ -387,8 +387,8 @@ Journal Article & 58 & 31 & 81900 & 0.0830** (0.0270)\\
 
 On average, interventions aimed at reducing consumption of red and
 processed meat (RPM) outperform general MAP reduction interventions:
-\(\Delta\) = 0.254 \text{(SE = 0.064)}, p = .0016. Each of the RPM
-reduction studies employs persuasion, and a majority (18 of 24) appeal
+\(\Delta\) = 0.249 \text{(SE = 0.063)}, p = .0016. Each of the RPM
+reduction studies employs persuasion, and a majority (19 of 25) appeal
 to personal health. However, these studies do not collect data on white
 meat and/or fish consumption, and therefore their impact on MAP
 consumption overall is unknown. (One study in our primary dataset aimed
@@ -456,9 +456,9 @@ The pooled effect size for persuasion studies with a health component is
 \(\Delta\) = 0.082 (SE = 0.039), p = .0634. This is small and not
 significant, albeit larger than the overall pooled effect.
 
-Health appeals are a component of 18 of 24 interventions aimed at
+Health appeals are a component of 19 of 25 interventions aimed at
 reducing RPM consumption, and are generally more effective there:
-\(\Delta\) = 0.265 (SE = 0.066), p = .0016. This fits with the broader
+\(\Delta\) = 0.26 (SE = 0.065), p = .0015. This fits with the broader
 context where official nutritional guidelines typically encourage
 consumers to reduce RPM and consume moderate amounts of lean meat and
 fish.
@@ -754,10 +754,13 @@ Second, and related, we initially included studies that were not
 necessarily aimed at achieving overall MAP reduction, but rather a
 generally healthier diet with some amount of chicken and/or fish, for
 instance the Mediterranean diet. Many of these studies had otherwise
-qualifying measurement strategies. However, we ultimately concluded that
+qualifying measurement strategies and were generally highly powered and
+well-designed \citep{beresford20}. However, we ultimately concluded that
 these were a separate estimand as well, and we did not want to add noise
 to the estimate of studies that were aimed more specifically at reducing
-MAP consumption rather than causing inter-MAP substitution.
+MAP consumption rather than causing inter-MAP substitution. Further, we
+almost all of these studies featured self-reported data, and
+comparatively few tracked all relevant categories of MAP.
 
 Third, our initial analyses used the random effects model from
 \texttt{metafor} to calculate pooled effect sizes. However, as we
@@ -840,15 +843,15 @@ Psychology & 18 & 11 & 53100 & 0.0360 (0.0280)\\
 \subsubsection{The limits of systematic search in the MAP reduction
 literature}\label{the-limits-of-systematic-search-in-the-map-reduction-literature}
 
-This literature has remarkable methodological, disciplinary, and
-theoretical diversity. However, it also has few if any agreed upon terms
-to describe what its studies are pursuing. For instance,the term ``MAP''
-is not standard; other papers in the same vein talk about animal-based
-proteins, animal products, meat, edible animal products, plant-based
-foods, plant-based protein, and so on. This diversity of language poses
-a particular challenge for anyone seeking to systematically review this
-literature. Whether one has searched for the correct terms that each
-relevant study uses to describe itself is, for all practical purposes,
+The MAP reduction literature has remarkable methodological,
+disciplinary, and theoretical diversity. However, it also has few if any
+agreed upon terms to describe itself For instance,the term ``MAP'' is
+not standard; other papers discuss animal-based proteins, animal
+products, meat, edible animal products, plant-based foods, plant-based
+protein, and so on. This diversity of language poses a particular
+challenge for anyone seeking to systematically review this literature
+because whether one has identified the correct terms that each relevant
+study uses to describe itself is, for all practical purposes,
 unknowable.
 
 This informed our search process. Rather than starting with a list of
@@ -878,39 +881,6 @@ The following are the Google Scholar search terms we used:
 \end{itemize}
 
 For each of these terms, we looked through ten pages of results.
-
-\subsection{Robustness check: including X additional studies that with
-near-random
-assignment}\label{robustness-check-including-x-additional-studies-that-with-near-random-assignment}
-
-\begin{itemize}
-\tightlist
-\item
-  much larger effect size on average in these studies
-\item
-  still only looking at consumption outcomes
-\item
-  robustness studies get excluded for one of eight reasons: horse race
-  design, no delay, underpowered, not randomized randomization issue,
-  statistical issue, encourages substitution to fish, and portion size
-  change
-\item
-  mention that the default studies lead the way here but we are
-  concerned about net effect not effect on one meal. What happens after
-  the default gets changed is not clear. If it's a great vegan meal, it
-  might be habit-forming in the good direction. If it's a bad one, it
-  might be habit-forming in the wrong direction. If it's perceived as
-  ``not quite a full meal,'' people might be more inclined to eat meat
-  at the next meal. Who knows?
-\item
-  do effect sizes by each exclusion category? (or at least the main
-  ones)
-\item
-  amalgamate everything -- get bigger effect size. amalgamate the RPMC
-  studies -- get even bigger effect sizes
-\end{itemize}
-
-{[}TO FILL IN{]}
 
 \subsubsection{Edge cases for study
 inclusion}\label{edge-cases-for-study-inclusion}
@@ -955,6 +925,54 @@ consumption but not MAP consumption. In some cases, it might have been
 possible to add assumptions about substitution and estimate effect
 sizes, but we exclusively meta-analyzed studies that reported this
 information directly.
+
+\subsection{Robustness check: including 15 additional studies that with
+near-random
+assignment}\label{robustness-check-including-15-additional-studies-that-with-near-random-assignment}
+
+While reviewing papers, we identified 14 high-quality papers comprising
+17 studies, 25 interventions, and approximately 53000 subjects that did
+not meet our search criteria for one of several reasons. The most common
+were being underpowered (typically too few clusters), not fully
+randomized (e.g.~treatment was altered by week but not randomly),
+lacking in a control group (meaning they compared two MAP reduction
+treatments), or without delay between treatment onset and measurement.
+One additional study encouraged participants to switch to fish. Each of
+these studies measures consumption outcomes rather than attitudes and
+intentions.
+
+By and large these studies have larger effect sizes than those in our
+main dataset: \(\Delta\) = 0.685 (SE = 0.317), p = .0472. Integrating
+these studies into our main dataset yields an overall effect size of
+\(\Delta\) = 0.197 (SE = 0.057), p = .0012, which we would have
+considered moderate evidence of these interventions' efficacy at
+reducing MAP consumption.
+
+A clear source of divergence between the small effect sizes in our main
+dataset and the comparatively larger ones in the supplementary dataset
+is that studies without delayed measurement tend to have larger effects.
+For example, \citep{hansen2021} tested the effects of switching the
+default meal to being vegetarian at three academic conferences, and
+found remarkable effects: in one case, a rise from 2 \% of participants
+choosing vegetarian meals to 87\%. However, we do not believe that this
+represents an enduring reduction in MAP consumption. We are concerned
+about what might be called ``regression to the meat:'' Tthe possibility
+that a subject who is guided towards eating less meat at one meal via a
+strong default eats more at the next. We encourage researchers to design
+future default studies with this challenge in mind, e.g.~by measuring
+habits both at the treated meal and also the next one
+\citep{vocski2024}.
+
+We also see that interventions with too few clusters or too few
+participants to meet our criteria have much larger effects on average:
+\(\Delta\) = 0.751 (SE = 0.395), p = .2166.
+
+We draw two lessons from this robustness check. The first is that
+methodological rigor has a lowering effect on effect size across
+multiple dimensions. The second is that our results are sensitive to how
+one thinks about, and operationalizes, methodological rigor. We offer
+our robustness check dataset as a way of letting readers explore what a
+different set of analyses with different assumptions might have found.
 
 \subsubsection{Defining the the theoretical boundaries between studies
 requires judgment
@@ -1015,17 +1033,6 @@ in the latter we include more specific information about papers'
 approaches to behavior change. We invite readers to explore different
 categories and their respective pooled effect sizes by building on the
 code and data we provide.
-
-\subsubsection{A lack of follow-up data in cafeteria-based
-interventions}\label{a-lack-of-follow-up-data-in-cafeteria-based-interventions}
-
-One potential source of measurement error that we cannot easily correct
-for is the possibility that a subject who is guided towards eating less
-meat at one meal eats more at the next, i.e.~``regression to the meat.''
-Most cafeteria-based studies we looked at were not designed to measure
-this kind of spillover effect, although such designs are possible
-\citep{vocski2024}. We encourage researchers in this field to collect
-follow-up outcomes.
 
 \subsubsection{Notes on prior reviews}\label{notes-on-prior-reviews}
 
