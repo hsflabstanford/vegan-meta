@@ -52,7 +52,3 @@ multi_lm <- function(formula, data, control_condition) {
 }
 
 multi_lm(FS ~ intervention, data = dat, control_condition = "3")
-
-# Print the updated summary
-# print(model_summary)
-
