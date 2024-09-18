@@ -1,9 +1,9 @@
 #' run the following only if you've made changes to the data online
 # library(googledrive)
 # drive_auth()
-# drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
-#               path = './data/vegan-meta.csv',
-#               overwrite = TRUE)
+drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
+              path = './data/vegan-meta.csv',
+              overwrite = TRUE)
 
 #' options
 options(scipen = 99)

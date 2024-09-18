@@ -132,14 +132,13 @@ supplementary_table_one <- dat |>
   slice(1) |> 
   ungroup() |>
   mutate(source_group = case_when(
-    str_detect(source, "Ammann|Chang|Bianchi|Gennaro|Harguess|Mathur|Ronto|Wynes") ~ 'Prior literature reviews',
+    str_detect(source, "Ammann|Bianchi|Chang|Gennaro|Harguess|Mathur|Ronto|Wynes") ~ 'Prior literature reviews',
     str_detect(source, 'CV') ~ 'Researcher CVs',
     str_detect(source, 'internet search') ~ 'Internet search',
     str_detect(source, 'prior knowledge') ~ "pre-existing knowledge",
-    str_detect(source, 'RP research') ~ 'Rethink Priorities search',
+    str_detect(source, 'RP research library') ~ 'Rethink Priorities search',
     str_detect(source, 'snowball search') ~ 'Snowball search',
     str_detect(source, 'systematic search') ~ 'Systematic search',
-    str_detect(source, "Google Scholar search") ~ "Systematic search",
     str_detect(source, 'undermind.ai') ~ 'AI search tool',
     TRUE ~ 'other'))|> sum_tab(source_group)  |> 
   enframe(name = "Source", value = "Count") |> 
