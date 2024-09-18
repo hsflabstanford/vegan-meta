@@ -542,6 +542,7 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 # Appendix
 
+
 ## Supplementary Methods
 
 ### Converting difference in proportions to standardized mean difference
