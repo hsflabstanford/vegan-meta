@@ -419,7 +419,7 @@ psych_studies_papers <- dat |>
 
 The conjunction of persuasion messages with psychological appeals is, in this dataset, the best supported theory for producing consistent, albeit small changes in dietary behavior: `r persuasion_psychology_model$Delta` (SE = `r persuasion_psychology_model$se`), p = `r persuasion_psychology_model$pval`.
 This is about twice as large as the pooled effect size from persuasion messages on their own and about one-third larger than psychological appeals on their own.
-However, with just `r`persuasion_psychology_model\$N_studies`studies from`r psych_studies_papers\` to go on, we do not consider this an especially robust result, and we note that the pooled effect size is still substantively small.
+However, with just `r persuasion_psychology_model$N_studies`studies from `r psych_studies_papers` to go on, we do not consider this an especially robust result, and we note that the pooled effect size is still substantively small.
 Nevertheless, we see this as tentative evidence that theoretical innovation in the form of synergizing multiple theories is a promising avenue of MAP reduction research.
 
 ## Heterogeneity by reporting, cluster assignment, delivery method, and country {#sec2.11}
