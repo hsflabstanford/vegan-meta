@@ -42,9 +42,24 @@ robust_n_total <-  round_to(x = sum(robustness_dat$n_c_total_pop) +
 
 # models
 
-## partial model
+## robustness model
 
 robustness_dat |> map_robust()
+
+## no delay model
+
+robustness_dat |> filter(str_detect(notes, 'no delay')) |> map_robust()
+
+## randomization model
+
+robustness_dat |> filter(str_detect(notes, 'RCT issue')) |> map_robust()
+
+robustness_dat |> filter(str_detect(notes, 'horse')) |> map_robust()
+
+robustness_dat |> filter(str_detect(notes, 'not randomized')) |> map_robust()
+
+robustness_dat |> filter(str_detect(notes, 'underpowered')) |> map_robust()
+
 
 # merge robustness data and main data
 new_dat <- full_join(dat, robustness_dat)

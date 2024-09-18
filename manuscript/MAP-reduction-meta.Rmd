@@ -542,7 +542,6 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 # Appendix
 
-
 ## Supplementary Methods
 
 ### Converting difference in proportions to standardized mean difference
@@ -561,8 +560,8 @@ First, our initial draft combined RPM and MAP studies, taking the former as prov
 However, we later decided that RPM reduction was fundamentally a separate estimand, and that without firm data on substitution to other kinds of MAP, we could not say anything definite about the net effect on demand for MAP.
 
 Second, and related, we initially included studies that were not necessarily aimed at achieving overall MAP reduction, but rather a generally healthier diet with some amount of chicken and/or fish, for instance the Mediterranean diet.
-Many of these studies had otherwise qualifying measurement strategies.
-However, we ultimately concluded that these were a separate estimand as well, and we did not want to add noise to the estimate of studies that were aimed more specifically at reducing MAP consumption rather than causing inter-MAP substitution.
+Many of these studies had otherwise qualifying measurement strategies and were generally highly powered and well-designed [@beresford20].
+However, we ultimately concluded that these were a separate estimand as well, and we did not want to add noise to the estimate of studies that were aimed more specifically at reducing MAP consumption rather than causing inter-MAP substitution. Further, we almost all of these studies featured self-reported data, and comparatively few tracked all relevant categories of MAP.
 
 ```{r alt_model, include=F}
 alt_model <- dat |> map_robust(model = 'RMA')
@@ -607,11 +606,11 @@ supplementary_table_two
 
 ### The limits of systematic search in the MAP reduction literature
 
-This literature has remarkable methodological, disciplinary, and theoretical diversity.
-However, it also has few if any agreed upon terms to describe what its studies are pursuing.
-For instance,the term "MAP" is not standard; other papers in the same vein talk about animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, and so on.
-This diversity of language poses a particular challenge for anyone seeking to systematically review this literature.
-Whether one has searched for the correct terms that each relevant study uses to describe itself is, for all practical purposes, unknowable.
+The MAP reduction literature has remarkable methodological, disciplinary, and theoretical diversity.
+However, it also has few if any agreed upon terms to describe itself
+For instance,the term "MAP" is not standard; other papers discuss animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, and so on.
+This diversity of language poses a particular challenge for anyone seeking to systematically review this literature because
+whether one has identified the correct terms that each relevant study uses to describe itself is, for all practical purposes, unknowable.
 
 This informed our search process.
 Rather than starting with a list of search terms, we began by reading prior reviews, and then reading the studies cited by those reviews, to get a sense of the language that studies used to describe themselves.
@@ -628,17 +627,6 @@ The following are the Google Scholar search terms we used:
 -   norms animal products
 
 For each of these terms, we looked through ten pages of results.
-
-## Robustness check: including X additional studies that with near-random assignment
-
--   much larger effect size on average in these studies
--   still only looking at consumption outcomes
--   robustness studies get excluded for one of eight reasons: horse race design, no delay, underpowered, not randomized randomization issue, statistical issue, encourages substitution to fish, and portion size change
--   mention that the default studies lead the way here but we are concerned about net effect not effect on one meal. What happens after the default gets changed is not clear. If it's a great vegan meal, it might be habit-forming in the good direction. If it's a bad one, it might be habit-forming in the wrong direction. If it's perceived as "not quite a full meal," people might be more inclined to eat meat at the next meal. Who knows?
--   do effect sizes by each exclusion category? (or at least the main ones)
--   amalgamate everything -- get bigger effect size. amalgamate the RPMC studies -- get even bigger effect sizes
-
-[TO FILL IN]
 
 ### Edge cases for study inclusion
 
@@ -661,6 +649,24 @@ Generally these studies did not have enough weeks to meet our sample size requir
 
 Last, we encountered many studies that measured fruit and or/vegetable consumption but not MAP consumption.
 In some cases, it might have been possible to add assumptions about substitution and estimate effect sizes, but we exclusively meta-analyzed studies that reported this information directly.
+
+
+## Robustness check: including X additional studies that with near-random assignment
+
+While reviewing papers, we identified `r robust_num_papers` high-quality studies that did not meet our search criteria for one of several reasons The most common were that they were underpowered (typically too few clusters), not fully randomized (e.g. treatment was altered by week but not randomly), lacking in a control group (meaning they compared two MAP reduction treatments), or without delay between treatment onset and measurement. One additional study encouraged participants to switch to fish. 
+
+By and large these st
+
+Tthe possibility that a subject who is guided towards eating less meat at one meal via a strong default eats more at the next, i.e. "regression to the meat." Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect, although such designs are possible [@vocski2024]. For the studies with zero delay between treatment onset and measurement, we believe that effects are likely to attenuate over time. We encourage researchers to design future default studies with this challenge in mind.
+
+-   much larger effect size on average in these studies
+-   still only looking at consumption outcomes
+-   robustness studies get excluded for one of eight reasons: horse race design, no delay, underpowered, not randomized randomization issue, statistical issue, encourages substitution to fish, and portion size change
+-   mention that the default studies lead the way here but we are concerned about net effect not effect on one meal. What happens after the default gets changed is not clear. If it's a great vegan meal, it might be habit-forming in the good direction. If it's a bad one, it might be habit-forming in the wrong direction. If it's perceived as "not quite a full meal," people might be more inclined to eat meat at the next meal. Who knows?
+-   do effect sizes by each exclusion category? (or at least the main ones)
+-   amalgamate everything -- get bigger effect size. amalgamate the RPMC studies -- get even bigger effect sizes
+
+[TO FILL IN]
 
 ### Defining the the theoretical boundaries between studies requires judgment calls
 
@@ -686,11 +692,6 @@ Reasonable people might have defined the theoretical boundary conditions differe
 For instance, rather than grouping psychology approaches together, one might separate \_inter_personal processes (norms) from purely personal processes, e.g. pledges, implementation intentions, or response inhibition training.
 For this reason, we included in our dataset both `theory` and `secondary_theory` columns, and in the latter we include more specific information about papers' approaches to behavior change.
 We invite readers to explore different categories and their respective pooled effect sizes by building on the code and data we provide.
-
-### A lack of follow-up data in cafeteria-based interventions
-
-One potential source of measurement error that we cannot easily correct for is the possibility that a subject who is guided towards eating less meat at one meal eats more at the next, i.e. "regression to the meat." Most cafeteria-based studies we looked at were not designed to measure this kind of spillover effect, although such designs are possible [@vocski2024].
-We encourage researchers in this field to collect follow-up outcomes.
 
 ### Notes on prior reviews
 
