@@ -139,9 +139,9 @@ supplementary_table_one <- dat |>
     str_detect(source, 'RP research') ~ 'Rethink Priorities search',
     str_detect(source, 'snowball search') ~ 'Snowball search',
     str_detect(source, 'systematic search') ~ 'Systematic search',
+    str_detect(source, "Google Scholar search") ~ "Systematic search",
     str_detect(source, 'undermind.ai') ~ 'AI search tool',
-    TRUE ~ 'other')) |> 
-  sum_tab(source_group) |> 
+    TRUE ~ 'other'))|> sum_tab(source_group)  |> 
   enframe(name = "Source", value = "Count") |> 
   arrange(desc(Count)) |> 
   meta_table_maker(caption = "\\textbf{Table S1}: Sources of papers in dataset", 

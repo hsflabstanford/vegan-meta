@@ -55,8 +55,9 @@ dat <- read.csv('./data/vegan-meta.csv') |>
 #   write_csv('./data/excluded-studies.csv')
 # 
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
-#            sheet = 'RPMC-data') |>
-#   write_csv('./data/RPMC-data.csv')
+#            sheet = 'RPMC-data') |> 
+#   mutate(ctrl_sd = unlist(ctrl_sd)) |>
+#   write.csv('./data/RPMC-data.csv')
 # 
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
 #            sheet = 'review-of-reviews') |>
