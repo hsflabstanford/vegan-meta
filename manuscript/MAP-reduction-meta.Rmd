@@ -33,7 +33,7 @@ keywords:
   - randomized controlled trial
   
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials. We meta-analyze 36 papers comprising 43 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.065, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials. We meta-analyze 36 papers comprising 43 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ four major strategies to changing behavior: choice architecture, persuasion, psychology, and a combination of persuasion and psychology. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.065, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -152,7 +152,7 @@ Arguments focus on health, the environment (usually climate change), and animal 
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@polanco2022], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, such as a lecture on the health and environmental consequences of eating meat [@jalil2023].
 
-**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] typically manipulate the interpersonal,cognitive, or affective factors associated with eating meat. 
+**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] usuaully manipulate the interpersonal,cognitive, or affective factors associated with eating meat. 
 The most common psychological intervention is centered on social norms. 
 These studies seek to alter the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017]. 
 Norms might be descriptive, stating how many people engaged in the desired behavior, [@aldoh2023],or dynamic,teling subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020]. Another study looked at response inhibition training, where subjects are trained to avoid responding impulsively to meat [@camp2019].
@@ -160,13 +160,13 @@ The first psychology study meeting our criteria was published in 2017.
 
 Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption   [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mattson2020; @piester2020; @shreedhar2021].
 
-These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society, i.e they combine norms and persuasion approaches. 
+These interventions typically suggest reasons to eat less meat side by side with information about changing consumer habits in society, i.e they combine norms and persuasion approaches. Others combine reasons to change one's diet along with the extended parallel process model -- how they react to fear [@fehrenbach2015] -- or an implementations intentions model [@shreedhar2021] where subjects implement plans for changing their behavior.
 
 # Results {#sec2}
 
 ## An overall small effect with some heterogeneity by approach {#sec2.1}
 
-Our overall meta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
+Our overall meNta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
 The aggregate effect is statistically significant, but does not indicate a meaningful reduction.
 
 Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
@@ -225,7 +225,7 @@ Could put this back in: "Using our calculations of effect size and standard erro
 ```
 ## Moderate evidence of publication bias {#sec2.2}
 
-We conduct four tests for publication bias.
+We conduct four tests for publication bias. None is conclusive. 
 
 ```{=tex}
 \begin{comment} 
@@ -235,12 +235,10 @@ Could put in introductory remarks about how this puts our main results in one li
 First, in our dataset, effect size and standard error are positively correlated, though not significantly.
 
 Second, the `r pap_model$N_studies` studies with pre-analysis plans have a marginally smaller effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`.
-This difference is not statistically significant.
 
 Third, the `r open_data_model$N_studies` studies with openly available data also have a marginally smaller effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
-This difference is also not statistically significant.
 
-Fourth, the pooled effect size of interventions published in peer-reviewed journals is about eight times larger than the pooled effect size from everything else (advocacy organization publications, preprints, and student theses).
+Fourth, the pooled effect size of interventions published in peer-reviewed journals is larger than the pooled effect size from everything else (advocacy organization publications, preprints, and student theses).
 
 `r table_three`
 
@@ -269,22 +267,21 @@ However, these studies do not collect data on white meat and/or fish consumption
 RPM is of special concern for its environmental and health consequences [@grummon2023], but some categories of meat considered sustainable are arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
 
-## Norms work sometimes, but it is not clear why or when {#sec2.4}
+## Psychological interventions work sometimes, but it is not clear why or when {#sec2.4}
 
 ```{r include=F, echo=F}
-norms_overall_model <- dat |> filter(str_detect(theory, "norms")) |> map_robust()
 
 # look at the distribution of effect sizes
 
-norms_studies <- dat |> filter(str_detect(theory, "norms")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
+psychology_studies <- dat |> filter(str_detect(theory, "Psychology")) |> select(author, year, theory, d, se_d, intervention_condition, neg_null_pos) |> arrange(neg_null_pos, d) |> print(n = 30)
 
-norms_proportions  <- norms_studies |>
+psych_proportions  <- psychology_studies |>
   sum_tab(neg_null_pos)
 ```
 
-The overall effect for intervention with a norms component is $\Delta$ = `r norms_overall_model$Delta` (SE = `r norms_overall_model$se`), p = `r norms_overall_model$pval`.
-Of these `r nrow(norms_studies)` interventions, `r norms_proportions['0']` are self-reported nulls.
-Moreover, the spread of norms results is unusually large. For example, one standout paper with four included studies, each featuring real-world settings and objectively measured consumption outcomes, finds one significant positive result, two nulls, and one significant backlash [@sparkman2020].
+The overall effect for intervention with a psycholgy component is $\Delta$ = `r psychology_model$Delta` (SE = `r psychology_model$se`), p = `r psychology_model$pval`.
+Of these `r nrow(psychology_studies)` interventions, `r psych_proportions['0']` are self-reported nulls.
+Moreover, the spread of results within the dominant psychological approach (norms interventions) is unusually large. For example, one standout paper with four included studies, each featuring real-world settings and objectively measured consumption outcomes, finds one significant positive result, two nulls, and one significant backlash [@sparkman2020].
 We do not see, in this collection of studies, a clear limiting principle for when norms interventions achieve their goals.
 
 ```{=tex}
@@ -294,15 +291,15 @@ We do not see, in this collection of studies, a clear limiting principle for whe
 
 ## The evidence for choice architecture on MAP consumption is promising, but scant {#sec2.5}
 
-Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only three nudge studies from two papers [@@kanchanachitra2020; @andersson2021] met our inclusion criteria.
-Both had moderate effect sizes on the order of a few percentage points of MAP reduction.
+Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only three nudge studies from two papers [@kanchanachitra2020; @andersson2021] met our inclusion criteria.
+Two of three studies had moderate effect sizes on the order of a few percentage points of MAP reduction. The third had a comparatively large effect ($\Delta$ = 0.631); that study sought to reduce the fish sauce consumption at a Thai university, and its most effective intervention paired a modified spoon that made it harder for people to serve themselves fish sauce along with a sign enjoining diners to not add more than 2/3 teaspoons of fish sauce to their meal. 
 
 ```{r broader_choice_model, include=F}
 broader_choice_model <- dat |> filter(theory == 'Choice Architecture' | 
                                         str_detect(secondary_theory, 'nudge')) |> 
   map_robust()
 ```
-We restrict our choice architecture analysis to studies that literally alter the architecture of a choice, but two other studies in our dataset describe themselves as pursuing nudges. The first encourages participants to take a pledge to go vegetarian [@banerjee2019], which implicitly corrects for time-inconsistent preferences, whle the second embeds a statement about the proportion of people who chose a vegetarian meal in a specified time period at a university canteen [@griesoph2021], which creates what the authors call a "social comparison nudge." If we include these studies in our choice architecture model, we get a pooled effect size of $\Delta$ = `r broader_choice_model$Delta` (SE = `r broader_choice_model$se`), p = `r broader_choice_model$pval` gleaned from 8 interventions with approximately `r broader_choice_model$N_subjects` subjects. 
+We restrict our choice architecture analysis to studies that literally alter the architecture of a choice, but two other studies in our dataset describe themselves as pursuing nudges. The first encourages participants to take a pledge to go vegetarian [@banerjee2019], which implicitly corrects for time-inconsistent preferences, while the second embeds a statement about the proportion of people who chose a vegetarian meal in a specified time period at a university canteen [@griesoph2021], which creates what the authors call a "social comparison nudge." If we include these studies in our choice architecture model, we get a pooled effect size of $\Delta$ = `r broader_choice_model$Delta` (SE = `r broader_choice_model$se`), p = `r broader_choice_model$pval` gleaned from 8 interventions with approximately `r broader_choice_model$N_subjects` subjects. 
 
 ```{=tex}
 \begin{comment} maybe say something about Had our search extended to 2024, we would have likely included many more studies, many of which find small or null effects [cite]
@@ -462,7 +459,7 @@ does this need more description? This is not entirely reproducible I think but T
 ```
 Sixth, we checked database emerging from a parallel project being conducted by Rethink Priorities.
 Seventh, we identified a further 130+ systematic reviews and checked their bibliographies, and obtained qualified studies from six of those reviews [@ammann2023; @chang2023; @DiGennaro2024; @harguess2020;@ronto2022;@wynes2018].
-Eighth, we used an AI search tool (\url{<https://undermind.ai>}) to check for gray literature.
+Eighth, we used an AI search tool (https://undermind.ai) to check for gray literature.
 All three authors contributed to the search.
 
 **Coding:** For quantitative outcomes, we selected the latest possible outcome that had enouugh subjects to meet our inclusion criteria.
@@ -470,9 +467,9 @@ Sample sizes were drawn from the same post-test.
 All effect sizes were standardized by the standard deviation of the outcome for the control group at baseline whenever possible (Glass's $\Delta$).
 All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator created for [@paluck2021] and explained in our appendix. 
 
-**Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (\url{<https://osf.io/j5wbp>}), although the project evolved substantially over time. We describe four important deviations in our appendix.
-Our analyses use functions and models from the `robumeta` [@fisher2015] and `tidyverse` [@wickham2019] packages in `R` [@Rlang].
-Our analysis uses robust variance estimation methods [@hedges2010].
+**Meta-analysis:** Our initial set of analyses was pre-registered on the Open Science Framework in November 2023 (<https://osf.io/j5wbp>), although the project evolved substantially over time. We describe four important deviations in our appendix.
+Our analyses use functions and models from the `robumeta` [@fisher2015], `metafor` [@viechtbauer2010], and `tidyverse` [@wickham2019] packages in `R` [@Rlang].
+Our meta-analyses use robust variance estimation methods [@hedges2010].
 
 # Discussion {#Sec4}
 
@@ -484,20 +481,20 @@ Second, one might argue that our assembled database of studies *is* successfully
 By this light, future studies should replicate existing approaches with sufficient power to detect much smaller effects.
 
 Moreover, a change of a few percentage points might be significant in some contexts.
-For example, if a college calculates that meat consumption accounts for 20% of its carbon emissions, a 5.4% reduction in meat consumption [@jalil2023] achieves about a 1% reduction in carbon output.
-Whether this is a cost-effective method of reducing carbon output depends on the alternatives.
+For example, if a college calculates that meat consumption accounts for 20% of its carbon emissions, a 5.4% reduction in meat consumption [@jalil2023] would achieve about a 1% reduction in carbon output.
+Whether this is a comparatively cost-effective method of reducing carbon output depends on the other tools available to policymakers.
 
 ```{r largest_eff_sizes, include=F}
 large_effs <- dat |> filter(d>=0.5) |> 
-  select(author, year, d, se_d, 
+  select(author, year, d, se_d, theory, secondary_theory, 
          n_t_post, n_c_post,  n_t_total_pop, n_c_total_pop)
 
-average_total_large_effs_n <- round(mean(large_effs$n_t_post)) + round(mean(large_effs$n_c_post))
+average_total_large_effs_n <- round(median(large_effs$n_t_total_pop)) + round(median(large_effs$n_c_total_pop))
 
 ```
 
-Third, one might look at the largest effect sizes in our dataset, for instance, the seven interventions with an effect size of $\Delta \geq 0.5$ [@bianchi2022; @carfora2023; @merrill2009; @piester2020] and seek to replicate and/or expand their approaches.
-However, we'd caution that these seven interventions are comparatively small, with an average of `r average_total_large_effs_n` subjects.
+Third, one might look at the largest effect sizes in our dataset, for instance, the seven interventions with an effect size of $\Delta \geq 0.5$ [@bianchi2022; @carfora2023; @kanchanachitra2020; @merrill2009; @piester2020] and seek to replicate and/or expand their approaches.
+However, we'd caution that these seven interventions are comparatively small, with a median of `r average_total_large_effs_n` subjects.
 
 We do not have a clear preference between these interpretations.
 However, we are generally encouraged by trends in this literature.
@@ -515,7 +512,7 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 \bmhead{Acknowledgments}
 
-*Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, and Emma Garnett for help with assembling the database and providing guidance on their studies. We gratefully acknowledge funding from the NIH (grant XXX) and Open Philanthropy (YYY).*
+*Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. We gratefully acknowledge funding from the NIH (grant XXX) and Open Philanthropy (YYY).*
 
 # Declarations {.unnumbered}
 
