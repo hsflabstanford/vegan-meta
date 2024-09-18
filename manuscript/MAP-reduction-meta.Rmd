@@ -33,7 +33,7 @@ keywords:
   - randomized controlled trial
   
 abstract: |
-  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials. We meta-analyze 36 papers comprising 42 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.064, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous Randomized Controlled Trials. We meta-analyze 36 papers comprising 43 studies, 114 interventions, and approximately 88000 subjects. We find that these papers employ choice architecture, norms, or persuasion approaches to changing behavior. The pooled effect of these interventions on MAP consumption outcomes is $\Delta$ = 0.065, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.258, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -90,7 +90,7 @@ Our paper addresses these concerns by meta-analyzing randomized controlled trial
 
 -   measured MAP consumption, whether self-reported or observed directly, rather than (or in addition to) attitudes, intentions, beliefs or hypothetical choices;
 
--   featured a pure control group, rather than comparing multiple treatments
+-   featured a pure control group or placebo, rather than comparing multiple treatments
 
 -   recorded outcomes at least a single day after the start of treatment.
 
@@ -106,16 +106,7 @@ n_total <-  round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, 
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
 
-We coded `r num_papers` such papers [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @berndsen2005; @bertolaso2015; @bianchi2022; @fehrenbach2015; @hatami2018; @jalil2023; @merrill2009; @norris2014; @shreedhar2021; @weingarten2022; @aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020; @bochmann2017; @bschaden2020; @cooney2016; @feltz2022; @haile2021; @mathur2021effectiveness; @peacock2017; @polanco2022; @sparkman2021; @carfora2023; @hennessy2016; @mattson2020] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects.
-
-FIX THIS LATER
-```{=tex}
-\begin{comment} 
-make sure to edit this to include new studies!
-\end{comment}
-```
-
-(This is an approximation because some interventions were administered at the level of day or cafeteria and did not record a precise number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
+We coded `r num_papers` such papers [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy20116; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @aldoh2023; @allen2002; @camp2019; @coker2022; @griesoph2021; @sparkman2017; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015;  @hennessy2016; @mattson2020; @shreedhar2021] comprising `r num_studies` separate studies, `r num_interventions` interventions, and approximately `r n_total` subjects. (This is an approximation because some interventions were administered at the level of day or cafeteria and did not record a precise number of human subjects.) The earliest paper was published in 2002 [@allen2002], and a majority (`r decade_tab$n[3]` of `r num_papers`) have been published since 2020.
 
 ```{r red_meat_numbers, include=F}
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
@@ -130,12 +121,13 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
 We also coded four supplementary datasets. 
-First is a collection of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) [@carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @perino2022; @schatzkin2000; @sorensen2005], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. 
+First is a collection of `r RPMC_papers` papers aimed at reducing, and measuring, consumption of red and/or processed meat (RPM) 
+[@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022;  @emmons2005cancer;  @emmons2005project;  @jaacks2014;  @james2015;  @lee2018; @lindstrom2015;  @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020], comprising `r RPMC_studies` studies, `r RPMC_interventions` interventions, and approximately `r n_meat_total` subjects. 
 
 ```{r robust_data, include=F}
 source('./scripts/robustness-check.R')
 ```
-Second is a dataset of `r robust_num_papers` papers that we disqualified for methodological reasons but that we include in a supplementary robustness check [@beresford2006; @dannenberg2023; @delichatsios2001; @epperson2021; @frie2022; @garnett2020; @hansen2021; @kaiser2020; @lentz2019; @lindstrom2015; @loy2016; @piazza2022; @reinders2017; @vlaeminck2014].
+Second is a dataset of `r robust_num_papers` papers that we disqualified for methodological reasons but that we include in a supplementary robustness check [@alblas2023; @beresford2006; @dannenberg2023; @delichatsios2001eatsmart; @epperson2021; @frie2022; @garnett2020; @hansen2021; @kaiser2020; @lentz2019; @lindstrom2015; @loy2016; @piazza2022; @reinders2017; @vlaeminck2014].
 Third, we coded a dataset of `r excluded_count` studies that we excluded entirely along with their reasons for exclusion. 
 ```{r review_of_reviews}
 review_n <- nrow(read.csv('./data/review-of-reviews.csv'))
@@ -154,8 +146,8 @@ Arguments focus on health, the environment (usually climate change), and animal 
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@bertolaso2015], while others present facts about, e.g., the relationship between diet and cancer [@hatami2018].
 Many persuasion studies combine arguments, such as a lecture on the health and environmental consequences of eating meat [@jalil2023] or a leaflet with information in all three categories [@hennessy2016].
 
-**Psychology** studies -- REDO THIS WHOLE SECTION [@aldoh2023; @allen2002; @alblas2023; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] typically pursue a norms-based theory of change by manipulating the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
-Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]), injunctive (a message with a frowning face for subjects who eat more meat than the average person in their country [@alblas2023]), or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020]. 
+**Psychology** studies -- REDO THIS WHOLE SECTION [@aldoh2023; @allen2002; @coker2022; @griesoph2021; @piester2020; @sparkman2017; @sparkman2020] typically pursue a norms-based theory of change by manipulating the perceived popularity of desired outcomes, e.g. plant-based dishes [@sparkman2017].
+Norms might be descriptive ("33% of British people...successfully engaged in one or more...behaviours to eat less meat" [@aldoh2023]),or dynamic, i.e. they tell subjects that the number of people engaging in desired behavior is increasing [@aldoh2023; @coker2022; @sparkman2017; @sparkman2020]. 
 Others [BRIEFLY OUTLINE OTHER PSYCHOLOGY APPROACHES]
 The first psychology study meeting our criteria was published in 2017.
 
