@@ -535,8 +535,8 @@ small changes in dietary behavior: 0.094 (SE = 0.096), p = .3552. This
 is about twice as large as the pooled effect size from persuasion
 messages on their own and about one-third larger than psychological
 appeals on their own. However, with just
-\texttt{r}persuasion\_psychology\_model\$N\_studies` studies from 8 to
-go on, we do not consider this an especially robust result, and we note
+\texttt{r}persuasion\_psychology\_model\$N\_studies`studies from8 to go
+on, we do not consider this an especially robust result, and we note
 that the pooled effect size is still substantively small. Nevertheless,
 we see this as tentative evidence that theoretical innovation in the
 form of synergizing multiple theories is a promising avenue of MAP
@@ -663,12 +663,12 @@ existing approaches with sufficient power to detect much smaller
 effects.
 
 Moreover, a change of a few percentage points might be significant in
-some contexts. For example, if a college calculates that meat
-consumption accounts for 20\% of its carbon emissions, a 5.4\% reduction
-in meat consumption \citep{jalil2023} would achieve about a 1\%
-reduction in carbon output. Whether this is a comparatively
-cost-effective method of reducing carbon output depends on the other
-tools available to policymakers.
+some contexts. For example, if a college aiming to reduce its carbon
+output might calculates that meat consumption accounts for 20\% of its
+carbon emissions, a 5.4\% reduction in meat consumption
+\citep{jalil2023} would achieve about a 1\% reduction in carbon output.
+Whether this is comparatively cost-effective depends on the other
+options available.
 
 Third, one might look at the largest effect sizes in our dataset, for
 instance, the seven interventions with an effect size of
@@ -720,14 +720,6 @@ Philanthropy (YYY).}
 \section{Appendix}\label{appendix}
 
 \subsection{Supplementary Methods}\label{supplementary-methods}
-
-\subsubsection{Search terms}\label{search-terms}
-
-really hard to get a handle on how to systematically search this
-literature because of diverse language (no single disciplinary home)
-
-``random'' ``nudge'' ``meat'' meat purchases information nudge nudge
-theory meat purchasing meat alternatives default nudge
 
 \subsubsection{Converting difference in proportions to standardized mean
 difference}\label{converting-difference-in-proportions-to-standardized-mean-difference}
@@ -845,54 +837,47 @@ Psychology & 18 & 11 & 53100 & 0.0360 (0.0280)\\
 
 \subsection{Supplementary Discussion}\label{supplementary-discussion}
 
-\subsubsection{Edge cases for study
-inclusion}\label{edge-cases-for-study-inclusion}
+\subsubsection{The limits of systematic search in the MAP reduction
+literature}\label{the-limits-of-systematic-search-in-the-map-reduction-literature}
 
-Arguably the hardest decision in meta-analysis is what studies to
-include or exclude. By far the most common reason for exclusion was
-category of dependent variable (e.g.~measuring attitudinal or
-intentional outcomes). However, many cases were harder and required some
-discussion. Here are a few cases we found difficult.
+This literature has remarkable methodological, disciplinary, and
+theoretical diversity. However, it also has few if any agreed upon terms
+to describe what its studies are pursuing. For instance,the term ``MAP''
+is not standard; other papers in the same vein talk about animal-based
+proteins, animal products, meat, edible animal products, plant-based
+foods, plant-based protein, and so on. This diversity of language poses
+a particular challenge for anyone seeking to systematically review this
+literature. Whether one has searched for the correct terms that each
+relevant study uses to describe itself is, for all practical purposes,
+unknowable.
 
-Some studies limit dietary portions or switch what people are served
-(e.g.~children being served more vegetables at lunchtime). We did not
-include these studies because they were essentially guaranteed to have
-effects that were either positive or at least bounded at zero. However,
-we did include studies that provided free access to meat alternatives
-\citep{acharya2004, bianchi2022} and measured outcomes after the
-intervention had concluded. (There were not enough of these studies in
-our main dataset to analyze this approach separately, but their effect
-sizes are
-\texttt{dat\ \textbar{}\textgreater{}\ filter(author\ ==\ \textquotesingle{}Acharya\textquotesingle{})\ \textbar{}\textgreater{}\ pull(d)}
-and
-\texttt{dat\ \textbar{}\textgreater{}\ filter(author\ ==\ \textquotesingle{}Bianchi\textquotesingle{})\ \textbar{}\textgreater{}\ pull(d)}
-respectively.)
+This informed our search process. Rather than starting with a list of
+search terms, we began by reading prior reviews, and then reading the
+studies cited by those reviews, to get a sense of the language that
+studies used to describe themselves. We then pursued the multi-prongded,
+iterative search process described in the main text. Ultimately, we used
+systematic search techniques to fill in the the blanks when we had an
+intuition that we were missing studies employing a particular approach.
 
-Other studies induce a form of treatment in their control groups, for
-instance asking subjects to take a pledge to go vegetarian or
-encouraging them not to change their diet over the course of study,
-which could potentially induce changes relative to baseline consumption
-patterns. Our main database only includes studies with a pure control
-group or an unrelated placebo. However, we include these studies in our
-supplementary robustness check.
+The following are the Google Scholar search terms we used:
 
-A few studies recruit an already motivated population, e.g.~people
-looking to cut back on their MAP consumption. We consider this a
-separate estimand and do not include these studies in our main dataset,
-but we do include them in our supplementary robustness check.
+\begin{itemize}
+\tightlist
+\item
+  random nudge meat
+\item
+  meat purchases information nudge
+\item
+  nudge theory meat purchasing
+\item
+  meat alternatives default nudge
+\item
+  dynamic norms meat
+\item
+  norms animal products
+\end{itemize}
 
-Another common design limitation we encountered was treatment assigned
-at the level of alternating weeks at a cafeteria. Generally these
-studies did not have enough weeks to meet our sample size requirements,
-but we also note that simply alternating weeks is not random assignment,
-and it is possible that consumption patterns in these studies will not
-be equivalent between groups in expectation.
-
-Last, we encountered many studies that measured fruit and or/vegetable
-consumption but not MAP consumption. In some cases, it might have been
-possible to add assumptions about substitution and estimate effect
-sizes, but we decided to focus on studies that reported this information
-directly.
+For each of these terms, we looked through ten pages of results.
 
 \subsection{Robustness check: including X additional studies that with
 near-random
@@ -927,56 +912,109 @@ assignment}\label{robustness-check-including-x-additional-studies-that-with-near
 
 {[}TO FILL IN{]}
 
-\subsubsection{Defining the boundaries of nudge
-interventions}\label{defining-the-boundaries-of-nudge-interventions}
+\subsubsection{Edge cases for study
+inclusion}\label{edge-cases-for-study-inclusion}
+
+Arguably the hardest decision in meta-analysis is what studies to
+include or exclude. By far the most common reason for exclusion was
+category of dependent variable (e.g.~measuring attitudinal or
+intentional outcomes). However, many cases were harder and required some
+discussion. Here are a few cases we found difficult.
+
+Some studies limit dietary portions or switch what people are served
+(e.g.~children being served more vegetables at lunchtime). We did not
+include these studies because they were essentially guaranteed to have
+effects that were either positive or at least bounded at zero. However,
+we did include studies that provided free access to meat alternatives
+\citep{acharya2004, bianchi2022} and measured outcomes after the
+intervention had concluded. (There were not enough of these studies in
+our main dataset to analyze this approach separately, but their effect
+sizes are
+\texttt{dat\ \textbar{}\textgreater{}\ filter(author\ ==\ \textquotesingle{}Acharya\textquotesingle{})\ \textbar{}\textgreater{}\ pull(d)}
+and
+\texttt{dat\ \textbar{}\textgreater{}\ filter(author\ ==\ \textquotesingle{}Bianchi\textquotesingle{})\ \textbar{}\textgreater{}\ pull(d)}
+respectively.)
+
+Other studies induce a form of treatment in their control groups, for
+instance asking all subjects to take a pledge to go vegetarian or
+encouraging them not to change their diet over the course of study,
+which could potentially induce changes relative to baseline consumption
+patterns. Our main database only includes studies with a pure control
+group or an unrelated placebo. However, we include a selection of
+studies in our supplementary robustness check.
+
+Another common design limitation we encountered was treatment assigned
+at the level of alternating weeks at a cafeteria. Generally these
+studies did not have enough weeks to meet our sample size requirements,
+but we also note that simply alternating weeks is not random assignment,
+and it is possible that consumption patterns in these studies will not
+be equivalent between groups in expectation.
+
+Last, we encountered many studies that measured fruit and or/vegetable
+consumption but not MAP consumption. In some cases, it might have been
+possible to add assumptions about substitution and estimate effect
+sizes, but we exclusively meta-analyzed studies that reported this
+information directly.
+
+\subsubsection{Defining the the theoretical boundaries between studies
+requires judgment
+calls}\label{defining-the-the-theoretical-boundaries-between-studies-requires-judgment-calls}
 
 Tallying how many studies pursue a given theory of change requires
-drawing boundaries between those theories. This required judgment calls
-about which studies embodied a nudge approach. There is some scholarly
-debate about whether norms intervention qualify as nudges
-\citep{bicchieri2023}. The canonical definition of nudge
-\citep{thaler2009} is ``any aspect of the choice architecture that
-alters people's behaviour in a predictable way, without forbidding any
-options or significantly changing their economic incentives. To count as
-a mere nudge, the intervention must be easy and cheap to avoid'' (p.~6),
-while others \citep{hausman2010} define nudges as ``ways of influencing
+defining those theories and drawing boundaries between them. This proved
+tricky in some cases. For instance, the words `choice architecture' and
+`nudge' \citep{thaler2009} are not necessarily interchangeable in this
+literature. Many of the studies we looked at that described themselves
+as implementing nudges were not necessarily altering anything about the
+architecture of a choice, and neither were they obviously seeking to
+operate on `unconscious' processes \citep{garnett2020}. For instance, a
+text message reminder of reasons to eat less meat has a nudge
+\emph{feel} to it -- it is cheap and easy to ignore -- and one could
+argue that the purpose of such an intervention is to correct for
+time-inconsistent preferences, which is a kind of unconscious bias.
+Moreover, \citep{hausman2010} define nudges as ``ways of influencing
 choice without limiting the choice set or making alternatives
 appreciably more costly in terms of time, trouble, social sanctions, and
-so forth'' (p.~126).
+so forth'' (p.~126),'' and by this definition, a daily text reminder of
+reasons not to eat meat is a nudge.
 
-By this definition, an injunctive norm intervention, which implies a
-threat of social deviance and therefore sanction, clearly does not
-qualify. Whether a descriptive norm can be a nudge is trickier. Nudges
-are generally designed to address ``flaws in individual
-decision-making'' \citep[126]{hausman2010}, while others identify
+On the other hand, such a text message also provides relevant
+information about the choice set, and if every intervention that
+attempted this was a nudge, essentially every study in our database
+would be a nudge. We decided that the clearest boundary was between
+studies that altered the literal architecture of a choice, and therefore
+were plausibly working on unconscious processes, rather than
+interventions that tried to alter how people think or feel about what
+they're eating.
+
+Likewise with social norms messages. \citep{mols2015} identify
 ``unthinking conformity'' as an example of a ``human failing'' that
-nudges take as their ``starting point'' \citep[4]{mols2015}.
+nudges take as their ``starting point'' (p.~4), and if social norms
+activate an unthinking desire to conform, then arguably a message about
+how many people are going vegetarian in one's community is a nudge. Our
+view, however, is that a social norm prompt might engender a rich array
+of possible reactions, both cognitive and affective, and we do not
+assume that ``unthinking conformity'' is the dominant or exclusive
+response. Therefore, we do not classify the norms interventions in our
+database as nudges.
 
-Our view is that a social norm prompt might engender a rich array of
-possible reactions, both cognitive and affective, and we do not assume
-that ``unthinking conformity'' is the dominant or exclusive response.
-Therefore, we do not classify the norms interventions in our database as
-nudges. (A future project might investigate exactly what reactions are
-occurring by asking subjects how well they recall a norms message and
-what it made them think about. A high prevalence of subjects who are
-unable to recall the message's specifics but nevertheless cut back on
-MAP consumption would be evidence that norms are acting through
-automatic rather than reflective processes.)
+A future project might investigate exactly what reactions are occurring
+by asking subjects how well they recall a norms message and what it made
+them think about. A high prevalence of subjects who are unable to recall
+the message's specifics but nevertheless cut back on MAP consumption
+would be evidence that norms are acting through automatic rather than
+reflective processes.'
 
-Likewise, providing reasoned arguments for cutting back on MAP
-consumption is not a nudge because they are not aimed at flaws in
-decision-making, but rather a standard model of knowledge, attitude, and
-practice. This was true even if the information was deliveredin an
-unobtrusive way, e.g.~a daily email \citep{banerjee2019}.
-
-Garnett 2020 says ``A third set of interventions that target
-non-conscious processes and the contexts in which behaviours
-occur---so-called `nudging' or `choice architecture' approaches---hold
-promise but are largely untested''. Nothing unconscious about a pledge
-or receiving a daily text
-
-\subsubsection{Some other theoretical boundary lines we
-considered}\label{some-other-theoretical-boundary-lines-we-considered}
+Reasonable people might have defined the theoretical boundary conditions
+differently. For instance, rather than grouping psychology approaches
+together, one might separate \_inter\_personal processes (norms) from
+purely personal processes, e.g.~pledges, implementation intentions, or
+response inhibition training. For this reason, we included in our
+dataset both \texttt{theory} and \texttt{secondary\_theory} columns, and
+in the latter we include more specific information about papers'
+approaches to behavior change. We invite readers to explore different
+categories and their respective pooled effect sizes by building on the
+code and data we provide.
 
 \subsubsection{A lack of follow-up data in cafeteria-based
 interventions}\label{a-lack-of-follow-up-data-in-cafeteria-based-interventions}
@@ -991,25 +1029,120 @@ follow-up outcomes.
 
 \subsubsection{Notes on prior reviews}\label{notes-on-prior-reviews}
 
-TO FILL IN: a few sentences about the reviews that contributed studies
-to our search. Then a bit about reviews that we found otherwise
-noteworthy. Then, a few notes on where our conclusions do or do not
-converge with prior reviews, e.g.
+It was striking to us there are many more systematic reviews of dietary
+research than there are studies meeting our search criteria. This is a
+rectifiable imbalance. We encourage scholars to pursue more randomized
+controlled trials with consumption outcomes.
 
-\begin{itemize}
-\item
-  A forthcoming meta-analysis of dynamic norms interventions concludes
-  that their overall effects on MAP consumption are negligible
-  \citep{Weikertova2024}.
-\item
-  These disappointing results {[}animal advocacy{]} conflict with the
-  central conclusions of \citep{mathur2021effectiveness}, but accord
-  with the finding in \citep{DiGennaro2024} that animal welfare appeals
-  produce a null effect on average.
-\item
-  (\citep{bianchi2018conscious} also found effects on intentions and
-  attitudes but no evidence of effects on behavior.)
-\end{itemize}
+Findings in previous studies vary widely in scope and implications. Many
+reviews have concluded that various classes of interventions show
+promise for causing diet change. However, the wide array of studies
+reviewed warrants some skepticism. For instance, we encourage future
+researchers to distinguish carefully between hypothetical consumption
+outcomes --- what someone says they would select from a proposed menu
+--- from actual consumption data.
+
+Here we provide a narrative overview of a selection of prior reviews
+that were of high relevance to this one.
+
+Among the reviews that found MAP reduction interventions to be
+effective, several focused exclusively on choice architecture.
+\citep{arno2016} found that nudges led to an average increase of healthy
+dietary choices of 15.3\%, while \citep{byerly2018} found committing to
+reduce meat intake and making menus vegetarian by default to be much
+more effective than educational interventions. However, the vast
+majority of vegetarian-default studies we reviewed did not qualify for
+our analysis because they lacked delayed outcomes, and their net effect
+on MAP consumption is unknown.
+
+\citep{bianchi2018restructuring} found that reducing meat portions,
+making alternatives available, moving meat products to be less
+conspicuous, and changes to sensory properties can reduce meat demand.
+\citep{pandey2023} found that changing the presentation and availability
+of sustainable products was effective, as was providing information.
+
+In a meta-review, \citep{grundy2022} found environmental education to be
+most promising, with substantial evidence also supporting health
+information, emphasizing social norms, and decreasing meat portions.
+
+Some reviews have focused on particular settings for MAP reduction
+interventions. \citep{hartmannboyce2018} found that grocery store
+interventions such as price changes, suggested swaps and changes to item
+availability are effective at changing purchasing choices. However, that
+review covered a variety of health interventions such as reducing fat
+consumption and increasing fruit and vegetable purchases. It is unclear
+how directly such findings translate to MAP reduction efforts.
+
+\citep{chang2023} focused on university meat-reduction interventions and
+found more promising results than other reviews that studied the wider
+public. This suggests that students and young people may be particularly
+receptive to MAP reduction interventions. \citep{harguess2020} reviewed
+22 studies on meat consumption and found promising results for
+educational interventions focused on the environment, health, and animal
+welfare. They recommend using animal imagery to cause an emotional
+response and utilizing choice architecture interventions. Our review, by
+contrast, found essentially no relationship between animal welfare
+appeals and MAP consumption.
+
+Taking a different angle, \citep{adleberg2018} reviewed the literature
+on protests in a variety of movements and found that mixed evidence of
+efficacy. The authors recommend that animal advocacy protests have a
+specific target (e.g.~a particular institution) and ``ask.''
+
+Other studies provide insights on who is most easily influenced by
+interventions to reduce MAP consumption. For example,
+\citep{blackford2021} found that nudges focused on ``system 1'' thinking
+were more effective at encouraging sustainable choices than those
+focused on ``system 2,'' and that interventions had greater effects on
+females than males. Our review also featured studies showing differences
+between men and women.
+
+\citep{rosenfeld2018} reports that meat avoidance is associated with
+liberal political views, feminine gender, and higher openness,
+agreeableness and neuroticism. That review also identifies challenges
+and barriers to vegetarianism, such as recidivism and hostility from
+friends and family. Future research could tailor interventions to
+address these barriers, such as by focusing on commitment devices to
+reduce recidivism.
+
+Several reviews have had mixed or inconclusive results. For instance,
+\citep{bianchi2018conscious} found that health and environmental appeals
+appear to change dietary intentions in virtual environments, but they
+did not find evidence of actual consumption changes. In the same vein,
+\citep{kwasny2022} notes that most existing research focuses on
+attitudes and intentions and lacks measures of actual meat consumption
+over an extended period of time. \citep{taufik2019} reviewed many
+studies on increasing fruit and vegetable intake, but found far fewer on
+reducing animal consumption.
+
+\citep{benningstad2020} found, in a systematic review, that dissociation
+of meat from its source plays a role in meat consumption, but no extant
+research that included behavioral outcomes. \citep{graca2019} developed
+a theoretical framework for understanding MAP reduction, finding
+variables worth investigating further in future studies, while
+\citep{pitt2017} provide insights on how food environments influence
+consumer choices. That paper did not draw specific conclusions about
+reducing MAP consumption. A few reviews have found evidence that seems
+to recommend against particular interventions. \citep{greig2017}
+reviewed the literature on leafleting for vegan/animal advocacy
+outreach, and observed biases towards overestimating impact. That paper
+concluded that leafleting does not seem cost-effective, though with
+significant uncertainty. This accords with our findings on advocacy
+organizations' limited effects.
+
+\citep{nisa2019} meta-analyzed interventions to improve household
+sustainability, of which reducing MAP consumption was one of several.
+Although they found small effect sizes for most interventions, they
+concluded that nudges were comparatively effective. Many such nudge
+studies looked at meat consumption. Similarly, \citep{rau2022} reviewed
+the literature on environmentally friendly behavior changes, including
+but not limited to diet change, and found small or nonexistent effects
+in most cases. Only 15 interventions were described as ``very
+successful,'' and none of these related to food.
+
+Finally, we note that a forthcoming meta-analysis of dynamic norms
+interventions concludes that their overall effects on MAP consumption
+are negligible \citep{Weikertova2024}.
 
 \newpage
 
