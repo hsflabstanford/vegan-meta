@@ -565,7 +565,7 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 ### Converting difference in proportions to standardized mean difference {#Sec5.1.1}
 
 Conventional methods of converting binary outcomes to estimates of standardized mean differences have some notable downsides. For example, any given odds ratio is compatible with multiple effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
-We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence.
+We address this by treating all binary variables as draws from a Bernoulli distribution with variance $p(1 - p)$, where p is the proportion of some event's occurrence.
 For example, if 50% of the treatment group ate vegetarian meals vs 45% for the control group, then Glass's $\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1$.
 
 ### Four deviations from pre-analysis plan {#Sec5.1.2}
@@ -579,7 +579,7 @@ However, we later decided that RPM reduction was fundamentally a separate estima
 
 Second, and related, we initially included studies that were not necessarily aimed at achieving overall MAP reduction, but rather a generally healthier diet with some amount of chicken and/or fish, for instance the Mediterranean diet.
 Many of these studies had otherwise qualifying measurement strategies and were generally highly powered and well-designed [@beresford2006].
-However, we ultimately concluded that these were a separate estimand as well, and we did not want to add noise to the estimate of studies that were aimed more specifically at reducing MAP consumption rather than causing inter-MAP substitution.
+However, we ultimately concluded that these were a separate estimand as well, and we did not want to add noise to the estimate of studies that were aimed more specifically at reducing MAP consumption rather than at inter-MAP substitution.
 Further, we almost all of these studies featured self-reported data, and comparatively few tracked all relevant categories of MAP.
 
 ```{r alt_model, include=F}
@@ -595,7 +595,7 @@ In relative terms, this is substantially smaller, but in absolute terms, both th
 Table S2 provides an overview of alternate estimates by our main theoretical approaches.
 
 Fourth, we added many moderators to our dataset that we did not plan on, such as a broad category for delivery method, whether a study was intended to be emotionally activating, or whether a program had multiple components.
-We did not end up focusing on these in our main paper but include them in our dataset in case they are of interest.
+We did not end up focusing on these in our main paper but include them in our datasets for completeness.
 
 ## Supplementary Figure {#sec5.2}
 
@@ -615,7 +615,7 @@ Table S1 displays the category of source where we learned of papers in our main 
 supplementary_table_one
 ```
 
-Table S2 displays the pooled effect size by theoretical approach when using standard random effects estimation methods from the `metafor` package (rather than the robust variance estimation methods we ended up using from the `robumeta` package).
+Table S2 displays the pooled effect size by theoretical approach when using random effects estimation methods from the `metafor` package rather than the robust variance estimation methods implemented in the `robumeta` package.
 
 ```{r supp_table_two}
 supplementary_table_two
@@ -623,10 +623,10 @@ supplementary_table_two
 
 ## Supplementary Discussion {#sec5.4}
 
-### The limits of systematic search in the MAP reduction literature {#sec5.4.1}
+### The limits of systematic search for MAP reduction papers {#sec5.4.1}
 
-The MAP reduction literature has remarkable methodological, disciplinary, and theoretical diversity.
-However, it also has few if any agreed upon terms to describe itself For instance,the term "MAP" is not standard; other papers discuss animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, and so on.
+This literature has remarkable methodological, disciplinary, and theoretical diversity.
+However, it also has few if any agreed upon terms to describe itself. For instance,the term "MAP" is not standard; other papers discuss animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, and so on.
 This diversity of language poses a particular challenge for anyone seeking to systematically review this literature because whether one has identified the correct terms that each relevant study uses to describe itself is, for all practical purposes, unknowable.
 
 This informed our search process.

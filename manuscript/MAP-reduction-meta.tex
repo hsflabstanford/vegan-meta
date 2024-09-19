@@ -748,10 +748,10 @@ standardized mean differences have some notable downsides. For example,
 any given odds ratio is compatible with multiple effect sizes depending
 on the rate of occurrence of the dependent variable \citep{gomila2021}.
 We address this by treating all binary variables as draws from a
-Bernoulli distribution with \(p(1 - p)\), where p is the proportion of
-some event's occurrence. For example, if 50\% of the treatment group ate
-vegetarian meals vs 45\% for the control group, then Glass's
-\(\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1\).
+Bernoulli distribution with variance \(p(1 - p)\), where p is the
+proportion of some event's occurrence. For example, if 50\% of the
+treatment group ate vegetarian meals vs 45\% for the control group, then
+Glass's \(\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1\).
 
 \subsubsection{Four deviations from pre-analysis plan}\label{Sec5.1.2}
 
@@ -776,8 +776,8 @@ qualifying measurement strategies and were generally highly powered and
 well-designed \citep{beresford2006}. However, we ultimately concluded
 that these were a separate estimand as well, and we did not want to add
 noise to the estimate of studies that were aimed more specifically at
-reducing MAP consumption rather than causing inter-MAP substitution.
-Further, we almost all of these studies featured self-reported data, and
+reducing MAP consumption rather than at inter-MAP substitution. Further,
+we almost all of these studies featured self-reported data, and
 comparatively few tracked all relevant categories of MAP.
 
 Third, our initial analyses used the random effects model from
@@ -798,7 +798,7 @@ Fourth, we added many moderators to our dataset that we did not plan on,
 such as a broad category for delivery method, whether a study was
 intended to be emotionally activating, or whether a program had multiple
 components. We did not end up focusing on these in our main paper but
-include them in our dataset in case they are of interest.
+include them in our datasets for completeness.
 
 \subsection{Supplementary Figure}\label{sec5.2}
 
@@ -835,9 +835,9 @@ AI search tool & 1\\
 \end{table}
 
 Table S2 displays the pooled effect size by theoretical approach when
-using standard random effects estimation methods from the
-\texttt{metafor} package (rather than the robust variance estimation
-methods we ended up using from the \texttt{robumeta} package).
+using random effects estimation methods from the \texttt{metafor}
+package rather than the robust variance estimation methods implemented
+in the \texttt{robumeta} package.
 
 \begin{table}[!h]
 \centering
@@ -858,19 +858,18 @@ Psychology & 18 & 11 & 53100 & 0.0360 (0.0280)\\
 
 \subsection{Supplementary Discussion}\label{sec5.4}
 
-\subsubsection{The limits of systematic search in the MAP reduction
-literature}\label{sec5.4.1}
+\subsubsection{The limits of systematic search for MAP reduction
+papers}\label{sec5.4.1}
 
-The MAP reduction literature has remarkable methodological,
-disciplinary, and theoretical diversity. However, it also has few if any
-agreed upon terms to describe itself For instance,the term ``MAP'' is
-not standard; other papers discuss animal-based proteins, animal
-products, meat, edible animal products, plant-based foods, plant-based
-protein, and so on. This diversity of language poses a particular
-challenge for anyone seeking to systematically review this literature
-because whether one has identified the correct terms that each relevant
-study uses to describe itself is, for all practical purposes,
-unknowable.
+This literature has remarkable methodological, disciplinary, and
+theoretical diversity. However, it also has few if any agreed upon terms
+to describe itself. For instance,the term ``MAP'' is not standard; other
+papers discuss animal-based proteins, animal products, meat, edible
+animal products, plant-based foods, plant-based protein, and so on. This
+diversity of language poses a particular challenge for anyone seeking to
+systematically review this literature because whether one has identified
+the correct terms that each relevant study uses to describe itself is,
+for all practical purposes, unknowable.
 
 This informed our search process. Rather than starting with a list of
 search terms, we began by reading prior reviews, and then reading the
