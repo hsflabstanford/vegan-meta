@@ -52,6 +52,7 @@ dat <- read.csv('./data/vegan-meta.csv') |>
 # library(dplyr, warn.conflicts = F)
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
 #                                sheet = 'excluded-studies') |>
+#   select(Author,	Year,	Title,	doi_or_url,	source,	excllusion_reason) |> 
 #   write_csv('./data/excluded-studies.csv')
 # 
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
