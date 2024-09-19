@@ -307,8 +307,8 @@ The third had a comparatively large effect ($\Delta$ = `r round(dat |> filter(au
 
 ```{=tex}
 \begin{comment}
- (Arguably this second component means that this study no longer qualifies as choice architecture because the message is not intended to act on unconscious processes; we include it because there is no reported enforcement mechanism and the modified spoon is a distinctly architectural change.)
- \end{comment}
+Arguably this second component  means that this study no longer qualifies as choice architecture because the message is not intended to act on unconscious processes; we include it because there is no reported enforcement mechanism and the modified spoon is a distinctly architectural change.
+\end{comment}
 ```
 
 ```{r broader_choice_model, include=F}
@@ -318,12 +318,25 @@ broader_choice_model <- dat |> filter(theory == 'Choice Architecture' |
 ```
 
 We restrict our choice architecture analysis to studies that literally alter the architecture of a choice, but two other studies in our dataset describe themselves as pursuing nudges.
-The first encourages participants to take a pledge to go vegetarian [@banerjee2019], which implicitly corrects for time-inconsistent preferences, while the second embeds a statement about the proportion of people who chose a vegetarian meal in a specified time period at a university canteen [@griesoph2021], which creates what the authors call a "social comparison nudge." If we include these studies in our choice architecture model, we get a pooled effect size of $\Delta$ = `r broader_choice_model$Delta` (SE = `r broader_choice_model$se`), p = `r broader_choice_model$pval` gleaned from 8 interventions with approximately `r broader_choice_model$N_subjects` subjects.
+The first encourages participants to take a pledge to go vegetarian [@banerjee2019], which implicitly corrects for time-inconsistent preferences, while the second embeds a statement about the proportion of people who chose a vegetarian meal in a specified time period at a university canteen [@griesoph2021], which creates what the authors call a "social comparison nudge." If we include these studies in our choice architecture model, we get a pooled effect size of $\Delta$ = `r broader_choice_model$Delta` (SE = `r broader_choice_model$se`), p = `r broader_choice_model$pval`, gleaned from 8 interventions with approximately `r broader_choice_model$N_subjects` subjects.
 
 ```{=tex}
 \begin{comment} maybe say something about Had our search extended to 2024, we would have likely included many more studies, many of which find small or null effects [cite]
+\end{comment}
 ```
-## Health studies work better for RPM than for MAP {#sec2.6}
+
+## Persuasion messages are more persuasive in conjunction with psychological appeals {#sec2.6}
+
+```{r persuasion_psych_papers}
+psych_studies_papers <- dat |> 
+  filter(theory == 'Persuasion & Psychology') |> 
+  summarise(count_unique_paper_id = n_distinct(unique_paper_id)) |> pull(count_unique_paper_id)
+```
+
+Combining  persuasion messages with psychological appeals leads to a pooled effect size that is moderately larger than either approach on its own: $\Delta$ = `r persuasion_psychology_model$Delta` (SE = `r persuasion_psychology_model$se`), p = `r persuasion_psychology_model$pval`.
+With just `r persuasion_psychology_model$N_studies` studies drawn from `r psych_studies_papers` papers in this sub-sample, we do not consider this a particularly robust finding, and we note that the overall effect is still substantively small. However, we do consider synthesizing multiple theories into a singular framework to be a promising path forward for researchers and encourage more such theoretical innovations.
+
+## Health studies work better for RPM than for MAP {#sec2.7}
 
 ```{r health_studies, echo=F, include=F}
 health_studies <- dat |> 
@@ -352,7 +365,7 @@ This fits with the broader context where official nutritional guidelines typical
 We also judge many health studies to be at elevated risk of self-reporting bias.
 For example, one study seeks to induce a sense of fear in subjects [@berndsen2005], while others target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2015; @lee2018] with reasons they should change their diet, and then ask subjects to self-report what they have eaten recently.
 
-## Environmental appeals have modest positive effects {#sec2.7}
+## Environmental appeals have modest positive effects {#sec2.8}
 
 ```{r environment_studies, include=F}
 # exploratory
@@ -374,7 +387,7 @@ The strongest evidence that these appeals produce real-world impacts is [@jalil2
 That study found that treatment led to an overall reduction in MAP consumption of 5.6% ($\Delta$ = `r round(jalil_data$d, 3)` (SE = `r jalil_data$se_d`)).
 Due to this study's exceptional commitment to long-term, oblique outcome measurement, we consider it to be reasonably strong evidence for this intervention's efficacy among the population from which the sample was drawn.
 
-## Animal welfare appeals are almost always ineffective {#sec2.8}
+## Animal welfare appeals are almost always ineffective {#sec2.9}
 
 ```{r animal_welfare_studies, include=F}
 animal_proportions  <- dat |> filter(str_detect(secondary_theory, 'animal')) |>
@@ -393,7 +406,7 @@ Slightly more than half (`r neg_animal_results` of `r animal_model$N_interventio
 
 The `r advocacy_model$N_studies` studies and `r advocacy_model$N_interventions` interventions using materials from advocacy organizations find an overall effect of `r advocacy_model$Delta` (SE = `r advocacy_model$se`), p = `r advocacy_model$pval`.
 
-## Mixed evidence of effect delay over time {#sec2.9}
+## Mixed evidence of effect delay over time {#sec2.10}
 
 A key outcome for our paper is whether MAP reduction interventions are habit-forming.
 A large effect observed immediately [@hansen2019] could plausibly dissipate quickly and create no enduring changes.
@@ -417,18 +430,6 @@ However, because most of the studies we looked at featured attrition over time, 
 \begin{comment} There is probably a way to do this quantitatively and if we get asked to do it in review, I'll do it, but it's a fair bit of work and I think we've made the general point 
 \end{comment}
 ```
-## Persuasion messages are more persuasive in conjunction with psychological appeals {#sec2.10}
-
-```{r persuasion_psych_papers}
-psych_studies_papers <- dat |> 
-  filter(theory == 'Persuasion & Psychology') |> 
-  summarise(count_unique_paper_id = n_distinct(unique_paper_id)) |> pull(count_unique_paper_id)
-```
-
-The conjunction of persuasion messages with psychological appeals is, in this dataset, the best supported theory for producing consistent, albeit small changes in dietary behavior: `r persuasion_psychology_model$Delta` (SE = `r persuasion_psychology_model$se`), p = `r persuasion_psychology_model$pval`.
-This is about twice as large as the pooled effect size from persuasion messages on their own and about one-third larger than psychological appeals on their own.
-However, with just `r persuasion_psychology_model$N_studies`studies from `r psych_studies_papers` to go on, we do not consider this an especially robust result, and we note that the pooled effect size is still substantively small.
-Nevertheless, we see this as tentative evidence that theoretical innovation in the form of synergizing multiple theories is a promising avenue of MAP reduction research.
 
 ## Heterogeneity by reporting, cluster assignment, delivery method, and country {#sec2.11}
 
@@ -548,17 +549,17 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 \newpage
 
-# Appendix
+# Appendix {#Sec5}
 
-## Supplementary Methods
+## Supplementary Methods {#Sec5.1}
 
-### Converting difference in proportions to standardized mean difference
+### Converting difference in proportions to standardized mean difference {#Sec5.1.1}
 
 Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
 We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence.
 For example, if 50% of the treatment group ate vegetarian meals vs 45% for the control group, then Glass's $\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1$.
 
-### Four deviations from pre-analysis plan
+### Four deviations from pre-analysis plan {#Sec5.1.2}
 
 Our pre-analysis plan registered some general principles and hypotheses for our search process, but did not otherwise do much to constrain how or where we searched.
 It also included a synthesized dataset and some mock analyses that resemble our final analyses in general form.
@@ -587,7 +588,7 @@ Table S2 provides an overview of alternate estimates by our main theoretical app
 Fourth, we added many moderators to our dataset that we did not plan on, such as a broad category for delivery method, whether a study was intended to be emotionally activating, or whether a program had multiple components.
 We did not end up focusing on these in our main paper but include them in our dataset in case they are of interest.
 
-## Supplementary Figure
+## Supplementary Figure {#sec5.2}
 
 This figure displays the relationship between standard error and effect size.
 The colors correspond to theoretical approach and the shapes correspond to the venue where results were published.
@@ -596,7 +597,7 @@ The colors correspond to theoretical approach and the shapes correspond to the v
 supplementary_figure
 ```
 
-## Supplementary Tables
+## Supplementary Tables {#sec5.3}
 
 Table S1 displays the category of source where we learned of papers in our main dataset.
 \captionsetup[table]{labelformat=empty}
@@ -611,9 +612,9 @@ Table S2 displays the pooled effect size by theoretical approach when using stan
 supplementary_table_two
 ```
 
-## Supplementary Discussion
+## Supplementary Discussion {#sec5.4}
 
-### The limits of systematic search in the MAP reduction literature
+### The limits of systematic search in the MAP reduction literature {#sec5.4.1}
 
 The MAP reduction literature has remarkable methodological, disciplinary, and theoretical diversity.
 However, it also has few if any agreed upon terms to describe itself For instance,the term "MAP" is not standard; other papers discuss animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, and so on.
@@ -635,7 +636,7 @@ The following are the Google Scholar search terms we used:
 
 For each of these terms, we looked through ten pages of results.
 
-### Edge cases for study inclusion
+### Edge cases for study inclusion {#sec5.4.2}
 
 Arguably the hardest decision in meta-analysis is what studies to include or exclude.
 By far the most common reason for exclusion was category of dependent variable (e.g. measuring attitudinal or intentional outcomes).
@@ -657,7 +658,7 @@ Generally these studies did not have enough weeks to meet our sample size requir
 Last, we encountered many studies that measured fruit and or/vegetable consumption but not MAP consumption.
 In some cases, it might have been possible to add assumptions about substitution and estimate effect sizes, but we exclusively meta-analyzed studies that reported this information directly.
 
-## Robustness check: including 15 additional studies that with near-random assignment
+## Robustness check: including 15 additional studies that with near-random assignment {#sec5.4.3}
 
 While reviewing papers, we identified `r robust_num_papers` high-quality papers comprising `r robust_num_studies` studies, `r robust_num_interventions` interventions, and approximately `r robust_n_total` subjects that did not meet our search criteria for one of several reasons.
 The most common were being underpowered (typically too few clusters), not fully randomized (e.g. treatment was altered by week but not randomly), lacking in a control group (meaning they compared two MAP reduction treatments), or without delay between treatment onset and measurement.
@@ -680,7 +681,7 @@ The first is that methodological rigor has a lowering effect on effect size acro
 The second is that our results are sensitive to how one thinks about, and operationalizes, methodological rigor.
 We offer our robustness check dataset as a way of letting readers explore what a different set of analyses with different assumptions might have found.
 
-### Defining the the theoretical boundaries between studies requires judgment calls
+### Defining the the theoretical boundaries between studies requires judgment calls {#sec5.4.4}
 
 Tallying how many studies pursue a given theory of change requires defining those theories and drawing boundaries between them.
 This proved tricky in some cases.
@@ -705,7 +706,7 @@ For instance, rather than grouping psychology approaches together, one might sep
 For this reason, we included in our dataset both `theory` and `secondary_theory` columns, and in the latter we include more specific information about papers' approaches to behavior change.
 We invite readers to explore different categories and their respective pooled effect sizes by building on the code and data we provide.
 
-### Notes on prior reviews
+### Notes on prior reviews {#sec5.4.5}
 
 It was striking to us there are many more systematic reviews of dietary research than there are studies meeting our search criteria.
 This is a rectifiable imbalance.
