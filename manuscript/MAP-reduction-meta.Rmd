@@ -171,7 +171,7 @@ Others combine reasons to change one's diet along with an intervention that test
 ## An overall small effect with some heterogeneity by approach {#sec2.1}
 
 Our overall meta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
-The aggregate effect is statistically significant, but does not indicate a meaningful reduction.
+The aggregate effect is statistically significant, but does not indicate a meaningful, enduring reduction.
 
 Figure 1 displays the distribution of effect sizes, grouped by paper, with each individual point representing an intervention.
 The overall effect size is plotted at the bottom.
@@ -180,7 +180,7 @@ The overall effect size is plotted at the bottom.
 forest_plot
 ```
 
-Table 1 reports the number of studies, interventions, and subjects (approximately) per approach, as well as the pooled effect sizes per approach.
+Table 1 reports the number of studies, interventions, and approximate subjects, as well as the pooled effect size, per theoretical approach.
 
 `r table_one`
 
@@ -221,11 +221,11 @@ open_data_difference <- robumeta::robu(d ~ open_data_yes, dat, unique_study_id, 
 ```
 
 Per the papers' own calculations and data, `r effect_size_table['0']` of `r num_interventions` interventions had null effects on net MAP consumption.
-However, many studies present a wide variety of outcomes, or include MAP reduction as one of many components of a broader program of behavior change, and present significant results as well.
+However, many studies present a wide variety of outcomes and present significant results as well.
 
 ```{=tex}
 \begin{comment}
-Could put this back in: "Using our calculations of effect size and standard error `r (nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions."
+Could put this back in: "Using our calculations of effect size and standard error `r (nrow(significant_CIs))` interventions have 95% confidence intervals that do not overlap with zero, `r sum(significant_CIs$direction)` of which are positive effects, out of `r nrow(dat)` interventions." But I think it's not necesssarys
 \end{comment}
 ```
 ## Moderate evidence of publication bias {#sec2.2}
@@ -240,11 +240,13 @@ Could put in introductory remarks about how this puts our main results in one li
 ```
 First, in our dataset, effect size and standard error are positively correlated, though not significantly.
 
-Second, the `r pap_model$N_studies` studies with pre-analysis plans have a marginally smaller effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`.
+Second, the `r pap_model$N_studies` studies with pre-analysis plans have a smaller effect: $\Delta$ = `r pap_model$Delta` (SE = `r pap_model$se`), p = `r pap_model$pval`.
 
-Third, the `r open_data_model$N_studies` studies with openly available data also have a marginally smaller effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
+Third, the `r open_data_model$N_studies` studies with openly available data also have a smaller effect: $\Delta$ = `r open_data_model$Delta` (SE = `r open_data_model$se`), p = `r open_data_model$pval`.
 
-Fourth, the pooled effect size of interventions published in peer-reviewed journals is larger than the pooled effect size from everything else (advocacy organization publications, preprints, and student theses).
+Fourth, the pooled effect size of interventions published in peer-reviewed journals is larger than the pooled effect size from advocacy organization publications, preprints, and student theses.
+
+We consider these tests to be moderate evidence of publication bias in this literature. On the other hand, the sheer quantity of null results suggests that finding small, insignificant effects on MAP consumption is not a major barrier to publication.
 
 `r table_three`
 
@@ -266,12 +268,12 @@ health_rpm_studies <- as.numeric(nrow(RPMC |> filter(str_detect(secondary_theory
 ```
 
 On average, interventions aimed at reducing consumption of red and processed meat (RPM) outperform general MAP reduction interventions: $\Delta$ = `r rpmc_model$Delta` \text{(SE = `r rpmc_model$se`)}, p = `r rpmc_model$pval`.
-Each of the RPM reduction studies employs persuasion, and a majority (`r health_rpm_studies` of `r nrow(RPMC)`) appeal to personal health.
+All but one of these studies employs persuasion, and a majority (`r health_rpm_studies` of `r nrow(RPMC)`) appeal to personal health.
 However, these studies do not collect data on white meat and/or fish consumption, and therefore their impact on MAP consumption overall is unknown.
-(One study in our primary dataset aimed at reducing RPM consumption but measures meat consumption overall [@shreedhar2021]. That study found moderate positive effects in the short-run and no effects in the long run.)
+(One study in our primary dataset aimed to reduce RPM consumption but measured meat consumption overall [@shreedhar2021]. That study found moderate positive effects in the short-run and no effects in the long run.)
 
 RPM is of special concern for its environmental and health consequences [@grummon2023], but some categories of meat considered sustainable are arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
-For some plausible patterns of substitution, these interventions are net positive for health and the environment and net negative for animal welfare.
+For some plausible patterns of substitution, these interventions are a net good for personal health and the environment and a net bad for animal welfare.
 
 ## Psychological interventions work sometimes, but it is not clear why or when {#sec2.4}
 
@@ -285,11 +287,13 @@ psych_proportions  <- psychology_studies |>
   sum_tab(neg_null_pos)
 ```
 
-The overall effect for intervention with a psycholgy component is $\Delta$ = `r psychology_model$Delta` (SE = `r psychology_model$se`), p = `r psychology_model$pval`.
+The overall effect for psychology interventions is $\Delta$ = `r psychology_model$Delta` (SE = `r psychology_model$se`), p = `r psychology_model$pval`.
 Of these `r nrow(psychology_studies)` interventions, `r psych_proportions['0']` are self-reported nulls.
 Moreover, the spread of results within the dominant psychological approach (norms interventions) is unusually large.
 For example, one standout paper with four included studies, each featuring real-world settings and objectively measured consumption outcomes, finds one significant positive result, two nulls, and one significant backlash [@sparkman2020].
-We do not see, in this collection of studies, a clear limiting principle for when norms interventions achieve their goals.
+We do not see, in this collection of studies, a clear limiting principle for when psychological interventions achieve their goals. 
+
+A forthcoming meta-analysis of dynamic norms interventions concludes that their overall effects on MAP consumption are negligible [@Weikertova2024].
 
 ```{=tex}
 \begin{comment} say something about dannenberg 2024 or the 2024 meta-analysis that finds vey little?
@@ -297,9 +301,15 @@ We do not see, in this collection of studies, a clear limiting principle for whe
 ```
 ## The evidence for choice architecture on MAP consumption is promising, but scant {#sec2.5}
 
-Although nudges are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only three nudge studies from two papers [@kanchanachitra2020; @andersson2021] met our inclusion criteria.
-Two of three studies had moderate effect sizes on the order of a few percentage points of MAP reduction.
+Although choice architecture studies are common in the diet literature writ large [@olafsson2024; @cadario2020; @szaszi2018], only three such studies from two papers [@kanchanachitra2020; @andersson2021] met our inclusion criteria.
+Two of those three had moderate effect sizes on the order of a few percentage points of MAP reduction.
 The third had a comparatively large effect ($\Delta$ = `r round(dat |> filter(author == 'Kanchanachitra') |> arrange(desc(d)) |> slice(1) |> pull(d),3)`); that study sought to reduce the fish sauce consumption at a Thai university, and its most effective intervention paired a modified spoon that made it harder for people to serve themselves fish sauce along with a sign enjoining diners to not add more than 2/3 teaspoons of fish sauce to their meal.
+
+```{=tex}
+\begin{comment}
+ (Arguably this second component means that this study no longer qualifies as choice architecture because the message is not intended to act on unconscious processes; we include it because there is no reported enforcement mechanism and the modified spoon is a distinctly architectural change.)
+ \end{comment}
+```
 
 ```{r broader_choice_model, include=F}
 broader_choice_model <- dat |> filter(theory == 'Choice Architecture' | 
@@ -757,8 +767,6 @@ Although they found small effect sizes for most interventions, they concluded th
 Many such nudge studies looked at meat consumption.
 Similarly, [@rau2022] reviewed the literature on environmentally friendly behavior changes, including but not limited to diet change, and found small or nonexistent effects in most cases.
 Only 15 interventions were described as “very successful,” and none of these related to food.
-
-Finally, we note that a forthcoming meta-analysis of dynamic norms interventions concludes that their overall effects on MAP consumption are negligible [@Weikertova2024].
 
 ```{=tex}
 \begin{comment}
