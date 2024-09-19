@@ -356,11 +356,11 @@ RPM_health_numbers <- RPMC |> mutate(health_component = if_else(str_detect(secon
   sum_tab(health_component)
 ```
 
-The pooled effect size for persuasion studies with a health component is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
+The pooled effect size for persuasion studies with a health component on MAP consumption is $\Delta$ = `r health_model$Delta` (SE = `r health_model$se`), p = `r health_model$pval`.
 This is small and not significant, albeit larger than the overall pooled effect.
 
 Health appeals are a component of `r RPM_health_numbers['TRUE']` of `r nrow(RPMC)` interventions aimed at reducing RPM consumption, and are generally more effective there: $\Delta$ = `r RPM_health_model$Delta` (SE = `r RPM_health_model$se`), p = `r RPM_health_model$pval`.
-This fits with the broader context where official nutritional guidelines typically encourage consumers to reduce RPM and consume moderate amounts of lean meat and fish.
+This fits with a broader context where official nutritional guidelines typically encourage consumers to reduce RPM and consume moderate amounts of lean meat and fish.
 
 We also judge many health studies to be at elevated risk of self-reporting bias.
 For example, one study seeks to induce a sense of fear in subjects [@berndsen2005], while others target people who are at risk of cancer [@hatami2018] or cancer survivors [@james2015; @lee2018] with reasons they should change their diet, and then ask subjects to self-report what they have eaten recently.
@@ -384,8 +384,7 @@ jalil_data <- dat |> filter(author == 'Jalil')
 
 The pooled effect size for persuasion studies with an environmental component is $\Delta$ = `r environment_model$Delta` (SE = `r environment_model$se`), p = `r environment_model$pval`.
 The strongest evidence that these appeals produce real-world impacts is [@jalil2023], which substituted an introductory lecture in a first-year economics class for a lecture on the environmental and health consequences of meat, focusing mostly on the environment, and then tracked student meal choices in dining halls for three years following.
-That study found that treatment led to an overall reduction in MAP consumption of 5.6% ($\Delta$ = `r round(jalil_data$d, 3)` (SE = `r jalil_data$se_d`)).
-Due to this study's exceptional commitment to long-term, oblique outcome measurement, we consider it to be reasonably strong evidence for this intervention's efficacy among the population from which the sample was drawn.
+That study found that treatment led to an overall reduction in MAP consumption of 5.6% ($\Delta$ = `r round(jalil_data$d, 3)`). This study has low statistical power due to its small number of clusters (5 each in treatment and control, and SE = `r round(jalil_data$se_d, 3)`). However, due to its exceptional commitment to long-term, oblique outcome measurement, we consider it to be reasonably strong evidence for this intervention's efficacy among the target population.
 
 ## Animal welfare appeals are almost always ineffective {#sec2.9}
 
@@ -404,7 +403,7 @@ The pooled effect size for persuasion studies with an animal welfare component i
 A full `r animal_proportions['0']` of `r animal_model$N_interventions` interventions in this category are self-described nulls.
 Slightly more than half (`r neg_animal_results` of `r animal_model$N_interventions`) lead to increases in MAP consumption, though just one of these effects is statistically significant.
 
-The `r advocacy_model$N_studies` studies and `r advocacy_model$N_interventions` interventions using materials from advocacy organizations find an overall effect of `r advocacy_model$Delta` (SE = `r advocacy_model$se`), p = `r advocacy_model$pval`.
+The `r advocacy_model$N_studies` studies and `r advocacy_model$N_interventions` interventions using materials from advocacy organizations find an overall effect of $\Delta$ = `r advocacy_model$Delta` (SE = `r advocacy_model$se`), p = `r advocacy_model$pval`.
 
 ## Mixed evidence of effect delay over time {#sec2.10}
 
