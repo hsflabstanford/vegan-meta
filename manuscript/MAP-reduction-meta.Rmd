@@ -426,7 +426,7 @@ In our dataset, we find mixed, inconclusive evidence of effect decay over time.
 First, there is a tiny, positive relationship between number of days separating treatment onset from outcome measurement and a tiny, negative relationship between number of days separating treatment *conclusion* from measurement.
 We consider these results a wash.
 
-Another way to consider effect decay is to look at studies which measure consumption at multiple time points [e.g. @bianchi202022; @bochmann2022 @bschaden2020, @carfora2023; @jalil2023].
+Another way to consider effect decay is to look at studies which measure consumption at multiple points [e.g. @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @jalil2023].
 We note that for the most part, effects seem to decline over time; One prominent counterexample is [@jalil2023], where effects persist for at least three years.
 However, because most of the studies we looked at featured attrition over time, we do not place too much stock in this result.
 
@@ -562,7 +562,7 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 ### Converting difference in proportions to standardized mean difference {#Sec5.1.1}
 
-Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple possible effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
+Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
 We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence.
 For example, if 50% of the treatment group ate vegetarian meals vs 45% for the control group, then Glass's $\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1$.
 
@@ -685,7 +685,7 @@ We also see that interventions with too few clusters or too few participants to 
 
 We draw two lessons from this robustness check.
 The first is that methodological rigor has a lowering effect on effect size across multiple dimensions.
-The second is that our results are sensitive to how one thinks about, and operationalizes, methodological rigor.
+The second is that our results are sensitive to how one defines and operationalizes methodological rigor.
 We offer our robustness check dataset as a way of letting readers explore what a different set of analyses with different assumptions might have found.
 
 ### Defining the the theoretical boundaries between studies requires judgment calls {#sec5.4.4}
