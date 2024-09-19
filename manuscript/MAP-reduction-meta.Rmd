@@ -1,7 +1,7 @@
 ---
 classoptions: 
   - sn-nature      
-  # - referee       # Optional: Use double line spacing 
+  - referee       # Optional: Use double line spacing 
   # - lineno        # Optional: Add line numbers
   # - iicol         # Optional: Double column layout
 title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis"
@@ -761,6 +761,12 @@ Similarly, [@rau2022] reviewed the literature on environmentally friendly behavi
 Only 15 interventions were described as “very successful,” and none of these related to food.
 
 Finally, we note that a forthcoming meta-analysis of dynamic norms interventions concludes that their overall effects on MAP consumption are negligible [@Weikertova2024].
+
+```{=tex}
+\begin{comment}
+Some discussion about what's meaningful? mention that ease of implementation matters in terms of what’s meaningful. The costs of fully exposing one person is the relevant denominator. The costs of recruitment are part of the cost. Maybe some people are more amenable to nudges after hearing an argument for
+\end{comment}
+```
 
 \newpage
 
