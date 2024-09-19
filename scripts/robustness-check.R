@@ -59,6 +59,5 @@ robustness_dat |> filter(str_detect(notes, 'not randomized')) |> map_robust()
 #underpowered model
 underpower_model <- robustness_dat |> filter(str_detect(notes, 'underpowered')) |> map_robust()
 
-
 # merge robustness data and main data
 integrated_model <- full_join(dat, robustness_dat) |> map_robust()
