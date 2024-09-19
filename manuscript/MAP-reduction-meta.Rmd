@@ -637,7 +637,7 @@ Here are a few cases we found difficult.
 Some studies limit dietary portions or switch what people are served (e.g. children being served more vegetables at lunchtime).
 We did not include these studies because they were essentially guaranteed to have effects that were either positive or at least bounded at zero.
 However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded.
-(There were not enough of these studies in our main dataset to analyze this approach separately, but their effect sizes are `dat |> filter(author == 'Acharya') |> pull(d)` and `dat |> filter(author == 'Bianchi') |> pull(d)` respectively.)
+(There were not enough of these studies in our main dataset to analyze this approach separately, but their effect sizes are `r round(dat |> filter(author == 'Acharya') |> pull(d),3)` and `r round(dat |> filter(author == 'Bianchi') |> pull(d),3)` respectively.)
 
 Other studies induce a form of treatment in their control groups, for instance asking all subjects to take a pledge to go vegetarian or encouraging them not to change their diet over the course of study, which could potentially induce changes relative to baseline consumption patterns.
 Our main database only includes studies with a pure control group or an unrelated placebo.
