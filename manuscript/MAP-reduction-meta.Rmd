@@ -473,17 +473,17 @@ Table 4 displays the effect size associated with the four most common delivery m
 
 `r table_four`
 
-Table 5 displays effects associated with different regions.
+Table 5 displays effects associated with different regions. We see weak evidence that these interventions are most effective in Europe.
 
 `r table_five`
 
-Interventions with adult subjects are moderately more effective ($\Delta$ = `r adult_results$Delta` (SE = `r adult_results$se`), p = `r adult_results$pval`) than those with a university population ( ($\Delta$ = `r university_results$Delta` (SE = `r university_results$se`), p = `r university_results$pval`).
+Interventions with adult subjects are moderately more effective ($\Delta$ = `r adult_results$Delta`, SE = `r adult_results$se`, p = `r adult_results$pval`) than those with a university population ( ($\Delta$ = `r university_results$Delta`, SE = `r university_results$se`, p = `r university_results$pval`).
 
 # Methods {#sec3}
 
 **Search**: We employed a multi-pronged search strategy for assembling our database.
 First, we checked the bibliographies of three recent reviews [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring] for relevant studies.
-Second, we checked any possibly relevant study that either cited or was cited by studies we from our first round of coding Third, we checked the bibliographies of authors whose studies we coded.
+Second, we checked any possibly relevant study that either cited or was cited by studies we from our first round of coding. Third, we checked the bibliographies of authors whose studies we coded.
 Fourth, we contacted leading researchers in the field with our in-progress database to see if we had missed any.
 Fifth, we repeated steps two and three with new studies we had.
 Sixth, we searched Google Scholar for terms that had come up in studies repeatedly (e.g. "dynamic norms + meat", "MAP reduction", and "plant-based diet + effective").
@@ -493,9 +493,9 @@ Sixth, we searched Google Scholar for terms that had come up in studies repeated
 does this need more description? This is not entirely reproducible I think but TBH it was not a major source of studies in our database
 \end{comment}
 ```
-Sixth, we checked database emerging from a parallel project being conducted by Rethink Priorities.
-Seventh, we identified a further 130+ systematic reviews and checked their bibliographies, and obtained qualified studies from six of those reviews [@ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018].
-Eighth, we used an AI search tool (<https://undermind.ai>) to check for gray literature.
+Seventh, we checked a database emerging from a parallel project being conducted by Rethink Priorities.
+Eighth, we identified a further 130+ systematic reviews and checked their bibliographies, and obtained qualified studies from six of those reviews [@ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018].
+Ninth, we used an AI search tool (<https://undermind.ai>) to check for gray literature.
 All three authors contributed to the search.
 
 **Coding:** For quantitative outcomes, we selected the latest possible outcome that had enouugh subjects to meet our inclusion criteria.
@@ -512,7 +512,7 @@ Our meta-analyses use robust variance estimation methods [@hedges2010].
 
 We offer three lenses through which to view our results.
 
-First, one might focus on the small effect sizes and the moderate evidence of publication bias and conclude that what meager effects we do detect are likely overestimates, and therefore conclude that the true effect being estimated in this dataset is a null.
+First, one might focus on the small effect sizes and the evidence of publication bias and conclude that the meager effects we detect are likely overestimates, and therefore conclude that the true effect being estimated in this dataset is a strict null.
 
 Second, one might argue that our assembled database of studies *is* successfully changing consumption behavior, but in ranges too small for most studies to detect.
 By this light, future studies should replicate existing approaches with sufficient power to detect much smaller effects.
@@ -530,17 +530,19 @@ average_total_large_effs_n <- round(median(large_effs$n_t_total_pop)) + round(me
 
 ```
 
-Third, one might look at the largest effect sizes in our dataset, for instance, the seven interventions with an effect size of $\Delta \geq 0.5$ [@bianchi2022; @carfora2023; @kanchanachitra2020; @merrill2009; @piester2020] and seek to replicate and/or expand their approaches.
-However, we'd caution that these seven interventions are comparatively small, with a median of `r average_total_large_effs_n` subjects.
+Third, one might look at the largest effect sizes in our dataset, for instance, the five papers with an effect size of $\Delta \geq 0.5$ [@bianchi2022; @carfora2023; @kanchanachitra2020; @merrill2009; @piester2020] and seek to replicate and/or expand their approaches.
 
 We do not have a clear preference between these interpretations.
 However, we are generally encouraged by trends in this literature.
 
 First, as previously noted, a majority of studies that meet our inclusion criteria have been published in the past few years, suggesting an overall increase in attention to design and measurement validity.
-Second, we applaud researchers in this field for publishing null results when they find them.
-Third, we notice that the universe of possible interventions and settings is much broader than those we analyzed, suggesting that some promising approaches await rigorous evaluation.
-e.g. direct contact with animals on an animal sanctuary, price gradations, high-intensity vegan meal planning, door-to-door canvassing, or studies taking place in diverse settings such as retirement homes.
-Fourth, the tentative but promising results from studies that combine persuasive messages with psychological appeals suggest that theoretically synergistic approaches are a promising path forward.
+
+Second, we applaud researchers in this field for publishing null results when they encounter them.
+
+Third, the tentative but positive results from studies that combine persuasive messages with psychological appeals suggest that theoretically synergistic approaches are a promising path forward.
+
+Fourth, we notice that the universe of possible interventions and settings is much broader than those we analyzed, suggesting that some promising approaches await rigorous evaluation For example, direct contact with animals on an animal sanctuary, price gradations, high-intensity vegan meal planning, door-to-door canvassing, or studies taking place in diverse settings such as retirement homes are all promising candidates.
+
 
 \backmatter
 
@@ -562,7 +564,7 @@ All code data, and documentation are available on GitHub (\url{https://github.co
 
 ### Converting difference in proportions to standardized mean difference {#Sec5.1.1}
 
-Conventional methods of converting binary outcomes to estimates of standardized mean difference have some notable downsides, e.g. any given odds ratio is compatible with multiple effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
+Conventional methods of converting binary outcomes to estimates of standardized mean differences have some notable downsides. For example, any given odds ratio is compatible with multiple effect sizes depending on the rate of occurrence of the dependent variable [@gomila2021].
 We address this by treating all binary variables as draws from a Bernoulli distribution with $p(1 - p)$, where p is the proportion of some event's occurrence.
 For example, if 50% of the treatment group ate vegetarian meals vs 45% for the control group, then Glass's $\Delta = \frac{0.05}{\sqrt{0.45 * (1-0.45)}} = 0.1$.
 
