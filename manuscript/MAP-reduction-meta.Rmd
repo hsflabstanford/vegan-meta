@@ -79,7 +79,7 @@ It is of vital importance, therefore, to assess which strategies and theoretical
 The research on diet and its antecedents and consequences is vast.
 By our count, there have been at least `r round_to(nrow(read.csv('./data/review-of-reviews.csv')), 10)` previous published dietary reviews in the past two decades, with at least 37 focused specifically on MAP reduction.
 However, comparatively few of these are quantitative, and most prior reviews investigated particular approaches, for example choice architecture [@bianchi2018restructuring], rather than comparing the efficacy of different strategies.
-Moreover, two prior investigations revealed three common gaps in the MAP reduction literature: a dearth of long-term follow-ups, missing consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness]. The lack of long-term follow-ups is especially important in a literature where many interventions successfully guide people to choosing vegetarian options for a single meal [@hansen2019] but do not assess if the change is habit-forming.
+Moreover, two prior investigations revealed three common gaps in the MAP reduction literature: a dearth of long-term follow-ups, missing consumption outcomes, and inattention to the gap between intentions and behavior [@mathur2021meta; @mathur2021effectiveness]. The lack of long-term follow-ups is especially important in a literature where many interventions successfully guide people to choosing vegetarian options for a single meal [@hansen2021] but do not assess if the change is habit-forming.
 
 Our paper addresses these concerns by meta-analyzing randomized controlled trials that
 
@@ -407,22 +407,30 @@ The `r advocacy_model$N_studies` studies and `r advocacy_model$N_interventions` 
 
 ## Mixed evidence of effect delay over time {#sec2.10}
 
-A key outcome for our paper is whether MAP reduction interventions are habit-forming.
-A large effect observed immediately [@hansen2019] could plausibly dissipate quickly and create no enduring changes.
-On the other hand, a small push in the right direction might start a cascade of changes leading to permanent dietary change.
+A key quantity of interest is whether MAP reduction interventions are habit-forming.
+A large effect observed immediately [@hansen2021] could plausibly dissipate quickly and create no enduring changes. Moreover, gudiing someone to have a vegetarian meal that they do not enjoy might create a net backlash against non-MAP meals. 
+On the other hand, a small push in the right direction \textemdash a nudge towards a vegan meal that someone really enjoys \textemdash might start a cascade of positive changes.
 
 ```{r effect_decay, include=F}
 delay_model <- dat |> sum_lm(d, delay)
 endline_delay_model <- dat |> sum_lm(d, delay_post_endline)
+# "tiny, positive relationship"
+delay_model[2,1]
+
+# "tiny, negative relationship"
+endline_delay_model[2,1]
+
 ```
 
-In our dataset, we observe mixed, inconclusive evidence of effect decay over time.
-First, there is a tiny, positive relationship between number of days separating treatment onset from outcome measurement ($\beta$ = `r delay_model[2,1]`), and a tiny , negative relationship between number of days separating treatment *conclusion* from measurement ($\beta$ = `r endline_delay_model[2,1]`).
-We consider these conflicting results a wash.
+In our dataset, we find mixed, inconclusive evidence of effect decay over time.
+First, there is a tiny, positive relationship between number of days separating treatment onset from outcome measurement and a tiny, negative relationship between number of days separating treatment *conclusion* from measurement.
+We consider these results a wash.
 
 Another way to consider effect decay is to look at studies which measure consumption at multiple time points [e.g. @bianchi202022; @bochmann2022 @bschaden2020, @carfora2023; @jalil2023].
-We note that for the most part, effects seem to decline over time; [@jalil2023], where effects persist for at least three years, is a prominent counter-example.
+We note that for the most part, effects seem to decline over time; One prominent counterexample is [@jalil2023], where effects persist for at least three years.
 However, because most of the studies we looked at featured attrition over time, we do not place too much stock in this result.
+
+We also note that our inclusion criteria of delayed outcome measurement truncates the dataset. We return to this theme in our appendix robustness check.
 
 ```{=tex}
 
