@@ -140,7 +140,7 @@ All datasets are provided in our supplementary materials.
 
 Studies in our primary database pursued four theories of change: choice architecture, psychology, persuasion, or a combination of persuasion and psychology.
 
-**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumtpion. Examples include placing a vegetarian option at eye level on a cafeteria menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020]. 
+**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption. Examples include placing a vegetarian option at eye level on a cafeteria menu [@andersson2021] or making it more laborious for people to serve themselves fish sauce [@kanchanachitra2020]. 
 
 ```{=tex}
 \begin{comment}
@@ -271,7 +271,7 @@ All but one of these studies employs persuasion, and a majority (`r health_rpm_s
 However, these studies do not collect data on white meat and/or fish consumption, and therefore their impact on MAP consumption overall is unknown.
 (One study in our primary dataset aimed to reduce RPM consumption but measured meat consumption overall [@shreedhar2021]. That study found moderate positive effects in the short-run and no effects in the long run.)
 
-RPM is of special concern for its environmental and health consequences [@grummon2023], but some categories of meat considered sustainable are arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
+RPM is of special concern for its environmental and health consequences [@grummon2023], [+ one more cite] but some categories of meat considered sustainable are arguably worse for animals on a pound-for-pound basis [@mathur2022ethical].
 For some plausible patterns of substitution, these interventions are a net good for personal health and the environment and a net bad for animal welfare.
 
 ## Psychological interventions work sometimes, but it is not clear why or when {#sec2.4}
