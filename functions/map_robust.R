@@ -60,7 +60,8 @@ map_robust <- function(x, model = "CORR") {
         N_subjects = N_total,
         Delta = Delta,
         se = se,
-        pval = pval
+        pval = pval,
+        
       )
     } else {
       if (model == "CORR" || model == "HIER") {
@@ -74,7 +75,7 @@ map_robust <- function(x, model = "CORR") {
           N_subjects = N_total,
           Delta = round(result$reg_table$b.r, 3),
           se = round(result$reg_table$SE, 3),
-          pval = format_pval(result$reg_table$prob)
+          pval = format_pval(result$reg_table$prob) #,lower_ci = result$reg_table$CI.L, upper_ci = result$reg_table$CI.U
         )
       } else if (model == "RMA") {
         result <- metafor::rma(yi = d, vi = var_d, data = x)
@@ -84,7 +85,7 @@ map_robust <- function(x, model = "CORR") {
           N_subjects = N_total,
           Delta = round(result$b, 3),
           se = round(result$se, 3),
-          pval = format_pval(result$pval)
+          pval = format_pval(result$pval) #, lower_ci = result$reg_table$CI.L, upper_ci = result$reg_table$CI.U
         )
       } else {
         stop("Invalid model specified. Choose 'CORR', 'HIER', or 'RMA'.")
