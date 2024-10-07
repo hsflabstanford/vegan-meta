@@ -1,4 +1,4 @@
-RPMC_two <- read.csv("./data/robustness-data.csv") |>
+RPMC_two <- read.csv("./data/robustness-check.csv") |>
   filter(inclusion_exclusion == 1) |> 
   group_by(title) |>
   group_by(title) |>
@@ -16,8 +16,10 @@ RPMC_two <- read.csv("./data/robustness-data.csv") |>
            venue == "Dissertation" ~ 'Thesis',
            venue == "Master's Thesis" ~ 'Thesis',
            venue == "SSRN (Preprint)" ~ 'Preprint',
-           str_detect(doi_or_url, "10\\.") ~ "Journal article"),
-         total_sample = n_c_post + n_c_post, d = mapply(
+           str_detect(doi_or_url, "10\\.") ~ "Journal article"))
+         ,
+         total_sample = n_c_post + n_c_post, 
+         d = mapply(
            FUN = d_calc,
            stat_type = eff_type,
            stat =  u_s_d,
