@@ -76,7 +76,8 @@ Global MAP consumption is increasing annually [@godfray2018] and expected to con
 There is a vast and diverse literature investigating potential means to reverse this trend.
 Example approaches include providing free access to meat substitutes [@katare2023], changing the price [@horgen2002] or perceptions [@kunst2016] of meat, or attempting to persuade people to change their diets [@bianchi2018conscious].
 A large portion of this literature seeks to alter the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021] or placing vegetarian items more prominently in dining halls [@ginn2024].
-Some interventions are associated with large impacts [@hansen2021; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as making vegetarian meals the default [@meier2022] and using persuasive messaging that appeals to animal welfare [@mathur2021meta], may be consistently effective.  Practitioners are increasingly implementing these ideas in such settings as university dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
+Some interventions are associated with large impacts [@hansen2021; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta] or making vegetarian meals the default [@meier2022]  may be consistently effective. Practitioners are increasingly implementing these ideas in such settings as university dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
+
 
 However, much of this literature is beset by design and measurement limitations.
 Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
