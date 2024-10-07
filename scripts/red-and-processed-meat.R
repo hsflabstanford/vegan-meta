@@ -1,4 +1,5 @@
-RPMC <- read.csv("./data/RPMC-data.csv") |>
+RPMC_two <- read.csv("./data/robustness-data.csv") |>
+  filter(inclusion_exclusion == 1) |> 
   group_by(title) |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 

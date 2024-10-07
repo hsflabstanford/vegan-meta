@@ -29,7 +29,8 @@ dat <- read.csv('./data/vegan-meta.csv') |>
            venue == "Master's Thesis" ~ 'Thesis',
            venue == "SSRN (Preprint)" ~ 'Preprint',
            str_detect(doi_or_url, "10\\.") ~ "Journal article"),
-         total_sample = n_c_post + n_c_post, d = mapply(
+         total_sample = n_c_post + n_c_post, 
+         d = mapply(
            FUN = d_calc,
            stat_type = eff_type,
            stat =  u_s_d,
@@ -49,23 +50,18 @@ dat <- read.csv('./data/vegan-meta.csv') |>
 ## supplementary data
 # library(googlesheets4)
 # library(readr)
+
+# read_sheet(ss = "1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk",
+#            sheet = "robustness-data") |>
+#   write_csv('./data/robustness-data.csv')
+#
 # library(dplyr, warn.conflicts = F)
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
 #                                sheet = 'excluded-studies') |>
-#   select(Author,	Year,	Title,	doi_or_url,	source,	excllusion_reason) |> 
+#   select(Author,	Year,	Title,	doi_or_url,	source,	excllusion_reason) |>
 #   write_csv('./data/excluded-studies.csv')
-# 
-# read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
-#            sheet = 'RPMC-data') |> 
-#   mutate(ctrl_sd = unlist(ctrl_sd)) |>
-#   write.csv('./data/RPMC-data.csv')
 # 
 # read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
 #            sheet = 'review-of-reviews') |>
 #   select(Author, Year, Title, DOI_or_URL) |>
 #   write_csv('./data/review-of-reviews.csv')
-#
-# read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
-#            sheet = 'robustness-data') |>
-#   write_csv('./data/robustness-check.csv')
-
