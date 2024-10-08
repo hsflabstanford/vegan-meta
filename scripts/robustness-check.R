@@ -1,4 +1,4 @@
-robustness_dat <- read.csv('./data/robustness-check.csv') |>
+robustness_dat <- read.csv('./data/robustness-data.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
   ungroup() |> 
