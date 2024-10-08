@@ -1,5 +1,5 @@
-## An overall small effect with some heterogeneity by approach {#sec2.1}
 
+## An overall small effect with some heterogeneity by approach {#sec2.1}
 
 Our overall meta-analytic effect size is $\Delta$ = `r model$Delta` (SE = `r model$se`), p = `r model$pval`.
 The aggregate effect is statistically significant, but does not indicate a meaningful, enduring reduction.

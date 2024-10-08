@@ -117,7 +117,8 @@ num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
 
-n_total <-  round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor)
+n_total <-  noquote(format(round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor),
+                   big.mark = ",", scientific = FALSE))
 
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 ```
@@ -128,9 +129,9 @@ source('./scripts/robustness-check.R')
 
 # Results {#sec2}
 
-Our dataset comprises `r num_papers` papers, `r num_studies` studies, and `r num_interventions` separate point estimates. each corresponding to a distinct intervention.
-These studies reached approximately `r `n_total` subjects. 
-However, this estimate is a rough approximation because many studies do not report a specific number of subjects, instead assigning treatment at the level of day or setting.
+## Descriptive overview
+Our dataset comprises `r num_papers` papers, `r num_studies` studies, and `r num_interventions` separate point estimates, each corresponding to a distinct intervention.
+These studies reached approximately `r n_total` subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record how many individuals were assigned to treatment).
 
 ```{r country_numbers, include=F}
 country_nums <- dat |> 
@@ -143,16 +144,85 @@ country_nums <- dat |>
   group_by(grouped_region) |> 
   summarise(study_count = n_distinct(unique_study_id)) |> 
   deframe()
-
-country_nums["Europe"]
-country_nums["North America"]
-country_nums["Asia, Australia, and worldwide"]
 ```
 
-A majority of studies take place in North America or Canada: `r country_nums["Europe"]` of `r num_studies`. 
-`r english::Words(country_nums["Europe"])` studies take place in Europe, and the remaining `r english::words(country_nums["Asia, Australia, and worldwide"])` studies take place in Asia, Australia, or draw subjects from multiple countries.
+A majority of studies (`r country_nums["Europe"]` of `r num_studies`) were conducted in North America or Canada.  
+`r english::Words(country_nums["Europe"])` studies were conducted in Europe, and the remaining `r english::words(country_nums["Asia, Australia, and worldwide"])` studies take place in Asia, Australia, or draw subjects from multiple countries.
 
-Most studies 
+```{r population_numbers, include=F}
+population_nums <- dat |> 
+  mutate(population_group = case_when(
+    str_detect(population, "university") ~ "University",
+    str_detect(population, "adult") ~ "Adults", 
+    str_detect(population, "young") ~ "Young people",
+    str_detect(population, "all ages") ~ "All ages",
+    TRUE ~ 'Other')) |> 
+  group_by(population_group) |> 
+  summarise(study_count = n_distinct(unique_study_id)) |> 
+  deframe()
+```
+
+`r english::Words(population_nums['University'])` studies sample from university students and staff, while `r population_nums['Adults']` look at an adult population. 
+An additional `r english::words(population_nums['Young people'])` studies are aimed at adolescents, while `r english::words(population_nums['All ages'])` study people of all ages.
+
+```{r delivery_methods, include=F}
+delivery_nums <- dat |> 
+  mutate(
+    Printed_materials = str_detect(delivery_method, "article|op-ed|leaflet|flyer|printed booklet|mailed"),
+    Video = str_detect(delivery_method, "video"),
+    In_cafeteria = str_detect(delivery_method, "in-cafeteria"),
+    Online = str_detect(delivery_method, "online|internet|text|email"),
+    Dietary_consultation = str_detect(delivery_method, "dietary consultation"),
+    Lecture = str_detect(delivery_method, "lecture"),
+    Free_Meat_Alternative = str_detect(delivery_method, "free meat alternative")
+  ) |> 
+  pivot_longer(cols = c(Printed_materials, Video, In_cafeteria, Online, 
+                        Dietary_consultation, Lecture, Free_Meat_Alternative),
+               names_to = "delivery_group", values_to = "is_used") |> 
+  filter(is_used) |> 
+  group_by(delivery_group) |> 
+  summarise(study_count = n_distinct(unique_study_id)) |> 
+  arrange(desc(study_count)) |> 
+  deframe()
+```
+
+The most common delivery methods in our dataset were printed materials (`r english::words(delivery_nums['Printed_materials'])` studies), videos (`r english::words(delivery_nums['Video'])` studies), messages and/or manipulations in cafeterias and restaurants (`r delivery_nums['In_cafeteria']` studies), and the internet (online surveys, emails,  and text messages: `r delivery_nums['Online']` studies).
+```{=tex}
+\begin{comment}
+We could have a few additional sentences here: 2 studies use dietary consultations, 2 provide free access to free meat alternatives, and 1 is a university lecture; And about how some studies do a few things (some interventions combine two things (free legumes + dietary consultation), and some compare two interventions side by side (op ed vs video)), so the numbers don't add up. I think this is more complexity than a descriptive overview calls for, but if you want more texture, here's where we could provide it. 
+\end{comment}
+```
+
+```{r decade_tab, include=F}
+decade_tab <- dat |> group_by(unique_paper_id) |> slice(1) |> sum_tab(decade)
+```
+The earliest paper was published in 2002 [@allen2002] and a majority (`r decade_tab['2020s']` of `r num_papers` papers) have been published since 2020.
+
+## Constituent theories
+**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption. One study placed the vegetarian option at eye level on a cafeteria menu [@andersson2021] while the other used special spoons to make it harder for people to serve themselves fish sauce [@kanchanachitra2020]. 
+
+```{=tex}
+\begin{comment}
+Do we put in something here about the line between choice architecture and nudge? I currently have it in the results section
+\end{comment}
+```
+**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] appeal directly to people to eat less MAP.
+These studies formed the majority of our database.
+Arguments focus on health, the environment (usually climate change), and animal welfare.
+Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@polanco2022], while others present information more factually, for instance about the relationship between diet and cancer [@hatami2018].
+Many persuasion studies combine arguments, such as a lecture on the health and environmental consequences of eating meat [@jalil2023].
+
+**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal,cognitive, or affective factors associated with eating meat.
+The most common psychological intervention is centered on social norms.
+These studies seek to alter the perceived popularity of non-MAP dishes [@sparkman2020].
+Norms might be descriptive, stating how many people engaged in the desired behavior [@aldoh2023], or dynamic, telling subjects that the number of people reducing their MAP consumption is increasing over time [@aldoh2023; @coker2022; @sparkman2020].
+Another study looked at response inhibition training, where subjects are trained to associate meat with an inhibiting response [@camp2019].
+\begin{comment}
+The first psychology study meeting our inclusion criteria was published in 2017.
+\end{comment}
+Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021]. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or combined a persuasive message with an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
+
+## Quantitative results
 
 \newpage
 
