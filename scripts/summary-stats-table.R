@@ -5,7 +5,7 @@
 population_summary <- summarize_to_tibble(
   dat,
   condition = list(
-    str_detect(dat$population, "university") ~ "University",
+    str_detect(dat$population, "university") ~ "University students and staff",
     str_detect(dat$population, "adult") ~ "Adults", 
     str_detect(dat$population, "young") ~ "Young people",
     str_detect(dat$population, "all ages") ~ "All ages",
@@ -14,12 +14,10 @@ population_summary <- summarize_to_tibble(
   group_col_name = population_group
 )
 
-# Decade summary (no sorting by Number of Studies)
 decade_summary <- summarize_to_tibble(
   dat,
   condition = list(
-    TRUE ~ as.character(dat$decade)
-  ),
+    TRUE ~ as.character(dat$decade)),
   group_col_name = decade,
   sort_desc = FALSE  # Disable sorting for decades
 )
