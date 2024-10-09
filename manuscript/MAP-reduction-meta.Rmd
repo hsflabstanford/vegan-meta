@@ -45,6 +45,7 @@ header-includes:
   - \usepackage{comment}
   - \usepackage{anyfontsize}
   - \usepackage{caption}
+  - \usepackage{}
 ---
 
 ```{r setup, include=FALSE}
@@ -63,8 +64,8 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
-source('./scripts/tables.R')
-source('./scripts/figures.R')
+# source('./scripts/tables.R')
+# source('./scripts/figures.R')
 source('./scripts/summary-stats-table.R')
 ```
 
@@ -134,14 +135,25 @@ source('./scripts/robustness-check.R')
 Our dataset comprises `r num_papers` papers, `r num_studies` studies, and `r num_interventions` separate point estimates, each corresponding to a distinct intervention.
 These studies reached approximately `r n_total` subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record how many individuals were assigned to treatment).
 
-Table 1 summarizes studies' basic characteristics in terms of population, decade of publication, where studies were published, and how interventions were delivered. The earliest paper was published in 2002 [@allen2002] and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) have been published since 2020.
+Table 1 summarizes studies in terms of population, location,  decade of publication, where studies were published, and how interventions were delivered. The earliest paper was published in 2002 [@allen2002] and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) have been published since 2020.
 
+```{r mean_subjects, include=F}
+total_pops <- dat |> filter(cluster_assigned == 'N') |> mutate(total_pop = as.numeric(n_c_post + n_t_post)) |> pull(total_pop)
+
+median_total_pop <- round(median(total_pops, na.rm = TRUE))
+percentile_25 <- round(quantile(total_pops, 0.25, na.rm = TRUE))
+percentile_75 <- round(quantile(total_pops, 0.75, na.rm = TRUE))
+```
+
+Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was `r median_total_pop` subjects (25th percentile: `r percentile_25`; 75th percentile: `r percentile_75`).
 
 ```{r summary_stats_table}
 summary_stats_table |> 
   footnote("Delivery Method Ns will not tally to 40 because some studies employ multiple delivery methods.")
 ```
 
+## Constituent Theories
+[OR A LINKING SENTENCE?]
 **Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption. One study placed the vegetarian option at eye level on a cafeteria menu [@andersson2021] while the other used special spoons to make it harder for people to serve themselves fish sauce [@kanchanachitra2020]. 
 
 **Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] appeal directly to people to eat less MAP.
@@ -161,6 +173,13 @@ The first psychology study meeting our inclusion criteria was published in 2017.
 Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021]. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or combined a persuasive message with an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
 
 ## Quantitative results
+
+In our dataset, the pooled effect of all interventions is $\Delta$ = `r overall_results$Delta`, with 95% confidence intervals of `r overall_results$CI`, and a p-value of `r overall_results$p_val`.
+
+```{r meta_table}
+source('./scripts/meta-table.R')
+meta_table |>  footnote("Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ different # kinds of arguments together.")
+```
 
 \newpage
 

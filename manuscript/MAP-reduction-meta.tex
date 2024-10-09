@@ -48,6 +48,7 @@
 \usepackage{comment}
 \usepackage{anyfontsize}
 \usepackage{caption}
+\usepackage{}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -237,11 +238,14 @@ approximation: many interventions were administered at the level of day
 or cafeteria and did not record how many individuals were assigned to
 treatment).
 
-Table 1 summarizes studies' basic characteristics in terms of
-population, decade of publication, where studies were published, and how
-interventions were delivered. The earliest paper was published in 2002
-\citep{allen2002} and a majority (18 of 34 papers) have been published
-since 2020.
+Table 1 summarizes studies in terms of population, location, decade of
+publication, where studies were published, and how interventions were
+delivered. The earliest paper was published in 2002 \citep{allen2002}
+and a majority (18 of 34 papers) have been published since 2020.
+
+Among studies where treatment was assigned to individuals rather than by
+clusters, the median analyzed sample size per study was 131 subjects
+(25th percentile: 108; 75th percentile: 214).
 
 \begin{table}[!h]
 \centering\begingroup\fontsize{10}{12}\selectfont
@@ -255,28 +259,35 @@ since 2020.
 \multicolumn{2}{l}{\textbf{Population}}\\
 \hspace{1em}\cellcolor{gray!10}{University students and staff} & \cellcolor{gray!10}{18}\\
 \hspace{1em}Adults & 17\\
-\hspace{1em}\cellcolor{gray!10}{Young people} & \cellcolor{gray!10}{3}\\
+\hspace{1em}\cellcolor{gray!10}{Adolescents} & \cellcolor{gray!10}{3}\\
 \hspace{1em}All ages & 2\\
 \addlinespace[0.5em]
+\multicolumn{2}{l}{\textbf{Region}}\\
+\hspace{1em}\cellcolor{gray!10}{North America} & \cellcolor{gray!10}{22}\\
+\hspace{1em}Europe & 14\\
+\hspace{1em}\cellcolor{gray!10}{Asia} & \cellcolor{gray!10}{2}\\
+\hspace{1em}Australia & 1\\
+\hspace{1em}\cellcolor{gray!10}{multi-region} & \cellcolor{gray!10}{1}\\
+\addlinespace[0.5em]
 \multicolumn{2}{l}{\textbf{Publication Decade}}\\
-\hspace{1em}\cellcolor{gray!10}{2000s} & \cellcolor{gray!10}{6}\\
-\hspace{1em}2010s & 11\\
-\hspace{1em}\cellcolor{gray!10}{2020s} & \cellcolor{gray!10}{23}\\
+\hspace{1em}2000s & 6\\
+\hspace{1em}\cellcolor{gray!10}{2010s} & \cellcolor{gray!10}{11}\\
+\hspace{1em}2020s & 23\\
 \addlinespace[0.5em]
 \multicolumn{2}{l}{\textbf{Publication Status}}\\
-\hspace{1em}Journal article & 29\\
-\hspace{1em}\cellcolor{gray!10}{Advocacy Organization} & \cellcolor{gray!10}{5}\\
-\hspace{1em}Thesis & 5\\
-\hspace{1em}\cellcolor{gray!10}{Preprint} & \cellcolor{gray!10}{1}\\
+\hspace{1em}\cellcolor{gray!10}{Journal article} & \cellcolor{gray!10}{29}\\
+\hspace{1em}Nonprofit white paper & 5\\
+\hspace{1em}\cellcolor{gray!10}{Thesis} & \cellcolor{gray!10}{5}\\
+\hspace{1em}Preprint & 1\\
 \addlinespace[0.5em]
 \multicolumn{2}{l}{\textbf{Delivery Methods}}\\
-\hspace{1em}Printed materials & 14\\
-\hspace{1em}\cellcolor{gray!10}{Video} & \cellcolor{gray!10}{10}\\
-\hspace{1em}In cafeteria & 8\\
-\hspace{1em}\cellcolor{gray!10}{Online} & \cellcolor{gray!10}{7}\\
-\hspace{1em}Dietary consultation & 2\\
-\hspace{1em}\cellcolor{gray!10}{Free Meat Alternative} & \cellcolor{gray!10}{2}\\
-\hspace{1em}Lecture & 1\\
+\hspace{1em}\cellcolor{gray!10}{Printed materials} & \cellcolor{gray!10}{14}\\
+\hspace{1em}Video & 10\\
+\hspace{1em}\cellcolor{gray!10}{In cafeteria} & \cellcolor{gray!10}{8}\\
+\hspace{1em}Online & 7\\
+\hspace{1em}\cellcolor{gray!10}{Dietary consultation} & \cellcolor{gray!10}{2}\\
+\hspace{1em}Free Meat Alternative & 2\\
+\hspace{1em}\cellcolor{gray!10}{Lecture} & \cellcolor{gray!10}{1}\\
 \bottomrule
 \multicolumn{2}{l}{\rule{0pt}{1em}\textit{Note: }}\\
 \multicolumn{2}{l}{\rule{0pt}{1em}Delivery Method Ns will not tally to 40 because some studies employ multiple delivery methods.}\\
@@ -284,7 +295,9 @@ since 2020.
 \endgroup{}
 \end{table}
 
-\textbf{Choice Architecture} studies
+\subsection{Constituent Theories}\label{constituent-theories}
+
+{[}OR A LINKING SENTENCE?{]} \textbf{Choice Architecture} studies
 \citep{andersson2021, kanchanachitra2020} manipulate aspects of physical
 environments to reduce MAP consumption. One study placed the vegetarian
 option at eye level on a cafeteria menu \citep{andersson2021} while the
@@ -329,6 +342,37 @@ with an opportunity to pledge to reduce one's meat consumption
 \citep{mathur2021effectiveness, shreedhar2021}.
 
 \subsection{Quantitative results}\label{quantitative-results}
+
+In our dataset, the pooled effect of all interventions is \(\Delta\) =
+0.066, with 95\% confidence intervals of {[}0.018, 0.114{]}, and a
+p-value of 0.0094.
+
+\begin{table}[!h]
+\centering\begingroup\fontsize{10}{12}\selectfont
+
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lrrrlr}
+\toprule
+Approach & N (Studies) & N (Interventions) & Delta & 95\% CIs & p value\\
+\midrule
+\begingroup\fontsize{9}{11}\selectfont \cellcolor{gray!10}{Overall}\endgroup & \begingroup\fontsize{9}{11}\selectfont \cellcolor{gray!10}{40}\endgroup & \begingroup\fontsize{9}{11}\selectfont \cellcolor{gray!10}{108}\endgroup & \begingroup\fontsize{9}{11}\selectfont \cellcolor{gray!10}{0.066}\endgroup & \begingroup\fontsize{9}{11}\selectfont \cellcolor{gray!10}{{}[0.018, 0.114]}\endgroup & \begingroup\fontsize{9}{11}\selectfont \cellcolor{gray!10}{0.0094}\endgroup\\
+\addlinespace[0.5em]
+\multicolumn{6}{l}{\textbf{Theory}}\\
+\hspace{1em}Choice Architecture & 2 & 3 & 0.212 & {}[-0.993, 1.418] & 0.2674\\
+\hspace{1em}\cellcolor{gray!10}{Persuasion} & \cellcolor{gray!10}{24} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.073} & \cellcolor{gray!10}{{}[0.009, 0.137]} & \cellcolor{gray!10}{0.0275}\\
+\hspace{1em}Psychology & 9 & 12 & 0.108 & {}[-0.029, 0.244] & 0.0919\\
+\hspace{1em}\cellcolor{gray!10}{Psychology \& Persuasion} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{18} & \cellcolor{gray!10}{0.091} & \cellcolor{gray!10}{{}[-0.096, 0.278]} & \cellcolor{gray!10}{0.2977}\\
+\addlinespace[0.5em]
+\multicolumn{6}{l}{\textbf{Type of Persuasion}}\\
+\hspace{1em}Animal Welfare & 16 & 65 & 0.026 & {}[-0.016, 0.069] & 0.1891\\
+\hspace{1em}\cellcolor{gray!10}{Environment} & \cellcolor{gray!10}{14} & \cellcolor{gray!10}{24} & \cellcolor{gray!10}{0.083} & \cellcolor{gray!10}{{}[-0.038, 0.203]} & \cellcolor{gray!10}{0.1564}\\
+\hspace{1em}Health & 18 & 30 & 0.080 & {}[-0.007, 0.167] & 0.0677\\
+\bottomrule
+\multicolumn{6}{l}{\rule{0pt}{1em}\textit{Note: }}\\
+\multicolumn{6}{l}{\rule{0pt}{1em}Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ different \# kinds of arguments together.}\\
+\end{tabular}}
+\endgroup{}
+\end{table}
 
 \newpage
 

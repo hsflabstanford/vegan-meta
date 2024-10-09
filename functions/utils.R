@@ -39,3 +39,23 @@ summarize_to_tibble <- function(data, condition, group_col_name, sort_desc = TRU
   
   return(result)
 }
+
+extract_model_results <- function(model, approach_name) {
+  estimate <- model$reg_table$b.r
+  ci_lower <- model$reg_table$CI.L
+  ci_upper <- model$reg_table$CI.U
+  p_val <- round(model$reg_table$prob, 4)
+  
+  num_studies <- length(unique(model$X.full$study))  # Number of unique studies
+  num_point_estimates <- nrow(model$data.full)       # Total number of rows (point estimates)
+  
+  # Create the tibble and remove backticks by renaming columns with valid R names
+  tibble(
+    Approach = approach_name,
+    N_Studies = num_studies,
+    N_Point_estimates = num_point_estimates,  
+    Delta = round(estimate, 3),  # Changed from `∆` to Delta for R Markdown
+    CI = paste0("[", round(ci_lower, 3), ", ", round(ci_upper, 3), "]"),  # Renamed `95% CIs` to CI
+    p_val = p_val  # Renamed `p val` to p_val
+  )
+}
