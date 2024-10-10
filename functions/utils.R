@@ -22,7 +22,7 @@ round_to <- function(x, accuracy, f = round) {
   f(x / accuracy) * accuracy
 }
 # handy shortcut 
-mr <- meta_result_formatter
+# mr <- meta_result_formatter
 
 # something for first descriptive table
 summarize_to_tibble <- function(data, condition, group_col_name, sort_desc = TRUE) {

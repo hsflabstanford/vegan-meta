@@ -13,11 +13,12 @@ meta_table <- bind_rows(
   persuasion_part
 ) |>
   kbl(booktabs = TRUE, col.names = c("Approach", "N (Studies)", "N (Interventions)", "Delta", "95% CIs", "p value")) |>
-  kable_styling(latex_options = c("striped", "hold_position", "scale_down"), font_size = 10) |>
+  kable_styling(latex_options = c("striped", "hold_position", "scale_down"), 
+                font_size = 10) |>
   pack_rows(group_label = "Theory", start_row = 2, 
             end_row = 1 + nrow(theory_part), latex_gap_space = "0.5em", bold = TRUE) |>
   pack_rows(group_label = "Type of Persuasion", 
             start_row = 2 + nrow(theory_part), 
             end_row = 1 + nrow(theory_part) + nrow(persuasion_part), 
             latex_gap_space = "0.5em", bold = TRUE) |>
-  row_spec(1, bold = FALSE, font_size = 9)  # Smaller font for "Overall"
+  row_spec(0, bold = TRUE, font_size = 12)
