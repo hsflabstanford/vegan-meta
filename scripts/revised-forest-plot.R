@@ -1,5 +1,3 @@
-library(forcats)  # Ensure forcats is loaded for factor ordering
-
 forest_data <- dat |> 
   split(dat[c("unique_study_id", "theory")]) |>  
   map( ~if (nrow(.x) > 0) forest_meta_function(.x)) |> 
@@ -15,16 +13,14 @@ forest_data <- dat |>
           ci.ub = model$reg_table$CI.U) |> 
   mutate(
     theory = factor(theory, levels = c("Choice Architecture", "Persuasion", 
-                                       "Persuasion & Psychology", "Psychology")),
-    precision = 1 / se  # Higher precision means smaller SE
-  ) |>
+                                       "Psychology", "Persuasion & Psychology")),
+    precision = 1 / se) |>
   arrange(theory, desc(precision)) |>  # Sort by theory and precision
-  mutate(study_name = fct_inorder(study_name))  # Ensure study_name order is preserved in ggplot
+  mutate(study_name = fct_inorder(study_name))  # Ensure study_name order is preserved
 
-
-# Now the plot will follow the theory order
+# Plot with reversed y-axis to make Choice Architecture appear at the top
 forest_data |> 
-  ggplot(aes(x = estimate, y = study_name)) +  
+  ggplot(aes(x = estimate, y = fct_rev(study_name))) +  
   geom_point(data = subset(forest_data, study_name == "RE Estimate"), 
              size = 5, shape = 18, color = 'black') +  
   geom_errorbarh(data = subset(forest_data, study_name == "RE Estimate"), 
@@ -40,7 +36,7 @@ forest_data |>
              color = 'black', lty = 'dashed') +
   theme_minimal() +
   theme(axis.text.y = element_markdown()) +  
-  scale_y_discrete(labels = function(x) gsub(" - .*", "", x)) +  
+  scale_y_discrete(labels = function(x) ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)) +
   scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
   labs(color = "Theory") +
   ylab("Study") +
