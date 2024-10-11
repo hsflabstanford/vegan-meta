@@ -40,8 +40,7 @@ geom_errorbarh(data = subset(forest_data, study_name != "RE Estimate"),
   theme(axis.text.y = element_markdown()) +  
   scale_y_discrete(labels = function(x) {
     x <- gsub(" \\| .*", "", x)  # Remove the theory part
-    ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)  # Bold "RE Estimate"
-  }) +
+    ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)}) +
   scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
   labs(color = "Theory") +
   ylab(NULL) +
