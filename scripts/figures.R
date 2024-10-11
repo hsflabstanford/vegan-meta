@@ -8,7 +8,7 @@ plot_dat <- dat |>
   add_row(author = "RE Estimate", year = NA, d = model$Delta, 
           lower_bound = model$Delta - (1.96 * model$se),
           upper_bound = model$Delta + (1.96 * model$se), 
-          theory = NA) |>
+          theory = 'NA') |>
   mutate(study_name = if_else(author == "RE Estimate", 
                               "RE Estimate", paste0(author, " ", year))) |>
   select(study_name, d, se_d, lower_bound, upper_bound, theory)
