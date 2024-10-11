@@ -44,7 +44,7 @@ geom_errorbarh(data = subset(forest_data, study_name != "RE Estimate"),
   }) +
   scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
   labs(color = "Theory") +
-  ylab("Study") +
+  ylab(NULL) +
   guides(size = "none") +
   ggtitle("MAP reduction forest plot") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold"),
