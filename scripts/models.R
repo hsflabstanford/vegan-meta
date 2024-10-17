@@ -39,13 +39,15 @@ rpmc_model <- RPMC |>
                  var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
 # Extract results for each model
-overall_results <- extract_model_results(model, "Overall")
-choice_results <- extract_model_results(choice_model, "Choice Architecture")
-psychology_results <- extract_model_results(psychology_model, "Psychology")
-persuasion_results <- extract_model_results(persuasion_model, "Persuasion")
-persuasion_psych_results <- extract_model_results(persuasion_psychology_model, "Psychology & Persuasion")
+overall_results <- extract_model_results("Overall")
+rpmc_results <- extract_model_results(data = RPMC, approach_name = "Overall")
 
-health_results <- extract_model_results(health_model, "Health")
-environment_results <- extract_model_results(environment_model, "Environment")
-animal_results <- extract_model_results(animal_model, "Animal Welfare")
+choice_results <- extract_model_results("Choice Architecture", "theory")
+psychology_results <- extract_model_results("Psychology", "theory", FALSE)
+persuasion_results <- extract_model_results("Persuasion", "theory", FALSE)
+persuasion_psych_results <- extract_model_results("Persuasion & Psychology", "theory")
+
+health_results <- extract_model_results("health", "secondary_theory")
+environment_results <- extract_model_results("environment", "secondary_theory")
+animal_results <- extract_model_results("animal", "secondary_theory")
 

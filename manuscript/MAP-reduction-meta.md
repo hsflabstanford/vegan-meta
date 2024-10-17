@@ -34,7 +34,7 @@ keywords:
   
 abstract: |
   Which theoretical approach leads to the broadest and most enduring reductions in consumptions of meat and animal products (MAP)? We address these questions with a theoretical review and meta-analysis of rigorous randomized controlled trials with consumption outcomes. We meta-analyze 36 papers comprising 42 studies, 114 interventions, and approximately 88,000 subjects. We find that these papers employ four major strategies to changing behavior: choice architecture, persuasion, psychology, and a combination of persuasion and psychology. The pooled effect of all 114 interventions on MAP consumption is $\Delta$ = 0.065, indicating an unsolved problem. Reducing consumption of red and processed meat is an easier target: $\Delta$ = 0.249, but because of missing data on potential substitution to other MAP, we can’t say anything definitive about the consequences of these interventions on animal welfare. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
-date: "`r Sys.Date()`"
+date: "2024-10-13"
 output: 
   rticles::springer_article:
     keep_tex: true
@@ -50,26 +50,7 @@ header-includes:
   - \usepackage{}
 ---
 
-```{r setup, include=FALSE}
-# so that knitr labels figures
-knitr::opts_chunk$set(fig.path = "./figures/",
-                      echo = FALSE,
-                      out.extra = "")
 
-# directory modifications so we can put the manuscript stuff in its own folder
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-setwd(rprojroot::find_rstudio_root_file())
-options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
-
-source('./scripts/libraries.R')
-source('./scripts/functions.R')
-source('./scripts/load-data.R')
-source('./scripts/red-and-processed-meat.R')
-source('./scripts/models.R')
-source('./scripts/revised-tables.R')
-# source('./scripts/tables.R')
-# source('./scripts/figures.R')
-```
 
 # Introduction {#sec1}
 
@@ -94,29 +75,11 @@ In the past few years, a new wave of MAP reduction research has made commendable
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
 Does this phenomenon hold in the MAP reduction literature as well?
 
-```{r useful_constants, include=F}
 
-num_papers <- as.numeric(max(dat$unique_paper_id))
-num_studies <- as.numeric(max(dat$unique_study_id))
-num_interventions <- as.numeric(nrow(dat))
-
-n_total <-  noquote(format(round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor),
-                   big.mark = ",", scientific = FALSE))
-
-decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
-
-RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
-RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
-RPMC_interventions <- as.numeric(nrow(RPMC))
-n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 1000, floor)
-
-# also supplementary_numbers
-excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
-```
 
 We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
 These RCTs all measured consumption outcomes at least a single day after treatment was first administered, and all had at least 25 subjects in both treatment and control, or, in the case of cluster-assigned studies, at least ten clusters in total. 
-Additionally, we coded a separate dataset of `r RPMC_papers` papers that otherwise met our inclusion criteria but instead measured changes in consumption of RPM [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015;  @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
+Additionally, we coded a separate dataset of 17 papers that otherwise met our inclusion criteria but instead measured changes in consumption of RPM [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015;  @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
 
 Studies in our meta-analytic database pursued one of four theoretical approaches: choice architecture (the manipulation of how MAP is presented to diners), psychological appeals (typically manipulations of perceived norms around eating meat), explicit persuasion (centered around animal welfare, the environment, and/or health), or a combination of psychological and persuasion messages.
 Interventions varied in delivery method, for example, documentary films [@mathur2021effectiveness], leaflets [@peacock2017], university lectures [@jalil2023], op-eds [@haile2021], and changes to menus in cafeterias [@andersson2021] and restaurants [@coker2022; @sparkman2021].
@@ -129,45 +92,20 @@ However, many promising approaches still await rigorous evaluation.
 # Results {#sec2}
 
 ## Descriptive overview
-Our meta-analysis included `r num_papers` papers comprising `r num_studies` studies, and `r num_interventions` separate point estimates, each corresponding to a distinct intervention.
-The total sample size was `r n_total` subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record how many individuals were assigned to treatment).
+Our dataset comprises 34 papers, 40 studies, and 108 separate point estimates, each corresponding to a distinct intervention.
+These studies reached approximately 87,000 subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record how many individuals were assigned to treatment).
 
-```{r mean_subjects, include=F}
-total_pops <- dat |> filter(cluster_assigned == 'N') |> mutate(total_pop = as.numeric(n_c_post + n_t_post)) |> pull(total_pop)
 
-median_total_pop <- round(median(total_pops, na.rm = TRUE))
-percentile_25 <- round(quantile(total_pops, 0.25, na.rm = TRUE))
-percentile_75 <- round(quantile(total_pops, 0.75, na.rm = TRUE))
-```
 
-The earliest paper was published in 2002 [@allen2002], and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) were published since 2020. Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was `r median_total_pop` subjects (25th percentile: `r percentile_25`; 75th percentile: `r percentile_75`).
+The earliest paper was published in 2002 [@allen2002] and a majority (18 of 34 papers) have been published since 2020. Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was 131 subjects (25th percentile: 108; 75th percentile: 214).
 
 ## Constituent Theories
 
 **Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, e.g. placing vegetarian option at eye level on a cafeteria menu [@andersson2021] or providing diners with spoons that make it harder for people to serve themselves fish sauce [@kanchanachitra2020]. 
-```{=tex}
-\begin{comment}
-Maya suggests we put in a more representative DV
-\end{comment}
-```
 
-```{r persuasion_nums, include=F}
-pers_studies <- dat |> filter(theory == 'Persuasion') 
-# printed materials
-pers_studies |> group_by(unique_study_id, delivery_method) |> slice(1) |> 
-  filter(str_detect(delivery_method, "article|op-ed|leaflet|flyer|printed booklet|mailed")) |> select(author, year, title, unique_study_id, delivery_method)
-#video
-pers_studies |> group_by(unique_study_id, delivery_method) |> slice(1) |> 
-  filter(str_detect(delivery_method, "video")) |> select(author, year, title, unique_study_id, delivery_method)
-pers_studies |> group_by(unique_study_id, delivery_method) |> slice(1) |> 
-  filter(str_detect(delivery_method, "online|internet|text|email")) |> select(author, year, title, unique_study_id, delivery_method)
-pers_studies |> 
-  filter(str_detect("text", delivery_method))
-# video
-
-```
-**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] appeal directly to people to eat less MAP. Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021]. Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2022].
+**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] appeal directly to people to eat less MAP.
 Arguments focus on health, the environment (usually climate change), and animal welfare.
+ [@jalil2023].
 
 \begin{comment}
 Some are designed to be emotionally activating, e.g. presenting upsetting footage of factory farms [@polanco2022], while others present information more factually, for instance about the relationship between diet and cancer [@hatami2018].
@@ -188,33 +126,11 @@ Finally, a group of interventions combines **persuasion** approaches with **psyc
 
 ## Meta-analytic results
 
-```{r heterogenety_analyses, include=F}
-sensitivity_analyses <- robumeta::sensitivity(model)
-rho <- model$mod_info$rho
-tau_squared <- model$mod_info$tau.sq
-delta <- model$reg_table$b.r
-se_m <- model$reg_table$SE
-low_prop_test <- prop_stronger( q = 0.1, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
-                                estimate.method = "calibrated",
-                                ci.method = "calibrated", dat = dat,
-                                yi.name = "d", vi.name = "var_d",
-                              bootstrap = "ifneeded", R = 200) |> 
-   mutate(across(1:6, \(x) round(x, 3)))
-low_prop_test
-high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
-                                estimate.method = "calibrated",
-                                ci.method = "calibrated", dat = dat,
-                                yi.name = "d", vi.name = "var_d",
-                              bootstrap = "ifneeded", R = 200) |> 
-     mutate(across(1:6, \(x) round(x, 3)))
-high_prop_test
-```
 
-In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: [`r overall_results$CI`], p = `r overall_results$p_val`, $\rho$ = `r rho`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)` are above $\Delta$ = 0.2.  
 
-Table 1 compares the overall meta-analytic estimate to the estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
+In our dataset, the pooled effect of all interventions is $\Delta$ = 0.066 (95% CI: [[0.018, 0.114]], p = 0.0094, $\rho$ = 0.8. We estimate that 24.1% of true effects are above $\Delta$ = 0.1, and just 6.5 are above $\Delta$ = 0.2.  
+
+Table 2 compares the overall meta-analytic estimate to the estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
 
 ```{=tex}
 \begin{center}
@@ -228,43 +144,16 @@ Table 1 compares the overall meta-analytic estimate to the estimates associated 
 \end{center}
 ```
 
-```{r rpmc_model, include=F}
-red_rho <- rpmc_model$mod_info$rho
-red_tau_squared <- rpmc_model$mod_info$tau.sq
-red_delta <- rpmc_model$reg_table$b.r
-red_se_m <- rpmc_model$reg_table$SE
 
-red_low_prop_test <- prop_stronger( q = 0.1, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
-                                estimate.method = "calibrated",
-                                ci.method = "calibrated", dat = RPMC,
-                                yi.name = "d", vi.name = "var_d",
-                              bootstrap = "ifneeded", R = 200) |> 
-   mutate(across(1:6, \(x) round(x, 3)))
-red_low_prop_test
-red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
-                                estimate.method = "calibrated",
-                                ci.method = "calibrated", dat = RPMC,
-                                yi.name = "d", vi.name = "var_d",
-                              bootstrap = "ifneeded", R = 200) |> 
-     mutate(across(1:6, \(x) round(x, 3)))
-red_high_prop_test
-```
-By contrast, reducing consumption of red and processed meat is an easier target. Across `r rpmc_model$N` studies and `r rpmc_model$M` point estimates, we detect a pooled effect of $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)`
-(95% CI: [`r rpmc_results$CI`], p = `r rpmc_results$p_val`, $\rho$ = `r red_rho`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
+By contrast, reducing consumption of red and processed meat is an easier target. Across 17 studies and 25 point estimates, we detect a pooled effect of $\Delta$ = 0.249
+(95% CI: [[0.113, 0.385]], p = 0.0016, $\rho$ = 0.8. We estimate that 52% of true effects are above $\Delta$ = 0.2.
 
 ## Moderators analysis
 
-```{r confounding_check, include=F}
-confound_table <- dat |> filter(self_report == 'N') |> 
-  group_by(str_detect(population, 'university')) |> 
-  summarise(count = n()) |> as_tibble()
-```
 
 Our sample of studies is comparatively small, and many differences between studies are confounded.
-For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
-Nevertheless we explore potential moderators in terms of potential moderators of effect size. Table 2 displays effect sizes for differences by population, region, era of publication, publication venue, delivery method, and outcome recording strategy.
+For example, 17 of 18 interventions with objectively reported outcomes are also studies of university populations.
+Nevertheless we explore potential moderators in terms of  of potential moderators of effect size. Table 2 displays effect sizes for differences by population, region, era of publication, publication venue, delivery method, and outcome recording strategy.
 
 ```{=tex}
 \begin{center}
@@ -280,33 +169,19 @@ Nevertheless we explore potential moderators in terms of potential moderators of
 
 **Table 1**
 
-```{r meta_table}
 
-meta_table
-
-```
 
 **Table 2**
 
-```{r moderator_table}
 
-moderator_table
-
-```
 ## Figures
 
-```{r forest_plot}
-source('./scripts/revised-forest-plot.R')
-forest_plot 
-# TODO: make this a lot bigger
-```
+
+\includegraphics{./figures/forest_plot-1} 
 
 Figure 1 about here.
 
-```{r robust_data, include=F}
 
-# source('./scripts/robustness-check.R')
-```
 
 \newpage
 # References
