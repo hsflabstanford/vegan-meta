@@ -99,4 +99,5 @@ moderator_table <- bind_rows(
             start_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results) + nrow(delivery_model_results) + 1, 
             end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results) + nrow(delivery_model_results) + nrow(outcome_model_results), 
             latex_gap_space = "0.5em", bold = TRUE) |>
-  add_footnote("I'm going to need a good footnote for this complex table!")
+  add_footnote("I'm going to need a good footnote for this complex table!", 
+               notation = "none")
