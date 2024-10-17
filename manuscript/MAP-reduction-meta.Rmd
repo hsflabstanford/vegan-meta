@@ -66,9 +66,6 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
-source('./scripts/revised-tables.R')
-# source('./scripts/tables.R')
-# source('./scripts/figures.R')
 ```
 
 # Introduction {#sec1}
@@ -166,7 +163,7 @@ pers_studies |>
 # video
 
 ```
-**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] appeal directly to people to eat less MAP. Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021]. Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2022].
+**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022]  Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021]. Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2022].
 Arguments focus on health, the environment (usually climate change), and animal welfare.
 
 \begin{comment}
@@ -175,8 +172,7 @@ Many persuasion studies combine arguments, such as a lecture on the health and e
 These studies formed the majority of our database.
 \end{comment}
 
-**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal,cognitive, or affective factors associated with eating meat.
-The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020].
+**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal,cognitive, or affective factors associated with eating meat. The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020]. In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022]. In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature,  making meat-eaters out to be a counter-normative outgroup [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019].
 
 \begin{comment}
 Norms might be descriptive, stating how many people engaged in the desired behavior [@aldoh2023], or dynamic, telling subjects that the number of people reducing their MAP consumption is increasing over time [@aldoh2023; @coker2022; @sparkman2020].
@@ -191,7 +187,7 @@ Finally, a group of interventions combines **persuasion** approaches with **psyc
 ```{r heterogenety_analyses, include=F}
 sensitivity_analyses <- robumeta::sensitivity(model)
 rho <- model$mod_info$rho
-tau_squared <- model$mod_info$tau.sq
+tau_squared <- round(model$mod_info$tau.sq, 3)
 delta <- model$reg_table$b.r
 se_m <- model$reg_table$SE
 low_prop_test <- prop_stronger( q = 0.1, M = delta, t2 = tau_squared,
@@ -212,9 +208,9 @@ high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
 high_prop_test
 ```
 
-In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: [`r overall_results$CI`], p = `r overall_results$p_val`, $\rho$ = `r rho`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)` are above $\Delta$ = 0.2.  
+In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: [`r overall_results$CI`], p = `r overall_results$p_val`, $\tau^2$ = `r tau_squared`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.  
 
-Table 1 compares the overall meta-analytic estimate to the estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
+Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
 
 ```{=tex}
 \begin{center}
@@ -229,7 +225,7 @@ Table 1 compares the overall meta-analytic estimate to the estimates associated 
 ```
 
 ```{r rpmc_model, include=F}
-red_rho <- rpmc_model$mod_info$rho
+red_tau <- round(rpmc_model$mod_info$tau.sq,3)
 red_tau_squared <- rpmc_model$mod_info$tau.sq
 red_delta <- rpmc_model$reg_table$b.r
 red_se_m <- rpmc_model$reg_table$SE
@@ -251,20 +247,13 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
      mutate(across(1:6, \(x) round(x, 3)))
 red_high_prop_test
 ```
-By contrast, reducing consumption of red and processed meat is an easier target. Across `r rpmc_model$N` studies and `r rpmc_model$M` point estimates, we detect a pooled effect of $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)`
-(95% CI: [`r rpmc_results$CI`], p = `r rpmc_results$p_val`, $\rho$ = `r red_rho`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
+By contrast, studies that only attempted to reduce consumption of red and processed meat had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of  $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)`
+(95% CI: [`r rpmc_results$CI`], p = `r rpmc_results$p_val`, $\tau^2$ = `r red_tau`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
 
-## Moderators analysis
+## Meta-regression on study characteristics analysis
 
-```{r confounding_check, include=F}
-confound_table <- dat |> filter(self_report == 'N') |> 
-  group_by(str_detect(population, 'university')) |> 
-  summarise(count = n()) |> as_tibble()
-```
 
-Our sample of studies is comparatively small, and many differences between studies are confounded.
-For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
-Nevertheless we explore potential moderators in terms of potential moderators of effect size. Table 2 displays effect sizes for differences by population, region, era of publication, publication venue, delivery method, and outcome recording strategy.
+Table 2 displays average differences in effect size by study  population, region, era of publication, publication venue, delivery method, and outcome recording strategy.
 
 ```{=tex}
 \begin{center}
@@ -275,21 +264,30 @@ Nevertheless we explore potential moderators in terms of potential moderators of
 
 # Methods {#sec3}
 
+# Discussion
+
+## Limitations
+```{r confounding_check, include=F}
+confound_table <- dat |> filter(self_report == 'N') |> 
+  group_by(str_detect(population, 'university')) |> 
+  summarise(count = n()) |> as_tibble()
+```
+
+Our sample of studies is comparatively small...Meta-regression estimates correlations of study characteristics with effect size, and thus does not necessarily indicate which study characteristics cause interventions to work better. Also, study characteristics were often highly correlated, limiting our ability to detect their independent associations with effect size. For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
 
 ## Tables
 
 **Table 1**
 
 ```{r meta_table}
-
+source('./scripts/meta-table.R')
 meta_table
-
 ```
 
 **Table 2**
 
 ```{r moderator_table}
-
+source('./scripts/moderator-table.R')
 moderator_table
 
 ```
