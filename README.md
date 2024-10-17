@@ -7,7 +7,7 @@ A very initial draft is available on the [EA Forum](https://forum.effectivealtru
   * `./manuscript/MAP-reduction-meta.Rmd` is the in-progress paper, along with its `.bib` file and style file, etc. 
 
 ## code
-  * `./scripts/*.R` is where most of the actual R code lives. `figures.R`, `functions.R`, `libraries.R`, `load-data.R`, `red-and-processed-meat.R`, and `tables.R` are the main scripts.
+  * `./scripts/*.R` is where most of the actual R code lives.
   * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
 
 ## data
