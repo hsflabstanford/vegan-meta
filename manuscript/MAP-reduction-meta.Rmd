@@ -183,8 +183,7 @@ Finally, a group of interventions combines **persuasion** approaches with **psyc
 
 ## Meta-analytic results
 
-```{r heterogenety_analyses, include=F}
-sensitivity_analyses <- robumeta::sensitivity(model)
+```{r needed_vars, include=F}
 rho <- model$mod_info$rho
 tau_squared <- round(model$mod_info$tau.sq, 3)
 delta <- model$reg_table$b.r
@@ -252,7 +251,7 @@ By contrast, studies that only attempted to reduce consumption of red and proces
 ## Meta-regression on study characteristics analysis
 
 
-Table 2 displays average differences in effect size by study  population, region, era of publication, publication venue, delivery method, and outcome recording strategy.
+Table 2 displays average differences in effect size by study  population, region, era of publication, and delivery method.
 
 ```{=tex}
 \begin{center}
@@ -260,6 +259,16 @@ Table 2 displays average differences in effect size by study  population, region
 \end{center}
 ```
 
+## Sensitivity Analyses
+```{r sensitivty, include=F}
+sensitivity_analyses <- robumeta::sensitivity(model)
+```
+
+```{=tex}
+\begin{center}
+[Table 3 about here]
+\end{center}
+```
 
 # Methods {#sec3}
 
@@ -276,20 +285,24 @@ Our sample of studies is comparatively small...Meta-regression estimates correla
 
 ## Tables
 
-**Table 1**
 
 ```{r meta_table}
 source('./scripts/meta-table.R')
 meta_table
 ```
 
-**Table 2**
-
 ```{r moderator_table}
 source('./scripts/moderator-table.R')
 moderator_table
+```
+
+```{r sensitivity_table}
+source('./scripts/sensitivity-table.R')
+sensitivity_table
 
 ```
+
+
 ## Figures
 
 ```{r forest_plot}

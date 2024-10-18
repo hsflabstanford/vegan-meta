@@ -36,16 +36,6 @@ moderator_table <- bind_rows(
                           approach_name = "2020s", second_p_value = TRUE)
   ),
   
-  # Publication status model results
-  pub_status_model_results <- bind_rows(
-    extract_model_results("Advocacy Organization", "pub_status", data = dat, 
-                          approach_name = "Nonprofit white paper", second_p_value = TRUE),
-    extract_model_results("Journal article", "pub_status", data = dat, 
-                          approach_name = "Journal article", second_p_value = TRUE),
-    extract_model_results("Preprint|Thesis", "pub_status", data = dat, 
-                          approach_name = "Preprint or Thesis", second_p_value = TRUE)
-  ),
-  
   # Delivery methods model results
   delivery_model_results <- bind_rows(
     extract_model_results("article|op-ed|leaflet|flyer|printed booklet|mailed", "delivery_method", data = dat, 
@@ -60,14 +50,6 @@ moderator_table <- bind_rows(
                           approach_name = "Dietary Consultation", second_p_value = TRUE),
     extract_model_results("free meat alternative", "delivery_method", data = dat, 
                           approach_name = "Free Meat Alternative", second_p_value = TRUE)
-  ),
-  
-  # Outcome recording model results
-  outcome_model_results <- bind_rows(
-    extract_model_results("Y", "self_report", data = dat, 
-                          approach_name = "Self reported", second_p_value = TRUE),
-    extract_model_results("N", "self_report", data = dat, 
-                          approach_name = "Objectively measured", second_p_value = TRUE)
   )
 ) |>
   kbl(booktabs = TRUE, 
@@ -75,6 +57,7 @@ moderator_table <- bind_rows(
                     "Delta", "95% CIs", "p value", "second p value"), 
       caption = "Moderator Analysis Results", 
       label = "table_two") |>
+  
   # Now calculate dynamic row indices using nrow()
   pack_rows(group_label = "Population", 
             start_row = 1, end_row = nrow(population_model_results), 
@@ -87,17 +70,9 @@ moderator_table <- bind_rows(
             start_row = nrow(population_model_results) + nrow(country_model_results) + 1, 
             end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results), 
             latex_gap_space = "0.5em", bold = TRUE) |>
-  pack_rows(group_label = "Publication Status", 
-            start_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + 1, 
-            end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
   pack_rows(group_label = "Delivery Methods", 
-            start_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results) + 1, 
-            end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results) + nrow(delivery_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  pack_rows(group_label = "Outcome Recording", 
-            start_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results) + nrow(delivery_model_results) + 1, 
-            end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(pub_status_model_results) + nrow(delivery_model_results) + nrow(outcome_model_results), 
+            start_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + 1, 
+            end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(delivery_model_results), 
             latex_gap_space = "0.5em", bold = TRUE) |>
   add_footnote("I'm going to need a good footnote for this complex table!", 
                notation = "none")
