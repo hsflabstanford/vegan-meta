@@ -54,7 +54,7 @@ moderator_table <- bind_rows(
 ) |>
   kbl(booktabs = TRUE, 
       col.names = c("Moderator", "N (Studies)", "N (Estimates)", 
-                    "Delta", "95% CIs", "p value", "second p value"), 
+                    "Delta", "95% CIs", "p value", "p-value vs. ref. level"), 
       caption = "Moderator Analysis Results", 
       label = "table_two") |>
   
