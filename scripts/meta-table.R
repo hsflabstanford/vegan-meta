@@ -1,27 +1,27 @@
 meta_table <- bind_rows(
   # Overall row
-  extract_model_results(approach_name = "Overall"),
+  table_one_function(approach_name = "Overall", data = dat),
   
   # Theory-specific results with proper Approach names
   bind_rows(
-    extract_model_results("Choice Architecture", "theory", data = dat, 
-                          approach_name = "Choice Architecture"),
-    extract_model_results("Psychology", "theory", data = dat, 
-                          approach_name = "Psychology"),
-    extract_model_results("Persuasion", "theory", FALSE, data = dat, 
-                          approach_name = "Persuasion"),
-    extract_model_results("Persuasion & Psychology", "theory", data = dat, 
-                          approach_name = "Persuasion & Psychology")
+    table_one_function("Choice Architecture", "theory", data = dat, 
+                       approach_name = "Choice Architecture"),
+    table_one_function("Psychology", "theory", data = dat, 
+                       approach_name = "Psychology"),
+    table_one_function("Persuasion", "theory", str_detect_flag = FALSE, data = dat, 
+                       approach_name = "Persuasion"),
+    table_one_function("Persuasion & Psychology", "theory", data = dat, 
+                       approach_name = "Persuasion & Psychology")
   ),
   
   # Type of Persuasion-specific results with proper Approach names
   bind_rows(
-    extract_model_results("animal", "secondary_theory", data = dat, 
-                          approach_name = "Animal Welfare"),
-    extract_model_results("environment", "secondary_theory", data = dat, 
-                          approach_name = "Environment"),
-    extract_model_results("health", "secondary_theory", data = dat, 
-                          approach_name = "Health")
+    table_one_function("animal", "secondary_theory", data = dat, 
+                       approach_name = "Animal Welfare"),
+    table_one_function("environment", "secondary_theory", data = dat, 
+                       approach_name = "Environment"),
+    table_one_function("health", "secondary_theory", data = dat, 
+                       approach_name = "Health")
   )
 ) |>
   kbl(booktabs = TRUE, 

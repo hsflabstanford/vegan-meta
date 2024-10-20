@@ -296,6 +296,7 @@ Our sample of studies is comparatively small...Meta-regression estimates correla
 ## Tables
 
 ```{r meta_table}
+source('./functions/table-one-function.R')
 source('./scripts/meta-table.R')
 meta_table
 ```

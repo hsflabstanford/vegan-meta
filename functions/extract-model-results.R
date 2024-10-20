@@ -48,7 +48,6 @@ extract_model_results <- function(filter_string = NULL, filter_column = NULL,
   ci_upper <- model$reg_table$CI.U
   p_val <- format(round(model$reg_table$prob, 4), scientific = FALSE)
   p_val <- sub("^0\\.", ".", p_val)  # Remove leading zero
-  
   num_studies <- length(unique(model$X.full$study))  
   num_estimates <- nrow(model$data.full)  
   

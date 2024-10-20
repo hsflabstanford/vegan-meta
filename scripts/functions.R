@@ -1,12 +1,12 @@
 #' functions
-source('./functions/d_calc.R')
-source('./functions/sum_tab.R')
-source('./functions/sum_lm.R')
-source('./functions/var_d_calc.R')
+source('./functions/d-calc.R')
+source('./functions/sum-tab.R')
+source('./functions/sum-lm.R')
+source('./functions/var-d-calc.R')
 source('./functions/utils.R')
-source('./functions/extract_model_results.R')
+source('./functions/extract-model-results.R')
 
 
-# source('./functions/map_robust.R')
-# source('./functions/meta_result_formatter.R')
-# source('./functions/meta_table_maker.R')
+# source('./functions/map-robust.R')
+# source('./functions/meta-result-formatter.R')
+# source('./functions/meta-table-maker.R')
