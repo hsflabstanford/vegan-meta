@@ -38,6 +38,7 @@ date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
     keep_tex: true
+    keep_md: true
 
 bibliography: "./vegan-refs.bib"
 editor_options: 
@@ -260,15 +261,24 @@ Table 2 displays average differences in effect size by study  population, region
 ```
 
 ## Sensitivity Analyses
-```{r sensitivty, include=F}
-sensitivity_analyses <- robumeta::sensitivity(model)
-```
+
+Table 3 presents average differences by publication status, data collection strategy, and open science practices.
 
 ```{=tex}
 \begin{center}
 [Table 3 about here]
 \end{center}
 ```
+
+```{r sensitivty_checks, include=F}
+
+pub_bias_test <- cor.test(dat$d, dat$se_d)
+
+sensitivity_analyses <- robumeta::sensitivity(model)
+```
+
+In our dataset, $\Delta$ and standard error are positively correlated (r = `r round(pub_bias_test$estimate, 3)`), though not significantly (p = `r sub("^0\\.", ".", format(round(pub_bias_test$p.value, 4), nsmall = 4))`).
+See supplementary materials for further sensitivity checks. [which statistical checks do we want to do?]
 
 # Methods {#sec3}
 
@@ -284,7 +294,6 @@ confound_table <- dat |> filter(self_report == 'N') |>
 Our sample of studies is comparatively small...Meta-regression estimates correlations of study characteristics with effect size, and thus does not necessarily indicate which study characteristics cause interventions to work better. Also, study characteristics were often highly correlated, limiting our ability to detect their independent associations with effect size. For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
 
 ## Tables
-
 
 ```{r meta_table}
 source('./scripts/meta-table.R')
@@ -302,7 +311,6 @@ sensitivity_table
 
 ```
 
-
 ## Figures
 
 ```{r forest_plot}
@@ -311,7 +319,6 @@ forest_plot
 # TODO: make this a lot bigger
 ```
 
-Figure 1 about here.
 
 ```{r robust_data, include=F}
 
