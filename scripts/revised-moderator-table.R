@@ -10,9 +10,9 @@ dat <- dat |> mutate(
   region_group = case_when(
     str_detect(country, regex("United States|Canada", ignore_case = TRUE)) ~ "North America",
     str_detect(country, regex("United Kingdom|Denmark|Germany|Italy|Netherlands|Sweden", ignore_case = TRUE)) ~ "Europe",
+    country == 'Australia' ~ "Australia",
     str_detect(country, regex("worldwide|United States, United Kingdom, Canada, Australia, and other", ignore_case = TRUE)) ~ "Multi-region",
     str_detect(country, regex("Iran|Thailand", ignore_case = TRUE)) ~ "Asia",
-    str_detect(country, regex("Australia", ignore_case = TRUE)) ~ "Australia",
     TRUE ~ NA_character_),
   decade_group = case_when(
     decade == "2000s" ~ "2000s",
@@ -249,11 +249,13 @@ moderator_table %>%
   kbl(
     booktabs = TRUE,
     col.names = c("Moderator", "N (Studies)", "N (Estimates)",
-                  "Delta", "95% CIs", "p value", "p-value vs. ref. level"),
+                  "Delta", "95% CIs", "subset p value", "moderator p value"),
     caption = "Moderator Analysis Results",
     label = "table_two",
     escape = FALSE
-  ) %>%
+  ) 
+
+%>%
   kable_styling(full_width = FALSE) %>%
   pack_rows("Population", start_row_population, end_row_population, bold = TRUE, italic = FALSE) %>%
   pack_rows("Region", start_row_region, end_row_region, bold = TRUE, italic = FALSE) %>%
@@ -261,7 +263,7 @@ moderator_table %>%
   pack_rows("Delivery Methods", start_row_delivery, end_row_delivery, bold = TRUE, italic = FALSE) %>%
   add_indent(seq(1, nrow(moderator_table))) %>%
   add_footnote(
-    "The p-values represent comparisons to the reference category within each group.",
+    "long footnote",
     notation = "none"
   )
 
