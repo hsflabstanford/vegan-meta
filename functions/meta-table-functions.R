@@ -240,3 +240,16 @@ process_group <- function(data, group_var, group_levels, ref_level) {
   
   return(group_results)
 }
+
+meta_result_formatter <-function(model){
+  model |>
+    mutate(
+      formatted = sprintf("%.4f%s (%.4f)", Delta,
+                          case_when(is.na(pval)~"",
+                                    as.numeric(pval) < 0.001 ~ "***",
+                                    as.numeric(pval) < 0.01 ~ "**",
+                                    as.numeric(pval) < 0.05 ~ "*",
+                                    TRUE ~ ""),
+                          se)) |> 
+    pull(formatted)
+}

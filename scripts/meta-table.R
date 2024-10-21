@@ -24,14 +24,31 @@ meta_table <- bind_rows(
                        approach_name = "Health")
   )
 ) |>
-  kbl(booktabs = TRUE, 
-      col.names = c("Approach", "N (Studies)", "N (Estimates)", 
-                    "Delta", "95% CIs", "p value"), 
-      caption = "Meta-Analysis Results", 
-      label = "table_one")  |>
-  pack_rows(group_label = "Theory", start_row = 2, 
-            end_row = 5, latex_gap_space = "0.5em", bold = TRUE) |>
-  pack_rows(group_label = "Type of Persuasion", 
-            start_row = 6, end_row = 8, latex_gap_space = "0.5em", bold = TRUE) |> 
-  add_footnote("Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ multiple categories of argument.",
-               notation = "none")
+  kbl(
+    booktabs = TRUE, 
+    col.names = c("Approach", "N (Studies)", "N (Estimates)", 
+                  "Delta", "95% CIs", "p value"),
+    caption = "Meta-Analysis Results", 
+    label = "table_one") |>             
+  kable_styling(full_width = FALSE) |>
+  # Group Rows
+  pack_rows(
+    group_label = "Theory", 
+    start_row = 2, 
+    end_row = 5, 
+    latex_gap_space = "0.5em", 
+    bold = TRUE
+  ) |>
+  pack_rows(
+    group_label = "Type of Persuasion", 
+    start_row = 6, 
+    end_row = 8, 
+    latex_gap_space = "0.5em", 
+    bold = TRUE
+  ) |> 
+  
+  # Add Footnote
+  add_footnote(
+    "Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ multiple categories of argument.",
+    notation = "none"
+  )

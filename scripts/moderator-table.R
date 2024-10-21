@@ -1,78 +1,38 @@
-# Create the moderator table with dynamic row indexing
-moderator_table <- bind_rows(
-  # Population model results
-  population_model_results <- bind_rows(
-    extract_model_results("university", "population", data = dat, 
-                          approach_name = "University students and staff", second_p_value = TRUE),
-    extract_model_results("adult", "population", data = dat, 
-                          approach_name = "Adults", second_p_value = TRUE),
-    extract_model_results("young", "population", data = dat, 
-                          approach_name = "Adolescents", second_p_value = TRUE),
-    extract_model_results("all ages", "population", data = dat, 
-                          approach_name = "All ages", second_p_value = TRUE)
+meta_table <- bind_rows(
+  # Overall row
+  table_one_function(approach_name = "Overall", data = dat),
+  
+  # Theory-specific results with proper Approach names
+  bind_rows(
+    table_one_function("Choice Architecture", "theory", data = dat, 
+                       approach_name = "Choice Architecture"),
+    table_one_function("Psychology", "theory", data = dat, 
+                       approach_name = "Psychology"),
+    table_one_function("Persuasion", "theory", str_detect_flag = FALSE, data = dat, 
+                       approach_name = "Persuasion"),
+    table_one_function("Persuasion & Psychology", "theory", data = dat, 
+                       approach_name = "Persuasion & Psychology")
   ),
   
-  # Country/Region model results
-  country_model_results <- bind_rows(
-    extract_model_results("United States|Canada", "country", data = dat, 
-                          approach_name = "North America", second_p_value = TRUE),
-    extract_model_results("United Kingdom|Denmark|Germany|Italy|Netherlands|Sweden", "country", data = dat, 
-                          approach_name = "Europe", second_p_value = TRUE),
-    extract_model_results("worldwide|United States, United Kingdom, Canada, Australia, and other", "country", data = dat, 
-                          approach_name = "Multi-region", second_p_value = TRUE),
-    extract_model_results("Iran|Thailand", "country", data = dat, 
-                          approach_name = "Asia", second_p_value = TRUE),
-    extract_model_results("Australia", "country", data = dat, 
-                          approach_name = "Australia", second_p_value = TRUE)
-  ),
-  
-  # Decade model results
-  decade_model_results <- bind_rows(
-    extract_model_results("2000s", "decade", data = dat, 
-                          approach_name = "2000s", second_p_value = TRUE),
-    extract_model_results("2010s", "decade", data = dat, 
-                          approach_name = "2010s", second_p_value = TRUE),
-    extract_model_results("2020s", "decade", data = dat, 
-                          approach_name = "2020s", second_p_value = TRUE)
-  ),
-  
-  # Delivery methods model results
-  delivery_model_results <- bind_rows(
-    extract_model_results("article|op-ed|leaflet|flyer|printed booklet|mailed", "delivery_method", data = dat, 
-                          approach_name = "Printed Materials", second_p_value = TRUE),
-    extract_model_results("video", "delivery_method", data = dat, 
-                          approach_name = "Video", second_p_value = TRUE),
-    extract_model_results("in-cafeteria", "delivery_method", data = dat, 
-                          approach_name = "In-cafeteria", second_p_value = TRUE),
-    extract_model_results("online|internet|text|email", "delivery_method", data = dat, 
-                          approach_name = "Online", second_p_value = TRUE),
-    extract_model_results("dietary consultation", "delivery_method", data = dat, 
-                          approach_name = "Dietary Consultation", second_p_value = TRUE),
-    extract_model_results("free meat alternative", "delivery_method", data = dat, 
-                          approach_name = "Free Meat Alternative", second_p_value = TRUE)
+  # Type of Persuasion-specific results with proper Approach names
+  bind_rows(
+    table_one_function("animal", "secondary_theory", data = dat, 
+                       approach_name = "Animal Welfare"),
+    table_one_function("environment", "secondary_theory", data = dat, 
+                       approach_name = "Environment"),
+    table_one_function("health", "secondary_theory", data = dat, 
+                       approach_name = "Health")
   )
 ) |>
   kbl(booktabs = TRUE, 
-      col.names = c("Moderator", "N (Studies)", "N (Estimates)", 
-                    "Delta", "95% CIs", "p value", "p-value vs. ref. level"), 
-      caption = "Moderator Analysis Results", 
-      label = "table_two") |>
-  
-  # Now calculate dynamic row indices using nrow()
-  pack_rows(group_label = "Population", 
-            start_row = 1, end_row = nrow(population_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  pack_rows(group_label = "Region", 
-            start_row = nrow(population_model_results) + 1, 
-            end_row = nrow(population_model_results) + nrow(country_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  pack_rows(group_label = "Publication Decade", 
-            start_row = nrow(population_model_results) + nrow(country_model_results) + 1, 
-            end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  pack_rows(group_label = "Delivery Methods", 
-            start_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + 1, 
-            end_row = nrow(population_model_results) + nrow(country_model_results) + nrow(decade_model_results) + nrow(delivery_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  add_footnote("I'm going to need a good footnote for this complex table!", 
+      col.names = c("Approach", "N (Studies)", "N (Estimates)", 
+                    "$\\Delta$", "95% CIs", "p value"), 
+      caption = "Meta-Analysis Results", 
+      label = "table_one")  |>
+  pack_rows(group_label = "Theory", start_row = 2, 
+            end_row = 5, latex_gap_space = "0.5em", bold = TRUE) |>
+  pack_rows(group_label = "Type of Persuasion", 
+            start_row = 6, end_row = 8, latex_gap_space = "0.5em", bold = TRUE) |> 
+  add_footnote("Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ multiple categories of argument.",
                notation = "none")
+

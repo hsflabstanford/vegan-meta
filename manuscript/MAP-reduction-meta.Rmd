@@ -47,7 +47,10 @@ header-includes:
   - \usepackage{comment}
   - \usepackage{anyfontsize}
   - \usepackage{caption}
-  - \usepackage{}
+  - \usepackage[T1]{fontenc}      # Improved font encoding
+  - \usepackage{amsmath, amssymb} # Mathematical symbols
+  - \usepackage{lmodern}          # Enhanced font rendering
+  - \usepackage[utf8]{inputenc}   # Handle UTF-8 encoded characters
 ---
 
 ```{r setup, include=FALSE}
@@ -66,6 +69,7 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
+
 ```
 
 # Introduction {#sec1}
@@ -295,26 +299,25 @@ Our sample of studies is comparatively small...Meta-regression estimates correla
 
 ## Tables
 
-```{r meta_table}
-source('./functions/table-one-function.R')
+```{r meta_table, echo=F, message=F}
 source('./scripts/meta-table.R')
 meta_table
 ```
 
-```{r moderator_table}
+
+```{r moderator_table, echo=F, message=F}
 source('./scripts/revised-moderator-table.R')
 revised_moderator_table
 ```
 
-```{r sensitivity_table}
+```{r sensitivity_table,echo=F}
 source('./scripts/sensitivity-table.R')
 sensitivity_table
-
 ```
 
 ## Figures
 
-```{r forest_plot}
+```{r forest_plot, echo=F, message=F}
 source('./scripts/revised-forest-plot.R')
 forest_plot 
 # TODO: make this a lot bigger

@@ -36,10 +36,9 @@ sensitivity_table <- bind_rows(
   # Create the table with kable and dynamic rows
   kbl(booktabs = TRUE, 
       col.names = c("Stucy Characteristic", "N (Studies)", "N (Estimates)", 
-                    "Delta", "95% CIs", "subset p value", "moderator p value"), 
-      caption = "Sensitivity Analysis Results", 
+                    "$\\Delta$", "95% CIs", "subset p value", "moderator p value"), 
+      caption = "Sensitivity Analysis Results",
       label = "table_three") |>
-  
   # Dynamically calculate row indices based on the number of rows
   pack_rows(group_label = "Publication Status", 
             start_row = 1, 
