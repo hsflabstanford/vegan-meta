@@ -11,8 +11,8 @@ options(scipen = 99)
 #' data
 library(dplyr, warn.conflicts = F)
 library(stringr)
-source('./functions/d_calc.R')
-source('./functions/var_d_calc.R')
+source('./functions/d-calc.R')
+source('./functions/var-d-calc.R')
 dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
