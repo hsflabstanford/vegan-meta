@@ -1,21 +1,3 @@
-meta_table_maker <- function(data, format = "latex", booktabs = TRUE, escape = FALSE,
-                             caption = "", label = "", footnote = FALSE) {
-  table <- knitr::kable(data, format = format, booktabs = booktabs, escape = escape, 
-                        caption = caption, label = label) |>
-    kableExtra::kable_styling(latex_options = "hold_position")
-  
-  if (footnote) {
-    table <- table |>
-      kableExtra::footnote(
-        general_title = "",
-        general = "* p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.",
-        escape = FALSE
-      )
-  }
-  
-  return(table)
-}
-
 table_one_function <- function(filter_string = NULL, filter_column = NULL, 
                                str_detect_flag = TRUE, approach_name = "Overall", 
                                data = dat) {
@@ -80,7 +62,7 @@ table_one_function <- function(filter_string = NULL, filter_column = NULL,
 }
 
 
-# Define function to run subset meta-analysis for a given level
+#  function to run subset meta-analysis for a given level
 run_subset_meta_analysis <- function(data, group_var, level) {
   # Subset data for the specific level
   data_subset <- data %>% filter(!!sym(group_var) == level)
@@ -239,17 +221,4 @@ process_group <- function(data, group_var, group_levels, ref_level) {
     select(Moderator, N_Studies, N_Estimates, Delta, CI, p_val, p_val_ref)
   
   return(group_results)
-}
-
-meta_result_formatter <-function(model){
-  model |>
-    mutate(
-      formatted = sprintf("%.4f%s (%.4f)", Delta,
-                          case_when(is.na(pval)~"",
-                                    as.numeric(pval) < 0.001 ~ "***",
-                                    as.numeric(pval) < 0.01 ~ "**",
-                                    as.numeric(pval) < 0.05 ~ "*",
-                                    TRUE ~ ""),
-                          se)) |> 
-    pull(formatted)
 }
