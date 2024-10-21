@@ -10,9 +10,9 @@ dat <- dat |> mutate(
   region_group = case_when(
     str_detect(country, regex("United States|Canada", ignore_case = TRUE)) ~ "North America",
     str_detect(country, regex("United Kingdom|Denmark|Germany|Italy|Netherlands|Sweden", ignore_case = TRUE)) ~ "Europe",
-    country == 'Australia' ~ "Australia",
     str_detect(country, regex("worldwide|United States, United Kingdom, Canada, Australia, and other", ignore_case = TRUE)) ~ "Multi-region",
-    str_detect(country, regex("Iran|Thailand", ignore_case = TRUE)) ~ "Asia",
+    str_detect(country, regex("Iran|Thailand", ignore_case = TRUE)) ~ "Asia + Australia",
+    country == 'Asia' ~ "Asia + Australia",
     TRUE ~ NA_character_),
   decade_group = case_when(
     decade == "2000s" ~ "2000s",
@@ -21,13 +21,12 @@ dat <- dat |> mutate(
     TRUE ~ NA_character_),
   delivery_group = case_when(
     str_detect(delivery_method, regex("article|op-ed|leaflet|flyer|printed booklet|mailed|lecture", 
-                                      ignore_case = TRUE)) ~ "Educational Materials",
+                                      ignore_case = TRUE)) ~ "Educational materials",
     str_detect(delivery_method, regex("video", ignore_case = TRUE)) ~ "Video",
     str_detect(delivery_method, regex("in-cafeteria", ignore_case = TRUE)) ~ "In-cafeteria",
     str_detect(delivery_method, regex("online|internet|text|email", ignore_case = TRUE)) ~ "Online",
-    str_detect(delivery_method, regex("dietary consultation", ignore_case = TRUE)) ~ "Dietary Consultation",
-    str_detect(delivery_method, regex("free meat alternative", ignore_case = TRUE)) ~ "Free Meat Alternative",
-    TRUE ~ NA_character_))
+    str_detect(delivery_method, regex("dietary consultation", ignore_case = TRUE)) ~ "Dietary consultation",    TRUE ~ NA_character_))
+
 
 # Check for unmatched data in the new variables and throw an error if found
 
@@ -104,17 +103,17 @@ run_subset_meta_analysis <- function(data, group_var, level) {
 # Define function to run meta-regression and extract second p-values
 run_meta_regression <- function(data, group_var, ref_level) {
   # Include all levels with at least one study
-  sufficient_levels <- data %>%
-    group_by(!!sym(group_var)) %>%
-    summarise(N_Studies = n_distinct(unique_study_id)) %>%
-    filter(N_Studies >= 1) %>%
+  sufficient_levels <- data |>
+    group_by(!!sym(group_var)) |>
+    summarise(N_Studies = n_distinct(unique_study_id)) |>
+    filter(N_Studies >= 1) |>
     pull(!!sym(group_var))
   
   # Subset data to include all sufficient levels
-  data <- data %>% filter(!!sym(group_var) %in% sufficient_levels)
+  data <- data |> filter(!!sym(group_var) %in% sufficient_levels)
   
   # Ensure the grouping variable is a factor with the reference level first
-  data <- data %>%
+  data <- data |>
     mutate(
       group_var_factor = factor(!!sym(group_var), levels = c(ref_level, setdiff(sufficient_levels, ref_level)))
     )
@@ -171,16 +170,16 @@ process_group <- function(data, group_var, group_levels, ref_level) {
   # Run subset meta-analyses for each level
   group_results <- lapply(group_levels, function(level) {
     run_subset_meta_analysis(data, group_var, level)
-  }) %>% bind_rows()
+  }) |> bind_rows()
   
   # Identify levels with sufficient data
-  sufficient_levels <- group_results %>% filter(!is.na(Delta)) %>% pull(Moderator)
+  sufficient_levels <- group_results |> filter(!is.na(Delta)) |> pull(Moderator)
   
   # Run meta-regression to get second p-values
   group_p_values <- run_meta_regression(data, group_var, ref_level)
   
   # Add the second p-values to the results and make 'ref' bold
-  group_results <- group_results %>%
+  group_results <- group_results |>
     mutate(
       p_val_ref = group_p_values[Moderator],
       p_val_ref = ifelse(
@@ -191,7 +190,7 @@ process_group <- function(data, group_var, group_levels, ref_level) {
     )
   
   # Reorder columns without 'Group'
-  group_results <- group_results %>%
+  group_results <- group_results |>
     select(Moderator, N_Studies, N_Estimates, Delta, CI, p_val, p_val_ref)
   
   return(group_results)
@@ -203,7 +202,7 @@ ref_level_population <- "University students and staff"
 population_results <- process_group(dat, "population_group", population_levels, ref_level_population)
 
 # Process Region Group
-region_levels <- c("North America", "Europe", "Multi-region", "Asia", "Australia")
+region_levels <- c("North America", "Europe", "Multi-region", "Asia + Australia")
 ref_level_region <- "North America"
 region_results <- process_group(dat, "region_group", region_levels, ref_level_region)
 
@@ -213,8 +212,8 @@ ref_level_decade <- "2000s"
 decade_results <- process_group(dat, "decade_group", decade_levels, ref_level_decade)
 
 # Process Delivery Methods Group
-delivery_levels <- c("Educational Materials", "Video", "In-cafeteria", "Online", "Dietary Consultation", "Free meat alternative")
-ref_level_delivery <- "Educational Materials"
+delivery_levels <- c("Educational materials", "Video", "In-cafeteria", "Online", "Dietary consultation")
+ref_level_delivery <- "Educational materials"
 delivery_results <- process_group(dat, "delivery_group", delivery_levels, ref_level_delivery)
 
 moderator_table <- bind_rows(
@@ -224,7 +223,7 @@ moderator_table <- bind_rows(
   delivery_results
 )
 # Remove entries with zero studies
-moderator_table <- moderator_table %>% filter(N_Studies > 0)
+moderator_table <- moderator_table |> filter(N_Studies > 0)
 
 # Calculate the starting and ending row indices for each group
 start_row_population <- 1
@@ -237,33 +236,27 @@ start_row_delivery <- end_row_decade + 1
 end_row_delivery <- start_row_delivery + nrow(delivery_results) - 1
 
 # Order the table by Group and then by the order of levels defined
-# moderator_table <- moderator_table %>%
+# moderator_table <- moderator_table |>
 #   mutate(
 #     Moderator = factor(Moderator, levels = c(population_levels, region_levels, decade_levels, delivery_levels)),
 #     Group = factor(Group, levels = c("Population", "Region", "Publication Decade", "Delivery Methods"))
-#   ) %>%
+#   ) |>
 #   arrange(Group, Moderator)
 
 # Format the table
-moderator_table %>%
-  kbl(
-    booktabs = TRUE,
-    col.names = c("Moderator", "N (Studies)", "N (Estimates)",
-                  "Delta", "95% CIs", "subset p value", "moderator p value"),
-    caption = "Moderator Analysis Results",
-    label = "table_two",
-    escape = FALSE
-  ) 
-
-%>%
-  kable_styling(full_width = FALSE) %>%
-  pack_rows("Population", start_row_population, end_row_population, bold = TRUE, italic = FALSE) %>%
-  pack_rows("Region", start_row_region, end_row_region, bold = TRUE, italic = FALSE) %>%
-  pack_rows("Publication Decade", start_row_decade, end_row_decade, bold = TRUE, italic = FALSE) %>%
-  pack_rows("Delivery Methods", start_row_delivery, end_row_delivery, bold = TRUE, italic = FALSE) %>%
-  add_indent(seq(1, nrow(moderator_table))) %>%
+revised_moderator_table <- moderator_table |>
+  kbl(booktabs = TRUE, 
+      col.names = c("Stucy Characteristic", "N (Studies)", "N (Estimates)", 
+                    "Delta", "95\\% CIs", "subset p value", "moderator p value"), 
+      caption = "Moderator Analysis Results", label = "table_two", escape = FALSE) |>
+  kable_styling(full_width = FALSE) |>
+  pack_rows("Population", start_row_population, end_row_population, bold = TRUE, italic = FALSE)|>
+  pack_rows("Region", start_row_region, end_row_region, bold = TRUE, italic = FALSE) |>
+  pack_rows("Publication Decade", start_row_decade, end_row_decade, bold = TRUE, italic = FALSE) |>
+   pack_rows("Delivery Methods", start_row_delivery, end_row_delivery, bold = TRUE, italic = FALSE) |>
   add_footnote(
-    "long footnote",
+    "[a really good foontote]",
     notation = "none"
   )
+
 

@@ -49,7 +49,7 @@ forest_plot <- forest_data |>
   meta-analysis for each paper. Papers employing multiple theoretical approaches
   are represented once per theory. Dot size is inversely proportional to variance. 
   Points are sorted within theory by effect size. A random effects meta-analysis 
-  for the entire dataset is plotted at the bottom. The black line demarcates ∆ = 0,
+  for the entire dataset is plotted at the bottom. The black line demarcates Delta = 0,
   and the dotted line is the observed overall effect.") +
   ylab(NULL) +
   guides(size = "none") +

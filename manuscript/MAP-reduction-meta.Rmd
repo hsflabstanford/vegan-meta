@@ -302,8 +302,8 @@ meta_table
 ```
 
 ```{r moderator_table}
-source('./scripts/moderator-table.R')
-moderator_table
+source('./scripts/revised-moderator-table.R')
+revised_moderator_table
 ```
 
 ```{r sensitivity_table}
