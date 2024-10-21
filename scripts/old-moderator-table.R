@@ -27,8 +27,8 @@ meta_table <- bind_rows(
   kbl(booktabs = TRUE, 
       col.names = c("Approach", "N (Studies)", "N (Estimates)", 
                     "$\\Delta$", "95% CIs", "p value"), 
-      caption = "Meta-Analysis Results", 
-      label = "table_one")  |>
+      caption = "Meta-Regression Results", 
+      label = "table_two")  |>
   pack_rows(group_label = "Theory", start_row = 2, 
             end_row = 5, latex_gap_space = "0.5em", bold = TRUE) |>
   pack_rows(group_label = "Type of Persuasion", 
