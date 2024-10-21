@@ -69,7 +69,6 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/red-and-processed-meat.R')
 source('./scripts/models.R')
-
 ```
 
 # Introduction {#sec1}
@@ -306,7 +305,7 @@ meta_table
 
 
 ```{r moderator_table, echo=F, message=F}
-source('./scripts/revised-moderator-table.R')
+source('./scripts/moderator-table.R')
 revised_moderator_table
 ```
 
@@ -318,7 +317,7 @@ sensitivity_table
 ## Figures
 
 ```{r forest_plot, echo=F, message=F}
-source('./scripts/revised-forest-plot.R')
+source('./scripts/forest-plot.R')
 forest_plot 
 # TODO: make this a lot bigger
 ```

@@ -1,56 +1,91 @@
-# Create the dataset with new reversed variables
-dat <- dat |> 
-  mutate(reversed_pap_var = if_else(public_pre_analysis_plan == 'N', 'N', 'Y'),
-         reversed_open_data_var = if_else(open_data == 'N', 'N', 'Y'))
+# -------------------------------
+# 1. Create Variables in 'dat'
+# -------------------------------
 
-# Create the sensitivity table
-sensitivity_table <- bind_rows(
-  # Publication status model results
-  pub_status_model_results <- bind_rows(
-    extract_model_results("Advocacy Organization", "pub_status", data = dat, 
-                          approach_name = "Nonprofit white paper", second_p_value = TRUE),
-    extract_model_results("Journal article", "pub_status", data = dat, 
-                          approach_name = "Journal article", second_p_value = TRUE),
-    extract_model_results("Preprint|Thesis", "pub_status", data = dat, 
-                          approach_name = "Preprint or Thesis", second_p_value = TRUE)
-  ),
-  
-  # Outcome recording model results
-  outcome_model_results <- bind_rows(
-    extract_model_results("Y", "self_report", data = dat, 
-                          approach_name = "Self reported", second_p_value = TRUE),
-    extract_model_results("N", "self_report", data = dat, 
-                          approach_name = "Objectively measured", second_p_value = TRUE)
-  )
-) |> 
-  # Open science practices model results (this part was missing the pipe)
-  bind_rows(
-    open_science_results <- bind_rows(
-      extract_model_results("Y", "reversed_pap_var", data = dat,
-                            approach_name = "Pre-analysis plan", second_p_value = TRUE),
-      extract_model_results("Y", "reversed_open_data_var", data = dat,
-                            approach_name = "Publicly available data", second_p_value = TRUE)
+dat <- dat |> 
+  mutate(
+    # Create 'pub_status' variable
+    pub_group = case_when(
+      str_detect(pub_status, regex("Advocacy Organization", ignore_case = TRUE)) ~ "Nonprofit white paper",
+      str_detect(pub_status, regex("Journal article", ignore_case = TRUE)) ~ "Journal article",
+      str_detect(pub_status, regex("Preprint|Thesis", ignore_case = TRUE)) ~ "Preprint or thesis",
+      TRUE ~ NA_character_
+    ),
+    
+    # Create 'open_science_group' variable
+    open_science_group = case_when(
+      public_pre_analysis_plan != 'N' | open_data != 'N' ~ 'Pre-analysis plan and/or open data',
+      TRUE ~ 'None'
+    ),
+    
+    # Create 'data_collection_group' variable
+    data_collection_group = case_when(
+      self_report == 'Y' ~ 'Self-reported',
+      self_report == 'N' ~ 'Objectively measured',
+      TRUE ~ NA_character_
     )
+  )
+
+# -------------------------------
+# 2. Process Each Sensitivity Analysis Group
+# -------------------------------
+
+## 2.1. Publication Status
+pub_status_levels <- c("Journal article", "Nonprofit white paper", "Preprint or thesis")
+ref_level_pub_status <- "Journal article"
+pub_status_results <- process_group(dat, "pub_group", pub_status_levels, ref_level_pub_status)
+
+## 2.2. Data Collection Strategy
+data_collection_levels <- c("Self-reported", "Objectively measured")
+ref_level_data_collection <- "Self-reported"
+data_collection_results <- process_group(dat, "data_collection_group", data_collection_levels, ref_level_data_collection)
+
+## 2.3. Open Science Practices
+open_science_levels <- c("None", "Pre-analysis plan and/or open data")
+ref_level_open_science <- "None"
+open_science_results <- process_group(dat, "open_science_group", open_science_levels, ref_level_open_science)
+
+# -------------------------------
+# 3. Combine All Sensitivity Analysis Results
+# -------------------------------
+
+sensitivity_table <- bind_rows(
+  pub_status_results,
+  data_collection_results,
+  open_science_results
+)
+
+# -------------------------------
+# 4. Calculate Row Indices for Grouping
+# -------------------------------
+
+start_row_pub_status <- 1
+end_row_pub_status <- start_row_pub_status + nrow(pub_status_results) - 1
+
+start_row_data_collection <- end_row_pub_status + 1
+end_row_data_collection <- start_row_data_collection + nrow(data_collection_results) - 1
+
+start_row_open_science <- end_row_data_collection + 1
+end_row_open_science <- start_row_open_science + nrow(open_science_results) - 1
+
+# -------------------------------
+# 5. Format the Sensitivity Analysis Table
+# -------------------------------
+
+sensitivity_table <- sensitivity_table |>
+  kbl(
+    booktabs = TRUE,
+    col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
+                  "$\\Delta$", "95\\% CIs", "Subset p-value", "Moderator p-value"), 
+    caption = "Sensitivity Analysis Results", 
+    label = "table_three", 
+    escape = FALSE
   ) |>
-  
-  # Create the table with kable and dynamic rows
-  kbl(booktabs = TRUE, 
-      col.names = c("Stucy Characteristic", "N (Studies)", "N (Estimates)", 
-                    "$\\Delta$", "95% CIs", "subset p value", "moderator p value"), 
-      caption = "Sensitivity Analysis Results",
-      label = "table_three") |>
-  # Dynamically calculate row indices based on the number of rows
-  pack_rows(group_label = "Publication Status", 
-            start_row = 1, 
-            end_row = nrow(pub_status_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  
-  pack_rows(group_label = "Data collection strategy", 
-            start_row = nrow(pub_status_model_results) + 1, 
-            end_row = nrow(pub_status_model_results) + nrow(outcome_model_results), 
-            latex_gap_space = "0.5em", bold = TRUE) |>
-  
-  pack_rows(group_label = "Open science practices",
-            start_row = nrow(pub_status_model_results) + nrow(outcome_model_results) + 1,
-            end_row = nrow(pub_status_model_results) + nrow(outcome_model_results) + nrow(open_science_results),
-            latex_gap_space = "0.5em", bold = TRUE)
+  kable_styling(full_width = FALSE) |>
+  pack_rows("Publication Status", start_row_pub_status, end_row_pub_status, bold = TRUE, italic = FALSE) |>
+  pack_rows("Data Collection Strategy", start_row_data_collection, end_row_data_collection, bold = TRUE, italic = FALSE) |>
+  pack_rows("Open Science", start_row_open_science, end_row_open_science, bold = TRUE, italic = FALSE) |>
+  add_footnote(
+    "[INSERT REALLY GOOD FOOTNOTE]",
+    notation = "none"
+  )

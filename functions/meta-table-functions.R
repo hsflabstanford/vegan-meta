@@ -19,7 +19,7 @@ meta_table_maker <- function(data, format = "latex", booktabs = TRUE, escape = F
 table_one_function <- function(filter_string = NULL, filter_column = NULL, 
                                str_detect_flag = TRUE, approach_name = "Overall", 
                                data = dat) {
-  
+  approach_name <- gsub("&", "\\\\&", approach_name)
   # Handle the case where no filter is applied
   if (is.null(filter_string) || is.null(filter_column)) {
     filtered_data <- data

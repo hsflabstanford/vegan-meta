@@ -27,9 +27,9 @@ meta_table <- bind_rows(
   kbl(
     booktabs = TRUE, 
     col.names = c("Approach", "N (Studies)", "N (Estimates)", 
-                  "Delta", "95% CIs", "p value"),
+                  "$\\Delta$", "95\\% CIs", "p val"),
     caption = "Meta-Analysis Results", 
-    label = "table_one") |>             
+    label = "table_one", escape = FALSE) |>             
   kable_styling(full_width = FALSE) |>
   # Group Rows
   pack_rows(

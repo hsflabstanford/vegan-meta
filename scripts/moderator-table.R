@@ -125,7 +125,7 @@ revised_moderator_table <- moderator_table |>
   kbl(
     booktabs = TRUE, 
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
-                  "$\\Delta$", "95\\% CIs", "Subset p-value", "Moderator p-value"), 
+                  "$\\Delta$", "95\\% CIs", "Subset p-val", "Moderator p val"), 
     caption = "Moderator Analysis Results",  label = "table_two", escape = FALSE) |>
   kable_styling(full_width = FALSE) |>
     pack_rows("Outcome", start_row_outcome, end_row_outcome, bold = TRUE, italic = FALSE) |>
