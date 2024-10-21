@@ -129,13 +129,6 @@ forest_plot <- forest_data |>
   # Step 2.9: Add Labels and Captions
   labs(
     color = "Theory", 
-    caption = 
-      "Forest plot for MAP reduction studies. Each point corresponds to a fixed effects 
-      meta-analysis for each paper. Papers employing multiple theoretical approaches
-      are represented once per theory. Dot size is inversely proportional to variance. 
-      Points are sorted within theory by effect size. A random effects meta-analysis 
-      for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero,
-      and the dotted line is the observed overall effect.",
     y = NULL,  # Remove Y-axis label
     title = "MAP Reduction Forest Plot"
   ) +
