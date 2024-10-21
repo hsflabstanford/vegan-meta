@@ -69,3 +69,7 @@ extract_model_results <- function(model, approach_name) {
     p_val = p_val  # Renamed `p val` to p_val
   )
 }
+
+# bold_labels <- function(x) {
+#   ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)
+# }
