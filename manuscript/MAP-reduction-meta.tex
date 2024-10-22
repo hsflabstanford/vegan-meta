@@ -407,76 +407,81 @@ Overall & 40 & 108 & 0.07 & {}[0.02, 0.11] & .009\\
 \end{tabular}
 \end{table}
 
-\begin{table}[!h]
-\centering
-\caption{\label{tab:table_two}Moderator Analysis Results}
-\centering
-\begin{tabular}[t]{lrrrlll}
-\toprule
-Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subset p-val & Moderator p-val\\
-\midrule
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Outcome}}\\
-\hspace{1em}Meat and animal products & 40 & 108 & 0.07 & {}[0.02, 0.11] & .009 & \textbf{ref}\\
-\hspace{1em}Red and processed meat & 17 & 25 & 0.25 & {}[0.11, 0.38] & .002 & .0348\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Population}}\\
-\hspace{1em}University students and staff & 18 & 38 & 0.07 & {}[-0.03, 0.16] & .139 & \textbf{ref}\\
-\hspace{1em}Adults & 17 & 61 & 0.09 & {}[0.01, 0.18] & .034 & .7292\\
-\hspace{1em}Adolescents & 3 & 6 & 0.02 & {}[-0.4, 0.44] & .806 & .6780\\
-\hspace{1em}All ages & 2 & 3 & 0.01 & {}[-0.07, 0.1] & .311 & .4063\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Region}}\\
-\hspace{1em}North America & 22 & 70 & 0.03 & {}[-0.02, 0.08] & .189 & \textbf{ref}\\
-\hspace{1em}Europe & 14 & 28 & 0.14 & {}[0.02, 0.27] & .029 & .1442\\
-\hspace{1em}Multi-region & 1 & 4 & 0.21 & {}[0.21, 0.21] & 0 & .0000\\
-\hspace{1em}Asia + Australia & 2 & 5 & 0.13 & {}[-0.17, 0.43] & .116 & .2102\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Publication Decade}}\\
-\hspace{1em}2000s & 6 & 8 & 0.16 & {}[-0.12, 0.43] & .199 & \textbf{ref}\\
-\hspace{1em}2020s & 23 & 73 & 0.05 & {}[-0.01, 0.11] & .074 & .3645\\
-\hspace{1em}2010s & 11 & 27 & 0.06 & {}[-0.05, 0.17] & .215 & .4341\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Method of Delivery}}\\
-\hspace{1em}Educational materials & 15 & 59 & 0.01 & {}[-0.04, 0.07] & .566 & \textbf{ref}\\
-\hspace{1em}Online & 7 & 18 & 0.16 & {}[-0.05, 0.38] & .106 & .2344\\
-\hspace{1em}Dietary consultation & 2 & 2 & 0.40 & {}[-3.36, 4.15] & .409 & .4422\\
-\hspace{1em}In-cafeteria & 8 & 13 & 0.10 & {}[-0.04, 0.25] & .101 & .1228\\
-\hspace{1em}Video & 10 & 16 & 0.01 & {}[-0.05, 0.07] & .485 & .5477\\
-\bottomrule
-\multicolumn{7}{l}{\textsuperscript{} [A really good footnote]}\\
-\end{tabular}
-\end{table}
+\begin{verbatim}
+## \begin{table}[!h]
+## \centering
+## \caption{\label{tab:table_two}Moderator Analysis Results}
+## \centering
+## \begin{tabular}[t]{lrrrlll}
+## \toprule
+## Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subset p-val & Moderator p-val\\
+## \midrule
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Outcome}}\\
+## \hspace{1em}Meat and animal products & 40 & 108 & 0.07 & {}[0.02, 0.11] & .009 & \textbf{ref}\\
+## \hspace{1em}Red and processed meat & 17 & 25 & 0.25 & {}[0.11, 0.38] & .002 & .0348\\
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Population}}\\
+## \hspace{1em}University students and staff & 18 & 38 & 0.07 & {}[-0.03, 0.16] & .139 & \textbf{ref}\\
+## \hspace{1em}Adults & 17 & 61 & 0.09 & {}[0.01, 0.18] & .034 & .7292\\
+## \hspace{1em}Adolescents & 3 & 6 & 0.02 & {}[-0.4, 0.44] & .806 & .6780\\
+## \hspace{1em}All ages & 2 & 3 & 0.01 & {}[-0.07, 0.1] & .311 & .4063\\
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Region}}\\
+## \hspace{1em}North America & 22 & 70 & 0.03 & {}[-0.02, 0.08] & .189 & \textbf{ref}\\
+## \hspace{1em}Europe & 14 & 28 & 0.14 & {}[0.02, 0.27] & .029 & .1442\\
+## \hspace{1em}Multi-region & 1 & 4 & 0.21 & {}[0.21, 0.21] & 0 & .0000\\
+## \hspace{1em}Asia + Australia & 2 & 5 & 0.13 & {}[-0.17, 0.43] & .116 & .2102\\
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Publication Decade}}\\
+## \hspace{1em}2000s & 6 & 8 & 0.16 & {}[-0.12, 0.43] & .199 & \textbf{ref}\\
+## \hspace{1em}2020s & 23 & 73 & 0.05 & {}[-0.01, 0.11] & .074 & .3645\\
+## \hspace{1em}2010s & 11 & 27 & 0.06 & {}[-0.05, 0.17] & .215 & .4341\\
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Method of Delivery}}\\
+## \hspace{1em}Educational materials & 15 & 59 & 0.01 & {}[-0.04, 0.07] & .566 & \textbf{ref}\\
+## \hspace{1em}Online & 7 & 18 & 0.16 & {}[-0.05, 0.38] & .106 & .2344\\
+## \hspace{1em}Dietary consultation & 2 & 2 & 0.40 & {}[-3.36, 4.15] & .409 & .4422\\
+## \hspace{1em}In-cafeteria & 8 & 13 & 0.10 & {}[-0.04, 0.25] & .101 & .1228\\
+## \hspace{1em}Video & 10 & 16 & 0.01 & {}[-0.05, 0.07] & .485 & .5477\\
+## \bottomrule
+## \multicolumn{7}{l}{\textsuperscript{} [A really good footnote]}\\
+## \end{tabular}
+## \end{table}
+\end{verbatim}
 
-\begin{table}[!h]
-\centering
-\caption{\label{tab:table_three}Sensitivity Analysis Results}
-\centering
-\begin{tabular}[t]{lrrrlll}
-\toprule
-Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subset p-value & Moderator p-value\\
-\midrule
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Publication Status}}\\
-\hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
-\hspace{1em}Preprint or thesis & 6 & 13 & 0.07 & {}[-0.15, 0.28] & .471 & .8782\\
-\hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .0255\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
-\hspace{1em}Self-reported & 29 & 90 & 0.06 & {}[0, 0.12] & .053 & \textbf{ref}\\
-\hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .3143\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Open Science}}\\
-\hspace{1em}None & 23 & 51 & 0.11 & {}[0.02, 0.2] & .017 & \textbf{ref}\\
-\hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2393\\
-\hspace{1em}Pre-analysis plan only & 4 & 4 & 0.02 & {}[-0.27, 0.31] & .646 & .3527\\
-\hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2761\\
-\bottomrule
-\multicolumn{7}{l}{\textsuperscript{} [INSERT REALLY GOOD FOOTNOTE]}\\
-\end{tabular}
-\end{table}
+\begin{verbatim}
+## \begin{table}[!h]
+## \centering
+## \caption{\label{tab:table_three}Sensitivity Analysis Results}
+## \centering
+## \begin{tabular}[t]{lrrrlll}
+## \toprule
+## Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subset p-value & Moderator p-value\\
+## \midrule
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Publication Status}}\\
+## \hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
+## \hspace{1em}Preprint or thesis & 6 & 13 & 0.07 & {}[-0.15, 0.28] & .471 & .8782\\
+## \hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .0255\\
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
+## \hspace{1em}Self-reported & 29 & 90 & 0.06 & {}[0, 0.12] & .053 & \textbf{ref}\\
+## \hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .3143\\
+## \addlinespace[0.3em]
+## \multicolumn{7}{l}{\textbf{Open Science}}\\
+## \hspace{1em}None & 23 & 51 & 0.11 & {}[0.02, 0.2] & .017 & \textbf{ref}\\
+## \hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2393\\
+## \hspace{1em}Pre-analysis plan only & 4 & 4 & 0.02 & {}[-0.27, 0.31] & .646 & .3527\\
+## \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2761\\
+## \bottomrule
+## \multicolumn{7}{l}{\textsuperscript{} [INSERT REALLY GOOD FOOTNOTE]}\\
+## \end{tabular}
+## \end{table}
+\end{verbatim}
 
-\FloatBarrier  \newpage
+\FloatBarrier 
+\newpage
 
 \subsection{Figures}\label{figures}
 

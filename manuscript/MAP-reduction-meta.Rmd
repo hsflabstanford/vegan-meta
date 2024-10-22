@@ -280,7 +280,11 @@ maybe a paragraph. Significance funnel plot.
 \end{comment}
 ```
 
+```{r publication_bias}
+pub_bias_corrected_estimate <- pubbias_meta(yi = dat$d, vi = dat$var_d, cluster = dat$unique_study_id, model_type = 'robust', favor_positive = TRUE, alpha_select = .05, small = TRUE, selection_ratio = 1, )
+```
 # Methods {#sec3}
+
 
 ## Search {#sec3.1}
 
@@ -310,15 +314,15 @@ print(meta_table)
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/moderator-table.R')
-moderator_table
+print(moderator_table)
 ```
 
 ```{r sensitivity_table,echo=F, message=F}
 source('./scripts/sensitivity-table.R')
-sensitivity_table
+print(sensitivity_table)
 ```
 
-\FloatBarrier <!-- Prevent floats from moving past this point -->
+\FloatBarrier 
 \newpage
 
 ## Figures
