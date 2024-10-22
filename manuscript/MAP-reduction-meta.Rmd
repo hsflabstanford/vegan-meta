@@ -210,7 +210,7 @@ high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
 high_prop_test
 ```
 
-In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: [`r overall_results$CI`], p = `r overall_results$p_val`, $\tau^2$ = `r tau_squared`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.  
+In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau^2$ = `r tau_squared`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.  
 
 Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
 
@@ -250,7 +250,7 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
 red_high_prop_test
 ```
 By contrast, studies that only attempted to reduce consumption of red and processed meat had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of  $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)`
-(95% CI: [`r rpmc_results$CI`], p = `r rpmc_results$p_val`, $\tau^2$ = `r red_tau`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
+(95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau^2$ = `r red_tau`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
 
 ## Meta-regression on study characteristics analysis
 
