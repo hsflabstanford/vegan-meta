@@ -1,29 +1,27 @@
 meta_table <- bind_rows(
   # Overall row
-  table_one_function(approach_name = "Overall", data = dat),
+  run_subset_meta_analysis(data = dat, approach_name = "Overall", col_name = "Approach"),
   
   # Theory-specific results with proper Approach names
   bind_rows(
-    table_one_function("Choice Architecture", "theory", data = dat, 
-                       approach_name = "Choice Architecture"),
-    table_one_function("Psychology", "theory", data = dat, 
-                       approach_name = "Psychology"),
-    table_one_function("Persuasion", "theory", str_detect_flag = FALSE, data = dat, 
-                       approach_name = "Persuasion"),
-    table_one_function("Persuasion & Psychology", "theory", data = dat, 
-                       approach_name = "Persuasion & Psychology")
-  ),
-  
+    run_subset_meta_analysis(data = dat, filter_string = "Choice Architecture", 
+                             filter_column = "theory", approach_name = "Choice Architecture", col_name = "Approach"),
+    run_subset_meta_analysis(data = dat, filter_string = "Psychology", 
+                             filter_column = "theory", approach_name = "Psychology", col_name = "Approach"),
+    run_subset_meta_analysis(data = dat, filter_string = "Persuasion", 
+                             filter_column = "theory", approach_name = "Persuasion",
+                             str_detect_flag = FALSE, col_name = "Approach"),
+    run_subset_meta_analysis(data = dat, filter_string = "Persuasion & Psychology", 
+                             filter_column = "theory", approach_name = "Persuasion \\& Psychology", col_name = "Approach")),
+
   # Type of Persuasion-specific results with proper Approach names
   bind_rows(
-    table_one_function("animal", "secondary_theory", data = dat, 
-                       approach_name = "Animal Welfare"),
-    table_one_function("environment", "secondary_theory", data = dat, 
-                       approach_name = "Environment"),
-    table_one_function("health", "secondary_theory", data = dat, 
-                       approach_name = "Health")
-  )
-) |>
+    run_subset_meta_analysis(data = dat, filter_string = "animal", 
+                             filter_column = "secondary_theory", approach_name = "Animal Welfare", col_name = "Approach"),
+    run_subset_meta_analysis(data = dat, filter_string = "environment", 
+                             filter_column = "secondary_theory", approach_name = "Environment", col_name = "Approach"),
+    run_subset_meta_analysis(data = dat, filter_string = "health", 
+                             filter_column = "secondary_theory", approach_name = "Health", col_name = "Approach"))) |>
   kbl(
     booktabs = TRUE, 
     col.names = c("Approach", "N (Studies)", "N (Estimates)", 
@@ -37,18 +35,14 @@ meta_table <- bind_rows(
     start_row = 2, 
     end_row = 5, 
     latex_gap_space = "0.5em", 
-    bold = TRUE
-  ) |>
+    bold = TRUE) |>
   pack_rows(
     group_label = "Type of Persuasion", 
     start_row = 6, 
     end_row = 8, 
     latex_gap_space = "0.5em", 
-    bold = TRUE
-  ) |> 
-  
+    bold = TRUE) |> 
   # Add Footnote
   add_footnote(
     "Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ multiple categories of argument.",
-    notation = "none"
-  )
+    notation = "none")

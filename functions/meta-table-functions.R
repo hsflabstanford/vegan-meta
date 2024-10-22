@@ -1,71 +1,23 @@
-table_one_function <- function(filter_string = NULL, filter_column = NULL, 
-                               str_detect_flag = TRUE, approach_name = "Overall", 
-                               data = dat) {
-  approach_name <- gsub("&", "\\\\&", approach_name)
-  # Handle the case where no filter is applied
-  if (is.null(filter_string) || is.null(filter_column)) {
-    filtered_data <- data
-  } else {
-    # Apply appropriate filtering based on the str_detect_flag
+# Function to run subset meta-analysis for a given level
+run_subset_meta_analysis <- function(data, group_var = NULL, level = NULL, 
+                                     filter_string = NULL, filter_column = NULL, 
+                                     str_detect_flag = TRUE, approach_name = NULL,
+                                     col_name = "Moderator") {
+  # Handle filtering
+  if (!is.null(filter_column) && !is.null(filter_string)) {
     if (str_detect_flag) {
-      filtered_data <- data %>% 
-        filter(str_detect(!!sym(filter_column), filter_string))
+      data_subset <- data %>% filter(str_detect(!!sym(filter_column), filter_string))
     } else {
-      filtered_data <- data %>% 
-        filter(!!sym(filter_column) == filter_string)
+      data_subset <- data %>% filter(!!sym(filter_column) == filter_string)
     }
+    Moderator <- ifelse(is.null(approach_name), filter_string, approach_name)
+  } else if (!is.null(group_var) && !is.null(level)) {
+    data_subset <- data %>% filter(!!sym(group_var) == level)
+    Moderator <- level
+  } else {
+    data_subset <- data
+    Moderator <- ifelse(is.null(approach_name), "Overall", approach_name)
   }
-  
-  # Check if the filtered data has any rows; if not, return a tibble with NA
-  if (nrow(filtered_data) == 0) {
-    result <- tibble(
-      Approach = approach_name,
-      N_Studies = NA_integer_,
-      N_estimates = NA_integer_,
-      Delta = NA_real_,
-      CI = NA_character_,
-      p_val = NA_real_
-    )
-    return(result)
-  }
-  
-  # Run the robumeta::robu model on the filtered data
-  model <- robumeta::robu(
-    formula = d ~ 1,
-    data = filtered_data,
-    studynum = filtered_data$unique_study_id,
-    var.eff.size = filtered_data$var_d,
-    modelweights = 'CORR',
-    small = TRUE
-  )
-  
-  # Extract results
-  estimate <- model$reg_table$b.r
-  ci_lower <- model$reg_table$CI.L
-  ci_upper <- model$reg_table$CI.U
-  p_val <- format(round(model$reg_table$prob, 3), scientific = FALSE)
-  p_val <- sub("^0\\.", ".", p_val)  # Remove leading zero
-  num_studies <- length(unique(filtered_data$unique_study_id))  
-  num_estimates <- nrow(filtered_data)  
-  
-  # Create the base tibble
-  result <- tibble(
-    Approach = approach_name,
-    N_Studies = num_studies,
-    N_estimates = num_estimates,  
-    Delta = round(estimate, 2),  
-    CI = paste0("[", round(ci_lower, 2), ", ", round(ci_upper, 2), "]"),
-    p_val = p_val
-  )
-  
-  return(result)
-}
-
-
-#  function to run subset meta-analysis for a given level
-run_subset_meta_analysis <- function(data, group_var, level) {
-  # Subset data for the specific level
-  data_subset <- data %>% filter(!!sym(group_var) == level)
   
   # Get number of studies and estimates
   num_studies <- n_distinct(data_subset$unique_study_id)
@@ -73,14 +25,15 @@ run_subset_meta_analysis <- function(data, group_var, level) {
   
   if (num_studies < 1) {
     # No studies available
-    return(tibble(
-      Moderator = level,
+    result <- tibble(
+      !!col_name := Moderator,
       N_Studies = num_studies,
       N_Estimates = num_estimates,
       Delta = NA_real_,
       CI = NA_character_,
       p_val = NA_character_
-    ))
+    )
+    return(result)
   }
   
   # Run meta-analysis (even with 1 study)
@@ -98,36 +51,38 @@ run_subset_meta_analysis <- function(data, group_var, level) {
   })
   
   if (is.null(model)) {
-    return(tibble(
-      Moderator = level,
+    result <- tibble(
+      !!col_name := Moderator,
       N_Studies = num_studies,
       N_Estimates = num_estimates,
       Delta = NA_real_,
       CI = NA_character_,
       p_val = NA_character_
-    ))
+    )
+    return(result)
   }
   
   # Extract results
   estimate <- model$reg_table$b.r
   ci_lower <- model$reg_table$CI.L
   ci_upper <- model$reg_table$CI.U
-  p_val <- formatC(model$reg_table$prob, format = "f", digits = 4)
+  p_val <- format(round(model$reg_table$prob, 3), scientific = FALSE)
   p_val <- sub("^0\\.", ".", p_val)  # Remove leading zero
   
   # Create result tibble
-  tibble(
-    Moderator = level,
+  result <- tibble(
+    !!col_name := Moderator,
     N_Studies = num_studies,
     N_Estimates = num_estimates,
-    Delta = round(estimate, 3),
-    CI = paste0("[", round(ci_lower, 3), ", ", round(ci_upper, 3), "]"),
+    Delta = round(estimate, 2),
+    CI = paste0("[", round(ci_lower, 2), ", ", round(ci_upper, 2), "]"),
     p_val = p_val
   )
+  
+  return(result)
 }
 
-
-# Define function to run meta-regression and extract second p-values
+# Function to run meta-regression and extract second p-values
 run_meta_regression <- function(data, group_var, ref_level) {
   # Include all levels with at least one study
   sufficient_levels <- data |>
@@ -193,7 +148,16 @@ run_meta_regression <- function(data, group_var, ref_level) {
 }
 
 # Function to process each group
-process_group <- function(data, group_var, group_levels, ref_level) {
+process_group <- function(data, group_var, ref_level) {
+  # Automatically determine group levels present in data
+  group_levels <- data |>
+    filter(!is.na(!!sym(group_var))) |>
+    pull(!!sym(group_var)) |>
+    unique()
+  
+  # Ensure the reference level is first
+  group_levels <- c(ref_level, setdiff(group_levels, ref_level))
+  
   # Run subset meta-analyses for each level
   group_results <- lapply(group_levels, function(level) {
     run_subset_meta_analysis(data, group_var, level)
@@ -222,3 +186,4 @@ process_group <- function(data, group_var, group_levels, ref_level) {
   
   return(group_results)
 }
+

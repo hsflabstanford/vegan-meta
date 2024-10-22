@@ -303,23 +303,21 @@ source('./scripts/meta-table.R')
 meta_table
 ```
 
-
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/moderator-table.R')
-revised_moderator_table
+moderator_table
 ```
 
-```{r sensitivity_table,echo=F}
+```{r sensitivity_table,echo=F, message=F}
 source('./scripts/sensitivity-table.R')
 sensitivity_table
 ```
 
 ## Figures
 
-```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='!p', fig.height=9, fig.width=6}
+```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
 forest_plot 
-# TODO: make this a lot bigger
 ```
 
 
