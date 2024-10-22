@@ -28,7 +28,7 @@ meta_table <- bind_rows(
                   "$\\Delta$", "95\\% CIs", "p val"),
     caption = "Meta-Analysis Results", 
     label = "table_one", escape = FALSE) |>             
-  kable_styling(full_width = FALSE) |>
+  kable_styling(full_width = FALSE, latex_options = "hold_position") |>
   # Group Rows
   pack_rows(
     group_label = "Theory", 

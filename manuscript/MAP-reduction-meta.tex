@@ -48,10 +48,8 @@
 \usepackage{comment}
 \usepackage{anyfontsize}
 \usepackage{caption}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb}
-\usepackage{lmodern}
-\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{placeins}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -374,9 +372,11 @@ associations with effect size. For example, 17 of 18 interventions with
 objectively reported outcomes are also studies of university
 populations.
 
+\newpage
+
 \subsection{Tables}\label{tables}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \caption{\label{tab:table_one}Meta-Analysis Results}
 \centering
@@ -402,7 +402,7 @@ Overall & 40 & 108 & 0.07 & {}[0.02, 0.11] & .009\\
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \caption{\label{tab:table_two}Moderator Analysis Results}
 \centering
@@ -443,7 +443,7 @@ Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subse
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \caption{\label{tab:table_three}Sensitivity Analysis Results}
 \centering
@@ -471,9 +471,11 @@ Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subse
 \end{tabular}
 \end{table}
 
+\FloatBarrier  \newpage
+
 \subsection{Figures}\label{figures}
 
-\begin{figure}
+\begin{figure}[H]
 
 {\centering \includegraphics{./figures/forest_plot-1} 
 

@@ -106,7 +106,7 @@ moderator_table <- bind_rows(
     label = "table_two", 
     escape = FALSE
   ) |>
-  kable_styling(full_width = FALSE) |>
+  kable_styling(full_width = FALSE, latex_options = "hold_position") |>
   pack_rows("Outcome", start_row_outcome, end_row_outcome, bold = TRUE, italic = FALSE) |>
   pack_rows("Population", start_row_population, end_row_population, bold = TRUE, italic = FALSE) |>
   pack_rows("Region", start_row_region, end_row_region, bold = TRUE, italic = FALSE) |>

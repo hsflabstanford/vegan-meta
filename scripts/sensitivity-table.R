@@ -70,7 +70,7 @@ sensitivity_table <- bind_rows(
     label = "table_three", 
     escape = FALSE
   ) |>
-  kable_styling(full_width = FALSE) |>
+  kable_styling(full_width = FALSE, latex_options = "hold_position") |>
   pack_rows("Publication Status", start_row_pub_status, end_row_pub_status, bold = TRUE, italic = FALSE) |>
   pack_rows("Data Collection Strategy", start_row_data_collection, end_row_data_collection, bold = TRUE, italic = FALSE) |>
   pack_rows("Open Science", start_row_open_science, end_row_open_science, bold = TRUE, italic = FALSE) |>

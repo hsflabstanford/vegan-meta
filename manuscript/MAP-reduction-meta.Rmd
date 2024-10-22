@@ -47,10 +47,9 @@ header-includes:
   - \usepackage{comment}
   - \usepackage{anyfontsize}
   - \usepackage{caption}
-  - \usepackage[T1]{fontenc}      # Improved font encoding
-  - \usepackage{amsmath, amssymb} # Mathematical symbols
-  - \usepackage{lmodern}          # Enhanced font rendering
-  - \usepackage[utf8]{inputenc}   # Handle UTF-8 encoded characters
+  - \usepackage{float}      # For precise float placement
+  - \usepackage{placeins}   # Provides \FloatBarrier command
+
 ---
 
 ```{r setup, include=FALSE}
@@ -296,11 +295,13 @@ confound_table <- dat |> filter(self_report == 'N') |>
 
 Our sample of studies is comparatively small...Meta-regression estimates correlations of study characteristics with effect size, and thus does not necessarily indicate which study characteristics cause interventions to work better. Also, study characteristics were often highly correlated, limiting our ability to detect their independent associations with effect size. For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
 
+\newpage
+
 ## Tables
 
-```{r meta_table, echo=F, message=F}
+```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
 source('./scripts/meta-table.R')
-meta_table
+print(meta_table)
 ```
 
 ```{r moderator_table, echo=F, message=F}
@@ -313,9 +314,12 @@ source('./scripts/sensitivity-table.R')
 sensitivity_table
 ```
 
+\FloatBarrier <!-- Prevent floats from moving past this point -->
+\newpage
+
 ## Figures
 
-```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.height=9, fig.width=6}
+```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
 forest_plot 
 ```
