@@ -152,7 +152,7 @@ The earliest paper was published in 2002 [@allen2002], and a majority (`r  decad
 
 ## Constituent Theories {#sec2.2}
 
-**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, e.g. placing vegetarian option at eye level on a cafeteria menu [@andersson2021] or providing diners with spoons that make it harder for people to serve themselves fish sauce [@kanchanachitra2020]. 
+**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, such as placing the vegetarian option at eye level on a cafeteria menu [@andersson2021].
 ```{=tex}
 \begin{comment}
 Maya suggests we put in a more representative DV
@@ -197,7 +197,8 @@ Finally, a group of interventions combines **persuasion** approaches with **psyc
 
 ```{r needed_vars, include=F}
 rho <- model$mod_info$rho
-tau_squared <- round(model$mod_info$tau.sq, 3)
+tau <- round(sqrt(model$mod_info$tau.sq), 3)
+tau_squared <- model$mod_info$tau.sq
 delta <- model$reg_table$b.r
 se_m <- model$reg_table$SE
 low_prop_test <- prop_stronger( q = 0.1, M = delta, t2 = tau_squared,
@@ -218,7 +219,7 @@ high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
 high_prop_test
 ```
 
-In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau^2$ = `r tau_squared`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.  
+In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau$  (standard deviation of population effects) = `r tau`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.  
 
 Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
 
@@ -235,33 +236,24 @@ Table 1 compares the overall meta-analytic estimate to the subgroup estimates as
 ```
 
 ```{r rpmc_model, include=F}
-red_tau <- round(rpmc_model$mod_info$tau.sq,3)
+red_tau <- round(sqrt(rpmc_model$mod_info$tau.sq), 3)
 red_tau_squared <- rpmc_model$mod_info$tau.sq
+
 red_delta <- rpmc_model$reg_table$b.r
 red_se_m <- rpmc_model$reg_table$SE
 
-red_low_prop_test <- prop_stronger( q = 0.1, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
-                                estimate.method = "calibrated",
-                                ci.method = "calibrated", dat = RPMC,
-                                yi.name = "d", vi.name = "var_d",
-                              bootstrap = "ifneeded", R = 200) |> 
-   mutate(across(1:6, \(x) round(x, 3)))
-red_low_prop_test
-red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
+red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = red_tau_squared,
                                 se.M = se_m, tail = "above",
                                 estimate.method = "calibrated",
                                 ci.method = "calibrated", dat = RPMC,
                                 yi.name = "d", vi.name = "var_d",
                               bootstrap = "ifneeded", R = 200) |> 
      mutate(across(1:6, \(x) round(x, 3)))
-red_high_prop_test
 ```
 By contrast, studies that only attempted to reduce consumption of red and processed meat had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of  $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)`
-(95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau^2$ = `r red_tau`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
+(95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r red_tau`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
-
 
 Table 2 displays average differences in effect size by study  population, region, era of publication, and delivery method.
 
@@ -281,7 +273,12 @@ Table 3 presents average differences by publication status, data collection stra
 \end{center}
 ```
 
-See supplementary materials for further sensitivity checks. [which statistical checks do we want to do?]
+```{=tex}
+\begin{comment}
+Do selection model, worst case meta-analysis, copy methods in the other meta –
+maybe a paragraph. Significance funnel plot.
+\end{comment}
+```
 
 # Methods {#sec3}
 
