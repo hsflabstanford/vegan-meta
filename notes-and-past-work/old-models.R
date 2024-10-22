@@ -1,6 +1,3 @@
-# Overall
-model <-robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
-                       var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
 # Nudge
 choice_model <- dat |> filter(str_detect(theory, 'Choice Architecture')) |> 
@@ -33,15 +30,6 @@ environment_model <- dat |> filter(str_detect(secondary_theory, 'environment')) 
 animal_model <- dat |> filter(str_detect(secondary_theory, 'animal')) |> 
   robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
                  var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-# red and processed meat model
-rpmc_model <- RPMC |> 
-  robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
-                 var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-
-# Extract results for each model
-overall_results <- extract_model_results("Overall")
-rpmc_results <- extract_model_results(data = RPMC, approach_name = "Overall")
-
 choice_results <- extract_model_results("Choice Architecture", "theory")
 psychology_results <- extract_model_results("Psychology", "theory", FALSE)
 persuasion_results <- extract_model_results("Persuasion", "theory", FALSE)
