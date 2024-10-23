@@ -313,7 +313,7 @@ pub_ci_lower <- round(pub_bias_corrected_estimate$stats$ci_lower, 2)
 pub_ci_upper <- round(pub_bias_corrected_estimate$stats$ci_upper, 2)
 pub_ci_p_val <- round(pub_bias_corrected_estimate$stats$p_value, 3)
 
-nulls <- dat |> filter(neg_null_pos == 0)
+nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
 ```
 The meta-analytic mean corrected for publication bias [@hedges1992] is $\Delta$ = `r pub_bias_estimate` (95% CI: [`r paste0("pub_ci_lower", ", ", pub_ci_upper)`]), p = `r pub_ci_p_val`). As assessment of worst case publication bias that analyzes only null results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
