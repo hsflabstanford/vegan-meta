@@ -351,19 +351,16 @@ collection strategy, and open science practices.
 [Table 3 about here]
 \end{center}
 
-The meta-analytic mean corrected for publication bias \citep{hedges1992}
-is \(\Delta\) = 0.027 (95\% CI: {[}-0.06, 0.11{]}), p = 0.292. As
-assessment of worst case publication bias that analyzes only null and
+As assessment of worst case publication bias that analyzes only null and
 negative results \citep{mathur2024} yields an estimate of \(\Delta\) =
-0.019 (95\% CI: {[}-0.01, 0.049{]}), p = .1694.
-
-Figure 2 is a significance funnel plot \citep{mathur2020} that relates
-studies' point estimates to their standard errors and compares the
-pooled estimate within all studies (black diamond) to the worst-case
-estimate (grey diamond).
+0.019 (95\% CI: {[}-0.01, 0.049{]}), p = .1694. Figure 2 is a
+significance funnel plot \citep{mathur2020} that relates studies' point
+estimates to their standard errors and compares the pooled estimate
+within all studies (black diamond) to the worst-case estimate (grey
+diamond).
 
 \begin{center}
-Fig 2 about here
+[Fig 2 about here]
 \end{center}
 \begin{comment}
 should this be a supplementary fig?
@@ -371,11 +368,77 @@ should this be a supplementary fig?
 
 \section{Methods}\label{sec3}
 
-\subsection{Search}\label{sec3.1}
+Our coding and analyses were pre-registered on the Open Science
+Framework (\url{https://osf.io/3sth2}), although they evolved
+substantially over the time. See supplement for discussion of four major
+deviations from pre-registration.
 
-\subsection{Coding}\label{sec3.2}
+\subsection{Inclusion Criteria}\label{sec3.1}
 
-\subsection{Analysis}\label{sec3.3}
+In addition to selecting studies based on sample size, outcome
+recording, and randomization, we further restricted our search to
+studies that were publicly circulated in English by December 2023. We
+also made two consequential post-hoc decisions regarding study
+inclusion. The first was to count reductions in red and processed meat
+as a separate estimand and to analyze them separately. The second was to
+exclude studies that sought to induce substitution from one kind of MAP
+to another, e.g.~replacing red meat with fish. See supplement for
+analyses that relax these constraints.
+
+\subsection{Search}\label{sec3.2}
+
+Given our interdisciplinary, methods-focused research question, we
+designed and carried out a customized search process. We 1) reviewed 134
+prior reviews, nine of which yielded included articles
+\citep{mathur2021meta, bianchi2018conscious, bianchi2018restructuring, ammann2023, chang2023, DiGennaro2024, harguess2020, ronto2022, wynes2018};
+2) conducted backwards and forward citation search; 3) reviewed
+published articles by authors with papers in the meta-analysis; 4)
+contacted leading researchers in the field to check our in-progress
+search; 5) searched Google Scholar for terms that had come up in studies
+repeatedly; 6) used an AI search tool to search for gray literature; and
+7) checked a database emerging from a parallel project being conducted
+by Rethink Priorities. All three authors contributed to the search.
+Inclusion/exclusion decisions were primarily made by the first author,
+with all authors contributing to discussions about borderline cases.
+
+In total,we excluded
+
+See supplement for more, including PRISMA diagram.
+
+\subsection{Coding}\label{sec3.3}
+
+Studies were coded by the first author. We coded one outcome per
+intervention arm: the latest possible measure of net MAP or RPM
+consumption. Sample sizes were drawn from the same post-test. Additional
+variables coded included information about publication, details of the
+interventions, length of delay, intervention theories, and additional
+details about interventions' methods, contexts, and open science
+practices.
+
+When in doubt about calculating effect sizes, we consulted available
+datasets and/or contacted authors. See supplement for full list of
+variables.
+
+We did not conduct a formal risk of bias assessment for studies, as our
+inclusion criteria were designed to select for the most credible
+estimates.
+
+When standard deviations for the control group were available, outcomes
+were converted to Glass's \(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\),
+and were otherwise converted to Cohen's \(d\). All effect size
+conversions were conducted by the first author using methods and R code
+initially developed for previous papers
+\citep{paluck2019, paluck2021, porat2024} using standard techniques from
+\citep{cooper2019}, with the exception of a difference in proportion
+estimator created for \citep{paluck2021} (see supplement for details).
+
+\subsection{Synthesis \{Sec 3.4\}}\label{synthesis-sec-3.4}
+
+Results were synthesized using robust variance estimation methods
+\citep{hedges2010} as implemented by the \texttt{robumeta} package in
+\texttt{R} \citep{Rlang}. Publication bias was assessed using
+\texttt{PublicationBias} \citep{mathur2024, mathur2020}. See supplement
+for full list of statistical packages and methods.
 
 \section{Discussion}\label{discussion}
 
