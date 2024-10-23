@@ -316,13 +316,15 @@ pub_ci_p_val <- round(pub_bias_corrected_estimate$stats$p_value, 3)
 nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
 ```
-The meta-analytic mean corrected for publication bias [@hedges1992] is $\Delta$ = `r pub_bias_estimate` (95% CI: [`r paste0("pub_ci_lower", ", ", pub_ci_upper)`]), p = `r pub_ci_p_val`). As assessment of worst case publication bias that analyzes only null results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
+The meta-analytic mean corrected for publication bias [@hedges1992] is $\Delta$ = `r pub_bias_estimate` (95% CI: [`r paste0(pub_ci_lower, ", ", pub_ci_upper)`]), p = `r pub_ci_p_val`. As assessment of worst case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
 
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (grey diamond).
 
-```{r, echo=F, fig.cap='caption'}
-funnel_plot <- PublicationBias::significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
-funnel_plot
+```{=tex}
+\begin{center}
+Fig 2 about here
+\end{center}
+
 ```
 # Methods {#sec3}
 
@@ -350,17 +352,17 @@ Our sample of studies is comparatively small...Meta-regression estimates correla
 
 ```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
 source('./scripts/meta-table.R')
-print(meta_table)
+meta_table
 ```
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/moderator-table.R')
-print(moderator_table)
+moderator_table
 ```
 
 ```{r sensitivity_table,echo=F, message=F}
 source('./scripts/sensitivity-table.R')
-print(sensitivity_table)
+sensitivity_table
 ```
 
 \FloatBarrier 
@@ -371,6 +373,11 @@ print(sensitivity_table)
 ```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
 forest_plot 
+```
+
+```{r, echo=F, fig.cap='caption'}
+funnel_plot <- PublicationBias::significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
+funnel_plot
 ```
 
 
