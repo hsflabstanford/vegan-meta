@@ -273,38 +273,6 @@ Table 3 presents average differences by publication status, data collection stra
 \end{center}
 ```
 
-```{=tex}
-\begin{comment}
-
-The meta-analytic mean corrected for publication bias (Hedges,
-1992) was 1.33 (95% CI: [1.22, 1.45]; p < 0.0001). Thus, this estimate
-was in fact somewhat larger than the uncorrected meta-analytic mean of
-1.22, though the estimates had substantially overlapping confidence
-intervals. This result suggests that publication bias was likely mild and
-did not meaningfully affect results. As a post hoc analysis, we fit the
-selection model to unpublished and to published studies separately,
-yielding similar conclusions. The sensitivity analyses for publication
-bias indicated that even under hypothetical worst-case publication bias
-(i.e., if “statistically significant” positive results were infinitely more
-likely to be published than “nonsignificant” or negative results), the
-meta-analytic mean would decrease to 1.07 (95% CI: [1.02, 1.13]) but
-would remain positive and with a confidence interval bounded above
-the null. This worst-case estimate arises from meta-analyzing only the 75
-observed “nonsignificant” or negative studies and excluding the 25
-observed “significant” and positive studies (Mathur and VanderWeele,
-2020c). As a graphical heuristic, the significance funnel plot in Fig. 1
-relates studies’ point estimates to their standard errors and compares the
-pooled estimate within all studies (black diamond) to the worst-case
-estimate (grey diamond). When the diamonds are close to one another
-or the grey diamond represents a positive, nonnegligible effect size, as
-seen here, the meta-analysis may be considered fairly robust to publication
-bias (Mathur and VanderWeele, 2020c). Taken together, the results
-from the selection model and from the sensitivity analysis suggest
-that publication bias appeared negligible and not likely to substantially
-attenuate the results.
-\end{comment}
-```
-
 ```{r publication_bias, include=F, message=F}
 pub_bias_corrected_estimate <- pubbias_meta(yi = dat$d, vi = dat$var_d, cluster = dat$unique_study_id, model_type = 'robust', favor_positive = TRUE, alpha_select = .05, small = TRUE, selection_ratio = 1)
 
@@ -324,7 +292,9 @@ Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ poi
 \begin{center}
 Fig 2 about here
 \end{center}
-
+\begin{comment}
+should this be a supplementary fig?
+\end{comment}
 ```
 # Methods {#sec3}
 
