@@ -3,10 +3,6 @@
 # -------------------------------
 
 # Load necessary libraries
-library(dplyr)
-library(tidyr)
-library(purrr)
-library(forcats)
 
 # Assuming 'dat' and 'model' are already defined and loaded
 
