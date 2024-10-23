@@ -300,6 +300,18 @@ should this be a supplementary fig?
 ```{r methods_nums, include=F}
 reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
+
+robustness_count <- read.csv("./data/robustness-data.csv") |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id()) |> 
+  ungroup() |> 
+  group_by(inclusion_exclusion) |> 
+  summarise(cnt = n_distinct(unique_paper_id)) |> 
+  mutate(inclusion_exclusion = as.character(inclusion_exclusion)) 
+
+# Add the sum row after the main pipe
+robustness_count <- robustness_count |> 
+  bind_rows(tibble(inclusion_exclusion = "sum", cnt = sum(robustness_count$cnt)))
 ```
 Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}), although they evolved substantially over the time. See supplement for discussion of four major deviations from pre-registration.
 
@@ -309,7 +321,7 @@ In addition to selecting studies based on sample size, outcome recording, and ra
 ## Search {#sec3.2}
 Given our interdisciplinary, methods-focused research question, we designed and carried out a customized search process. We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked a database emerging from a parallel project being conducted by Rethink Priorities. All three authors contributed to the search. Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases. 
 
-In total,we excluded 
+In total,we excluded `r excluded_count` papers entirely,  while coding , 
 
 See supplement for more, including PRISMA diagram.
 

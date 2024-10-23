@@ -50,7 +50,6 @@ dat <- read.csv('./data/vegan-meta.csv') |>
 RPMC <- read.csv("./data/robustness-data.csv") |>
   filter(inclusion_exclusion == 1) |> 
   group_by(title) |>
-  group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
   ungroup() |> 
   group_by(unique_paper_id, study_num_within_paper) |> 
@@ -81,7 +80,6 @@ RPMC <- read.csv("./data/robustness-data.csv") |>
            n_t = n_t_post),
          se_d = sqrt(var_d)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything()) 
-
 
 ## supplementary data
 # library(googlesheets4)
