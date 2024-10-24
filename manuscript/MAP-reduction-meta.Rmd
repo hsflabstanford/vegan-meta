@@ -49,7 +49,6 @@ header-includes:
   - \usepackage{caption}
   - \usepackage{float}      # For precise float placement
   - \usepackage{placeins}   # Provides \FloatBarrier command
-
 ---
 
 ```{r setup, include=FALSE}
@@ -77,7 +76,7 @@ Global MAP consumption is increasing annually [@godfray2018] and expected to con
 There is a vast and diverse literature investigating potential means to reverse this trend.
 Example approaches include providing free access to meat substitutes [@katare2023], changing the price [@horgen2002] or perceptions [@kunst2016] of meat, or attempting to persuade people to change their diets [@bianchi2018conscious].
 A large portion of this literature seeks to alter the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021] or placing vegetarian items more prominently in dining halls [@ginn2024].
-Some interventions are associated with large impacts [@hansen2021; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta] or making vegetarian meals the default [@meier2022]  may be consistently effective. 
+Some interventions are associated with large impacts [@hansen2021; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta] or making vegetarian meals the default [@meier2022] may be consistently effective.
 Governments, universities, and other institutions are increasingly implementing these ideas in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
 
 However, much of this literature is beset by design and measurement limitations.
@@ -123,8 +122,8 @@ n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_tota
 ```
 
 We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
-These RCTs all measured consumption outcomes at least a single day after treatment was first administered, and all had at least 25 subjects in both treatment and control, or, in the case of cluster-assigned studies, at least ten clusters in total. 
-Additionally, we coded a separate dataset of `r RPMC_papers` papers that otherwise met our inclusion criteria but instead measured changes in consumption of RPM [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015;  @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
+These RCTs all measured consumption outcomes at least a single day after treatment was first administered, and all had at least 25 subjects in both treatment and control, or, in the case of cluster-assigned studies, at least ten clusters in total.
+Additionally, we coded a separate dataset of `r RPMC_papers` papers that otherwise met our inclusion criteria but instead measured changes in consumption of RPM [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
 
 Studies in our meta-analytic database pursued one of four theoretical approaches: choice architecture (the manipulation of how MAP is presented to diners), psychological appeals (typically manipulations of perceived norms around eating meat), explicit persuasion (centered around animal welfare, the environment, and/or health), or a combination of psychological and persuasion messages.
 Interventions varied in delivery method, for example, documentary films [@mathur2021effectiveness], leaflets [@peacock2017], university lectures [@jalil2023], op-eds [@haile2021], and changes to menus in cafeterias [@andersson2021] and restaurants [@coker2022; @sparkman2021].
@@ -137,6 +136,7 @@ However, many promising approaches still await rigorous evaluation.
 # Results {#sec2}
 
 ## Descriptive overview {#sec2.1}
+
 Our meta-analysis included `r num_papers` papers comprising `r num_studies` studies, and `r num_interventions` separate point estimates, each corresponding to a distinct intervention.
 The total sample size was `r n_total` subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record how many individuals were assigned to treatment).
 
@@ -148,16 +148,16 @@ percentile_25 <- round(quantile(total_pops, 0.25, na.rm = TRUE))
 percentile_75 <- round(quantile(total_pops, 0.75, na.rm = TRUE))
 ```
 
-The earliest paper was published in 2002 [@allen2002], and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) were published since 2020. Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was `r median_total_pop` subjects (25th percentile: `r percentile_25`; 75th percentile: `r percentile_75`).
+The earliest paper was published in 2002 [@allen2002], and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) were published since 2020.
+Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was `r median_total_pop` subjects (25th percentile: `r percentile_25`; 75th percentile: `r percentile_75`).
 
 ## Constituent Theories {#sec2.2}
 
 **Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, such as placing the vegetarian option at eye level on a cafeteria menu [@andersson2021].
-```{=tex}
+
 \begin{comment}
 Maya suggests we put in a more representative DV
 \end{comment}
-```
 
 ```{r persuasion_nums, include=F}
 pers_studies <- dat |> filter(theory == 'Persuasion') 
@@ -174,7 +174,9 @@ pers_studies |>
 # video
 
 ```
-**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022]  Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness]. Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023].
+
+**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness].
+Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023].
 Arguments focus on health, the environment (usually climate change), and animal welfare.
 
 \begin{comment}
@@ -183,7 +185,10 @@ Many persuasion studies combine arguments, such as a lecture on the health and e
 These studies formed the majority of our database.
 \end{comment}
 
-**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal,cognitive, or affective factors associated with eating meat. The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020]. In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022]. In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature,  making meat-eaters out to be a counter-normative outgroup [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019].
+**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal,cognitive, or affective factors associated with eating meat.
+The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020].
+In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022].
+In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature, making meat-eaters out to be a counter-normative outgroup [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019].
 
 \begin{comment}
 Norms might be descriptive, stating how many people engaged in the desired behavior [@aldoh2023], or dynamic, telling subjects that the number of people reducing their MAP consumption is increasing over time [@aldoh2023; @coker2022; @sparkman2020].
@@ -191,7 +196,8 @@ Another study looked at response inhibition training, where subjects are trained
 The first psychology study meeting our inclusion criteria was published in 2017.
 \end{comment}
 
-Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021]. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
+Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021].
+These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
 
 ## Meta-analytic results {#sec2.3}
 
@@ -219,21 +225,17 @@ high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
 high_prop_test
 ```
 
-In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau$  (standard deviation of population effects) = `r tau`. We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.  
+In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau$ (standard deviation of population effects) = `r tau`.
+We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.
 
 Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
 
-```{=tex}
 \begin{center}
 [Table 2 about here]
 \end{center}
-```
-
-```{=tex}
 \begin{center}
 [Figure 1 about here]
 \end{center}
-```
 
 ```{r rpmc_model, include=F}
 red_tau <- round(sqrt(rpmc_model$mod_info$tau.sq), 3)
@@ -250,28 +252,25 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = red_tau_squared,
                               bootstrap = "ifneeded", R = 200) |> 
      mutate(across(1:6, \(x) round(x, 3)))
 ```
-By contrast, studies that only attempted to reduce consumption of red and processed meat had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of  $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)`
-(95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r red_tau`. We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
+
+By contrast, studies that only attempted to reduce consumption of red and processed meat had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r red_tau`.
+We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
 
-Table 2 displays average differences in effect size by study  population, region, era of publication, and delivery method.
+Table 2 displays average differences in effect size by study population, region, era of publication, and delivery method.
 
-```{=tex}
 \begin{center}
 [Table 2 about here]
 \end{center}
-```
 
 ## Sensitivity Analyses {#sec2.5}
 
 Table 3 presents average differences by publication status, data collection strategy, and open science practices.
 
-```{=tex}
 \begin{center}
 [Table 3 about here]
 \end{center}
-```
 
 ```{r publication_bias, include=F, message=F}
 pub_bias_corrected_estimate <- pubbias_meta(yi = dat$d, vi = dat$var_d, cluster = dat$unique_study_id, model_type = 'robust', favor_positive = TRUE, alpha_select = .05, small = TRUE, selection_ratio = 1)
@@ -285,18 +284,19 @@ nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
 # The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is $\Delta$ = `r pub_bias_estimate` (95% CI: [`r paste0(pub_ci_lower, ", ", pub_ci_upper)`]), p = `r pub_ci_p_val`.
 ```
- As assessment of worst case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`. Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (grey diamond).
 
-```{=tex}
+As assessment of worst case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
+Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (grey diamond).
+
 \begin{center}
 [Fig 2 about here]
 \end{center}
 \begin{comment}
 should this be a supplementary fig?
 \end{comment}
-```
 
 # Methods {#sec3}
+
 ```{r methods_nums, include=F}
 reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
@@ -313,40 +313,63 @@ robustness_count <- read.csv("./data/robustness-data.csv") |>
 robustness_count <- robustness_count |> 
   bind_rows(tibble(inclusion_exclusion = "sum", cnt = sum(robustness_count$cnt)))
 ```
-Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}), although they evolved substantially over the time. See supplement for discussion of four major deviations from pre-registration.
+
+Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}), although they evolved substantially over the time.
+See supplement for discussion of four major deviations from pre-registration.
 
 ## Inclusion Criteria {#sec3.1}
-In addition to selecting studies based on sample size, outcome recording, and randomization, we further restricted our search to studies that were publicly circulated in English by December 2023.  We also made two consequential post-hoc decisions regarding study inclusion. The first was to count reductions in red and processed meat as a separate estimand and to analyze them separately. The second was to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. replacing red meat with fish. See supplement for analyses that relax these constraints. 
+
+In addition to selecting studies based on sample size, outcome recording, and randomization, we further restricted our search to studies that were publicly circulated in English by December 2023.
+We also made two consequential post-hoc decisions regarding study inclusion.
+The first was to count reductions in red and processed meat as a separate estimand and to analyze them separately.
+The second was to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. replacing red meat with fish.
+See supplement for analyses that relax these constraints.
 
 ## Search {#sec3.2}
-Given our interdisciplinary, methods-focused research question, we designed and carried out a customized search process. We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked a database emerging from a parallel project being conducted by Rethink Priorities. All three authors contributed to the search. Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases. 
 
-In total,we excluded `r excluded_count` papers entirely,  while coding , 
+Given our interdisciplinary, methods-focused research question, we designed and carried out a customized search process.
+We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked a database emerging from a parallel project being conducted by Rethink Priorities.
+All three authors contributed to the search.
+Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
+
+In total,we excluded `r excluded_count` papers entirely, while coding ,
 
 See supplement for more, including PRISMA diagram.
 
 ## Coding {#sec3.3}
-Studies were coded by the first author. We coded one outcome per intervention arm: the latest possible measure of net MAP or RPM consumption. Sample sizes were drawn from the same post-test. Additional variables coded included information about publication, details of the interventions, length of delay, intervention theories, and additional details about interventions' methods, contexts, and open science practices. 
 
-When in doubt about calculating effect sizes, we consulted available datasets and/or contacted authors. See supplement for full list of variables.
+Studies were coded by the first author.
+We coded one outcome per intervention arm: the latest possible measure of net MAP or RPM consumption.
+Sample sizes were drawn from the same post-test.
+Additional variables coded included information about publication, details of the interventions, length of delay, intervention theories, and additional details about interventions' methods, contexts, and open science practices.
 
-We did not conduct a formal risk of bias assessment for studies, as our inclusion criteria were designed to select for the most credible estimates. 
+When in doubt about calculating effect sizes, we consulted available datasets and/or contacted authors.
+See supplement for full list of variables.
 
-When standard deviations for the control group were available, outcomes were converted to Glass's $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, and were otherwise converted to Cohen's $d$. All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator created for [@paluck2021] (see supplement for details).
+We did not conduct a formal risk of bias assessment for studies, as our inclusion criteria were designed to select for the most credible estimates.
+
+When standard deviations for the control group were available, outcomes were converted to Glass's $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, and were otherwise converted to Cohen's $d$.
+All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator created for [@paluck2021] (see supplement for details).
 
 ## Synthesis {Sec 3.4}
-Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package in `R` [@Rlang]. Publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020]. See supplement for full list of statistical packages and methods. 
+
+Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package in `R` [@Rlang].
+Publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
+See supplement for full list of statistical packages and methods.
 
 # Discussion
 
 ## Limitations
+
 ```{r confounding_check, include=F}
 confound_table <- dat |> filter(self_report == 'N') |> 
   group_by(str_detect(population, 'university')) |> 
   summarise(count = n()) |> as_tibble()
 ```
 
-Our sample of studies is comparatively small...Meta-regression estimates correlations of study characteristics with effect size, and thus does not necessarily indicate which study characteristics cause interventions to work better. Also, study characteristics were often highly correlated, limiting our ability to detect their independent associations with effect size. For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
+Our sample of studies is comparatively small...Meta-regression estimates correlations of study characteristics with effect size, and thus does not necessarily indicate which study characteristics cause interventions to work better.
+Also, study characteristics were often highly correlated, limiting our ability to detect their independent associations with effect size.
+For example, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations.
 
 \newpage
 
@@ -381,7 +404,6 @@ forest_plot
 funnel_plot <- PublicationBias::significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
 ```
-
 
 ```{r robust_data, include=F}
 
