@@ -82,7 +82,14 @@ RPMC <- read.csv("./data/robustness-data.csv") |>
   select(author, year, title, unique_paper_id, unique_study_id, everything()) 
 
 
-merged_dat <- full_join(dat, RPMC)
+merged_dat <- full_join(dat, RPMC) |>
+  group_by(title) |>
+  select(c(-unique_study_id, unique_paper_id)) |> 
+  mutate(unique_paper_id = cur_group_id())  |> 
+  ungroup() |> 
+  group_by(unique_paper_id, study_num_within_paper) |> 
+  mutate(unique_study_id = cur_group_id()) |>
+  ungroup() 
 ## supplementary data
 # library(googlesheets4)
 # library(readr)

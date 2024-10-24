@@ -52,17 +52,24 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
+
+# directory modifications so we can put the manuscript stuff in its own folder
+library(knitr)
+library(rprojroot)
+opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+setwd(find_rstudio_root_file())
+
 # so that knitr labels figures
 knitr::opts_chunk$set(fig.path = "./figures/",
                       echo = FALSE,
                       out.extra = "")
+# libraries
+source('./scripts/libraries.R')
 
-# directory modifications so we can put the manuscript stuff in its own folder
-knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-setwd(rprojroot::find_rstudio_root_file())
+
 options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
 
-source('./scripts/libraries.R')
+# functions and data
 source('./scripts/functions.R')
 source('./scripts/load-data.R')
 ```
@@ -101,9 +108,6 @@ rpmc_model <- RPMC |>
   robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
                  var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
-merged_model <- merged_dat |> 
-  robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
-                 var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
 ## Extract and format key results for each model
 overall_results <- extract_model_results()
@@ -237,10 +241,18 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = red_tau_squared,
                                 yi.name = "d", vi.name = "var_d",
                               bootstrap = "ifneeded", R = 200) |> 
      mutate(across(1:6, \(x) round(x, 3)))
+
+merged_model <- merged_dat |> robu(formula = d ~ 1, studynum = unique_study_id, 
+                 var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
+merged_results <- extract_model_results(data = merged_dat)
+merged_tau <-  round(sqrt(merged_model$mod_info$tau.sq), 3)
+
 ```
 
-By contrast, studies that only attempted to reduce consumption of red and processed meat had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r red_tau`.
+By contrast, studies that only attempted to reduce consumption of RPM had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r red_tau`.
 We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
+
+Meta-analyzing the MAP and RPM studies combined yields an overall $\Delta$ of `r round(merged_model$reg_table$b.r, 3)` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`, $\tau$ = `r merged_tau`.
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
 
@@ -356,6 +368,7 @@ We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform
 The small overall effect we found may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022].
 We attribute this difference to our stricter inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
+Our exclusion of
 
 ## Limitations
 
@@ -399,7 +412,7 @@ forest_plot
 ```
 
 ```{r, echo=F, fig.cap='caption'}
-funnel_plot <- PublicationBias::significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
+funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
 ```
 
