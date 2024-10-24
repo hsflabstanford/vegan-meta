@@ -46,3 +46,4 @@ meta_table <- bind_rows(
   add_footnote(
     "Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ multiple categories of argument.",
     notation = "none")
+

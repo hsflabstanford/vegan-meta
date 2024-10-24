@@ -81,6 +81,8 @@ RPMC <- read.csv("./data/robustness-data.csv") |>
          se_d = sqrt(var_d)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything()) 
 
+
+merged_dat <- full_join(dat, RPMC)
 ## supplementary data
 # library(googlesheets4)
 # library(readr)

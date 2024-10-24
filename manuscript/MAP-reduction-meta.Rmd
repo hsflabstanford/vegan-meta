@@ -101,6 +101,10 @@ rpmc_model <- RPMC |>
   robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
                  var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
+merged_model <- merged_dat |> 
+  robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
+                 var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
+
 ## Extract and format key results for each model
 overall_results <- extract_model_results()
 rpmc_results <- extract_model_results(data = RPMC)
@@ -156,26 +160,6 @@ Among studies where treatment was assigned to individuals rather than by cluster
 ## Constituent Theories {#sec2.2}
 
 **Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, such as placing the vegetarian option at eye level on a cafeteria menu [@andersson2021].
-
-\begin{comment}
-Maya suggests we put in a more representative DV
-\end{comment}
-
-```{r persuasion_nums, include=F}
-pers_studies <- dat |> filter(theory == 'Persuasion') 
-# printed materials
-pers_studies |> group_by(unique_study_id, delivery_method) |> slice(1) |> 
-  filter(str_detect(delivery_method, "article|op-ed|leaflet|flyer|printed booklet|mailed")) |> select(author, year, title, unique_study_id, delivery_method)
-#video
-pers_studies |> group_by(unique_study_id, delivery_method) |> slice(1) |> 
-  filter(str_detect(delivery_method, "video")) |> select(author, year, title, unique_study_id, delivery_method)
-pers_studies |> group_by(unique_study_id, delivery_method) |> slice(1) |> 
-  filter(str_detect(delivery_method, "online|internet|text|email")) |> select(author, year, title, unique_study_id, delivery_method)
-pers_studies |> 
-  filter(str_detect("text", delivery_method))
-# video
-
-```
 
 **Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness].
 Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023].
@@ -368,6 +352,10 @@ Data analyses were largely conducted with custom functions building on `tidyvers
 We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
 
 # Discussion
+
+The small overall effect we found may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022].
+We attribute this difference to our stricter inclusion criteria.
+For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
 
 ## Limitations
 
