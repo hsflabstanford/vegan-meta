@@ -110,15 +110,17 @@ num_papers <- as.numeric(max(dat$unique_paper_id))
 num_studies <- as.numeric(max(dat$unique_study_id))
 num_interventions <- as.numeric(nrow(dat))
 
-n_total <-  noquote(format(round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 1000, floor),
-                   big.mark = ",", scientific = FALSE))
+n_total <- noquote(format(round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 
+                                  accuracy = 1000, direction = "down"),
+                         big.mark = ",", scientific = FALSE))
 
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
 RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
 RPMC_interventions <- as.numeric(nrow(RPMC))
-n_meat_total <-  plyr::round_any(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 1000, floor)
+n_meat_total <- round_to(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 
+                        accuracy = 1000, direction = "down")
 ```
 
 We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
@@ -282,8 +284,12 @@ pub_ci_p_val <- round(pub_bias_corrected_estimate$stats$p_value, 3)
 
 nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
-# The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is $\Delta$ = `r pub_bias_estimate` (95% CI: [`r paste0(pub_ci_lower, ", ", pub_ci_upper)`]), p = `r pub_ci_p_val`.
+
 ```
+
+\begin{comment}
+The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is $\Delta$ = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
+\end{comment}
 
 As assessment of worst case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (grey diamond).
@@ -314,27 +320,26 @@ robustness_count <- robustness_count |>
   bind_rows(tibble(inclusion_exclusion = "sum", cnt = sum(robustness_count$cnt)))
 ```
 
-Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}), although they evolved substantially over the time.
-See supplement for discussion of four major deviations from pre-registration.
+Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}).
+See supplement for discussion of four substantial deviations from pre-registration.
 
-## Inclusion Criteria {#sec3.1}
+## Study selection {#sec3.1}
 
 In addition to selecting studies based on sample size, outcome recording, and randomization, we further restricted our search to studies that were publicly circulated in English by December 2023.
-We also made two consequential post-hoc decisions regarding study inclusion.
-The first was to count reductions in red and processed meat as a separate estimand and to analyze them separately.
-The second was to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. replacing red meat with fish.
+We also made two consequential post-hoc decisions regarding study inclusion: to count reductions in red and processed meat as a separate estimand and to analyze them separately, and to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. swapping red meat with fish.
+
 See supplement for analyses that relax these constraints.
 
 ## Search {#sec3.2}
 
 Given our interdisciplinary, methods-focused research question, we designed and carried out a customized search process.
 We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked a database emerging from a parallel project being conducted by Rethink Priorities.
+
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
-In total,we excluded `r excluded_count` papers entirely, while coding ,
-
-See supplement for more, including PRISMA diagram.
+See supplement for PRISMA diagram.
+See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately  papers we excluded.
 
 ## Coding {#sec3.3}
 
@@ -342,20 +347,23 @@ Studies were coded by the first author.
 We coded one outcome per intervention arm: the latest possible measure of net MAP or RPM consumption.
 Sample sizes were drawn from the same post-test.
 Additional variables coded included information about publication, details of the interventions, length of delay, intervention theories, and additional details about interventions' methods, contexts, and open science practices.
+See supplement for full documentation.
 
 When in doubt about calculating effect sizes, we consulted available datasets and/or contacted authors.
 See supplement for full list of variables.
 
-We did not conduct a formal risk of bias assessment for studies, as our inclusion criteria were designed to select for the most credible estimates.
+We did not conduct a formal risk of bias assessment for studies, as our inclusion criteria were designed to select for credible estimates.
 
 When standard deviations for the control group were available, outcomes were converted to Glass's $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, and were otherwise converted to Cohen's $d$.
-All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator created for [@paluck2021] (see supplement for details).
+All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
 
-## Synthesis {Sec 3.4}
+## Synthesis {#sec3.4}
 
-Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package in `R` [@Rlang].
-Publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
-See supplement for full list of statistical packages and methods.
+Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R` [@Rlang].
+Specifically we used a model that assumes dependence between observations arises from measurements drawn from the same subjects because many studies in our sample featured multiple treatment groups compared to a single control group.
+Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019] and publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
+
+We aimed for complete computational reproducibility [@polanin2020]
 
 # Discussion
 

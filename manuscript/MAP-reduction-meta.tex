@@ -321,7 +321,6 @@ as the three categories of persuasion.
 \begin{center}
 [Table 2 about here]
 \end{center}
-
 \begin{center}
 [Figure 1 about here]
 \end{center}
@@ -351,6 +350,10 @@ collection strategy, and open science practices.
 [Table 3 about here]
 \end{center}
 
+\begin{comment}
+The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is $\Delta$ = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
+\end{comment}
+
 As assessment of worst case publication bias that analyzes only null and
 negative results \citep{mathur2024} yields an estimate of \(\Delta\) =
 0.019 (95\% CI: {[}-0.01, 0.049{]}), p = .1694. Figure 2 is a
@@ -369,21 +372,21 @@ should this be a supplementary fig?
 \section{Methods}\label{sec3}
 
 Our coding and analyses were pre-registered on the Open Science
-Framework (\url{https://osf.io/3sth2}), although they evolved
-substantially over the time. See supplement for discussion of four major
-deviations from pre-registration.
+Framework (\url{https://osf.io/3sth2}). See supplement for discussion of
+four substantial deviations from pre-registration.
 
-\subsection{Inclusion Criteria}\label{sec3.1}
+\subsection{Study selection}\label{sec3.1}
 
 In addition to selecting studies based on sample size, outcome
 recording, and randomization, we further restricted our search to
 studies that were publicly circulated in English by December 2023. We
 also made two consequential post-hoc decisions regarding study
-inclusion. The first was to count reductions in red and processed meat
-as a separate estimand and to analyze them separately. The second was to
-exclude studies that sought to induce substitution from one kind of MAP
-to another, e.g.~replacing red meat with fish. See supplement for
-analyses that relax these constraints.
+inclusion: to count reductions in red and processed meat as a separate
+estimand and to analyze them separately, and to exclude studies that
+sought to induce substitution from one kind of MAP to another,
+e.g.~swapping red meat with fish.
+
+See supplement for analyses that relax these constraints.
 
 \subsection{Search}\label{sec3.2}
 
@@ -397,13 +400,15 @@ contacted leading researchers in the field to check our in-progress
 search; 5) searched Google Scholar for terms that had come up in studies
 repeatedly; 6) used an AI search tool to search for gray literature; and
 7) checked a database emerging from a parallel project being conducted
-by Rethink Priorities. All three authors contributed to the search.
-Inclusion/exclusion decisions were primarily made by the first author,
-with all authors contributing to discussions about borderline cases.
+by Rethink Priorities.
 
-In total,we excluded 895 papers entirely, while coding ,
+All three authors contributed to the search. Inclusion/exclusion
+decisions were primarily made by the first author, with all authors
+contributing to discussions about borderline cases.
 
-See supplement for more, including PRISMA diagram.
+See supplement for PRISMA diagram. See code and data repository for
+details on the 134 prior reviews we consulted and approximately papers
+we excluded.
 
 \subsection{Coding}\label{sec3.3}
 
@@ -413,15 +418,14 @@ consumption. Sample sizes were drawn from the same post-test. Additional
 variables coded included information about publication, details of the
 interventions, length of delay, intervention theories, and additional
 details about interventions' methods, contexts, and open science
-practices.
+practices. See supplement for full documentation.
 
 When in doubt about calculating effect sizes, we consulted available
 datasets and/or contacted authors. See supplement for full list of
 variables.
 
 We did not conduct a formal risk of bias assessment for studies, as our
-inclusion criteria were designed to select for the most credible
-estimates.
+inclusion criteria were designed to select for credible estimates.
 
 When standard deviations for the control group were available, outcomes
 were converted to Glass's \(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\),
@@ -430,15 +434,23 @@ conversions were conducted by the first author using methods and R code
 initially developed for previous papers
 \citep{paluck2019, paluck2021, porat2024} using standard techniques from
 \citep{cooper2019}, with the exception of a difference in proportion
-estimator created for \citep{paluck2021} (see supplement for details).
+estimator that treats discrete events as draws from a Bernoulli
+distribution (see appendix to \citep{paluck2021} for details).
 
-\subsection{Synthesis \{Sec 3.4\}}\label{synthesis-sec-3.4}
+\subsection{Synthesis}\label{sec3.4}
 
 Results were synthesized using robust variance estimation methods
-\citep{hedges2010} as implemented by the \texttt{robumeta} package in
-\texttt{R} \citep{Rlang}. Publication bias was assessed using
-\texttt{PublicationBias} \citep{mathur2024, mathur2020}. See supplement
-for full list of statistical packages and methods.
+\citep{hedges2010} as implemented by the \texttt{robumeta} package
+\citep{fisher2015} in \texttt{R} \citep{Rlang}. Specifically we used a
+model that assumes dependence between observations arises from
+measurements drawn from the same subjects because many studies in our
+sample featured multiple treatment groups compared to a single control
+group. Data analyses were largely conducted with custom functions
+building on \texttt{tidyverse} \citep{wickham2019} and publication bias
+was assessed using \texttt{PublicationBias}
+\citep{mathur2024, mathur2020}.
+
+We aimed for complete computational reproducibility \citep{polanin2020}
 
 \section{Discussion}\label{discussion}
 

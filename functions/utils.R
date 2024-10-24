@@ -12,23 +12,11 @@ forest_meta_function <- function(x) {
   )
 }
 
-get_significance_stars <- function(pval) {
-  sapply(pval, function(x) {
-    if (is.na(x)) {
-      ""
-    } else if (x < .001) {
-      "***"
-    } else if (x < .01) {
-      "**"
-    } else if (x < .05) {
-      "*"
-    } else {
-      ""
-    }
-  })
-}
-
-round_to <- function(x, accuracy, f = round) {
+round_to <- function(x, accuracy, direction = "default") {
+  f <- switch(direction,
+              "up" = ceiling,
+              "down" = floor,
+              "default" = round)
   f(x / accuracy) * accuracy
 }
 # handy shortcut 
