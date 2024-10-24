@@ -404,8 +404,9 @@ published articles by authors with papers in the meta-analysis; 4)
 contacted leading researchers in the field to check our in-progress
 search; 5) searched Google Scholar for terms that had come up in studies
 repeatedly; 6) used an AI search tool to search for gray literature; and
-7) checked a database emerging from a parallel project being conducted
-by Rethink Priorities.
+7) checked, and contributed abstract screening to, a database emerging
+from a systematic review being conducted by Rethink Priorities whose
+inclusion criteria formed a superset around this project's.
 
 All three authors contributed to the search. Inclusion/exclusion
 decisions were primarily made by the first author, with all authors
@@ -446,7 +447,7 @@ distribution (see appendix to \citep{paluck2021} for details).
 
 Results were synthesized using robust variance estimation methods
 \citep{hedges2010} as implemented by the \texttt{robumeta} package
-\citep{fisher2015} in \texttt{R} \citep{Rlang}. Specifically we used a
+\citep{fisher2015} in \texttt{R} \citep{Rlang}. Specifically, we used a
 model that assumes dependence between observations arises from
 measurements drawn from the same subjects because many studies in our
 sample featured multiple treatment groups compared to a single control
@@ -455,11 +456,9 @@ building on \texttt{tidyverse} \citep{wickham2019} and publication bias
 was assessed using \texttt{PublicationBias}
 \citep{mathur2024, mathur2020}.
 
-We aimed for the highest standards of computational reproducibility
-\citep{stodden2018, polanin2020} using \texttt{Rmarkdown}
-\citep{xie2018} to create a reproducible document and a containerized
-\citep{moreau2023} online platform \citep{clyburne2019} to ensure push
-button \citep{wood2018}.
+We used \texttt{Rmarkdown} \citep{xie2018} and a containerized
+\citep{moreau2023} online platform \citep{clyburne2019} to ensure
+computational reproducibility \citep{polanin2020}.
 
 \section{Discussion}\label{discussion}
 

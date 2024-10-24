@@ -19,3 +19,11 @@ A very initial draft is available on the [EA Forum](https://forum.effectivealtru
 ## everything else
 project setup, license, .gitignore, past drafts, presentations etc.
 
+## To reproduce the paper
+(This assumes you use Rstudio)
+1. Download this repo (`git clone https://github.com/hsflabstanford/vegan-meta.git`)
+2. Open `vegan-meta.Rproj`
+3. Make sure everything in `./scripts/libraries.R` is installed
+4. Either run `run.sh` or open `./manuscript/MAP-reduction-meta.Rmd` and select `knit`
+
+

@@ -335,7 +335,7 @@ We also made two consequential post-hoc decisions regarding study inclusion: to 
 See supplement for analyses that relax these constraints.
 
 Given our interdisciplinary, methods-focused research question, we designed and carried out a customized search process.
-We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked a database emerging from a parallel project being conducted by Rethink Priorities.
+We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked, and contributed abstract screening to, a database emerging from a systematic review being conducted by Rethink Priorities whose inclusion criteria formed a superset around this project's.
 
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
@@ -362,10 +362,10 @@ All effect size conversions were conducted by the first author using methods and
 ## Statistical analysis methods {#sec3.4}
 
 Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R` [@Rlang].
-Specifically we used a model that assumes dependence between observations arises from measurements drawn from the same subjects because many studies in our sample featured multiple treatment groups compared to a single control group.
+Specifically, we used a model that assumes dependence between observations arises from measurements drawn from the same subjects because many studies in our sample featured multiple treatment groups compared to a single control group.
 Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019] and publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
 
-We aimed for the highest standards of computational reproducibility [@stodden2018; @polanin2020] using `Rmarkdown` [@xie2018] to create a reproducible document and a containerized [@moreau2023] online platform [@clyburne2019] to ensure push button [@wood2018].
+We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
 
 # Discussion
 
