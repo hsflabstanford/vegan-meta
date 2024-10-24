@@ -377,18 +377,21 @@ four substantial deviations from pre-registration.
 
 \subsection{Study selection}\label{sec3.1}
 
-In addition to selecting studies based on sample size, outcome
-recording, and randomization, we further restricted our search to
-studies that were publicly circulated in English by December 2023. We
-also made two consequential post-hoc decisions regarding study
+As previously detailed, our meta-analytic sample comprises randomized
+controlled trial evaluations of interventions intended to reduce MAP
+consumption that had at least 25 subjects in treatment and control (or
+at least 10 clusters for studies that were cluster-assigned) and that
+measured MAP consumption at least a single day after treatment begins.
+We required that studies have a pure control group receiving no
+treatment to qualify. We further restricted our search to studies that
+were publicly circulated in English by December 2023.
+
+We also made two consequential post-hoc decisions regarding study
 inclusion: to count reductions in red and processed meat as a separate
 estimand and to analyze them separately, and to exclude studies that
 sought to induce substitution from one kind of MAP to another,
-e.g.~swapping red meat with fish.
-
-See supplement for analyses that relax these constraints.
-
-\subsection{Search}\label{sec3.2}
+e.g.~swapping red meat with fish. See supplement for analyses that relax
+these constraints.
 
 Given our interdisciplinary, methods-focused research question, we
 designed and carried out a customized search process. We 1) reviewed 134
@@ -410,7 +413,7 @@ See supplement for PRISMA diagram. See code and data repository for
 details on the 134 prior reviews we consulted and approximately papers
 we excluded.
 
-\subsection{Coding}\label{sec3.3}
+\subsection{Data extraction}\label{sec3.3}
 
 Studies were coded by the first author. We coded one outcome per
 intervention arm: the latest possible measure of net MAP or RPM
@@ -437,7 +440,7 @@ initially developed for previous papers
 estimator that treats discrete events as draws from a Bernoulli
 distribution (see appendix to \citep{paluck2021} for details).
 
-\subsection{Synthesis}\label{sec3.4}
+\subsection{Statistical analysis methods}\label{sec3.4}
 
 Results were synthesized using robust variance estimation methods
 \citep{hedges2010} as implemented by the \texttt{robumeta} package
@@ -450,7 +453,11 @@ building on \texttt{tidyverse} \citep{wickham2019} and publication bias
 was assessed using \texttt{PublicationBias}
 \citep{mathur2024, mathur2020}.
 
-We aimed for complete computational reproducibility \citep{polanin2020}
+We aimed for the highest standards of computational reproducibility
+\citep{stodden2018, polanin2020} using \texttt{Rmarkdown}
+\citep{xie2018} to create a reproducible document and a containerized
+\citep{moreau2023} online platform \citep{clyburne2019} to ensure push
+button \citep{wood2018}.
 
 \section{Discussion}\label{discussion}
 

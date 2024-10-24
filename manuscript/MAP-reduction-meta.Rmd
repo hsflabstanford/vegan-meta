@@ -294,6 +294,8 @@ The meta-analytic mean corrected for publication bias [@hedges1992], which assum
 As assessment of worst case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of $\Delta$ = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (grey diamond).
 
+See supplementary materials for further sensitivity checks.
+
 \begin{center}
 [Fig 2 about here]
 \end{center}
@@ -325,12 +327,12 @@ See supplement for discussion of four substantial deviations from pre-registrati
 
 ## Study selection {#sec3.1}
 
-In addition to selecting studies based on sample size, outcome recording, and randomization, we further restricted our search to studies that were publicly circulated in English by December 2023.
+As previously detailed, our meta-analytic sample comprises randomized controlled trial evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins.
+We required that studies have a pure control group receiving no treatment to qualify.
+We further restricted our search to studies that were publicly circulated in English by December 2023.
+
 We also made two consequential post-hoc decisions regarding study inclusion: to count reductions in red and processed meat as a separate estimand and to analyze them separately, and to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. swapping red meat with fish.
-
 See supplement for analyses that relax these constraints.
-
-## Search {#sec3.2}
 
 Given our interdisciplinary, methods-focused research question, we designed and carried out a customized search process.
 We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature; and 7) checked a database emerging from a parallel project being conducted by Rethink Priorities.
@@ -339,9 +341,9 @@ All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
 See supplement for PRISMA diagram.
-See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately  papers we excluded.
+See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately papers we excluded.
 
-## Coding {#sec3.3}
+## Data extraction {#sec3.3}
 
 Studies were coded by the first author.
 We coded one outcome per intervention arm: the latest possible measure of net MAP or RPM consumption.
@@ -357,13 +359,13 @@ We did not conduct a formal risk of bias assessment for studies, as our inclusio
 When standard deviations for the control group were available, outcomes were converted to Glass's $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, and were otherwise converted to Cohen's $d$.
 All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
 
-## Synthesis {#sec3.4}
+## Statistical analysis methods {#sec3.4}
 
 Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R` [@Rlang].
 Specifically we used a model that assumes dependence between observations arises from measurements drawn from the same subjects because many studies in our sample featured multiple treatment groups compared to a single control group.
 Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019] and publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
 
-We aimed for complete computational reproducibility [@polanin2020]
+We aimed for the highest standards of computational reproducibility [@stodden2018; @polanin2020] using `Rmarkdown` [@xie2018] to create a reproducible document and a containerized [@moreau2023] online platform [@clyburne2019] to ensure push button [@wood2018].
 
 # Discussion
 
