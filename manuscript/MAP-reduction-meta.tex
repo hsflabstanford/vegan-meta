@@ -354,14 +354,12 @@ collection strategy, and open science practices.
 The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is $\Delta$ = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
 \end{comment}
 
-As assessment of worst case publication bias that analyzes only null and
+As assessment of worst-case publication bias that analyzes only null and
 negative results \citep{mathur2024} yields an estimate of \(\Delta\) =
 0.02 (95\% CI: {[}-0.01, 0.05{]}), p = .1694. Figure 2 is a significance
 funnel plot \citep{mathur2020} that relates studies' point estimates to
 their standard errors and compares the pooled estimate within all
 studies (black diamond) to the worst-case estimate (grey diamond).
-
-See supplementary materials for further sensitivity checks.
 
 \begin{center}
 [Fig 2 about here]
@@ -374,7 +372,7 @@ should this be a supplementary fig?
 
 Our coding and analyses were pre-registered on the Open Science
 Framework (\url{https://osf.io/3sth2}). See supplement for discussion of
-four substantial deviations from pre-registration.
+deviations from pre-registration.
 
 \subsection{Study selection}\label{sec3.1}
 
@@ -391,8 +389,7 @@ We also made two consequential post-hoc decisions regarding study
 inclusion: to count reductions in red and processed meat as a separate
 estimand and to analyze them separately, and to exclude studies that
 sought to induce substitution from one kind of MAP to another,
-e.g.~swapping red meat with fish. See supplement for analyses that relax
-these constraints.
+e.g.~swapping red meat with fish.
 
 Given our interdisciplinary, methods-focused research question, we
 designed and carried out a customized search process. We 1) reviewed 134
@@ -426,8 +423,7 @@ details about interventions' methods, contexts, and open science
 practices. See supplement for full documentation.
 
 When in doubt about calculating effect sizes, we consulted available
-datasets and/or contacted authors. See supplement for full list of
-variables.
+datasets and/or contacted authors.
 
 We did not conduct a formal risk of bias assessment for studies, as our
 inclusion criteria were designed to select for credible estimates.
@@ -450,10 +446,10 @@ Results were synthesized using robust variance estimation methods
 model that assumes dependence between observations arises from
 measurements drawn from the same subjects because many studies in our
 sample featured multiple treatment groups compared to a single control
-group. Data analyses were largely conducted with custom functions
-building on \texttt{tidyverse} \citep{wickham2019} and publication bias
-was assessed using \texttt{PublicationBias}
-\citep{mathur2024, mathur2020}.
+group, as well as a standard small sample correction. Data analyses were
+largely conducted with custom functions building on \texttt{tidyverse}
+\citep{wickham2019} and publication bias was assessed using
+\texttt{PublicationBias} \citep{mathur2024, mathur2020}.
 
 We used \texttt{Rmarkdown} \citep{xie2018} and a containerized
 \citep{moreau2023} online platform \citep{clyburne2019} to ensure
@@ -461,23 +457,84 @@ computational reproducibility \citep{polanin2020}.
 
 \section{Discussion}\label{discussion}
 
-The small overall effect we found may surprise readers of previous
-reviews \citep{mathur2021meta, meier2022, mertens2022}. We attribute
-this difference to our stricter inclusion criteria. For instance, of the
-ten largest effect sizes recorded in \citep{mathur2021effectiveness},
-nine were non-consumption outcomes and the tenth came from a
-non-randomized design. Our exclusion of
+\begin{comment}
+intro sentence about prior results?
+\end{comment}
 
-\subsection{Limitations}\label{limitations}
+The small effects we found, both overall and those associated with the
+major theoretical approaches, may surprise readers of previous reviews
+\citep{mathur2021meta, meier2022, mertens2022}. We attribute these
+differences to our stricter inclusion criteria. For instance, of the ten
+largest effect sizes recorded in \citep{mathur2021effectiveness}, nine
+were non-consumption outcomes and the tenth came from a non-randomized
+design. Likewise, as our analyses show, including studies aimed at
+reducing consumption of RPM approximately doubles the overall effect
+from \(\Delta\) = 0.07 to 0.13. However, because these studies do not
+measure patterns of substitution to other kinds of MAP, we cannot
+extrapolate from their recorded effects to an estimate of net MAP
+reduction.
 
-Our sample of studies is comparatively small\ldots Meta-regression
-estimates correlations of study characteristics with effect size, and
-thus does not necessarily indicate which study characteristics cause
-interventions to work better. Also, study characteristics were often
-highly correlated, limiting our ability to detect their independent
-associations with effect size. For example, 17 of 18 interventions with
-objectively reported outcomes are also studies of university
-populations.
+We further note a surprising paucity of qualifying interventions
+employing choice architecture, which has been frequently cited by
+experimenters \citep{boronowsky2022}, reviewers \citep{meier2022}, and
+advocacy groups \citep{zhang2022} as a proven method of changing
+consumer behavior. By contrast, our review revealed that very few papers
+in this literature both employed randomized designs and measured lasting
+effects on MAP consumption. We encourage future choice architecture
+research to measure delayed outcomes whenever possible, such as by
+intervening on participants at lunch and then measuring MAP consumption
+at dinner as well \citep{vocski2024}.
+
+\begin{comment}
+say something about the ambiguity of whether our results are *null* or just badly underpowered -- maybe these experiments are detecting true effects of about 1-5\%$ reductions but just don't have large enough samples to persuasively show it?
+\end{comment}
+
+Our analyses are limited by our small sample size and strict inclusion
+criteria. First, this limits the interpretability of our moderation
+analyses. For instance, 17 of 18 interventions with objectively reported
+outcomes are also studies of university populations, limiting our
+ability to detect the independent association of these variables with
+effect size. Second, the fact that our meta-analytic database is a
+non-random sample of the literature at large limits the external
+validity of our publication bias analyses. Third, our results are quite
+sensitive to choices about included dependent variables, which some
+might argue means they lack robustness. A researcher who did not share
+our concerns about extrapolating from RPM to MAP, or from immediate
+outcomes to long-lasting reductions in MAP consumption, would likely
+draw very different and more positive conclusions. However, this
+critique is a double-edged sword. Our papers suggests that prior
+reviews' findings are also quite sensitive to inclusion rules.
+
+Despite our middling results, we are encouraged by some positive trends
+in the literature. First, as noted, a majority of studies in our
+meta-analysis have been published since 2020, indicating the field's
+growing dedication to questions of credible design and measurement.
+Second, we observe many fruitful collaborations between researchers and
+advocacy organizations, as shown by the plethora of nonprofit white
+papers in our sample.
+
+Moreover, many promising designs and interventions yet await rigorous
+evaluation. For instance, no study meeting our comparatively minimal
+criteria has yet evaluated extended contact with farm animals,
+manipulations to the price of meat, activating moral and/or physical
+disgust, and many categories of choice architecture intervention.
+Further, many promising institutional contexts, such as hospitals,
+grocery stores, and retirement homes, are also missing from our dataset.
+{[}FINAL SENTENCE ABOUT HOW WE LOOK FORWARD TO SEEING THESE WRITTEN OR
+SOMETHING?{]}
+
+\bmhead{Acknowledgments}
+
+\emph{Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani,
+Adin Richards, Martin Gould, and Matt Lerner for comments on an early
+draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua
+Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with
+assembling the database and providing guidance on their studies. We
+gratefully acknowledge funding from the NIH (grant XXX) and Open
+Philanthropy (YYY).}
+
+\section*{Declarations}\label{declarations}
+\addcontentsline{toc}{section}{Declarations}
 
 \newpage
 
@@ -593,12 +650,342 @@ Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subse
 \end{figure}
 
 \begin{figure}
-\includegraphics{./figures/unnamed-chunk-1-1} \caption{caption}\label{fig:unnamed-chunk-1}
+\includegraphics{./figures/funnel_plot-1} \caption{very good caption }\label{fig:funnel_plot}
 \end{figure}
 
 \newpage
 
-\section{Supplementary Materials}\label{supplementary-materials}
+\section{Supplementary Materials}\label{Sec5}
+
+\subsection{Supplementary Methods}\label{Sec5.1}
+
+\subsubsection{Full list of statistical
+packages}\label{full-list-of-statistical-packages}
+
+\ldots{}
+
+\subsubsection{Codebook for data}\label{codebook-for-data}
+
+\ldots{}
+
+\subsubsection{PRISMA diagram}\label{prisma-diagram}
+
+\ldots{}
+
+\subsection{Supplementary Discussion}\label{supplementary-discussion}
+
+\subsubsection{Four deviations from pre-analysis
+plan}\label{four-deviations-from-pre-analysis-plan}
+
+As discussed in the main text, we made two post-hoc changes to our study
+inclusion criteria: excluding studies that sought to induce substitution
+from one kind of MAP to another, and counting reduction in consumption
+of RPM as a separate estimand. Here we discuss two further deviations.
+
+First, our initial analyses used the random effects model from
+\texttt{metafor} to calculate pooled effect sizes. However, as we
+assembled our dataset, we noticed that many papers had, across
+interventions, non-independent observations, typically in the form of
+multiple treatments compared to a single control group. Upon discussion,
+the team's statistician (MBM) suggested that the \texttt{CORR} model
+from the \texttt{robumeta} package would be a better fit.
+
+Using our original model from \texttt{metafor}, we detect a pooled
+effect size of 0.0268173 (95\% CI: {[}-0.00982983195055976
+0.0634643920764966{]}), p = 0.146868. In relative terms, this is
+substantially smaller, but in absolute terms, both this model and our
+main model produce very small estimates.
+
+Second, we added many moderators to our dataset that we did not plan on,
+such as a broad category for delivery method, whether a study was
+intended to be emotionally activating, or whether a program had multiple
+components. We did not end up focusing on these in our main paper but
+include them in our dataset for completeness.
+
+\subsubsection{Some promising interventions that did not meet our
+inclusion
+criteria}\label{some-promising-interventions-that-did-not-meet-our-inclusion-criteria}
+
+{[}to write{]}
+
+\subsubsection{The limits of systematic search for MAP reduction
+papers}\label{sec5.4.1}
+
+This literature has remarkable methodological, disciplinary, and
+theoretical diversity. However, it also has few if any agreed upon terms
+to describe itself. For instance,the term ``MAP'' is nonstandard; other
+papers discuss animal-based proteins, animal products, meat, edible
+animal products, plant-based foods, plant-based protein, and so on. This
+diversity of language poses a particular challenge for anyone seeking to
+systematically review this literature. Whether one has identified the
+correct terms that each relevant study uses to describe itself is, for
+all practical purposes, unknowable.
+
+This informed our search process. Rather than starting with a list of
+search terms, we began by reading prior reviews, and then reading the
+studies cited by those reviews, to get a sense of the language that
+studies used to describe themselves. We then pursued the multi-pronged,
+iterative search process described in the main text. Ultimately, we used
+systematic search techniques to fill in the the blanks when we had an
+intuition that we were missing studies employing a particular approach.
+
+The following are the Google Scholar search terms we used:
+
+\begin{itemize}
+\tightlist
+\item
+  ``random'' ``nudge'' ``meat''
+\item
+  ``meat'' ``purchases'' ``information'' ``nudge''
+\item
+  ``nudge'' ``theory'' ``meat'' ``purchasing''
+\item
+  ``meat'' ``alternatives'' ``default'' ``nudge''
+\item
+  ``dynamic'' ``norms'' ``meat''
+\item
+  ``norms'' ``animal'' ``products''
+\item
+  ``university'' ``meat'' ``default'' ``reduction''
+\end{itemize}
+
+For each of these terms, we looked through ten pages of results.
+
+\subsubsection{Edge cases for study inclusion}\label{sec5.4.2}
+
+Arguably the hardest decision in meta-analysis is what studies to
+include or exclude. By far the most common reason for exclusion was
+category of dependent variable (e.g.~measuring attitudinal or
+intentional outcomes). However, many cases were harder and required some
+deliberation.
+
+Some studies limit dietary portions or switch what people are served
+(e.g.~children being served more vegetables at lunchtime). We did not
+include these studies because they were essentially guaranteed to have
+effects that were either positive or at least bounded at zero. However,
+we did include studies that provided free access to meat alternatives
+\citep{acharya2004, bianchi2022} and measured outcomes after the
+intervention had concluded. (There were not enough of these studies in
+our main dataset to analyze this approach separately, but their effect
+sizes are 0.115 and 0.529 respectively.)
+
+Other studies induce a form of treatment in their control groups, for
+instance asking all subjects to take a pledge to go vegetarian. Our main
+database only includes studies with a pure control group or an unrelated
+placebo. However, we include a selection of studies in our supplementary
+robustness check.
+
+Another common design feature we encountered was treatment assigned at
+the level of alternating weeks at a cafeteria. Generally these studies
+did not have enough weeks to meet our sample size requirements. We also
+note that simply alternating weeks is not equivalent to random
+assignment.
+
+Last, we encountered many studies that measured fruit and or/vegetable
+consumption but not MAP consumption. In some cases, it might have been
+possible to add assumptions about substitution and estimate effect
+sizes, e.g.~if menus were fixed, but we exclusively meta-analyzed
+studies that reported MAP consumption directly.
+
+\subsubsection{Defining the the theoretical boundaries between studies
+requires judgment calls}\label{sec5.4.4}
+
+Tallying how many studies pursue a given theory of change requires
+defining those theories and drawing boundaries between them. This proved
+tricky in some cases. For instance, the words `choice architecture' and
+`nudge' \citep{thaler2009} are not necessarily interchangeable in this
+literature. Many studies described themselves as implementing nudges but
+were not necessarily altering anything about the architecture of a
+choice, and neither were they obviously seeking to operate on
+`unconscious' processes \citep{garnett2020}. For instance, a text
+message reminder of reasons to eat less meat is cheap and easy to
+ignore, and is arguably designed to correct for time-inconsistent
+preferences, a kind of cognitive bias. On the other hand, such a text
+message also provides relevant information about the choice set, and if
+every intervention that attempted this was a nudge, most studies in our
+database would be nudges. We decided that the clearest way around this
+was to separate interventions that altered the literal architecture of a
+choice, and therefore were plausibly working on unconscious processes,
+from interventions that tried to alter how people think or feel about
+what they're eating.
+
+Likewise with social norms messages. \citep{mols2015} identify
+``unthinking conformity'' as an example of a ``human failing'' that
+nudges take as their ``starting point'' (p.~4), and if social norms
+activate an unthinking desire to conform, then arguably a message about
+how many people are going vegetarian in one's community is a nudge. Our
+view is that a social norm prompt might engender a rich array of
+possible reactions, both cognitive and affective, and we do not assume
+that ``unthinking conformity'' is the dominant or exclusive response.
+Therefore, we do not classify the norms interventions in our database as
+nudges.
+
+A future project might investigate exactly what reactions are occurring
+by asking subjects how well they recall a norms message and what it made
+them think about. A high prevalence of subjects who are unable to recall
+the message's specifics but nevertheless cut back on MAP consumption
+would be evidence that norms are acting through automatic rather than
+reflective processes.'
+
+Reasonable people might have defined the theoretical boundary conditions
+differently. For instance, rather than grouping psychology approaches
+together, one might separate interpersonal processes (norms) from purely
+personal processes, e.g.~pledges, implementation intentions, or response
+inhibition training. For this reason, we included in our dataset both
+\texttt{theory} and \texttt{secondary\_theory} columns, and in the
+latter we include more specific information about papers' approaches to
+behavior change. We invite readers to explore different categories and
+their respective pooled effect sizes by building on the code and data we
+provide.
+
+\subsubsection{The limits of immediate outcome measurement in choice
+architecture
+studies}\label{the-limits-of-immediate-outcome-measurement-in-choice-architecture-studies}
+
+Most choice architecture study we reviewed manipulated some aspect of a
+dining environment and then observed what people chose or ate under
+those conditions. Mapping such outcomes to net reductions in MAP
+consumption requires some additional assumptions. Speaking broadly, we
+might tell four possible stories about what a diner who is nudged into
+eating a vegan meal at breakfast might do at lunch:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If the meal was palatable, the diner might wish to eat more vegan
+  meals at the future, which would result in a net reduction in MAP
+  consumption.
+\item
+  If the meal was unpalatable, the diner might develop an aversion to
+  plant-based foods, which would result in a net \emph{increase} in MAP
+  consumption.
+\item
+  If each meal is more or less chosen in isolation, the diner's net MAP
+  consumption might be reduced by the amount of MAP avoided in that one
+  meal.
+\item
+  If the diner has in her mind a daily or weekly ``MAP budget'' --- an
+  amount of animal products she is ``allowed to eat'' in a given time
+  period --- then she might compensate by having that much MAP at the
+  next meal, which would lead to a net change of zero.
+\end{enumerate}
+
+Which of these stories best maps to consumer behavior might be elicited
+by
+
+\subsubsection{Notes on prior reviews}\label{sec5.4.5}
+
+It was striking to us there have been more systematic reviews of MAP
+reduction research than there have been studies meeting our criteria. We
+encourage scholars to pursue more randomized controlled trials with
+consumption outcomes.
+
+We turn now to a selective overview of prior reviews of dietary research
+that were highly relevant to this one.
+
+Among the reviews that found MAP reduction interventions to be
+effective, several focused exclusively on choice architecture.
+\citep{arno2016} found that nudges led to an average increase of healthy
+dietary choices of 15.3\%, while \citep{byerly2018} found that
+committing to reduce meat intake and making menus vegetarian by default
+were more effective than educational interventions. However, the vast
+majority of vegetarian-default studies we analyzed for this paper did
+not qualify for our analysis because they lacked delayed outcomes, and
+their net effect on MAP consumption is unknown.
+
+\citep{bianchi2018restructuring} found that reducing meat portions,
+making alternatives available, moving meat products to be less
+conspicuous, and changing meat's sensory properties can all reduce meat
+demand. \citep{pandey2023} found that changing the presentation and
+availability of sustainable products was effective in increasing demand
+for them, as was providing information about them.
+
+In a meta-review, \citep{grundy2022} found environmental education to be
+most promising, with substantial evidence also supporting health
+information, emphasizing social norms, and decreasing meat portions.
+
+Some reviews have focused on particular settings for MAP reduction
+interventions. \citep{hartmannboyce2018} found that grocery store
+interventions, such as price changes, suggested swaps, and changes to
+item availability, were effective at changing purchasing choices.
+However, that review covered a wide variety of health interventions,
+such as reducing consumption of dietary fat and increasing fruit and
+vegetable purchases. It is unclear how directly such findings translate
+to MAP reduction efforts.
+
+\citep{chang2023} focused on university meat-reduction interventions and
+found more promising results than did reviews that looked at the wider
+public. This suggests that students and young people may be particularly
+receptive to MAP reduction interventions. \citep{harguess2020} reviewed
+22 studies on meat consumption and found promising results for
+educational interventions focused on the environment, health, and animal
+welfare. That paper recommends using animal imagery to cause an
+emotional response and utilizing choice architecture interventions. Our
+review, by contrast, found no relationship between animal welfare
+appeals and MAP consumption.
+
+Taking a different angle, \citep{adleberg2018} reviewed the literature
+on protests in a variety of movements and found mixed evidence of
+efficacy. The authors recommend that animal advocacy protests have a
+specific target (e.g.~a particular institution) and ``ask.''
+
+Other studies provide insights on who is most easily influenced by
+interventions to reduce MAP consumption. For example,
+\citep{blackford2021} found that nudges focused on ``system 1'' thinking
+were more effective at encouraging sustainable choices than those
+focused on ``system 2,'' and that interventions had greater effects on
+females than males. Our review also featured studies showing differences
+between men and women.
+
+\citep{rosenfeld2018} reports that meat avoidance is associated with
+liberal political views, feminine gender, and higher openness,
+agreeableness and neuroticism. That review also identifies challenges
+and barriers to vegetarianism, such as recidivism and hostility from
+friends and family. Future research could tailor interventions to
+address these barriers.
+
+Several reviews have had mixed or inconclusive results. For instance,
+\citep{bianchi2018conscious} found that health and environmental appeals
+appear to change dietary intentions in virtual environments, but did not
+find evidence of actual consumption changes. In the same vein,
+\citep{kwasny2022} notes that most existing research focuses on
+attitudes and intentions and lacks measures of actual meat consumption
+over an extended period of time. \citep{taufik2019} reviewed many
+studies aimed at increasing fruit and vegetable intake, but found far
+fewer that looked at reducing MAP consumption. \citep{benningstad2020}
+found that dissociation of meat from its source plays a role in meat
+consumption, but no extant research that included behavioral outcomes.
+
+A few reviews have found evidence that seems to recommend against
+particular interventions. \citep{greig2017} reviewed the literature on
+leafleting for vegan/animal advocacy outreach, and observed biases
+towards overestimating impact. That paper concluded that leafleting does
+not seem cost-effective, though with significant uncertainty. This
+accords with our findings on advocacy organization materials' limited
+impacts.
+
+\citep{nisa2019} meta-analyzed interventions to improve household
+sustainability, of which reducing MAP consumption was one of several.
+Although they found small effect sizes for most interventions, they
+concluded that nudges were comparatively effective. Many such nudge
+studies looked at meat consumption. Similarly, \citep{rau2022} reviewed
+the literature on environmentally friendly behavior changes, including
+but not limited to diet change, and found small or nonexistent effects
+in most cases. Only fifteen interventions in that paper were described
+as ``very successful,'' and none of these related to food.
+
+We draw two lessons from these papers. The first is that the marginal
+value of a new rigorous evaluation is much higher than that of a new
+systematic review. The second is that the category of dependent variable
+matters for estimating impact. We encourage researchers who care about
+reducing MAP consumption to measure it directly whenever possible.
+
+\begin{comment}
+First I feel a little strange saying that the marginal value of a review is low (then whay are we writing this paper?) Second, maybe there's a space for discussion about what counts as  meaningful? mention that ease of implementation matters in terms of what’s meaningful. The costs of fully exposing one person is the relevant denominator. The costs of recruitment are part of the cost. Maybe some people are more amenable to nudges after hearing an argument for
+\end{comment}
+
+\newpage
 
 \renewcommand\refname{References}
 \bibliography{./vegan-refs.bib}
