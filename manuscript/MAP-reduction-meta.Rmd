@@ -193,20 +193,18 @@ These studies typically combine a persuasive message with a norms-based appeal [
 
 ```{r needed_vars, include=F}
 rho <- model$mod_info$rho
-tau <- round(sqrt(model$mod_info$tau.sq), 3)
-tau_squared <- model$mod_info$tau.sq
-delta <- model$reg_table$b.r
-se_m <- model$reg_table$SE
-low_prop_test <- prop_stronger( q = 0.1, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
+low_prop_test <- prop_stronger( q = 0.1, M = overall_results$Delta,
+                                t2 = overall_results$tau^2,
+                                se.M = overall_results$SE, tail = "above",
                                 estimate.method = "calibrated",
                                 ci.method = "calibrated", dat = dat,
                                 yi.name = "d", vi.name = "var_d",
                               bootstrap = "ifneeded", R = 200) |> 
    mutate(across(1:6, \(x) round(x, 3)))
 low_prop_test
-high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
-                                se.M = se_m, tail = "above",
+high_prop_test <- prop_stronger( q = 0.2,  M = overall_results$Delta,
+                                t2 = overall_results$tau^2,
+                                se.M = overall_results$SE, tail = "above",
                                 estimate.method = "calibrated",
                                 ci.method = "calibrated", dat = dat,
                                 yi.name = "d", vi.name = "var_d",
@@ -215,7 +213,7 @@ high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = tau_squared,
 high_prop_test
 ```
 
-In our dataset, the pooled effect of all interventions is $\Delta$ = `r round(delta, 3)` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau$ (standard deviation of population effects) = `r tau`.
+In our dataset, the pooled effect of all interventions is $\Delta$ = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau$ (standard deviation of population effects) = `r overall_results$tau`.
 We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above $\Delta$ = 0.2.
 
 Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
@@ -228,14 +226,10 @@ Table 1 compares the overall meta-analytic estimate to the subgroup estimates as
 \end{center}
 
 ```{r rpmc_model, include=F}
-red_tau <- round(sqrt(rpmc_model$mod_info$tau.sq), 3)
-red_tau_squared <- rpmc_model$mod_info$tau.sq
 
-red_delta <- rpmc_model$reg_table$b.r
-red_se_m <- rpmc_model$reg_table$SE
-
-red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = red_tau_squared,
-                                se.M = se_m, tail = "above",
+red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
+                                     t2 = rpmc_results$tau^2,
+                                se.M = rpmc_results$SE, tail = "above",
                                 estimate.method = "calibrated",
                                 ci.method = "calibrated", dat = RPMC,
                                 yi.name = "d", vi.name = "var_d",
@@ -244,15 +238,14 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = delta, t2 = red_tau_squared,
 
 merged_model <- merged_dat |> robu(formula = d ~ 1, studynum = unique_study_id, 
                  var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-merged_results <- extract_model_results(data = merged_dat)
-merged_tau <-  round(sqrt(merged_model$mod_info$tau.sq), 3)
+merged_results <- merged_dat |> extract_model_results()
 
 ```
 
-By contrast, studies that only attempted to reduce consumption of RPM had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of $\Delta$ = `r round(rpmc_model$reg_table$b.r, 3)` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r red_tau`.
+By contrast, studies that only attempted to reduce consumption of RPM had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of $\Delta$ = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r merged_results$tau`.
 We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above $\Delta$ = 0.2.
 
-Meta-analyzing the MAP and RPM studies combined yields an overall $\Delta$ of `r round(merged_model$reg_table$b.r, 3)` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`, $\tau$ = `r merged_tau`.
+Meta-analyzing the MAP and RPM studies combined yields an overall estimate of $\Delta$ = `r round(merged_model$reg_table$b.r, 3)` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`, $\tau$ = `r merged_results$tau`.
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
 
