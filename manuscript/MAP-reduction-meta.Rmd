@@ -103,11 +103,6 @@ Does this phenomenon hold in the MAP reduction literature as well?
 model <-robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
                        var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
-## red and processed meat model
-rpmc_model <- RPMC |> 
-  robumeta::robu(formula = d ~ 1, studynum = unique_study_id, 
-                 var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-
 
 ## Extract and format key results for each model
 overall_results <- extract_model_results()
@@ -125,10 +120,6 @@ n_total <- noquote(format(round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_tota
 decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
 
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
-RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
-RPMC_interventions <- as.numeric(nrow(RPMC))
-n_meat_total <- round_to(x = sum(RPMC$n_c_total_pop) + sum(RPMC$n_t_total_pop), 
-                        accuracy = 1000, direction = "down")
 ```
 
 We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
@@ -158,8 +149,7 @@ percentile_25 <- round(quantile(total_pops, 0.25, na.rm = TRUE))
 percentile_75 <- round(quantile(total_pops, 0.75, na.rm = TRUE))
 ```
 
-The earliest paper was published in 2002 [@allen2002], and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) were published since 2020.
-Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was `r median_total_pop` subjects (25th percentile: `r percentile_25`; 75th percentile: `r percentile_75`).
+The earliest paper was published in 2002 [@allen2002], and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) were published since 2020. Among studies where treatment was assigned to individuals rather than by clusters, the median analyzed sample size per study was `r median_total_pop` subjects (25th percentile: `r percentile_25`; 75th percentile: `r percentile_75`).
 
 ## Constituent Theories {#sec2.2}
 
@@ -192,7 +182,6 @@ These studies typically combine a persuasive message with a norms-based appeal [
 ## Meta-analytic results {#sec2.3}
 
 ```{r needed_vars, include=F}
-rho <- model$mod_info$rho
 low_prop_test <- prop_stronger( q = 0.1, M = overall_results$Delta,
                                 t2 = overall_results$tau^2,
                                 se.M = overall_results$SE, tail = "above",
@@ -225,7 +214,7 @@ Table 1 compares the overall meta-analytic estimate to the subgroup estimates as
 [Figure 1 about here]
 \end{center}
 
-```{r rpmc_model, include=F}
+```{r rpmc_and_merged_stats, include=F}
 
 red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
                                      t2 = rpmc_results$tau^2,
@@ -298,17 +287,18 @@ should this be a supplementary fig?
 reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 
-robustness_count <- read.csv("./data/robustness-data.csv") |>
-  group_by(title) |>
-  mutate(unique_paper_id = cur_group_id()) |> 
-  ungroup() |> 
-  group_by(inclusion_exclusion) |> 
-  summarise(cnt = n_distinct(unique_paper_id)) |> 
-  mutate(inclusion_exclusion = as.character(inclusion_exclusion)) 
+# robustness_count <- read.csv("./data/robustness-data.csv") |>
+#   group_by(title) |>
+#   mutate(unique_paper_id = cur_group_id()) |> 
+#   ungroup() |> 
+#   group_by(inclusion_exclusion) |> 
+#   summarise(cnt = n_distinct(unique_paper_id)) |> 
+#   mutate(inclusion_exclusion = as.character(inclusion_exclusion)) 
 
 # Add the sum row after the main pipe
-robustness_count <- robustness_count |> 
-  bind_rows(tibble(inclusion_exclusion = "sum", cnt = sum(robustness_count$cnt)))
+# robustness_count <- robustness_count |> 
+#   bind_rows(tibble(inclusion_exclusion = "sum", cnt = sum(robustness_count$cnt)))
+
 ```
 
 Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}).
@@ -330,7 +320,7 @@ All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
 See supplement for PRISMA diagram.
-See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately papers we excluded.
+See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately `r excluded_count` papers we excluded.
 
 ## Data extraction {#sec3.3}
 
@@ -419,10 +409,7 @@ funnel_plot
 # Supplementary Materials
 
 ```{r sensitivty_checks, include=F}
-
-pub_bias_test <- cor.test(dat$d, dat$se_d)
-
-sensitivity_analyses <- robumeta::sensitivity(model)
+# sensitivity_analyses <- robumeta::sensitivity(model)
 ```
 
 # References
