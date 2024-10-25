@@ -63,11 +63,9 @@ setwd(find_rstudio_root_file())
 knitr::opts_chunk$set(fig.path = "./figures/",
                       echo = FALSE,
                       out.extra = "")
+options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
 # libraries
 source('./scripts/libraries.R')
-
-
-options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
 
 # functions and data
 source('./scripts/functions.R')
@@ -253,7 +251,7 @@ Table 3 presents average differences by publication status, data collection stra
 \end{center}
 
 ```{r publication_bias, include=F, message=F}
-pub_bias_corrected_estimate <- pubbias_meta(yi = dat$d, vi = dat$var_d, cluster = dat$unique_study_id, model_type = 'robust', favor_positive = TRUE, alpha_select = .05, small = TRUE, selection_ratio = 1)
+pub_bias_corrected_estimate <- pubbias_meta(yi = dat$d, vi = dat$var_d, cluster = dat$unique_study_id, model_type = 'robust', favor_positive = TRUE, alpha_select = .05, small = TRUE, selection_ratio = 2)
 
 pub_bias_estimate <- round(pub_bias_corrected_estimate$stats$estimate, 3)
 pub_ci_lower <- round(pub_bias_corrected_estimate$stats$ci_lower, 2)
@@ -348,10 +346,15 @@ We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform
 
 # Discussion
 
-The small overall effect we found may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022].
-We attribute this difference to our stricter inclusion criteria.
-For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
-Our exclusion of
+```{=tex}
+\begin{comment}
+intro sentence about prior results?
+\end{comment}
+```
+
+The small effects we found, both overall and those associated with the major theoretical approaches, may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022]. We attribute these differences to our stricter inclusion criteria.
+For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design. Likewise, as our analyses show, including studies aimed at reducing consumption of red and processed meat 
+
 
 ## Limitations
 
