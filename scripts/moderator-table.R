@@ -101,7 +101,7 @@ moderator_table <- bind_rows(
   kbl(
     booktabs = TRUE, 
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
-                  "$\\Delta$", "95\\% CIs", "Subset p-val", "Moderator p-val"), 
+                  "SMD", "95\\% CIs", "Subset p-val", "Moderator p-val"), 
     caption = "Moderator Analysis Results",  
     label = "table_two", 
     escape = FALSE

@@ -120,7 +120,7 @@ forest_plot <- forest_data |>
   }) +
   
   # Step 2.8: Customize X-axis
-  scale_x_continuous(name = expression(paste("Glass's", " ", Delta))) +
+  scale_x_continuous(name = "SMD") +
   
   # Step 2.9: Add Labels and Captions
   labs(

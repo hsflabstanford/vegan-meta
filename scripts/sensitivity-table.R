@@ -65,7 +65,7 @@ sensitivity_table <- bind_rows(
   kbl(
     booktabs = TRUE,
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
-                  "$\\Delta$", "95\\% CIs", "Subset p-value", "Moderator p-value"), 
+                  "SMD", "95\\% CIs", "Subset p-value", "Moderator p-value"), 
     caption = "Sensitivity Analysis Results", 
     label = "table_three", 
     escape = FALSE

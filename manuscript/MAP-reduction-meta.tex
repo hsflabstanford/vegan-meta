@@ -118,16 +118,16 @@ meta-analyze 36 papers comprising 42 studies, 114 interventions, and
 approximately 88,000 subjects. We find that these papers employ four
 major strategies to changing behavior: choice architecture, persuasion,
 psychology, and a combination of persuasion and psychology. The pooled
-effect of all 114 interventions on MAP consumption is \(\Delta\) =
-0.065, indicating an unsolved problem. Reducing consumption of red and
-processed meat is an easier target: \(\Delta\) = 0.249, but because of
-missing data on potential substitution to other MAP, we can't say
-anything definitive about the consequences of these interventions on
-animal welfare. We further explore effect size heterogeneity by
-approach, population, and study features. We conclude that while no
-theoretical approach provides a proven remedy to MAP consumption,
-designs and measurement strategies have generally been improving over
-time, and many promising interventions await rigorous evaluation.}
+effect of all 114 interventions on MAP consumption is SMD = 0.065,
+indicating an unsolved problem. Reducing consumption of red and
+processed meat is an easier target: SMD = 0.249, but because of missing
+data on potential substitution to other MAP, we can't say anything
+definitive about the consequences of these interventions on animal
+welfare. We further explore effect size heterogeneity by approach,
+population, and study features. We conclude that while no theoretical
+approach provides a proven remedy to MAP consumption, designs and
+measurement strategies have generally been improving over time, and many
+promising interventions await rigorous evaluation.}
 
 \keywords{meta-analysis, meat, plant-based, randomized controlled trial}
 
@@ -304,11 +304,10 @@ reduce one's meat consumption
 
 \subsection{Meta-analytic results}\label{sec2.3}
 
-In our dataset, the pooled effect of all interventions is \(\Delta\) =
-0.07 (95\% CI: {[}0.02, 0.11{]}), p = .0094, \(\tau\) (standard
-deviation of population effects) = 0.079. We estimate that 24.1\% of
-true effects are above \(\Delta\) = 0.1, and just 6.5\% are above
-\(\Delta\) = 0.2.
+In our dataset, the pooled effect of all interventions is SMD = 0.07
+(95\% CI: {[}0.02, 0.11{]}), p = .0094, \(\tau\) (standard deviation of
+population effects) = 0.079. We estimate that 24.1\% of true effects are
+above SMD = 0.1, and just 6.5\% are above SMD = 0.2.
 
 Table 1 compares the overall meta-analytic estimate to the subgroup
 estimates associated with the four major theoretical approaches, as well
@@ -323,13 +322,13 @@ as the three categories of persuasion.
 
 By contrast, studies that only attempted to reduce consumption of RPM
 had larger estimates: across these 17 studies and 25 estimates, we
-detect a pooled effect of \(\Delta\) = 0.13 (95\% CI: {[}0.07, 0.19{]}),
-p = .0016, \(\tau\) = 0.138. We estimate that 52\% of true effects are
-above \(\Delta\) = 0.2.
+detect a pooled effect of SMD = 0.13 (95\% CI: {[}0.07, 0.19{]}), p =
+.0016, \(\tau\) = 0.138. We estimate that 52\% of true effects are above
+SMD = 0.2.
 
 Meta-analyzing the MAP and RPM studies combined yields an overall
-estimate of \(\Delta\) = 0.129 (95\% CI: {[}0.07, 0.19{]}), p = .0001,
-\(\tau\) = 0.138.
+estimate of SMD = 0.129 (95\% CI: {[}0.07, 0.19{]}), p = .0001, \(\tau\)
+= 0.138.
 
 \subsection{Meta-regression on study characteristics
 analysis}\label{sec2.4}
@@ -351,12 +350,12 @@ collection strategy, and open science practices.
 \end{center}
 
 \begin{comment}
-The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is $\Delta$ = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
+The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is SMD = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
 \end{comment}
 
 As assessment of worst-case publication bias that analyzes only null and
-negative results \citep{mathur2024} yields an estimate of \(\Delta\) =
-0.02 (95\% CI: {[}-0.01, 0.05{]}), p = .1694. Figure 2 is a significance
+negative results \citep{mathur2024} yields an estimate of SMD = 0.02
+(95\% CI: {[}-0.01, 0.05{]}), p = .1694. Figure 2 is a significance
 funnel plot \citep{mathur2020} that relates studies' point estimates to
 their standard errors and compares the pooled estimate within all
 studies (black diamond) to the worst-case estimate (grey diamond).
@@ -370,10 +369,6 @@ should this be a supplementary fig?
 
 \section{Methods}\label{sec3}
 
-Our coding and analyses were pre-registered on the Open Science
-Framework (\url{https://osf.io/3sth2}). See supplement for discussion of
-deviations from pre-registration.
-
 \subsection{Study selection}\label{sec3.1}
 
 As previously detailed, our meta-analytic sample comprises randomized
@@ -382,8 +377,8 @@ consumption that had at least 25 subjects in treatment and control (or
 at least 10 clusters for studies that were cluster-assigned) and that
 measured MAP consumption at least a single day after treatment begins.
 We required that studies have a pure control group receiving no
-treatment to qualify. We further restricted our search to studies that
-were publicly circulated in English by December 2023.
+treatment. We further restricted our search to studies that were
+publicly circulated in English by December 2023.
 
 We also made two consequential post-hoc decisions regarding study
 inclusion: to count reductions in red and processed meat as a separate
@@ -391,18 +386,19 @@ estimand and to analyze them separately, and to exclude studies that
 sought to induce substitution from one kind of MAP to another,
 e.g.~swapping red meat with fish.
 
-Given our interdisciplinary, methods-focused research question, we
-designed and carried out a customized search process. We 1) reviewed 134
-prior reviews, nine of which yielded included articles
+Given our interdisciplinary research question and previous work
+indicating a large grey literature \citep{mathur2021meta}, we designed
+and carried out a customized search process We 1) reviewed 134 prior
+reviews, nine of which yielded included articles
 \citep{mathur2021meta, bianchi2018conscious, bianchi2018restructuring, ammann2023, chang2023, DiGennaro2024, harguess2020, ronto2022, wynes2018};
 2) conducted backwards and forward citation search; 3) reviewed
 published articles by authors with papers in the meta-analysis; 4)
 contacted leading researchers in the field to check our in-progress
 search; 5) searched Google Scholar for terms that had come up in studies
-repeatedly; 6) used an AI search tool to search for gray literature; and
-7) checked, and contributed abstract screening to, a database emerging
-from a systematic review being conducted by Rethink Priorities whose
-inclusion criteria formed a superset around this project's.
+repeatedly; 6) used an AI search tool to search for gray literature
+(\url{https://undermind.ai/}); and 7) checked a database emerging from
+an ongoing nonprofit project that seeks to identify all papers on
+meat-reducing interventions (see supplement for details).
 
 All three authors contributed to the search. Inclusion/exclusion
 decisions were primarily made by the first author, with all authors
@@ -414,13 +410,13 @@ papers we excluded.
 
 \subsection{Data extraction}\label{sec3.3}
 
-Studies were coded by the first author. We coded one outcome per
-intervention arm: the latest possible measure of net MAP or RPM
-consumption. Sample sizes were drawn from the same post-test. Additional
-variables coded included information about publication, details of the
-interventions, length of delay, intervention theories, and additional
-details about interventions' methods, contexts, and open science
-practices. See supplement for full documentation.
+The first author extracted all data. We extracted an effect size for one
+outcome per intervention: the latest possible measure of net MAP or RPM
+consumption. Sample sizes corresponded to the same time point.
+Additional variables coded included information about publication,
+details of the interventions, length of delay, intervention theories,
+and additional details about interventions' methods, contexts, and open
+science practices (see supplement).
 
 When in doubt about calculating effect sizes, we consulted available
 datasets and/or contacted authors.
@@ -428,11 +424,8 @@ datasets and/or contacted authors.
 We did not conduct a formal risk of bias assessment for studies, as our
 inclusion criteria were designed to select for credible estimates.
 
-When standard deviations for the control group were available, outcomes
-were converted to Glass's \(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\),
-and were otherwise converted to Cohen's \(d\). All effect size
-conversions were conducted by the first author using methods and R code
-initially developed for previous papers
+All effect size conversions were conducted by the first author using
+methods and R code initially developed for previous papers
 \citep{paluck2019, paluck2021, porat2024} using standard techniques from
 \citep{cooper2019}, with the exception of a difference in proportion
 estimator that treats discrete events as draws from a Bernoulli
@@ -469,10 +462,9 @@ largest effect sizes recorded in \citep{mathur2021effectiveness}, nine
 were non-consumption outcomes and the tenth came from a non-randomized
 design. Likewise, as our analyses show, including studies aimed at
 reducing consumption of RPM approximately doubles the overall effect
-from \(\Delta\) = 0.07 to 0.13. However, because these studies do not
-measure patterns of substitution to other kinds of MAP, we cannot
-extrapolate from their recorded effects to an estimate of net MAP
-reduction.
+from SMD = 0.07 to 0.13. However, because these studies do not measure
+patterns of substitution to other kinds of MAP, we cannot extrapolate
+from their recorded effects to an estimate of net MAP reduction.
 
 We further note a surprising paucity of qualifying interventions
 employing choice architecture, which has been frequently cited by
@@ -546,7 +538,7 @@ Philanthropy (YYY).}
 \centering
 \begin{tabular}[t]{lrrrll}
 \toprule
-Approach & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & p val\\
+Approach & N (Studies) & N (Estimates) & SMD & 95\% CIs & p val\\
 \midrule
 Overall & 40 & 108 & 0.07 & {}[0.02, 0.11] & .009\\
 \addlinespace[0.5em]
@@ -572,7 +564,7 @@ Overall & 40 & 108 & 0.07 & {}[0.02, 0.11] & .009\\
 \centering
 \begin{tabular}[t]{lrrrlll}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subset p-val & Moderator p-val\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Outcome}}\\
@@ -613,7 +605,7 @@ Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subse
 \centering
 \begin{tabular}[t]{lrrrlll}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subset p-value & Moderator p-value\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-value & Moderator p-value\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Publication Status}}\\
@@ -659,6 +651,12 @@ Study Characteristic & N (Studies) & N (Estimates) & $\Delta$ & 95\% CIs & Subse
 
 \subsection{Supplementary Methods}\label{Sec5.1}
 
+\subsubsection{Effect size details}\label{effect-size-details}
+
+When standard deviations for the control group were available, outcomes
+were converted to Glass's \(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\),
+and were otherwise converted to Cohen's \(d\). \ldots{}
+
 \subsubsection{Full list of statistical
 packages}\label{full-list-of-statistical-packages}
 
@@ -677,10 +675,12 @@ packages}\label{full-list-of-statistical-packages}
 \subsubsection{Four deviations from pre-analysis
 plan}\label{four-deviations-from-pre-analysis-plan}
 
-As discussed in the main text, we made two post-hoc changes to our study
-inclusion criteria: excluding studies that sought to induce substitution
-from one kind of MAP to another, and counting reduction in consumption
-of RPM as a separate estimand. Here we discuss two further deviations.
+Our coding and analyses were pre-registered on the Open Science
+Framework (\url{https://osf.io/3sth2}). As discussed in the main text,
+we made two post-hoc changes to our study inclusion criteria: excluding
+studies that sought to induce substitution from one kind of MAP to
+another, and counting reduction in consumption of RPM as a separate
+estimand. Here we discuss two further deviations.
 
 First, our initial analyses used the random effects model from
 \texttt{metafor} to calculate pooled effect sizes. However, as we
