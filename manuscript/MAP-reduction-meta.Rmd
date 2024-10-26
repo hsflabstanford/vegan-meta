@@ -321,15 +321,13 @@ The first author extracted all data. We extracted an effect size for one outcome
 
 When in doubt about calculating effect sizes, we consulted available datasets and/or contacted authors.
 
-We did not conduct a formal risk of bias assessment for studies, as our inclusion criteria were designed to select for credible estimates.
+To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (see table 3).
 
 All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
 
 ## Statistical analysis methods {#sec3.4}
 
-Results were synthesized using robust variance estimation methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R` [@Rlang].
-Specifically, we used a model that assumes dependence between observations arises from measurements drawn from the same subjects because many studies in our sample featured multiple treatment groups compared to a single control group, as well as a standard small sample correction. 
-Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019] and publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
+Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the robumeta package [@fisher2015] in R [@Rlang]. Many studies in our sample featured multiple treatment groups compared to a single control group. Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction. Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] and publication bias was assessed using PublicationBias [@mathur2024; @mathur2020]. [SAY MORE ABOUT THESE METHODS]
 
 We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
 
