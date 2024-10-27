@@ -343,16 +343,16 @@ Our overall effect of SMD = `r overall_results$Delta`, as well as our upper conf
 Although some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]), each of these studies employed its own methods and theory of change.
 Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
 
-Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], we attribute our findings to our stricter inclusion criteria.
+Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], we attribute our divergent results to our stricter inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
 Prior research has found that intentions do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
 It stands to reason that a review focused on rigorous evaluations of consumption outcomes would not accord with the findings of reviews aimed at broader targets.
 
 Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all categories of MAP consumption.
 Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [\@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish.
-Further, reducing RPM consumption is frequently mentions as something consumers can and should do to personally fight climate change [@auclair2024].
-By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be diffuclt, unsatisfying, and expensive [@bryant2019].
-We speculate that cutting back on RPM is perceived as easier and more socially rewarded than cutting back on MAP generally, and that this explains the observed difference in effect sizes.
+Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024].
+By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
+We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
 
 ```{r confounding_check, include=F}
 confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(population, 'university')) |> summarise(count = n()) |> as_tibble()
@@ -360,7 +360,7 @@ confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(popul
 ```
 
 We caution that our analyses are limited by our small sample size.
-Our moderation analysis, for example, tests differences between studies that are highly confounded — `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
+Our moderation analysis, for instance, tests differences between studies that are highly confounded — `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
 Further, our meta-analytic database is a non-random sample of the literature writ large, and our estimates of publication bias should not be taken as estimates for the entire literature.
 Most importantly, our results are sensitive to choices about included dependent variables, which some might argue means they lack robustness.
 However, this critique is a double-edged sword.
