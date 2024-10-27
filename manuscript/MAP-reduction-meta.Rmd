@@ -89,7 +89,7 @@ Many interventions are either not randomized [@garnett2020] or underpowered [@de
 Others record outcomes that are imperfect proxies MAP consumption, such as attitudes and intentions [@mathur2021effectiveness], yet behaviors often do not track with these psychological processes [@porat2024].
 Further, many studies measure only immediate impacts [@hansen2021; @griesoph2021] rather than longer-term effects, or focus on hypothetical choices [@raghoebar2020; @vermeer2010].
 Last, numerous studies that aim to reduce consumption of red and processed meat (RPM) may induce people to switch to other forms of MAP, such as chicken or fish [@grummon2023].
-While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @lescinsky2022], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
+While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @auclair2024], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
 
 In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, outcome measurement validity, and statistical power.
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
@@ -339,45 +339,41 @@ We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform
 
 # Discussion
 
-Our overall effect of SMD = `r overall_results$Delta`, and especially our upper confidence bound of SMD = \`r round(model$reg_table$CI.U, 2)\`, lead us to conclude that reducing MAP consumption is an unsolved problem.
-Although some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]),
+Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem.
+Although some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]), each of these studies employed its own methods and theory of change.
+Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
 
-The small effects we found, both overall and those associated with the major theoretical approaches, may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022].
-We attribute these differences to our stricter inclusion criteria.
-For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine were non-consumption outcomes and the tenth came from a non-randomized design.
-Likewise, as our analyses show, including studies aimed at reducing consumption of RPM approximately doubles the overall effect from SMD = `r overall_results$Delta` to `r merged_results$Delta`.
-However, because these studies do not measure patterns of substitution to other kinds of MAP, we cannot extrapolate from their recorded effects to an estimate of net MAP reduction.
+Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], we attribute our findings to our stricter inclusion criteria.
+For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
+Prior research has found that intentions do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
+It stands to reason that a review focused on rigorous evaluations of consumption outcomes would not accord with the findings of reviews aimed at broader targets.
 
-We further note a surprising paucity of qualifying interventions employing choice architecture, which has been frequently cited by experimenters [@boronowsky2022], reviewers [@meier2022], and advocacy groups [@zhang2022] as a proven method of changing consumer behavior.
-By contrast, our review revealed that very few papers in this literature both employed randomized designs and measured lasting effects on MAP consumption.
-We encourage future choice architecture research to measure delayed outcomes whenever possible, such as by intervening on participants at lunch and then measuring MAP consumption at dinner as well [@vocski2024].
-
-\begin{comment}
-say something about the ambiguity of whether our results are *null* or just badly underpowered -- maybe these experiments are detecting true effects of about 1-5\%$ reductions but just don't have large enough samples to persuasively show it?
-\end{comment}
+Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all categories of MAP consumption.
+Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [\@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish.
+Further, reducing RPM consumption is frequently mentions as something consumers can and should do to personally fight climate change [@auclair2024].
+By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be diffuclt, unsatisfying, and expensive [@bryant2019].
+We speculate that cutting back on RPM is perceived as easier and more socially rewarded than cutting back on MAP generally, and that this explains the observed difference in effect sizes.
 
 ```{r confounding_check, include=F}
 confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(population, 'university')) |> summarise(count = n()) |> as_tibble()
 
 ```
 
-Our analyses are limited by our small sample size and strict inclusion criteria.
-First, this limits the interpretability of our moderation analyses.
-For instance, `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
-Second, the fact that our meta-analytic database is a non-random sample of the literature at large limits the external validity of our publication bias analyses.
-Third, our results are quite sensitive to choices about included dependent variables, which some might argue means they lack robustness.
-A researcher who did not share our concerns about extrapolating from RPM to MAP, or from immediate outcomes to long-lasting reductions in MAP consumption, would likely draw very different and more positive conclusions.
+We caution that our analyses are limited by our small sample size.
+Our moderation analysis, for example, tests differences between studies that are highly confounded — `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
+Further, our meta-analytic database is a non-random sample of the literature writ large, and our estimates of publication bias should not be taken as estimates for the entire literature.
+Most importantly, our results are sensitive to choices about included dependent variables, which some might argue means they lack robustness.
 However, this critique is a double-edged sword.
-Our papers suggests that prior reviews' findings are also quite sensitive to inclusion rules.
+Our paper suggests that prior reviews' findings are also more sensitive to inclusion rules than was previously known.
 
-Despite our middling results, we are encouraged by some positive trends in the literature.
+Overall, we are encouraged by positive trends in the literature.
 First, as noted, a majority of studies in our meta-analysis have been published since 2020, indicating the field's growing dedication to questions of credible design and measurement.
 Second, we observe many fruitful collaborations between researchers and advocacy organizations, as shown by the plethora of nonprofit white papers in our sample.
+Third, many promising designs and interventions yet await rigorous evaluation.
+For instance, no study in our meta-analysis evaluated extended contact with farm animals, manipulations to the price of meat, activating moral and/or physical disgust, and many categories of choice architecture intervention.
+Each of these is a potentially promising research project.
 
-Moreover, many promising designs and interventions yet await rigorous evaluation.
-For instance, no study meeting our comparatively minimal criteria has yet evaluated extended contact with farm animals, manipulations to the price of meat, activating moral and/or physical disgust, and many categories of choice architecture intervention.
-Further, many promising institutional contexts, such as hospitals, grocery stores, and retirement homes, are also missing from our dataset.
-[FINAL SENTENCE ABOUT HOW WE LOOK FORWARD TO SEEING THESE WRITTEN OR SOMETHING?]
+In sum, though we view meaningfully reducing MAP consumption as an unsolved problem, there is no reason to think it is unsolvable.
 
 \bmhead{Acknowledgments}
 
@@ -522,15 +518,18 @@ In some cases, it might have been possible to add assumptions about substitution
 
 ### Defining the the theoretical boundaries between studies requires judgment calls {#sec5.4.4}
 
-Tallying how many studies pursue a given theory of change requires defining those theories and drawing boundaries between them.
-This proved tricky in some cases.
-For instance, the words 'choice architecture' and 'nudge' [@thaler2009] are not necessarily interchangeable in this literature.
-Many studies described themselves as implementing nudges but were not necessarily altering anything about the architecture of a choice, and neither were they obviously seeking to operate on 'unconscious' processes [@garnett2020].
+We noted a surprising paucity of qualifying interventions employing choice architecture, which has been frequently cited by experimenters [@boronowsky2022], reviewers [@meier2022], and advocacy groups [@zhang2022] as a proven method of changing consumer behavior.
+By contrast, our review revealed that very few papers in this literature both employed randomized designs and measured lasting effects on MAP consumption.
+We encourage future choice architecture research to measure delayed outcomes whenever possible, such as by intervening on participants at lunch and then measuring MAP consumption at dinner as well [@vocski2024].
+
+However, our choice architecture count would have been larger if we had included all studies self-identifying as 'nudge' studies in the choice architecture category [@thaler2009].
+Such studies dd not necessarily alter anything about the architecture of a choice, and were not obviously seeking to operate on 'unconscious' processes [@garnett2020].
 For instance, a text message reminder of reasons to eat less meat is cheap and easy to ignore, and is arguably designed to correct for time-inconsistent preferences, a kind of cognitive bias.
 On the other hand, such a text message also provides relevant information about the choice set, and if every intervention that attempted this was a nudge, most studies in our database would be nudges.
-We decided that the clearest way around this was to separate interventions that altered the literal architecture of a choice, and therefore were plausibly working on unconscious processes, from interventions that tried to alter how people think or feel about what they're eating.
 
-Likewise with social norms messages.
+We decided to separate interventions that altered the literal architecture of a choice, and therefore were plausibly working on unconscious processes, from interventions that tried to alter how people think or feel about what they're eating.
+
+Likewise, categorizing interventions employing social norms messages was at times challenging.
 [@mols2015] identify "unthinking conformity" as an example of a "human failing" that nudges take as their "starting point" (p. 4), and if social norms activate an unthinking desire to conform, then arguably a message about how many people are going vegetarian in one's community is a nudge.
 Our view is that a social norm prompt might engender a rich array of possible reactions, both cognitive and affective, and we do not assume that "unthinking conformity" is the dominant or exclusive response.
 Therefore, we do not classify the norms interventions in our database as nudges.
