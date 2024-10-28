@@ -75,7 +75,7 @@ source('./scripts/load-data.R')
 ```{r models_and_constants, include=F}
 # Models
 ## Overall
-model <-robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
+model <- robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
                        var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
 
 
@@ -116,7 +116,7 @@ Many studies record outcomes that are imperfect proxies of MAP consumption, such
 Further, many studies measure only immediate impacts [@hansen2019; @griesoph2021] rather than longer-term effects.
 Last, numerous studies specifically aim to reduce consumption of red and processed meat (RPM).
 Such interventions may induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023].
-While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @lescinsky2022], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grizinik2023].
+While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @lescinsky2022], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
 
 In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, outcome measurement validity, and statistical power.
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
@@ -345,7 +345,8 @@ We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform
 # Discussion
 
 Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem.
-Although some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]), none of their results have been replicated out of sample.
+Some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
+However, each builds on a fairly unique theory of change and employs idiosyncratic methods, and we consider these interventions intriguing but unproven.
 Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
 
 Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], we attribute our divergent results to our stricter inclusion criteria.
