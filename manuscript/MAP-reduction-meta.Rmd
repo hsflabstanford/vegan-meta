@@ -486,9 +486,9 @@ Whether one has identified the correct terms that each relevant study uses to de
 This informed our search process.
 Rather than starting with a list of search terms, we began by reading prior reviews, and then reading the studies cited by those reviews, to get a sense of the language that studies used to describe themselves.
 We then pursued the multi-pronged, iterative search process described in the main text.
-Ultimately, we used systematic search techniques to fill in the the blanks when we had an intuition that we were missing studies employing a particular approach.
+Ultimately, we used systematic search techniques to fill in gaps where we had an intuition that we may have missed studies employing a particular approach.
 
-The following are the Google Scholar search terms we used:
+We used the following Google Scholar search terms:
 
 -   "random" "nudge" "meat"
 -   "meat" "purchases" "information" "nudge"
@@ -498,7 +498,7 @@ The following are the Google Scholar search terms we used:
 -   "norms" "animal" "products"
 -   "university" "meat" "default" "reduction"
 
-For each of these terms, we looked through ten pages of results.
+For each of these, we reviewed ten pages of results.
 
 ### Edge cases for study inclusion {#sec5.4.2}
 
