@@ -434,12 +434,32 @@ funnel_plot
 
 ### Effect size details
 
-When standard deviations for the control group were available, outcomes were converted to Glass's $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, and were otherwise converted to Cohen's $d$.
-...
+We used Glass’s $\Delta$ whenever possible as our measure of standardized mean difference:  $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$.
+We standardized on the SD of the control group at pre-treatment.
+If group SDs were not available, we standardized on the pooled SD.
+When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z scores. 
 
 ### Full list of statistical packages
 
-...
+We used the following R packages:
+
+\- dplyr\
+- forcats\
+- ggplot2\
+- ggtext\
+- googledrive\
+- kableExtra\
+- knitr\
+- MetaUtility\
+- metafor\
+- PublicationBias\
+- purrr\
+- Rmarkdown\
+- robumeta\
+- rprojroot\
+- rticles\
+- stringr\
+- tidyr
 
 ### Codebook for data
 
