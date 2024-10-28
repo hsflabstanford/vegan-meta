@@ -113,7 +113,7 @@ Governments, universities, and other institutions are increasingly implementing 
 However, much of this literature is beset by design and measurement limitations.
 Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
 Many studies record outcomes that are imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and hypothetical preferences [@hensher2010].
-Further, many studies measure only immediate impacts [@hansen2019; @griesoph2021] rather than longer-term effects.
+Further, many studies measure only immediate impacts [@hansen2021; @griesoph2021] rather than longer-term effects.
 Last, numerous studies specifically aim to reduce consumption of red and processed meat (RPM).
 Such interventions may induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023].
 While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @lescinsky2022], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
@@ -237,7 +237,7 @@ merged_results <- merged_dat |> extract_model_results()
 ```
 
 By contrast, studies that only attempted to reduce consumption of RPM had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r merged_results$tau`.
-We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true effects are above SMD = 0.2.
+We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
 
 Meta-analyzing the MAP and RPM studies combined yields an overall estimate of SMD = `r round(merged_model$reg_table$b.r, 3)` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`, $\tau$ = `r merged_results$tau`.
 
@@ -392,17 +392,17 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 ## Tables
 
 ```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
-source('./scripts/meta-table.R')
+source('./scripts/table-one-meta.R')
 meta_table
 ```
 
 ```{r moderator_table, echo=F, message=F}
-source('./scripts/moderator-table.R')
+source('./scripts/table-two-moderator.R')
 moderator_table
 ```
 
 ```{r sensitivity_table,echo=F, message=F}
-source('./scripts/sensitivity-table.R')
+source('./scripts/table-three-sensitivity.R')
 sensitivity_table
 ```
 
