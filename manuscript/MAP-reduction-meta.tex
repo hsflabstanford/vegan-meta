@@ -142,8 +142,8 @@ to reducing chronic disease and the risk of zoonotic pandemics
 \citep{willett2019, landry2023, hafez2020}, abating environmental
 degradation and climate change
 \citep{poore2018, koneswaran2008, greger2010}, and improving animal
-welfare \citep{kuruc2023, scherer2019}. However, MAP is widely regarded
-as normal, necessary, and a dietary staple
+welfare \citep{kuruc2023, scherer2019}. However, eating MAP is widely
+regarded as normal, ethical, and necessary
 \citep{piazza2022, milford2019}. Global MAP consumption is increasing
 annually \citep{godfray2018} and expected to continue doing so
 \citep{whitton2021}.
@@ -163,7 +163,7 @@ associated with large impacts
 concluded that some frequently studied approaches, such as using
 persuasive messaging that appeals to animal welfare
 \citep{mathur2021meta} or making vegetarian meals the default
-\citep{meier2022} may be consistently effective. Governments,
+\citep{meier2022}, may be consistently effective. Governments,
 universities, and other institutions are increasingly implementing these
 ideas in such settings as dining halls \citep{pollicino2024} and
 hospital cafeterias \citep{morgenstern2024}.
@@ -353,7 +353,7 @@ collection strategy, and open science practices.
 The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is SMD = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
 \end{comment}
 
-As assessment of worst-case publication bias that analyzes only null and
+An assessment of worst-case publication bias that analyzes only null and
 negative results \citep{mathur2024} yields an estimate of SMD = 0.02
 (95\% CI: {[}-0.01, 0.05{]}), p = .1694. Figure 2 is a significance
 funnel plot \citep{mathur2020} that relates studies' point estimates to
@@ -435,15 +435,14 @@ distribution (see appendix to \citep{paluck2021} for details).
 \subsection{Statistical analysis methods}\label{sec3.4}
 
 Results were synthesized using robust variance estimation (RVE) methods
-\citep{hedges2010} as implemented by the robumeta package
-\citep{fisher2015} in R \citep{Rlang}. Many studies in our sample
-featured multiple treatment groups compared to a single control group.
-Therefore, we used the RVE method to allow for the resulting dependence
-between observations, as well as a standard small-sample correction.
-Data analyses were largely conducted with custom functions building on
-tidyverse \citep{wickham2019} and publication bias was assessed using
-PublicationBias \citep{mathur2024, mathur2020}. {[}SAY MORE ABOUT THESE
-METHODS{]}
+\citep{hedges2010} as implemented by the \texttt{robumeta} package
+\citep{fisher2015} in \texttt{R}\citep{Rlang}. Many studies in our
+sample featured multiple treatment groups compared to a single control
+group. Therefore, we used the RVE method to allow for the resulting
+dependence between observations, as well as a standard small-sample
+correction. Data analyses were largely conducted with custom functions
+building on tidyverse \citep{wickham2019} and publication bias was
+assessed using \texttt{PublicationBias} \citep{mathur2024, mathur2020}.
 
 We used \texttt{Rmarkdown} \citep{xie2018} and a containerized
 \citep{moreau2023} online platform \citep{clyburne2019} to ensure
@@ -456,10 +455,10 @@ of SMD = 0.11, lead us to conclude that reducing MAP consumption is an
 unsolved problem. Although some individual studies found comparatively
 larger effects (SMD \textgreater{} 0.5:
 \citep{carfora2023, merrill2009, kanchanachitra2020, bianchi2022, piester2020}),
-each of these studies employed its own methods and theory of change.
-Therefore, we conclude that no theoretical approach, delivery mechanism,
-or intended persuasive message should be considered a well-validated
-method of reducing MAP consumption.
+none of their results have been replicated out of sample. Therefore, we
+conclude that no theoretical approach, delivery mechanism, or intended
+persuasive message should be considered a well-validated method of
+reducing MAP consumption.
 
 Though this may surprise readers of previous reviews
 \citep{mathur2021meta, meier2022, mertens2022}, we attribute our
@@ -476,19 +475,18 @@ accord with the findings of reviews aimed at broader targets.
 
 Likewise, as our analyses show, studies aimed at reducing RPM
 consumption are associated with an effect about four times larger (SMD =
-0.25) than those aimed at reducing all categories of MAP consumption.
-Sharply curtailing RPM consumption is a core component of current
-leading dietary guidelines, such as the heart-healthy diet
-{[}@diab2023{]}, but many of these same diets actively encourage
-moderate intake of poultry and fish. Further, reducing RPM consumption
-is frequently mentioned as something consumers can and should do to
-personally fight climate change \citep{auclair2024}. By contrast,
-vegetarianism is still a minority diet worldwide \citep{tilman2014} that
-consumers consider to be difficult, unsatisfying, and expensive
-\citep{bryant2019}. We speculate that cutting back on RPM is perceived
-as easier and more likely to be socially rewarded than is cutting back
-on MAP generally, and that this explains the observed difference in
-effect sizes.
+0.25) than those aimed at reducing all MAP consumption. Sharply
+curtailing RPM intake is a core component of current leading dietary
+guidelines, such as the heart-healthy diet \citep{diab2023}, but many of
+these same diets actively encourage moderate intake of poultry and fish.
+Further, reducing RPM consumption is frequently mentioned as something
+consumers can and should do to personally fight climate change
+\citep{auclair2024}. By contrast, vegetarianism is still a minority diet
+worldwide \citep{tilman2014} that consumers consider to be difficult,
+unsatisfying, and expensive \citep{bryant2019}. We speculate that
+cutting back on RPM is perceived as easier and more likely to be
+socially rewarded than is cutting back on MAP generally, and that this
+explains the observed difference in effect sizes.
 
 We caution that our analyses are limited by our small sample size. Our
 moderation analysis, for instance, tests differences between studies
@@ -499,10 +497,10 @@ with effect size. Further, our meta-analytic database is a non-random
 sample of the literature writ large, and our estimates of publication
 bias should not be taken as estimates for the entire literature. Most
 importantly, our results are sensitive to choices about included
-dependent variables, which some might argue means they lack robustness.
-However, this critique is a double-edged sword. Our paper suggests that
-prior reviews' findings are also more sensitive to inclusion rules than
-was previously known.
+dependent variables, which arguably means they lack robustness. However,
+this critique is a double-edged sword. Our paper suggests that prior
+reviews' findings are also more sensitive to inclusion rules than was
+previously known.
 
 Overall, we are encouraged by positive trends in the literature. First,
 as noted, a majority of studies in our meta-analysis have been published
@@ -514,7 +512,11 @@ promising designs and interventions yet await rigorous evaluation. For
 instance, no study in our meta-analysis evaluated extended contact with
 farm animals, manipulations to the price of meat, activating moral
 and/or physical disgust, and many categories of choice architecture
-intervention. Each of these is a potentially promising research project.
+intervention. Moreover, we are encouraged by contemporary research
+designs that offer creative solutions to longstanding measurement
+challenges, for example by implementing a default intervention at lunch
+and then measuring outcomes at dinner as well to assess potential
+compensatory effects {[}@vocski2024{]}.
 
 In sum, though we view meaningfully reducing MAP consumption as an
 unsolved problem, there is no reason to think it is unsolvable.
@@ -801,15 +803,13 @@ choice architecture, which has been frequently cited by experimenters
 contrast, our review revealed that very few papers in this literature
 both employed randomized designs and measured lasting effects on MAP
 consumption. We encourage future choice architecture research to measure
-delayed outcomes whenever possible, such as by intervening on
-participants at lunch and then measuring MAP consumption at dinner as
-well \citep{vocski2024}.
+delayed outcomes whenever possible.
 
 However, our choice architecture count would have been larger if we had
 included all studies self-identifying as `nudge' studies in the choice
 architecture category \citep{thaler2009}. Such studies dd not
 necessarily alter anything about the architecture of a choice, and were
-not obviously seeking to operate on `unconscious' processes
+not obviously seeking to operate on `unconscious' processes'
 \citep{garnett2020}. For instance, a text message reminder of reasons to
 eat less meat is cheap and easy to ignore, and is arguably designed to
 correct for time-inconsistent preferences, a kind of cognitive bias. On

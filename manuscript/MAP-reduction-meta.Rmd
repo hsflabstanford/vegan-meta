@@ -72,29 +72,6 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 ```
 
-# Introduction {#sec1}
-
-Reducing global consumption of meat and animal products (MAP) is vital to reducing chronic disease and the risk of zoonotic pandemics [@willett2019; @landry2023; @hafez2020], abating environmental degradation and climate change [@poore2018; @koneswaran2008; @greger2010], and improving animal welfare [@kuruc2023; @scherer2019].
-However, MAP is widely regarded as normal, necessary, and a dietary staple [@piazza2022; @milford2019].
-Global MAP consumption is increasing annually [@godfray2018] and expected to continue doing so [@whitton2021].
-
-There is a vast and diverse literature investigating potential means to reverse this trend.
-Example approaches include providing free access to meat substitutes [@katare2023], changing the price [@horgen2002] or perceptions [@kunst2016] of meat, or attempting to persuade people to change their diets [@bianchi2018conscious].
-A large portion of this literature seeks to alter the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021] or placing vegetarian items more prominently in dining halls [@ginn2024].
-Some interventions are associated with large impacts [@hansen2021; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta] or making vegetarian meals the default [@meier2022] may be consistently effective.
-Governments, universities, and other institutions are increasingly implementing these ideas in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
-
-However, much of this literature is beset by design and measurement limitations.
-Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
-Others record outcomes that are imperfect proxies MAP consumption, such as attitudes and intentions [@mathur2021effectiveness], yet behaviors often do not track with these psychological processes [@porat2024].
-Further, many studies measure only immediate impacts [@hansen2021; @griesoph2021] rather than longer-term effects, or focus on hypothetical choices [@raghoebar2020; @vermeer2010].
-Last, numerous studies that aim to reduce consumption of red and processed meat (RPM) may induce people to switch to other forms of MAP, such as chicken or fish [@grummon2023].
-While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @auclair2024], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
-
-In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, outcome measurement validity, and statistical power.
-Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
-Does this phenomenon hold in the MAP reduction literature as well?
-
 ```{r models_and_constants, include=F}
 # Models
 ## Overall
@@ -119,6 +96,29 @@ decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> cou
 
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
 ```
+
+# Introduction {#sec1}
+
+Reducing global consumption of meat and animal products (MAP) is vital to reducing chronic disease and the risk of zoonotic pandemics [@willett2019; @landry2023; @hafez2020], abating environmental degradation and climate change [@poore2018; @koneswaran2008; @greger2010], and improving animal welfare [@kuruc2023; @scherer2019].
+However, eating MAP is widely regarded as normal, ethical, and necessary [@piazza2022; @milford2019].
+Global MAP consumption is increasing annually [@godfray2018] and expected to continue doing so [@whitton2021].
+
+There is a vast and diverse literature investigating potential means to reverse this trend.
+Example approaches include providing free access to meat substitutes [@katare2023], changing the price [@horgen2002] or perceptions [@kunst2016] of meat, or attempting to persuade people to change their diets [@bianchi2018conscious].
+A large portion of this literature seeks to alter the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021] or placing vegetarian items more prominently in dining halls [@ginn2024].
+Some interventions are associated with large impacts [@hansen2021; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta] or making vegetarian meals the default [@meier2022], may be consistently effective.
+Governments, universities, and other institutions are increasingly implementing these ideas in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
+
+However, much of this literature is beset by design and measurement limitations.
+Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
+Others record outcomes that are imperfect proxies MAP consumption, such as attitudes and intentions [@mathur2021effectiveness], yet behaviors often do not track with these psychological processes [@porat2024].
+Further, many studies measure only immediate impacts [@hansen2021; @griesoph2021] rather than longer-term effects, or focus on hypothetical choices [@raghoebar2020; @vermeer2010].
+Last, numerous studies that aim to reduce consumption of red and processed meat (RPM) may induce people to switch to other forms of MAP, such as chicken or fish [@grummon2023].
+While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @auclair2024], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
+
+In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, outcome measurement validity, and statistical power.
+Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
+Does this phenomenon hold in the MAP reduction literature as well?
 
 We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
 These RCTs all measured consumption outcomes at least a single day after treatment was first administered, and all had at least 25 subjects in both treatment and control, or, in the case of cluster-assigned studies, at least ten clusters in total.
@@ -268,7 +268,7 @@ worst_case <- extract_model_results(data = nulls)
 The meta-analytic mean corrected for publication bias [@hedges1992], which assumes that significant, positive results are twice as likely to be published as anything else, is SMD = r pub_bias_estimate (95% CI: [r paste0(pub_ci_lower, ", ", pub_ci_upper)]), p = r pub_ci_p_val.
 \end{comment}
 
-As assessment of worst-case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
+An assessment of worst-case publication bias that analyzes only null and negative results [@mathur2024] yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (grey diamond).
 
 \begin{center}
@@ -329,18 +329,17 @@ All effect size conversions were conducted by the first author using methods and
 
 ## Statistical analysis methods {#sec3.4}
 
-Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the robumeta package [@fisher2015] in R [@Rlang].
+Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R`[@Rlang].
 Many studies in our sample featured multiple treatment groups compared to a single control group.
 Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction.
-Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] and publication bias was assessed using PublicationBias [@mathur2024; @mathur2020].
-[SAY MORE ABOUT THESE METHODS]
+Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] and publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
 
 We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
 
 # Discussion
 
 Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem.
-Although some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]), each of these studies employed its own methods and theory of change.
+Although some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]), none of their results have been replicated out of sample.
 Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
 
 Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], we attribute our divergent results to our stricter inclusion criteria.
@@ -348,8 +347,8 @@ For instance, of the ten largest effect sizes recorded in [@mathur2021effectiven
 Prior research has found that intentions do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
 It stands to reason that a review focused on rigorous evaluations of consumption outcomes would not accord with the findings of reviews aimed at broader targets.
 
-Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all categories of MAP consumption.
-Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [\@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish.
+Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all MAP consumption.
+Sharply curtailing RPM intake is a core component of current leading dietary guidelines, such as the heart-healthy diet [@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish.
 Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024].
 By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
 We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
@@ -362,7 +361,7 @@ confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(popul
 We caution that our analyses are limited by our small sample size.
 Our moderation analysis, for instance, tests differences between studies that are highly confounded — `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
 Further, our meta-analytic database is a non-random sample of the literature writ large, and our estimates of publication bias should not be taken as estimates for the entire literature.
-Most importantly, our results are sensitive to choices about included dependent variables, which some might argue means they lack robustness.
+Most importantly, our results are sensitive to choices about included dependent variables, which arguably means they lack robustness.
 However, this critique is a double-edged sword.
 Our paper suggests that prior reviews' findings are also more sensitive to inclusion rules than was previously known.
 
@@ -371,7 +370,7 @@ First, as noted, a majority of studies in our meta-analysis have been published 
 Second, we observe many fruitful collaborations between researchers and advocacy organizations, as shown by the plethora of nonprofit white papers in our sample.
 Third, many promising designs and interventions yet await rigorous evaluation.
 For instance, no study in our meta-analysis evaluated extended contact with farm animals, manipulations to the price of meat, activating moral and/or physical disgust, and many categories of choice architecture intervention.
-Each of these is a potentially promising research project.
+Moreover, we are encouraged by contemporary research designs that offer creative solutions to longstanding measurement challenges, for example by implementing a default intervention at lunch and then measuring outcomes at dinner as well to assess potential compensatory effects [\@vocski2024].
 
 In sum, though we view meaningfully reducing MAP consumption as an unsolved problem, there is no reason to think it is unsolvable.
 
@@ -520,10 +519,10 @@ In some cases, it might have been possible to add assumptions about substitution
 
 We noted a surprising paucity of qualifying interventions employing choice architecture, which has been frequently cited by experimenters [@boronowsky2022], reviewers [@meier2022], and advocacy groups [@zhang2022] as a proven method of changing consumer behavior.
 By contrast, our review revealed that very few papers in this literature both employed randomized designs and measured lasting effects on MAP consumption.
-We encourage future choice architecture research to measure delayed outcomes whenever possible, such as by intervening on participants at lunch and then measuring MAP consumption at dinner as well [@vocski2024].
+We encourage future choice architecture research to measure delayed outcomes whenever possible.
 
 However, our choice architecture count would have been larger if we had included all studies self-identifying as 'nudge' studies in the choice architecture category [@thaler2009].
-Such studies dd not necessarily alter anything about the architecture of a choice, and were not obviously seeking to operate on 'unconscious' processes [@garnett2020].
+Such studies dd not necessarily alter anything about the architecture of a choice, and were not obviously seeking to operate on 'unconscious' processes' [@garnett2020].
 For instance, a text message reminder of reasons to eat less meat is cheap and easy to ignore, and is arguably designed to correct for time-inconsistent preferences, a kind of cognitive bias.
 On the other hand, such a text message also provides relevant information about the choice set, and if every intervention that attempted this was a nudge, most studies in our database would be nudges.
 
