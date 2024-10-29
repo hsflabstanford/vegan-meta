@@ -165,7 +165,6 @@ The most common psychological intervention is centered on social norms seeking t
 In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022].
 In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature, making meat-eaters out to be a counter-normative outgroup [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019].
 
-
 Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021].
 These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
 
@@ -257,7 +256,7 @@ worst_case <- extract_model_results(data = nulls)
 
 ```
 
-The meta-analytic mean corrected for publication bias [@hedges1992] was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)`. A conservative estimate that accounts for the possibility of worst-case publication bias[@mathur2024] yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
+The meta-analytic mean corrected for publication bias [@hedges1992] was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)`. A conservative estimate that accounts for the possibility of worst-case publication bias [@mathur2024] yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
 
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).
 
@@ -306,27 +305,21 @@ All effect size conversions were conducted by the first author using methods and
 Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R`[@Rlang].
 Many studies in our sample featured multiple treatment groups compared to a single control group.
 Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction.
-Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] and publication bias was assessed using `PublicationBias` [@mathur2024; @mathur2020].
+
+Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] We assessed publication bias using selection model methods [@hedges1992], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020]. These methods assume that the publication process favors “statistically significant” (i.e., p < 0.05) and positive results over “nonsignificant” or negative results. Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies. We conducted these analyses using functions in `metafor` [@viechtbauer2020] and `PublicationBias` [@mathur2020; @mathur2024].
 
 We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
 
+
 # Discussion
 
-Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem.
-Some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
-However, each builds on a fairly unique theory of change and employs idiosyncratic methods, and we consider these interventions intriguing but unproven.
-Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
+Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem. Effects were also consistently small across an array of locations, study designs, and intervention categories. Some individual studies found comparatively larger effects (SMD > 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]). However, each builds on a fairly unique theory of change and employs idiosyncratic methods; these interventions are intriguing candidates for subsequent research and replication. Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
 
-Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], we attribute our divergent results to our stricter inclusion criteria.
-For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
-Prior research has found that intentions do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
-It stands to reason that a review focused on rigorous evaluations of consumption outcomes would not accord with the findings of reviews aimed at broader targets.
+Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], our divergent results likely reflect our stricter methodological inclusion criteria.. For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design. Prior research has found that intentions often do not predict behavior [@mathur202effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023]. Our results raise the possibility that previous reviews’ positive findings might be largely attributable to bias, though this will require further empirical evaluation. 
 
-Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all MAP consumption.
-Sharply curtailing RPM intake is a core component of current leading dietary guidelines, such as the heart-healthy diet [@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish.
-Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024].
-By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
-We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
+Another potentially surprising result is that very few (2) choice architecture results met our methodological inclusion criteria. Most potentially eligible papers either measured hypothetical outcomes or measured outcomes immediately after the intervention. Moreover, prior reviews that found choice architecture approaches to be consistently effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2022; @adriaanse2009]. We speculate that people are more likely to notice, and care, when their burger is missing from the choice set than when their soft drink has been made smaller.
+
+Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all MAP consumption. Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish. Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024]. By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019]. We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
 
 ```{r confounding_check, include=F}
 confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(population, 'university')) |> summarise(count = n()) |> as_tibble()
@@ -335,17 +328,9 @@ confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(popul
 
 We caution that our analyses are limited by our small sample size.
 Our moderation analysis, for instance, tests differences between studies that are highly confounded — `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
-Further, our meta-analytic database is a non-random sample of the literature writ large, and our estimates of publication bias should not be taken as estimates for the entire literature.
-Most importantly, our results are sensitive to choices about included dependent variables, which arguably means they lack robustness.
-However, this critique is a double-edged sword.
-Our paper suggests that prior reviews' findings are also more sensitive to inclusion rules than was previously known.
+Further, our meta-analytic database is a non-random sample of the literature writ large, and our estimates of publication bias should not be taken as estimates for the entire literature. Most importantly, our results are sensitive to choices about included dependent variables, which arguably means they lack robustness. However, this critique is a double-edged sword. Our paper suggests that prior reviews' findings are also more sensitive to inclusion rules  than was previously known.
 
-Overall, we are encouraged by positive trends in the literature.
-First, as noted, a majority of studies in our meta-analysis have been published since 2020, indicating the field's growing dedication to questions of credible design and measurement.
-Second, we observe many fruitful collaborations between researchers and advocacy organizations, as shown by the plethora of nonprofit white papers in our sample.
-Third, many promising designs and interventions yet await rigorous evaluation.
-For instance, no study in our meta-analysis evaluated extended contact with farm animals, manipulations to the price of meat, activating moral and/or physical disgust, and many categories of choice architecture intervention.
-Moreover, we are encouraged by contemporary research designs that offer creative solutions to longstanding measurement challenges, for example by implementing a default intervention at lunch and then measuring outcomes at dinner as well to assess potential compensatory effects [\@vocski2024].
+Overall, we are encouraged by positive trends in the literature. First, as noted, a majority of studies in our meta-analysis have been published since 2020, indicating the field's growing dedication to questions of credible design and measurement. Second, we observe many fruitful collaborations between researchers and advocacy organizations, as shown by the plethora of nonprofit white papers in our sample. Third, many promising designs and interventions yet await rigorous evaluation. For instance, no study in our meta-analysis evaluated extended contact with farm animals, manipulations to the price of meat, activating moral and/or physical disgust, and many categories of choice architecture intervention. Moreover, we are encouraged by contemporary research designs that offer creative solutions to longstanding measurement challenges, for example by implementing a default intervention at lunch and then measuring outcomes at dinner as well to assess potential compensatory effects [@vocski2024].
 
 In sum, though we view meaningfully reducing MAP consumption as an unsolved problem, there is no reason to think it is unsolvable.
 

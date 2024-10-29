@@ -341,7 +341,7 @@ collection strategy, and open science practices.
 The meta-analytic mean corrected for publication bias \citep{hedges1992}
 was 0.008 (95\% CI: {[}-0.015, 0.032{]}), p = 0.489. A conservative
 estimate that accounts for the possibility of worst-case publication
-bias\citep{mathur2024} yields an estimate of SMD = 0.02 (95\% CI:
+bias \citep{mathur2024} yields an estimate of SMD = 0.02 (95\% CI:
 {[}-0.01, 0.05{]}), p = .1694.
 
 Figure 2 is a significance funnel plot \citep{mathur2020} that relates
@@ -426,9 +426,21 @@ Results were synthesized using robust variance estimation (RVE) methods
 sample featured multiple treatment groups compared to a single control
 group. Therefore, we used the RVE method to allow for the resulting
 dependence between observations, as well as a standard small-sample
-correction. Data analyses were largely conducted with custom functions
-building on tidyverse \citep{wickham2019} and publication bias was
-assessed using \texttt{PublicationBias} \citep{mathur2024, mathur2020}.
+correction.
+
+Data analyses were largely conducted with custom functions building on
+tidyverse \citep{wickham2019} We assessed publication bias using
+selection model methods \citep{hedges1992}, sensitivity analysis methods
+\citep{mathur2024}, and the significance funnel plot \citep{mathur2020}.
+These methods assume that the publication process favors ``statistically
+significant'' (i.e., p \textless{} 0.05) and positive results over
+``nonsignificant'' or negative results. Our sensitivity check
+meta-analyzes only non-affirmative results, which creates an estimate
+under a hypothetical ``worst-case'' publication bias scenario where
+affirmative studies are almost infinitely more likely to be published
+than non-affirmative studies. We conducted these analyses using
+functions in \texttt{metafor} \citep{viechtbauer2020} and
+\texttt{PublicationBias} \citep{mathur2020, mathur2024}.
 
 We used \texttt{Rmarkdown} \citep{xie2018} and a containerized
 \citep{moreau2023} online platform \citep{clyburne2019} to ensure
@@ -438,36 +450,51 @@ computational reproducibility \citep{polanin2020}.
 
 Our overall effect of SMD = 0.07, as well as our upper confidence bound
 of SMD = 0.11, lead us to conclude that reducing MAP consumption is an
-unsolved problem. Some individual studies found comparatively larger
-effects (SMD \textgreater{} 0.5:
+unsolved problem. Effects were also consistently small across an array
+of locations, study designs, and intervention categories. Some
+individual studies found comparatively larger effects (SMD
+\textgreater{} 0.5:
 \citep{carfora2023, merrill2009, kanchanachitra2020, bianchi2022, piester2020}).
 However, each builds on a fairly unique theory of change and employs
-idiosyncratic methods, and we consider these interventions intriguing
-but unproven. Therefore, we conclude that no theoretical approach,
-delivery mechanism, or intended persuasive message should be considered
-a well-validated method of reducing MAP consumption.
+idiosyncratic methods; these interventions are intriguing candidates for
+subsequent research and replication. Therefore, we conclude that no
+theoretical approach, delivery mechanism, or intended persuasive message
+should be considered a well-validated method of reducing MAP
+consumption.
 
 Though this may surprise readers of previous reviews
-\citep{mathur2021meta, meier2022, mertens2022}, we attribute our
-divergent results to our stricter inclusion criteria. For instance, of
-the ten largest effect sizes recorded in
+\citep{mathur2021meta, meier2022, mertens2022}, our divergent results
+likely reflect our stricter methodological inclusion criteria.. For
+instance, of the ten largest effect sizes recorded in
 \citep{mathur2021effectiveness}, nine measured attitudes and/or
 intentions, and the tenth came from a non-randomized design. Prior
-research has found that intentions do not predict behavior
-\citep{mathur2021effectiveness}, and reviews in other fields have found
+research has found that intentions often do not predict behavior
+\citep{mathur202effectiveness}, and reviews in other fields have found
 systematic differences in impacts between randomized and non-randomized
-evaluations \citep{porat2024, stevenson2023}. It stands to reason that a
-review focused on rigorous evaluations of consumption outcomes would not
-accord with the findings of reviews aimed at broader targets.
+evaluations \citep{porat2024, stevenson2023}. Our results raise the
+possibility that previous reviews' positive findings might be largely
+attributable to bias, though this will require further empirical
+evaluation.
+
+Another potentially surprising result is that very few (2) choice
+architecture results met our methodological inclusion criteria. Most
+potentially eligible papers either measured hypothetical outcomes or
+measured outcomes immediately after the intervention. Moreover, prior
+reviews that found choice architecture approaches to be consistently
+effective at modifying diet typically focused on foods that may have
+weaker cultural and social attachments than MAP, such as sugary drinks
+and snacks \citep{venema2022, adriaanse2009}. We speculate that people
+are more likely to notice, and care, when their burger is missing from
+the choice set than when their soft drink has been made smaller.
 
 Likewise, as our analyses show, studies aimed at reducing RPM
 consumption are associated with an effect about four times larger (SMD =
 0.25) than those aimed at reducing all MAP consumption. Sharply
-curtailing RPM intake is a core component of current leading dietary
-guidelines, such as the heart-healthy diet \citep{diab2023}, but many of
-these same diets actively encourage moderate intake of poultry and fish.
-Further, reducing RPM consumption is frequently mentioned as something
-consumers can and should do to personally fight climate change
+curtailing RPM consumption is a core component of current leading
+dietary guidelines, such as the heart-healthy diet \citep{diab2023}, but
+many of these same diets actively encourage moderate intake of poultry
+and fish. Further, reducing RPM consumption is frequently mentioned as
+something consumers can and should do to personally fight climate change
 \citep{auclair2024}. By contrast, vegetarianism is still a minority diet
 worldwide \citep{tilman2014} that consumers consider to be difficult,
 unsatisfying, and expensive \citep{bryant2019}. We speculate that
@@ -503,7 +530,7 @@ intervention. Moreover, we are encouraged by contemporary research
 designs that offer creative solutions to longstanding measurement
 challenges, for example by implementing a default intervention at lunch
 and then measuring outcomes at dinner as well to assess potential
-compensatory effects {[}@vocski2024{]}.
+compensatory effects \citep{vocski2024}.
 
 In sum, though we view meaningfully reducing MAP consumption as an
 unsolved problem, there is no reason to think it is unsolvable.
