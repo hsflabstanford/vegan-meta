@@ -399,7 +399,10 @@ Our pre-analysis plan (\url{https://osf.io/3sth2}), from which we deviated subst
 
 ```{r alt_models, include=F}
 alt_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
-hier_model <- robumeta::robu(formula =d ~ 1, data = dat, studynum = unique_paper_id, var.eff.size = var_d, modelweights = 'HIER',small = TRUE) 
+hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
+                             studynum = unique_paper_id, 
+                             var.eff.size = var_d, modelweights = 'HIER', 
+                             small = TRUE) 
 ```
 
 
