@@ -13,7 +13,7 @@ extract_model_results <- function(data = dat, approach_name = "Overall") {
   # Construct the results tibble directly
   tibble(
     Approach = approach_name,
-    N_Studies = length(unique(model$X.full$study)),
+    N_studies = length(unique(model$X.full$study)),
     N_estimates = nrow(model$data.full),
     Delta = round(model$reg_table$b.r, 2),
     SE = round(model$reg_table$SE, 2),

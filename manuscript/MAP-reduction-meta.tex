@@ -313,11 +313,10 @@ as the three categories of persuasion.
 [Figure 1 about here]
 \end{center}
 
-By contrast, studies that only attempted to reduce consumption of RPM
-had larger estimates: across these 17 studies and 25 estimates, we
-detect a pooled effect of SMD = 0.13 (95\% CI: {[}0.07, 0.19{]}), p =
-.0016, \(\tau\) = 0.138. We estimate that 52\% of true RPM effects are
-above SMD = 0.2.
+By contrast, the 17 studies that only attempted to reduce consumption of
+RPM, comprising 25 point estimates, yielded a pooled effect of SMD =
+0.25 (95\% CI: {[}0.11, 0.38{]}), p = .0016, \(\tau\) = 0.201. We
+estimate that 52\% of true RPM effects are above SMD = 0.2.
 
 \subsection{Meta-regression on study characteristics
 analysis}\label{sec2.4}
@@ -390,9 +389,9 @@ All three authors contributed to the search. Inclusion/exclusion
 decisions were primarily made by the first author, with all authors
 contributing to discussions about borderline cases.
 
-See supplement for PRISMA diagram. See code and data repository for
-details on the 134 prior reviews we consulted and approximately 895
-papers we excluded.
+Figure 3 is a PRISMA diagram depicting the sources of included and
+excluded studies. See code and data repository for details on the 134
+prior reviews we consulted and approximately 896 papers we excluded.
 
 \subsection{Data extraction}\label{sec3.3}
 
@@ -402,7 +401,8 @@ consumption. Sample sizes corresponded to the same time point.
 Additional variables coded included information about publication,
 details of the interventions, length of delay, intervention theories,
 and additional details about interventions' methods, contexts, and open
-science practices (see supplement).
+science practices (see accompanying code and data repository for full
+documentation).
 
 When in doubt about calculating effect sizes, we consulted available
 datasets and/or contacted authors.
@@ -416,7 +416,17 @@ methods and R code initially developed for previous papers
 \citep{paluck2019, paluck2021, porat2024} using standard techniques from
 \citep{cooper2019}, with the exception of a difference in proportion
 estimator that treats discrete events as draws from a Bernoulli
-distribution (see appendix to \citep{paluck2021} for details).
+distribution (see appendix to \citep{paluck2021} for details). We used
+Glass's \(\Delta\) whenever possible as our measure of standardized mean
+difference: \(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\). We standardized
+on the SD of the control group at pre-treatment. If group SDs were not
+available, we standardized on the pooled SD. When means and SDs were not
+available, we converted effect sizes from: regression coefficients, eta
+squared, or z scores. When there was insufficient information to
+calculate a specific SMD, but the text reports the result as a null, we
+recorded the outcome as an ``unspecified null'' and set it to 0.01. If
+results were significant and we could not calculate an SMD, we excluded
+the study.
 
 \subsection{Statistical analysis methods}\label{sec3.4}
 
@@ -663,43 +673,85 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 
 }
 
-\caption{Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.}\label{fig:forest_plot}
+\caption{Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by SMD. A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.}\label{fig:forest_plot}
 \end{figure}
 
 \includegraphics{./figures/funnel_plot-1}
 
 \newpage
 
-\section{Supplementary Materials}\label{Sec5}
+\section{Supplement}\label{Sec5}
 
-\subsubsection{Supplementary software and
-data}\label{supplementary-software-and-data}
+\subsection{Robustness checks}\label{Sec5.1}
 
-Our accompanying repository of code and data {[}CODEOCEAN LINK{]}
-contains all materials necessary to reproduce this manuscript, including
-text, citations, results, and figures. Additionally, we include some
-materials intended to help readers understand and extend our analysis: *
-\texttt{excluded-studies.csv} is a list of all the studies we considered
-for inclusion but did not * \texttt{review-of-reviews.csv} contains the
-full list of prior reviews we consulted *
-\texttt{MAP-reduction-codebook.csv} documents our dataset *
-\texttt{MAP-reduction-robustness-data.csv} contains a supplementary,
-fully coded dataset of studies that did not meet our inclusion criteria
-but were otherwise strong designs and whose results might be of interest
-to future meta-analysts.
+\subsubsection{Robustness to less stringent inclusion
+criteria}\label{Sec5.1.1}
 
-\subsection{Supplementary Methods}\label{Sec5.1}
+Here we integrate and meta-analyze a supplementary dataset of 22 studies
+comprising 35 with noteworthy results and many strong design features
+that nevertheless did not meet our inclusion criteria. These studies
+were excluded for one of five reasons: 1) issues with random assignment
+or the control group (for instance, where the control group receives
+some aspect of treatment \citep{piazza2022}, or where treatment was
+alternated weekly but not randomly \citep{garnett2020}); 2) underpowered
+(too few clusters \citep{reinders2017} or subjects \citep{lentz2019});
+3) immediate outcome measurement
+\citep{dannenberg2023, sparkman2017, griesoph2021, hansen2021}; 4)
+actively encouraging substitution within categories of MAP, e.g.~from
+red meat to fish \citep{celis2017, johansen2009}; or 5) uncertainty in
+calculating an effect size arising from missing information about the
+behavior of diners who opt out of treatment to avoid a vegetarian meal
+\citep{betterfoodfoundation2023}.
 
-\subsubsection{Effect size details}\label{effect-size-details}
+Taken together, our integrated dataset including both our main sample
+and this supplementary one yields a pooled effect of SMD = 0.21 (95\%
+CI: {[}0.09, 0.32{]}), p = .0006. Particularly large results were found
+in studies that measured outcomes immediately \citep{hansen2021} or that
+were underpowered \citep{lentz2020}.
 
-We used Glass's \(\Delta\) whenever possible as our measure of
-standardized mean difference:~
-\(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\). We standardized on the SD
-of the control group at pre-treatment. If group SDs were not available,
-we standardized on the pooled SD. When means and SDs were not available,
-we converted effect sizes from: regression coefficients, eta squared, or
-z scores.~
+A reader with different beliefs about sources of bias in this literature
+than ours might conclude from this analysis that it is indeed possible,
+in some contexts, to meaningfully reduce MAP consumption. Likewise for
+readers who take stated reductions in RPM consumption as unbiased
+estimates of overall MAP reduction.
 
+\subsubsection{Robustness to alternative estimation
+strategies}\label{Sec5.1.2}
+
+Our pre-analysis plan (\url{https://osf.io/3sth2}), from which we
+deviated substantially across many dimensions, originally used a random
+effects model from \texttt{metafor} to analyze a synthetic dataset.
+However, as we assembled the real dataset, we noticed that many papers
+had, across interventions, non-independent observations, typically in
+the form of multiple treatments compared to a single control group. Upon
+discussion, the team's statistician (MBM) suggested that the
+\texttt{CORR} model from the \texttt{robumeta} package would be a better
+fit.
+
+Using our original model from \texttt{metafor}, we detect a pooled
+effect size of 0.0268173 (95\% CI: {[}0, 0.05{]}), p = 0.0226339. In
+relative terms, this is substantially smaller, but in absolute terms,
+both this model and our main model produce very small estimates.
+Alternatively, we might have employed a hierarchical model that assumes
+dependence at the level of paper rather than study \citep{stevens2009},
+which would have yielded an overall effect of SMD = 0.039 (95\% CI:
+{[}-0.035, 0.11{]}), p = 0.27.
+
+\subsubsection{Robustness to stricter definition of
+delay}\label{Sec5.1.3}
+
+\subsubsection{Robustness of choice architecture estimate to a broader
+definition of nudge}\label{Sec5.1.4}
+
+\subsection{Notes on custom search
+strategy}\label{notes-on-custom-search-strategy}
+
+\section{NOTES {[}TO BE CUT OUT{]}}\label{notes-to-be-cut-out}
+
+the main text talks about the search process -- detail the RP search! --
+the robustness check and a full list of variables
+
+\begin{comment}
 We used the following R packages:
 
 - dplyr\
@@ -719,10 +771,11 @@ We used the following R packages:
 - rticles\
 - stringr\
 - tidyr
+\end{comment}
 
 \subsubsection{PRISMA diagram}\label{prisma-diagram}
 
-\ldots{}
+\ldots{} main text?
 
 \subsection{Supplementary Discussion}\label{supplementary-discussion}
 
@@ -730,25 +783,14 @@ We used the following R packages:
 plan}\label{four-deviations-from-pre-analysis-plan}
 
 Our coding and analyses were pre-registered on the Open Science
-Framework (\url{https://osf.io/3sth2}). As discussed in the main text,
-we made two post-hoc changes to our study inclusion criteria: excluding
-studies that sought to induce substitution from one kind of MAP to
-another, and counting reduction in consumption of RPM as a separate
-estimand. Here we discuss two further deviations.
+Framework We made ttwo post-hoc changes to our study inclusion criteria.
+The first was excluding studies that sought to induce substitution from
+one kind of MAP to another, and the second was counting reduction in
+consumption of RPM as a separate estimand. Here we discuss two further
+deviations.
 
 First, our initial analyses used the random effects model from
-\texttt{metafor} to calculate pooled effect sizes. However, as we
-assembled our dataset, we noticed that many papers had, across
-interventions, non-independent observations, typically in the form of
-multiple treatments compared to a single control group. Upon discussion,
-the team's statistician (MBM) suggested that the \texttt{CORR} model
-from the \texttt{robumeta} package would be a better fit.
-
-Using our original model from \texttt{metafor}, we detect a pooled
-effect size of 0.0268173 (95\% CI: {[}0.0037597918205323
-0.0498747683054045{]}), p = 0.0226339. In relative terms, this is
-substantially smaller, but in absolute terms, both this model and our
-main model produce very small estimates.
+\texttt{metafor} to calculate pooled effect sizes.
 
 Second, we added many moderators to our dataset that we did not plan on,
 such as a broad category for delivery method, whether a study was

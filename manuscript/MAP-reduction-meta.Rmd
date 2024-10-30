@@ -64,10 +64,9 @@ knitr::opts_chunk$set(fig.path = "./figures/",
                       echo = FALSE,
                       out.extra = "")
 options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
-# libraries
-source('./scripts/libraries.R')
 
-# functions and data
+# libraries, functions and data
+source('./scripts/libraries.R')
 source('./scripts/functions.R')
 source('./scripts/load-data.R')
 ```
@@ -203,7 +202,7 @@ Table 1 compares the overall meta-analytic estimate to the subgroup estimates as
 [Figure 1 about here]
 \end{center}
 
-```{r rpmc_and_merged_stats, include=F}
+```{r rpmc_prop, include=F}
 
 red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
                                      t2 = rpmc_results$tau^2,
@@ -213,14 +212,9 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
                                 yi.name = "d", vi.name = "var_d",
                               bootstrap = "ifneeded", R = 200) |> 
      mutate(across(1:6, \(x) round(x, 3)))
-
-merged_model <- merged_dat |> robu(formula = d ~ 1, studynum = unique_study_id, 
-                 var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-merged_results <- merged_dat |> extract_model_results()
-
 ```
 
-By contrast, studies that only attempted to reduce consumption of RPM had larger estimates: across these 17 studies and 25 estimates, we detect a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r merged_results$tau`.
+By contrast, the 17 studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
 We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
@@ -284,21 +278,20 @@ Given our interdisciplinary research question and previous work indicating a lar
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
-See supplement for PRISMA diagram.
-See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately `r excluded_count` papers we excluded.
+Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies. See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately `r excluded_count` papers we excluded.
 
 ## Data extraction {#sec3.3}
 
 The first author extracted all data.
 We extracted an effect size for one outcome per intervention: the latest possible measure of net MAP or RPM consumption.
 Sample sizes corresponded to the same time point.
-Additional variables coded included information about publication, details of the interventions, length of delay, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see supplement).
+Additional variables coded included information about publication, details of the interventions, length of delay, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation).
 
 When in doubt about calculating effect sizes, we consulted available datasets and/or contacted authors.
 
 To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (see table 3).
 
-All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
+All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details). We used Glass's $\Delta$ whenever possible as our measure of standardized mean difference: $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$. We standardized on the SD of the control group at pre-treatment. If group SDs were not available, we standardized on the pooled SD. When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z scores. When there was insufficient information to calculate a specific SMD, but the text reports the result as a null, we recorded the outcome as an "unspecified null" and set it to 0.01. If results were significant and we could not calculate an SMD, we excluded the study.
 
 ## Statistical analysis methods {#sec3.4}
 
@@ -309,7 +302,6 @@ Therefore, we used the RVE method to allow for the resulting dependence between 
 Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] We assessed publication bias using selection model methods [@hedges1992], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020]. These methods assume that the publication process favors “statistically significant” (i.e., p < 0.05) and positive results over “nonsignificant” or negative results. Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies. We conducted these analyses using functions in `metafor` [@viechtbauer2020] and `PublicationBias` [@mathur2020; @mathur2024].
 
 We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
-
 
 # Discussion
 
@@ -364,7 +356,7 @@ sensitivity_table
 
 ## Figures
 
-```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by effect size (Glass's $\\Delta$). A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
+```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by SMD. A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
 forest_plot 
 ```
@@ -375,33 +367,56 @@ funnel_plot
 ```
 
 ```{r robust_data, include=F}
-
-# source('./scripts/robustness-check.R')
 ```
 
 \newpage
 
-# Supplementary Materials {#Sec5}
+# Supplement {#Sec5}
 
-### Supplementary software and data
+## Robustness checks {#Sec5.1}
 
-Our accompanying repository of code and data [CODEOCEAN LINK] contains all materials necessary to reproduce this manuscript, including text, citations, results, and figures. Additionally, we include some materials intended to help readers understand and extend our analysis:
-  * `excluded-studies.csv` is a list of all the studies we considered for inclusion but did not 
-  * `review-of-reviews.csv` contains the full list of prior reviews we consulted
-  * `MAP-reduction-codebook.csv` documents our dataset
-  * `MAP-reduction-robustness-data.csv` contains a supplementary, fully coded dataset of studies that did not meet our inclusion criteria but were otherwise strong designs and whose results might be of interest to future meta-analysts.
+### Robustness to less stringent inclusion criteria {#Sec5.1.1}
 
-## Supplementary Methods {#Sec5.1}
+```{r robustness_check, include=F}
+source('./scripts/robustness-checks.R')
 
-### Effect size details
+robust_only_results <- robust_dat |> extract_model_results()
+merged_results <- merged_dat |> extract_model_results()
 
-We used Glass’s $\Delta$ whenever possible as our measure of standardized mean difference:  $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$.
-We standardized on the SD of the control group at pre-treatment.
-If group SDs were not available, we standardized on the pooled SD.
-When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z scores. 
+## look at biggest results
+merged_dat |> arrange(desc(d)) |> select(author,year,  ,se_d, inclusion_exclusion) |> head(10)
+```
 
+Here we integrate and meta-analyze a supplementary dataset of `r robust_only_results$N_studies` studies comprising `r robust_only_results$N_estimates` with noteworthy results and many strong design features that nevertheless did not meet our inclusion criteria. These studies were excluded for one of five reasons: 1) issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2019]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; or 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
+
+Taken together, our integrated dataset including both our main sample and this supplementary one yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`. Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that were underpowered [@lentz2020]. 
+
+A reader with different beliefs about sources of bias in this literature than ours might conclude from this analysis that it is indeed possible, in some contexts, to meaningfully reduce MAP consumption. Likewise for readers who take stated reductions in RPM consumption as unbiased estimates of overall MAP reduction.
+
+### Robustness to alternative estimation strategies {#Sec5.1.2}
+
+Our pre-analysis plan (\url{https://osf.io/3sth2}), from which we deviated substantially across many dimensions, originally used a random effects model from `metafor` to analyze a synthetic dataset. However, as we assembled the real dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group. Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package would be a better fit.
+
+```{r alt_models, include=F}
+alt_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
+hier_model <- robumeta::robu(formula =d ~ 1, data = dat, studynum = unique_paper_id, var.eff.size = var_d, modelweights = 'HIER',small = TRUE) 
+```
+
+
+Using our original model from `metafor`, we detect a pooled effect size of `r alt_model$beta` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`. In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
+Alternatively, we might have employed a hierarchical model that assumes dependence at the level of paper rather than study [@stevens2009], which would have yielded an overall effect of SMD =  `r round(hier_model$b.r, 3)` (95% CI: [`r paste0(round(hier_model$reg_table$CI.L, 3), ",", " ", round(hier_model$reg_table$CI.U, 2))`]), p = `r round(hier_model$reg_table$prob, 2)`. 
+
+### Robustness to stricter definition of delay {#Sec5.1.3}
+
+### Robustness of choice architecture estimate to a broader definition of nudge {#Sec5.1.4}
+
+## Notes on custom search strategy
+
+# NOTES [TO BE CUT OUT]
+the main text talks about the search process -- detail the RP search! -- the robustness check and a full list of variables
 
 ```{=tex}
+\begin{comment}
 We used the following R packages:
 
 - dplyr\
@@ -421,30 +436,23 @@ We used the following R packages:
 - rticles\
 - stringr\
 - tidyr
+\end{comment}
 ```
 
 ### PRISMA diagram
 
-...
+... main text?
 
 ## Supplementary Discussion
 
 ### Four deviations from pre-analysis plan
 
-Our coding and analyses were pre-registered on the Open Science Framework (\url{https://osf.io/3sth2}).
-As discussed in the main text, we made two post-hoc changes to our study inclusion criteria: excluding studies that sought to induce substitution from one kind of MAP to another, and counting reduction in consumption of RPM as a separate estimand.
+Our coding and analyses were pre-registered on the Open Science Framework 
+We made ttwo post-hoc changes to our study inclusion criteria. The first was excluding studies that sought to induce substitution from one kind of MAP to another, and the second was  counting reduction in consumption of RPM as a separate estimand. 
 Here we discuss two further deviations.
 
-```{r alt_model, include=F}
-alt_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
-```
-
 First, our initial analyses used the random effects model from `metafor` to calculate pooled effect sizes.
-However, as we assembled our dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group.
-Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package would be a better fit.
 
-Using our original model from `metafor`, we detect a pooled effect size of `r alt_model$beta` (95% CI: [`r paste0(alt_model$ci.lb, " ", alt_model$ci.ub)`]), p = `r alt_model$pval`.
-In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
 
 Second, we added many moderators to our dataset that we did not plan on, such as a broad category for delivery method, whether a study was intended to be emotionally activating, or whether a program had multiple components.
 We did not end up focusing on these in our main paper but include them in our dataset for completeness.
