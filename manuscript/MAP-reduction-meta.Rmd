@@ -352,7 +352,6 @@ sensitivity_table
 ```
 
 \FloatBarrier 
-\newpage
 
 ## Figures
 
@@ -364,9 +363,6 @@ forest_plot
 ```{r funnel_plot, echo=F}
 funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
-```
-
-```{r robust_data, include=F}
 ```
 
 \newpage
@@ -395,70 +391,38 @@ A reader with different beliefs about sources of bias in this literature than ou
 
 ### Robustness to alternative estimation strategies {#Sec5.1.2}
 
-Our pre-analysis plan (\url{https://osf.io/3sth2}), from which we deviated substantially across many dimensions, originally used a random effects model from `metafor` to analyze a synthetic dataset. However, as we assembled the real dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group. Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package would be a better fit.
+Our pre-analysis plan (\url{https://osf.io/3sth2}) used a cluster-robust random effects model from `metafor` to analyze a synthetic dataset. However, as we assembled the real dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group. Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package would be a better fit.
 
 ```{r alt_models, include=F}
-alt_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
+alt_model <- robust(metafor::rma.uni(yi = d, vi = var_d, data = dat), 
+                    cluster = dat$unique_study_id)
+
 hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
-                             studynum = unique_paper_id, 
+                             studynum = author,
                              var.eff.size = var_d, modelweights = 'HIER', 
                              small = TRUE) 
 ```
 
-
-Using our original model from `metafor`, we detect a pooled effect size of `r alt_model$beta` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`. In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
-Alternatively, we might have employed a hierarchical model that assumes dependence at the level of paper rather than study [@stevens2009], which would have yielded an overall effect of SMD =  `r round(hier_model$b.r, 3)` (95% CI: [`r paste0(round(hier_model$reg_table$CI.L, 3), ",", " ", round(hier_model$reg_table$CI.U, 2))`]), p = `r round(hier_model$reg_table$prob, 2)`. 
+Using our original cluster-robust estimation strategy from `metafor`, we detect a pooled effect size of `r alt_model$beta` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`. In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates. Alternatively, we might have employed a hierarchical model that assumes dependence at the level of first author rather than study [@stevens2009]. This sandwich-type estimator [@hedges2010] will asymptotically provide the correct estimates for lower levels of clustering as well, and would have yielded an overall effect of SMD =  `r round(hier_model$b.r, 3)` (95% CI: [`r paste0(round(hier_model$reg_table$CI.L, 3), ",", " ", round(hier_model$reg_table$CI.U, 2))`]), p = `r round(hier_model$reg_table$prob, 2)`. 
 
 ### Robustness to stricter definition of delay {#Sec5.1.3}
 
-### Robustness of choice architecture estimate to a broader definition of nudge {#Sec5.1.4}
-
-## Notes on custom search strategy
-
-# NOTES [TO BE CUT OUT]
-the main text talks about the search process -- detail the RP search! -- the robustness check and a full list of variables
-
-```{=tex}
-\begin{comment}
-We used the following R packages:
-
-- dplyr\
-- forcats\
-- ggplot2\
-- ggtext\
-- googledrive\
-- kableExtra\
-- knitr\
-- MetaUtility\
-- metafor\
-- PublicationBias\
-- purrr\
-- Rmarkdown\
-- robumeta\
-- rprojroot\
-- rticles\
-- stringr\
-- tidyr
-\end{comment}
+```{r strict_delay_model}
+strict_delay_model <- dat |> filter(delay_post_endline > 0) |> extract_model_results()
 ```
+
+Our delay-related inclusion criterion aimed to capture enduring, not incidental, effects, particularly to consider cases where someone encouraged to have a single vegetarian meal might later counterbalance by consuming a larger quantity of meat or animal products (MAP). Upon reviewing studies, however, we encountered an issue: numerous high-quality studies modifying eating environments over multiple days did not incorporate a delay following the final day of treatment before measuring outcomes. For example, [@andersson2021] included 50 combined days of treatment and control, but, implemented in a dining hall, the interval between treatment and any individual outcome measurement was zero days. By one light, such studies lack delayed outcome measures. In another, the multi-day setup in a repeated environment allows for some theoretical delay, as participants acclimate and undergo control measurements on subsequent days.
+
+We thus included multi-day studies where delayed outcomes were at least theoretically possible through repeat visits to the intervention site. Our delay variable reflects the days elapsed from treatment initiation to measurement. Additionally, we documented a secondary delay variable, recording time from treatment conclusion to measurement. Restricting our analysis to the `r strict_delay_model$N_studies` studies and `r strict_delay_model$N_estimates` point estimates where this secondary delay exceeds zero, we observe an effect of SMD = `r strict_delay_model$Delta` (95% CI: `r strict_delay_model$CI`), p = `r strict_delay_model$p_val`.
+
+One of our most unexpected results was how few choice architecture studies met our inclusion criteria. However, we attribute this in part to our comparatively strict definition of choice architecture studies as manipulations to the environment in which choices were made that attempt to operate on unconscious processes. However, some studies in our database do not modify aspects of the environment but identify their own interventions as nudges, meeting the somewhat looser definition of a nudge as something that's 'cheap and easy to avoid [@thaler2008]. I
+## Notes on custom search strategy
 
 ### PRISMA diagram
 
 ... main text?
 
 ## Supplementary Discussion
-
-### Four deviations from pre-analysis plan
-
-Our coding and analyses were pre-registered on the Open Science Framework 
-We made ttwo post-hoc changes to our study inclusion criteria. The first was excluding studies that sought to induce substitution from one kind of MAP to another, and the second was  counting reduction in consumption of RPM as a separate estimand. 
-Here we discuss two further deviations.
-
-First, our initial analyses used the random effects model from `metafor` to calculate pooled effect sizes.
-
-
-Second, we added many moderators to our dataset that we did not plan on, such as a broad category for delivery method, whether a study was intended to be emotionally activating, or whether a program had multiple components.
-We did not end up focusing on these in our main paper but include them in our dataset for completeness.
 
 ### The limits of systematic search for MAP reduction papers {#sec5.4.1}
 
@@ -485,33 +449,7 @@ We used the following Google Scholar search terms:
 
 For each of these, we reviewed ten pages of results.
 
-### Edge cases for study inclusion {#sec5.4.2}
-
-Arguably the hardest decision in meta-analysis is what studies to include or exclude.
-By far the most common reason for exclusion was category of dependent variable (e.g. measuring attitudinal or intentional outcomes).
-However, many cases were harder and required some deliberation.
-
-Some studies limit dietary portions or switch what people are served (e.g. children being served more vegetables at lunchtime).
-We did not include these studies because they were essentially guaranteed to have effects that were either positive or at least bounded at zero.
-However, we did include studies that provided free access to meat alternatives [@acharya2004; @bianchi2022] and measured outcomes after the intervention had concluded.
-(There were not enough of these studies in our main dataset to analyze this approach separately, but their effect sizes are `r round(dat |> filter(author == 'Acharya') |> pull(d),3)` and `r round(dat |> filter(author == 'Bianchi') |> pull(d),3)` respectively.)
-
-Other studies induce a form of treatment in their control groups, for instance asking all subjects to take a pledge to go vegetarian.
-Our main database only includes studies with a pure control group or an unrelated placebo.
-However, we include a selection of studies in our supplementary robustness check.
-
-Another common design feature we encountered was treatment assigned at the level of alternating weeks at a cafeteria.
-Generally these studies did not have enough weeks to meet our sample size requirements.
-We also note that simply alternating weeks is not equivalent to random assignment.
-
-Last, we encountered many studies that measured fruit and or/vegetable consumption but not MAP consumption.
-In some cases, it might have been possible to add assumptions about substitution and estimate effect sizes, e.g. if menus were fixed, but we exclusively meta-analyzed studies that reported MAP consumption directly.
-
 ### Defining the theoretical boundaries between studies requires judgment calls {#sec5.4.4}
-
-We noted a surprising paucity of qualifying interventions employing choice architecture, which has been frequently cited by experimenters [@boronowsky2022], reviewers [@meier2022], and advocacy groups [@zhang2022] as a proven method of changing consumer behavior.
-By contrast, our review revealed that very few papers in this literature both employed randomized designs and measured lasting effects on MAP consumption.
-We encourage future choice architecture research to measure delayed outcomes whenever possible.
 
 However, our choice architecture count would have been larger if we had included all studies self-identifying as 'nudge' studies in the choice architecture category [@thaler2009].
 Such studies dd not necessarily alter anything about the architecture of a choice, and were not obviously seeking to operate on 'unconscious' processes' [@garnett2020].
