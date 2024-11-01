@@ -496,6 +496,8 @@ We used the following Google Scholar search terms:
 -   "nudges" "norms" "meat"
 -   "meat" "sustainable" "random"
 -   "nudge" "meat" "default"
+-   "nudge" "sustainable" "consumption" "meat"
+-   "nudge" "reduce" "meat" "consumption"
 
 For each of these, we reviewed ten pages of results.
 
