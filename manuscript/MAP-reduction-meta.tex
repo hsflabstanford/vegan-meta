@@ -440,16 +440,16 @@ correction.
 
 Data analyses were largely conducted with custom functions building on
 tidyverse \citep{wickham2019} We assessed publication bias using
-selection model methods \citep{hedges1992}, sensitivity analysis methods
-\citep{mathur2024}, and the significance funnel plot \citep{mathur2020}.
-These methods assume that the publication process favors ``statistically
-significant'' (i.e., p \textless{} 0.05) and positive results over
-``nonsignificant'' or negative results. Our sensitivity check
-meta-analyzes only non-affirmative results, which creates an estimate
-under a hypothetical ``worst-case'' publication bias scenario where
-affirmative studies are almost infinitely more likely to be published
-than non-affirmative studies. We conducted these analyses using
-functions in \texttt{metafor} \citep{viechtbauer2010} and
+selection model methods \citep{hedges1992, vevea1995}, sensitivity
+analysis methods \citep{mathur2024}, and the significance funnel plot
+\citep{mathur2020}. These methods assume that the publication process
+favors ``statistically significant'' (i.e., p \textless{} 0.05) and
+positive results over ``nonsignificant'' or negative results. Our
+sensitivity check meta-analyzes only non-affirmative results, which
+creates an estimate under a hypothetical ``worst-case'' publication bias
+scenario where affirmative studies are almost infinitely more likely to
+be published than non-affirmative studies. We conducted these analyses
+using functions in \texttt{metafor} \citep{viechtbauer2010} and
 \texttt{PublicationBias} \citep{mathur2020, mathur2024}.
 
 We used \texttt{Rmarkdown} \citep{xie2018} and a containerized
@@ -733,13 +733,10 @@ Using our original cluster-robust estimation strategy from
 \texttt{metafor}, we detect a pooled effect size of 0.0268173 (95\% CI:
 {[}-0.01, 0.06{]}), p = 0.146868. In relative terms, this is
 substantially smaller, but in absolute terms, both this model and our
-main model produce very small estimates. Alternatively, we might have
-employed a hierarchical model that assumes dependence at the level of
-first author rather than study \citep{stevens2009}. This sandwich-type
-estimator \citep{hedges2010} will asymptotically provide the correct
-estimates for lower levels of clustering as well, and would have yielded
-an overall effect of SMD = 0.039 (95\% CI: {[}-0.036, 0.11{]}), p =
-0.27.
+main model produce very small estimates. (Although \texttt{metafor} also
+provides an RVE estimator, it applies the correction to the standard
+errors and not to the overall estimate, and we preferred a model that
+incorporates clustering information at the level of effect estimation.)
 
 \subsubsection{Robustness to a stricter definition of
 delay}\label{Sec5.1.3}
@@ -774,11 +771,11 @@ This literature has remarkable methodological, disciplinary, and
 theoretical diversity. However, it also has few if any agreed upon terms
 to describe itself. For instance,the term ``MAP'' is nonstandard; other
 papers discuss animal-based proteins, animal products, meat, edible
-animal products, plant-based foods, plant-based protein, and so on. This
-diversity of language poses a particular challenge for anyone seeking to
-systematically review this literature. Whether one has identified the
-correct terms that each relevant study uses to describe itself is, for
-all practical purposes, unknowable.
+animal products, plant-based foods, plant-based protein, animal meat and
+products, and so on. This diversity of language poses a particular
+challenge for anyone seeking to systematically review this literature.
+Whether one has identified the correct terms that each relevant study
+uses to describe itself is, for all practical purposes, unknowable.
 
 This informed our search process. Rather than starting with a list of
 search terms, we began by reading prior reviews, and then reading the

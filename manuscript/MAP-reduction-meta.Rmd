@@ -308,7 +308,7 @@ Results were synthesized using robust variance estimation (RVE) methods [@hedges
 Many studies in our sample featured multiple treatment groups compared to a single control group.
 Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction.
 
-Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] We assessed publication bias using selection model methods [@hedges1992], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020].
+Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] We assessed publication bias using selection model methods [@hedges1992; @vevea1995], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020].
 These methods assume that the publication process favors “statistically significant” (i.e., p \< 0.05) and positive results over “nonsignificant” or negative results.
 Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies.
 We conducted these analyses using functions in `metafor` [@viechtbauer2010] and `PublicationBias` [@mathur2020; @mathur2024].
@@ -444,8 +444,7 @@ hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
 
 Using our original cluster-robust estimation strategy from `metafor`, we detect a pooled effect size of `r alt_model$beta` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
 In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
-Alternatively, we might have employed a hierarchical model that assumes dependence at the level of first author rather than study [@stevens2009].
-This sandwich-type estimator [@hedges2010] will asymptotically provide the correct estimates for lower levels of clustering as well, and would have yielded an overall effect of SMD = `r round(hier_model$b.r, 3)` (95% CI: [`r paste0(round(hier_model$reg_table$CI.L, 3), ",", " ", round(hier_model$reg_table$CI.U, 2))`]), p = `r round(hier_model$reg_table$prob, 2)`.
+(Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.)
 
 ### Robustness to a stricter definition of delay {#Sec5.1.3}
 
@@ -468,7 +467,7 @@ Restricting our analysis to the `r strict_delay_model$N_studies` studies and `r 
 
 This literature has remarkable methodological, disciplinary, and theoretical diversity.
 However, it also has few if any agreed upon terms to describe itself.
-For instance,the term "MAP" is nonstandard; other papers discuss animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, and so on.
+For instance,the term "MAP" is nonstandard; other papers discuss animal-based proteins, animal products, meat, edible animal products, plant-based foods, plant-based protein, animal meat and products, and so on.
 This diversity of language poses a particular challenge for anyone seeking to systematically review this literature.
 Whether one has identified the correct terms that each relevant study uses to describe itself is, for all practical purposes, unknowable.
 
