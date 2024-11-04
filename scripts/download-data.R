@@ -10,7 +10,6 @@ read_sheet(ss = "1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk",
            sheet = "red-and-processed-meat") |>
   write_csv('./data/rpmc-data.csv')
 
-library(dplyr, warn.conflicts = F)
 read_sheet('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk',
                                sheet = 'excluded-studies') |>
   select(Author,	Year,	Title,	doi_or_url,	source,	exclusion_reason) |>
