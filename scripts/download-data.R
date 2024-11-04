@@ -1,7 +1,14 @@
 # supplementary data
 library(googlesheets4)
+library(googledrive)
 library(readr)
 library(dplyr)
+
+drive_auth()
+drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
+              path = './data/vegan-meta.csv',
+              overwrite = TRUE)
+
 read_sheet(ss = "1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk",
            sheet = "robustness-data") |>
   write_csv('./data/robustness-data.csv')

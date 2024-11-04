@@ -122,7 +122,7 @@ In the past few years, a new wave of MAP reduction research has made commendable
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
 Does this phenomenon hold in the MAP reduction literature as well?
 
-We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
+We answer this question with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aberman2018; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
 These RCTs all measured consumption outcomes at least a single day after treatment was first administered, and all had at least 25 subjects in both treatment and control, or, in the case of cluster-assigned studies, at least ten clusters in total.
 Additionally, we coded a separate dataset of `r RPMC_studies` studies that otherwise met our inclusion criteria but instead measured changes in consumption of RPM [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
 
@@ -156,7 +156,7 @@ Among studies where treatment was assigned to individuals rather than by cluster
 
 **Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, such as placing the vegetarian option at eye level on a cafeteria menu [@andersson2021].
 
-**Persuasion** studies [@kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness].
+**Persuasion** studies [@kanchanachitra2020; @aberman2018; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness].
 Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023].
 Arguments focus on health, the environment (usually climate change), and animal welfare.
 
@@ -165,7 +165,7 @@ The most common psychological intervention is centered on social norms seeking t
 In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022].
 In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good! Consider giving the garden fresh veggie burger a try today!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature, making meat-eaters out to be a counter-normative outgroup [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019].
 
-Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021].
+Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021].
 These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
 
 ## Meta-analytic results {#sec2.3}
@@ -443,7 +443,6 @@ hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
 ```
 
 Using our original cluster-robust estimation strategy from `metafor`, we detect a pooled effect size of `r alt_model$beta` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
-In relative terms, this is substantially smaller, but in absolute terms, both this model and our main model produce very small estimates.
 (Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.)
 
 ### Robustness to a stricter definition of delay {#Sec5.1.3}
