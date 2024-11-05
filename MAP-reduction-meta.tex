@@ -553,14 +553,15 @@ unsolved problem, there is no reason to think it is unsolvable.
 
 \bmhead{Acknowledgments}
 
-\emph{Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani,
-Adin Richards, Martin Gould, and Matt Lerner for comments on an early
-draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua
-Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with
-assembling the database and providing guidance on their studies. Thanks
-to Estefania Vera Verduzco for research assistance. We gratefully
-acknowledge funding from the NIH (grant XXX), Open Philanthropy (YYY),
-and the Food Systems Research Fund (Grant FSR 2023-11-07).}
+\emph{Thanks to Alex Berke, Alix Winter, Anson Berns, Dan Waldinger,
+Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for
+comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg
+Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma
+Garnett for help with assembling the database and providing guidance on
+their studies. Thanks to Sofia Vera Verduzco for research assistance. We
+gratefully acknowledge funding from the NIH (grant XXX), Open
+Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR
+2023-11-07).}
 
 \section*{Declarations}\label{declarations}
 \addcontentsline{toc}{section}{Declarations}
@@ -689,9 +690,41 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 
 \section{Supplement}\label{Sec5}
 
-\subsection{Robustness checks}\label{Sec5.1}
+\subsection{Description of code and data
+repository}\label{description-of-code-and-data-repository}
 
-\subsubsection{Robustness to less stringent inclusion
+Our code and data are shared on the Open Science Framework {[}LINK{]},
+GitHub {[}LINK, and Code Ocean {[}LINK{]}. Our main document,
+\texttt{MAP-reduction-meta.Rmd}, reproduces this paper, with every
+quantitative claim (as well as the first two figures) reproduced each
+time the document is knit.
+
+Our included datasets are
+
+\begin{itemize}
+\item
+  \texttt{vegan-meta.csv}, which contains our main meta-analytic
+  dataset;
+\item
+  \texttt{rpmc-data.csv}, which contains our secondary dataset of
+  studies aimed at reducing consumption of red and processed meat;
+\item
+  \texttt{robustness-data.csv}, which contains coding for borderline
+  studies for a robustness check (see section below);
+\item
+  \texttt{review-of-reviews.csv}, which details the 157 reviews we
+  consulted;
+\item
+  \texttt{excluded-studies.csv}, which details the papers we screened
+  but did not include, along with their reasons for exclusion and where
+  we found them (the studies in \texttt{robustness-data.csv} are
+  included in this dataset as well).
+\end{itemize}
+
+The repositories have more details about the included scripts and
+supplementary materials (e.g.~licenses).
+
+\subsection{Robustness to less stringent inclusion
 criteria}\label{Sec5.1.1}
 
 Here we integrate and meta-analyze a supplementary dataset of 22 studies
@@ -723,8 +756,7 @@ readers who take stated reductions in RPM consumption as unbiased
 estimates of overall MAP reduction could reasonably draw different
 conclusions than this paper's headline findings.
 
-\subsubsection{Robustness to alternative estimation
-strategies}\label{Sec5.1.2}
+\subsection{Robustness to alternative estimation method}\label{Sec5.1.2}
 
 Our pre-analysis plan (\url{https://osf.io/3sth2}) used a cluster-robust
 random effects model from \texttt{metafor} to analyze a synthetic
@@ -742,18 +774,17 @@ provides an RVE estimator, it applies the correction to the standard
 errors and not to the overall estimate, and we preferred a model that
 incorporates clustering information at the level of effect estimation.)
 
-\subsubsection{Robustness to a stricter definition of
+\subsection{Robustness to a stricter definition of
 delay}\label{Sec5.1.3}
 
-Our delay-related inclusion criterion aimed to capture enduring effects.
-We are concerned that studies in which subjects are encouraged to have a
-single vegetarian meal might later counterbalance by consuming a larger
-quantity of meat or animal products (MAP), and that without measuring
-follow-up behavior, there is no way to gauge net effects of studies
-without delayed outcome measures.
+Our delay-related inclusion criterion aimed to limit our analysis to
+enduring effects. We were concerned that subjects who are encouraged to
+have a single vegetarian meal might later compensate by consuming a
+larger quantity of MAP at the next one, which would make an immediate
+outcome measurement an upwardly biased estimate of overall effects.
 
 Upon reviewing studies, however, we found that numerous high-quality
-studies modifying eating environments over multiple days and did not
+studies modified eating environments over multiple days and did not
 incorporate a delay following the \emph{final} day of treatment before
 measuring outcomes. For example, \citep{andersson2021} included 50
 combined days of treatment and control, but the interval between
@@ -777,9 +808,43 @@ CI: {[}0.01, 0.12{]}), p = .0283.
 
 \subsection{Notes on search strategy}\label{Sec5.2}
 
-{[}RP SEARCH PROCESS{]}
+Our search process was shaped by three features of our research agenda.
+First, our surveyed literature was highly interdisciplinary, with few
+shared terms to describe itself. For instance, the term `MAP' is not
+universally agreed upon; other papers use (e.g.) animal-based protein,
+edible animal products, or just meat, while others focus on a
+particular, sometimes unusual category of MAP, such as fish sauce
+\citep{kanchanachitra2020}, or discussed their agenda mainly in terms of
+increasing plant-based alternatives. Coming up with an exhaustive list
+of applicable terms to search on from first principles would have been,
+in our opinion, virtually impossible.
 
-We used the following Google Scholar search terms:
+Second, our methods-based inclusion criteria complicated screening on
+titles and abstracts. While it was sometimes possible to use solely that
+information to eliminate studies with no interventions
+(e.g.~survey-based research), determining whether an intervention
+qualified almost always required some amount of full text screening. We
+also discovered that terms like ``field experiment'' and ``controlled
+before-after design'' have varying meanings across papers, and
+identifying whether a measured food choice was hypothetical or not often
+required a close reading. For these reasons, screening thousands or tens
+of thousands of papers struck us as prohibitively time-consuming.
+
+Third, we found an extraordinary number of prior reviews, typically
+aimed at one disciplinary strand or conceptual approach, touching on our
+research question. Reviewing tables and bibliographies of those papers
+proved enormously fruitful for both assembling our dataset and getting a
+sense of the broader literature.
+
+For these reasons, we employed what could be called a
+``prior-reviews-first'' search strategy. Of the 985 papers we reviewed,
+a full 0.73 \% of all manuscripts we screened came from prior reviews,
+and 0.43 \% of papers in our main dataset. (See the next section of the
+supplement for notes on reviews that were especially informative. )Then,
+as detailed in the main text, we employed a multitude of other search
+strategies to fill in our dataset, one of which was systematic search.
+In particular, we searched Google Scholar for the following list of
+terms, and checked ten pages of results for each:
 
 \begin{itemize}
 \tightlist
@@ -820,28 +885,31 @@ We used the following Google Scholar search terms:
 \item
   ``nudge'' ``reduce'' ``meat'' ``consumption''
 \item
-  ``field'' ``experiment'' ``plant-based''
+  ``field'' ``experiment'' ``plant-based.
 \end{itemize}
-
-For each of these, we reviewed ten pages of results.
 
 Additionally, we searched the American Economic Association's RCT
-registry for the following terms;
+registry for the the terms ``meat+random''.
 
-\begin{itemize}
-\item
-  term
-\item
-  term
-\item
-\end{itemize}
+Another unconventional part of our search strategy was our use of of an
+AI-based search tool (\url{https://undermind.ai/}), to which we
+described our research question and reviewed 100 results. This yielded
+one paper that met our inclusion criteria \citep{mattson2020} that seems
+to have slipped past many other systematic search processes.
+
+Finally, we benefited from two in-progress literature reviews at Rethink
+Priorities, ``a think-and-do tank'' that researches animal welfare as
+one of its four main priorities. Both of these literature reviews are
+aimed at assessing interventions that reduce MAP consumption, but have
+broader inclusion criteria than our paper employed. In effect, their
+intended bodies of literature both formed supersets around our target.
+For more details on these two projects, see \url{<https://osf.io/74paj>}
+and \url{<https://meat-lime.vercel.app>}.
 
 \subsection{Discussion of prior
 reviews}\label{discussion-of-prior-reviews}
 
-It was striking to us there have been more systematic reviews of MAP
-reduction research than there have been studies meeting our criteria. We
-turn now to a selective overview of prior reviews that were highly
+We turn now to a selective overview of prior reviews that were highly
 relevant to this one.
 
 Among the reviews that found MAP reduction interventions to be
@@ -852,7 +920,10 @@ committing to reduce meat intake and making menus vegetarian by default
 were more effective than educational interventions. However, the vast
 majority of vegetarian-default studies we analyzed for this paper did
 not qualify for our analysis because they lacked delayed outcomes, and
-their net effect on MAP consumption is unknown.
+their net effect on MAP consumption is unknown. In a similar vein,
+\citep{mertens2022} concludes that food choices are ``particularly
+responsive to choice architecture interventions'' (p.~1), but featured
+no studies that met our inclusion criteria.
 
 \citep{bianchi2018restructuring} found that reducing meat portions,
 making alternatives available, moving meat products to be less
@@ -872,13 +943,10 @@ item availability, were effective at changing purchasing choices.
 However, that review covered a wide variety of health interventions,
 such as reducing consumption of dietary fat and increasing fruit and
 vegetable purchases. It is unclear how directly such findings translate
-to MAP reduction efforts.
-
-\citep{chang2023} focused on university meat-reduction interventions and
-found more promising results than did reviews that looked at the wider
-public. This suggests that students and young people may be particularly
-receptive to MAP reduction interventions. \citep{harguess2020} reviewed
-22 studies on meat consumption and found promising results for
+to MAP reduction efforts. Meanwhile, \citep{chang2023} focused on
+university meat-reduction interventions and found more promising results
+than did reviews that looked at the wider public. \citep{harguess2020}
+reviewed 22 studies on meat consumption and found promising results for
 educational interventions focused on the environment, health, and animal
 welfare. That paper recommends using animal imagery to cause an
 emotional response and utilizing choice architecture interventions. Our
@@ -890,7 +958,7 @@ on protests in a variety of movements and found mixed evidence of
 efficacy. The authors recommend that animal advocacy protests have a
 specific target (e.g.~a particular institution) and ``ask.''
 
-Other studies provide insights on who is most easily influenced by
+Other reviews assesed which groups are most easily influenced by
 interventions to reduce MAP consumption. For example,
 \citep{blackford2021} found that nudges focused on ``system 1'' thinking
 were more effective at encouraging sustainable choices than those
@@ -908,7 +976,7 @@ address these barriers.
 Several reviews have had mixed or inconclusive results. For instance,
 \citep{bianchi2018conscious} found that health and environmental appeals
 appear to change dietary intentions in virtual environments, but did not
-find evidence of actual consumption changes. In the same vein,
+find evidence of actual consumption changes. Likewise,
 \citep{kwasny2022} notes that most existing research focuses on
 attitudes and intentions and lacks measures of actual meat consumption
 over an extended period of time. \citep{taufik2019} reviewed many
@@ -919,31 +987,36 @@ consumption, but no extant research that included behavioral outcomes.
 
 A few reviews have found evidence that seems to recommend against
 particular interventions. \citep{greig2017} reviewed the literature on
-leafleting for vegan/animal advocacy outreach, and observed biases
-towards overestimating impact. That paper concluded that leafleting does
-not seem cost-effective, though with significant uncertainty. This
-accords with our findings on advocacy organization materials' limited
-impacts.
+leafleting for vegan/animal advocacy outreach, and observed biases that
+may have led to overestimated impacts. That paper concluded that
+leafleting does not seem cost-effective, though with significant
+uncertainty. This accords with our findings on advocacy organization
+materials' limited effects.
 
 \citep{nisa2019} meta-analyzed interventions to improve household
 sustainability, of which reducing MAP consumption was one of several.
 Although they found small effect sizes for most interventions, they
-concluded that nudges were comparatively effective. Many such nudge
-studies looked at meat consumption. Similarly, \citep{rau2022} reviewed
-the literature on environmentally friendly behavior changes, including
-but not limited to diet change, and found small or nonexistent effects
-in most cases. Only fifteen interventions in that paper were described
-as ``very successful,'' and none of these related to food.
+concluded that nudges were comparatively effective, as did
+\citep{ensaff2021}. Similarly, \citep{rau2022} reviewed the literature
+on environmentally friendly behavior changes, including but not limited
+to diet change, and found small or nonexistent effects in most cases.
+Only fifteen interventions in that paper were described as ``very
+successful,'' and none of these related to food.
 
-We draw two lessons from these papers. The first is that the marginal
-value of a new rigorous evaluation is much higher than that of a new
-systematic review. The second is that the category of dependent variable
-matters for estimating impact. We encourage researchers who care about
-reducing MAP consumption to measure it directly whenever possible.
+Finally, we note a few papers that were helpful in filling out our
+supplementary datasets. \citep{ronto2022} investigated interventions to
+move consumer to protein sources with lower ecological footprints, and
+was instrumental in filling out our RPM and robustness check datasets,
+as were \citep{kwasny2022} and \citep{grummon2023}.
 
-\begin{comment}
-First I feel a little strange saying that the marginal value of a review is low (then whay are we writing this paper?) Second, maybe there's a space for discussion about what counts as  meaningful? mention that ease of implementation matters in terms of what’s meaningful. The costs of fully exposing one person is the relevant denominator. The costs of recruitment are part of the cost. Maybe some people are more amenable to nudges after hearing an argument for
-\end{comment}
+Our overall conclusion from these 150+ papers is that the marginal value
+of a new rigorous evaluation is much higher than that of a new
+systematic review. We also encourage researchers to be cautious in
+extrapolating impacts across outcome categories. For instance, many
+reviews concluded that choice architecture approaches are effective at
+changing food choice, but these are typically aimed at foods with weak
+social and cultural associations. Whether these interventions work for
+something as fraught with meaning as meat remains to be seen.
 
 \newpage
 

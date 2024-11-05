@@ -53,6 +53,13 @@ GS_search_n + RP_n + registry_n + website_n + prior_review_n +citation_n +
   shared_n + prior_knowledge_n
 
 # among included studies, how many came from registries and databases
-all_papers |> filter(inclusion_exclusion == 0) |> sum_tab(grouped_source) 
+included_papers_group_conts <- all_papers |> 
+  filter(inclusion_exclusion == 0) |>
+  group_by(grouped_source) |> summarise(n = n()) |> 
+  arrange(desc(n))
 
-# among 
+# reviews count in included text
+included_review_count <- included_papers_group_conts |> 
+  filter(grouped_source == "prior review") |> 
+  pull(n)
+
