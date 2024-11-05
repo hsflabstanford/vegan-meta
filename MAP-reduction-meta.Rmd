@@ -364,7 +364,7 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 
 \bmhead{Acknowledgments}
 
-*Thanks to Alex Berke, Alix Winter, Anson Berns, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. Thanks to Estefania Vera Verduzco for research assistance. We gratefully acknowledge funding from the NIH (grant XXX), Open Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR 2023-11-07).*
+*Thanks to Alex Berke, Alix Winter, Anson Berns, Dan Waldinger, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. Thanks to Estefania Vera Verduzco for research assistance. We gratefully acknowledge funding from the NIH (grant XXX), Open Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR 2023-11-07).*
 
 # Declarations {.unnumbered}
 
