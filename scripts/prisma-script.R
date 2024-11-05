@@ -1,8 +1,9 @@
 library(dplyr)
 library(stringr)
-source('./scripts/load-data.R') # if needed
+source('./scripts/load-data.R') 
 source('./scripts/robustness-checks.R')
 source('./scripts/robustness-checks.R')
+source('./functions/sum-tab.R')
 
 excluded_data <- read.csv('./data/excluded-studies.csv') |>
   select(-exclusion_reason) |> 
@@ -30,14 +31,23 @@ all_papers <- full_join(
 final_paper_n <- nrow(all_papers |> filter(inclusion_exclusion == 0))
 excluded_paper_n <- nrow(all_papers |> filter(inclusion_exclusion != 0))
 
-# source Ns
+# source Ns: primary categories
 database_n <- nrow(all_papers |> filter(grouped_source == 'database'))
 registry_n <- nrow(all_papers |> filter(grouped_source == 'registry'))
+
+# source Ns: secondary categories
+website_n <- nrow(all_papers |> filter(grouped_source == 'AI search tool')) +
+  nrow(all_papers |> filter(grouped_source == 'website'))
 prior_review_n <-  nrow(all_papers |> filter(grouped_source == 'prior review'))
 citation_n <- nrow(all_papers |> filter(grouped_source == 'snowball'))  
 other_n <- nrow(all_papers |> filter(grouped_source == 'other'))
-website_n <- nrow(all_papers |> filter(grouped_source == 'AI search tool')) +
-  nrow(all_papers |> filter(grouped_source == 'website'))
 
 # check we have everything
 database_n + registry_n + prior_review_n +citation_n + other_n + website_n == nrow(all_papers)
+
+# among included studies, how many came from registries and databases
+all_papers |> filter(inclusion_exclusion == 0) |> sum_tab(grouped_source) 
+
+# look at 'other' category
+all_papers |> filter(grouped_source == 'other') |> select(author, year, source) |> print(n = 50)
+
