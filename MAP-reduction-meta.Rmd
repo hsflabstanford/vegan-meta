@@ -56,8 +56,6 @@ header-includes:
 # directory modifications so we can put the manuscript stuff in its own folder
 library(knitr)
 library(rprojroot)
-opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
-setwd(find_rstudio_root_file())
 
 # so that knitr labels figures
 knitr::opts_chunk$set(fig.path = "./figures/",
@@ -275,13 +273,17 @@ We further restricted our search to studies that were publicly circulated in Eng
 
 We also made two consequential post-hoc decisions regarding study inclusion: to count reductions in red and processed meat as a separate estimand and to analyze them separately, and to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. swapping red meat with fish.
 
-Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) contacted leading researchers in the field to check our in-progress search; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked a database emerging from an ongoing nonprofit project that seeks to identify all papers on meat-reducing interventions (see supplement for details).
+Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
+We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions (see supplement for details).
 
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
-Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies.
-See code and data repository for details on the `r reviews_count` prior reviews we consulted and approximately `r excluded_count` papers we excluded.
+Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies (see supplement).
+
+\begin{center}
+[Fig 3 about here]
+\end{center}
 
 ## Data extraction {#sec3.3}
 
@@ -394,9 +396,14 @@ source('./scripts/forest-plot.R')
 forest_plot 
 ```
 
-```{r funnel_plot, echo=F}
+```{r funnel_plot, echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
+```
+
+```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='100%'}
+knitr::include_graphics('./figures/prisma-diagram.png')
+
 ```
 
 \newpage

@@ -18,21 +18,26 @@ all_papers <- full_join(
   group_by(title) |> 
   slice(1) |> ungroup() |>
   mutate(grouped_source = case_when(
-    str_detect(source, "snowball search") ~ 'snowball',
-    str_detect(source, 'prior review') ~ 'prior review',
-    str_detect(source, 'other') ~ 'other',
-    str_detect(source, 'database search') ~ 'database',
-    str_detect(source, 'registry') ~ 'registry',
-    str_detect(source, 'AI search tool') ~ 'AI search tool',
-    str_detect(source, 'website') ~ 'website',
-    TRUE ~ "HELLO"))
+    str_detect(source, ".*snowball search") ~ 'snowball',
+    str_detect(source, ".*prior review") ~ 'prior review',
+    str_detect(source, ".*Google Scholar") ~ 'Google Scholar',
+    str_detect(source, ".*meat-lime.vercel.app") |
+      str_detect(source, ".*RP systematic search") ~ 'Rethink Priorities databases',
+    str_detect(source, ".*registry") ~ 'registry',
+    str_detect(source, ".*AI search tool") ~ 'AI search tool',
+    str_detect(source, ".*website") ~ 'website',
+    str_detect(source, ".*prior knowledge") ~ 'prior knowledge',
+    str_detect(source, ".*shared") ~ 'shared by other researchers',
+    TRUE ~ "ERROR"))
 
 # included/excluded (counting RPM studies as 'excluded')
 final_paper_n <- nrow(all_papers |> filter(inclusion_exclusion == 0))
 excluded_paper_n <- nrow(all_papers |> filter(inclusion_exclusion != 0))
 
 # source Ns: primary categories
-database_n <- nrow(all_papers |> filter(grouped_source == 'database'))
+GS_search_n <- nrow(all_papers |> filter(grouped_source == 'Google Scholar'))
+RP_n <- nrow(all_papers |> filter(grouped_source == 'Rethink Priorities databases'))
+database_n <- GS_search_n + RP_n
 registry_n <- nrow(all_papers |> filter(grouped_source == 'registry'))
 
 # source Ns: secondary categories
@@ -40,14 +45,14 @@ website_n <- nrow(all_papers |> filter(grouped_source == 'AI search tool')) +
   nrow(all_papers |> filter(grouped_source == 'website'))
 prior_review_n <-  nrow(all_papers |> filter(grouped_source == 'prior review'))
 citation_n <- nrow(all_papers |> filter(grouped_source == 'snowball'))  
-other_n <- nrow(all_papers |> filter(grouped_source == 'other'))
+shared_n <- nrow(all_papers |> filter(grouped_source == 'shared by other researchers'))  
+prior_knowledge_n <- nrow(all_papers |> filter(grouped_source == 'prior knowledge'))  
 
 # check we have everything
-database_n + registry_n + prior_review_n +citation_n + other_n + website_n == nrow(all_papers)
+GS_search_n + RP_n + registry_n + website_n + prior_review_n +citation_n + 
+  shared_n + prior_knowledge_n
 
 # among included studies, how many came from registries and databases
 all_papers |> filter(inclusion_exclusion == 0) |> sum_tab(grouped_source) 
 
-# look at 'other' category
-all_papers |> filter(grouped_source == 'other') |> select(author, year, source) |> print(n = 50)
-
+# among 
