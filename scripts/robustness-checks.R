@@ -30,7 +30,6 @@ robust_dat <- read.csv('./data/robustness-data.csv') |>
            n_c = n_c_post,
            n_t = n_t_post),
          se_d = sqrt(var_d)) |> 
-  select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
 merged_dat <- full_join(dat, robust_dat) |> 
