@@ -387,8 +387,6 @@ source('./scripts/table-three-sensitivity.R')
 sensitivity_table
 ```
 
-\FloatBarrier
-
 ## Figures
 
 ```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by SMD. A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
@@ -396,7 +394,7 @@ source('./scripts/forest-plot.R')
 forest_plot 
 ```
 
-```{r funnel_plot, echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
+```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot.", fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
 ```
