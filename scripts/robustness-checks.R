@@ -41,4 +41,3 @@ merged_dat <- full_join(dat, robust_dat) |>
   mutate(unique_study_id = cur_group_id()) |>
   ungroup() |>
   select(author, year, title, unique_paper_id, unique_study_id, everything())
-
