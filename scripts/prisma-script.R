@@ -12,3 +12,4 @@ all_papers <- full_join(
   full_join(robust_dat |> select(author, year, title, source, inclusion_exclusion)) |>
   full_join(excluded_data |> select(author, year, title, source, inclusion_exclusion)) |>
   group_by(title) |> slice(1)
+table(all_papers$source)
