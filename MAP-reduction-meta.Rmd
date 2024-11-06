@@ -540,7 +540,7 @@ In particular, we searched Google Scholar for the following list of terms, and c
 -   "nudge" "meat" "default"
 -   "nudge" "sustainable" "consumption" "meat"
 -   "nudge" "reduce" "meat" "consumption"
--   "field" "experiment" "plant-based.
+-   "field" "experiment" "plant-based"
 
 Additionally, we searched the American Economic Association's RCT registry for the the terms "meat+random".
 
