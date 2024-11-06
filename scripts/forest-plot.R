@@ -55,6 +55,10 @@ library(ggplot2)
 library(ggtext)  # For element_markdown()
 library(scales)  # For rescale()
 
+# reproduce model so script is self-contained
+model <- robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
+                        var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
+
 # Create the Forest Plot
 forest_plot <- forest_data |> 
   
@@ -131,3 +135,4 @@ forest_plot <- forest_data |>
   
   # Step 2.10: Adjust Legends and Guides
   guides(size = "none")  # Remove size legend as it's explained in caption
+
