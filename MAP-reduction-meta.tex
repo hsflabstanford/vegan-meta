@@ -247,25 +247,28 @@ the level of day or cafeteria and did not record an N for subjects).
 The earliest paper was published in 2002 \citep{allen2002}, and a
 majority (18 of 35 papers) were published from 2020 onwards. Among
 studies where treatment was assigned to individuals, the median analyzed
-sample size per study was 132 subjects (25th-75th percentile: 109, 208).
+sample size per study was 132 subjects (25th-75th percentiles: 109,
+208).
 
 \subsection{Constituent Theories}\label{sec2.2}
 
 \textbf{Choice Architecture} studies
 \citep{andersson2021, kanchanachitra2020} manipulate aspects of physical
-environments to reduce MAP consumption, such as placing the vegetarian
-option at eye level on a cafeteria menu \citep{andersson2021}.
+environments to reduce MAP consumption, such as by placing the
+vegetarian option at eye level on a cafeteria's billboard menu
+\citep{andersson2021}.
 
 \textbf{Persuasion} studies
 \citep{kanchanachitra2020, aberman2018, abrahamse2007, acharya2004, banerjee2019, bianchi2022, bochmann2017, bschaden2020, carfora2023, hennessy2016, piester2020, cooney2014, cooney2016, feltz2022, haile2021, hatami2018, jalil2023, mathur2021effectiveness, merrill2009, norris2014, peacock2017, polanco2022, sparkman2021, weingarten2022}
-Such messages are often delivered through printed materials, such as
-leaflets \citep{haile2021, polanco2022}, booklets \citep{bianchi2022}
-articles and op-eds \citep{sparkman2021, feltz2022}, and videos
+focus on health, environmental (usually climate change), and animal
+welfare reasons to reduce MAP consumption. Such messages are often
+delivered through printed materials, such as leaflets
+\citep{haile2021, polanco2022}, booklets \citep{bianchi2022} articles
+and op-eds \citep{sparkman2021, feltz2022}, and videos
 \citep{sparkman2021, cooney2016, mathur2021effectiveness}. Less common
 delivery methods included in-person dietary consultations
 \citep{merrill2009}, emails \citep{banerjee2019}, and text messages
-\citep{carfora2023}. Arguments focus on health, the environment (usually
-climate change), and animal welfare.
+\citep{carfora2023}.
 
 \textbf{Psychology} studies
 \citep{aldoh2023, allen2002, camp2019, coker2022, piester2020, sparkman2020}
@@ -277,14 +280,14 @@ stating that ``{[}m{]}ore and more {[}retail store name{]} customers are
 choosing our veggie options'' \citep{coker2022}. In another, a
 university cafeteria put up signs stating that ``{[}i{]}n a taste test
 we did at the {[}name of cafe{]}, 95\% of people said that the veggie
-burger tasted good or very good! Consider giving the garden fresh veggie
-burger a try today!'' \citep{piester2020}. One study told participants
-that people who ate meat are more likely to endorse social hierarchy and
-embrace human dominance over nature, making meat-eaters out to be a
-counter-normative outgroup \citep{allen2002}. Other psychological
-interventions include response inhibition training, where subjects are
-trained to avoid responding impulsively to stimuli such as unhealthy
-food \citep{camp2019}.
+burger tasted good or very good!'' \citep{piester2020}. One study told
+participants that people who ate meat are more likely to endorse social
+hierarchy and embrace human dominance over nature \citep{allen2002}.
+Other psychological interventions include response inhibition training,
+where subjects are trained to avoid responding impulsively to stimuli
+such as unhealthy food \citep{camp2019}, and implementation intentions,
+where participants list potential challenges and solutions to changing
+their own behavior \citep{aberman2018, shreedhar2021}.
 
 Finally, a group of interventions combines \textbf{persuasion}
 approaches with \textbf{psychological} appeals to reduce MAP consumption
@@ -364,11 +367,13 @@ that studies have a pure control group receiving no treatment. We
 further restricted our search to studies that were publicly circulated
 in English by December 2023.
 
-We also made two consequential post-hoc decisions regarding study
-inclusion: to count reductions in red and processed meat as a separate
-estimand and to analyze them separately, and to exclude studies that
-sought to induce substitution from one kind of MAP to another,
-e.g.~swapping red meat with fish.
+We also made three decisions regarding study inclusion after data
+collection began. First, we counted and analyzed reductions in RPM
+separately. Second, we excluded studies that sought to induce
+substitution from one kind of MAP to another, e.g.~swapping red meat
+with fish Third, we excluded studies with involuntary reductions,
+i.e.~interventions in institutions where subjects were simply served
+more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work
 indicating a large grey literature \citep{mathur2021meta}, we designed
@@ -382,18 +387,20 @@ field 5) searched Google Scholar for terms that had come up in studies
 repeatedly; 6) used an AI search tool to search for gray literature
 (\url{https://undermind.ai/}); and 7) checked two databases emerging
 from ongoing nonprofit projects that both seek to identify all papers on
-meat-reducing interventions (see supplement for details).
+meat-reducing interventions.
 
 All three authors contributed to the search. Inclusion/exclusion
 decisions were primarily made by the first author, with all authors
 contributing to discussions about borderline cases.
 
 Figure 3 is a PRISMA diagram depicting the sources of included and
-excluded studies (see supplement).
+excluded studies.
 
 \begin{center}
 [Fig 3 about here]
 \end{center}
+
+See supplement for further discussion.
 
 \subsection{Data extraction}\label{sec3.3}
 
@@ -426,9 +433,7 @@ available, we standardized on the pooled SD. When means and SDs were not
 available, we converted effect sizes from: regression coefficients, eta
 squared, or z scores. When there was insufficient information to
 calculate a specific SMD, but the text reports the result as a null, we
-recorded the outcome as an ``unspecified null'' and set it to 0.01. If
-results were significant and we could not calculate an SMD, we excluded
-the study.
+recorded the outcome as an ``unspecified null'' and set it to 0.01.
 
 \subsection{Statistical analysis methods}\label{sec3.4}
 
@@ -454,9 +459,9 @@ be published than non-affirmative studies. We conducted these analyses
 using functions in \texttt{metafor} \citep{viechtbauer2010} and
 \texttt{PublicationBias} \citep{mathur2020, mathur2024}.
 
-We used \texttt{Rmarkdown} \citep{xie2018} and a containerized
-\citep{moreau2023} online platform \citep{clyburne2019} to ensure
-computational reproducibility \citep{polanin2020}.
+We used \texttt{Rmarkdown} \citep{xie2018} and a containerized online
+platform \citep{moreau2023, clyburne2019} to ensure computational
+reproducibility \citep{polanin2020}.
 
 \section{Discussion}\label{discussion}
 
@@ -468,15 +473,15 @@ individual studies found comparatively larger effects (SMD
 \textgreater{} 0.5:
 \citep{carfora2023, merrill2009, kanchanachitra2020, bianchi2022, piester2020}).
 However, each builds on a fairly unique theory of change and employs
-idiosyncratic methods; these interventions are intriguing candidates for
-subsequent research and replication. Therefore, we conclude that no
+idiosyncratic methods. We view these these interventions as intriguing
+candidates for subsequent research and replication, and conclude that no
 theoretical approach, delivery mechanism, or intended persuasive message
 should be considered a well-validated method of reducing MAP
 consumption.
 
 Though this may surprise readers of previous reviews
 \citep{mathur2021meta, meier2022, mertens2022}, our divergent results
-likely reflect our stricter methodological inclusion criteria.. For
+likely reflect our stricter methodological inclusion criteria. For
 instance, of the ten largest effect sizes recorded in
 \citep{mathur2021effectiveness}, nine measured attitudes and/or
 intentions, and the tenth came from a non-randomized design. Prior
@@ -496,17 +501,17 @@ reviews that found choice architecture approaches to be consistently
 effective at modifying diet typically focused on foods that may have
 weaker cultural and social attachments than MAP, such as sugary drinks
 and snacks \citep{venema2020, adriaanse2009}. We speculate that people
-are more likely to notice, and care, when their burger is missing from
-the choice set than when their soft drink has been made smaller.
+are more likely to notice, and care, when the burger is missing from the
+menu than when their soft drink is smaller.
 
 Likewise, as our analyses show, studies aimed at reducing RPM
-consumption are associated with an effect about four times larger (SMD =
-0.25) than those aimed at reducing all MAP consumption. Sharply
-curtailing RPM consumption is a core component of current leading
-dietary guidelines, such as the heart-healthy diet \citep{diab2023}, but
-many of these same diets actively encourage moderate intake of poultry
-and fish. Further, reducing RPM consumption is frequently mentioned as
-something consumers can and should do to personally fight climate change
+consumption are associated with a much larger effect size (SMD = 0.25)
+than those aimed at reducing all MAP consumption. Sharply curtailing RPM
+consumption is a core component of current leading dietary guidelines,
+such as the heart-healthy diet \citep{diab2023}, but many of these same
+guidelines encourage moderate intake of poultry and fish. Further,
+reducing RPM consumption is frequently mentioned as something consumers
+can and should do to personally fight climate change
 \citep{auclair2024}. By contrast, vegetarianism is still a minority diet
 worldwide \citep{tilman2014} that consumers consider to be difficult,
 unsatisfying, and expensive \citep{bryant2019}. We speculate that
@@ -516,17 +521,17 @@ explains the observed difference in effect sizes.
 
 We caution that our analyses are limited by our small sample size. Our
 moderation analysis, for instance, tests differences between studies
-that are highly confounded --- 17 of 18 interventions with objectively
-reported outcomes are also studies of university populations, limiting
-our ability to detect the independent association of these variables
-with effect size. Further, our meta-analytic database is a non-random
-sample of the literature writ large, and our estimates of publication
-bias should not be taken as estimates for the entire literature. Most
-importantly, our results are sensitive to choices about included
-dependent variables, which arguably means they lack robustness. However,
-this critique is a double-edged sword. Our paper suggests that prior
-reviews' findings are also more sensitive to inclusion rules than was
-previously known.
+that are highly confounded, limiting our ability to detect the
+independent association of a given variable with effect size. Further,
+our meta-analytic database is a non-random sample of the literature writ
+large, and our estimates of publication bias should not be taken as
+estimates for the entire literature.
+
+Most importantly, our results are highly sensitive to inclusion choices
+about dependent variables, which arguably means they lack robustness.
+However, this critique is a double-edged sword. Our paper suggests that
+prior reviews' findings are also more sensitive to inclusion rules than
+was previously known.
 
 Overall, we are encouraged by positive trends in the literature. First,
 as noted, a majority of studies in our meta-analysis have been published
@@ -540,7 +545,7 @@ farm animals \citep{cerrato2022}, manipulations to the price of meat
 \citep{wilde2016}, activating moral and/or physical disgust
 \citep{palomo2018}, watching popular media such as the Simpsons episode
 \emph{Lisa the Vegetarian} \citep{byrd2010} or the movie \emph{Babe
-\citep{novatna2019}} , and many categories of choice architecture
+\citep{novatna2019}}, and many categories of choice architecture
 intervention \citep{olafsson2024}. Moreover, we are encouraged by
 contemporary research designs that offer creative solutions to
 longstanding measurement challenges, for example by implementing a
@@ -548,7 +553,7 @@ default intervention at lunch and then measuring outcomes at dinner as
 well to assess potential compensatory effects \citep{vocski2024}.
 
 In sum, though we view meaningfully reducing MAP consumption as an
-unsolved problem, there is no reason to think it is unsolvable.
+unsolved problem, we see no reason to think it is unsolvable.
 
 \bmhead{Acknowledgments}
 
@@ -571,9 +576,9 @@ Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR
 
 \begin{table}[!h]
 \centering
-\caption{\label{tab:table_one}Meta-Analysis Results}
+\caption{\label{tab:table_one}Theory-based Meta-analytic Results}
 \centering
-\begin{tabular}[t]{lrrrll}
+\begin{tabular}[t]{llllll}
 \toprule
 Approach & N (Studies) & N (Estimates) & SMD & 95\% CIs & p val\\
 \midrule
@@ -599,7 +604,7 @@ Overall & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007\\
 \centering
 \caption{\label{tab:table_two}Moderator Analysis Results}
 \centering
-\begin{tabular}[t]{lrrrlll}
+\begin{tabular}[t]{lllllll}
 \toprule
 Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
 \midrule
@@ -642,7 +647,7 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 \centering
 \caption{\label{tab:table_three}Sensitivity Analysis Results}
 \centering
-\begin{tabular}[t]{lrrrlll}
+\begin{tabular}[t]{lllllll}
 \toprule
 Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-value & Moderator p-value\\
 \midrule
@@ -659,7 +664,7 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 \multicolumn{7}{l}{\textbf{Open Science}}\\
 \hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
 \hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .6254\\
-\hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2395\\
+\hspace{1em}Pre-analysis plan + open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2395\\
 \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2740\\
 \bottomrule
 \multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value}\\

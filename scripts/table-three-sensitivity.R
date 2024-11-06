@@ -16,7 +16,7 @@ dat <- dat |>
     open_science_group = case_when(
       public_pre_analysis_plan != 'N' & open_data == 'N' ~ "Pre-analysis plan only",
       public_pre_analysis_plan == 'N' & open_data != 'N' ~ "Open data only",
-      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan and open data",
+      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan + open data",
       TRUE ~ "None"
     ),
     
@@ -67,9 +67,9 @@ sensitivity_table <- bind_rows(
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
                   "SMD", "95\\% CIs", "Subset p-value", "Moderator p-value"), 
     caption = "Sensitivity Analysis Results", 
-    label = "table_three", 
-    escape = FALSE
-  ) |>
+    label = "table_three",
+    align = "l",
+    escape = FALSE) |>
   kable_styling(full_width = FALSE, latex_options = "hold_position") |>
   pack_rows("Publication Status", start_row_pub_status, end_row_pub_status, bold = TRUE, italic = FALSE) |>
   pack_rows("Data Collection Strategy", start_row_data_collection, end_row_data_collection, bold = TRUE, italic = FALSE) |>

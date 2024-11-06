@@ -104,6 +104,7 @@ moderator_table <- bind_rows(
                   "SMD", "95\\% CIs", "Subset p-val", "Moderator p-val"), 
     caption = "Moderator Analysis Results",  
     label = "table_two", 
+    align = 'l',
     escape = FALSE
   ) |>
   kable_styling(full_width = FALSE, latex_options = "hold_position") |>

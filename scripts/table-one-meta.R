@@ -26,7 +26,8 @@ meta_table <- bind_rows(
     booktabs = TRUE, 
     col.names = c("Approach", "N (Studies)", "N (Estimates)", 
                   "SMD", "95\\% CIs", "p val"),
-    caption = "Meta-Analysis Results", 
+    caption = "Theory-based Meta-analytic Results", 
+    align = 'l',
     label = "table_one", escape = FALSE) |>             
   kable_styling(full_width = FALSE, latex_options = "hold_position") |>
   # Group Rows

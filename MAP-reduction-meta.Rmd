@@ -265,14 +265,18 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 
 ## Study selection {#sec3.1}
 
-\begin{comment} is this first sentence repetitive with the introduction or should we include it for completeness in the methods section? \end{comment}
+```{tex}
+\begin{comment} is this first sentence repetitive of the intro or should we have everything in the methods section that's methods-y
+\end{comment}
+```
 
 Our meta-analytic sample comprises randomized controlled trial evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins.
 We required that studies have a pure control group receiving no treatment.
 We further restricted our search to studies that were publicly circulated in English by December 2023.
 
-We also made two consequential decisions regarding study inclusion after data collection began: to count reductions in red and processed meat as a separate estimand and to analyze them separately, and to exclude studies that sought to induce substitution from one kind of MAP to another, e.g. swapping red meat with fish (see supplement for discussion).
-Finally, we excluded studies with involuntary reductions, i.e. interventions in institutions where subjects were simply served more vegetables on their plate.
+We also made three decisions regarding study inclusion after data collection began.
+First, we counted and analyzed reductions in RPM separately.
+Second, we excluded studies that sought to induce substitution from one kind of MAP to another, e.g. swapping red meat with fish Third, we excluded studies with involuntary reductions, i.e. interventions in institutions where subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
 We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
@@ -305,7 +309,6 @@ We standardized on the SD of the control group at pre-treatment.
 If group SDs were not available, we standardized on the pooled SD.
 When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z scores.
 When there was insufficient information to calculate a specific SMD, but the text reports the result as a null, we recorded the outcome as an "unspecified null" and set it to 0.01.
-If results were significant and we could not calculate an SMD, we excluded the study.
 
 ## Statistical analysis methods {#sec3.4}
 
@@ -318,17 +321,17 @@ These methods assume that the publication process favors “statistically signif
 Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies.
 We conducted these analyses using functions in `metafor` [@viechtbauer2010] and `PublicationBias` [@mathur2020; @mathur2024].
 
-We used `Rmarkdown` [@xie2018] and a containerized [@moreau2023] online platform [@clyburne2019] to ensure computational reproducibility [@polanin2020].
+We used `Rmarkdown` [@xie2018] and a containerized online platform [@moreau2023; @clyburne2019] to ensure computational reproducibility [@polanin2020].
 
 # Discussion
 
 Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem.
 Effects were also consistently small across an array of locations, study designs, and intervention categories.
 Some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
-However, each builds on a fairly unique theory of change and employs idiosyncratic methods; these interventions are intriguing candidates for subsequent research and replication.
-Therefore, we conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
+However, each builds on a fairly unique theory of change and employs idiosyncratic methods.
+We view these these interventions as intriguing candidates for subsequent research and replication, and conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
 
-Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], our divergent results likely reflect our stricter methodological inclusion criteria..
+Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], our divergent results likely reflect our stricter methodological inclusion criteria.
 For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
 Prior research has found that intentions often do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
 Our results raise the possibility that previous reviews’ positive findings might be largely attributable to bias, though this will require further empirical evaluation.
@@ -336,23 +339,19 @@ Our results raise the possibility that previous reviews’ positive findings mig
 Another potentially surprising result is that very few (two) choice architecture papers met our methodological inclusion criteria.
 Most potentially eligible papers either measured hypothetical outcomes or measured outcomes immediately after the intervention.
 Moreover, prior reviews that found choice architecture approaches to be consistently effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2020; @adriaanse2009].
-We speculate that people are more likely to notice, and care, when their burger is missing from the choice set than when their soft drink has been made smaller.
+We speculate that people are more likely to notice, and care, when the burger is missing from the menu than when their soft drink is smaller.
 
-Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with an effect about four times larger (SMD = 0.25) than those aimed at reducing all MAP consumption.
-Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [@diab2023], but many of these same diets actively encourage moderate intake of poultry and fish.
+Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a much larger effect size (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption.
+Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [@diab2023], but many of these same guidelines encourage moderate intake of poultry and fish.
 Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024].
 By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
 We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
 
-```{r confounding_check, include=F}
-confound_table <- dat |> filter(self_report == 'N') |> group_by(str_detect(population, 'university')) |> summarise(count = n()) |> as_tibble()
-
-```
-
 We caution that our analyses are limited by our small sample size.
-Our moderation analysis, for instance, tests differences between studies that are highly confounded — `r confound_table$count[[2]]` of `r confound_table$count[[2]] + confound_table$count[[1]]` interventions with objectively reported outcomes are also studies of university populations, limiting our ability to detect the independent association of these variables with effect size.
+Our moderation analysis, for instance, tests differences between studies that are highly confounded, limiting our ability to detect the independent association of a given variable with effect size.
 Further, our meta-analytic database is a non-random sample of the literature writ large, and our estimates of publication bias should not be taken as estimates for the entire literature.
-Most importantly, our results are sensitive to choices about included dependent variables, which arguably means they lack robustness.
+
+Most importantly, our results are highly sensitive to inclusion choices about dependent variables, which arguably means they lack robustness.
 However, this critique is a double-edged sword.
 Our paper suggests that prior reviews' findings are also more sensitive to inclusion rules than was previously known.
 
@@ -360,10 +359,10 @@ Overall, we are encouraged by positive trends in the literature.
 First, as noted, a majority of studies in our meta-analysis have been published since 2020, indicating the field's growing dedication to questions of credible design and measurement.
 Second, we observe many fruitful collaborations between researchers and advocacy organizations, as shown by the plethora of nonprofit white papers in our sample.
 Third, many promising designs and interventions yet await rigorous evaluation.
-For instance, no study that met our criteria evaluated extended contact with farm animals [@cerrato2022], manipulations to the price of meat [@wilde2016], activating moral and/or physical disgust [@palomo2018], watching popular media such as the Simpsons episode *Lisa the Vegetarian* [@byrd2010] or the movie *Babe [@novatna2019]* , and many categories of choice architecture intervention [@olafsson2024].
+For instance, no study that met our criteria evaluated extended contact with farm animals [@cerrato2022], manipulations to the price of meat [@wilde2016], activating moral and/or physical disgust [@palomo2018], watching popular media such as the Simpsons episode *Lisa the Vegetarian* [@byrd2010] or the movie *Babe [@novatna2019]*, and many categories of choice architecture intervention [@olafsson2024].
 Moreover, we are encouraged by contemporary research designs that offer creative solutions to longstanding measurement challenges, for example by implementing a default intervention at lunch and then measuring outcomes at dinner as well to assess potential compensatory effects [@vocski2024].
 
-In sum, though we view meaningfully reducing MAP consumption as an unsolved problem, there is no reason to think it is unsolvable.
+In sum, though we view meaningfully reducing MAP consumption as an unsolved problem, we see no reason to think it is unsolvable.
 
 \bmhead{Acknowledgments}
 
