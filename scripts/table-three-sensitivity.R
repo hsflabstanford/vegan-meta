@@ -16,7 +16,7 @@ dat <- dat |>
     open_science_group = case_when(
       public_pre_analysis_plan != 'N' & open_data == 'N' ~ "Pre-analysis plan only",
       public_pre_analysis_plan == 'N' & open_data != 'N' ~ "Open data only",
-      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan + open data",
+      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan and open data",
       TRUE ~ "None"
     ),
     
@@ -65,7 +65,7 @@ sensitivity_table <- bind_rows(
   kbl(
     booktabs = TRUE,
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
-                  "SMD", "95\\% CIs", "Subset p-value", "Moderator p-value"), 
+                  "SMD", "95\\% CIs", "Subset p-val", "Moderator p-val"), 
     caption = "Sensitivity Analysis Results", 
     label = "table_three",
     align = "l",

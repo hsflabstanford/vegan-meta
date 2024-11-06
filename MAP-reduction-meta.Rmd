@@ -316,7 +316,7 @@ Results were synthesized using robust variance estimation (RVE) methods [@hedges
 Many studies in our sample featured multiple treatment groups compared to a single control group.
 Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction.
 
-Data analyses were largely conducted with custom functions building on tidyverse [@wickham2019] We assessed publication bias using selection model methods [@hedges1992; @vevea1995], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020].
+Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019] We assessed publication bias using selection model methods [@hedges1992; @vevea1995], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020].
 These methods assume that the publication process favors “statistically significant” (i.e., p \< 0.05) and positive results over “nonsignificant” or negative results.
 Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies.
 We conducted these analyses using functions in `metafor` [@viechtbauer2010] and `PublicationBias` [@mathur2020; @mathur2024].

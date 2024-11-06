@@ -446,8 +446,8 @@ dependence between observations, as well as a standard small-sample
 correction.
 
 Data analyses were largely conducted with custom functions building on
-tidyverse \citep{wickham2019} We assessed publication bias using
-selection model methods \citep{hedges1992, vevea1995}, sensitivity
+\texttt{tidyverse} \citep{wickham2019} We assessed publication bias
+using selection model methods \citep{hedges1992, vevea1995}, sensitivity
 analysis methods \citep{mathur2024}, and the significance funnel plot
 \citep{mathur2020}. These methods assume that the publication process
 favors ``statistically significant'' (i.e., p \textless{} 0.05) and
@@ -649,7 +649,7 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 \centering
 \begin{tabular}[t]{lllllll}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-value & Moderator p-value\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Publication Status}}\\
@@ -664,12 +664,12 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 \multicolumn{7}{l}{\textbf{Open Science}}\\
 \hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
 \hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .6254\\
-\hspace{1em}Pre-analysis plan + open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2395\\
+\hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2395\\
 \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2740\\
 \bottomrule
 \multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value}\\
-\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with given characteristic is significantly different than an SMD}\\
-\multicolumn{7}{l}{of zero. The second compares effects within a given group, with the top category set to reference.}\\
+\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with given characteristic is significantly different than an}\\
+\multicolumn{7}{l}{SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
 \end{tabular}
 \end{table}
 
