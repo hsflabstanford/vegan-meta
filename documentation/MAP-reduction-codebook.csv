@@ -4,20 +4,20 @@ year,Publication year of the study
 title,Title of the paper
 doi_or_url,"Either the Digital Object Identifier (DOI) if available, or the paper’s URL if not"
 venue,Publication source (e.g., journal name, conference)
-source,How the study was located (e.g., database search, hand-searching)
+source,How the study was located (e.g., database search, citation searching)
 intervention_condition,"Specific intervention coded, useful for studies with multiple interventions"
-brief_description,"Brief summary of the intervention, aiding in methodological keyword searches (e.g., 'leaflet')"
+brief_description,"Brief summary of the intervention"
 study_num_within_paper,"Identifier for calculating cluster-robust standard errors, referencing specific study instances within a larger paper"
 outcome,Dependent variable recorded for analysis
 n_t_post,Post-intervention sample size for the treatment group
 n_c_post,Post-intervention sample size for the control group
-n_t_total_pop,"Total population for the treatment group (e.g., 5 classes of 20 people = 100)"
-n_c_total_pop,"Total population for the control group, divided proportionally when multiple treatments are compared with a single control"
+n_t_total_pop,"Total population for the treatment group (subjects not clusters)"
+n_c_total_pop,"Total population for the control group (subjects not clusters), divided proportionally when multiple treatments are compared with a single control"
 eff_type,Type of effect used to calculate Glass’s Delta
 u_s_d,Unstandardized effect size used for Glass’s Delta calculation
 ctrl_sd,Standard deviation of the dependent variable in the control group
 neg_null_pos,Outcome in terms of direction: negative, null, or positive effect as reported by the study
-delay,Time in days between treatment administration and final outcome measurement
+delay,Time in days between initial treatment administration and final outcome measurement
 theory,Guiding methodological theory or framework
 secondary_theory,"Specific theoretical content (e.g., animal welfare, environmental, health)"
 self_report,Indicator for whether data were self-reported (Y/N)

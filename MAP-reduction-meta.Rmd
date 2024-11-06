@@ -55,7 +55,6 @@ header-includes:
 
 # directory modifications so we can put the manuscript stuff in its own folder
 library(knitr)
-library(rprojroot)
 
 # so that knitr labels figures
 knitr::opts_chunk$set(fig.path = "./figures/",
