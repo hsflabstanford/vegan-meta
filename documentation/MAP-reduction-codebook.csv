@@ -1,2 +1,44 @@
-author,year,title,doi_or_url,venue ,source,intervention_condition,brief_description,study_num_within_paper,outcome,n_t_post,n_c_post,n_t_total,n_c_total,eff_type,u_s_d,ctrl_sd,neg_null_pos,delay,theory,secondary_theory,self_report,outcome_category,cafeteria_or_restaurant_based,leaflet,video,delivery_method,internet,cluster_assigned,multi_component,delay_post_endline,public_pre_analysis_plan,open_data,emotional_activation,advocacy_org,country,population,age_info_if_given,notes, 
-first author,publication year,paper title,Either the Digital Object Identifier if it's available or the paper's URL if it's not,where published,how we located the article,the specific intervention we're coding (useful for papers with multiple interventions),brief overview of the intervention (useful for when we're searching for a methodological keyword e.g. leaflet),"for calculating cluster-robust standard errors, we tally the specific study number within the larger paper",dependent variable we're recording,sample size for the treatment group at pretest,sample size for the control group at posttest,"population for treatment group rather than units ranodmly assigned. So if 5 classes are assigned to treatment and there are 20 people per class, this will = 100","population for control group rather than units assigned. Also, if one control group is compared to multiple treatments, in n_c_post, we record the control group number directly but here we divide it by how many times we reord it. So if there are 4 contions -- three treatment and one control -- with 100 people each, n_c_post will say 100 4 times, but n_c_total will say 25 in each cell so the sum of the variable works",the effect type that we're using to calculate Glass's Delta,the unstandardized effect size that we're using to calculate Glass's Delta,standard deviation of the dependent variable for the control group,in the paper's own words were the results negative (backlash) null or positive,time in days between the first administration of treatment and final outcome measurement,guiding methodological theory,for information studies the specific theoretical content (animal welafre and/or environmental appeals and/or health),were data self-reported,trying to divide the outcomes into category e.g. orginal vs amount vs servings. this ultimately proved vey difficult and we didn't make much of it,did treatment (as opposed to measurement or recruitment) take place in a cafeteria or restaurant?,was treatment administered via a leaflet,was treatment administered via movie,what was the general category of treatment administration,was treatment delivered over the internet,was treatment assigned at the level of a cluster,"was treatment bundled, e.g. an anti-meat message and a norms message as well",delay after treatment ended. for msot cafeteria studies this will be zero,public pre-analysis plan available,are data publicly available,was treatment intended to be emotionally activating,did treatment use materials from an advocacy org,what country(ies) did the study take pace in,what population did the study target ,what age group/setting did the study take place in,any notes we took,
+Variable,Description
+author,First author of the paper
+year,Publication year of the study
+title,Title of the paper
+doi_or_url,"Either the Digital Object Identifier (DOI) if available, or the paper’s URL if not"
+venue,Publication source (e.g., journal name, conference)
+source,How the study was located (e.g., database search, hand-searching)
+intervention_condition,"Specific intervention coded, useful for studies with multiple interventions"
+brief_description,"Brief summary of the intervention, aiding in methodological keyword searches (e.g., 'leaflet')"
+study_num_within_paper,"Identifier for calculating cluster-robust standard errors, referencing specific study instances within a larger paper"
+outcome,Dependent variable recorded for analysis
+n_t_post,Post-intervention sample size for the treatment group
+n_c_post,Post-intervention sample size for the control group
+n_t_total_pop,"Total population for the treatment group (e.g., 5 classes of 20 people = 100)"
+n_c_total_pop,"Total population for the control group, divided proportionally when multiple treatments are compared with a single control"
+eff_type,Type of effect used to calculate Glass’s Delta
+u_s_d,Unstandardized effect size used for Glass’s Delta calculation
+ctrl_sd,Standard deviation of the dependent variable in the control group
+neg_null_pos,Outcome in terms of direction: negative, null, or positive effect as reported by the study
+delay,Time in days between treatment administration and final outcome measurement
+theory,Guiding methodological theory or framework
+secondary_theory,"Specific theoretical content (e.g., animal welfare, environmental, health)"
+self_report,Indicator for whether data were self-reported (Y/N)
+outcome_category,Outcome categorization (e.g., original, amount, servings)
+cafeteria_or_restaurant__or_store_based,"Indicator for whether the intervention took place in a cafeteria, restaurant, or store setting"
+leaflet,Whether the treatment was administered via a leaflet (Y/N)
+video,Whether the treatment was administered via a video (Y/N)
+delivery_method,General category of treatment administration method
+internet,Whether the treatment was delivered over the internet (Y/N)
+cluster_assigned,Whether the treatment was assigned at the cluster level (Y/N)
+multi_component,Whether the treatment was a multi-component intervention (Y/N)
+delay_post_endline,Delay after treatment ended, typically zero for cafeteria studies
+public_pre_analysis_plan,Indicator of a public pre-analysis plan (Y/N)
+open_data,Indicator of publicly available data (Y/N)
+emotional_activation,Indicator of emotional activation as an intended effect of the intervention (Y/N)
+advocacy_org,Indicator of advocacy organization involvement in materials used (Y/N)
+country,Country or countries where the study took place
+population,Target population for the study
+age_info_if_given,Age group or setting of the study's participants, if specified
+inclusion_exclusion,"Indicator for inclusion/exclusion criteria, where 0 = included in main dataset, 1 = included in red/processed meat dataset, 2 = excluded (RCT issue), 3 = excluded (underpowered), 4 = excluded (no delay), 5 = substitution issue, 6 = other (notes)"
+notes,Additional notes or comments
+d,Effect size estimate for analysis (note that this is generated when the document is knit and not in the CSV file)
+var_d,Variance of the effect size (note that this is generated when the document is knit and not in the CSV file)
+se_d,Standard error of the effect size (note that this is generated when the document is knit and not in the CSV file)
