@@ -46,7 +46,7 @@ editor_options:
 header-includes:
   - \usepackage{comment}
   - \usepackage{anyfontsize}
-  - \usepackage{caption}
+  - \usepackage[style=default]{caption}
   - \usepackage{float}      # For precise float placement
   - \usepackage{placeins}   # Provides \FloatBarrier command
 ---
@@ -56,9 +56,9 @@ header-includes:
 # so that knitr labels figures
 library(knitr)
 opts_chunk$set(fig.path = "./figures/",
-                      echo = FALSE,
+                      echo = TRUE,
                       out.extra = "")
-options(tinytex.clean = FALSE) # switch to FALSE to get the bbl file for overleaf
+options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
 
 # libraries, functions and data
 source('./scripts/libraries.R')
@@ -387,7 +387,7 @@ moderator_table
 source('./scripts/table-three-sensitivity.R')
 sensitivity_table
 ```
-
+\clearpage
 ## Figures
 
 ```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by SMD. A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
@@ -422,7 +422,7 @@ Our included datasets are
 
 -   `robustness-data.csv`, another secondary dataset borderline studies for a robustness check (see section below);
 
--   `review-of-reviews.csv`, which details on the the `r reviews_count` reviews we consulted;
+-   `review-of-reviews.csv`, which details the the `r reviews_count` reviews we consulted;
 
 -   `excluded-studies.csv`, which details the papers we screened but did not include, along with their reasons for exclusion and where we found them (the studies in `robustness-data.csv` are included in this dataset as well).
 
@@ -473,7 +473,7 @@ hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
                              small = TRUE) 
 ```
 
-Using our original cluster-robust estimation strategy from `metafor`, we detect a pooled effect size of `r round(alt_model$beta, 2)` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
+Using our original estimation strategy from `metafor`, we detect a pooled effect size of `r round(alt_model$beta, 2)` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
 (Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.)
 
 ## Robustness to a stricter definition of delay {#Sec5.1.3}
