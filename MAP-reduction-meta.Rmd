@@ -94,46 +94,48 @@ RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
 
 # Introduction {#sec1}
 
-Reducing global consumption of meat and animal products (MAP) is vital to reducing chronic disease and the risk of zoonotic pandemics [@willett2019; @landry2023; @hafez2020], abating environmental degradation and climate change [@poore2018; @koneswaran2008; @greger2010], and improving animal welfare [@kuruc2023; @scherer2019].
-However, eating MAP is widely regarded as normal, ethical, and necessary [@piazza2022; @milford2019].
 Global MAP consumption is increasing annually [@godfray2018] and expected to continue doing so [@whitton2021].
+Abating this trend is vital to reducing chronic disease and the risk of zoonotic pandemics [@willett2019; @landry2023; @hafez2020], mitigating environmental degradation and climate change [@poore2018; @koneswaran2008; @greger2010], and improving animal welfare [@kuruc2023; @scherer2019].
+However, eating MAP is widely regarded as normal, ethical, and necessary [@piazza2022; @milford2019].
 
-There is a vast and diverse literature investigating potential means to reverse this trend.
+There is a vast and diverse literature investigating potential means to reduce MAP consumption.
 Example approaches include providing free access to meat substitutes [@katare2023], changing the price [@horgen2002] or perceptions [@kunst2016] of meat, or attempting to persuade people to change their diets [@bianchi2018conscious].
-Some interventions are associated with large impacts [@lentz2020; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta], may be consistently effective. 
-A particularly well-regarded strand of this literature employs choice architecture, i.e. altering the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021], placing vegetarian items more prominently in dining halls [@ginn2024], or making plant-based options the default at catered meals [@hansen2021]. Choice architecture has been cited as a cheap, effective way of altering dietary behavior [@colgan2024], and governments, universities, and other institutions are increasingly implementing these approaches in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
+Some interventions are associated with large impacts [@lentz2020; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta], may be consistently effective.
+A particularly well-regarded strand of this literature employs choice architecture, i.e. altering the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021], placing vegetarian items more prominently in dining halls [@ginn2024], or making plant-based options the default at catered meals [@hansen2021].
+Choice architecture has been cited as a cheap, effective way of altering dietary behavior [@colgan2024], and governments, universities, and other institutions are increasingly implementing these approaches in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
 
-However, much of this literature is beset by design and measurement limitations.
+However, recurring design and measurement limitations comprise this literature.
 Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
-Many studies record outcomes that are imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and theoretical preferences [@hensher2010].
-Further, many studies measure only immediate impacts [@hansen2021; @griesoph2021] rather than longer-term effects.
-Last, numerous studies specifically aim to reduce consumption of red and processed meat (RPM).
-Such interventions may induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023].
-While RPM is of special concern for health and greenhouse gas emissions [@abete2014; @lescinsky2022], increasing chicken or fish consumption may lead to substantially worse outcomes for animal welfare [@mathur2022ethical], and fails to reduce the risk of zoonotic outbreaks from factory farms [@hafez2020] or land and water pollution [@grvzinic2023].
+Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010].
+Further, many studies measure only immediate rather than long-term effects [@hansen2021; @griesoph2021].
 
 In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, measurement validity, and statistical power.
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
 Does this phenomenon hold in the MAP reduction literature as well?
 
-We answer this with a meta-analysis of rigorously designed RCTs aimed at creating lasting reductions in MAP consumption [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aberman2018; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
-These RCTs all measured consumption outcomes at least a single day after treatment was first administered, and all had at least 25 subjects in both treatment and control, or, in the case of cluster-assigned studies, at least ten clusters in total.
-Additionally, we coded a separate dataset of `r RPMC_studies` studies that otherwise met our inclusion criteria but instead measured changes in consumption of RPM [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
+To address this question, we conducted a meta-analysis of RCTs that aim to reduce MAP consumption and that meet basic methodological standards [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aberman2018; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
+Specifically, we restricted eligibility to RCTs that measured consumption outcomes at least a single day after treatment was first administered and that had at least 25 subjects in both treatment and control (or, for cluster-assigned studies, at least ten clusters in total).
 
-Studies in our meta-analytic database pursued one of four theoretical approaches: choice architecture, psychological appeals (typically manipulations of perceived norms around eating meat), explicit persuasion (centered around animal welfare, the environment, and/or health), or a combination of psychological and persuasion messages.
+Numerous studies specifically aim to reduce consumption of red and processed meat (RPM), rather than all MAP.
+Such interventions may induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023].
+While RPM is particularly detrimental for human health and greenhouse gas emissions [@abete2014; @lescinsky2022], producing other forms of MAP also has severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
+Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical].
+For these reasons, we specifically assessed the relative effectiveness of interventions that aimed to reduce all MAP consumption, versus those that aimed only to reduce RPM consumption (`r RPMC_studies` studies) [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
+
+Studies in our meta-analysis pursued one of four theoretical approaches: choice architecture, psychological appeals (typically manipulations of perceived norms around eating meat), explicit persuasion (centered around animal welfare, the environment, and/or health), or a combination of psychological and persuasion messages.
 Interventions varied in delivery method, for example, documentary films [@mathur2021effectiveness], leaflets [@peacock2017], university lectures [@jalil2023], op-eds [@haile2021], and changes to menus in cafeterias [@andersson2021] and restaurants [@coker2022; @sparkman2021].
-
 We estimated overall effect sizes as well as effect sizes associated with different theoretical approaches and delivery mechanisms.
 Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions.
-Thus, contradicting previous reviews that analyzed a wider array of designs and outcomes, we conclude that meaningfully reducing MAP consumption is an unsolved problem.
+Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' methodological rigor, we conclude that meaningfully reducing MAP consumption is an unsolved problem.
 However, many promising approaches still await rigorous evaluation.
 
 # Results {#sec2}
 
 ## Descriptive overview {#sec2.1}
 
-Our meta-analysis included `r num_papers` papers comprising `r num_studies` studies, and `r num_interventions` separate point estimates.
-each point estimate corresponds to a distinct intervention.
-The total sample size was `r n_total` subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record an N for subjects).
+Our meta-analysis included `r num_papers` papers comprising `r num_studies` studies and `r num_interventions` separate point estimates.
+Each point estimate corresponded to a distinct intervention.
+The total sample size `r n_total` subjects (caveat that this is a broad approximation: many interventions were administered at the level of day or cafeteria and did not record an N for subjects).
 
 ```{r mean_subjects, include=F}
 total_pops <- dat |> filter(cluster_assigned == 'N') |> mutate(total_pop = as.numeric(n_c_post + n_t_post)) |> pull(total_pop)
@@ -143,8 +145,8 @@ percentile_25 <- round(quantile(total_pops, 0.25, na.rm = TRUE))
 percentile_75 <- round(quantile(total_pops, 0.75, na.rm = TRUE))
 ```
 
-The earliest paper was published in 2002 [@allen2002], and a majority (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers` papers) were published from 2020 onwards.
-Among studies where treatment was assigned to individuals, the median analyzed sample size per study was `r median_total_pop` subjects (25th-75th percentiles: `r paste0(percentile_25, ", ", percentile_75)`).
+Because methodological quality is rapidly improving in the literature on MAP reduction, the majority of eligible papers (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers`) were published from 2020 onwards, although the earliest was published in 2002 [@allen2002].
+Among studies where treatment was assigned to individuals rather than to clusters (e.g., every student in a class), the median analyzed sample size per study was `r median_total_pop` subjects(25$^{\text{th}}$-75$^{\text{th}}$ percentiles: `r paste0(percentile_25, ", ", percentile_75)`).
 
 ## Constituent Theories {#sec2.2}
 
@@ -262,10 +264,8 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 
 ## Study selection {#sec3.1}
 
-```{=tex}
 \begin{comment} is this first sentence repetitive of the intro or should we have everything in the methods section that's methods-y
 \end{comment}
-```
 
 Our meta-analytic sample comprises randomized controlled trial evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins.
 We required that studies have a pure control group receiving no treatment.
@@ -385,7 +385,9 @@ moderator_table
 source('./scripts/table-three-sensitivity.R')
 sensitivity_table
 ```
+
 \clearpage
+
 ## Figures
 
 ```{r forest_plot, fig.cap="Forest plot for MAP reduction studies. Each point corresponds to a fixed effects meta-analysis for each paper. Papers employing multiple theoretical approaches are represented once per theory. Dot size is inversely proportional to variance. Points are sorted within theory by SMD. A random effects meta-analysis for the entire dataset is plotted at the bottom. The black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
@@ -500,10 +502,9 @@ Restricting our analysis to the `r strict_delay_model$N_studies` studies and `r 
 source('./scripts/prisma-script.R')
 ```
 
-```{=tex}
 \begin{comment} we could take the next few paragraphs out and start with the sentence "we employed what could be called a "prior-reviews-first" search strategy."
 \end{comment}
-```
+
 Our search process was shaped by three unusual features of our research project.
 First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself.
 For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while others focus on a particular, sometimes unusual category of MAP, such as fish sauce [@kanchanachitra2020], or discussed their agenda mainly in terms of increasing plant-based alternatives.
@@ -522,25 +523,25 @@ Of the `r nrow(all_papers)` papers we reviewed, a full `r round(prior_review_n /
 (See the next section of the supplement for notes on reviews that were especially informative.) Then, as detailed in the main text, we employed a multitude of other search strategies to fill in our dataset, one of which was systematic search.
 In particular, we searched Google Scholar for the following list of terms, and checked ten pages of results for each:
 
-- "dynamic" "norms" "meat"
-- "dynamic" "norms" "meat" "consumption"
-- "field" "experiment" "plant-based"
-- "meat" "alternatives" "default" "nudge"
-- "meat" "consumption" "reducing" "random"
-- "meat" "purchases" "information" "nudge"
-- "meat" "reduction" "randomized"
-- "meat" "sustainable" "random"
-- "nudge" "meat" "default"
-- "nudge" "reduce" "meat" "consumption"
-- "nudge" "sustainable" "consumption" "meat"
-- "nudge" "theory" "meat" "purchasing"
-- "norms" "animal" "products"
-- "nudges" "norms" "meat"
-- "random" "nudge" "meat"
-- "randomized controlled trial" "meat" "consumption" "reduce"
-- "sustainable" "meat" "nudge"
-- "sustainable" "meat" "nudge" "random"
-- "university" "meat" "default" "reduction"
+-   "dynamic" "norms" "meat"
+-   "dynamic" "norms" "meat" "consumption"
+-   "field" "experiment" "plant-based"
+-   "meat" "alternatives" "default" "nudge"
+-   "meat" "consumption" "reducing" "random"
+-   "meat" "purchases" "information" "nudge"
+-   "meat" "reduction" "randomized"
+-   "meat" "sustainable" "random"
+-   "nudge" "meat" "default"
+-   "nudge" "reduce" "meat" "consumption"
+-   "nudge" "sustainable" "consumption" "meat"
+-   "nudge" "theory" "meat" "purchasing"
+-   "norms" "animal" "products"
+-   "nudges" "norms" "meat"
+-   "random" "nudge" "meat"
+-   "randomized controlled trial" "meat" "consumption" "reduce"
+-   "sustainable" "meat" "nudge"
+-   "sustainable" "meat" "nudge" "random"
+-   "university" "meat" "default" "reduction"
 
 Additionally, we searched the American Economic Association's RCT registry for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
@@ -612,4 +613,3 @@ Whether these interventions work for something as fraught with meaning as meat r
 \newpage
 
 # References
-
