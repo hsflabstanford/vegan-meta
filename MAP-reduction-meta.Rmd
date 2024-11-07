@@ -4,7 +4,7 @@ classoptions:
   - referee         # Optional: Use double line spacing 
   # - lineno        # Optional: Add line numbers
   # - iicol         # Optional: Double column layout
-title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis"
+title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: \\newline A meta-analysis"
 titlerunning: MAP-reduction-meta
 authors: 
   - firstname: Seth Ariel
