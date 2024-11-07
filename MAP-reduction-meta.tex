@@ -300,7 +300,7 @@ reduce one's meat consumption
 \subsection{Meta-analytic results}\label{sec2.3}
 
 In our dataset, the pooled effect of all interventions is SMD = 0.07
-(95\% CI: {[}0.02, 0.12{]}), p = .0067, \(\tau\) (standard deviation of
+(95\% CI: {[}0.02, 0.12{]}), p = .007, \(\tau\) (standard deviation of
 population effects) = 0.082. We estimate that 25.9\% of true effects are
 above SMD = 0.1, and just 8\% are above SMD = 0.2.
 
@@ -317,7 +317,7 @@ as the three categories of persuasion.
 
 By contrast, the 17 studies that only attempted to reduce consumption of
 RPM, comprising 25 point estimates, yielded a pooled effect of SMD =
-0.25 (95\% CI: {[}0.11, 0.38{]}), p = .0017, \(\tau\) = 0.201. We
+0.25 (95\% CI: {[}0.11, 0.38{]}), p = .002, \(\tau\) = 0.201. We
 estimate that 48\% of true RPM effects are above SMD = 0.2.
 
 \subsection{Meta-regression on study characteristics
@@ -343,7 +343,7 @@ The meta-analytic mean corrected for publication bias \citep{hedges1992}
 was 0.01 (95\% CI: {[}-0.014, 0.033{]}), p = 0.421. A conservative
 estimate that accounts for the possibility of worst-case publication
 bias \citep{mathur2024} yields an estimate of SMD = 0.02 (95\% CI:
-{[}-0.01, 0.05{]}), p = .1768.
+{[}-0.01, 0.05{]}), p = .177.
 
 Figure 2 is a significance funnel plot \citep{mathur2020} that relates
 studies' point estimates to their standard errors and compares the
@@ -357,6 +357,9 @@ estimate (gray diamond).
 \section{Methods}\label{sec3}
 
 \subsection{Study selection}\label{sec3.1}
+
+\begin{comment} is this first sentence repetitive of the intro or should we have everything in the methods section that's methods-y
+\end{comment}
 
 Our meta-analytic sample comprises randomized controlled trial
 evaluations of interventions intended to reduce MAP consumption that had
@@ -669,8 +672,8 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2740\\
 \bottomrule
 \multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value}\\
-\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with given characteristic is significantly different than an}\\
-\multicolumn{7}{l}{SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
+\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with a given characteristic is significantly different than}\\
+\multicolumn{7}{l}{an SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
 \end{tabular}
 \end{table}
 
@@ -713,17 +716,16 @@ Our included datasets are
 
 \begin{itemize}
 \item
-  \texttt{vegan-meta.csv}, which contains our main meta-analytic
-  dataset;
+  \texttt{vegan-meta.csv}, our primary meta-analytic dataset;
 \item
-  \texttt{rpmc-data.csv}, which contains our secondary dataset of
-  studies aimed at reducing consumption of red and processed meat;
+  \texttt{rpmc-data.csv}, our secondary dataset of studies aimed at
+  reducing consumption of RPM;
 \item
-  \texttt{robustness-data.csv}, which contains coding for borderline
+  \texttt{robustness-data.csv}, another secondary dataset borderline
   studies for a robustness check (see section below);
 \item
-  \texttt{review-of-reviews.csv}, which details the 157 reviews we
-  consulted;
+  \texttt{review-of-reviews.csv}, which details on the the 157 reviews
+  we consulted;
 \item
   \texttt{excluded-studies.csv}, which details the papers we screened
   but did not include, along with their reasons for exclusion and where
@@ -737,15 +739,14 @@ supplementary materials (e.g.~licenses).
 \subsection{Robustness to less stringent inclusion
 criteria}\label{Sec5.1.1}
 
-Here we integrate and meta-analyze a supplementary dataset of 22 studies
-and 35 point estimates that feature many strong design features but that
-did not meet our inclusion criteria. These studies were excluded for one
-of five reasons: 1) issues with random assignment or the control group
-(for instance, where the control group receives some aspect of treatment
-\citep{piazza2022}, or where treatment was alternated weekly but not
-randomly \citep{garnett2020}); 2) underpowered (too few clusters
-\citep{reinders2017} or subjects \citep{lentz2019}); 3) immediate
-outcome measurement
+We coded and meta-analyzed a supplementary dataset of 22 studies,
+comprising 35 point estimates, that feature many strong design features
+but that were excluded for one of five reasons: 1) issues with random
+assignment or the control group (for instance, where the control group
+receives some aspect of treatment \citep{piazza2022}, or where treatment
+was alternated weekly but not randomly \citep{garnett2020}); 2)
+underpowered (too few clusters \citep{reinders2017} or subjects
+\citep{lentz2019}); 3) immediate outcome measurement
 \citep{dannenberg2023, sparkman2017, griesoph2021, hansen2021}; 4)
 actively encouraging substitution within categories of MAP, e.g.~from
 red meat to fish \citep{celis2017, johansen2009}; or 5) uncertainty in
@@ -755,30 +756,24 @@ behavior of diners who opt out of treatment to avoid a vegetarian meal
 
 Taken together, our integrated dataset including both our main sample
 and this supplementary one yields a pooled effect of SMD = 0.2 (95\% CI:
-{[}0.09, 0.31{]}), p = .0005. Particularly large results were found in
+{[}0.09, 0.31{]}), p = 0. Particularly large results were found in
 studies that measured outcomes immediately \citep{hansen2021} or that
-were underpowered \citep{lentz2020}.
+had smaller samples \citep{lentz2020}.
 
-A reader with different beliefs about sources of bias in this literature
-than ours might conclude from this analysis that it is indeed possible,
-in some contexts, to meaningfully reduce MAP consumption. Likewise,
-readers who take stated reductions in RPM consumption as unbiased
-estimates of overall MAP reduction could reasonably draw different
-conclusions than this paper's headline findings.
+\subsection{Robustness to an alternative estimation
+method}\label{Sec5.1.2}
 
-\subsection{Robustness to alternative estimation method}\label{Sec5.1.2}
-
-Our pre-analysis plan (\url{https://osf.io/3sth2}) used a cluster-robust
-random effects model from \texttt{metafor} to analyze a synthetic
-dataset. However, as we assembled the actual dataset, we noticed that
-many papers had, across interventions, non-independent observations,
-typically in the form of multiple treatments compared to a single
-control group. Upon discussion, the team's statistician (MBM) suggested
-that the \texttt{CORR} model from the \texttt{robumeta} package would be
-a better fit.
+Our pre-analysis plan (\url{https://osf.io/3sth2}) used a model from
+\texttt{metafor} to analyze a synthetic dataset. However, as we
+assembled the actual dataset, we noticed that many papers had, across
+interventions, non-independent observations, typically in the form of
+multiple treatments compared to a single control group. Upon discussion,
+the team's statistician (MBM) suggested that the \texttt{CORR} model
+from the \texttt{robumeta} package, a robust variance estimation (RVE)
+method, would be a better fit.
 
 Using our original cluster-robust estimation strategy from
-\texttt{metafor}, we detect a pooled effect size of 0.040155 (95\% CI:
+\texttt{metafor}, we detect a pooled effect size of 0.04 (95\% CI:
 {[}-0.02, 0.1{]}), p = 0.1600299. (Although \texttt{metafor} also
 provides an RVE estimator, it applies the correction to the standard
 errors and not to the overall estimate, and we preferred a model that
@@ -789,56 +784,58 @@ delay}\label{Sec5.1.3}
 
 Our delay-related inclusion criterion aimed to limit our analysis to
 enduring effects. We were concerned that subjects who are encouraged to
-have a single vegetarian meal might later compensate by consuming a
-larger quantity of MAP at the next one, which would make an immediate
-outcome measurement an upwardly biased estimate of overall effects.
+have a single vegetarian meal might later compensate by consuming more
+MAP at the next one, which would make an immediate outcome measurement
+an upwardly biased estimate of overall effects.
 
 Upon reviewing studies, however, we found that numerous high-quality
 studies modified eating environments over multiple days and did not
-incorporate a delay following the \emph{final} day of treatment before
-measuring outcomes. For example, \citep{andersson2021} included 50
-combined days of treatment and control, but the interval between
-treatment and any individual outcome measurement was zero days. By one
-light, such studies lack delayed outcome measures. In another, the
-multi-day setup in a repeated environment allows for some theoretical
-delay, as participants acclimate and undergo control measurements on
-subsequent days, and potential rebound effects can, theoretically, be
-reflected in the data.
+incorporate a delayed measure following the \emph{final} day of
+treatment. For example, \citep{andersson2021} included 50 combined days
+of treatment and control, but the interval between treatment and any
+individual outcome measurement was zero days. By one light, such studies
+lack delayed outcome measures. In another, the multi-day setup in a
+single environment allows for theoretical delay so long as participants
+can return to the site of treatment and have their meal choices
+evaluated multiple times.
 
 We decided to include multi-day studies where delayed outcomes were at
 least possible through repeat visits by subjects to the intervention
 site. Our delay variable therefore reflects the days elapsed from the
-beginning of treatment, rather than its conclusion,to measurement.
+beginning of treatment, rather than its conclusion, to measurement.
 
 We also coded a secondary delay variable that corresponds to time
 elapsed between treatment \emph{conclusion} to measurement. Restricting
 our analysis to the 31 studies and 96 point estimates where this
 secondary delay exceeds zero, we observe an effect of SMD = 0.07 (95\%
-CI: {[}0.01, 0.12{]}), p = .0283.
+CI: {[}0.01, 0.12{]}), p = .028.
 
 \subsection{Notes on search strategy}\label{Sec5.2}
 
-Our search process was shaped by three features of our research agenda.
-First, our surveyed literature was highly interdisciplinary, with few
-shared terms to describe itself. For instance, the term `MAP' is not
-universally agreed upon; other papers use (e.g.) animal-based protein,
+\begin{comment} we could take the next few paragraphs out and start with the sentence "we employed what could be called a "prior-reviews-first" search strategy."
+\end{comment}
+
+Our search process was shaped by three unusual features of our research
+project. First, our surveyed literature was highly interdisciplinary,
+with few shared terms to describe itself. For instance, the term `MAP'
+is not universally agreed upon; other papers use animal-based protein,
 edible animal products, or just meat, while others focus on a
 particular, sometimes unusual category of MAP, such as fish sauce
 \citep{kanchanachitra2020}, or discussed their agenda mainly in terms of
 increasing plant-based alternatives. Coming up with an exhaustive list
-of applicable terms to search on from first principles would have been,
-in our opinion, virtually impossible.
+of terms to search for from first principles would have been, in our
+opinion, virtually impossible.
 
 Second, our methods-based inclusion criteria complicated screening on
 titles and abstracts. While it was sometimes possible to use solely that
 information to eliminate studies with no interventions
 (e.g.~survey-based research), determining whether an intervention
 qualified almost always required some amount of full text screening. We
-also discovered that terms like ``field experiment'' and ``controlled
-before-after design'' have varying meanings across papers, and
-identifying whether a measured food choice was hypothetical or not often
-required a close reading. For these reasons, screening thousands or tens
-of thousands of papers struck us as prohibitively time-consuming.
+also discovered that terms like ``field experiment'' have varying
+meanings across papers, and identifying whether a measured food choice
+was hypothetical or not often required a close reading. For these
+reasons, screening thousands or tens of thousands of papers struck us as
+prohibitively time-consuming.
 
 Third, we found an extraordinary number of prior reviews, typically
 aimed at one disciplinary strand or conceptual approach, touching on our
@@ -848,9 +845,9 @@ sense of the broader literature.
 
 For these reasons, we employed what could be called a
 ``prior-reviews-first'' search strategy. Of the 985 papers we reviewed,
-a full 0.73 \% of all manuscripts we screened came from prior reviews,
-and 0.43 \% of papers in our main dataset. (See the next section of the
-supplement for notes on reviews that were especially informative. )Then,
+a full 73 \% of all manuscripts we screened came from prior reviews, and
+43 \% of papers in our main dataset. (See the next section of the
+supplement for notes on reviews that were especially informative.) Then,
 as detailed in the main text, we employed a multitude of other search
 strategies to fill in our dataset, one of which was systematic search.
 In particular, we searched Google Scholar for the following list of
@@ -859,62 +856,63 @@ terms, and checked ten pages of results for each:
 \begin{itemize}
 \tightlist
 \item
-  ``random'' ``nudge'' ``meat''
+  ``dynamic'' ``norms'' ``meat''
 \item
-  ``meat'' ``reduction'' ``randomized''
+  ``dynamic'' ``norms'' ``meat'' ``consumption''
+\item
+  ``field'' ``experiment'' ``plant-based''
+\item
+  ``meat'' ``alternatives'' ``default'' ``nudge''
 \item
   ``meat'' ``consumption'' ``reducing'' ``random''
 \item
   ``meat'' ``purchases'' ``information'' ``nudge''
 \item
-  ``nudge'' ``theory'' ``meat'' ``purchasing''
-\item
-  ``meat'' ``alternatives'' ``default'' ``nudge''
-\item
-  ``dynamic'' ``norms'' ``meat''
-\item
-  ``dynamic'' ``norms'' ``meat'' ``consumption''
-\item
-  ``norms'' ``animal'' ``products''
-\item
-  ``university'' ``meat'' ``default'' ``reduction''
-\item
-  ``sustainable'' ``meat'' ``nudge''
-\item
-  ``sustainable'' ``meat'' ``nudge'' ``random''
-\item
-  ``randomized controlled trial'' ``meat'' consumption'' ``reduce''
-\item
-  ``nudges'' ``norms'' ``meat''
+  ``meat'' ``reduction'' ``randomized''
 \item
   ``meat'' ``sustainable'' ``random''
 \item
   ``nudge'' ``meat'' ``default''
 \item
-  ``nudge'' ``sustainable'' ``consumption'' ``meat''
-\item
   ``nudge'' ``reduce'' ``meat'' ``consumption''
 \item
-  ``field'' ``experiment'' ``plant-based''
+  ``nudge'' ``sustainable'' ``consumption'' ``meat''
+\item
+  ``nudge'' ``theory'' ``meat'' ``purchasing''
+\item
+  ``norms'' ``animal'' ``products''
+\item
+  ``nudges'' ``norms'' ``meat''
+\item
+  ``random'' ``nudge'' ``meat''
+\item
+  ``randomized controlled trial'' ``meat'' ``consumption'' ``reduce''
+\item
+  ``sustainable'' ``meat'' ``nudge''
+\item
+  ``sustainable'' ``meat'' ``nudge'' ``random''
+\item
+  ``university'' ``meat'' ``default'' ``reduction''
 \end{itemize}
 
 Additionally, we searched the American Economic Association's RCT
-registry for the the terms ``meat+random''.
+registry for the the terms ``meat'' and ``random'' and reviewed all
+matching results in the relevant time frame.
 
 Another unconventional part of our search strategy was our use of of an
 AI-based search tool (\url{https://undermind.ai/}), to which we
-described our research question and reviewed 100 results. This yielded
-one paper that met our inclusion criteria \citep{mattson2020} that seems
-to have slipped past many other systematic search processes.
+described our research question and then reviewed 100 results that it
+generated. This yielded one paper that met our inclusion criteria
+\citep{mattson2020} that seems to have slipped past many other
+systematic search processes.
 
 Finally, we benefited from two in-progress literature reviews at Rethink
 Priorities, ``a think-and-do tank'' that researches animal welfare as
 one of its four main priorities. Both of these literature reviews are
 aimed at assessing interventions that reduce MAP consumption, but have
-broader inclusion criteria than our paper employed. In effect, their
-intended bodies of literature both formed supersets around our target.
-For more details on these two projects, see \url{<https://osf.io/74paj>}
-and \url{<https://meat-lime.vercel.app>}.
+broader inclusion criteria than our paper employed. For more details on
+these two projects, see \url{<https://osf.io/74paj>} and
+\url{<https://meat-lime.vercel.app>}.
 
 \subsection{Discussion of prior
 reviews}\label{discussion-of-prior-reviews}
@@ -929,21 +927,20 @@ dietary choices of 15.3\%, while \citep{byerly2018} found that
 committing to reduce meat intake and making menus vegetarian by default
 were more effective than educational interventions. However, the vast
 majority of vegetarian-default studies we analyzed for this paper did
-not qualify for our analysis because they lacked delayed outcomes, and
-their net effect on MAP consumption is unknown. In a similar vein,
-\citep{mertens2022} concludes that food choices are ``particularly
-responsive to choice architecture interventions'' (p.~1), but featured
-no studies that met our inclusion criteria.
+not qualify for our analysis because they lacked delayed outcomes. In a
+similar vein, \citep{mertens2022} concludes that food choices are
+``particularly responsive to choice architecture interventions'' (p.~1),
+but featured no studies that met our inclusion criteria.
 
 \citep{bianchi2018restructuring} found that reducing meat portions,
 making alternatives available, moving meat products to be less
 conspicuous, and changing meat's sensory properties can all reduce meat
 demand. \citep{pandey2023} found that changing the presentation and
 availability of sustainable products was effective in increasing demand
-for them, as was providing information about them.
+for them.
 
 In a meta-review, \citep{grundy2022} found environmental education to be
-most promising, with substantial evidence also supporting health
+especially promising, with substantial evidence also supporting health
 information, emphasizing social norms, and decreasing meat portions.
 
 Some reviews have focused on particular settings for MAP reduction

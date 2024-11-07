@@ -18,7 +18,7 @@ extract_model_results <- function(data = dat, approach_name = "Overall") {
     Delta = round(model$reg_table$b.r, 2),
     SE = round(model$reg_table$SE, 2),
     CI = paste0("[", round(model$reg_table$CI.L, 2), ", ", round(model$reg_table$CI.U, 2), "]"),
-    p_val = sub("^0\\.", ".", format(round(model$reg_table$prob, 4), scientific = FALSE)),
+    p_val = sub("^0\\.", ".", format(round(model$reg_table$prob, 3), scientific = FALSE)),
     tau = round(sqrt(model$mod_info$tau.sq), 3)  # Ensures 'tau' is a scalar
   )
 }
