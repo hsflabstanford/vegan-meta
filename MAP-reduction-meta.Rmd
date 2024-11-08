@@ -67,7 +67,6 @@ source('./scripts/load-data.R')
 source('./scripts/models-and-constants.R')
 ```
 
-
 # Introduction {#sec1}
 
 Global MAP consumption is increasing annually [@godfray2018] and expected to continue doing so [@whitton2021].
@@ -159,7 +158,7 @@ high_prop_test
 ```
 
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
-Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2. Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1). Estimates may have been somewhat larger among the choice architecture studies (SMD = `r choice_results$Delta`), but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates).
+Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2. Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1). Estimates may have been somewhat larger among the choice architecture studies (SMD = 0.21) but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates).
 
 
 ```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
