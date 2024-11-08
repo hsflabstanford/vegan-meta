@@ -101,7 +101,7 @@ However, eating MAP is widely regarded as normal, ethical, and necessary [@piazz
 There is a vast and diverse literature investigating potential means to reduce MAP consumption.
 Example approaches include providing free access to meat substitutes [@katare2023], changing the price [@horgen2002] or perceptions [@kunst2016] of meat, or attempting to persuade people to change their diets [@bianchi2018conscious].
 Some interventions are associated with large impacts [@lentz2020; @boronowsky2022; @reinders2017], and prior reviews have concluded that some frequently studied approaches, such as using persuasive messaging that appeals to animal welfare [@mathur2021meta], may be consistently effective.
-A particularly well-regarded strand of this literature employs choice architecture, i.e. altering the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021], placing vegetarian items more prominently in dining halls [@ginn2024], or making plant-based options the default at catered meals [@hansen2021].
+A particularly high-profile strand of this literature employs choice architecture, i.e. altering the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021], placing vegetarian items more prominently in dining halls [@ginn2024], or making plant-based options the default at catered meals [@hansen2021].
 Choice architecture has been cited as a cheap, effective way of altering dietary behavior [@colgan2024], and governments, universities, and other institutions are increasingly implementing these approaches in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
 
 However, recurring design and measurement limitations comprise this literature.
@@ -126,7 +126,7 @@ Studies in our meta-analysis pursued one of four theoretical approaches: choice 
 Interventions varied in delivery method, for example, documentary films [@mathur2021effectiveness], leaflets [@peacock2017], university lectures [@jalil2023], op-eds [@haile2021], and changes to menus in cafeterias [@andersson2021] and restaurants [@coker2022; @sparkman2021].
 We estimated overall effect sizes as well as effect sizes associated with different theoretical approaches and delivery mechanisms.
 Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions.
-Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' methodological rigor, we conclude that meaningfully reducing MAP consumption is an unsolved problem.
+Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' methodological rigor (Supplement), we conclude that meaningfully reducing MAP consumption is an unsolved problem.
 However, many promising approaches still await rigorous evaluation.
 
 # Results {#sec2}
@@ -143,26 +143,39 @@ total_pops <- dat |> filter(cluster_assigned == 'N') |> mutate(total_pop = as.nu
 median_total_pop <- round(median(total_pops, na.rm = TRUE))
 percentile_25 <- round(quantile(total_pops, 0.25, na.rm = TRUE))
 percentile_75 <- round(quantile(total_pops, 0.75, na.rm = TRUE))
+# nums per approach
+choice_Ns <- dat |> filter(theory == 'Choice Architecture') |> extract_model_results() |> select(N_estimates, N_studies)
 ```
 
 Because methodological quality is rapidly improving in the literature on MAP reduction, the majority of eligible papers (`r  decade_tab |> filter(decade == "2020s") |> pull(n)` of `r num_papers`) were published from 2020 onwards, although the earliest was published in 2002 [@allen2002].
-Among studies where treatment was assigned to individuals rather than to clusters (e.g., every student in a class), the median analyzed sample size per study was `r median_total_pop` subjects(25$^{\text{th}}$-75$^{\text{th}}$ percentiles: `r paste0(percentile_25, ", ", percentile_75)`).
+Among studies where treatment was assigned to individuals rather than to clusters (e.g., every student in a class), the median analyzed sample size per study was `r median_total_pop` subjects(25\$\^{\\text{th}}\$--75$^{\text{th}}$ percentiles: `r paste0(percentile_25, ", ", percentile_75)`).
 
 ## Constituent Theories {#sec2.2}
 
-**Choice Architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, such as by placing the vegetarian option at eye level on a cafeteria's billboard menu [@andersson2021].
+```{r nums_per_approach, include=F}
+# nums per approach
+choice_Ns <- dat |> filter(theory == 'Choice Architecture') |> extract_model_results() |> select(N_estimates, N_studies)
 
+persuasion_Ns <- dat |> filter(theory == 'Persuasion') |> extract_model_results() |> select(N_estimates, N_studies)
+
+psych_Ns <- dat |> filter(theory == 'Psychology') |> extract_model_results() |> select(N_estimates, N_studies)
+
+psych_persuasion_Ns <- dat |> filter(theory == 'Persuasion & Psychology') |> extract_model_results() |> select(N_estimates, N_studies)
+
+example_sentence <- paste0(
+  "(n = ", persuasion_Ns$N_studies, " studies with ", persuasion_Ns$N_estimates, " estimates)"
+)
+```
+
+We found that studies' theoretical approaches could be grouped into four categories.
+**Choice architecture** studies [@andersson2021; @kanchanachitra2020] manipulate aspects of physical environments to reduce MAP consumption, such as by placing the vegetarian option at eye level on a cafeteria's billboard menu [@andersson2021].
 **Persuasion** studies [@kanchanachitra2020; @aberman2018; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] focus on health, environmental (usually climate change), and animal welfare reasons to reduce MAP consumption.
 Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness].
 Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023].
-
-**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal,cognitive, or affective factors associated with eating meat.
+**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] manipulate the interpersonal, cognitive, or affective factors associated with eating MAP.
 The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020].
 In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022].
-In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019], and implementation intentions, where participants list potential challenges and solutions to changing their own behavior [@aberman2018; @shreedhar2021].
-
-Finally, a group of interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021].
-These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's meat consumption [@mathur2021effectiveness; @shreedhar2021].
+In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!” [@piester2020]. One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002]. Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019], and implementation intentions, where participants list potential challenges and solutions to changing their own behavior [@aberman2018; @shreedhar2021]. Finally, some interventions combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021]. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's MAP consumption [@mathur2021effectiveness; @shreedhar2021].
 
 ## Meta-analytic results {#sec2.3}
 
@@ -187,10 +200,10 @@ high_prop_test <- prop_stronger( q = 0.2,  M = overall_results$Delta,
 high_prop_test
 ```
 
-In our dataset, the pooled effect of all interventions is SMD = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, $\tau$ (standard deviation of population effects) = `r overall_results$tau`.
-We estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2.
+In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
+Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2.
 
-Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion.
+Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion (animal welfare, environment, and health).
 
 \begin{center}
 [Table 2 about here]
@@ -211,8 +224,8 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
      mutate(across(1:6, \(x) round(x, 3)))
 ```
 
-By contrast, the 17 studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
-We estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
+By contrast, the `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
+Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
 
