@@ -45,6 +45,6 @@ meta_table <- bind_rows(
     bold = TRUE) |> 
   # Add Footnote
   add_footnote(
-    "Types of persuasion Ns will not total to the Ns for persuasion overall because many studies employ multiple categories of argument.",
+    "Types of persuasion Ns include both Persuasion and Persuasion and Psychology studies. Additionally, many such studies combine multiple categories of argument (e.g. the health and environmental benefits of reducing MAP consumption), so the Ns for these categories will not total to the N of Persuasion + Persuasion & Psychology.",
     notation = "none")
 

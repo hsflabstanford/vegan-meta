@@ -60,37 +60,13 @@ opts_chunk$set(fig.path = "./figures/",
                       out.extra = "")
 options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
 
-# libraries, functions and data
+# libraries, functions, data, and key results
 source('./scripts/libraries.R')
 source('./scripts/functions.R')
 source('./scripts/load-data.R')
+source('./scripts/models-and-constants.R')
 ```
 
-```{r models_and_constants, include=F}
-# Models
-## Overall
-model <- robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
-                       var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-
-
-## Extract and format key results for each model
-overall_results <- extract_model_results()
-rpmc_results <- RPMC |> extract_model_results()
-
-# constants
-num_papers <- as.numeric(max(dat$unique_paper_id))
-num_studies <- as.numeric(max(dat$unique_study_id))
-num_interventions <- as.numeric(nrow(dat))
-
-n_total <- noquote(format(round_to(x = sum(dat$n_c_total_pop) + sum(dat$n_t_total_pop), 
-                                  accuracy = 1000, direction = "down"),
-                         big.mark = ",", scientific = FALSE))
-
-decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> count(decade)
-
-RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
-RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
-```
 
 # Introduction {#sec1}
 
@@ -130,16 +106,6 @@ Thus, contradicting previous reviews that placed fewer (if any) restrictions on 
 However, many promising approaches still await rigorous evaluation.
 
 # Results {#sec2}
-
-```{r theory_specific results}
-choice_results <- dat |> filter(theory == 'Choice Architecture') |> extract_model_results() 
-
-persuasion_results <- dat |> filter(theory == 'Persuasion') |> extract_model_results() 
-
-psych_results <- dat |> filter(theory == 'Psychology') |> extract_model_results()
-
-psych_persuasion_results <- dat |> filter(theory == 'Persuasion & Psychology') |> extract_model_results() 
-```
 
 ## Descriptive overview {#sec2.1}
 
@@ -193,13 +159,14 @@ high_prop_test
 ```
 
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
-Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2.
+Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2. Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1). Estimates may have been somewhat larger among the choice architecture studies (SMD = `r choice_results$Delta`), but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates).
 
-Table 1 compares the overall meta-analytic estimate to the subgroup estimates associated with the four major theoretical approaches, as well as the three categories of persuasion (animal welfare, environment, and health).
 
-\begin{center}
-[Table 2 about here]
-\end{center}
+```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
+source('./scripts/table-one-meta.R')
+meta_table
+```
+
 \begin{center}
 [Figure 1 about here]
 \end{center}
@@ -374,12 +341,6 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 
 \newpage
 
-## Tables
-
-```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
-source('./scripts/table-one-meta.R')
-meta_table
-```
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/table-two-moderator.R')

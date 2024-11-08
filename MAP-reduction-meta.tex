@@ -278,18 +278,6 @@ rigorous evaluation.
 
 \section{Results}\label{sec2}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{choice\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Choice Architecture\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{() }
-
-\NormalTok{persuasion\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Persuasion\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{() }
-
-\NormalTok{psych\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Psychology\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{()}
-
-\NormalTok{psych\_persuasion\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Persuasion \& Psychology\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{() }
-\end{Highlighting}
-\end{Shaded}
-
 \subsection{Descriptive overview}\label{sec2.1}
 
 Our meta-analysis included 35 papers comprising 41 studies and 112
@@ -359,16 +347,44 @@ mean difference (SMD) = 0.07 (95\% CI: {[}0.02, 0.12{]}), p = .007, with
 some heterogeneity (standard deviation of population effects \(\tau\) =
 0.082). Given the pooled effect size and the estimated heterogeneity, we
 estimate that 25.9\% of true effects are above SMD = 0.1, and just 8\%
-are above SMD = 0.2.
+are above SMD = 0.2. Stratifying by theoretical approach, pooled
+estimates were similar across psychology, persuasion, and persuasion and
+psychology (SMDs from 0.07 to 0.11; Table 1). Estimates may have been
+somewhat larger among the choice architecture studies (SMD = ), but the
+sample size was much smaller (3 estimates). Within studies with a
+persuasion component, pooled estimates are similar for environmental
+appeals (SMD = 0.09, 15 studies with 28 estimates), and health appeals
+(SMD = 0.08, 18 studies with 30 estimates), but are smaller for appeals
+to animal welfare (SMD = 0.03, 16 studies with 65 estimates).
 
-Table 1 compares the overall meta-analytic estimate to the subgroup
-estimates associated with the four major theoretical approaches, as well
-as the three categories of persuasion (animal welfare, environment, and
-health).
+\begin{table}[!h]
+\centering
+\caption{\label{tab:table_one}Theory-based Meta-analytic Results}
+\centering
+\begin{tabular}[t]{llllll}
+\toprule
+Approach & N (Studies) & N (Estimates) & SMD & 95\% CIs & p val\\
+\midrule
+Overall & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007\\
+\addlinespace[0.5em]
+\multicolumn{6}{l}{\textbf{Theory}}\\
+\hspace{1em}Choice Architecture & 2 & 3 & 0.21 & {}[-0.99, 1.42] & .267\\
+\hspace{1em}Psychology & 19 & 32 & 0.10 & {}[0, 0.2] & .054\\
+\hspace{1em}Persuasion & 25 & 77 & 0.07 & {}[0.01, 0.13] & .023\\
+\hspace{1em}Persuasion \& Psychology & 11 & 20 & 0.11 & {}[-0.06, 0.28] & .189\\
+\addlinespace[0.5em]
+\multicolumn{6}{l}{\textbf{Type of Persuasion}}\\
+\hspace{1em}Animal Welfare & 16 & 65 & 0.03 & {}[-0.02, 0.07] & .189\\
+\hspace{1em}Environment & 15 & 28 & 0.09 & {}[-0.03, 0.2] & .115\\
+\hspace{1em}Health & 18 & 30 & 0.08 & {}[-0.01, 0.17] & .068\\
+\bottomrule
+\multicolumn{6}{l}{\textsuperscript{} Types of persuasion Ns include both 'Persuasion' and 'Persuasion and Psychology' studies.}\\
+\multicolumn{6}{l}{Additionally, many such studies combine multiple categories of argument (e.g. the health and}\\
+\multicolumn{6}{l}{environmental benefits of reducing MAP consumption), so the Ns for these categories will not}\\
+\multicolumn{6}{l}{total to the N of Persuasion + Persuasion \& Psychology.}\\
+\end{tabular}
+\end{table}
 
-\begin{center}
-[Table 2 about here]
-\end{center}
 \begin{center}
 [Figure 1 about here]
 \end{center}
@@ -633,34 +649,6 @@ Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR
 \addcontentsline{toc}{section}{Declarations}
 
 \newpage
-
-\subsection{Tables}\label{tables}
-
-\begin{table}[!h]
-\centering
-\caption{\label{tab:table_one}Theory-based Meta-analytic Results}
-\centering
-\begin{tabular}[t]{llllll}
-\toprule
-Approach & N (Studies) & N (Estimates) & SMD & 95\% CIs & p val\\
-\midrule
-Overall & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007\\
-\addlinespace[0.5em]
-\multicolumn{6}{l}{\textbf{Theory}}\\
-\hspace{1em}Choice Architecture & 2 & 3 & 0.21 & {}[-0.99, 1.42] & .267\\
-\hspace{1em}Psychology & 19 & 32 & 0.10 & {}[0, 0.2] & .054\\
-\hspace{1em}Persuasion & 25 & 77 & 0.07 & {}[0.01, 0.13] & .023\\
-\hspace{1em}Persuasion \& Psychology & 11 & 20 & 0.11 & {}[-0.06, 0.28] & .189\\
-\addlinespace[0.5em]
-\multicolumn{6}{l}{\textbf{Type of Persuasion}}\\
-\hspace{1em}Animal Welfare & 16 & 65 & 0.03 & {}[-0.02, 0.07] & .189\\
-\hspace{1em}Environment & 15 & 28 & 0.09 & {}[-0.03, 0.2] & .115\\
-\hspace{1em}Health & 18 & 30 & 0.08 & {}[-0.01, 0.17] & .068\\
-\bottomrule
-\multicolumn{6}{l}{\textsuperscript{} Types of persuasion Ns will not total to the Ns for persuasion overall because many studies}\\
-\multicolumn{6}{l}{employ multiple categories of argument.}\\
-\end{tabular}
-\end{table}
 
 \begin{table}[!h]
 \centering
