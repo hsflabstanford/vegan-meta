@@ -278,6 +278,18 @@ rigorous evaluation.
 
 \section{Results}\label{sec2}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{choice\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Choice Architecture\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{() }
+
+\NormalTok{persuasion\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Persuasion\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{() }
+
+\NormalTok{psych\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Psychology\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{()}
+
+\NormalTok{psych\_persuasion\_results }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(theory }\SpecialCharTok{==} \StringTok{\textquotesingle{}Persuasion \& Psychology\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
 \subsection{Descriptive overview}\label{sec2.1}
 
 Our meta-analysis included 35 papers comprising 41 studies and 112
@@ -331,7 +343,7 @@ interventions include response inhibition training, where subjects are
 trained to avoid responding impulsively to stimuli such as unhealthy
 food \citep{camp2019}, and implementation intentions, where participants
 list potential challenges and solutions to changing their own behavior
-\citep{aberman2018, shreedhar2021}. Finally, some interventions combines
+\citep{aberman2018, shreedhar2021}. Finally, some studies combines
 \textbf{persuasion} approaches with \textbf{psychological} appeals to
 reduce MAP consumption
 \citep{aberman2018, berndsen2005, bertolaso2015, carfora2023, fehrenbach2015, hennessy2016, mathur2021effectiveness, mattson2020, piester2020, shreedhar2021}
