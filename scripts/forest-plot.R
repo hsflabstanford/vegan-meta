@@ -21,7 +21,7 @@ forest_data <- dat |>
   
   # Step 1.4: Add a Row for Random Effects (RE) Estimate
   add_row(
-    study_name = "RE Estimate", 
+    study_name = "pooled Estimate", 
     theory = NA,
     estimate = model$reg_table$b.r, 
     se = model$reg_table$SE,
@@ -129,10 +129,11 @@ forest_plot <- forest_data |>
   # Step 2.9: Add Labels and Captions
   labs(
     color = "Theory", 
-    y = NULL,  # Remove Y-axis label
-    title = "MAP Reduction Forest Plot"
-  ) +
+    y = NULL  # Remove Y-axis label
+    ) +
   
   # Step 2.10: Adjust Legends and Guides
-  guides(size = "none")  # Remove size legend as it's explained in caption
-
+  guides(size = "none") +  # Remove size legend as it's explained in caption
+  # Step 2.11: Put legend at the bottom so the graph can be wider
+  theme(
+    legend.position = "bottom")
