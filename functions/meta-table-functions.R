@@ -136,7 +136,7 @@ run_meta_regression <- function(data, group_var, ref_level) {
   names(p_values) <- level_names
   
   # Format p-values
-  p_values_formatted <- formatC(p_values, format = "f", digits = 4)
+  p_values_formatted <- formatC(p_values, format = "f", digits = 3)
   p_values_formatted <- sub("^0\\.", ".", p_values_formatted)
   
   # Create a named vector of p-values, include NA for levels not in meta-regression
