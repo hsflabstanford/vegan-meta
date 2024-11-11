@@ -25,14 +25,13 @@ run_subset_meta_analysis(data = dat, filter_string = "Choice Architecture",
                              col_name = "Approach"))) |>
   kbl(booktabs = TRUE, 
       col.names = c("Approach", "N (Studies)", "N (Estimates)", 
-                  "SMD", "95\\% CIs", "p val"),
-    caption = "Theory-based Meta-analytic Results", 
+                  "SMD", "95\\% CIs", "$p$ val"),
+    caption = "Meta-analytic Results Overall and by Theoretical Approach", 
     align = 'l', label = "table_one", escape = FALSE) |>             
   kable_styling(full_width = FALSE, latex_options = "hold_position") |>
   pack_rows(group_label = "Theory",  start_row = 2,  end_row = 5,  
             latex_gap_space = "0.5em",bold = TRUE) |>
   pack_rows(group_label = "Type of Persuasion",  start_row = 6, end_row = 8,  
             latex_gap_space = "0.5em",  bold = TRUE) |> 
-  add_footnote("Types of persuasion Ns include both Persuasion and Persuasion and Psychology studies. Additionally, many such studies combine multiple categories of argument (e.g. the health and environmental benefits of reducing MAP consumption), so the Ns for these categories will not total to the N of Persuasion + Persuasion & Psychology.",
-    notation = "none")
+  add_footnote("Studies could occupy multiple categories for both theory and type of persuasion. Note that the Ns for Types of Persuasion draws from both Persuasion and Persuasion and Psychology studies.")
 

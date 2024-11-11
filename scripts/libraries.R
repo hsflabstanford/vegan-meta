@@ -11,6 +11,7 @@ library(PublicationBias)
 library(purrr)
 library(robumeta)
 library(rticles)
+library(scales)
 library(stringr)
 library(tidyr)
 

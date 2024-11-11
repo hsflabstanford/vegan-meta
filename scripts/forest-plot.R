@@ -15,13 +15,13 @@ forest_data <- dat |>
   # Step 1.2: Create 'study_name' by concatenating 'author' and 'year'
   mutate(study_name = paste(author, year)) |>
   
-  # Step 1.3: Reorganize Columns
+  # Step 1.3: Reorganize columns
   select(-c(author, year)) |>  # Remove 'author' and 'year' columns
   select(study_name, everything()) |>  # Reorder columns to have 'study_name' first
   
-  # Step 1.4: Add a Row for Random Effects (RE) Estimate
+  # Step 1.4: Add a row for Pooled estimate
   add_row(
-    study_name = "pooled Estimate", 
+    study_name = "Pooled estimate", 
     theory = NA,
     estimate = model$reg_table$b.r, 
     se = model$reg_table$SE,
@@ -50,40 +50,32 @@ forest_data <- dat |>
 # 2. Forest Plot Creation
 # -------------------------------
 
-# Load necessary libraries
-library(ggplot2)
-library(ggtext)  # For element_markdown()
-library(scales)  # For rescale()
-
-# reproduce model so script is self-contained
-model <- robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
-                        var.eff.size = var_d, modelweights = 'CORR', small = TRUE)
-
 # Create the Forest Plot
 forest_plot <- forest_data |> 
   
   # Initialize ggplot with aesthetic mappings
   ggplot(aes(x = estimate, y = fct_rev(combined_label))) +
   
-  # Step 2.1: Add Points for RE Estimate
+  # Step 2.1: Add Points for Pooled estimate
   geom_point(
-    data = subset(forest_data, study_name == "RE Estimate"), 
+    data = subset(forest_data, study_name == "Pooled estimate"), 
     size = 5, 
     shape = 18, 
-    color = 'black'
-  ) +  
+    color = 'black',
+    show.legend = FALSE) +  
   
-  # Step 2.2: Add Error Bars for RE Estimate
+  # Step 2.2: Add Error Bars for Pooled estimate
   geom_errorbarh(
-    data = subset(forest_data, study_name == "RE Estimate"), 
+    data = subset(forest_data, study_name == "Pooled estimate"), 
     aes(xmin = ci.lb, xmax = ci.ub), 
     height = 0.1, 
-    color = 'black'
+    color = 'black',
+    show.legend = FALSE
   ) +  
   
   # Step 2.3: Add Points for Individual Studies
   geom_point(
-    data = subset(forest_data, study_name != "RE Estimate"), 
+    data = subset(forest_data, study_name != "Pooled estimate"), 
     aes(
       size = scales::rescale(precision, to = c(0.5, 3)),  # Scale precision for point size
       color = theory  # Color by 'theory'
@@ -93,7 +85,7 @@ forest_plot <- forest_data |>
   
   # Step 2.4: Add Error Bars for Individual Studies
   geom_errorbarh(
-    data = subset(forest_data, study_name != "RE Estimate"), 
+    data = subset(forest_data, study_name != "Pooled estimate"), 
     aes(xmin = ci.lb, xmax = ci.ub, color = theory),
     height = 0.1
   ) +
@@ -109,10 +101,10 @@ forest_plot <- forest_data |>
   # Step 2.6: Apply Minimal Theme and Customize
   theme_minimal() +
   theme(
-    axis.text.y = element_markdown(),  # Allow markdown in y-axis labels
+    axis.text.y= ggtext::element_markdown(),  # Allow markdown in y-axis labels
     plot.title = element_text(hjust = 0.5, face = "bold"),
-    legend.title = element_text(size = 15),
-    legend.text = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
     axis.line = element_line(colour = "black"),
     plot.caption = element_text(hjust = 0)
   ) +  
@@ -120,20 +112,20 @@ forest_plot <- forest_data |>
   # Step 2.7: Customize Y-axis Labels
   scale_y_discrete(labels = function(x) {
     x <- gsub(" \\| .*", "", x)  # Remove theory from label
-    ifelse(x == "RE Estimate", "<b>RE Estimate</b>", x)  # Bold RE Estimate label
+    ifelse(x == "Pooled estimate", "<b>Pooled estimate</b>", x)  # Bold Pooled estimate label
   }) +
   
   # Step 2.8: Customize X-axis
   scale_x_continuous(name = "SMD") +
   
   # Step 2.9: Add Labels and Captions
-  labs(
-    color = "Theory", 
-    y = NULL  # Remove Y-axis label
-    ) +
+  labs(color = "Theory", y = NULL) + # Remove Y-axis label
   
   # Step 2.10: Adjust Legends and Guides
-  guides(size = "none") +  # Remove size legend as it's explained in caption
+  scale_color_manual(
+    values = c("red", "green", "blue", "purple")) +
+  guides(size = "none") + # remove size legend so it doesn't appear in caption
+  guides(color = guide_legend(nrow = 2, byrow = TRUE)) +
   # Step 2.11: Put legend at the bottom so the graph can be wider
   theme(
     legend.position = "bottom")
