@@ -189,12 +189,11 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
      mutate(across(1:6, \(x) round(x, 3)))
 ```
 
-By contrast, the `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
-Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
-
 ## Meta-regression on study characteristics analysis {#sec2.4}
 
-Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method.
+Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method. The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
+Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
+
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/table-two-moderator.R')
