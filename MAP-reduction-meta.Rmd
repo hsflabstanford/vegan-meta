@@ -170,7 +170,7 @@ meta_table
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
 Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2.
 Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1).
-Estimates may have been somewhat larger among the choice architecture studies `r paste0("(SMD = ", choice_delta, ")")` but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates). We did not conduct meta-regression for theoretical approach or type of persuasion because studies could occupy multiple categories.
+Estimates may have been somewhat larger among the choice architecture studies `r paste0("(SMD = ", choice_delta, ")")` but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates). We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g. [@jalil2023] presented students with both environmental and health reasons to reduce MAP consumption.
 
 ```{r forest_plot, fig.cap="Forest plot of all meta-analyzed studies. For papers contributing multiple point estimates, the plotted point corresponds to a fixed effects meta-analysis for each paper for visual clarity. Papers employing multiple theoretical approaches are represented once per theory. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
@@ -194,19 +194,22 @@ Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`
 
 ## Meta-regression on study characteristics analysis {#sec2.4}
 
-Table 2 displays average differences in effect size by study population, region, era of publication, and delivery method.
+Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method.
 
-\begin{center}
-[Table 2 about here]
-\end{center}
+```{r moderator_table, echo=F, message=F}
+source('./scripts/table-two-moderator.R')
+moderator_table
+```
+
 
 ## Sensitivity Analyses {#sec2.5}
 
 Table 3 presents average differences by publication status, data collection strategy, and open science practices.
 
-\begin{center}
-[Table 3 about here]
-\end{center}
+```{r sensitivity_table,echo=F, message=F}
+source('./scripts/table-three-sensitivity.R')
+sensitivity_table
+```
 
 ```{r publication_bias, include=F, message=F}
 rma_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
@@ -346,16 +349,6 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 # Declarations {.unnumbered}
 
 \newpage
-
-```{r moderator_table, echo=F, message=F}
-source('./scripts/table-two-moderator.R')
-moderator_table
-```
-
-```{r sensitivity_table,echo=F, message=F}
-source('./scripts/table-three-sensitivity.R')
-sensitivity_table
-```
 
 \clearpage
 

@@ -383,7 +383,10 @@ appeals (SMD = 0.09, 15 studies with 28 estimates), and health appeals
 (SMD = 0.08, 18 studies with 30 estimates), but are smaller for appeals
 to animal welfare (SMD = 0.03, 16 studies with 65 estimates). We did not
 conduct meta-regression for theoretical approach or type of persuasion
-because studies could occupy multiple categories.
+because studies with multiple interventions could occupy multiple
+categories, and many persuasion interventions combined multiple types of
+message, e.g. \citep{jalil2023} presented students with both
+environmental and health reasons to reduce MAP consumption.
 
 \begin{figure}[H]
 
@@ -403,21 +406,87 @@ these studies, we estimate that 48\% of true RPM effects are above SMD =
 \subsection{Meta-regression on study characteristics
 analysis}\label{sec2.4}
 
-Table 2 displays average differences in effect size by study population,
-region, era of publication, and delivery method.
+Table 2 displays subset analyses and average differences in effect size
+by study population, region, era of publication, and delivery method.
 
-\begin{center}
-[Table 2 about here]
-\end{center}
+\begin{table}[!ht]
+\centering
+\caption{\label{tab:table_two}Moderator Analysis Results}
+\centering
+\begin{tabular}[t]{lllllll}
+\toprule
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Outcome}}\\
+\hspace{1em}Meat and animal products & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007 & \textbf{ref}\\
+\hspace{1em}Red and processed meat & 17 & 25 & 0.25 & {}[0.11, 0.38] & .002 & .0460\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Population}}\\
+\hspace{1em}University students and staff & 18 & 38 & 0.07 & {}[-0.03, 0.16] & .139 & \textbf{ref}\\
+\hspace{1em}All ages & 3 & 6 & 0.04 & {}[-0.16, 0.25] & .361 & .7325\\
+\hspace{1em}Adults & 17 & 61 & 0.09 & {}[0.01, 0.18] & .034 & .7145\\
+\hspace{1em}Adolescents & 3 & 6 & 0.02 & {}[-0.4, 0.44] & .806 & .6860\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Region}}\\
+\hspace{1em}North America & 23 & 74 & 0.04 & {}[-0.01, 0.08] & .142 & \textbf{ref}\\
+\hspace{1em}Europe & 14 & 28 & 0.14 & {}[0.02, 0.27] & .029 & .1565\\
+\hspace{1em}Multi-region & 1 & 4 & 0.21 & {}[0.21, 0.21] & 0 & .0000\\
+\hspace{1em}Asia + Australia & 2 & 5 & 0.13 & {}[-0.17, 0.43] & .116 & .2203\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Publication Decade}}\\
+\hspace{1em}2000s & 6 & 8 & 0.16 & {}[-0.12, 0.43] & .199 & \textbf{ref}\\
+\hspace{1em}2010s & 12 & 31 & 0.07 & {}[-0.03, 0.17] & .13 & .4635\\
+\hspace{1em}2020s & 23 & 73 & 0.05 & {}[-0.01, 0.11] & .074 & .3687\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Method of Delivery}}\\
+\hspace{1em}Educational materials & 15 & 59 & 0.01 & {}[-0.04, 0.07] & .566 & \textbf{ref}\\
+\hspace{1em}Online & 8 & 22 & 0.16 & {}[-0.02, 0.34] & .067 & .1705\\
+\hspace{1em}Dietary consultation & 2 & 2 & 0.40 & {}[-3.36, 4.15] & .409 & .4410\\
+\hspace{1em}In-cafeteria & 8 & 13 & 0.10 & {}[-0.04, 0.25] & .101 & .1230\\
+\hspace{1em}Video & 10 & 16 & 0.01 & {}[-0.05, 0.07] & .485 & .5326\\
+\bottomrule
+\multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The}\\
+\multicolumn{7}{l}{first p value column tests the hypothesis that the subset of studies with a given characteristic is significantly}\\
+\multicolumn{7}{l}{different than an SMD of zero. The second compares effects within a given group, with the top category set to}\\
+\multicolumn{7}{l}{reference.}\\
+\end{tabular}
+\end{table}
 
 \subsection{Sensitivity Analyses}\label{sec2.5}
 
 Table 3 presents average differences by publication status, data
 collection strategy, and open science practices.
 
-\begin{center}
-[Table 3 about here]
-\end{center}
+\begin{table}[!ht]
+\centering
+\caption{\label{tab:table_three}Sensitivity Analysis Results}
+\centering
+\begin{tabular}[t]{lllllll}
+\toprule
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Publication Status}}\\
+\hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
+\hspace{1em}Preprint or thesis & 7 & 17 & 0.08 & {}[-0.1, 0.25] & .325 & .9467\\
+\hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .0250\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
+\hspace{1em}Self-reported & 30 & 94 & 0.06 & {}[0, 0.12] & .039 & \textbf{ref}\\
+\hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .3349\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Open Science}}\\
+\hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
+\hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .6254\\
+\hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2395\\
+\hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2740\\
+\bottomrule
+\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value}\\
+\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with a given characteristic is significantly different than}\\
+\multicolumn{7}{l}{an SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
+\end{tabular}
+\end{table}
 
 The meta-analytic mean corrected for publication bias \citep{hedges1992}
 was 0.01 (95\% CI: {[}-0.014, 0.033{]}), p = 0.421. A conservative
@@ -654,80 +723,6 @@ Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR
 \addcontentsline{toc}{section}{Declarations}
 
 \newpage
-
-\begin{table}[!ht]
-\centering
-\caption{\label{tab:table_two}Moderator Analysis Results}
-\centering
-\begin{tabular}[t]{lllllll}
-\toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
-\midrule
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Outcome}}\\
-\hspace{1em}Meat and animal products & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007 & \textbf{ref}\\
-\hspace{1em}Red and processed meat & 17 & 25 & 0.25 & {}[0.11, 0.38] & .002 & .0460\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Population}}\\
-\hspace{1em}University students and staff & 18 & 38 & 0.07 & {}[-0.03, 0.16] & .139 & \textbf{ref}\\
-\hspace{1em}All ages & 3 & 6 & 0.04 & {}[-0.16, 0.25] & .361 & .7325\\
-\hspace{1em}Adults & 17 & 61 & 0.09 & {}[0.01, 0.18] & .034 & .7145\\
-\hspace{1em}Adolescents & 3 & 6 & 0.02 & {}[-0.4, 0.44] & .806 & .6860\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Region}}\\
-\hspace{1em}North America & 23 & 74 & 0.04 & {}[-0.01, 0.08] & .142 & \textbf{ref}\\
-\hspace{1em}Europe & 14 & 28 & 0.14 & {}[0.02, 0.27] & .029 & .1565\\
-\hspace{1em}Multi-region & 1 & 4 & 0.21 & {}[0.21, 0.21] & 0 & .0000\\
-\hspace{1em}Asia + Australia & 2 & 5 & 0.13 & {}[-0.17, 0.43] & .116 & .2203\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Publication Decade}}\\
-\hspace{1em}2000s & 6 & 8 & 0.16 & {}[-0.12, 0.43] & .199 & \textbf{ref}\\
-\hspace{1em}2010s & 12 & 31 & 0.07 & {}[-0.03, 0.17] & .13 & .4635\\
-\hspace{1em}2020s & 23 & 73 & 0.05 & {}[-0.01, 0.11] & .074 & .3687\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Method of Delivery}}\\
-\hspace{1em}Educational materials & 15 & 59 & 0.01 & {}[-0.04, 0.07] & .566 & \textbf{ref}\\
-\hspace{1em}Online & 8 & 22 & 0.16 & {}[-0.02, 0.34] & .067 & .1705\\
-\hspace{1em}Dietary consultation & 2 & 2 & 0.40 & {}[-3.36, 4.15] & .409 & .4410\\
-\hspace{1em}In-cafeteria & 8 & 13 & 0.10 & {}[-0.04, 0.25] & .101 & .1230\\
-\hspace{1em}Video & 10 & 16 & 0.01 & {}[-0.05, 0.07] & .485 & .5326\\
-\bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The}\\
-\multicolumn{7}{l}{first p value column tests the hypothesis that the subset of studies with a given characteristic is significantly}\\
-\multicolumn{7}{l}{different than an SMD of zero. The second compares effects within a given group, with the top category set to}\\
-\multicolumn{7}{l}{reference.}\\
-\end{tabular}
-\end{table}
-
-\begin{table}[!ht]
-\centering
-\caption{\label{tab:table_three}Sensitivity Analysis Results}
-\centering
-\begin{tabular}[t]{lllllll}
-\toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
-\midrule
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Publication Status}}\\
-\hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
-\hspace{1em}Preprint or thesis & 7 & 17 & 0.08 & {}[-0.1, 0.25] & .325 & .9467\\
-\hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .0250\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
-\hspace{1em}Self-reported & 30 & 94 & 0.06 & {}[0, 0.12] & .039 & \textbf{ref}\\
-\hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .3349\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Open Science}}\\
-\hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
-\hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .6254\\
-\hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .2395\\
-\hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .2740\\
-\bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value}\\
-\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with a given characteristic is significantly different than}\\
-\multicolumn{7}{l}{an SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
-\end{tabular}
-\end{table}
 
 \clearpage
 
