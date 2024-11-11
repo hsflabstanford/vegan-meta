@@ -256,7 +256,7 @@ First, we counted and analyzed reductions in RPM separately.
 Second, we excluded studies that sought to induce substitution from one kind of MAP to another, e.g. swapping red meat with fish Third, we excluded studies with involuntary reductions, i.e. interventions in institutions where subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
-We 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
+We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
 
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
@@ -289,7 +289,7 @@ When there was insufficient information to calculate a specific SMD, but the tex
 
 ## Statistical analysis methods {#sec3.4}
 
-Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R`[@Rlang].
+Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R` [@Rlang].
 Many studies in our sample featured multiple treatment groups compared to a single control group.
 Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction.
 
