@@ -172,7 +172,9 @@ meta_table
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
 Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2.
 Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1).
-Estimates may have been somewhat larger among the choice architecture studies `r paste0("(SMD = ", choice_delta, ")")` but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates). We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g. [@jalil2023] presented students with both environmental and health reasons to reduce MAP consumption.
+Estimates may have been somewhat larger among the choice architecture studies `r paste0("(SMD = ", choice_delta, ")")` but the sample size was much smaller (`r choice_results$N_estimates` estimates).
+Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates). 
+We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g. [@jalil2023] presented students with both environmental and health reasons to reduce MAP consumption.
 
 ```{r forest_plot, fig.cap="Forest plot of all meta-analyzed studies. For papers contributing multiple point estimates, the plotted point corresponds to a fixed effects meta-analysis for each paper for visual clarity. Papers employing multiple theoretical approaches are represented once per theory. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
@@ -200,7 +202,7 @@ moderator_table
 
 The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
 Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
-We observe consistently small effects across categories of population (all SMDs < 0.1), but more variance by region: North America, where a majority of studies took place, 
+We observe consistently small effects across categories of population (all SMDs < 0.1), but more variance by region: North America, where a majority of studies took place, had an average effect of SMD = `r region_results |> filter(Moderator == "North America") |> pull(Delta)` vs. 
 
 
 Table 3 presents average differences by publication status, data collection strategy, and open science practices.
@@ -227,15 +229,16 @@ worst_case <- extract_model_results(data = nulls)
 ```
 
 Figure 2 is a modified type of funnel plot [@mathur2020]. 
+```{r funnel_plot, echo=FALSE, message=F, fig.cap="significance funnel plot that relates studies' point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).", fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
+funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
+funnel_plot
+```
+
 The meta-analytic mean corrected for publication bias  that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
 A conservative estimate that accounts for the possibility of worst-case publication bias  yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024].
 
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).
 
-```{r funnel_plot, echo=FALSE, message=F, fig.cap="significance funnel plot that relates studies' point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).", fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
-funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
-funnel_plot
-```
 
 # Methods {#sec3}
 
