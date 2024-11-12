@@ -14,19 +14,17 @@ dat <- dat |>
     
     # Create 'open_science_group' variable
     open_science_group = case_when(
+      public_pre_analysis_plan == 'N' & open_data == 'N' ~ "None",
       public_pre_analysis_plan != 'N' & open_data == 'N' ~ "Pre-analysis plan only",
       public_pre_analysis_plan == 'N' & open_data != 'N' ~ "Open data only",
-      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan and open data",
-      TRUE ~ "None"
-    ),
+      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan \\& open data"),
     
     # Create 'data_collection_group' variable
     data_collection_group = case_when(
       self_report == 'Y' ~ 'Self-reported',
       self_report == 'N' ~ 'Objectively measured',
       TRUE ~ NA_character_
-    )
-  )
+    )) 
 
 # -------------------------------
 # 2. Process Each Sensitivity Analysis Group
@@ -39,7 +37,9 @@ pub_status_results <- process_group(dat, "pub_group", ref_level = "Journal artic
 data_collection_results <- process_group(dat, "data_collection_group", ref_level = "Self-reported")
 
 # 2.3. Open Science Practices
-open_science_results <- process_group(dat, "open_science_group", ref_level = "None")
+open_science_results <- process_group(dat, "open_science_group", ref_level = "None", 
+  order_levels = c("None", "Pre-analysis plan only", "Open data only", "Pre-analysis plan \\& open data"))
+
 
 # -------------------------------
 # 3. Calculate Row Indices for Grouping
@@ -65,7 +65,7 @@ sensitivity_table <- bind_rows(
   kbl(
     booktabs = TRUE,
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
-                  "SMD", "95\\% CIs", "Subset p-val", "Moderator p-val"), 
+                  "SMD", "95\\% CIs", "Subset $p$ value", "Moderator $p$ value"), 
     caption = "Sensitivity Analysis Results", 
     label = "table_three",
     align = "l",

@@ -148,15 +148,19 @@ run_meta_regression <- function(data, group_var, ref_level) {
 }
 
 # Function to process each group
-process_group <- function(data, group_var, ref_level) {
+process_group <- function(data, group_var, ref_level, order_levels = NULL) {
   # Automatically determine group levels present in data
   group_levels <- data |>
     filter(!is.na(!!sym(group_var))) |>
     pull(!!sym(group_var)) |>
     unique()
   
-  # Ensure the reference level is first
-  group_levels <- c(ref_level, setdiff(group_levels, ref_level))
+  # Use the custom order if provided, otherwise set reference level first
+  if (!is.null(order_levels)) {
+    group_levels <- order_levels[order_levels %in% group_levels]
+  } else {
+    group_levels <- c(ref_level, setdiff(group_levels, ref_level))
+  }
   
   # Run subset meta-analyses for each level
   group_results <- lapply(group_levels, function(level) {
@@ -186,4 +190,5 @@ process_group <- function(data, group_var, ref_level) {
   
   return(group_results)
 }
+
 

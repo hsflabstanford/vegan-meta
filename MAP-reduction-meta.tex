@@ -400,7 +400,7 @@ by study population, region, era of publication, and delivery method.
 \centering
 \begin{tabular}[t]{lllllll}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ val & Moderator $p$ val\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Outcome}}\\
@@ -432,8 +432,8 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$
 \hspace{1em}Video & 10 & 16 & 0.01 & {}[-0.05, 0.07] & .485 & .533\\
 \bottomrule
 \multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The first p}\\
-\multicolumn{7}{l}{value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an}\\
-\multicolumn{7}{l}{SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
+\multicolumn{7}{l}{value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD}\\
+\multicolumn{7}{l}{of zero. The second compares effects within a given group, with the top category set to reference.}\\
 \end{tabular}
 \end{table}
 
@@ -442,12 +442,30 @@ comprising 25 point estimates, yielded a pooled effect of SMD = 0.25
 (95\% CI: {[}0.11, 0.38{]}), p = .002, \(\tau\) = 0.201. Among these
 studies, we estimate that 48\% of true RPM effects are above SMD = 0.2.
 We observe consistently small effects across categories of population
-(all SMDs \textless{} 0.1), but more variance by region: North America,
-where a majority of studies took place, had an average effect of SMD =
-0.04 vs.~
+(all SMDs \textless{} 0.1), but more heterogeneity by region: North
+America, where a majority of studies took place, had an average effect
+of SMD = 0.04 vs.~a range of 0.14 to 0.21 for other locations.
 
-Table 3 presents average differences by publication status, data
-collection strategy, and open science practices.
+\begin{comment} I don't like this sentence, but I am not sure what else so I am just moving on \end{comment}
+
+Effect sizes have broadly been declining over time, from an average of
+SMD = 0.16 in the 2000s to SMD = 0.05 in the 2020s, during which a
+majority (18 of 41) of studies were published. Finally, we note a wide
+array of heterogeneity of effects associated with different delivery
+mechanisms, from 0.01 for both educational materials and videos, to 0.4
+for dietary consultations, though this larger effect comes from just 2
+studies. For each estimate, we provide two p values. The first (subset
+\(p\) value) compares the effects associated with a given subset,
+e.g.~all studies with an adolescent population, to a null hypothesis of
+no effect. The second (moderator \(p\) value) compares the effects
+within different moderator categories, with the top category in each
+grouping set to be the reference level, e.g.~testing if the pooled
+effect of studies taking place in Europe is significantly different than
+that of studies taking place in North America.
+
+Table 3 compares average differences by three potential sources of bias:
+publication status, data collection strategy, and use of open science
+practices.
 
 \begin{table}[!ht]
 \centering
@@ -455,7 +473,7 @@ collection strategy, and open science practices.
 \centering
 \begin{tabular}[t]{lllllll}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-val & Moderator p-val\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Publication Status}}\\
@@ -470,14 +488,25 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset p-v
 \multicolumn{7}{l}{\textbf{Open Science}}\\
 \hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
 \hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .625\\
-\hspace{1em}Pre-analysis plan and open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
 \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .274\\
+\hspace{1em}Pre-analysis plan \& open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
 \bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value}\\
-\multicolumn{7}{l}{column tests the hypothesis that the subset of studies with a given characteristic is significantly different than}\\
-\multicolumn{7}{l}{an SMD of zero. The second compares effects within a given group, with the top category set to reference.}\\
+\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value column tests}\\
+\multicolumn{7}{l}{the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second}\\
+\multicolumn{7}{l}{compares effects within a given group, with the top category set to reference.}\\
 \end{tabular}
 \end{table}
+
+Within different types of publication, we find broadly similar results
+for journal articles and preprints/theses (SMD = 0.09 and SMD = 0.08,
+respectively), and a small backlash associated with results published as
+nonprofits' white papers (SMD = -0.04. Surprisingly, we do not detect
+meaningful differences between studies that recorded self-reported
+vs.~objectively measured outcomes (SMD = \texttt{r}self\_report\_delta`
+vs SMD = 0.09, respectively). Looking at adherence to open science
+practices, the largest difference is between studies that have neither
+open data nor a pre-analysis plan (SMD = 0.11) and those that have just
+open data (SMD = 0.01).
 
 Figure 2 is a modified type of funnel plot \citep{mathur2020}.
 
@@ -487,7 +516,7 @@ Figure 2 is a modified type of funnel plot \citep{mathur2020}.
 
 }
 
-\caption{significance funnel plot that relates studies' point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).}\label{fig:funnel_plot}
+\caption{Significance funnel plot that relates studies' point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).}\label{fig:funnel_plot}
 \end{figure}
 
 The meta-analytic mean corrected for publication bias that favors
@@ -506,9 +535,6 @@ estimate (gray diamond).
 
 \subsection{Study selection}\label{sec3.1}
 
-\begin{comment} is this first sentence repetitive of the intro or should we have everything in the methods section that's methods-y
-\end{comment}
-
 Our meta-analytic sample comprises randomized controlled trial
 evaluations of interventions intended to reduce MAP consumption that had
 at least 25 subjects in treatment and control (or at least 10 clusters
@@ -516,15 +542,14 @@ for studies that were cluster-assigned) and that measured MAP
 consumption at least a single day after treatment begins. We required
 that studies have a pure control group receiving no treatment. We
 further restricted our search to studies that were publicly circulated
-in English by December 2023.
-
-We also made three decisions regarding study inclusion after data
-collection began. First, we counted and analyzed reductions in RPM
-separately. Second, we excluded studies that sought to induce
-substitution from one kind of MAP to another, e.g.~swapping red meat
-with fish Third, we excluded studies with involuntary reductions,
-i.e.~interventions in institutions where subjects were simply served
-more vegetables on their plate.
+in English by December 2023. We also made three decisions regarding
+study inclusion after data collection began. First, we counted and
+analyzed reductions in RPM separately. Second, we excluded studies that
+did not aim to reduce either all MAP or all RPM consumption and instead
+only sought to induce substitution from one kind of MAP to another,
+e.g.swapping red meat with fish. Third, we excluded studies with
+involuntary reductions, i.e.~interventions in institutions where
+subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work
 indicating a large grey literature \citep{mathur2021meta}, we designed
@@ -694,14 +719,15 @@ promising designs and interventions yet await rigorous evaluation. For
 instance, no study that met our criteria evaluated extended contact with
 farm animals \citep{cerrato2022}, manipulations to the price of meat
 \citep{wilde2016}, activating moral and/or physical disgust
-\citep{palomo2018}, watching popular media such as the Simpsons episode
-\emph{Lisa the Vegetarian} \citep{byrd2010} or the movie \emph{Babe
-\citep{novatna2019}}, and many categories of choice architecture
-intervention \citep{olafsson2024}. Moreover, we are encouraged by
-contemporary research designs that offer creative solutions to
-longstanding measurement challenges, for example by implementing a
-default intervention at lunch and then measuring outcomes at dinner as
-well to assess potential compensatory effects \citep{vocski2024}.
+\citep{palomo2018}, watching popular media such as the \emph{Simpsons}
+episode ``Lisa the Vegetarian'' \citep{byrd2010} or the movie
+\emph{Babe} \citep{novatna2019}, and many categories of choice
+architecture intervention \citep{olafsson2024}. Moreover, we are
+encouraged by contemporary research designs that offer creative
+solutions to longstanding measurement challenges, for example by
+implementing a default intervention at lunch and then measuring outcomes
+at dinner as well to assess potential compensatory effects
+\citep{vocski2024}.
 
 In sum, though we view meaningfully reducing MAP consumption as an
 unsolved problem, we see no reason to think it is unsolvable.
@@ -714,8 +740,8 @@ comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg
 Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma
 Garnett for help with assembling the database and providing guidance on
 their studies. Thanks to Sofia Vera Verduzco for research assistance. We
-gratefully acknowledge funding from the NIH (grant XXX), Open
-Philanthropy (YYY), and the Food Systems Research Fund (Grant FSR
+gratefully acknowledge funding from the NIH (grant R01LM013866), Open
+Philanthropy, and the Food Systems Research Fund (Grant FSR
 2023-11-07).}
 
 \section*{Declarations}\label{declarations}
