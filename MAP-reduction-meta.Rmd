@@ -60,7 +60,7 @@ opts_chunk$set(fig.path = "./figures/",
                out.extra = "",
                fig.pos = "ht")
 
-options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
+options(tinytex.clean = FALSE) # switch to FALSE to get the bbl file for overleaf
 
 # libraries, functions, data, and key results
 source('./scripts/libraries.R')
@@ -86,27 +86,26 @@ Choice architecture has been cited as a cheap, effective way of altering dietary
 
 However, recurring design and measurement limitations comprise this literature.
 Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
-Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010].
-Further, many studies measure only immediate rather than long-term effects [@hansen2021; @griesoph2021].
+Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010]. 
+Additionally, many studies with comparatively large effects achieve them by aiming to reduce (and exclusively measuring) consumption of red and processed meat (RPM).
+If such interventions induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023], their results will be upwardly biased estimates of net MAP reduction.
+While RPM is particularly detrimental for human health and greenhouse gas emissions [@abete2014; @lescinsky2022], producing other forms of MAP also has severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
+Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical]. 
+Finally, many studies measure only immediate rather than long-term effects [@hansen2021; @griesoph2021]. This is of special concern if subjects who are encouraged to have a single vegetarian meal might later compensate by consuming more MAP at the next one, which would make an immediate outcome measurement an upwardly biased estimate of overall effects.
 
 In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, measurement validity, and statistical power.
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
 Does this phenomenon hold in the MAP reduction literature as well?
 
 To address this question, we conducted a meta-analysis of RCTs that aim to reduce MAP consumption and that meet basic methodological standards [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aberman2018; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
-Specifically, we restricted eligibility to RCTs that measured consumption outcomes at least a single day after treatment was first administered and that had at least 25 subjects in both treatment and control (or, for cluster-assigned studies, at least ten clusters in total).
-
-Numerous studies specifically aim to reduce consumption of red and processed meat (RPM), rather than all MAP.
-Such interventions may induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023].
-While RPM is particularly detrimental for human health and greenhouse gas emissions [@abete2014; @lescinsky2022], producing other forms of MAP also has severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
-Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical].
-For these reasons, we specifically assessed the relative effectiveness of interventions that aimed to reduce all MAP consumption, versus those that aimed only to reduce RPM consumption (`r RPMC_studies` studies) [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020].
+Specifically, we restricted eligibility to RCTs that measured consumption outcomes at least a single day after treatment was first administered and that had at least 25 subjects in both treatment and control (or, for cluster-assigned studies, at least ten clusters in total). 
 
 Studies in our meta-analysis pursued one of four theoretical approaches: choice architecture, psychological appeals (typically manipulations of perceived norms around eating meat), explicit persuasion (centered around animal welfare, the environment, and/or health), or a combination of psychological and persuasion messages.
 Interventions varied in delivery method, for example, documentary films [@mathur2021effectiveness], leaflets [@peacock2017], university lectures [@jalil2023], op-eds [@haile2021], and changes to menus in cafeterias [@andersson2021] and restaurants [@coker2022; @sparkman2021].
 We estimated overall effect sizes as well as effect sizes associated with different theoretical approaches and delivery mechanisms.
-Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions.
-Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' methodological rigor (Supplement), we conclude that meaningfully reducing MAP consumption is an unsolved problem.
+Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions. 
+We also find that a dataset of `r RPMC_studies` studies aimed at reducing PRM consumption [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020], but which meet our other inclusion criteria, are consistently associated with larger behavioral changes than are studies aimed at reducing net MAP consumption. Last, our robustness checks, where we include studies that do not meet our inclusion criteria, reveal overall effect sizes more in line with those of prior reviews (Supplements).
+Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' outcomes and methodological rigor, we conclude that meaningfully reducing MAP consumption is an unsolved problem.
 However, many promising approaches still await rigorous evaluation.
 
 # Results {#sec2}
@@ -263,7 +262,7 @@ worst_case <- extract_model_results(data = nulls)
 ```
 
 Figure 2 is a modified type of funnel plot [@mathur2020]. 
-```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot that relates studies' point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).", fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
+```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot displaying studies’ point estimates versus their estimated standard errors. Orange points: affirmative studies (p < 0.05 and a positive point estimate). Grey points: nonaffirmative studies (p $\\geq$ 0.05 or a negative point estimate). Diagonal grey line: the standard threshold of “statistical significance” for positive point estimates; studies lying on the line have exactly p = 0.05. Black diamond: main-analysis point estimate within all studies; grey diamond: worst-case point estimate within only the nonaffirmative studies.", fig.align='center', fig.pos='H'}
 funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
 ```
@@ -304,7 +303,7 @@ knitr::include_graphics('./figures/prisma-diagram.png')
 
 The first author extracted all data.
 We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after the intervention
-Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <URL>).
+Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <LINK>).
 When in doubt about calculating effect sizes, we consulted publicly available datasets and/or contacted authors.
 To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (table 3).
 
@@ -312,14 +311,14 @@ All effect size conversions were conducted by the first author using methods and
 As our measure of standardized mean difference, we used Glass's $\Delta$ whenever possible, defined as $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, where $\mu_T$ and $\mu_C$ respectively denote the treatment and control group means and $\sigma_C$ denotes the pre-treatment control group standard deviation.
 We standardized on the SD of the control group at pre-treatment.
 If the control group SD was not available, we standardized on the pooled SD. 
-When means and SDs were not
-available, we converted effect sizes from:When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z-scores.
+When means and SDs were not available, we converted effect sizes from:When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z-scores.
 When there was insufficient information to calculate a specific SMD, but the text reports the result as a null, we recorded the outcome as an "unspecified null" and set it to 0.01.
 
-## Statistical analysis methods {#sec3.4}
+## Statistical analysis {#sec3.4}
 
-Results were synthesized using robust variance estimation (RVE) methods [@hedges2010] as implemented by the `robumeta` package [@fisher2015] in `R` [@Rlang].
-Many studies in our sample featured multiple treatment groups compared to a single control group.
+We used `Rmarkdown` [@xie2018] and a containerized online platform [@moreau2023; @clyburne2019] to ensure computational reproducibility [@polanin2020].
+We conducted meta-analysis using robust variance estimation (RVE) methods [@hedges2010] as implemented by the `robumeta` package in `R` [@fisher2015; @Rlang].
+Many studies in our sample compared multiple treatment groups to a single control group.
 Therefore, we used the RVE method to allow for the resulting dependence between observations, as well as a standard small-sample correction.
 
 Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019] We assessed publication bias using selection model methods [@hedges1992; @vevea1995], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020].
@@ -327,18 +326,17 @@ These methods assume that the publication process favors “statistically signif
 Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies.
 We conducted these analyses using functions in `metafor` [@viechtbauer2010] and `PublicationBias` [@mathur2020; @mathur2024].
 
-We used `Rmarkdown` [@xie2018] and a containerized online platform [@moreau2023; @clyburne2019] to ensure computational reproducibility [@polanin2020].
 
 # Discussion
 
-Our overall effect of SMD = `r overall_results$Delta`, as well as our upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`, lead us to conclude that reducing MAP consumption is an unsolved problem.
+Our meta-analysis of RCTs estimated a small overall effect of SMD = `r overall_results$Delta`, along with its upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`.
 Effects were also consistently small across an array of locations, study designs, and intervention categories.
-Some individual studies found comparatively larger effects (SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
-However, each builds on a fairly unique theory of change and employs idiosyncratic methods.
-We view these these interventions as intriguing candidates for subsequent research and replication, and conclude that no theoretical approach, delivery mechanism, or intended persuasive message should be considered a well-validated method of reducing MAP consumption.
+Some individual studies found comparatively larger effects ( e.g. five studies estimated SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
+We view these these interventions as intriguing candidates for subsequent research and replication, but their heterogeneous theories, methods, and implementation details suggest that no singular approach, delivery mechanism, or message should be considered a well-validated method of reducing MAP consumption.  Taken together, these findings suggest that reducing MAP consumption is an
+unsolved problem.
 
-Though this may surprise readers of previous reviews [@mathur2021meta; @meier2022; @mertens2022], our divergent results likely reflect our stricter methodological inclusion criteria.
-For instance, of the ten largest effect sizes recorded in [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
+Perhaps surprisingly, our results diverged from the more positive findings of previous reviews, which are summarized in the Supplement [@mathur2021meta; @meier2022; @mertens2022]. our much smaller estimate likely reflects our stricter methodological inclusion criteria.
+For instance, of the ten largest effect sizes in a previous meta-analysis [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
 Prior research has found that intentions often do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
 Our results raise the possibility that previous reviews’ positive findings might be largely attributable to bias, though this will require further empirical evaluation.
 
