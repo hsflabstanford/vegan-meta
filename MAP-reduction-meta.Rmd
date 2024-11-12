@@ -285,41 +285,35 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 Our meta-analytic sample comprises randomized controlled trial evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins. 
 We required that studies have a pure control group receiving no treatment. 
 We further restricted our search to studies that were publicly circulated in English by December 2023. 
-We also made three decisions regarding study inclusion after data collection began. First, we counted and analyzed reductions in RPM separately. Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead only sought to induce substitution from one kind of MAP to another, e.g.swapping red meat with fish. 
+We also made three decisions regarding study inclusion after data collection began. First, we counted and analyzed reductions in RPM separately. Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead only sought to induce substitution from one kind of MAP to another, e.g.swapping red meat for fish. 
 Third, we excluded studies with involuntary reductions, i.e. interventions in institutions where subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
-We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
-
+We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions. 
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
-Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies.
+Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies, which is detailed further in the Supplement.
 
 ```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
 knitr::include_graphics('./figures/prisma-diagram.png')
 
 ```
 
-
-See supplement for further discussion.
-
 ## Data extraction {#sec3.3}
 
 The first author extracted all data.
-We extracted an effect size for one outcome per intervention: the latest possible measure of net MAP or RPM consumption.
-Sample sizes corresponded to the same time point.
-Additional variables coded included information about publication, details of the interventions, length of delay, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation).
+We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after the intervention
+Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <URL>).
+When in doubt about calculating effect sizes, we consulted publicly available datasets and/or contacted authors.
+To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (table 3).
 
-When in doubt about calculating effect sizes, we consulted available datasets and/or contacted authors.
-
-To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (see table 3).
-
-All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques from [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
-We used Glass's $\Delta$ whenever possible as our measure of standardized mean difference: $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$.
+All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
+As our measure of standardized mean difference, we used Glass's $\Delta$ whenever possible, defined as $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, where $\mu_T$ and $\mu_C$ respectively denote the treatment and control group means and $\sigma_C$ denotes the pre-treatment control group standard deviation.
 We standardized on the SD of the control group at pre-treatment.
-If group SDs were not available, we standardized on the pooled SD.
-When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z scores.
+If the control group SD was not available, we standardized on the pooled SD. 
+When means and SDs were not
+available, we converted effect sizes from:When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z-scores.
 When there was insufficient information to calculate a specific SMD, but the text reports the result as a null, we recorded the outcome as an "unspecified null" and set it to 0.01.
 
 ## Statistical analysis methods {#sec3.4}
