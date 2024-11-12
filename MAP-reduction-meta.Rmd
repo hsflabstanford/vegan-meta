@@ -191,19 +191,17 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
      mutate(across(1:6, \(x) round(x, 3)))
 ```
 
-## Meta-regression on study characteristics analysis {#sec2.4}
-
-Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method. The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
-Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
-
+Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method. 
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/table-two-moderator.R')
 moderator_table
 ```
 
+The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
+Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
+We observe consistently small effects across categories of population (all SMDs < 0.1), but more variance by region: North America, where a majority of studies took place, 
 
-## Sensitivity Analyses {#sec2.5}
 
 Table 3 presents average differences by publication status, data collection strategy, and open science practices.
 
@@ -228,14 +226,16 @@ nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
 ```
 
-The meta-analytic mean corrected for publication bias [@hedges1992] was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)`.
-A conservative estimate that accounts for the possibility of worst-case publication bias [@mathur2024] yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val`.
+Figure 2 is a modified type of funnel plot [@mathur2020]. 
+The meta-analytic mean corrected for publication bias  that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
+A conservative estimate that accounts for the possibility of worst-case publication bias  yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024].
 
 Figure 2 is a significance funnel plot [@mathur2020] that relates studies’ point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).
 
-\begin{center}
-[Fig 2 about here]
-\end{center}
+```{r funnel_plot, echo=FALSE, message=F, fig.cap="significance funnel plot that relates studies' point estimates to their standard errors and compares the pooled estimate within all studies (black diamond) to the worst-case estimate (gray diamond).", fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
+funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
+funnel_plot
+```
 
 # Methods {#sec3}
 
@@ -355,10 +355,6 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 
 ## Figures
 
-```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot.", fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
-funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
-funnel_plot
-```
 
 ```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
 knitr::include_graphics('./figures/prisma-diagram.png')
