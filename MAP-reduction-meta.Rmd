@@ -211,7 +211,12 @@ delivery_n <- delivery_results |> filter(Moderator == 'Dietary consultation') |>
 
 The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
 Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
-We observe consistently small effects across categories of population (all SMDs < 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. a range of 0.14 to 0.21 for other locations. \begin{comment} I don't like this sentence, but I am not sure what else so I am just moving on \end{comment}
+We observe consistently small effects across categories of population (all SMDs < 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. a range of 0.14 to 0.21 for other locations. 
+
+\begin{comment} 
+I don't like this sentence, but I am not sure what else so I am just moving on 
+\end{comment}
+
 Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s, during which a majority (`r twenty_twenty_n` of `r num_studies`) of studies were published. 
 Finally, we note a wide array of heterogeneity of effects associated with different delivery mechanisms, from `r edu_delta` for both educational materials and videos, to `r delivery_delta` for dietary consultations, though this larger effect comes from just `r delivery_n` studies.
 For each estimate, we provide two p values.
@@ -291,9 +296,11 @@ Inclusion/exclusion decisions were primarily made by the first author, with all 
 
 Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies.
 
-\begin{center}
-[Fig 3 about here]
-\end{center}
+```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
+knitr::include_graphics('./figures/prisma-diagram.png')
+
+```
+
 
 See supplement for further discussion.
 
@@ -374,20 +381,6 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 *Thanks to Alex Berke, Alix Winter, Anson Berns, Dan Waldinger, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. Thanks to Sofia Vera Verduzco for research assistance. We gratefully acknowledge funding from the NIH (grant R01LM013866), Open Philanthropy, and the Food Systems Research Fund (Grant FSR 2023-11-07).*
 
 # Declarations {.unnumbered}
-
-\newpage
-
-\clearpage
-
-## Figures
-
-
-```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
-knitr::include_graphics('./figures/prisma-diagram.png')
-
-```
-
-\newpage
 
 # Supplement {#Sec5}
 
