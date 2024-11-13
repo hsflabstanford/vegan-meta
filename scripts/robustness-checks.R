@@ -31,3 +31,22 @@ robust_dat <- read.csv('../data/robustness-data.csv') |>
            n_t = n_t_post),
          se_d = sqrt(var_d)) |> 
   select(author, year, title, unique_paper_id, unique_study_id, everything())
+
+
+robust_only_results <- robust_dat |> extract_model_results()
+
+# overall result with robust_dat merged
+merged_dat <- full_join(dat, robust_dat) |> 
+  select(c(-unique_study_id, unique_paper_id)) |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id())  |>
+  ungroup() |>
+  group_by(unique_paper_id, study_num_within_paper) |>
+  mutate(unique_study_id = cur_group_id()) |>
+  ungroup() |>
+  select(author, year, title, unique_paper_id, unique_study_id, everything())
+
+merged_results <- merged_dat |> extract_model_results()
+
+## look at biggest results
+merged_dat |> arrange(desc(d)) |> select(author,year,  ,se_d, inclusion_exclusion) |> head(10)

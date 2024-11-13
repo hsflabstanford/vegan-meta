@@ -2,9 +2,14 @@
 set -ex
 
 Rscript -e "rmarkdown::render('./MAP-reduction-meta.Rmd', clean = T)";
+Rscript -e "rmarkdown::render('./supplement-MAP-reduction.Rmd', clean = T)";
 
 # Replace all instances of [H] with [!ht] in the generated .tex file
-sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta.tex && Rscript -e "tinytex::latexmk('MAP-reduction-meta.tex')"
+sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta.tex 
+sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' supplement-MAP-reduction.tex 
+
+Rscript -e "tinytex::latexmk('MAP-reduction-meta.tex')"
+Rscript -e "tinytex::pdflatex('supplement-MAP-reduction.tex')"
 
 # move results to results and get rid of aux stuff
 mv *{.pdf,.tex} ../results && rm *.{aux,out,blg,log}

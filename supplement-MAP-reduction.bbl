@@ -1,0 +1,194 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\burl{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\bibcommenthead
+
+\bibitem{piazza2022}
+\bibinfo{author}{Piazza, J.} \emph{et~al.}
+\newblock \bibinfo{title}{{Monitoring a meat-free pledge with smartphones: an experimental study}}.
+\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{168}}, \bibinfo{pages}{105726} (\bibinfo{year}{2022}).
+
+\bibitem{garnett2020}
+\bibinfo{author}{Garnett, E.~E.}, \bibinfo{author}{Marteau, T.~M.}, \bibinfo{author}{Sandbrook, C.}, \bibinfo{author}{Pilling, M.~A.} \& \bibinfo{author}{Balmford, A.}
+\newblock \bibinfo{title}{{Order of meals at the counter and distance between options affect student cafeteria vegetarian sales}}.
+\newblock \emph{\bibinfo{journal}{Nature Food}} \textbf{\bibinfo{volume}{1}}, \bibinfo{pages}{485--488} (\bibinfo{year}{2020}).
+
+\bibitem{reinders2017}
+\bibinfo{author}{Reinders, M.~J.}, \bibinfo{author}{Huitink, M.}, \bibinfo{author}{Dijkstra, S.~C.}, \bibinfo{author}{Maaskant, A.~J.} \& \bibinfo{author}{Heijnen, J.}
+\newblock \bibinfo{title}{{Menu-engineering in restaurants-adapting portion sizes on plates to enhance vegetable consumption: a real-life experiment}}.
+\newblock \emph{\bibinfo{journal}{International Journal of Behavioral Nutrition and Physical Activity}} \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{1--11} (\bibinfo{year}{2017}).
+
+\bibitem{lentz2019}
+\bibinfo{author}{LENTZ, G.}
+\newblock \emph{\bibinfo{title}{{Meat consumption and potential reduction for environmental and public health benefits}}}.
+\newblock Ph.D. thesis, \bibinfo{school}{University of Otago} (\bibinfo{year}{2019}).
+\newblock \urlprefix\url{https://ourarchive.otago.ac.nz/esploro/outputs/doctoral/Meat-consumption-and-potential-reduction-for/9926478224801891}.
+
+\bibitem{dannenberg2023}
+\bibinfo{author}{Dannenberg, A.} \& \bibinfo{author}{Weing{\"a}rtner, E.}
+\newblock \bibinfo{title}{{The effects of observability and an information nudge on food choice}}.
+\newblock \emph{\bibinfo{journal}{Journal of Environmental Economics and Management}} \textbf{\bibinfo{volume}{120}}, \bibinfo{pages}{102829} (\bibinfo{year}{2023}).
+
+\bibitem{sparkman2017}
+\bibinfo{author}{Sparkman, G.} \& \bibinfo{author}{Walton, G.~M.}
+\newblock \bibinfo{title}{{Dynamic norms promote sustainable behavior, even if it is counternormative}}.
+\newblock \emph{\bibinfo{journal}{Psychological science}} \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{1663--1674} (\bibinfo{year}{2017}).
+
+\bibitem{griesoph2021}
+\bibinfo{author}{Griesoph, A.}, \bibinfo{author}{Hoffmann, S.}, \bibinfo{author}{Merk, C.}, \bibinfo{author}{Rehdanz, K.} \& \bibinfo{author}{Schmidt, U.}
+\newblock \bibinfo{title}{{Guess what\ldots{}?--How guessed norms nudge climate-friendly food choices in real-life settings}}.
+\newblock \emph{\bibinfo{journal}{Sustainability}} \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{8669} (\bibinfo{year}{2021}).
+
+\bibitem{hansen2021}
+\bibinfo{author}{Hansen, P.~G.}, \bibinfo{author}{Schilling, M.} \& \bibinfo{author}{Malthesen, M.~S.}
+\newblock \bibinfo{title}{{Nudging healthy and sustainable food choices: three randomized controlled field experiments using a vegetarian lunch-default as a normative signal}}.
+\newblock \emph{\bibinfo{journal}{Journal of Public Health}} \textbf{\bibinfo{volume}{43}}, \bibinfo{pages}{392--397} (\bibinfo{year}{2021}).
+
+\bibitem{celis2017}
+\bibinfo{author}{Celis-Morales, C.} \emph{et~al.}
+\newblock \bibinfo{title}{{Effect of personalized nutrition on health-related behaviour change: evidence from the Food4me European randomized controlled trial}}.
+\newblock \emph{\bibinfo{journal}{International journal of epidemiology}} \textbf{\bibinfo{volume}{46}}, \bibinfo{pages}{578--588} (\bibinfo{year}{2017}).
+
+\bibitem{johansen2009}
+\bibinfo{author}{Johansen, K.~S.} \emph{et~al.}
+\newblock \bibinfo{title}{{Changes in food habits and motivation for healthy eating among Pakistani women living in Norway: results from the InnvaDiab-DEPLAN study}}.
+\newblock \emph{\bibinfo{journal}{Public health nutrition}} \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{858--867} (\bibinfo{year}{2010}).
+
+\bibitem{betterfoodfoundation2023}
+\bibinfo{author}{{Food for Climate League}}.
+\newblock \bibinfo{title}{{Serving Up Plants by Default: Optimizing Variety, Health, and Sustainability of All-You-Care-to-Eat University Dining with Plant-Based Defaults}}.
+\newblock \bibinfo{type}{Tech. Rep.}, \bibinfo{institution}{Food for Climate League, Better Food Foundation} (\bibinfo{year}{2023}).
+\newblock \bibinfo{note}{Supported by Better Food Foundation and VegFund, with contributions from Dr. Gregg Sparkman and the Social Influence \& Social Change Lab at Boston College, along with Sodexo North America. Study conducted at Tulane University, Lehigh University, and Rensselaer Polytechnic Institute.}
+
+\bibitem{andersson2021}
+\bibinfo{author}{Andersson, O.} \& \bibinfo{author}{Nelander, L.}
+\newblock \bibinfo{title}{{Nudge the lunch: A field experiment testing menu-primacy effects on lunch choices}}.
+\newblock \emph{\bibinfo{journal}{Games}} \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{2} (\bibinfo{year}{2021}).
+
+\bibitem{kanchanachitra2020}
+\bibinfo{author}{Kanchanachitra, M.} \emph{et~al.}
+\newblock \bibinfo{title}{{Nudge interventions to reduce fish sauce consumption in Thailand}}.
+\newblock \emph{\bibinfo{journal}{PloS one}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{e0238642} (\bibinfo{year}{2020}).
+
+\bibitem{mattson2020}
+\bibinfo{author}{Mattson, S.}
+\newblock \emph{\bibinfo{title}{{Analyzing the effectiveness of a meatless monday intervention on meat consumption and associated pro-environmental spillover behavior throughout the week}}}.
+\newblock Ph.D. thesis, \bibinfo{school}{The Ohio State University} (\bibinfo{year}{2020}).
+
+\bibitem{arno2016}
+\bibinfo{author}{Arno, A.} \& \bibinfo{author}{Thomas, S.}
+\newblock \bibinfo{title}{{The efficacy of nudge theory strategies in influencing adult dietary behaviour: a systematic review and meta-analysis}}.
+\newblock \emph{\bibinfo{journal}{BMC public health}} \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{1--11} (\bibinfo{year}{2016}).
+
+\bibitem{byerly2018}
+\bibinfo{author}{Byerly, H.} \emph{et~al.}
+\newblock \bibinfo{title}{{Nudging pro-environmental behavior: evidence and opportunities}}.
+\newblock \emph{\bibinfo{journal}{Frontiers in Ecology and the Environment}} \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{159--168} (\bibinfo{year}{2018}).
+
+\bibitem{mertens2022}
+\bibinfo{author}{Mertens, S.}, \bibinfo{author}{Herberz, M.}, \bibinfo{author}{Hahnel, U.~J.} \& \bibinfo{author}{Brosch, T.}
+\newblock \bibinfo{title}{{The effectiveness of nudging: A meta-analysis of choice architecture interventions across behavioral domains}}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of Sciences}} \textbf{\bibinfo{volume}{119}}, \bibinfo{pages}{e2107346118} (\bibinfo{year}{2022}).
+
+\bibitem{bianchi2018restructuring}
+\bibinfo{author}{Bianchi, F.}, \bibinfo{author}{Garnett, E.}, \bibinfo{author}{Dorsel, C.}, \bibinfo{author}{Aveyard, P.} \& \bibinfo{author}{Jebb, S.~A.}
+\newblock \bibinfo{title}{{Restructuring physical micro-environments to reduce the demand for meat: a systematic review and qualitative comparative analysis}}.
+\newblock \emph{\bibinfo{journal}{The Lancet Planetary Health}} \textbf{\bibinfo{volume}{2}}, \bibinfo{pages}{e384--e397} (\bibinfo{year}{2018}).
+
+\bibitem{pandey2023}
+\bibinfo{author}{Pandey, S.}, \bibinfo{author}{Olsen, A.}, \bibinfo{author}{Perez-Cueto, F.~J.} \& \bibinfo{author}{Thomsen, M.}
+\newblock \bibinfo{title}{{Nudging Toward Sustainable Food Consumption at University Canteens: A Systematic Review and Meta-Analysis}}.
+\newblock \emph{\bibinfo{journal}{Journal of nutrition education and behavior}}  (\bibinfo{year}{2023}).
+
+\bibitem{grundy2022}
+\bibinfo{author}{Grundy, E.~A.} \emph{et~al.}
+\newblock \bibinfo{title}{{Interventions that influence animal-product consumption: a meta-review}}.
+\newblock \emph{\bibinfo{journal}{Future Foods}} \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{100111} (\bibinfo{year}{2022}).
+
+\bibitem{hartmannboyce2018}
+\bibinfo{author}{Hartmann-Boyce, J.} \emph{et~al.}
+\newblock \bibinfo{title}{{Grocery store interventions to change food purchasing behaviors: a systematic review of randomized controlled trials}}.
+\newblock \emph{\bibinfo{journal}{The American journal of clinical nutrition}} \textbf{\bibinfo{volume}{107}}, \bibinfo{pages}{1004--1016} (\bibinfo{year}{2018}).
+
+\bibitem{chang2023}
+\bibinfo{author}{Chang, K.~B.}, \bibinfo{author}{Wooden, A.}, \bibinfo{author}{Rosman, L.}, \bibinfo{author}{Altema-Johnson, D.} \& \bibinfo{author}{Ramsing, R.}
+\newblock \bibinfo{title}{{Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis}}.
+\newblock \emph{\bibinfo{journal}{Frontiers in Sustainable Food Systems}} \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{1103060} (\bibinfo{year}{2023}).
+
+\bibitem{harguess2020}
+\bibinfo{author}{Harguess, J.~M.}, \bibinfo{author}{Crespo, N.~C.} \& \bibinfo{author}{Hong, M.~Y.}
+\newblock \bibinfo{title}{{Strategies to reduce meat consumption: A systematic literature review of experimental studies}}.
+\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{144}}, \bibinfo{pages}{104478} (\bibinfo{year}{2020}).
+
+\bibitem{adleberg2018}
+\bibinfo{author}{Adleberg, T.}
+\newblock \bibinfo{title}{{Protests Intervention Report}}.
+\newblock \bibinfo{type}{Tech. Rep.}, \bibinfo{institution}{Animal Charity Evaluators} (\bibinfo{year}{2018}).
+\newblock \urlprefix\url{https://animalcharityevaluators.org/wp-content/uploads/2022/04/protest-intervention-report.pdf}.
+
+\bibitem{blackford2021}
+\bibinfo{author}{Blackford, B.}
+\newblock \bibinfo{title}{{Nudging interventions on sustainable food consumption: a systematic review}}.
+\newblock \emph{\bibinfo{journal}{the journal of population and sustainability}} \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{17--62} (\bibinfo{year}{2021}).
+
+\bibitem{rosenfeld2018}
+\bibinfo{author}{Rosenfeld, D.~L.}
+\newblock \bibinfo{title}{{The psychology of vegetarianism: Recent advances and future directions}}.
+\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{131}}, \bibinfo{pages}{125--138} (\bibinfo{year}{2018}).
+
+\bibitem{bianchi2018conscious}
+\bibinfo{author}{Bianchi, F.}, \bibinfo{author}{Dorsel, C.}, \bibinfo{author}{Garnett, E.}, \bibinfo{author}{Aveyard, P.} \& \bibinfo{author}{Jebb, S.~A.}
+\newblock \bibinfo{title}{{Interventions targeting conscious determinants of human behaviour to reduce the demand for meat: a systematic review with qualitative comparative analysis}}.
+\newblock \emph{\bibinfo{journal}{International Journal of Behavioral Nutrition and Physical Activity}} \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{1--25} (\bibinfo{year}{2018}).
+
+\bibitem{kwasny2022}
+\bibinfo{author}{Kwasny, T.}, \bibinfo{author}{Dobernig, K.} \& \bibinfo{author}{Riefler, P.}
+\newblock \bibinfo{title}{{Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001--2019}}.
+\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{168}}, \bibinfo{pages}{105739} (\bibinfo{year}{2022}).
+
+\bibitem{taufik2019}
+\bibinfo{author}{Taufik, D.}, \bibinfo{author}{Verain, M.~C.}, \bibinfo{author}{Bouwman, E.~P.} \& \bibinfo{author}{Reinders, M.~J.}
+\newblock \bibinfo{title}{{Determinants of real-life behavioural interventions to stimulate more plant-based and less animal-based diets: A systematic review}}.
+\newblock \emph{\bibinfo{journal}{Trends in Food Science \& Technology}} \textbf{\bibinfo{volume}{93}}, \bibinfo{pages}{281--303} (\bibinfo{year}{2019}).
+
+\bibitem{benningstad2020}
+\bibinfo{author}{Benningstad, N.~C.} \& \bibinfo{author}{Kunst, J.~R.}
+\newblock \bibinfo{title}{{Dissociating meat from its animal origins: A systematic literature review}}.
+\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{147}}, \bibinfo{pages}{104554} (\bibinfo{year}{2020}).
+
+\bibitem{greig2017}
+\bibinfo{author}{Greig, K.}
+\newblock \bibinfo{title}{{Leafleting Intervention Report}}.
+\newblock \bibinfo{type}{Tech. Rep.}, \bibinfo{institution}{Animal Charity Evaluators} (\bibinfo{year}{2017}).
+\newblock \urlprefix\url{https://animalcharityevaluators.org/wp-content/uploads/2022/04/leafleting-intervention-report.pdf}.
+
+\bibitem{nisa2019}
+\bibinfo{author}{Nisa, C.~F.}, \bibinfo{author}{B{\'e}langer, J.~J.}, \bibinfo{author}{Schumpe, B.~M.} \& \bibinfo{author}{Faller, D.~G.}
+\newblock \bibinfo{title}{{Meta-analysis of randomised controlled trials testing behavioural interventions to promote household action on climate change}}.
+\newblock \emph{\bibinfo{journal}{Nature communications}} \textbf{\bibinfo{volume}{10}}, \bibinfo{pages}{4545} (\bibinfo{year}{2019}).
+
+\bibitem{ensaff2021}
+\bibinfo{author}{Ensaff, H.}
+\newblock \bibinfo{title}{{A nudge in the right direction: the role of food choice architecture in changing populations' diets}}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the Nutrition Society}} \textbf{\bibinfo{volume}{80}}, \bibinfo{pages}{195--206} (\bibinfo{year}{2021}).
+
+\bibitem{rau2022}
+\bibinfo{author}{Rau, H.}, \bibinfo{author}{Nicolai, S.} \& \bibinfo{author}{Stoll-Kleemann, S.}
+\newblock \bibinfo{title}{{A systematic review to assess the evidence-based effectiveness, content, and success factors of behavior change interventions for enhancing pro-environmental behavior in individuals}}.
+\newblock \emph{\bibinfo{journal}{Frontiers in Psychology}} \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{901927} (\bibinfo{year}{2022}).
+
+\bibitem{ronto2022}
+\bibinfo{author}{Ronto, R.} \emph{et~al.}
+\newblock \bibinfo{title}{{Identifying effective interventions to promote consumption of protein-rich foods from lower ecological footprint sources: A systematic literature review}}.
+\newblock \emph{\bibinfo{journal}{PLOS Global Public Health}} \textbf{\bibinfo{volume}{2}}, \bibinfo{pages}{e0000209} (\bibinfo{year}{2022}).
+
+\bibitem{grummon2023}
+\bibinfo{author}{Grummon, A.~H.}, \bibinfo{author}{Musicus, A.~A.}, \bibinfo{author}{Salvia, M.~G.}, \bibinfo{author}{Thorndike, A.~N.} \& \bibinfo{author}{Rimm, E.~B.}
+\newblock \bibinfo{title}{{Impact of health, environmental, and animal welfare messages discouraging red meat consumption: an online randomized experiment}}.
+\newblock \emph{\bibinfo{journal}{Journal of the Academy of Nutrition and Dietetics}} \textbf{\bibinfo{volume}{123}}, \bibinfo{pages}{466--476} (\bibinfo{year}{2023}).
+
+\end{thebibliography}

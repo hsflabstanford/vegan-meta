@@ -1,0 +1,550 @@
+%Version 2.1 April 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[sn-nature,referee,pdflatex]{sn-jnl}
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published
+%%%%  by Springer Nature. The guidance has been prepared in partnership with
+%%%%  production teams to conform to Springer Nature technical requirements.
+%%%%  Editorial and presentation requirements differ among journal portfolios and
+%%%%  research disciplines. You may find sections in this template are irrelevant
+%%%%  to your work and are empowered to omit any such section if allowed by the
+%%%%  journal you intend to submit to. The submission guidelines and policies
+%%%%  of the journal take precedence. A detailed User Manual is available in the
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+\usepackage{comment}
+\usepackage{anyfontsize}
+\usepackage[style=default]{caption}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+
+\raggedbottom
+
+
+
+% Pandoc syntax highlighting
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+
+
+\begin{document}
+
+
+\title[MAP-reduction-supplement]{Supplement to: Meaningfully reducing
+consumption of meat and animal products is an unsolved problem: A
+meta-analysis}
+
+%%=============================================================%%
+%% Prefix	-> \pfx{Dr}
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+%% Degrees	-> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate}
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1]{\fnm{Seth
+Ariel} \sur{Green} }\email{\href{mailto:setgree@stanford.edu}{\nolinkurl{setgree@stanford.edu}}}
+
+\author[1]{\fnm{Maya B.} \sur{Mathur} }
+
+\author[2]{\fnm{Benny} \sur{Smith} }
+
+
+
+  \affil[1]{\orgdiv{Quantitative Sciences Unit, Department of
+Medicine}, \orgname{Stanford University}}
+  \affil[2]{\orgname{Allied Scholars for Animal Protection}}
+
+\abstract{}
+
+\keywords{meta-analysis, meat, plant-based, randomized controlled trial}
+
+
+
+\maketitle
+
+\section{Supplement}\label{Sec5}
+
+Table S1 compares average differences by three potential sources of
+bias: publication status, data collection strategy, and use of open
+science practices.
+
+\begin{table}[!ht]
+\centering
+\caption{\label{tab:table_three}Sensitivity Analysis Results}
+\centering
+\begin{tabular}[t]{lllllll}
+\toprule
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Publication Status}}\\
+\hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
+\hspace{1em}Preprint or thesis & 7 & 17 & 0.08 & {}[-0.1, 0.25] & .325 & .947\\
+\hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .025\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
+\hspace{1em}Self-reported & 30 & 94 & 0.06 & {}[0, 0.12] & .039 & \textbf{ref}\\
+\hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .335\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Open Science}}\\
+\hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
+\hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .625\\
+\hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .274\\
+\hspace{1em}Pre-analysis plan \& open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
+\bottomrule
+\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value column tests}\\
+\multicolumn{7}{l}{the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second}\\
+\multicolumn{7}{l}{compares effects within a given group, with the top category set to reference.}\\
+\end{tabular}
+\end{table}
+
+Within different types of publication, we find broadly similar results
+for journal articles and preprints/theses (SMD = 0.09 and SMD = 0.08,
+respectively), and a small backlash associated with results published as
+nonprofits' white papers (SMD = -0.04. Surprisingly, we do not detect
+meaningful differences between studies that recorded self-reported
+vs.~objectively measured outcomes (SMD = 0.06 vs SMD =0.09,
+respectively). Looking at adherence to open science practices, the
+largest difference is between studies that have neither open data nor a
+pre-analysis plan (SMD =0.11) and those that have just open data (SMD =
+0.01).
+
+\subsection{Description of code and data
+repository}\label{description-of-code-and-data-repository}
+
+Our code and data are shared on the Open Science Framework {[}LINK{]},
+GitHub {[}LINK, and Code Ocean {[}LINK{]}.
+
+Our main document, \texttt{MAP-reduction-meta.Rmd}, reproduces the
+paper, with every quantitative claim (as well as the first two figures)
+reproduced each time the document is knit.
+
+Our included datasets are
+
+\begin{itemize}
+\item
+  \texttt{vegan-meta.csv}, our primary meta-analytic dataset;
+\item
+  \texttt{rpmc-data.csv}, our secondary dataset of studies aimed at
+  reducing consumption of RPM;
+\item
+  \texttt{robustness-data.csv}, another secondary dataset borderline
+  studies for a robustness check (see section below);
+\item
+  \texttt{review-of-reviews.csv}, which details the the 157 reviews we
+  consulted;
+\item
+  \texttt{excluded-studies.csv}, which details the papers we screened
+  but did not include, along with their reasons for exclusion and where
+  we found them (the studies in \texttt{robustness-data.csv} are
+  included in this dataset as well).
+\end{itemize}
+
+The repositories have more details about the included scripts and
+supplementary materials (e.g.~licenses).
+
+\subsubsection{Reasons for exclusion in robustness check data
+set}\label{reasons-for-exclusion-in-robustness-check-data-set}
+
+While reviewing studies, a handful of studies stuck out to us as
+yielding interesting findings and/or design features, but nevertheless
+did not meet all of our inclusion criteria. Nevertheless, they
+influenced our thinking about reducing MAP consumption, and seemed worth
+including in a supplementary analysis, which became our robustness check
+in the main text.
+
+Each of these studies measures MAP consumption and has a control group.
+However, we excluded them from our main dataset for one of five reasons:
+1) issues with random assignment or the control group (for instance,
+where the control group receives some aspect of treatment
+\citep{piazza2022}, or where treatment was alternated weekly but not
+randomly \citep{garnett2020}); 2) underpowered (too few clusters
+\citep{reinders2017} or subjects \citep{lentz2019}); 3) immediate
+outcome measurement
+\citep{dannenberg2023, sparkman2017, griesoph2021, hansen2021}; 4)
+actively encouraging substitution within categories of MAP, e.g.~from
+red meat to fish \citep{celis2017, johansen2009}; 5) uncertainty in
+calculating an effect size arising from missing information about the
+behavior of diners who opt out of treatment to avoid a vegetarian meal
+\citep{betterfoodfoundation2023}.
+
+We did not include any studies in this supplementary dataset that failed
+to meet more than one of our inclusion criteria. We further caution that
+these 22 studies is not an exhaustive or even representative list of
+studies that did not qualify for our main analysis. Rather, they are
+intended to offer an exploration of how a meta-analysis building on
+different priors about sources of bias might have proceeded.
+
+\subsection{Robustness to an alternative estimation
+method}\label{Sec5.1.2}
+
+Our pre-analysis plan (\url{https://osf.io/3sth2}) used a model from
+\texttt{metafor} to analyze a synthetic dataset. However, as we
+assembled the actual dataset, we noticed that many papers had, across
+interventions, non-independent observations, typically in the form of
+multiple treatments compared to a single control group. Upon discussion,
+the team's statistician (MBM) suggested that the \texttt{CORR} model
+from the \texttt{robumeta} package, a robust variance estimation (RVE)
+method, would be a better fit.
+
+Using our original estimation strategy from \texttt{metafor}, we detect
+a pooled effect size of 0.04 (95\% CI: {[}-0.02, 0.1{]}), p = 0.1600299.
+(Although \texttt{metafor} also provides an RVE estimator, it applies
+the correction to the standard errors and not to the overall estimate,
+and we preferred a model that incorporates clustering information at the
+level of effect estimation.)
+
+\subsection{Robustness to a stricter definition of
+delay}\label{Sec5.1.3}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{strict\_delay\_model }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(delay\_post\_endline }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Our delay-related inclusion criterion aimed to limit our analysis to
+enduring effects. We were concerned that subjects who are encouraged to
+have a single vegetarian meal might later compensate by consuming more
+MAP at the next one, which would make an immediate outcome measurement
+an upwardly biased estimate of overall effects.
+
+Upon reviewing studies, however, we found that numerous high-quality
+studies modified eating environments over multiple days and did not
+incorporate a delayed measure following the \emph{final} day of
+treatment. For example, \citep{andersson2021} included 50 combined days
+of treatment and control, but the interval between treatment and any
+individual outcome measurement was zero days. By one light, such studies
+lack delayed outcome measures. In another, the multi-day setup in a
+single environment allows for theoretical delay so long as participants
+can return to the site of treatment and have their meal choices
+evaluated multiple times.
+
+We decided to include multi-day studies where delayed outcomes were at
+least possible through repeat visits by subjects to the intervention
+site. Our delay variable therefore reflects the days elapsed from the
+beginning of treatment, rather than its conclusion, to measurement.
+
+We also coded a secondary delay variable that corresponds to time
+elapsed between treatment \emph{conclusion} to measurement. Restricting
+our analysis to the 31 studies and 96 point estimates where this
+secondary delay exceeds zero, we observe an effect of SMD = 0.07 (95\%
+CI: {[}0.01, 0.12{]}), p = .028.
+
+\subsection{Notes on search strategy}\label{Sec5.2}
+
+\begin{comment} we could take the next few paragraphs out and start with the sentence "we employed what could be called a "prior-reviews-first" search strategy."
+\end{comment}
+
+Our search process was shaped by three unusual features of our research
+project. First, our surveyed literature was highly interdisciplinary,
+with few shared terms to describe itself. For instance, the term `MAP'
+is not universally agreed upon; other papers use animal-based protein,
+edible animal products, or just meat, while others focus on a
+particular, sometimes unusual category of MAP, such as fish sauce
+\citep{kanchanachitra2020}, or discussed their agenda mainly in terms of
+increasing plant-based alternatives. Coming up with an exhaustive list
+of terms to search for from first principles would have been, in our
+opinion, virtually impossible.
+
+Second, our methods-based inclusion criteria complicated screening on
+titles and abstracts. While it was sometimes possible to use solely that
+information to eliminate studies with no interventions
+(e.g.~survey-based research), determining whether an intervention
+qualified almost always required some amount of full text screening. We
+also discovered that terms like ``field experiment'' have varying
+meanings across papers, and identifying whether a measured food choice
+was hypothetical or not often required a close reading. For these
+reasons, screening thousands or tens of thousands of papers struck us as
+prohibitively time-consuming.
+
+Third, we found an extraordinary number of prior reviews, typically
+aimed at one disciplinary strand or conceptual approach, touching on our
+research question. Reviewing tables and bibliographies of those papers
+proved enormously fruitful for both assembling our dataset and getting a
+sense of the broader literature.
+
+For these reasons, we employed what could be called a
+``prior-reviews-first'' search strategy. Of the 985 papers we reviewed,
+a full 73 \% of all manuscripts we screened came from prior reviews, and
+43 \% of papers in our main dataset. (See the next section of the
+supplement for notes on reviews that were especially informative.) Then,
+as detailed in the main text, we employed a multitude of other search
+strategies to fill in our dataset, one of which was systematic search.
+In particular, we searched Google Scholar for the following list of
+terms, and checked ten pages of results for each:
+
+\begin{itemize}
+\tightlist
+\item
+  ``dynamic'' ``norms'' ``meat''
+\item
+  ``dynamic'' ``norms'' ``meat'' ``consumption''
+\item
+  ``field'' ``experiment'' ``plant-based''
+\item
+  ``meat'' ``alternatives'' ``default'' ``nudge''
+\item
+  ``meat'' ``consumption'' ``reducing'' ``random''
+\item
+  ``meat'' ``purchases'' ``information'' ``nudge''
+\item
+  ``meat'' ``reduction'' ``randomized''
+\item
+  ``meat'' ``sustainable'' ``random''
+\item
+  ``nudge'' ``meat'' ``default''
+\item
+  ``nudge'' ``reduce'' ``meat'' ``consumption''
+\item
+  ``nudge'' ``sustainable'' ``consumption'' ``meat''
+\item
+  ``nudge'' ``theory'' ``meat'' ``purchasing''
+\item
+  ``norms'' ``animal'' ``products''
+\item
+  ``nudges'' ``norms'' ``meat''
+\item
+  ``random'' ``nudge'' ``meat''
+\item
+  ``randomized controlled trial'' ``meat'' ``consumption'' ``reduce''
+\item
+  ``sustainable'' ``meat'' ``nudge''
+\item
+  ``sustainable'' ``meat'' ``nudge'' ``random''
+\item
+  ``university'' ``meat'' ``default'' ``reduction''
+\end{itemize}
+
+Additionally, we searched the American Economic Association's RCT
+registry for the the terms ``meat'' and ``random'' and reviewed all
+matching results in the relevant time frame.
+
+Another unconventional part of our search strategy was our use of of an
+AI-based search tool (\url{https://undermind.ai/}), to which we
+described our research question and then reviewed 100 results that it
+generated. This yielded one paper that met our inclusion criteria
+\citep{mattson2020} that seems to have slipped past many other
+systematic search processes.
+
+Finally, we benefited from two in-progress literature reviews at Rethink
+Priorities, ``a think-and-do tank'' that researches animal welfare as
+one of its four main priorities. Both of these literature reviews are
+aimed at assessing interventions that reduce MAP consumption, but have
+broader inclusion criteria than our paper employed. For more details on
+these two projects, see \url{<https://osf.io/74paj>} and
+\url{<https://meat-lime.vercel.app>}.
+
+\subsection{Discussion of prior
+reviews}\label{discussion-of-prior-reviews}
+
+We turn now to a selective overview of prior reviews that were highly
+relevant to this one.
+
+Among the reviews that found MAP reduction interventions to be
+effective, several focused exclusively on choice architecture.
+\citep{arno2016} found that nudges led to an average increase of healthy
+dietary choices of 15.3\%, while \citep{byerly2018} found that
+committing to reduce meat intake and making menus vegetarian by default
+were more effective than educational interventions. However, the vast
+majority of vegetarian-default studies we analyzed for this paper did
+not qualify for our analysis because they lacked delayed outcomes. In a
+similar vein, \citep{mertens2022} concludes that food choices are
+``particularly responsive to choice architecture interventions'' (p.~1),
+but featured no studies that met our inclusion criteria.
+
+\citep{bianchi2018restructuring} found that reducing meat portions,
+making alternatives available, moving meat products to be less
+conspicuous, and changing meat's sensory properties can all reduce meat
+demand. \citep{pandey2023} found that changing the presentation and
+availability of sustainable products was effective in increasing demand
+for them.
+
+In a meta-review, \citep{grundy2022} found environmental education to be
+especially promising, with substantial evidence also supporting health
+information, emphasizing social norms, and decreasing meat portions.
+
+Some reviews have focused on particular settings for MAP reduction
+interventions. \citep{hartmannboyce2018} found that grocery store
+interventions, such as price changes, suggested swaps, and changes to
+item availability, were effective at changing purchasing choices.
+However, that review covered a wide variety of health interventions,
+such as reducing consumption of dietary fat and increasing fruit and
+vegetable purchases. It is unclear how directly such findings translate
+to MAP reduction efforts. Meanwhile, \citep{chang2023} focused on
+university meat-reduction interventions and found more promising results
+than did reviews that looked at the wider public. \citep{harguess2020}
+reviewed 22 studies on meat consumption and found promising results for
+educational interventions focused on the environment, health, and animal
+welfare. That paper recommends using animal imagery to cause an
+emotional response and utilizing choice architecture interventions. Our
+review, by contrast, found no relationship between animal welfare
+appeals and MAP consumption.
+
+Taking a different angle, \citep{adleberg2018} reviewed the literature
+on protests in a variety of movements and found mixed evidence of
+efficacy. The authors recommend that animal advocacy protests have a
+specific target (e.g.~a particular institution) and ``ask.''
+
+Other reviews assesed which groups are most easily influenced by
+interventions to reduce MAP consumption. For example,
+\citep{blackford2021} found that nudges focused on ``system 1'' thinking
+were more effective at encouraging sustainable choices than those
+focused on ``system 2,'' and that interventions had greater effects on
+females than males. Our review also featured studies showing differences
+between men and women.
+
+\citep{rosenfeld2018} reports that meat avoidance is associated with
+liberal political views, feminine gender, and higher openness,
+agreeableness and neuroticism. That review also identifies challenges
+and barriers to vegetarianism, such as recidivism and hostility from
+friends and family. Future research could tailor interventions to
+address these barriers.
+
+Several reviews have had mixed or inconclusive results. For instance,
+\citep{bianchi2018conscious} found that health and environmental appeals
+appear to change dietary intentions in virtual environments, but did not
+find evidence of actual consumption changes. Likewise,
+\citep{kwasny2022} notes that most existing research focuses on
+attitudes and intentions and lacks measures of actual meat consumption
+over an extended period of time. \citep{taufik2019} reviewed many
+studies aimed at increasing fruit and vegetable intake, but found far
+fewer that looked at reducing MAP consumption. \citep{benningstad2020}
+found that dissociation of meat from its source plays a role in meat
+consumption, but no extant research that included behavioral outcomes.
+
+A few reviews have found evidence that seems to recommend against
+particular interventions. \citep{greig2017} reviewed the literature on
+leafleting for vegan/animal advocacy outreach, and observed biases that
+may have led to overestimated impacts. That paper concluded that
+leafleting does not seem cost-effective, though with significant
+uncertainty. This accords with our findings on advocacy organization
+materials' limited effects.
+
+\citep{nisa2019} meta-analyzed interventions to improve household
+sustainability, of which reducing MAP consumption was one of several.
+Although they found small effect sizes for most interventions, they
+concluded that nudges were comparatively effective, as did
+\citep{ensaff2021}. Similarly, \citep{rau2022} reviewed the literature
+on environmentally friendly behavior changes, including but not limited
+to diet change, and found small or nonexistent effects in most cases.
+Only fifteen interventions in that paper were described as ``very
+successful,'' and none of these related to food.
+
+Finally, we note a few papers that were helpful in filling out our
+supplementary datasets. \citep{ronto2022} investigated interventions to
+move consumer to protein sources with lower ecological footprints, and
+was instrumental in filling out our RPM and robustness check datasets,
+as were \citep{kwasny2022} and \citep{grummon2023}.
+
+Our overall conclusion from these 150+ papers is that the marginal value
+of a new rigorous evaluation is much higher than that of a new
+systematic review. We also encourage researchers to be cautious in
+extrapolating impacts across outcome categories. For instance, many
+reviews concluded that choice architecture approaches are effective at
+changing food choice, but these are typically aimed at foods with weak
+social and cultural associations. Whether these interventions work for
+something as fraught with meaning as meat remains to be seen.
+
+\bibliography{./vegan-refs.bib}
+
+
+\end{document}
