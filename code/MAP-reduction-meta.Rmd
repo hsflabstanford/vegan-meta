@@ -388,7 +388,8 @@ open_data_delta <- open_science_results |> filter(Moderator == 'Open data only')
 both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
 ```
 
-Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD =`r objective_delta`, respectively). Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD =`r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
+Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD =`r objective_delta`, respectively).
+Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD =`r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
 
 ## Description of code and data repository
 

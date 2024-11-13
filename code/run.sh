@@ -1,13 +1,12 @@
 #!/bin/bash
 set -ex
 
-Rscript -e "rmarkdown::render('./MAP-reduction-meta.Rmd', clean = T)"
+Rscript -e "rmarkdown::render('./MAP-reduction-meta.Rmd', clean = T)";
 
 # Replace all instances of [H] with [!ht] in the generated .tex file
-sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta.tex
+sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta.tex && Rscript -e "tinytex::latexmk('MAP-reduction-meta.tex')"
 
-Rscript -e "tinytex::latexmk('MAP-reduction-meta.tex')"
-
+# move results to results and get rid of aux stuff
 mv *{.pdf,.tex} ../results && rm *.{aux,out,blg,log}
 
 # to sort bibliography (from package `bibtex2html`, via `npm install -g bibtex-tidy`)
