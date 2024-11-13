@@ -89,8 +89,7 @@ Many interventions are either not randomized [@garnett2020] or underpowered [@de
 Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010]. 
 Additionally, many studies with comparatively large effects achieve them by aiming to reduce (and exclusively measuring) consumption of red and processed meat (RPM).
 If such interventions induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023], their results will be upwardly biased estimates of net MAP reduction.
-While RPM is particularly detrimental for human health and greenhouse gas emissions [@abete2014; @lescinsky2022], producing other forms of MAP also has severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
-Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical]. 
+
 Finally, many studies measure only immediate rather than long-term effects [@hansen2021; @griesoph2021]. This is of special concern if subjects who are encouraged to have a single vegetarian meal might later compensate by consuming more MAP at the next one, which would make an immediate outcome measurement an upwardly biased estimate of overall effects.
 
 In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, measurement validity, and statistical power.
@@ -343,8 +342,8 @@ Most potentially eligible papers either measured hypothetical outcomes or measur
 Moreover, prior reviews that found choice architecture approaches to be consistently effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2020; @adriaanse2009].
 We speculate that people are more likely to notice, and care, when the burger is missing from the menu than when their soft drink is smaller.
 
-Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a much larger effect size (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption.
-Sharply curtailing RPM consumption is a core component of current leading dietary guidelines, such as the heart-healthy diet [@diab2023], but many of these same guidelines encourage moderate intake of poultry and fish.
+Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a much larger effect size (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption. In our search for literature, we found that many prior reviews grouped MAP and RPM studies together, treating their outcomes as aimed at a single theoretical target [@slough2023]. However, if reductions in RPM lead to increases in other forms of MAP consumption, then analyses that synthesize the two estimands may produce inflated estimates.  While many leading health guidelines, such as the heart-healthy diet [@diab2023], encourage reducing RPM, they also typically encourage moderate intake of poultry and fish, both of which come with severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
+Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical]. 
 Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024].
 By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
 We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
