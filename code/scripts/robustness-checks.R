@@ -1,5 +1,5 @@
 # load robustness dataset
-robust_dat <- read.csv('./data/robustness-data.csv') |>   
+robust_dat <- read.csv('../data/robustness-data.csv') |>   
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
   ungroup() |> 

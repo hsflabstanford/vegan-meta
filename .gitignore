@@ -15,3 +15,7 @@ vegan-meta.ttt
 *.md
 short-term-todos.txt
 *.png
+*.aux
+*out
+*.blg
+*.log

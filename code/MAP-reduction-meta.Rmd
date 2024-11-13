@@ -31,7 +31,6 @@ keywords:
   - meat
   - plant-based
   - randomized controlled trial
-  
 abstract: |
   Which interventions produce the largest and most enduring reductions in consumptions of meat and animal products (MAP)? We address this question with a theoretical review and meta-analysis of randomized controlled trials that measured MAP consumption at least one day after intervention. We meta-analyze 35 papers comprising 41 studies, 112 interventions, and approximately 87,000 subjects. We find that these papers employ four major strategies to changing behavior: choice architecture, persuasion, psychology, and a combination of persuasion and psychology. The pooled effect of all 114 interventions on MAP consumption is quite small (standardized mean difference [SMD] = 0.07; 95\% CI: [0.02, 0.12]), indicating an unsolved problem. Interventions aiming to reduce only consumption of red and processed meat were more effective: SMD = 0.25 (95\% CI: [0.11, 0.38]), but it remains unclear  whether such interventions increase consumption of other forms of MAP. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
@@ -39,7 +38,6 @@ output:
   rticles::springer_article:
     keep_tex: true
     keep_md: true
-
 bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
@@ -55,7 +53,7 @@ header-includes:
 
 # so that knitr labels figures
 library(knitr)
-opts_chunk$set(fig.path = "./figures/",
+opts_chunk$set(fig.path = "../results/figures/",
                echo = TRUE,
                out.extra = "",
                fig.pos = "ht")
@@ -272,8 +270,8 @@ A conservative estimate that accounts for the possibility of worst-case publicat
 # Methods {#sec3}
 
 ```{r methods_nums, include=F}
-reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
-excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
+reviews_count <- nrow(read.csv('../data/review-of-reviews.csv'))
+excluded_count <- nrow(read.csv('../data/excluded-studies.csv'))
 ```
 
 ## Study selection {#sec3.1}
@@ -292,7 +290,7 @@ Inclusion/exclusion decisions were primarily made by the first author, with all 
 Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies, which is detailed further in the Supplement.
 
 ```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
-knitr::include_graphics('./figures/prisma-diagram.png')
+knitr::include_graphics('../documentation/prisma-diagram.png')
 
 ```
 

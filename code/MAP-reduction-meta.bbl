@@ -189,26 +189,6 @@
 \newblock \bibinfo{title}{{Impact of health, environmental, and animal welfare messages discouraging red meat consumption: an online randomized experiment}}.
 \newblock \emph{\bibinfo{journal}{Journal of the Academy of Nutrition and Dietetics}} \textbf{\bibinfo{volume}{123}}, \bibinfo{pages}{466--476} (\bibinfo{year}{2023}).
 
-\bibitem{abete2014}
-\bibinfo{author}{Abete, I.}, \bibinfo{author}{Romaguera, D.}, \bibinfo{author}{Vieira, A.~R.}, \bibinfo{author}{de~Munain, A.~L.} \& \bibinfo{author}{Norat, T.}
-\newblock \bibinfo{title}{{Association between total, processed, red and white meat consumption and all-cause, CVD and IHD mortality: a meta-analysis of cohort studies}}.
-\newblock \emph{\bibinfo{journal}{British Journal of Nutrition}} \textbf{\bibinfo{volume}{112}}, \bibinfo{pages}{762--775} (\bibinfo{year}{2014}).
-
-\bibitem{lescinsky2022}
-\bibinfo{author}{Lescinsky, H.} \emph{et~al.}
-\newblock \bibinfo{title}{{Health effects associated with consumption of unprocessed red meat: a Burden of Proof study}}.
-\newblock \emph{\bibinfo{journal}{Nature Medicine}} \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{2075--2082} (\bibinfo{year}{2022}).
-
-\bibitem{grvzinic2023}
-\bibinfo{author}{Gr{\v{z}}ini{\'c}, G.} \emph{et~al.}
-\newblock \bibinfo{title}{{Intensive poultry farming: A review of the impact on the environment and human health}}.
-\newblock \emph{\bibinfo{journal}{Science of the Total Environment}} \textbf{\bibinfo{volume}{858}}, \bibinfo{pages}{160014} (\bibinfo{year}{2023}).
-
-\bibitem{mathur2022ethical}
-\bibinfo{author}{Mathur, M.~B.}
-\newblock \bibinfo{title}{{Ethical drawbacks of sustainable meat choices}}.
-\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{375}}, \bibinfo{pages}{1362--1362} (\bibinfo{year}{2022}).
-
 \bibitem{griesoph2021}
 \bibinfo{author}{Griesoph, A.}, \bibinfo{author}{Hoffmann, S.}, \bibinfo{author}{Merk, C.}, \bibinfo{author}{Rehdanz, K.} \& \bibinfo{author}{Schmidt, U.}
 \newblock \bibinfo{title}{{Guess what\ldots{}?--How guessed norms nudge climate-friendly food choices in real-life settings}}.
@@ -628,10 +608,25 @@
 \newblock \bibinfo{title}{{Finding the critical cue: Implementation intentions to change one's diet work best when tailored to personally relevant reasons for unhealthy eating}}.
 \newblock \emph{\bibinfo{journal}{Personality and social psychology bulletin}} \textbf{\bibinfo{volume}{35}}, \bibinfo{pages}{60--71} (\bibinfo{year}{2009}).
 
+\bibitem{slough2023}
+\bibinfo{author}{Slough, T.} \& \bibinfo{author}{Tyson, S.~A.}
+\newblock \bibinfo{title}{{External Validity and Meta-Analysis}}.
+\newblock \emph{\bibinfo{journal}{American Journal of Political Science}} \textbf{\bibinfo{volume}{67}}, \bibinfo{pages}{440--455} (\bibinfo{year}{2023}).
+
 \bibitem{diab2023}
 \bibinfo{author}{Diab, A.}, \bibinfo{author}{Dastmalchi, L.~N.}, \bibinfo{author}{Gulati, M.} \& \bibinfo{author}{Michos, E.~D.}
 \newblock \bibinfo{title}{{A heart-healthy diet for cardiovascular disease prevention: where are we now?}}
 \newblock \emph{\bibinfo{journal}{Vascular health and risk management}} \bibinfo{pages}{237--253} (\bibinfo{year}{2023}).
+
+\bibitem{grvzinic2023}
+\bibinfo{author}{Gr{\v{z}}ini{\'c}, G.} \emph{et~al.}
+\newblock \bibinfo{title}{{Intensive poultry farming: A review of the impact on the environment and human health}}.
+\newblock \emph{\bibinfo{journal}{Science of the Total Environment}} \textbf{\bibinfo{volume}{858}}, \bibinfo{pages}{160014} (\bibinfo{year}{2023}).
+
+\bibitem{mathur2022ethical}
+\bibinfo{author}{Mathur, M.~B.}
+\newblock \bibinfo{title}{{Ethical drawbacks of sustainable meat choices}}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{375}}, \bibinfo{pages}{1362--1362} (\bibinfo{year}{2022}).
 
 \bibitem{auclair2024}
 \bibinfo{author}{Auclair, O.}, \bibinfo{author}{Eustachio~Colombo, P.}, \bibinfo{author}{Milner, J.} \& \bibinfo{author}{Burgos, S.~A.}
