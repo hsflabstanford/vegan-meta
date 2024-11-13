@@ -160,211 +160,41 @@ Medicine}, \orgname{Stanford University}}
 
 \maketitle
 
-\section{Supplement}\label{Sec5}
+\section{Supplement}\label{supplement}
 
-Table S1 compares average differences by three potential sources of
-bias: publication status, data collection strategy, and use of open
-science practices.
+\subsection{Search strategy}\label{search-strategy}
 
-\begin{table}[!ht]
-\centering
-\caption{\label{tab:table_three}Sensitivity Analysis Results}
-\centering
-\begin{tabular}[t]{lllllll}
-\toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
-\midrule
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Publication Status}}\\
-\hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
-\hspace{1em}Preprint or thesis & 7 & 17 & 0.08 & {}[-0.1, 0.25] & .325 & .947\\
-\hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .025\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
-\hspace{1em}Self-reported & 30 & 94 & 0.06 & {}[0, 0.12] & .039 & \textbf{ref}\\
-\hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .335\\
-\addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Open Science}}\\
-\hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
-\hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .625\\
-\hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .274\\
-\hspace{1em}Pre-analysis plan \& open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
-\bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value column tests}\\
-\multicolumn{7}{l}{the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second}\\
-\multicolumn{7}{l}{compares effects within a given group, with the top category set to reference.}\\
-\end{tabular}
-\end{table}
-
-Within different types of publication, we find broadly similar results
-for journal articles and preprints/theses (SMD = 0.09 and SMD = 0.08,
-respectively), and a small backlash associated with results published as
-nonprofits' white papers (SMD = -0.04. Surprisingly, we do not detect
-meaningful differences between studies that recorded self-reported
-vs.~objectively measured outcomes (SMD = 0.06 vs SMD =0.09,
-respectively). Looking at adherence to open science practices, the
-largest difference is between studies that have neither open data nor a
-pre-analysis plan (SMD =0.11) and those that have just open data (SMD =
-0.01).
-
-\subsection{Description of code and data
-repository}\label{description-of-code-and-data-repository}
-
-Our code and data are shared on the Open Science Framework {[}LINK{]},
-GitHub {[}LINK, and Code Ocean {[}LINK{]}.
-
-Our main document, \texttt{MAP-reduction-meta.Rmd}, reproduces the
-paper, with every quantitative claim (as well as the first two figures)
-reproduced each time the document is knit.
-
-Our included datasets are
-
-\begin{itemize}
-\item
-  \texttt{vegan-meta.csv}, our primary meta-analytic dataset;
-\item
-  \texttt{rpmc-data.csv}, our secondary dataset of studies aimed at
-  reducing consumption of RPM;
-\item
-  \texttt{robustness-data.csv}, another secondary dataset borderline
-  studies for a robustness check (see section below);
-\item
-  \texttt{review-of-reviews.csv}, which details the the 157 reviews we
-  consulted;
-\item
-  \texttt{excluded-studies.csv}, which details the papers we screened
-  but did not include, along with their reasons for exclusion and where
-  we found them (the studies in \texttt{robustness-data.csv} are
-  included in this dataset as well).
-\end{itemize}
-
-The repositories have more details about the included scripts and
-supplementary materials (e.g.~licenses).
-
-\subsubsection{Reasons for exclusion in robustness check data
-set}\label{reasons-for-exclusion-in-robustness-check-data-set}
-
-While reviewing studies, a handful of studies stuck out to us as
-yielding interesting findings and/or design features, but nevertheless
-did not meet all of our inclusion criteria. Nevertheless, they
-influenced our thinking about reducing MAP consumption, and seemed worth
-including in a supplementary analysis, which became our robustness check
-in the main text.
-
-Each of these studies measures MAP consumption and has a control group.
-However, we excluded them from our main dataset for one of five reasons:
-1) issues with random assignment or the control group (for instance,
-where the control group receives some aspect of treatment
-\citep{piazza2022}, or where treatment was alternated weekly but not
-randomly \citep{garnett2020}); 2) underpowered (too few clusters
-\citep{reinders2017} or subjects \citep{lentz2019}); 3) immediate
-outcome measurement
-\citep{dannenberg2023, sparkman2017, griesoph2021, hansen2021}; 4)
-actively encouraging substitution within categories of MAP, e.g.~from
-red meat to fish \citep{celis2017, johansen2009}; 5) uncertainty in
-calculating an effect size arising from missing information about the
-behavior of diners who opt out of treatment to avoid a vegetarian meal
-\citep{betterfoodfoundation2023}.
-
-We did not include any studies in this supplementary dataset that failed
-to meet more than one of our inclusion criteria. We further caution that
-these 22 studies is not an exhaustive or even representative list of
-studies that did not qualify for our main analysis. Rather, they are
-intended to offer an exploration of how a meta-analysis building on
-different priors about sources of bias might have proceeded.
-
-\subsection{Robustness to an alternative estimation
-method}\label{Sec5.1.2}
-
-Our pre-analysis plan (\url{https://osf.io/3sth2}) used a model from
-\texttt{metafor} to analyze a synthetic dataset. However, as we
-assembled the actual dataset, we noticed that many papers had, across
-interventions, non-independent observations, typically in the form of
-multiple treatments compared to a single control group. Upon discussion,
-the team's statistician (MBM) suggested that the \texttt{CORR} model
-from the \texttt{robumeta} package, a robust variance estimation (RVE)
-method, would be a better fit.
-
-Using our original estimation strategy from \texttt{metafor}, we detect
-a pooled effect size of 0.04 (95\% CI: {[}-0.02, 0.1{]}), p = 0.1600299.
-(Although \texttt{metafor} also provides an RVE estimator, it applies
-the correction to the standard errors and not to the overall estimate,
-and we preferred a model that incorporates clustering information at the
-level of effect estimation.)
-
-\subsection{Robustness to a stricter definition of
-delay}\label{Sec5.1.3}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{strict\_delay\_model }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(delay\_post\_endline }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-Our delay-related inclusion criterion aimed to limit our analysis to
-enduring effects. We were concerned that subjects who are encouraged to
-have a single vegetarian meal might later compensate by consuming more
-MAP at the next one, which would make an immediate outcome measurement
-an upwardly biased estimate of overall effects.
-
-Upon reviewing studies, however, we found that numerous high-quality
-studies modified eating environments over multiple days and did not
-incorporate a delayed measure following the \emph{final} day of
-treatment. For example, \citep{andersson2021} included 50 combined days
-of treatment and control, but the interval between treatment and any
-individual outcome measurement was zero days. By one light, such studies
-lack delayed outcome measures. In another, the multi-day setup in a
-single environment allows for theoretical delay so long as participants
-can return to the site of treatment and have their meal choices
-evaluated multiple times.
-
-We decided to include multi-day studies where delayed outcomes were at
-least possible through repeat visits by subjects to the intervention
-site. Our delay variable therefore reflects the days elapsed from the
-beginning of treatment, rather than its conclusion, to measurement.
-
-We also coded a secondary delay variable that corresponds to time
-elapsed between treatment \emph{conclusion} to measurement. Restricting
-our analysis to the 31 studies and 96 point estimates where this
-secondary delay exceeds zero, we observe an effect of SMD = 0.07 (95\%
-CI: {[}0.01, 0.12{]}), p = .028.
-
-\subsection{Notes on search strategy}\label{Sec5.2}
-
-\begin{comment} we could take the next few paragraphs out and start with the sentence "we employed what could be called a "prior-reviews-first" search strategy."
-\end{comment}
-
-Our search process was shaped by three unusual features of our research
+Our search process was shaped by three unique features of our research
 project. First, our surveyed literature was highly interdisciplinary,
 with few shared terms to describe itself. For instance, the term `MAP'
 is not universally agreed upon; other papers use animal-based protein,
 edible animal products, or just meat, while others focus on a
 particular, sometimes unusual category of MAP, such as fish sauce
-\citep{kanchanachitra2020}, or discussed their agenda mainly in terms of
+\citep{kanchanachitra2020} or discussed their agenda mainly in terms of
 increasing plant-based alternatives. Coming up with an exhaustive list
-of terms to search for from first principles would have been, in our
-opinion, virtually impossible.
+of terms to search for from first principles would have been very
+difficult or impossible.
 
 Second, our methods-based inclusion criteria complicated screening on
 titles and abstracts. While it was sometimes possible to use solely that
 information to eliminate studies with no interventions
 (e.g.~survey-based research), determining whether an intervention
 qualified almost always required some amount of full text screening. We
-also discovered that terms like ``field experiment'' have varying
+also discovered that terms like ``field experiment'\,' have varying
 meanings across papers, and identifying whether a measured food choice
 was hypothetical or not often required a close reading. For these
 reasons, screening thousands or tens of thousands of papers struck us as
 prohibitively time-consuming.
 
-Third, we found an extraordinary number of prior reviews, typically
-aimed at one disciplinary strand or conceptual approach, touching on our
-research question. Reviewing tables and bibliographies of those papers
-proved enormously fruitful for both assembling our dataset and getting a
-sense of the broader literature.
+Third, we found a very large number of prior reviews, typically aimed at
+one disciplinary strand or conceptual approach, touching on our research
+question. Reviewing tables and bibliographies of those papers proved
+very fruitful for both assembling our dataset and getting a sense of the
+broader literature.
 
 For these reasons, we employed what could be called a
-``prior-reviews-first'' search strategy. Of the 985 papers we reviewed,
-a full 73 \% of all manuscripts we screened came from prior reviews, and
+`prior-reviews-first' search strategy. Of the 985 papers we reviewed, a
+full 73 \% of all manuscripts we screened came from prior reviews, and
 43 \% of papers in our main dataset. (See the next section of the
 supplement for notes on reviews that were especially informative.) Then,
 as detailed in the main text, we employed a multitude of other search
@@ -543,6 +373,171 @@ reviews concluded that choice architecture approaches are effective at
 changing food choice, but these are typically aimed at foods with weak
 social and cultural associations. Whether these interventions work for
 something as fraught with meaning as meat remains to be seen.
+
+\subsection{Description of code and data
+repository}\label{description-of-code-and-data-repository}
+
+Our code and data are shared on the Open Science Framework {[}LINK{]},
+GitHub {[}LINK, and Code Ocean {[}LINK{]}.
+
+Our main document, \texttt{MAP-reduction-meta.Rmd}, reproduces the
+paper, with every quantitative claim (as well as the first two figures)
+reproduced each time the document is knit.
+
+The datasets are:
+
+\begin{itemize}
+\item
+  \texttt{vegan-meta.csv}, our primary meta-analytic dataset;
+\item
+  \texttt{rpmc-data.csv}, our secondary dataset of studies aimed at
+  reducing consumption of RPM;
+\item
+  \texttt{robustness-data.csv}, another secondary dataset borderline
+  studies for a robustness check (see section below);
+\item
+  \texttt{review-of-reviews.csv}, which details the the 157 reviews we
+  consulted;
+\item
+  \texttt{excluded-studies.csv}, which details the papers we screened
+  but did not include, along with their reasons for exclusion and where
+  we found them (the studies in \texttt{robustness-data.csv} are
+  included in this dataset as well).
+\end{itemize}
+
+The repositories have more details about the included scripts and
+supplementary materials (e.g.~licenses).
+
+\subsection{Additional robustness checks and alternative
+analyses}\label{additional-robustness-checks-and-alternative-analyses}
+
+\subsubsection{Sensitivity to publication status, outcome recorded, and
+open science
+practices}\label{sensitivity-to-publication-status-outcome-recorded-and-open-science-practices}
+
+Table S1 compares average differences by three potential sources of
+bias: publication status, data collection strategy, and use of open
+science practices.
+
+\begin{table}[!ht]
+\centering
+\caption{\label{tab:table_three}Sensitivity Analysis Results}
+\centering
+\begin{tabular}[t]{lllllll}
+\toprule
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Publication Status}}\\
+\hspace{1em}Journal article & 29 & 52 & 0.09 & {}[0.03, 0.15] & .008 & \textbf{ref}\\
+\hspace{1em}Preprint or thesis & 7 & 17 & 0.08 & {}[-0.1, 0.25] & .325 & .947\\
+\hspace{1em}Nonprofit white paper & 5 & 43 & -0.04 & {}[-0.11, 0.04] & .166 & .025\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Data Collection Strategy}}\\
+\hspace{1em}Self-reported & 30 & 94 & 0.06 & {}[0, 0.12] & .039 & \textbf{ref}\\
+\hspace{1em}Objectively measured & 11 & 18 & 0.09 & {}[-0.04, 0.22] & .111 & .335\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Open Science}}\\
+\hspace{1em}None & 24 & 54 & 0.11 & {}[0.02, 0.19] & .014 & \textbf{ref}\\
+\hspace{1em}Pre-analysis plan only & 5 & 5 & 0.10 & {}[-0.51, 0.7] & .498 & .625\\
+\hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .274\\
+\hspace{1em}Pre-analysis plan \& open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
+\bottomrule
+\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value column tests}\\
+\multicolumn{7}{l}{the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second}\\
+\multicolumn{7}{l}{compares effects within a given group, with the top category set to reference.}\\
+\end{tabular}
+\end{table}
+
+Within different types of publication, we find broadly similar results
+for journal articles and preprints/theses (SMD = 0.09 and SMD = 0.08,
+respectively), and a small backlash associated with results published as
+nonprofits' white papers (SMD = -0.04. Surprisingly, we do not detect
+meaningful differences between studies that recorded self-reported
+vs.~objectively measured outcomes (SMD = 0.06 vs SMD =0.09,
+respectively). Looking at adherence to open science practices, the
+largest difference is between studies that have neither open data nor a
+pre-analysis plan (SMD =0.11) and those that have just open data (SMD =
+0.01).
+
+\subsubsection{Details of marginal studies included in robustness
+check}\label{details-of-marginal-studies-included-in-robustness-check}
+
+While assembling our dataset, a handful of studies stuck out to us as
+yielding interesting findings and/or design features, but nevertheless
+did not meet all of our inclusion criteria. We included these marginal
+cases in our main text as a robustness check. Each of these studies
+measures MAP consumption and has a control group. However, we excluded
+them from our main dataset for one of five reasons: 1) issues with
+random assignment or the control group (for instance, where the control
+group receives some aspect of treatment \citep{piazza2022}, or where
+treatment was alternated weekly but not randomly \citep{garnett2020});
+2) underpowered (too few clusters \citep{reinders2017} or subjects
+\citep{lentz2019}); 3) immediate outcome measurement
+\citep{dannenberg2023, sparkman2017, griesoph2021, hansen2021}; 4)
+actively encouraging substitution within categories of MAP, e.g.~from
+red meat to fish \citep{celis2017, johansen2009}; 5) uncertainty in
+calculating an effect size arising from missing information about the
+behavior of diners who opt out of treatment to avoid a vegetarian meal
+\citep{betterfoodfoundation2023}.
+
+We did not include any studies in this supplementary dataset that failed
+to meet more than one of our inclusion criteria. We further caution that
+these 22 studies is not an exhaustive or even representative list of
+studies that did not qualify for our main analysis. Rather, they are
+intended to offer an exploration of how a meta-analysis building on
+different priors about sources of bias might have proceeded.
+
+\subsubsection{Using an alternative estimation
+method}\label{using-an-alternative-estimation-method}
+
+We initially planned to use a model from \texttt{metafor} to analyze a
+synthetic dataset. However, as we assembled the actual dataset, we
+noticed that many papers had, across interventions, non-independent
+observations, typically in the form of multiple treatments compared to a
+single control group. Upon discussion, the team's statistician (MBM)
+suggested that the \texttt{CORR} model from the \texttt{robumeta}
+package, a robust variance estimation (RVE) method, would be a better
+fit.
+
+Using our original estimation strategy from \texttt{metafor}, we detect
+a pooled effect size of 0.04 (95\% CI: {[}-0.02, 0.1{]}), p = 0.1600299.
+(Although \texttt{metafor} also provides an RVE estimator, it applies
+the correction to the standard errors and not to the overall estimate,
+and we preferred a model that incorporates clustering information at the
+level of effect estimation.)
+
+\subsubsection{Using a stricter definition of
+delay}\label{using-a-stricter-definition-of-delay}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{strict\_delay\_model }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(delay\_post\_endline }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Our delay-related inclusion criterion aimed to limit our analysis to
+enduring effects. Upon reviewing studies, however, we found that
+numerous high-quality studies modified eating environments over multiple
+days and did not incorporate a delayed measure following the
+\emph{final} day of treatment. For example, \citep{andersson2021}
+included 50 combined days of treatment and control, but the interval
+between treatment and any individual outcome measurement was zero days.
+In a sense, such studies lack delayed outcome measures. In another, the
+multi-day setup in a single environment allows for theoretical delay so
+long as participants can return to the site of treatment and have their
+meal choices evaluated multiple times.
+
+We decided to include multi-day studies where delayed outcomes were at
+least possible through repeat visits by subjects to the intervention
+site. Our delay variable therefore reflects the days elapsed from the
+beginning of treatment, rather than its conclusion, to measurement.
+
+We also coded a secondary delay variable that corresponds to time
+elapsed between treatment \emph{conclusion} to measurement. Restricting
+our analysis to the 31 studies and 96 point estimates where this
+secondary delay exceeds zero, we observe an effect of SMD = 0.07 (95\%
+CI: {[}0.01, 0.12{]}), p = .028.
 
 \bibliography{./documentation/vegan-refs.bib}
 

@@ -69,124 +69,22 @@ reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
-# Supplement {#Sec5}
+# Supplement
 
-Table S1 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices.
-
-```{r sensitivity_table,echo=F, message=F}
-source('./scripts/table-S1-sensitivity.R')
-sensitivity_table
-
-journal_delta <- pub_status_results |> filter(Moderator == 'Journal article') |> pull(Delta)
-preprint_delta <- pub_status_results |> filter(Moderator == 'Preprint or thesis') |> pull(Delta)
-whitepaper_delta <- pub_status_results |> filter(Moderator == 'Nonprofit white paper') |> pull(Delta)
-
-self_report_delta <- data_collection_results |> filter(Moderator == 'Self-reported') |> pull(Delta)
-objective_delta <- data_collection_results |> filter(Moderator == 'Objectively measured') |> pull(Delta)
-
-no_os_delta <- open_science_results |> filter(Moderator == 'None') |> pull(Delta)
-pap_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan only') |> pull(Delta)
-open_data_delta <- open_science_results |> filter(Moderator == 'Open data only') |> pull(Delta)
-both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
-```
-
-Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD =`r objective_delta`, respectively).
-Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD =`r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
-
-## Description of code and data repository
-
-Our code and data are shared on the Open Science Framework [LINK], GitHub [LINK, and Code Ocean [LINK].
-
-Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim (as well as the first two figures) reproduced each time the document is knit.
-
-Our included datasets are
-
--   `vegan-meta.csv`, our primary meta-analytic dataset;
-
--   `rpmc-data.csv`, our secondary dataset of studies aimed at reducing consumption of RPM;
-
--   `robustness-data.csv`, another secondary dataset borderline studies for a robustness check (see section below);
-
--   `review-of-reviews.csv`, which details the the `r reviews_count` reviews we consulted;
-
--   `excluded-studies.csv`, which details the papers we screened but did not include, along with their reasons for exclusion and where we found them (the studies in `robustness-data.csv` are included in this dataset as well).
-
-The repositories have more details about the included scripts and supplementary materials (e.g. licenses).
-
-### Reasons for exclusion in robustness check data set
-
-While reviewing studies, a handful of studies stuck out to us as yielding interesting findings and/or design features, but nevertheless did not meet all of our inclusion criteria.
-Nevertheless, they influenced our thinking about reducing MAP consumption, and seemed worth including in a supplementary analysis, which became our robustness check in the main text.
-
-Each of these studies measures MAP consumption and has a control group.
-However, we excluded them from our main dataset for one of five reasons: 1) issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2019]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
-
-We did not include any studies in this supplementary dataset that failed to meet more than one of our inclusion criteria.
-We further caution that these `r robust_only_results$N_studies` studies is not an exhaustive or even representative list of studies that did not qualify for our main analysis.
-Rather, they are intended to offer an exploration of how a meta-analysis building on different priors about sources of bias might have proceeded.
-
-## Robustness to an alternative estimation method {#Sec5.1.2}
-
-Our pre-analysis plan (\url{https://osf.io/3sth2}) used a model from `metafor` to analyze a synthetic dataset.
-However, as we assembled the actual dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group.
-Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package, a robust variance estimation (RVE) method, would be a better fit.
-
-```{r alt_models, include=F}
-alt_model <- robust(metafor::rma.uni(yi = d, vi = var_d, data = dat), 
-                    cluster = dat$unique_study_id)
-
-hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
-                             studynum = author,
-                             var.eff.size = var_d, modelweights = 'HIER', 
-                             small = TRUE) 
-```
-
-Using our original estimation strategy from `metafor`, we detect a pooled effect size of `r round(alt_model$beta, 2)` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
-(Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.)
-
-## Robustness to a stricter definition of delay {#Sec5.1.3}
-
-```{r strict_delay_model}
-strict_delay_model <- dat |> filter(delay_post_endline > 0) |> extract_model_results()
-```
-
-Our delay-related inclusion criterion aimed to limit our analysis to enduring effects.
-We were concerned that subjects who are encouraged to have a single vegetarian meal might later compensate by consuming more MAP at the next one, which would make an immediate outcome measurement an upwardly biased estimate of overall effects.
-
-Upon reviewing studies, however, we found that numerous high-quality studies modified eating environments over multiple days and did not incorporate a delayed measure following the *final* day of treatment.
-For example, [@andersson2021] included 50 combined days of treatment and control, but the interval between treatment and any individual outcome measurement was zero days.
-By one light, such studies lack delayed outcome measures.
-In another, the multi-day setup in a single environment allows for theoretical delay so long as participants can return to the site of treatment and have their meal choices evaluated multiple times.
-
-We decided to include multi-day studies where delayed outcomes were at least possible through repeat visits by subjects to the intervention site.
-Our delay variable therefore reflects the days elapsed from the beginning of treatment, rather than its conclusion, to measurement.
-
-We also coded a secondary delay variable that corresponds to time elapsed between treatment *conclusion* to measurement.
-Restricting our analysis to the `r strict_delay_model$N_studies` studies and `r strict_delay_model$N_estimates` point estimates where this secondary delay exceeds zero, we observe an effect of SMD = `r strict_delay_model$Delta` (95% CI: `r strict_delay_model$CI`), p = `r strict_delay_model$p_val`.
-
-## Notes on search strategy {#Sec5.2}
+## Search strategy
 
 ```{r prisma_numbers, include=F, echo=F}
 source('./scripts/prisma-script.R')
 ```
 
-\begin{comment} we could take the next few paragraphs out and start with the sentence "we employed what could be called a "prior-reviews-first" search strategy."
-\end{comment}
+Our search process was shaped by three unique features of our research project. First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself. For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while others focus on a particular, sometimes unusual category of MAP, such as fish sauce
+[@kanchanachitra2020}] or discussed their agenda mainly in terms of increasing plant-based alternatives. Coming up with an exhaustive list of terms to search for from first principles would have been very difficult or impossible.
 
-Our search process was shaped by three unusual features of our research project.
-First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself.
-For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while others focus on a particular, sometimes unusual category of MAP, such as fish sauce [@kanchanachitra2020], or discussed their agenda mainly in terms of increasing plant-based alternatives.
-Coming up with an exhaustive list of terms to search for from first principles would have been, in our opinion, virtually impossible.
+Second, our methods-based inclusion criteria complicated screening on titles and abstracts. While it was sometimes possible to use solely that information to eliminate studies with no interventions (e.g. survey-based research), determining whether an intervention qualified almost always required some amount of full text screening. We also discovered that terms like ``field experiment'' have varying meanings across papers, and identifying whether a measured food choice was hypothetical or not often required a close reading. For these reasons, screening thousands or tens of thousands of papers struck us as prohibitively time-consuming.
 
-Second, our methods-based inclusion criteria complicated screening on titles and abstracts.
-While it was sometimes possible to use solely that information to eliminate studies with no interventions (e.g. survey-based research), determining whether an intervention qualified almost always required some amount of full text screening.
-We also discovered that terms like "field experiment" have varying meanings across papers, and identifying whether a measured food choice was hypothetical or not often required a close reading.
-For these reasons, screening thousands or tens of thousands of papers struck us as prohibitively time-consuming.
+Third, we found a very large number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question. Reviewing tables and bibliographies of those papers proved very fruitful for both assembling our dataset and getting a sense of the broader literature.
 
-Third, we found an extraordinary number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question.
-Reviewing tables and bibliographies of those papers proved enormously fruitful for both assembling our dataset and getting a sense of the broader literature.
-
-For these reasons, we employed what could be called a "prior-reviews-first" search strategy.
+For these reasons, we employed what could be called a 'prior-reviews-first' search strategy.
 Of the `r nrow(all_papers)` papers we reviewed, a full `r round(prior_review_n / nrow(all_papers), 2) * 100` % of all manuscripts we screened came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100` % of papers in our main dataset.
 (See the next section of the supplement for notes on reviews that were especially informative.) Then, as detailed in the main text, we employed a multitude of other search strategies to fill in our dataset, one of which was systematic search.
 In particular, we searched Google Scholar for the following list of terms, and checked ten pages of results for each:
@@ -277,3 +175,95 @@ Our overall conclusion from these 150+ papers is that the marginal value of a ne
 We also encourage researchers to be cautious in extrapolating impacts across outcome categories.
 For instance, many reviews concluded that choice architecture approaches are effective at changing food choice, but these are typically aimed at foods with weak social and cultural associations.
 Whether these interventions work for something as fraught with meaning as meat remains to be seen.
+
+## Description of code and data repository
+
+Our code and data are shared on the Open Science Framework [LINK], GitHub [LINK, and Code Ocean [LINK].
+
+Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim (as well as the first two figures) reproduced each time the document is knit.
+
+The datasets are:
+
+-   `vegan-meta.csv`, our primary meta-analytic dataset;
+
+-   `rpmc-data.csv`, our secondary dataset of studies aimed at reducing consumption of RPM;
+
+-   `robustness-data.csv`, another secondary dataset borderline studies for a robustness check (see section below);
+
+-   `review-of-reviews.csv`, which details the the `r reviews_count` reviews we consulted;
+
+-   `excluded-studies.csv`, which details the papers we screened but did not include, along with their reasons for exclusion and where we found them (the studies in `robustness-data.csv` are included in this dataset as well).
+
+The repositories have more details about the included scripts and supplementary materials (e.g. licenses).
+
+## Additional robustness checks and alternative analyses
+
+### Sensitivity to publication status, outcome recorded, and open science practices
+Table S1 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices.
+
+```{r sensitivity_table,echo=F, message=F}
+source('./scripts/table-S1-sensitivity.R')
+sensitivity_table
+
+journal_delta <- pub_status_results |> filter(Moderator == 'Journal article') |> pull(Delta)
+preprint_delta <- pub_status_results |> filter(Moderator == 'Preprint or thesis') |> pull(Delta)
+whitepaper_delta <- pub_status_results |> filter(Moderator == 'Nonprofit white paper') |> pull(Delta)
+
+self_report_delta <- data_collection_results |> filter(Moderator == 'Self-reported') |> pull(Delta)
+objective_delta <- data_collection_results |> filter(Moderator == 'Objectively measured') |> pull(Delta)
+
+no_os_delta <- open_science_results |> filter(Moderator == 'None') |> pull(Delta)
+pap_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan only') |> pull(Delta)
+open_data_delta <- open_science_results |> filter(Moderator == 'Open data only') |> pull(Delta)
+both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
+```
+
+Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD =`r objective_delta`, respectively).
+Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD =`r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
+
+### Details of marginal studies included in robustness check
+While assembling our dataset, a handful of studies stuck out to us as yielding interesting findings and/or design features, but nevertheless did not meet all of our inclusion criteria. 
+We included these marginal cases in our main text as a robustness check.
+Each of these studies measures MAP consumption and has a control group.
+However, we excluded them from our main dataset for one of five reasons: 1) issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2019]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
+
+We did not include any studies in this supplementary dataset that failed to meet more than one of our inclusion criteria.
+We further caution that these `r robust_only_results$N_studies` studies is not an exhaustive or even representative list of studies that did not qualify for our main analysis.
+Rather, they are intended to offer an exploration of how a meta-analysis building on different priors about sources of bias might have proceeded.
+
+### Using an alternative estimation method
+
+We initially planned to use a model from `metafor` to analyze a synthetic dataset.
+However, as we assembled the actual dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group.
+Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package, a robust variance estimation (RVE) method, would be a better fit.
+
+```{r alt_models, include=F}
+alt_model <- robust(metafor::rma.uni(yi = d, vi = var_d, data = dat), 
+                    cluster = dat$unique_study_id)
+
+hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
+                             studynum = author,
+                             var.eff.size = var_d, modelweights = 'HIER', 
+                             small = TRUE) 
+```
+
+Using our original estimation strategy from `metafor`, we detect a pooled effect size of `r round(alt_model$beta, 2)` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
+(Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.)
+
+### Using a stricter definition of delay
+
+```{r strict_delay_model}
+strict_delay_model <- dat |> filter(delay_post_endline > 0) |> extract_model_results()
+```
+
+Our delay-related inclusion criterion aimed to limit our analysis to enduring effects.
+Upon reviewing studies, however, we found that numerous high-quality studies modified eating environments over multiple days and did not incorporate a delayed measure following the *final* day of treatment.
+For example, [@andersson2021] included 50 combined days of treatment and control, but the interval between treatment and any individual outcome measurement was zero days.
+In a sense, such studies lack delayed outcome measures.
+In another, the multi-day setup in a single environment allows for theoretical delay so long as participants can return to the site of treatment and have their meal choices evaluated multiple times.
+
+We decided to include multi-day studies where delayed outcomes were at least possible through repeat visits by subjects to the intervention site.
+Our delay variable therefore reflects the days elapsed from the beginning of treatment, rather than its conclusion, to measurement.
+
+We also coded a secondary delay variable that corresponds to time elapsed between treatment *conclusion* to measurement.
+Restricting our analysis to the `r strict_delay_model$N_studies` studies and `r strict_delay_model$N_estimates` point estimates where this secondary delay exceeds zero, we observe an effect of SMD = `r strict_delay_model$Delta` (95% CI: `r strict_delay_model$CI`), p = `r strict_delay_model$p_val`.

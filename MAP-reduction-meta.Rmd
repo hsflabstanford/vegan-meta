@@ -104,7 +104,7 @@ Interventions varied in delivery method, for example, documentary films [@mathur
 We estimated overall effect sizes as well as effect sizes associated with different theoretical approaches and delivery mechanisms.
 Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions.
 We also find that a dataset of `r RPMC_studies` studies that meet our methodological criteria but aimed at reducing PRM consumption instead [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020], are consistently associated with larger behavioral changes than are studies aimed at reducing net MAP consumption.
-Last, when we incorporate MAP reduction studies that some but not all of our methodological criteria, we find a substantially larger overall effect.
+Likewise, when we incorporate a set of MAP reduction studies that each met all but one of our methodological criteria [@alblas2023; @beresford2006; @betterfoodfoundation2023; @celis2017; @dannenberg2023; @delichatsios2001eatsmart; @epperson2021; @frie2022; @garnett2020; @griesoph2021; @hansen2021; @johansen2009; @kaiser2020; @lentz2019; @loy2016; @matthews2019; @piazza2022; @reinders2017; @sparkman2017], we find a substantially larger overall effect.
 Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' outcomes and methodological rigor, we conclude that meaningfully reducing MAP consumption is an unsolved problem.
 However, many promising approaches still await rigorous evaluation.
 
@@ -212,9 +212,10 @@ The second (moderator $p$ value) compares the effects within different moderator
 source('./scripts/robustness-checks.R')
 ```
 
-We also coded and meta-analyzed a supplementary dataset of `r robust_only_results$N_studies` studies, comprising `r robust_only_results$N_estimates` point estimates, that typically fell short on one of our inclusion criteria, e.g. where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020] (Supplement), but otherwise featured strong designs and rigorous measurement strategies []
+As a roustness check, we also coded and meta-analyzed a supplementary dataset of `r robust_only_results$N_studies` marginal studies, comprising `r robust_only_results$N_estimates` point estimates.
+One of these studies met our inclusion criteria but required some guesswork in extracting an effect size; the others were strong designs that met all but one of our inclusion criteria, e.g. the control group received some aspect of treatment [@piazza2022], or treatment was alternated weekly but not randomly [@garnett2020] (Supplement).
 
-integrating these studies into our primary dataset yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`.
+integrating these marginal studies into our primary dataset yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`.
 Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
 
 ```{r publication_bias, include=F, message=F}
@@ -348,7 +349,6 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 *Thanks to Alex Berke, Alix Winter, Anson Berns, Dan Waldinger, Hari Dandapani, Adin Richards, Martin Gould, and Matt Lerner for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. Thanks to Sofia Vera Verduzco for research assistance. We gratefully acknowledge funding from the NIH (grant R01LM013866), Open Philanthropy, and the Food Systems Research Fund (Grant FSR 2023-11-07).*
 
 # Declarations {.unnumbered}
-
 
 \newpage
 
