@@ -36,7 +36,7 @@ output:
   rticles::springer_article:
     keep_tex: true
     keep_md: true
-bibliography: "./vegan-refs.bib"
+bibliography: "./documentation/vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
 header-includes:
@@ -51,7 +51,7 @@ header-includes:
 
 # so that knitr labels figures
 library(knitr)
-opts_chunk$set(fig.path = "../results/figures/",
+opts_chunk$set(fig.path = "./results/figures/",
                echo = TRUE,
                out.extra = "",
                fig.pos = "ht")
@@ -65,9 +65,8 @@ source('./scripts/load-data.R')
 source('./scripts/models-and-constants.R')
 source('./scripts/robustness-checks.R')
 
-reviews_count <- nrow(read.csv('../data/review-of-reviews.csv'))
-excluded_count <- nrow(read.csv('../data/excluded-studies.csv'))
-
+reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
+excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
 # Supplement {#Sec5}

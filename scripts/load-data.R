@@ -2,7 +2,7 @@ library(dplyr, warn.conflicts = F)
 library(stringr)
 source('./functions/d-calc.R')
 source('./functions/var-d-calc.R')
-dat <- read.csv('../data/vegan-meta.csv') |>
+dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
   ungroup() |> 
@@ -36,7 +36,7 @@ dat <- read.csv('../data/vegan-meta.csv') |>
   select(-one_of("X")) |>   
   select(author, year, title, unique_paper_id, unique_study_id, everything())
 
-RPMC <- read.csv('../data/rpmc-data.csv') |> 
+RPMC <- read.csv('./data/rpmc-data.csv') |> 
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |>
   ungroup() |>

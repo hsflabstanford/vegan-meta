@@ -38,7 +38,7 @@ output:
   rticles::springer_article:
     keep_tex: true
     keep_md: true
-bibliography: "./vegan-refs.bib"
+bibliography: "./documentation/vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
 header-includes:
@@ -53,7 +53,7 @@ header-includes:
 
 # so that knitr labels figures
 library(knitr)
-opts_chunk$set(fig.path = "../results/figures/",
+opts_chunk$set(fig.path = "./results/figures/",
                echo = TRUE,
                out.extra = "",
                fig.pos = "ht")
@@ -246,8 +246,8 @@ A conservative estimate that accounts for the possibility of worst-case publicat
 # Methods {#sec3}
 
 ```{r methods_nums, include=F}
-reviews_count <- nrow(read.csv('../data/review-of-reviews.csv'))
-excluded_count <- nrow(read.csv('../data/excluded-studies.csv'))
+reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
+excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
 ## Study selection {#sec3.1}
@@ -268,7 +268,7 @@ Inclusion/exclusion decisions were primarily made by the first author, with all 
 Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies, which is detailed further in the Supplement.
 
 ```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
-knitr::include_graphics('../documentation/prisma-diagram.png')
+knitr::include_graphics('./documentation/prisma-diagram.png')
 
 ```
 

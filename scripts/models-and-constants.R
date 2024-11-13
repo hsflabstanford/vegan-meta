@@ -35,3 +35,4 @@ decade_tab <- dat |> group_by(unique_paper_id) |>  slice(1) |>  ungroup() |> cou
 
 RPMC_papers <- as.numeric(max(RPMC$unique_paper_id))
 RPMC_studies <- as.numeric(max(RPMC$unique_study_id))
+

@@ -5,7 +5,7 @@ source('./scripts/robustness-checks.R')
 source('./scripts/robustness-checks.R')
 source('./functions/sum-tab.R')
 
-excluded_data <- read.csv('../data/excluded-studies.csv') |>
+excluded_data <- read.csv('./data/excluded-studies.csv') |>
   select(-exclusion_reason) |> 
   mutate(inclusion_exclusion = 8)
 
