@@ -4,6 +4,7 @@
 .DS_store
 cutouts.Rmd
 results/
+/results/figures/
 *.pdf
 *.html
 *.docx
@@ -13,4 +14,3 @@ vegan-meta.ttt
 *.log
 *.md
 short-term-todos.txt
-*.png
