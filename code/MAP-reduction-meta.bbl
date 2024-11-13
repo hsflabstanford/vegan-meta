@@ -189,6 +189,16 @@
 \newblock \bibinfo{title}{{Impact of health, environmental, and animal welfare messages discouraging red meat consumption: an online randomized experiment}}.
 \newblock \emph{\bibinfo{journal}{Journal of the Academy of Nutrition and Dietetics}} \textbf{\bibinfo{volume}{123}}, \bibinfo{pages}{466--476} (\bibinfo{year}{2023}).
 
+\bibitem{chang2023}
+\bibinfo{author}{Chang, K.~B.}, \bibinfo{author}{Wooden, A.}, \bibinfo{author}{Rosman, L.}, \bibinfo{author}{Altema-Johnson, D.} \& \bibinfo{author}{Ramsing, R.}
+\newblock \bibinfo{title}{{Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis}}.
+\newblock \emph{\bibinfo{journal}{Frontiers in Sustainable Food Systems}} \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{1103060} (\bibinfo{year}{2023}).
+
+\bibitem{kwasny2022}
+\bibinfo{author}{Kwasny, T.}, \bibinfo{author}{Dobernig, K.} \& \bibinfo{author}{Riefler, P.}
+\newblock \bibinfo{title}{{Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001--2019}}.
+\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{168}}, \bibinfo{pages}{105739} (\bibinfo{year}{2022}).
+
 \bibitem{griesoph2021}
 \bibinfo{author}{Griesoph, A.}, \bibinfo{author}{Hoffmann, S.}, \bibinfo{author}{Merk, C.}, \bibinfo{author}{Rehdanz, K.} \& \bibinfo{author}{Schmidt, U.}
 \newblock \bibinfo{title}{{Guess what\ldots{}?--How guessed norms nudge climate-friendly food choices in real-life settings}}.
@@ -387,20 +397,10 @@
 \newblock \bibinfo{title}{{Nudging pro-environmental behavior: evidence and opportunities}}.
 \newblock \emph{\bibinfo{journal}{Frontiers in Ecology and the Environment}} \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{159--168} (\bibinfo{year}{2018}).
 
-\bibitem{chang2023}
-\bibinfo{author}{Chang, K.~B.}, \bibinfo{author}{Wooden, A.}, \bibinfo{author}{Rosman, L.}, \bibinfo{author}{Altema-Johnson, D.} \& \bibinfo{author}{Ramsing, R.}
-\newblock \bibinfo{title}{{Strategies for reducing meat consumption within college and university settings: A systematic review and meta-analysis}}.
-\newblock \emph{\bibinfo{journal}{Frontiers in Sustainable Food Systems}} \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{1103060} (\bibinfo{year}{2023}).
-
 \bibitem{harguess2020}
 \bibinfo{author}{Harguess, J.~M.}, \bibinfo{author}{Crespo, N.~C.} \& \bibinfo{author}{Hong, M.~Y.}
 \newblock \bibinfo{title}{{Strategies to reduce meat consumption: A systematic literature review of experimental studies}}.
 \newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{144}}, \bibinfo{pages}{104478} (\bibinfo{year}{2020}).
-
-\bibitem{kwasny2022}
-\bibinfo{author}{Kwasny, T.}, \bibinfo{author}{Dobernig, K.} \& \bibinfo{author}{Riefler, P.}
-\newblock \bibinfo{title}{{Towards reduced meat consumption: A systematic literature review of intervention effectiveness, 2001--2019}}.
-\newblock \emph{\bibinfo{journal}{Appetite}} \textbf{\bibinfo{volume}{168}}, \bibinfo{pages}{105739} (\bibinfo{year}{2022}).
 
 \bibitem{meier2022}
 \bibinfo{author}{Meier, J.}, \bibinfo{author}{Andor, M.~A.}, \bibinfo{author}{Doebbe, F.~C.}, \bibinfo{author}{Haddaway, N.~R.} \& \bibinfo{author}{Reisch, L.~A.}

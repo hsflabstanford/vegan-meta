@@ -32,7 +32,7 @@ keywords:
   - plant-based
   - randomized controlled trial
 abstract: |
-  Which interventions produce the largest and most enduring reductions in consumptions of meat and animal products (MAP)? We address this question with a theoretical review and meta-analysis of randomized controlled trials that measured MAP consumption at least one day after intervention. We meta-analyze 35 papers comprising 41 studies, 112 interventions, and approximately 87,000 subjects. We find that these papers employ four major strategies to changing behavior: choice architecture, persuasion, psychology, and a combination of persuasion and psychology. The pooled effect of all 114 interventions on MAP consumption is quite small (standardized mean difference [SMD] = 0.07; 95\% CI: [0.02, 0.12]), indicating an unsolved problem. Interventions aiming to reduce only consumption of red and processed meat were more effective: SMD = 0.25 (95\% CI: [0.11, 0.38]), but it remains unclear  whether such interventions increase consumption of other forms of MAP. We further explore effect size heterogeneity by approach, population, and study features. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
+  Which interventions produce the largest and most enduring reductions in consumptions of meat and animal products (MAP)? We address this question with a theoretical review and meta-analysis of randomized controlled trials that measured MAP consumption at least one day after intervention. We meta-analyze 35 papers comprising 41 studies, 112 interventions, and approximately 87,000 subjects. We find that these papers employ four major strategies to changing behavior: choice architecture, persuasion, psychology, and a combination of persuasion and psychology. The pooled effect of all 114 interventions on MAP consumption is quite small (standardized mean difference SMD = 0.07 (95\% CI: [0.02, 0.12]), indicating an unsolved problem. Interventions aiming to reduce only consumption of red and processed meat were more effective: SMD = 0.25 (95\% CI: [0.11, 0.38]), but it remains unclear whether such interventions increase consumption of other forms of MAP. We also find that incorporating a set of studies that meet most but not all of our inclusion criteria inflates the pooled effect size to SMD = 0.2 (95]%: [0.09. 0.31]. We conclude that while no theoretical approach provides a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
@@ -84,24 +84,27 @@ Choice architecture has been cited as a cheap, effective way of altering dietary
 
 However, recurring design and measurement limitations comprise this literature.
 Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
-Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010]. 
-Additionally, many studies with comparatively large effects achieve them by aiming to reduce (and exclusively measuring) consumption of red and processed meat (RPM).
-If such interventions induce people to switch from consuming RPM to consuming other forms of MAP, such as chicken or fish [@grummon2023], their results will be upwardly biased estimates of net MAP reduction.
+Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010].
+Additionally, many studies with comparatively large effects aim to reduce consumption of red and processed meat (RPM).
+However, because these studies exclusively measure changes in RPM, it is unknown whether they induce substitution to other forms of MAP, such as chicken or fish [@grummon2023].
+Taking these studies as face value estimates of net MAP reduction, as prior reviews have done [@bianchi2018conscious; @chang2023; @kwasny2022] may produce upwardly biased estimates.
 
-Finally, many studies measure only immediate rather than long-term effects [@hansen2021; @griesoph2021]. This is of special concern if subjects who are encouraged to have a single vegetarian meal might later compensate by consuming more MAP at the next one, which would make an immediate outcome measurement an upwardly biased estimate of overall effects.
+Finally, many studies measure only immediate rather than long-term effects [@hansen2021; @griesoph2021].
+This is of special concern if subjects who are encouraged to have a single vegetarian meal might later compensate by consuming more MAP at the next one, which would make an immediate outcome measurement an upwardly biased estimate of overall effects.
 
 In the past few years, a new wave of MAP reduction research has made commendable methodological advances in design, measurement validity, and statistical power.
 Historically, in some scientific fields, strong effects detected in early studies with methodological limitations were ultimately overturned by more rigorous follow-ups [@wykes2008; @paluck2019; @scheel2021].
 Does this phenomenon hold in the MAP reduction literature as well?
 
 To address this question, we conducted a meta-analysis of RCTs that aim to reduce MAP consumption and that meet basic methodological standards [@andersson2021; @kanchanachitra2020; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @hennessy2016; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022; @piester2020; @aberman2018; @aldoh2023; @allen2002; @camp2019; @coker2022; @sparkman2020; @berndsen2005; @bertolaso2015; @fehrenbach2015; @mattson2020; @shreedhar2021].
-Specifically, we restricted eligibility to RCTs that measured consumption outcomes at least a single day after treatment was first administered and that had at least 25 subjects in both treatment and control (or, for cluster-assigned studies, at least ten clusters in total). 
+Specifically, we restricted eligibility to RCTs that measured consumption outcomes at least a single day after treatment was first administered and that had at least 25 subjects in both treatment and control (or, for cluster-assigned studies, at least ten clusters in total).
 
 Studies in our meta-analysis pursued one of four theoretical approaches: choice architecture, psychological appeals (typically manipulations of perceived norms around eating meat), explicit persuasion (centered around animal welfare, the environment, and/or health), or a combination of psychological and persuasion messages.
 Interventions varied in delivery method, for example, documentary films [@mathur2021effectiveness], leaflets [@peacock2017], university lectures [@jalil2023], op-eds [@haile2021], and changes to menus in cafeterias [@andersson2021] and restaurants [@coker2022; @sparkman2021].
 We estimated overall effect sizes as well as effect sizes associated with different theoretical approaches and delivery mechanisms.
-Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions. 
-We also find that a dataset of `r RPMC_studies` studies aimed at reducing PRM consumption [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020], but which meet our other inclusion criteria, are consistently associated with larger behavioral changes than are studies aimed at reducing net MAP consumption. Last, our robustness checks, where we include studies that do not meet our inclusion criteria, reveal overall effect sizes more in line with those of prior reviews (Supplement).
+Although we find some heterogeneity across theories and mechanisms, we find consistently smaller effects on MAP consumption than previous reviews have suggested [@bianchi2018restructuring; @byerly2018; @chang2023; @harguess2020; @kwasny2022; @mathur2021meta; @meier2022], with some intriguing exceptions.
+We also find that a dataset of `r RPMC_studies` studies that meet our methodological criteria but aimed at reducing PRM consumption instead [@anderson2017; @carfora2017correlational; @carfora2017randomised; @carfora2019; @carfora2019informational; @delichatsios2001talking; @dijkstra2022; @emmons2005cancer; @emmons2005project; @jaacks2014; @james2015; @lee2018; @lindstrom2015; @perino2022; @schatzkin2000; @sorensen2005; @wolstenholme2020], are consistently associated with larger behavioral changes than are studies aimed at reducing net MAP consumption.
+Last, when we incorporate MAP reduction studies that some but not all of our methodological criteria, we find a substantially larger overall effect.
 Thus, contradicting previous reviews that placed fewer (if any) restrictions on studies' outcomes and methodological rigor, we conclude that meaningfully reducing MAP consumption is an unsolved problem.
 However, many promising approaches still await rigorous evaluation.
 
@@ -126,19 +129,11 @@ Because methodological quality is rapidly improving in the literature on MAP red
 Among studies where treatment was assigned to individuals rather than to clusters (e.g., every student in a class), the median analyzed sample size per study was `r median_total_pop` subjects(25\$\^{\\text{th}}\$--75$^{\text{th}}$ percentiles: `r paste0(percentile_25, ", ", percentile_75)`).
 
 We found that studies' theoretical approaches could be grouped into four categories.
-**Choice architecture** studies [@andersson2021; @kanchanachitra2020] `r paste0("(n = ", choice_results$N_studies, " studies with ", choice_results$N_estimates, " estimates)")` manipulate aspects of physical environments to reduce MAP consumption, such as by placing the vegetarian option at eye level on a cafeteria's billboard menu [@andersson2021]. 
-**Persuasion** studies [@kanchanachitra2020; @aberman2018; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] `r paste0("(n = ", persuasion_results$N_studies, " studies with ", persuasion_results$N_estimates, " estimates)")` focus on health, environmental (usually climate change), and animal welfare reasons to reduce MAP consumption. 
-Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness]. 
-Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023]. 
-**Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] `r paste0("(n = ", psych_results$N_studies, " studies with ", psych_results$N_estimates, " estimates)")` manipulate the interpersonal, cognitive, or affective factors associated with eating MAP. 
-The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020]. 
-In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022]. 
-In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!”
+**Choice architecture** studies [@andersson2021; @kanchanachitra2020] `r paste0("(n = ", choice_results$N_studies, " studies with ", choice_results$N_estimates, " estimates)")` manipulate aspects of physical environments to reduce MAP consumption, such as by placing the vegetarian option at eye level on a cafeteria's billboard menu [@andersson2021]. **Persuasion** studies [@kanchanachitra2020; @aberman2018; @abrahamse2007; @acharya2004; @banerjee2019; @bianchi2022; @bochmann2017; @bschaden2020; @carfora2023; @hennessy2016; @piester2020; @cooney2014; @cooney2016; @feltz2022; @haile2021; @hatami2018; @jalil2023; @mathur2021effectiveness; @merrill2009; @norris2014; @peacock2017; @polanco2022; @sparkman2021; @weingarten2022] `r paste0("(n = ", persuasion_results$N_studies, " studies with ", persuasion_results$N_estimates, " estimates)")` focus on health, environmental (usually climate change), and animal welfare reasons to reduce MAP consumption. Such messages are often delivered through printed materials, such as leaflets [@haile2021; @polanco2022], booklets [@bianchi2022] articles and op-eds [@sparkman2021; @feltz2022], and videos [@sparkman2021; @cooney2016; @mathur2021effectiveness]. Less common delivery methods included in-person dietary consultations [@merrill2009], emails [@banerjee2019], and text messages [@carfora2023]. **Psychology** studies [@aldoh2023; @allen2002; @camp2019; @coker2022; @piester2020; @sparkman2020] `r paste0("(n = ", psych_results$N_studies, " studies with ", psych_results$N_estimates, " estimates)")` manipulate the interpersonal, cognitive, or affective factors associated with eating MAP. The most common psychological intervention is centered on social norms seeking to alter the perceived popularity of non-MAP dishes [@sparkman2020]. In one study, a restaurant put up signs stating that "[m]ore and more [retail store name] customers are choosing our veggie options" [@coker2022]. In another, a university cafeteria put up signs stating that "[i]n a taste test we did at the [name of cafe], 95% of people said that the veggie burger tasted good or very good!”
 [@piester2020].
 One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002].
 Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019], and implementation intentions, where participants list potential challenges and solutions to changing their own behavior [@aberman2018; @shreedhar2021].
-Finally, some studies combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021] `r paste0("(n = ", psych_persuasion_results$N_studies, " studies with ", psych_persuasion_results$N_estimates, " estimates)")`. 
-These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's MAP consumption [@mathur2021effectiveness; @shreedhar2021].
+Finally, some studies combines **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021] `r paste0("(n = ", psych_persuasion_results$N_studies, " studies with ", psych_persuasion_results$N_estimates, " estimates)")`. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's MAP consumption [@mathur2021effectiveness; @shreedhar2021].
 
 ```{r needed_vars, include=F}
 low_prop_test <- prop_stronger( q = 0.1, M = overall_results$Delta,
@@ -169,9 +164,7 @@ meta_table
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
 Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100, 2)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100,2)`% are above SMD = 0.2.
 Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1).
-Estimates may have been somewhat larger among the choice architecture studies `r paste0("(SMD = ", choice_delta, ")")` but the sample size was much smaller (`r choice_results$N_estimates` estimates).
-Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates). 
-We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g. [@jalil2023] presented students with both environmental and health reasons to reduce MAP consumption.
+Estimates may have been somewhat larger among the choice architecture studies `r paste0("(SMD = ", choice_delta, ")")` but the sample size was much smaller (`r choice_results$N_estimates` estimates). Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates). We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g. [@jalil2023] presented students with both environmental and health reasons to reduce MAP consumption.
 
 ```{r forest_plot, fig.cap="Forest plot of all meta-analyzed studies. For papers contributing multiple point estimates, the plotted point corresponds to a fixed effects meta-analysis for each paper for visual clarity. Papers employing multiple theoretical approaches are represented once per theory. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", echo=FALSE, message=F, fig.align='center', fig.pos='H', fig.height=9, fig.width=6}
 source('./scripts/forest-plot.R')
@@ -190,7 +183,7 @@ red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
      mutate(across(1:6, \(x) round(x, 3)))
 ```
 
-Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method. 
+Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method.
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/table-two-moderator.R')
@@ -207,40 +200,40 @@ delivery_n <- delivery_results |> filter(Moderator == 'Dietary consultation') |>
 
 The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
 Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
-We observe consistently small effects across categories of population (all SMDs < 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. a range of 0.14 to 0.21 for other locations. 
+We observe consistently small effects across categories of population (all SMDs \< 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. a range of 0.14 to 0.21 for other locations.
 
-\begin{comment} 
-I don't like this sentence, but I am not sure what else so I am just moving on 
-\end{comment}
-
-Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s, during which a majority (`r twenty_twenty_n` of `r num_studies`) of studies were published. 
+Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s, during which a majority (`r twenty_twenty_n` of `r num_studies`) of studies were published.
 Finally, we note a wide array of heterogeneity of effects associated with different delivery mechanisms, from `r edu_delta` for both educational materials and videos, to `r delivery_delta` for dietary consultations, though this larger effect comes from just `r delivery_n` studies.
 For each estimate, we provide two p values.
 The first (subset $p$ value) compares the effects associated with a given subset, e.g. all studies with an adolescent population, to a null hypothesis of no effect.
 The second (moderator $p$ value) compares the effects within different moderator categories, with the top category in each grouping set to be the reference level, e.g. testing if the pooled effect of studies taking place in Europe is significantly different than that of studies taking place in North America.
 
-Table 3 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices. 
+```{r robustness_check, include=F}
+source('./scripts/robustness-checks.R')
 
-```{r sensitivity_table,echo=F, message=F}
-source('./scripts/table-three-sensitivity.R')
-sensitivity_table
+robust_only_results <- robust_dat |> extract_model_results()
 
-journal_delta <- pub_status_results |> filter(Moderator == 'Journal article') |> pull(Delta)
-preprint_delta <- pub_status_results |> filter(Moderator == 'Preprint or thesis') |> pull(Delta)
-whitepaper_delta <- pub_status_results |> filter(Moderator == 'Nonprofit white paper') |> pull(Delta)
+# overall result with robust_dat merged
+merged_dat <- full_join(dat, robust_dat) |> 
+  select(c(-unique_study_id, unique_paper_id)) |>
+  group_by(title) |>
+  mutate(unique_paper_id = cur_group_id())  |>
+  ungroup() |>
+  group_by(unique_paper_id, study_num_within_paper) |>
+  mutate(unique_study_id = cur_group_id()) |>
+  ungroup() |>
+  select(author, year, title, unique_paper_id, unique_study_id, everything())
 
-self_report_delta <- data_collection_results |> filter(Moderator == 'Self-reported') |> pull(Delta)
-objective_delta <- data_collection_results |> filter(Moderator == 'Objectively measured') |> pull(Delta)
+merged_results <- merged_dat |> extract_model_results()
 
-no_os_delta <- open_science_results |> filter(Moderator == 'None') |> pull(Delta)
-pap_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan only') |> pull(Delta)
-open_data_delta <- open_science_results |> filter(Moderator == 'Open data only') |> pull(Delta)
-both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
+## look at biggest results
+merged_dat |> arrange(desc(d)) |> select(author,year,  ,se_d, inclusion_exclusion) |> head(10)
 ```
 
-Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. 
-Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r `self_report_delta` vs SMD = `r objective_delta`, respectively).
-Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
+We also coded and meta-analyzed a supplementary dataset of `r robust_only_results$N_studies` studies, comprising `r robust_only_results$N_estimates` point estimates, that typically fell short on one of our inclusion criteria, e.g. where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020] (Supplement), but otherwise featured strong designs and rigorous measurement strategies []
+
+integrating these studies into our primary dataset yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`.
+Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
 
 ```{r publication_bias, include=F, message=F}
 rma_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
@@ -258,14 +251,15 @@ nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
 ```
 
-Figure 2 is a modified type of funnel plot [@mathur2020]. 
+Figure 2 is a modified type of funnel plot [@mathur2020].
+
 ```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot displaying studies’ point estimates versus their estimated standard errors. Orange points: affirmative studies (p < 0.05 and a positive point estimate). Grey points: nonaffirmative studies (p $\\geq$ 0.05 or a negative point estimate). Diagonal grey line: the standard threshold of “statistical significance” for positive point estimates; studies lying on the line have exactly p = 0.05. Black diamond: main-analysis point estimate within all studies; grey diamond: worst-case point estimate within only the nonaffirmative studies.", fig.align='center', fig.pos='H'}
 funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
 ```
 
-The meta-analytic mean corrected for publication bias  that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
-A conservative estimate that accounts for the possibility of worst-case publication bias  yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024].
+The meta-analytic mean corrected for publication bias that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
+A conservative estimate that accounts for the possibility of worst-case publication bias yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024].
 
 # Methods {#sec3}
 
@@ -276,14 +270,16 @@ excluded_count <- nrow(read.csv('../data/excluded-studies.csv'))
 
 ## Study selection {#sec3.1}
 
-Our meta-analytic sample comprises randomized controlled trial evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins. 
-We required that studies have a pure control group receiving no treatment. 
-We further restricted our search to studies that were publicly circulated in English by December 2023. 
-We also made three decisions regarding study inclusion after data collection began. First, we counted and analyzed reductions in RPM separately. Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead only sought to induce substitution from one kind of MAP to another, e.g.swapping red meat for fish. 
+Our meta-analytic sample comprises randomized controlled trial evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins.
+We required that studies have a pure control group receiving no treatment.
+We further restricted our search to studies that were publicly circulated in English by December 2023.
+We also made three decisions regarding study inclusion after data collection began.
+First, we counted and analyzed reductions in RPM separately.
+Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead only sought to induce substitution from one kind of MAP to another, e.g.swapping red meat for fish.
 Third, we excluded studies with involuntary reductions, i.e. interventions in institutions where subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
-We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions. 
+We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
@@ -297,15 +293,14 @@ knitr::include_graphics('../documentation/prisma-diagram.png')
 ## Data extraction {#sec3.3}
 
 The first author extracted all data.
-We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after the intervention
-Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <LINK>).
+We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after the intervention Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <LINK>).
 When in doubt about calculating effect sizes, we consulted publicly available datasets and/or contacted authors.
-To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (table 3).
+To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (Supplement).
 
 All effect size conversions were conducted by the first author using methods and R code initially developed for previous papers [@paluck2019; @paluck2021; @porat2024] using standard techniques [@cooper2019], with the exception of a difference in proportion estimator that treats discrete events as draws from a Bernoulli distribution (see appendix to [@paluck2021] for details).
 As our measure of standardized mean difference, we used Glass's $\Delta$ whenever possible, defined as $\Delta = \frac{\mu_T - \mu_C}{\sigma_C}$, where $\mu_T$ and $\mu_C$ respectively denote the treatment and control group means and $\sigma_C$ denotes the pre-treatment control group standard deviation.
 We standardized on the SD of the control group at pre-treatment.
-If the control group SD was not available, we standardized on the pooled SD. 
+If the control group SD was not available, we standardized on the pooled SD.
 When means and SDs were not available, we converted effect sizes from:When means and SDs were not available, we converted effect sizes from: regression coefficients, eta squared, or z-scores.
 When there was insufficient information to calculate a specific SMD, but the text reports the result as a null, we recorded the outcome as an "unspecified null" and set it to 0.01.
 
@@ -321,16 +316,16 @@ These methods assume that the publication process favors “statistically signif
 Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies.
 We conducted these analyses using functions in `metafor` [@viechtbauer2010] and `PublicationBias` [@mathur2020; @mathur2024].
 
-
 # Discussion
 
 Our meta-analysis of RCTs estimated a small overall effect of SMD = `r overall_results$Delta`, along with its upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`.
 Effects were also consistently small across an array of locations, study designs, and intervention categories.
 Some individual studies found comparatively larger effects ( e.g. five studies estimated SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
-We view these these interventions as intriguing candidates for subsequent research and replication, but their heterogeneous theories, methods, and implementation details suggest that no singular approach, delivery mechanism, or message should be considered a well-validated method of reducing MAP consumption.  Taken together, these findings suggest that reducing MAP consumption is an
-unsolved problem.
+We view these these interventions as intriguing candidates for subsequent research and replication, but their heterogeneous theories, methods, and implementation details suggest that no singular approach, delivery mechanism, or message should be considered a well-validated method of reducing MAP consumption.
+Taken together, these findings suggest that reducing MAP consumption is an unsolved problem.
 
-Perhaps surprisingly, our results diverged from the more positive findings of previous reviews, which are summarized in the Supplement [@mathur2021meta; @meier2022; @mertens2022]. our much smaller estimate likely reflects our stricter methodological inclusion criteria.
+Perhaps surprisingly, our results diverged from the more positive findings of previous reviews, which are summarized in the Supplement [@mathur2021meta; @meier2022; @mertens2022].
+our much smaller estimate likely reflects our stricter methodological inclusion criteria.
 For instance, of the ten largest effect sizes in a previous meta-analysis [@mathur2021effectiveness], nine measured attitudes and/or intentions, and the tenth came from a non-randomized design.
 Prior research has found that intentions often do not predict behavior [@mathur2021effectiveness], and reviews in other fields have found systematic differences in impacts between randomized and non-randomized evaluations [@porat2024; @stevenson2023].
 Our results raise the possibility that previous reviews’ positive findings might be largely attributable to bias, though this will require further empirical evaluation.
@@ -340,8 +335,11 @@ Most potentially eligible papers either measured hypothetical outcomes or measur
 Moreover, prior reviews that found choice architecture approaches to be consistently effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2020; @adriaanse2009].
 We speculate that people are more likely to notice, and care, when the burger is missing from the menu than when their soft drink is smaller.
 
-Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a much larger effect size (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption. In our search for literature, we found that many prior reviews grouped MAP and RPM studies together, treating their outcomes as aimed at a single theoretical target [@slough2023]. However, if reductions in RPM lead to increases in other forms of MAP consumption, then analyses that synthesize the two estimands may produce inflated estimates.  While many leading health guidelines, such as the heart-healthy diet [@diab2023], encourage reducing RPM, they also typically encourage moderate intake of poultry and fish, both of which come with severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
-Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical]. 
+Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a much larger effect size (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption.
+In our search for literature, we found that many prior reviews grouped MAP and RPM studies together, treating their outcomes as aimed at a single theoretical target [@slough2023].
+However, if reductions in RPM lead to increases in other forms of MAP consumption, then analyses that synthesize the two estimands may produce inflated estimates.
+While many leading health guidelines, such as the heart-healthy diet [@diab2023], encourage reducing RPM, they also typically encourage moderate intake of poultry and fish, both of which come with severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
+Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical].
 Further, reducing RPM consumption is frequently mentioned as something consumers can and should do to personally fight climate change [@auclair2024].
 By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
 We speculate that cutting back on RPM is perceived as easier and more likely to be socially rewarded than is cutting back on MAP generally, and that this explains the observed difference in effect sizes.
@@ -371,6 +369,27 @@ In sum, though we view meaningfully reducing MAP consumption as an unsolved prob
 
 # Supplement {#Sec5}
 
+Table S1 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices.
+
+```{r sensitivity_table,echo=F, message=F}
+source('./scripts/table-S1-sensitivity.R')
+sensitivity_table
+
+journal_delta <- pub_status_results |> filter(Moderator == 'Journal article') |> pull(Delta)
+preprint_delta <- pub_status_results |> filter(Moderator == 'Preprint or thesis') |> pull(Delta)
+whitepaper_delta <- pub_status_results |> filter(Moderator == 'Nonprofit white paper') |> pull(Delta)
+
+self_report_delta <- data_collection_results |> filter(Moderator == 'Self-reported') |> pull(Delta)
+objective_delta <- data_collection_results |> filter(Moderator == 'Objectively measured') |> pull(Delta)
+
+no_os_delta <- open_science_results |> filter(Moderator == 'None') |> pull(Delta)
+pap_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan only') |> pull(Delta)
+open_data_delta <- open_science_results |> filter(Moderator == 'Open data only') |> pull(Delta)
+both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
+```
+
+Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD =`r objective_delta`, respectively). Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD =`r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
+
 ## Description of code and data repository
 
 Our code and data are shared on the Open Science Framework [LINK], GitHub [LINK, and Code Ocean [LINK].
@@ -390,34 +409,9 @@ Our included datasets are
 
 The repositories have more details about the included scripts and supplementary materials (e.g. licenses).
 
-## Robustness to less stringent inclusion criteria {#Sec5.1.1}
+### Reasons for exclusion in robustness check data set
 
-```{r robustness_check, include=F}
-source('./scripts/robustness-checks.R')
-
-robust_only_results <- robust_dat |> extract_model_results()
-
-# overall result with robust_dat merged
-merged_dat <- full_join(dat, robust_dat) |> 
-  select(c(-unique_study_id, unique_paper_id)) |>
-  group_by(title) |>
-  mutate(unique_paper_id = cur_group_id())  |>
-  ungroup() |>
-  group_by(unique_paper_id, study_num_within_paper) |>
-  mutate(unique_study_id = cur_group_id()) |>
-  ungroup() |>
-  select(author, year, title, unique_paper_id, unique_study_id, everything())
-
-merged_results <- merged_dat |> extract_model_results()
-
-## look at biggest results
-merged_dat |> arrange(desc(d)) |> select(author,year,  ,se_d, inclusion_exclusion) |> head(10)
-```
-
-We coded and meta-analyzed a supplementary dataset of `r robust_only_results$N_studies` studies, comprising `r robust_only_results$N_estimates` point estimates, that feature many strong design features but that were excluded for one of five reasons: 1) issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2019]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; or 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
-
-Taken together, our integrated dataset including both our main sample and this supplementary one yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`.
-Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
+1)  issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2019]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; or 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
 
 ## Robustness to an alternative estimation method {#Sec5.1.2}
 
