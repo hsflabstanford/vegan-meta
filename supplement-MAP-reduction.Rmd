@@ -45,6 +45,8 @@ header-includes:
   - \usepackage[style=default]{caption}
   - \usepackage{float}      # For precise float placement
   - \usepackage{placeins}   # Provides \FloatBarrier command
+  - \usepackage{adjustbox}
+
 ---
 
 ```{r setup, include=FALSE}
@@ -201,10 +203,13 @@ The repositories have more details about the included scripts and supplementary 
 ### Sensitivity to publication status, outcome recorded, and open science practices
 Table S1 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices.
 
-```{r sensitivity_table,echo=F, message=F}
+\captionsetup[table]{labelformat=empty}
+```{r sensitivity_table,echo=F, message=F, results='asis'}
 source('./scripts/table-S1-sensitivity.R')
 sensitivity_table
+```
 
+```{r sensitivty_constants, include=F, echo=F, message=F}
 journal_delta <- pub_status_results |> filter(Moderator == 'Journal article') |> pull(Delta)
 preprint_delta <- pub_status_results |> filter(Moderator == 'Preprint or thesis') |> pull(Delta)
 whitepaper_delta <- pub_status_results |> filter(Moderator == 'Nonprofit white paper') |> pull(Delta)
@@ -247,12 +252,13 @@ hier_model <- robumeta::robu(formula =d ~ 1, data = dat,
                              small = TRUE) 
 ```
 
-Using our original estimation strategy from `metafor`, we detect a pooled effect size of `r round(alt_model$beta, 2)` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r alt_model$pval`.
-(Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.)
+Using our original estimation strategy from `metafor`, we detect a pooled effect size of `r round(alt_model$beta, 2)` (95% CI: [`r paste0(round(alt_model$ci.lb, 2), ", ", round(alt_model$ci.ub, 2))`]), p = `r round(alt_model$pval, 3)`.
+
+Although `metafor` also provides an RVE estimator, it applies the correction to the standard errors and not to the overall estimate, and we preferred a model that incorporates clustering information at the level of effect estimation.
 
 ### Using a stricter definition of delay
 
-```{r strict_delay_model}
+```{r strict_delay_model, include=F}
 strict_delay_model <- dat |> filter(delay_post_endline > 0) |> extract_model_results()
 ```
 

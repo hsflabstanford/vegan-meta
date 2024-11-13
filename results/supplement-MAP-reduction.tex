@@ -50,6 +50,7 @@
 \usepackage[style=default]{caption}
 \usepackage{float}
 \usepackage{placeins}
+\usepackage{adjustbox}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -70,47 +71,6 @@
 
 
 
-% Pandoc syntax highlighting
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 % tightlist command for lists without linebreak
 \providecommand{\tightlist}{%
@@ -419,13 +379,14 @@ Table S1 compares average differences by three potential sources of
 bias: publication status, data collection strategy, and use of open
 science practices.
 
+\captionsetup[table]{labelformat=empty}
 \begin{table}[!ht]
 \centering
-\caption{\label{tab:table_three}Sensitivity Analysis Results}
+\caption{\label{tab:table_S1}Table S1: Sensitivity Analysis Results}
 \centering
 \begin{tabular}[t]{lllllll}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & \shortstack{Subset \\ $p$ value} & \shortstack{Moderator \\ $p$ value}\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Publication Status}}\\
@@ -443,9 +404,9 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$
 \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .274\\
 \hspace{1em}Pre-analysis plan \& open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
 \bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value column tests}\\
-\multicolumn{7}{l}{the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second}\\
-\multicolumn{7}{l}{compares effects within a given group, with the top category set to reference.}\\
+\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices.  The first p value column tests the hypothesis that the subset of}\\
+\multicolumn{7}{l}{studies with a given characteristic is significantly different than an SMD of zero. The second compares effects within a given group, with the top category set to}\\
+\multicolumn{7}{l}{reference.}\\
 \end{tabular}
 \end{table}
 
@@ -501,20 +462,15 @@ package, a robust variance estimation (RVE) method, would be a better
 fit.
 
 Using our original estimation strategy from \texttt{metafor}, we detect
-a pooled effect size of 0.04 (95\% CI: {[}-0.02, 0.1{]}), p = 0.1600299.
-(Although \texttt{metafor} also provides an RVE estimator, it applies
-the correction to the standard errors and not to the overall estimate,
-and we preferred a model that incorporates clustering information at the
-level of effect estimation.)
+a pooled effect size of 0.04 (95\% CI: {[}-0.02, 0.1{]}), p = 0.16.
+
+Although \texttt{metafor} also provides an RVE estimator, it applies the
+correction to the standard errors and not to the overall estimate, and
+we preferred a model that incorporates clustering information at the
+level of effect estimation.
 
 \subsubsection{Using a stricter definition of
 delay}\label{using-a-stricter-definition-of-delay}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{strict\_delay\_model }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(delay\_post\_endline }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \FunctionTok{extract\_model\_results}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 Our delay-related inclusion criterion aimed to limit our analysis to
 enduring effects. Upon reviewing studies, however, we found that
