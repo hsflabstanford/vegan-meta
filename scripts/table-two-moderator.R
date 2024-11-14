@@ -8,7 +8,7 @@
 dat <- dat |> 
   mutate(
     population_group = case_when(
-      str_detect(population, regex("university", ignore_case = TRUE)) ~ "University students and staff",
+      str_detect(population, regex("university", ignore_case = TRUE)) ~ "University students/staff",
       str_detect(population, regex("adult", ignore_case = TRUE)) ~ "Adults",
       str_detect(population, regex("young", ignore_case = TRUE)) ~ "Adolescents",
       str_detect(population, regex("all ages", ignore_case = TRUE)) ~ "All ages",
@@ -56,7 +56,7 @@ merged_dat <- full_join(dat, RPMC) |>
 red_meat_results <- process_group(merged_dat, "meat_group", ref_level = "Meat and animal products")
 
 # 3.2. Population Group
-population_results <- process_group(dat, "population_group", ref_level = "University students and staff")
+population_results <- process_group(dat, "population_group", ref_level = "University students/staff")
 
 # 3.3. Region Group
 region_results <- process_group(dat, "region_group", ref_level = "North America")
