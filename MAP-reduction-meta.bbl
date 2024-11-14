@@ -701,10 +701,17 @@
 \newblock \bibinfo{title}{{Ethical drawbacks of sustainable meat choices}}.
 \newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{375}}, \bibinfo{pages}{1362--1362} (\bibinfo{year}{2022}).
 
-\bibitem{auclair2024}
-\bibinfo{author}{Auclair, O.}, \bibinfo{author}{Eustachio~Colombo, P.}, \bibinfo{author}{Milner, J.} \& \bibinfo{author}{Burgos, S.~A.}
-\newblock \bibinfo{title}{{Partial substitutions of animal with plant protein foods in Canadian diets have synergies and trade-offs among nutrition, health and climate outcomes}}.
-\newblock \emph{\bibinfo{journal}{Nature Food}} \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{148--157} (\bibinfo{year}{2024}).
+\bibitem{moskin2022}
+\bibinfo{author}{Moskin, J.}, \bibinfo{author}{Plumer, B.}, \bibinfo{author}{Lieberman, R.} \& \bibinfo{author}{Weingart, E.}
+\newblock \bibinfo{title}{{Your Questions About Food and Climate Change, Answered}} (\bibinfo{year}{2022}).
+\newblock \urlprefix\url{https://www.nytimes.com/interactive/2022/dining/climate-change-food-eating-habits.html}.
+\newblock \bibinfo{note}{Accessed: 2024-11-14}.
+
+\bibitem{carroll2019}
+\bibinfo{author}{Carroll, A.~E.}
+\newblock \bibinfo{title}{{The Real Problem With Beef}} (\bibinfo{year}{2019}).
+\newblock \urlprefix\url{https://www.nytimes.com/2019/10/01/upshot/beef-health-climate-impact.html}.
+\newblock \bibinfo{note}{Accessed: 2024-11-14}.
 
 \bibitem{tilman2014}
 \bibinfo{author}{Tilman, D.} \& \bibinfo{author}{Clark, M.}
