@@ -323,7 +323,7 @@ Overall & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007\\
 \hspace{1em}Environment & 15 & 28 & 0.09 & {}[-0.03, 0.2] & .115\\
 \hspace{1em}Health & 18 & 30 & 0.08 & {}[-0.01, 0.17] & .068\\
 \bottomrule
-\multicolumn{6}{l}{\textsuperscript{a} Studies could occupy multiple categories for both theory and type of persuasion. Note that the}\\
+\multicolumn{6}{l}{\textsuperscript{} Studies could occupy multiple categories for both theory and type of persuasion. Note that the}\\
 \multicolumn{6}{l}{Ns for Types of Persuasion draws from both Persuasion and Persuasion and Psychology studies.}\\
 \end{tabular}
 \end{table}
@@ -361,12 +361,11 @@ Table 2 displays subset analyses and average differences in effect size
 by study population, region, era of publication, and delivery method.
 
 \begin{table}[!ht]
-\centering
-\caption{\label{tab:table_two}Moderator Analysis Results}
-\centering
-\begin{tabular}[t]{lllllll}
+
+\caption{\label{tab:table_S1}Moderator Analysis Results}
+\begin{tabular}[t]{lllll>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & \shortstack{Subset \\ $p$ value} & \shortstack{Moderator \\ $p$ value}\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & $p$ value & $p$ value\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Outcome}}\\
@@ -397,7 +396,10 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & \shortstac
 \hspace{1em}In-cafeteria & 8 & 13 & 0.10 & {}[-0.04, 0.25] & .101 & .123\\
 \hspace{1em}Video & 10 & 16 & 0.01 & {}[-0.05, 0.07] & .485 & .533\\
 \bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method.}\\
+\multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The}\\
+\multicolumn{7}{l}{first p value column tests the hypothesis that the subset of studies with a given characteristic is significantly}\\
+\multicolumn{7}{l}{different than an SMD of zero. The second compares effects within a given group, with the top category set to}\\
+\multicolumn{7}{l}{reference.}\\
 \end{tabular}
 \end{table}
 
@@ -508,11 +510,12 @@ variables coded included information about publication, details of the
 interventions, length of follow-ups, intervention theories, and
 additional details about interventions' methods, contexts, and open
 science practices (see accompanying code and data repository for full
-documentation: ). When in doubt about calculating effect sizes, we
-consulted publicly available datasets and/or contacted authors. To
-assess risk of bias, we collected data on whether outcomes were
-self-reported or objectively measured, publication status, and presence
-of a pre-analysis plan and/or open data (Supplement).
+documentation: \url{https://doi.org/10.24433/CO.6020578.v2}). When in
+doubt about calculating effect sizes, we consulted publicly available
+datasets and/or contacted authors. To assess risk of bias, we collected
+data on whether outcomes were self-reported or objectively measured,
+publication status, and presence of a pre-analysis plan and/or open data
+(Supplement).
 
 All effect size conversions were conducted by the first author using
 methods and R code initially developed for previous papers

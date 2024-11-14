@@ -51,6 +51,7 @@
 \usepackage{float}
 \usepackage{placeins}
 \usepackage{adjustbox}
+\usepackage{threeparttablex}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -154,7 +155,7 @@ broader literature.
 
 For these reasons, we employed what could be called a
 `prior-reviews-first' search strategy. Of the 985 papers we reviewed, a
-full 73 \% of all manuscripts we screened came from prior reviews, and
+full 73 \% of all manuscriptss we screened came from prior reviews, and
 43 \% of papers in our main dataset. (See the next section of the
 supplement for notes on reviews that were especially informative.) Then,
 as detailed in the main text, we employed a multitude of other search
@@ -338,7 +339,8 @@ something as fraught with meaning as meat remains to be seen.
 repository}\label{description-of-code-and-data-repository}
 
 Our code and data are shared on the Open Science Framework {[}LINK{]},
-GitHub {[}LINK, and Code Ocean {[}LINK{]}.
+GitHub {[}LINK, and Code Ocean
+{[}\url{https://doi.org/10.24433/CO.6020578.v2}{]}
 
 Our main document, \texttt{MAP-reduction-meta.Rmd}, reproduces the
 paper, with every quantitative claim (as well as the first two figures)
@@ -381,12 +383,11 @@ science practices.
 
 \captionsetup[table]{labelformat=empty}
 \begin{table}[!ht]
-\centering
+
 \caption{\label{tab:table_S1}Table S1: Sensitivity Analysis Results}
-\centering
-\begin{tabular}[t]{lllllll}
+\begin{tabular}[t]{lllll>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}}
 \toprule
-Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & \shortstack{Subset \\ $p$ value} & \shortstack{Moderator \\ $p$ value}\\
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{7}{l}{\textbf{Publication Status}}\\
@@ -404,7 +405,9 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & \shortstac
 \hspace{1em}Open data only & 7 & 11 & 0.01 & {}[-0.25, 0.27] & .903 & .274\\
 \hspace{1em}Pre-analysis plan \& open data & 6 & 42 & 0.02 & {}[-0.08, 0.13] & .561 & .240\\
 \bottomrule
-\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices.}\\
+\multicolumn{7}{l}{\textsuperscript{} Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value tests the}\\
+\multicolumn{7}{l}{hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second}\\
+\multicolumn{7}{l}{compares effects within a given group, with the top category set as the reference.}\\
 \end{tabular}
 \end{table}
 

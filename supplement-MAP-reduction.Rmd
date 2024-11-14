@@ -46,7 +46,7 @@ header-includes:
   - \usepackage{float}      # For precise float placement
   - \usepackage{placeins}   # Provides \FloatBarrier command
   - \usepackage{adjustbox}
-
+  - \usepackage{threeparttablex}
 ---
 
 ```{r setup, include=FALSE}
@@ -71,6 +71,7 @@ reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
+
 # Supplement
 
 ## Search strategy
@@ -87,7 +88,7 @@ Second, our methods-based inclusion criteria complicated screening on titles and
 Third, we found a very large number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question. Reviewing tables and bibliographies of those papers proved very fruitful for both assembling our dataset and getting a sense of the broader literature.
 
 For these reasons, we employed what could be called a 'prior-reviews-first' search strategy.
-Of the `r nrow(all_papers)` papers we reviewed, a full `r round(prior_review_n / nrow(all_papers), 2) * 100` % of all manuscripts we screened came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100` % of papers in our main dataset.
+Of the `r nrow(all_papers)` papers we reviewed, a full `r round(prior_review_n / nrow(all_papers), 2) * 100` % of all manuscriptss we screened came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100` % of papers in our main dataset.
 (See the next section of the supplement for notes on reviews that were especially informative.) Then, as detailed in the main text, we employed a multitude of other search strategies to fill in our dataset, one of which was systematic search.
 In particular, we searched Google Scholar for the following list of terms, and checked ten pages of results for each:
 
@@ -180,7 +181,7 @@ Whether these interventions work for something as fraught with meaning as meat r
 
 ## Description of code and data repository
 
-Our code and data are shared on the Open Science Framework [LINK], GitHub [LINK, and Code Ocean [LINK].
+Our code and data are shared on the Open Science Framework [LINK], GitHub [LINK, and Code Ocean [\url{https://doi.org/10.24433/CO.6020578.v2}]
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim (as well as the first two figures) reproduced each time the document is knit.
 
@@ -207,6 +208,7 @@ Table S1 compares average differences by three potential sources of bias: public
 ```{r sensitivity_table,echo=F, message=F, results='asis'}
 source('./scripts/table-S1-sensitivity.R')
 sensitivity_table
+
 ```
 
 ```{r sensitivty_constants, include=F, echo=F, message=F}

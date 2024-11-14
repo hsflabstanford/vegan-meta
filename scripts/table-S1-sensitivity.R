@@ -66,15 +66,22 @@ sensitivity_table <- bind_rows(
     booktabs = TRUE,
     col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
                   "SMD", "95\\% CIs", 
-                  "\\shortstack{Subset \\\\ $p$ value}", 
-                  "\\shortstack{Moderator \\\\ $p$ value}"), 
+                  "Subset $p$ value", 
+                  "Moderator $p$ value"), 
     caption = "Table S1: Sensitivity Analysis Results", 
     label = "table_S1",
-    align = "l",
-    escape = FALSE) |>
-  kable_styling(full_width = FALSE, latex_options = "hold_position") |>
+    align = "llllllll",
+    escape = FALSE,
+    centering = TRUE) |>
+  kable_styling(
+    full_width = FALSE,
+    latex_options = "hold_position", 
+    position = "left") |>
+  column_spec(6, width = "2 cm") |>
+  column_spec(7, width = "2 cm") |>
   pack_rows("Publication Status", start_row_pub_status, end_row_pub_status, bold = TRUE, italic = FALSE) |>
   pack_rows("Data Collection Strategy", start_row_data_collection, end_row_data_collection, bold = TRUE, italic = FALSE) |>
   pack_rows("Open Science", start_row_open_science, end_row_open_science, bold = TRUE, italic = FALSE) |>
-  add_footnote("Sensitivity analyses by publication status, data collection strategy, and open science practices.", 
-               notation = "none")
+  add_footnote(
+    "Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value tests the hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second compares effects within a given group, with the top category set as the reference.", 
+    notation = 'none')
