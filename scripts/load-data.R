@@ -1,5 +1,3 @@
-library(dplyr, warn.conflicts = F)
-library(stringr)
 source('./functions/d-calc.R')
 source('./functions/var-d-calc.R')
 dat <- read.csv('./data/vegan-meta.csv') |>
