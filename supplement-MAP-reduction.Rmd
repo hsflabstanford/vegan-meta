@@ -36,7 +36,7 @@ output:
   rticles::springer_article:
     keep_tex: true
     keep_md: true
-bibliography: "./documentation/vegan-refs.bib"
+bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
 header-includes:

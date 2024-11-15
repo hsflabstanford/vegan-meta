@@ -38,7 +38,7 @@ output:
   rticles::springer_article:
     keep_tex: true
     keep_md: true
-bibliography: "./documentation/vegan-refs.bib"
+bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
 header-includes:
@@ -269,7 +269,7 @@ Inclusion/exclusion decisions were primarily made by the first author, with all 
 Figure 3 is a PRISMA diagram depicting the sources of included and excluded studies, which is detailed further in the Supplement.
 
 ```{r prisma_diagram, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.height=8, fig.width=6, out.width='120%'}
-knitr::include_graphics('./documentation/prisma-diagram.png')
+knitr::include_graphics('./prisma-diagram.png')
 
 ```
 
