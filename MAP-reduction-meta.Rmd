@@ -37,7 +37,6 @@ date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
     keep_tex: true
-    keep_md: true
 bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
@@ -58,7 +57,7 @@ opts_chunk$set(fig.path = "./figures/",
                out.extra = "",
                fig.pos = "ht")
 
-options(tinytex.clean = FALSE) # switch to FALSE to get the bbl file for overleaf
+options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file for overleaf
 
 # libraries, functions, data, and key results
 source('./scripts/libraries.R')

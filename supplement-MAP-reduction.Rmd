@@ -35,7 +35,6 @@ date: "`r Sys.Date()`"
 output: 
   rticles::springer_article:
     keep_tex: true
-    keep_md: true
 bibliography: "./vegan-refs.bib"
 editor_options: 
   chunk_output_type: console
@@ -58,7 +57,7 @@ opts_chunk$set(fig.path = "./results/figures/",
                out.extra = "",
                fig.pos = "ht")
 
-options(tinytex.clean = FALSE) # switch to FALSE to get the bbl file for overleaf
+options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file
 
 # libraries, functions, data, and key results
 source('./scripts/libraries.R')
@@ -78,15 +77,15 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 source('./scripts/prisma-script.R')
 ```
 
-Our search process was shaped by three unique features of our research project. First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself. For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while others focus on a particular, sometimes unusual category of MAP, such as fish sauce
-[@kanchanachitra2020}] or discussed their agenda mainly in terms of increasing plant-based alternatives. Coming up with an exhaustive list of terms to search for from first principles would have been very difficult or impossible.
+Our search process was shaped by three features of our research project. First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself. For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while some studies focus on a particular, sometimes unusual category of MAP, such as fish sauce
+[@kanchanachitra2020] or discussed their agenda mainly in terms of increasing plant-based alternatives. Coming up with an exhaustive list of terms to search for from first principles would have been very difficult or impossible.
 
-Second, our methods-based inclusion criteria complicated screening on titles and abstracts. While it was sometimes possible to use solely that information to eliminate studies with no interventions (e.g. survey-based research), determining whether an intervention qualified almost always required some amount of full text screening. We also discovered that terms like ``field experiment'' have varying meanings across papers, and identifying whether a measured food choice was hypothetical or not often required a close reading. For these reasons, screening thousands or tens of thousands of papers struck us as prohibitively time-consuming.
+Second, our methods-based inclusion criteria complicated screening on titles and abstracts. While it was sometimes possible to use solely that information to eliminate studies with no interventions (e.g. survey-based research), determining whether an intervention qualified almost always required some amount of full text screening. We also discovered that terms like field experiment have varying meanings across papers, and identifying whether a measured food choice was hypothetical or not often required a close reading. For these reasons, screening thousands or tens of thousands of papers struck us as prohibitively time-consuming.
 
-Third, we found a very large number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question. Reviewing tables and bibliographies of those papers proved very fruitful for both assembling our dataset and getting a sense of the broader literature.
+Third, we found a very large number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question. Reviewing tables and bibliographies of those papers proved fruitful for assembling our dataset.
 
 For these reasons, we employed what could be called a 'prior-reviews-first' search strategy.
-Of the `r nrow(all_papers)` papers we reviewed, a full `r round(prior_review_n / nrow(all_papers), 2) * 100` % of all manuscriptss we screened came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100` % of papers in our main dataset.
+Of the `r nrow(all_papers)` papers we screened, a full `r round(prior_review_n / nrow(all_papers), 2) * 100`\% came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100`\% of papers in our main dataset.
 (See the next section of the supplement for notes on reviews that were especially informative.) Then, as detailed in the main text, we employed a multitude of other search strategies to fill in our dataset, one of which was systematic search.
 In particular, we searched Google Scholar for the following list of terms, and checked ten pages of results for each:
 
@@ -121,13 +120,12 @@ For more details on these two projects, see \url{<https://osf.io/74paj>} and \ur
 
 # Discussion of prior reviews
 
-We turn now to a selective overview of prior reviews that were highly relevant to this one.
+We turn now to an overview of prior reviews that were highly relevant to this one.
 
 Among the reviews that found MAP reduction interventions to be effective, several focused exclusively on choice architecture.
 [@arno2016] found that nudges led to an average increase of healthy dietary choices of 15.3%, while [@byerly2018] found that committing to reduce meat intake and making menus vegetarian by default were more effective than educational interventions.
 However, the vast majority of vegetarian-default studies we analyzed for this paper did not qualify for our analysis because they lacked delayed outcomes.
 In a similar vein, [@mertens2022] concludes that food choices are "particularly responsive to choice architecture interventions" (p. 1), but featured no studies that met our inclusion criteria.
-
 [@bianchi2018restructuring] found that reducing meat portions, making alternatives available, moving meat products to be less conspicuous, and changing meat's sensory properties can all reduce meat demand.
 [@pandey2023] found that changing the presentation and availability of sustainable products was effective in increasing demand for them.
 
@@ -137,21 +135,18 @@ Some reviews have focused on particular settings for MAP reduction interventions
 [@hartmannboyce2018] found that grocery store interventions, such as price changes, suggested swaps, and changes to item availability, were effective at changing purchasing choices.
 However, that review covered a wide variety of health interventions, such as reducing consumption of dietary fat and increasing fruit and vegetable purchases.
 It is unclear how directly such findings translate to MAP reduction efforts.
-Meanwhile, [@chang2023] focused on university meat-reduction interventions and found more promising results than did reviews that looked at the wider public.
+[@chang2023] focused on university meat-reduction interventions and found more promising results than reviews that looked at the wider public typically did.
 [@harguess2020] reviewed 22 studies on meat consumption and found promising results for educational interventions focused on the environment, health, and animal welfare.
 That paper recommends using animal imagery to cause an emotional response and utilizing choice architecture interventions.
-Our review, by contrast, found no relationship between animal welfare appeals and MAP consumption.
+Our review, by contrast, found a miniscule pooled effect associated with animal welfare appeals.
 
 Taking a different angle, [@adleberg2018] reviewed the literature on protests in a variety of movements and found mixed evidence of efficacy.
 The authors recommend that animal advocacy protests have a specific target (e.g. a particular institution) and "ask."
 
 Other reviews assesed which groups are most easily influenced by interventions to reduce MAP consumption.
 For example, [@blackford2021] found that nudges focused on "system 1" thinking were more effective at encouraging sustainable choices than those focused on "system 2," and that interventions had greater effects on females than males.
-Our review also featured studies showing differences between men and women.
 
-[@rosenfeld2018] reports that meat avoidance is associated with liberal political views, feminine gender, and higher openness, agreeableness and neuroticism.
-That review also identifies challenges and barriers to vegetarianism, such as recidivism and hostility from friends and family.
-Future research could tailor interventions to address these barriers.
+[@rosenfeld2018] reports that meat avoidance is associated with liberal political views, feminine gender, and higher openness, agreeableness and neuroticism, and that issues such as recidivism and hostility from friends and family can act as barriers to adopting a vegetarian diet.
 
 Several reviews have had mixed or inconclusive results.
 For instance, [@bianchi2018conscious] found that health and environmental appeals appear to change dietary intentions in virtual environments, but did not find evidence of actual consumption changes.
@@ -162,7 +157,6 @@ Likewise, [@kwasny2022] notes that most existing research focuses on attitudes a
 A few reviews have found evidence that seems to recommend against particular interventions.
 [@greig2017] reviewed the literature on leafleting for vegan/animal advocacy outreach, and observed biases that may have led to overestimated impacts.
 That paper concluded that leafleting does not seem cost-effective, though with significant uncertainty.
-This accords with our findings on advocacy organization materials' limited effects.
 
 [@nisa2019] meta-analyzed interventions to improve household sustainability, of which reducing MAP consumption was one of several.
 Although they found small effect sizes for most interventions, they concluded that nudges were comparatively effective, as did [@ensaff2021].
@@ -172,16 +166,14 @@ Only fifteen interventions in that paper were described as â€œvery successful,â€
 Finally, we note a few papers that were helpful in filling out our supplementary datasets.
 [@ronto2022] investigated interventions to move consumer to protein sources with lower ecological footprints, and was instrumental in filling out our RPM and robustness check datasets, as were [@kwasny2022] and [@grummon2023].
 
-Our overall conclusion from these 150+ papers is that the marginal value of a new rigorous evaluation is much higher than that of a new systematic review.
-We also encourage researchers to be cautious in extrapolating impacts across outcome categories.
-For instance, many reviews concluded that choice architecture approaches are effective at changing food choice, but these are typically aimed at foods with weak social and cultural associations.
-Whether these interventions work for something as fraught with meaning as meat remains to be seen.
+Taking these reviews in sum, we encourage researchers to be cautious in extrapolating impacts across outcome categories.
+For instance, many reviews concluded that choice architecture approaches are effective at changing food choice, but these are typically aimed at foods with weak social and cultural associations. We also note that prior reviews vastly outnumber rigorous RCTs that meet our inclusion criteria.
 
 # Description of code and data repository
 
-Our code and data are shared on the Open Science Framework (\url{10.17605/OSF.IO/A7G95}), GitHub (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean (\url{https://doi.org/10.24433/CO.6020578.v2}). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
+Our code and data are shared on the Open Science Framework (\url{https://doi.org/10.17605/OSF.IO/A7G95}), GitHub (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean (\url{https://doi.org/10.24433/CO.6020578.v2}). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
 
-Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim (as well as the first two figures) reproduced each time the document is knit.
+Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim and the first two figures reproduced each time the document is knit.
 
 The datasets are:
 
@@ -195,7 +187,7 @@ The datasets are:
 
 -   `excluded-studies.csv`, which details the papers we screened but did not include, along with their reasons for exclusion and where we found them (the studies in `robustness-data.csv` are included in this dataset as well).
 
-The repositories have more details about the included scripts and supplementary materials (e.g. licenses).
+See `readme.md` for more details about the included scripts and supplementary materials (e.g. licenses).
 
 # Additional robustness checks and alternative analyses
 
@@ -222,8 +214,8 @@ open_data_delta <- open_science_results |> filter(Moderator == 'Open data only')
 both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
 ```
 
-Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD =`r objective_delta`, respectively).
-Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD =`r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
+Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD = `r objective_delta`, respectively).
+Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
 
 ## Details of marginal studies included in robustness check
 While assembling our dataset, a handful of studies stuck out to us as yielding interesting findings and/or design features, but nevertheless did not meet all of our inclusion criteria. 
@@ -232,13 +224,13 @@ Each of these studies measures MAP consumption and has a control group.
 However, we excluded them from our main dataset for one of five reasons: 1) issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2019]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
 
 We did not include any studies in this supplementary dataset that failed to meet more than one of our inclusion criteria.
-We further caution that these `r robust_only_results$N_studies` studies is not an exhaustive or even representative list of studies that did not qualify for our main analysis.
+We further caution that these `r robust_only_results$N_studies` studies are not an exhaustive or even representative list of studies that did not qualify for our main analysis.
 Rather, they are intended to offer an exploration of how a meta-analysis building on different priors about sources of bias might have proceeded.
 
 ## Using an alternative estimation method
 
-We initially planned to use a model from `metafor` to analyze a synthetic dataset.
-However, as we assembled the actual dataset, we noticed that many papers had, across interventions, non-independent observations, typically in the form of multiple treatments compared to a single control group.
+We initially planned to use a model from `metafor` to for our main analysis.
+However, as we assembled the dataset, we noticed that many papers had non-independent observations across interventions, typically in the form of multiple treatments compared to a single control group.
 Upon discussion, the team's statistician (MBM) suggested that the `CORR` model from the `robumeta` package, a robust variance estimation (RVE) method, would be a better fit.
 
 ```{r alt_models, include=F}
@@ -265,9 +257,9 @@ Our delay-related inclusion criterion aimed to limit our analysis to enduring ef
 Upon reviewing studies, however, we found that numerous high-quality studies modified eating environments over multiple days and did not incorporate a delayed measure following the *final* day of treatment.
 For example, [@andersson2021] included 50 combined days of treatment and control, but the interval between treatment and any individual outcome measurement was zero days.
 In a sense, such studies lack delayed outcome measures.
-In another, the multi-day setup in a single environment allows for theoretical delay so long as participants can return to the site of treatment and have their meal choices evaluated multiple times.
+However, the multi-day setup in a single environment allows for theoretical delay so long as participants can return to the site of treatment and have their meal choices evaluated multiple times.
 
-We decided to include multi-day studies where delayed outcomes were at least possible through repeat visits by subjects to the intervention site.
+We decided to include multi-day studies where delayed outcomes were possible through repeat visits by subjects to the intervention site.
 Our delay variable therefore reflects the days elapsed from the beginning of treatment, rather than its conclusion, to measurement.
 
 We also coded a secondary delay variable that corresponds to time elapsed between treatment *conclusion* to measurement.
