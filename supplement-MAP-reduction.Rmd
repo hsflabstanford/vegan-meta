@@ -112,7 +112,7 @@ In particular, we searched Google Scholar for the following list of terms, and c
 -   "sustainable" "meat" "nudge" "random"
 -   "university" "meat" "default" "reduction"
 
-Additionally, we searched the American Economic Association's RCT registry for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
+Additionally, we searched the American Economic Association's registry of randomized controlled trials (\url{https://www.socialscienceregistry.org/}) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
 Another unconventional part of our search strategy was our use of of an AI-based search tool (\url{https://undermind.ai/}), to which we described our research question and then reviewed 100 results that it generated.
 This yielded one paper that met our inclusion criteria [@mattson2020] that seems to have slipped past many other systematic search processes.
@@ -208,7 +208,6 @@ Table S1 compares average differences by three potential sources of bias: public
 ```{r sensitivity_table,echo=F, message=F, results='asis'}
 source('./scripts/table-S1-sensitivity.R')
 sensitivity_table
-
 ```
 
 ```{r sensitivty_constants, include=F, echo=F, message=F}

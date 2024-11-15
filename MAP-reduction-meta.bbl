@@ -681,6 +681,12 @@
 \newblock \bibinfo{title}{{Finding the critical cue: Implementation intentions to change one's diet work best when tailored to personally relevant reasons for unhealthy eating}}.
 \newblock \emph{\bibinfo{journal}{Personality and social psychology bulletin}} \textbf{\bibinfo{volume}{35}}, \bibinfo{pages}{60--71} (\bibinfo{year}{2009}).
 
+\bibitem{popper2019}
+\bibinfo{author}{Popper, N.}
+\newblock \bibinfo{title}{You call that meat? not so fast, cattle ranchers say} (\bibinfo{year}{2019}).
+\newblock \urlprefix\url{https://www.nytimes.com/2019/02/09/technology/meat-veggie-burgers-lab-produced.html}.
+\newblock \bibinfo{note}{Accessed: 2024-11-14}.
+
 \bibitem{slough2023}
 \bibinfo{author}{Slough, T.} \& \bibinfo{author}{Tyson, S.~A.}
 \newblock \bibinfo{title}{{External Validity and Meta-Analysis}}.
