@@ -83,5 +83,6 @@ sensitivity_table <- bind_rows(
   pack_rows("Data Collection Strategy", start_row_data_collection, end_row_data_collection, bold = TRUE, italic = FALSE) |>
   pack_rows("Open Science", start_row_open_science, end_row_open_science, bold = TRUE, italic = FALSE) |>
   add_footnote(
-    "Sensitivity analyses by publication status, data collection strategy, and open science practices. The first p value tests the hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second compares effects within a given group, with the top category set as the reference.", 
+    "Sensitivity analyses by publication status, data collection strategy, and open science practices. The first $p$ value tests the hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second compares effects within a given group, with the top category set as the reference.",
+    escape = FALSE, 
     notation = 'none')

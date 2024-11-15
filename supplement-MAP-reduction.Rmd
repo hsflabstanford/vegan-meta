@@ -179,7 +179,7 @@ Whether these interventions work for something as fraught with meaning as meat r
 
 # Description of code and data repository
 
-Our code and data are shared on the Open Science Framework [LINK], GitHub [LINK, and Code Ocean [\url{https://doi.org/10.24433/CO.6020578.v2}]
+Our code and data are shared on the Open Science Framework (\url{10.17605/OSF.IO/A7G95}), GitHub (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean (\url{https://doi.org/10.24433/CO.6020578.v2}). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim (as well as the first two figures) reproduced each time the document is knit.
 

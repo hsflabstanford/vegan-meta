@@ -1,6 +1,12 @@
 #!/bin/bash
 set -ex
 
+# CO specific links
+# ln -s ../data ./data
+# ls -l ./data
+# ln -s ../results ./results
+# mkdir ../results/figures
+
 Rscript -e "rmarkdown::render('./MAP-reduction-meta.Rmd', clean = T)"
 Rscript -e "rmarkdown::render('./supplement-MAP-reduction.Rmd', clean = T)"
 
@@ -15,8 +21,8 @@ Rscript -e "tinytex::pdflatex('supplement-MAP-reduction.tex')"
 mv *{.pdf,.tex} ./results && rm *.{aux,out,blg}
 
 # to sort bibliography (from package `bibtex2html`, via `npm install -g bibtex-tidy`)
-bibtex-tidy --curly --numeric --tab --modify --align=13 --sort=key --duplicates=key --no-escape --sort-fields --no-remove-dupe-fields --enclosing-braces=title ./documentation/vegan-refs.bib
 
+bibtex-tidy --curly --numeric --tab --modify --align=13 --sort=key --duplicates=key --no-escape --sort-fields --no-remove-dupe-fields --enclosing-braces=title ./vegan-refs.bib
 # if log files were generated
 if ls *.log 1> /dev/null 2>&1; then
   rm *.log
