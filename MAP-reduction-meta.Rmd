@@ -81,7 +81,7 @@ Some interventions are associated with large impacts [@lentz2020; @boronowsky202
 A particularly high-profile strand of this literature employs choice architecture, i.e. altering the contexts in which MAP is selected [@bianchi2018restructuring], for instance by changing menu layouts [@bacon2018; @gravert2021], placing vegetarian items more prominently in dining halls [@ginn2024], or making plant-based options the default at catered meals [@hansen2021].
 Choice architecture has been cited as a cheap, effective way of altering dietary behavior [@colgan2024], and governments, universities, and other institutions are increasingly implementing these approaches in such settings as dining halls [@pollicino2024] and hospital cafeterias [@morgenstern2024].
 
-However, recurring design and measurement limitations comprise this literature.
+However, recurring design and measurement limitations compromise this literature.
 Many interventions are either not randomized [@garnett2020] or underpowered [@delichatsios2001].
 Measured outcomes are often imperfect proxies of MAP consumption, such as attitudes, intentions, and hypothetical choices [@raghoebar2020; @vermeer2010], yet behaviors often do not track with these psychological processes [@mathur2021effectiveness; @porat2024] and reported preferences [@hensher2010].
 Additionally, many studies with comparatively large effects aim to reduce consumption of red and processed meat (RPM).
