@@ -2,8 +2,8 @@
 
 
 ## code
-  * `./MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
-  * `./supplement-MAP-reduction.Rmd`, the supplement
+  * `MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
+  * `supplement-MAP-reduction.Rmd`, the Supplement
   * `./scripts/*.R` is where most of the actual R code lives
   * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
 
@@ -21,7 +21,7 @@ project setup, license, .gitignore, past drafts, presentations etc.
 1. Download this repo (`git clone https://github.com/hsflabstanford/vegan-meta.git`)
 2. Open `vegan-meta.Rproj` (all paths are set relative to its directory)
 3. Make sure everything in `./scripts/libraries.R` is installed
-4. Either run `run.sh` or open `./manuscript/MAP-reduction-meta.Rmd` and select `knit`
+4. Either run `run.sh` or knit the `.Rmd` files
 
 ## SessionInfo
 ```
