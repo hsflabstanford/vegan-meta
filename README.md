@@ -8,10 +8,10 @@
   * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
 
 ## data
-  * `../data/vegan-meta.csv`  is our dataset of studies
-  * `../data/RPMC-data.csv` is a supplementary dataset of studies aimed at reducing consumption of red and processed meat
-  * `../data/excluded-studies.csv` is our list of studies we looked at but didn't include & why
-  * `../data/review-of-reviews.csv` is a list of prior reviews we looked at to find studies
+  * `./data/vegan-meta.csv`  is our dataset of studies
+  * `./data/RPMC-data.csv` is a supplementary dataset of studies aimed at reducing consumption of red and processed meat
+  * `./data/excluded-studies.csv` is our list of studies we looked at but didn't include & why
+  * `./data/review-of-reviews.csv` is a list of prior reviews we looked at to find studies
   
 ## everything else
 project setup, license, .gitignore, past drafts, presentations etc.
