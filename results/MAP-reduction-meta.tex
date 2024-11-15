@@ -356,7 +356,7 @@ consumption \citep{jalil2023}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./results/figures/forest_plot-1} 
+{\centering \includegraphics{./figures/forest_plot-1} 
 
 }
 
@@ -415,42 +415,37 @@ studies, we estimate that 48\% of true RPM effects are above SMD = 0.2.
 We observe consistently small effects across categories of population
 (all SMDs \textless{} 0.1), but more heterogeneity by region: North
 America, where a majority of studies took place, had an average effect
-of SMD = 0.04 vs.~a range of 0.14 to 0.21 for other locations.
-
-Effect sizes have broadly been declining over time, from an average of
-SMD = 0.16 in the 2000s to SMD = 0.05 in the 2020s, during which a
-majority (18 of 41) of studies were published. Finally, we note a wide
-array of heterogeneity of effects associated with different delivery
-mechanisms, from 0.01 for both educational materials and videos, to 0.4
-for dietary consultations, though this larger effect comes from just 2
-studies. For each estimate, we provide two p values. The first (subset
-\(p\) value) compares the effects associated with a given subset,
-e.g.~all studies with an adolescent population, to a null hypothesis of
-no effect. The second (moderator \(p\) value) compares the effects
-within different moderator categories, with the top category in each
-grouping set to be the reference level, e.g.~testing if the pooled
-effect of studies taking place in Europe is significantly different than
-that of studies taking place in North America.
+of SMD = 0.04 vs.~0.14 to 0.21 for other locations. Effect sizes have
+broadly been declining over time, from an average of SMD = 0.16 in the
+2000s to SMD = 0.05 in the 2020s. Finally, we note a wide array of
+heterogeneity of effects associated with different delivery mechanisms,
+from 0.01 for both educational materials and videos, to 0.4 for dietary
+consultations, though this larger effect comes from just 2 studies. For
+each estimate, we provide two \(p\) values. The first (subset \(p\)
+value) compares the effects associated with a given subset, e.g.~all
+studies with an adolescent population, to a null hypothesis of no
+effect. The second (moderator \(p\) value) compares the effects within
+different moderator categories, with the top category in each grouping
+set to be the reference level, e.g.~testing if the pooled effect of
+studies taking place in Europe is significantly different than that of
+studies taking place in North America.
 
 As a robustness check, we also coded and meta-analyzed a supplementary
-dataset of 22 marginal studies, comprising 35 point estimates. One of
-these studies met our inclusion criteria but required some guesswork in
-extracting an effect size; the others were strong designs that each met
-all but one of our inclusion criteria, e.g.~the control group received
-some aspect of treatment \citep{piazza2022}, or treatment was alternated
-weekly but not randomly \citep{garnett2020} (Supplement).
-
-integrating these marginal studies into our primary dataset yields a
-pooled effect of SMD = 0.2 (95\% CI: {[}0.09, 0.31{]}), p = \textless{}
-0.001. Particularly large results were found in studies that measured
-outcomes immediately \citep{hansen2021} or that had smaller samples
-\citep{lentz2020}.
+dataset of 22 marginal studies, comprising 35 point estimates. These
+studies had strong design features typically met all but one of our
+inclusion criteria, e.g.~the control group received some aspect of
+treatment \citep{piazza2022}, or treatment was alternated weekly but not
+randomly \citep{garnett2020} (Supplement). integrating these marginal
+studies into our primary dataset yields a pooled effect of SMD = 0.2
+(95\% CI: {[}0.09, 0.31{]}), p = \textless{} 0.001. Particularly large
+results were found in studies that measured outcomes immediately
+\citep{hansen2021} or that had smaller samples \citep{lentz2020}.
 
 Figure 2 is a modified type of funnel plot \citep{mathur2020}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./results/figures/funnel_plot-1} 
+{\centering \includegraphics{./figures/funnel_plot-1} 
 
 }
 
@@ -469,21 +464,21 @@ Supplement).
 
 \subsection{Study selection}\label{sec3.1}
 
-Our meta-analytic sample comprises randomized controlled trial
-evaluations of interventions intended to reduce MAP consumption that had
-at least 25 subjects in treatment and control (or at least 10 clusters
-for studies that were cluster-assigned) and that measured MAP
-consumption at least a single day after treatment begins. We required
-that studies have a pure control group receiving no treatment. We
-further restricted our search to studies that were publicly circulated
-in English by December 2023. We also made three decisions regarding
-study inclusion after data collection began. First, we counted and
-analyzed reductions in RPM separately. Second, we excluded studies that
-did not aim to reduce either all MAP or all RPM consumption and instead
-only sought to induce substitution from one kind of MAP to another,
-e.g.swapping red meat for fish. Third, we excluded studies with
-involuntary reductions, i.e.~interventions in institutions where
-subjects were simply served more vegetables on their plate.
+Our meta-analytic sample comprises RCT evaluations of interventions
+intended to reduce MAP consumption that had at least 25 subjects in
+treatment and control (or at least 10 clusters for studies that were
+cluster-assigned) and that measured MAP consumption at least a single
+day after treatment begins. We required that studies have a pure control
+group receiving no treatment. We further restricted our search to
+studies that were publicly circulated in English by December 2023. We
+also made three decisions regarding study inclusion after data
+collection began. First, we counted and analyzed reductions in RPM
+separately. Second, we excluded studies that did not aim to reduce
+either all MAP or all RPM consumption and instead sought to induce
+substitution from one kind of MAP to another, e.g.~that encouraged
+treated subjects to eat fish \citep{johansen2009}. Third, we excluded
+studies with involuntary reductions, i.e.~interventions in institutions
+where subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work
 indicating a large grey literature \citep{mathur2021meta}, we designed
@@ -505,14 +500,21 @@ cases.
 Figure 3 is a PRISMA diagram depicting the sources of included and
 excluded studies, which is detailed further in the Supplement.
 
-\begin{center}\includegraphics[width=1.2\linewidth,]{./prisma-diagram} \end{center}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.2\linewidth,]{./figures/prisma-diagram} 
+
+}
+
+\caption{Figure 3: PRISMA diagram.}\label{fig:prisma_diagram}
+\end{figure}
 
 \subsection{Data extraction}\label{sec3.3}
 
 The first author extracted all data. We extracted an effect size for one
 outcome per intervention: the measure of net MAP or RPM consumption that
-had the longest follow-up time after the intervention Additional
-variables coded included information about publication, details of the
+had the longest follow-up time after intervention. Additional variables
+coded included information about publication, details of the
 interventions, length of follow-ups, intervention theories, and
 additional details about interventions' methods, contexts, and open
 science practices (see accompanying code and data repository for full
@@ -534,10 +536,8 @@ whenever possible, defined as
 \(\Delta = \frac{\mu_T - \mu_C}{\sigma_C}\), where \(\mu_T\) and
 \(\mu_C\) respectively denote the treatment and control group means and
 \(\sigma_C\) denotes the pre-treatment control group standard deviation.
-We standardized on the SD of the control group at pre-treatment. If the
-control group SD was not available, we standardized on the pooled SD.
-When means and SDs were not available, we converted effect sizes
-from:When means and SDs were not available, we converted effect sizes
+If the control group SD was not available, we standardized on the pooled
+SD. When means and SDs were not available, we converted effect sizes
 from: regression coefficients, eta squared, or z-scores. When there was
 insufficient information to calculate a specific SMD, but the text
 reports the result as a null, we recorded the outcome as an
@@ -556,7 +556,7 @@ method to allow for the resulting dependence between observations, as
 well as a standard small-sample correction.
 
 Data analyses were largely conducted with custom functions building on
-\texttt{tidyverse} \citep{wickham2019} We assessed publication bias
+\texttt{tidyverse} \citep{wickham2019}. We assessed publication bias
 using selection model methods \citep{hedges1992, vevea1995}, sensitivity
 analysis methods \citep{mathur2024}, and the significance funnel plot
 \citep{mathur2020}. These methods assume that the publication process
@@ -580,24 +580,25 @@ larger effects ( e.g.~five studies estimated SMD \textgreater{} 0.5:
 We view these these interventions as intriguing candidates for
 subsequent research and replication, but their heterogeneous theories,
 methods, and implementation details suggest that no singular approach,
-delivery mechanism, or message should be considered a well-validated
+means of delivery, or message should be considered a well-validated
 method of reducing MAP consumption. Taken together, these findings
 suggest that reducing MAP consumption is an unsolved problem.
 
 Perhaps surprisingly, our results diverged from the more positive
-findings of previous reviews, which are summarized in the Supplement
-\citep{mathur2021meta, meier2022, mertens2022}. Our much smaller
-estimate likely reflects our stricter methodological inclusion criteria.
-For instance, of the ten largest effect sizes in a previous
-meta-analysis \citep{mathur2021effectiveness}, nine measured attitudes
-and/or intentions, and the tenth came from a non-randomized design.
-Prior research has found that intentions often do not predict behavior
+findings of previous reviews
+\citep{mathur2021meta, meier2022, mertens2022}, which are summarized in
+the Supplement. Our much smaller estimate likely reflects our stricter
+methodological inclusion criteria. For instance, of the ten largest
+effect sizes in a previous meta-analysis
+\citep{mathur2021effectiveness}, nine measured attitudes and/or
+intentions, and the tenth came from a non-randomized design. Prior
+research has found that intentions often do not predict behavior
 \citep{mathur2021effectiveness}, and reviews in other fields have found
 systematic differences in impacts between randomized and non-randomized
 evaluations \citep{porat2024, stevenson2023}. Supporting this
 interpretation, robustness checks in which we relaxed our methodological
-inclusion criteria produced results similar to those of previous reviews
-(Supplement). This possibility will need further empirical evaluation.
+inclusion criteria produced results similar to those of previous
+reviews. This possibility will need further empirical evaluation.
 
 Another potentially surprising result is that only two choice
 architecture papers met our methodological inclusion criteria. Most
@@ -607,8 +608,9 @@ reviews that found choice architecture approaches to be consistently
 effective at modifying diet typically focused on foods that may have
 weaker cultural and social attachments than MAP, such as sugary drinks
 and snacks \citep{venema2020, adriaanse2009}. We speculate that changes
-to how MAP is sold and consumed, by contrast, are more likely to
-engender political and cultural backlash \citep{popper2019}.
+to how MAP is sold and consumed, by contrast, are more likely to be
+noticed and to engender political and cultural backlash
+\citep{popper2019}.
 
 Likewise, as our analyses show, studies aimed at reducing RPM
 consumption are associated with a considerably larger effect (SMD =
@@ -618,8 +620,8 @@ studies together, treating their outcomes as aimed at a single
 theoretical target \citep{slough2023}. However, if reductions in RPM
 lead to consumers' substituting to other forms of MAP, then analyses
 that synthesize the two categories of outcome may produce inflated
-estimates of net MAP reduction. We view such substitutions as likely:
-many health guidelines, such as the heart-healthy diet \citep{diab2023},
+estimates of MAP reduction. We view such substitutions as likely: many
+health guidelines, such as the heart-healthy diet \citep{diab2023},
 encourage reducing RPM while also encourage moderate intake of poultry
 and fish, both of which come with severe externalities, such as risking
 zoonotic outbreaks from factory farms \citep{hafez2020} and causing land
@@ -642,17 +644,16 @@ interepreted as causal effects. That is, estimated differences in effect
 sizes between groups of studies do not represent the causal effects of
 the study characteristics (e.g., theoretical approach) on their
 interventions' effects because studies' characteristics are not randomly
-assigned. Finally,although our methodological inclusion criteria were
+assigned. Finally, although our methodological inclusion criteria were
 more stringent than those of previous reviews, the included studies
 still had limitations. For example, many outcome measures in our
-database quite coarse, such as self-reports of whether participants ate
-more or less MAP, without further quantification, in the week after
-treatment than in a typical week \citep{aberman2018} or simply after
-treatment than before \citep{cooney2016}. Other studies actively seek to
-associate eating MAP with a sense of threat \citep{fehrenbach2015} or
-with endorsing social dominance \citep{allen2002} and then collect
-self-reported outcomes. These designs raise the possibility of social
-desirability bias.
+database were coarse, such as self-reports of whether participants ate
+more or less MAP after treatment than than they typically did
+\citep{aberman2018} without further quantification. Other studies
+actively seek to associate eating MAP with a sense of threat
+\citep{fehrenbach2015} or with endorsing social hierarchy
+\citep{allen2002} and then collect self-reported outcomes. These designs
+raise the possibility of social desirability bias.
 
 Overall, this literature shows encouraging trends in methodology. First,
 as noted, a majority of studies in our meta-analysis have been published
@@ -691,7 +692,7 @@ Philanthropy, and the Food Systems Research Fund (Grant FSR
 \section*{Declarations}\label{declarations}
 \addcontentsline{toc}{section}{Declarations}
 
-\newpage
+The authors declare no conflicts of interest. \newpage
 
 \renewcommand\refname{References}
 \bibliography{./vegan-refs.bib}
