@@ -334,7 +334,7 @@ Relatively few studies met our methodological inclusion criteria, limiting stati
 Additionally, as with all meta-regression analyses, ours should not be interepreted as causal effects.
 That is, estimated differences in effect sizes between groups of studies do not represent the causal effects of the study characteristics (e.g., theoretical approach) on their interventions' effects because studies' characteristics are not randomly assigned.
 Finally,although our methodological inclusion criteria were more stringent than those of previous reviews, the included studies still had limitations.
-For example, many outcome measures in our database quite coarse, such as self-reports of whether participants ate more or less MAP, without further quantification, after vs. before treatment [@aberman2018; @cooney2016].
+For example, many outcome measures in our database quite coarse, such as self-reports of whether participants ate more or less MAP, without further quantification, in the week after treatment than in a typical week [@aberman2018] or simply after treatment than before [@cooney2016].
 Other studies actively seek to associate eating MAP with a sense of threat [@fehrenbach2015] or with endorsing social dominance [@allen2002] and then collect self-reported outcomes.
 These designs raise the possibility of social desirability bias.
 
