@@ -33,6 +33,6 @@ run_subset_meta_analysis(data = dat, filter_string = "Choice Architecture",
             latex_gap_space = "0.5em",bold = TRUE) |>
   pack_rows(group_label = "Type of Persuasion",  start_row = 6, end_row = 8,  
             latex_gap_space = "0.5em",  bold = TRUE) |> 
-  add_footnote("Studies could occupy multiple categories for both theory and type of persuasion. Note that the Ns for Types of Persuasion draws from both Persuasion and Persuasion and Psychology studies, and that some studies with multiple interventions are represented in multiple theoretical categories.",
+  add_footnote("Note that studies could occupy multiple categories for both theory and type of persuasion, that Ns for Types of Persuasion draws from both Persuasion and Persuasion and Psychology studies, and that some studies with multiple interventions are represented in multiple theoretical categories.",
                notation = "none")
 

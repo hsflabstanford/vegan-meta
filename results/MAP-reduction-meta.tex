@@ -322,7 +322,7 @@ Overall & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007\\
 \hspace{1em}Environment & 15 & 28 & 0.09 & {}[-0.03, 0.2] & .115\\
 \hspace{1em}Health & 18 & 30 & 0.08 & {}[-0.01, 0.17] & .068\\
 \bottomrule
-\multicolumn{6}{l}{\textsuperscript{} Studies could occupy multiple categories for both theory and type of persuasion. Note that the}\\
+\multicolumn{6}{l}{\textsuperscript{} Note that studies could occupy multiple categories for both theory and type of persuasion, that}\\
 \multicolumn{6}{l}{Ns for Types of Persuasion draws from both Persuasion and Persuasion and Psychology studies,}\\
 \multicolumn{6}{l}{and that some studies with multiple interventions are represented in multiple theoretical}\\
 \multicolumn{6}{l}{categories.}\\
@@ -362,9 +362,6 @@ reduce MAP consumption \citep{jalil2023}.
 \caption{Forest plot of all meta-analyzed studies. For papers contributing multiple point estimates, the plotted point corresponds to a fixed effects meta-analysis for each paper for visual clarity. Papers employing multiple theoretical approaches are represented once per theory. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.}\label{fig:forest_plot}
 \end{figure}
 
-Table 2 displays subset analyses and average differences in effect size
-by study population, region, era of publication, and delivery method.
-
 \begin{table}[!ht]
 
 \caption{\label{tab:table_S1}Moderator Analysis Results}
@@ -403,7 +400,7 @@ Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$
 \bottomrule
 \multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The first $p$}\\
 \multicolumn{7}{l}{value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD}\\
-\multicolumn{7}{l}{of zero. The second compares effects within a given group, with the top category set to reference.}\\
+\multicolumn{7}{l}{of zero. The second compares effects within a given category to the reference category for that moderator.}\\
 \end{tabular}
 \end{table}
 
@@ -412,22 +409,31 @@ comprising 25 point estimates, yielded a pooled effect of SMD = 0.25
 (95\% CI: {[}0.11, 0.38{]}), p = .002, \(\tau\) = 0.201. Among these
 studies, we estimate that 48\% of true RPM effects are above SMD = 0.2.
 We observe consistently small effects across categories of population
-(all SMDs \textless{} 0.1), but more heterogeneity by region: North
-America, where a majority of studies took place, had an average effect
-of SMD = 0.04 vs.~0.14 to 0.21 for other locations. Effect sizes have
-broadly been declining over time, from an average of SMD = 0.16 in the
-2000s to SMD = 0.05 in the 2020s. Finally, we note a wide array of
-heterogeneity of effects associated with different delivery mechanisms,
-from 0.01 for both educational materials and videos, to 0.4 for dietary
-consultations, though this larger effect comes from just 2 studies. For
-each estimate, we provide two \(p\) values. The first (subset \(p\)
-value) compares the effects associated with a given subset, e.g.~all
-studies with an adolescent population, to a null hypothesis of no
-effect. The second (moderator \(p\) value) compares the effects within
-different moderator categories, with the top category in each grouping
-set to be the reference level, e.g.~testing if the pooled effect of
-studies taking place in Europe is significantly different than that of
-studies taking place in North America.
+(all pooled SMDs \textless{} 0.1), but more heterogeneity by region:
+North America, where a majority of studies took place, had an average
+effect of SMD = 0.04 vs.~0.14 to 0.21 for other locations. Effect sizes
+have broadly been declining over time, from an average of SMD = 0.16 in
+the 2000s to SMD = 0.05 in the 2020s.
+
+\subsection{Publication bias and robustness checks}\label{Sec2.3}
+
+The meta-analytic mean corrected for publication bias that favors
+significant, positive results was 0.01 (95\% CI: {[}-0.014, 0.033{]}), p
+= 0.421 \citep{hedges1992}. Figure 2 displays a significance funnel plot
+\citep{mathur2020}. A conservative estimate that accounts for the
+possibility of worst-case publication bias yields an estimate of SMD =
+0.02 (95\% CI: {[}-0.01, 0.05{]}), p = .177
+\citep{mathur2020, mathur2024} (further sensitivity checks in
+Supplement).
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./figures/funnel_plot-1} 
+
+}
+
+\caption{Significance funnel plot displaying studies’ point estimates versus their estimated standard errors. Orange points: affirmative studies (p < 0.05 and a positive point estimate). Grey points: nonaffirmative studies (p $\geq$ 0.05 or a negative point estimate). Diagonal grey line: the standard threshold of “statistical significance” for positive point estimates; studies lying on the line have exactly p = 0.05. Black diamond: main-analysis point estimate within all studies; grey diamond: worst-case point estimate within only the nonaffirmative studies.}\label{fig:funnel_plot}
+\end{figure}
 
 As a robustness check, we also coded and meta-analyzed a supplementary
 dataset of 22 marginal studies, comprising 35 point estimates. These
@@ -439,25 +445,6 @@ studies into our primary dataset yields a pooled effect of SMD = 0.2
 (95\% CI: {[}0.09, 0.31{]}), p = \textless{} 0.001. Particularly large
 results were found in studies that measured outcomes immediately
 \citep{hansen2021} or that had smaller samples \citep{lentz2020}.
-
-Figure 2 is a modified type of funnel plot \citep{mathur2020}.
-
-\begin{figure}[H]
-
-{\centering \includegraphics{./figures/funnel_plot-1} 
-
-}
-
-\caption{Significance funnel plot displaying studies’ point estimates versus their estimated standard errors. Orange points: affirmative studies (p < 0.05 and a positive point estimate). Grey points: nonaffirmative studies (p $\geq$ 0.05 or a negative point estimate). Diagonal grey line: the standard threshold of “statistical significance” for positive point estimates; studies lying on the line have exactly p = 0.05. Black diamond: main-analysis point estimate within all studies; grey diamond: worst-case point estimate within only the nonaffirmative studies.}\label{fig:funnel_plot}
-\end{figure}
-
-The meta-analytic mean corrected for publication bias that favors
-significant, positive results was 0.01 (95\% CI: {[}-0.014, 0.033{]}), p
-= 0.421 \citep{hedges1992}. A conservative estimate that accounts for
-the possibility of worst-case publication bias yields an estimate of SMD
-= 0.02 (95\% CI: {[}-0.01, 0.05{]}), p = .177
-\citep{mathur2020, mathur2024} (further sensitivity checks in
-Supplement).
 
 \section{Methods}\label{sec3}
 

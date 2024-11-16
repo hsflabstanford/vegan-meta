@@ -178,21 +178,10 @@ Within studies with a persuasion component, pooled estimates are similar for env
 ```{r forest_plot, echo=FALSE, message=FALSE, fig.align='center', fig.pos='H', fig.cap="Forest plot of all meta-analyzed studies. For papers contributing multiple point estimates, the plotted point corresponds to a fixed effects meta-analysis for each paper for visual clarity. Papers employing multiple theoretical approaches are represented once per theory. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", out.width="120mm", out.extra=""}
 source('./scripts/forest-plot.R')
 forest_plot 
+# ggsave('./results/figures/forest_plot-1.pdf', plot = forest_plot,
+#        width = 8.5, height = 11, units = "in")
+
 ```
-
-```{r rpmc_prop, include=F}
-
-red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
-                                     t2 = rpmc_results$tau^2,
-                                se.M = rpmc_results$SE, tail = "above",
-                                estimate.method = "calibrated",
-                                ci.method = "calibrated", dat = RPMC,
-                                yi.name = "d", vi.name = "var_d",
-                              bootstrap = "ifneeded", R = 200) |> 
-     mutate(across(1:6, \(x) round(x, 3)))
-```
-
-Table 2 displays subset analyses and average differences in effect size by study population, region, era of publication, and delivery method.
 
 ```{r moderator_table, echo=F, message=F}
 source('./scripts/table-two-moderator.R')
@@ -207,23 +196,24 @@ delivery_delta <- delivery_results |> filter(Moderator == 'Dietary consultation'
 delivery_n <- delivery_results |> filter(Moderator == 'Dietary consultation') |> pull(N_Studies)
 ```
 
-The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
-Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
-We observe consistently small effects across categories of population (all SMDs \< 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. 0.14 to 0.21 for other locations.
-Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s.
-Finally, we note a wide array of heterogeneity of effects associated with different delivery mechanisms, from `r edu_delta` for both educational materials and videos, to `r delivery_delta` for dietary consultations, though this larger effect comes from just `r delivery_n` studies.
-For each estimate, we provide two $p$ values.
-The first (subset $p$ value) compares the effects associated with a given subset, e.g. all studies with an adolescent population, to a null hypothesis of no effect.
-The second (moderator $p$ value) compares the effects within different moderator categories, with the top category in each grouping set to be the reference level, e.g. testing if the pooled effect of studies taking place in Europe is significantly different than that of studies taking place in North America.
+```{r rpmc_prop, include=F}
 
-```{r robustness_check, include=F}
-source('./scripts/robustness-checks.R')
+red_high_prop_test <- prop_stronger( q = 0.2, M = rpmc_results$Delta,
+                                     t2 = rpmc_results$tau^2,
+                                se.M = rpmc_results$SE, tail = "above",
+                                estimate.method = "calibrated",
+                                ci.method = "calibrated", dat = RPMC,
+                                yi.name = "d", vi.name = "var_d",
+                              bootstrap = "ifneeded", R = 200) |> 
+     mutate(across(1:6, \(x) round(x, 3)))
 ```
 
-As a robustness check, we also coded and meta-analyzed a supplementary dataset of `r robust_only_results$N_studies` marginal studies, comprising `r robust_only_results$N_estimates` point estimates.
-These studies had strong design features typically met  all but one of our inclusion criteria, e.g. the control group received some aspect of treatment [@piazza2022], or treatment was alternated weekly but not randomly [@garnett2020] (Supplement).
-integrating these marginal studies into our primary dataset yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`.
-Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
+The `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
+Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
+We observe consistently small effects across categories of population (all pooled SMDs \< 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. 0.14 to 0.21 for other locations.
+Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s.
+
+## Publication bias and robustness checks {#Sec2.3}
 
 ```{r publication_bias, include=F, message=F}
 rma_model <- metafor::rma.uni(yi = d, vi = var_d, data = dat)
@@ -241,15 +231,28 @@ nulls <- dat |> filter(neg_null_pos == 0| neg_null_pos == -1)
 worst_case <- extract_model_results(data = nulls)
 ```
 
-Figure 2 is a modified type of funnel plot [@mathur2020].
+The meta-analytic mean corrected for publication bias that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
+Figure 2 displays a significance funnel plot [@mathur2020]. 
+A conservative estimate that accounts for the possibility of worst-case publication bias yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024] (further sensitivity checks in Supplement).
 
 ```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot displaying studies’ point estimates versus their estimated standard errors. Orange points: affirmative studies (p < 0.05 and a positive point estimate). Grey points: nonaffirmative studies (p $\\geq$ 0.05 or a negative point estimate). Diagonal grey line: the standard threshold of “statistical significance” for positive point estimates; studies lying on the line have exactly p = 0.05. Black diamond: main-analysis point estimate within all studies; grey diamond: worst-case point estimate within only the nonaffirmative studies.", fig.align='center', fig.pos='H'}
 funnel_plot <- significance_funnel(yi = dat$d, vi = dat$var_d, favor_positive = TRUE, , alpha_select = 0.05, plot_pooled = TRUE)
 funnel_plot
 ```
 
-The meta-analytic mean corrected for publication bias that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
-A conservative estimate that accounts for the possibility of worst-case publication bias yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024] (further sensitivity checks in Supplement).
+
+
+```{r robustness_check, include=F}
+source('./scripts/robustness-checks.R')
+```
+
+As a robustness check, we also coded and meta-analyzed a supplementary dataset of `r robust_only_results$N_studies` marginal studies, comprising `r robust_only_results$N_estimates` point estimates.
+These studies had strong design features typically met  all but one of our inclusion criteria, e.g. the control group received some aspect of treatment [@piazza2022], or treatment was alternated weekly but not randomly [@garnett2020] (Supplement).
+integrating these marginal studies into our primary dataset yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p = `r merged_results$p_val`.
+Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
+
+
+
 
 # Methods {#sec3}
 
