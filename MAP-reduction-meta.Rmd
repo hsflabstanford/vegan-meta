@@ -266,9 +266,9 @@ Our meta-analytic sample comprises RCT evaluations of interventions intended to 
 We required that studies have a pure control group receiving no treatment.
 We further restricted our search to studies that were publicly circulated in English by December 2023.
 We also made three decisions regarding study inclusion after data collection began.
-First, we counted and analyzed reductions in RPM separately.
+First, we defined a separate analytic category for studies that only targeted RPM consumption.
 Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead  sought to induce substitution from one kind of MAP to another, e.g. that encouraged treated subjects to eat fish [@johansen2009].
-Third, we excluded studies with involuntary reductions, i.e. interventions in institutions where subjects were simply served more vegetables on their plate.
+Third, we excluded studies whose interventions left no room for participants to voluntarily decide their MAP consumption, e.g.~interventions in institutions where subjects were simply served more vegetables on their plate.
 
 Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
 We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (\url{https://undermind.ai/}); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
@@ -311,8 +311,8 @@ We conducted these analyses using functions in `metafor` [@viechtbauer2010] and 
 
 Our meta-analysis of RCTs estimated a small overall effect of SMD = `r overall_results$Delta`, along with its upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`.
 Effects were also consistently small across an array of locations, study designs, and intervention categories.
-Some individual studies found comparatively larger effects ( e.g. five studies estimated SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
-We view these these interventions as intriguing candidates for subsequent research and replication, but their heterogeneous theories, methods, and implementation details suggest that no singular approach, means of delivery, or message should be considered a well-validated method of reducing MAP consumption.
+Some individual studies found comparatively larger effects (e.g. five studies estimated SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
+We view these these interventions as intriguing candidates for subsequent research and replication. However, these studies' heterogeneous theories, methods, and implementation details suggest that no singular approach, means of delivery, or message should be considered a well-validated method of reducing MAP consumption.
 Taken together, these findings suggest that reducing MAP consumption is an unsolved problem.
 
 Perhaps surprisingly, our results diverged from the more positive findings of previous reviews  [@mathur2021meta; @meier2022; @mertens2022], which are summarized in the Supplement.
@@ -328,22 +328,20 @@ Moreover, prior reviews that found choice architecture approaches to be consiste
 We speculate that changes to how MAP is sold and consumed, by contrast, are more likely to be noticed and to engender political and cultural backlash [@popper2019].
 
 Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a considerably larger effect (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption.
-In our search for literature, we found that many prior reviews grouped MAP and RPM studies together, treating their outcomes as aimed at a single theoretical target [@slough2023].
-However, if reductions in RPM lead to consumers' substituting to other forms of MAP, then analyses that synthesize the two categories of outcome may produce inflated estimates of MAP reduction.
+Many prior reviews grouped MAP and RPM studies together, treating their outcomes as aimed at a single theoretical target [@slough2023].
+However, if reductions in RPM lead to consumers' substituting to other forms of MAP, then analyses that synthesize the two categories of outcome may produce inflated estimates of net MAP reduction.
 We view such substitutions as likely: many health guidelines, such as the heart-healthy diet [@diab2023], encourage reducing RPM while also encourage moderate intake of poultry and fish, both of which come with severe externalities, such as risking zoonotic outbreaks from factory farms [@hafez2020] and causing land and water pollution [@grvzinic2023].
 Additionally, raising chicken and fish may lead to substantially worse outcomes for animal welfare [@mathur2022ethical].
-Finally, newspaper articles and op-ed frequently cite reducing RPM consumption as something consumers can and should do to fight climate change [@moskin2022; @carroll2019].
-By contrast, vegetarianism is still a minority diet worldwide [@tilman2014] that consumers consider to be difficult, unsatisfying, and expensive [@bryant2019].
-We speculate that cutting back on RPM may be perceived as easier and more socially normative than is cutting back on all MAP.
+We speculate that cutting back on RPM by substituting to other forms of MAP may be easier and more socially normative than is cutting back on all MAP.
 This possibility might explain the observed difference in effect sizes.
 
 Our analyses have limitations.
 Relatively few studies met our methodological inclusion criteria, limiting statistical precision.
-Additionally, as with all meta-regression analyses, ours should not be interepreted as causal effects.
+Additionally, as with all meta-regression analyses, ours should not be interpreted as causal estimates of study-level moderators.
 That is, estimated differences in effect sizes between groups of studies do not represent the causal effects of the study characteristics (e.g., theoretical approach) on their interventions' effects because studies' characteristics are not randomly assigned.
 Finally, although our methodological inclusion criteria were more stringent than those of previous reviews, the included studies still had limitations.
-For example, many outcome measures in our database were coarse, such as self-reports of whether participants ate more or less MAP after treatment than than they typically did [@aberman2018] without further quantification.
-Other studies actively seek to associate eating MAP with a sense of threat [@fehrenbach2015] or with endorsing social hierarchy [@allen2002] and then collect self-reported outcomes.
+For example, many outcome measures in our database were coarse, such as self-reported reduction vs. non-reduction in MAP consumption as a binary variable [@aberman2018]
+Other studies seek to associate eating MAP with a sense of threat [@fehrenbach2015] or with endorsing social hierarchy [@allen2002] and then collect self-reported outcomes.
 These designs raise the possibility of social desirability bias.
 
 Overall, this literature shows encouraging trends in methodology.
@@ -356,7 +354,7 @@ Ultimately, our findings suggest that meaningfully reducing MAP consumption is a
 
 \bmhead{Acknowledgments}
 
-*Thanks to Alex Berke, Alix Winter, Anson Berns, Dan Waldinger, Hari Dandapani, Adin Richards, Martin Gould, Matt Lerner, Rye Geselowitz and Sungwon Ma for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. Thanks to Sofia Vera Verduzco for research assistance. We gratefully acknowledge funding from the NIH (grant R01LM013866), Open Philanthropy, and the Food Systems Research Fund (Grant FSR 2023-11-07).*
+*Thanks to Alex Berke, Alix Winter, Anson Berns, Dan Waldinger, Hari Dandapani, Adin Richards, Martin Gould, Matt Lerner, and Rye Geselowitz for comments on an early draft. Thanks to Jacob Peacock, Andrew Jalil, Gregg Sparkman, Joshua Tasoff, Lucius Caviola, Natalia Lawrence, and Emma Garnett for help with assembling the database and providing guidance on their studies. Thanks to Sofia Vera Verduzco for research assistance. We gratefully acknowledge funding from the NIH (grant R01LM013866), Open Philanthropy, and the Food Systems Research Fund (Grant FSR 2023-11-07).*
 
 # Declarations {.unnumbered}
 

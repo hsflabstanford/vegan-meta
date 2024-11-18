@@ -4,7 +4,7 @@ classoptions:
   - referee         # Optional: Use double line spacing 
   # - lineno        # Optional: Add line numbers
   # - iicol         # Optional: Double column layout
-title: "Supplement to: Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis"
+title: "Supplement to: 'Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis'"
 titlerunning: MAP-reduction-supplement
 authors: 
   - firstname: Seth Ariel
@@ -111,7 +111,7 @@ In particular, we searched Google Scholar for the following list of terms, and c
 
 Additionally, we searched the American Economic Association's registry of randomized controlled trials (\url{https://www.socialscienceregistry.org/}) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
-Another unconventional part of our search strategy was our use of of an AI-based search tool (\url{https://undermind.ai/}), to which we described our research question and then reviewed 100 results that it generated.
+Another innovative part of our search strategy was our use of of an AI-based search tool (\url{https://undermind.ai/}), to which we described our research question and then reviewed 100 results that it generated.
 This yielded one paper that met our inclusion criteria [@mattson2020] that seems to have slipped past many other systematic search processes.
 
 Finally, we benefited from two in-progress literature reviews at Rethink Priorities, "a think-and-do tank" that researches animal welfare as one of its four main priorities.
@@ -227,7 +227,7 @@ We did not include any studies in this supplementary dataset that failed to meet
 We further caution that these `r robust_only_results$N_studies` studies are not an exhaustive or even representative list of studies that did not qualify for our main analysis.
 Rather, they are intended to offer an exploration of how a meta-analysis building on different priors about sources of bias might have proceeded.
 
-## Using an alternative estimation method
+## Using an alternative meta-analytic estimation method
 
 We initially planned to use a model from `metafor` to for our main analysis.
 However, as we assembled the dataset, we noticed that many papers had non-independent observations across interventions, typically in the form of multiple treatments compared to a single control group.
