@@ -1,7 +1,7 @@
 # Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis
 
 
-## code
+## The main code files:
   * `MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
   * `supplement-MAP-reduction.Rmd`, the Supplement
   * `./scripts/*.R` is where most of the actual R code lives
