@@ -4,7 +4,7 @@
 ## The main code files:
   * `MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
   * `supplement-MAP-reduction.Rmd` is the Supplement
-  * `./scripts/*.R` is where most of the actual R code lives, e.g. the scripts for tables and figures
+  * `./scripts/*.R` is where most of the actual R code lives, e.g. the scripts for tables and figures.^[The scripts are intended to be self-contained, so they load the libraries, functions and data they need. this causes a bit of repetitiveness when you knit the document but I figured it would be nice to future replicators to be able to create a particular table or figure without wading through the .Rmds to figure out what was necessary but loaded previously.]
   * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
 
 ## data
