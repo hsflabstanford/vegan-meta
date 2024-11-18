@@ -23,6 +23,3 @@ mv *{.pdf,.tex} ./results
 
 bibtex-tidy --curly --numeric --tab --modify --align=13 --sort=key --duplicates=key --no-escape --sort-fields --no-remove-dupe-fields --enclosing-braces=title ./vegan-refs.bib
 # if log files were generated
-if ls *.log 1> /dev/null 2>&1; then
-  rm *.log
-fi
