@@ -3,8 +3,8 @@
 
 ## The main code files:
   * `MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
-  * `supplement-MAP-reduction.Rmd`, the Supplement
-  * `./scripts/*.R` is where most of the actual R code lives
+  * `supplement-MAP-reduction.Rmd` is the Supplement
+  * `./scripts/*.R` is where most of the actual R code lives, e.g. the scripts for tables and figures
   * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
 
 ## data
