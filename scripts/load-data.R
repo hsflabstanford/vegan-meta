@@ -1,5 +1,12 @@
+# libraries
+library(dplyr, warn.conflicts = F)
+library(stringr)
+
+# functions
 source('./functions/d-calc.R')
 source('./functions/var-d-calc.R')
+
+# data
 dat <- read.csv('./data/vegan-meta.csv') |>
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 

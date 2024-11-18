@@ -1,4 +1,12 @@
 # -------------------------------
+# 0. libraries, data and functions
+# -------------------------------
+library(dplyr, warn.conflicts = F)
+library(kableExtra, warn.conflicts = F)
+source('./scripts/load-data.R')
+source('./scripts/functions.R')
+
+# -------------------------------
 # 1. Create Variables in 'dat'
 # -------------------------------
 

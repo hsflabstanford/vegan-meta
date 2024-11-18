@@ -1,4 +1,13 @@
 # load robustness dataset
+# libraries
+library(dplyr, warn.conflicts = F)
+library(stringr)
+
+# functions
+source('./functions/d-calc.R')
+source('./functions/var-d-calc.R')
+source('./functions/extract-model-results.R')
+
 robust_dat <- read.csv('./data/robustness-data.csv') |>   
   group_by(title) |>
   mutate(unique_paper_id = cur_group_id())  |> 
@@ -35,7 +44,9 @@ robust_dat <- read.csv('./data/robustness-data.csv') |>
 
 robust_only_results <- robust_dat |> extract_model_results()
 
+
 # overall result with robust_dat merged
+source('./scripts/load-data.R')
 merged_dat <- full_join(dat, robust_dat) |> 
   select(c(-unique_study_id, unique_paper_id)) |>
   group_by(title) |>

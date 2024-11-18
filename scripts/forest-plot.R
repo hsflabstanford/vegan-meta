@@ -1,4 +1,19 @@
 # -------------------------------
+# 0. libraries and functions
+# -------------------------------
+library(dplyr)
+library(forcats)
+library(ggplot2)
+library(metafor)
+library(purrr, warn.conflicts = F)
+library(scales)
+library(stringr)
+
+source('./scripts/functions.R')
+source('./scripts/load-data.R')
+source('./scripts/models-and-constants.R')
+
+# -------------------------------
 # 1. Forest Data Preparation
 # -------------------------------
 
@@ -129,3 +144,4 @@ forest_plot <- forest_data |>
   # Step 2.11: Put legend at the bottom so the graph can be wider
   theme(
     legend.position = "bottom")
+

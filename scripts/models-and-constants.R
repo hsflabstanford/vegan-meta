@@ -1,3 +1,11 @@
+
+# libraries
+library(dplyr, warn.conflicts = F)
+library(robumeta)
+
+# data
+source('./scripts/load-data.R')
+source('./scripts/functions.R')
 # Model
 model <- robumeta::robu(formula = d ~ 1, data = dat, studynum = unique_study_id, 
                         var.eff.size = var_d, modelweights = 'CORR', small = TRUE)

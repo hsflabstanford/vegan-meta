@@ -1,3 +1,10 @@
+# libraries
+library(dplyr, warn.conflicts = F)
+library(kableExtra, warn.conflicts = F)
+
+source('./scripts/load-data.R')
+source('./scripts/functions.R')
+
 meta_table <- bind_rows(
   run_subset_meta_analysis(data = dat, approach_name = "Overall", col_name = "Approach"),
     bind_rows(
