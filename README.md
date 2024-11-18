@@ -4,7 +4,7 @@
 ## The main code files:
   * `MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
   * `supplement-MAP-reduction.Rmd` is the Supplement
-  * `./scripts/*.R` is where most of the actual R code lives, e.g. the scripts for tables and figures.^[The scripts are intended to be self-contained, so they load the libraries, functions and data they need. this causes a bit of repetitiveness when you knit the document but I figured it would be nice to future replicators to be able to create a particular table or figure without wading through the .Rmds to figure out what was necessary but loaded previously.]
+  * `./scripts/*.R` is where most of the actual R code lives, e.g., the scripts for tables and figures. [^1]
   * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
 
 ## data
@@ -14,7 +14,8 @@
   * `./data/review-of-reviews.csv` is a list of prior reviews we looked at to find studies
   
 ## everything else
-project setup, license, .gitignore, past drafts, presentations etc.
+  * project setup, license, .gitignore, past drafts, presentations etc.
+  * supplementary-analyses/* are some scripts we used to to analyze original datasets when we weren't sure about how to record an effect size.
 
 ## To reproduce the paper locally
 (This assumes you use Rstudio)
@@ -99,4 +100,4 @@ project setup, license, .gitignore, past drafts, presentations etc.
  xml2              1.3.6      2023-12-04 [1] CRAN (R 4.4.0)
  ```
 
-
+[^1]: The scripts are intended to be self-contained, loading all necessary libraries, functions, and data. This causes some repetitiveness when knitting the document, but it ensures that future replicators can create specific tables or figures without needing to sift through the `.Rmd` files to determine dependencies loaded earlier.
