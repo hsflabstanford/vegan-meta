@@ -12,12 +12,12 @@ authors:
     email: setgree@stanford.edu
     affiliation: 1
     corresponding: TRUE
-  - firstname: Maya B.
-    lastname: Mathur
-    affiliation: 1
   - firstname: Benny
     lastname: Smith 
     affiliation: 2
+  - firstname: Maya B.
+    lastname: Mathur
+    affiliation: 1
 affiliations:
   - number: 1
     info:
