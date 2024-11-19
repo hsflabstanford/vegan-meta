@@ -2,7 +2,7 @@
 classoptions: 
   - sn-nature      
   - referee         # Optional: Use double line spacing 
-  # - lineno        # Optional: Add line numbers
+  - lineno        # Optional: Add line numbers
   # - iicol         # Optional: Double column layout
 title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: \\newline A meta-analysis"
 titlerunning: MAP-reduction-meta
