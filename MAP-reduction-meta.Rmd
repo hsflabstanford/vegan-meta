@@ -287,7 +287,7 @@ knitr::include_graphics('./figures/prisma-diagram.png')
 ## Data extraction {#sec3.3}
 
 The first author extracted all data.
-We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after intervention. Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <https://doi.org/10.24433/CO.6020578.v2>).
+We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after intervention. Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <https://doi.org/10.24433/CO.6020578.v3>).
 When in doubt about calculating effect sizes, we consulted publicly available datasets and/or contacted authors.
 To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (Supplement).
 
