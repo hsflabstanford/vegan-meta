@@ -6,7 +6,7 @@ library(dplyr)
 
 drive_auth()
 drive_download(as_id('1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk'),
-              path = './data/vegan-meta.csv',
+              path = './data/MAP-reduction-data.csv',
               overwrite = TRUE)
 
 read_sheet(ss = "1mPCt7HuK7URvuWcsMQokQCOGnSold-TS0NyC1EZniJk",

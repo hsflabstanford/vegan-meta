@@ -177,7 +177,7 @@ Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every qu
 
 The datasets are:
 
--   `vegan-meta.csv`, our primary meta-analytic dataset;
+-   `MAP-reduction-data.csv`, our primary meta-analytic dataset;
 
 -   `rpmc-data.csv`, our secondary dataset of studies aimed at reducing consumption of RPM;
 
