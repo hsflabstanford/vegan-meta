@@ -147,7 +147,6 @@ run_meta_regression <- function(data, group_var, ref_level) {
   return(p_values_named)
 }
 
-# Function to process each group
 process_group <- function(data, group_var, ref_level, order_levels = NULL) {
   # Automatically determine group levels present in data
   group_levels <- data |>
@@ -181,7 +180,9 @@ process_group <- function(data, group_var, ref_level, order_levels = NULL) {
         p_val_ref == "ref",
         cell_spec(p_val_ref, bold = TRUE),
         p_val_ref
-      )
+      ),
+      # Replace both p-values with N/A if both are 0
+      across(c(p_val, p_val_ref), ~ ifelse(. %in% c("0", ".000"), "N/A", .))
     )
   
   # Reorder columns without 'Group'

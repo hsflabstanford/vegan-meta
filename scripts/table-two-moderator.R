@@ -128,6 +128,6 @@ moderator_table <- bind_rows(
   pack_rows("Region", start_row_region, end_row_region, bold = TRUE, italic = FALSE) |>
   pack_rows("Publication Decade", start_row_decade, end_row_decade, bold = TRUE, italic = FALSE) |>
   pack_rows("Method of Delivery", start_row_delivery, end_row_delivery, bold = TRUE, italic = FALSE) |>
-  add_footnote("Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The first $p$ value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second compares effects within a given category to the reference category for that moderator.", 
+  add_footnote("Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The first $p$ value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second compares effects within a given category to the reference category for that moderator. N/A $p$ values were not calculated due to an insufficient number of qualifying studies.", 
                escape = FALSE, 
                notation = "none")
