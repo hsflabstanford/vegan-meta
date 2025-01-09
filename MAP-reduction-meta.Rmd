@@ -2,7 +2,7 @@
 classoptions: 
   - sn-nature      
   - referee         # Optional: Use double line spacing 
-  - lineno        # Optional: Add line numbers
+   - lineno        # Optional: Add line numbers
   # - iicol         # Optional: Double column layout
 title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: \\newline A meta-analysis"
 titlerunning: MAP-reduction-meta
@@ -352,7 +352,7 @@ Second, we observe many fruitful collaborations between researchers and advocacy
 Third, many promising designs and interventions still await rigorous evaluation.
 For instance, no study that met our criteria evaluated extended contact with farm animals [@cerrato2022], manipulations to the price of meat [@wilde2016], activating moral and/or physical disgust [@palomo2018], watching popular media such as the *Simpsons* episode "Lisa the Vegetarian" [@byrd2010] or the movie *Babe* [@novatna2019], and many categories of choice architecture intervention [@olafsson2024].
 Moreover, emerging research designs help address longstanding measurement challenges, such as the possibility that interventions implemented at one time point (e.g., choice architecture at a lunch buffet) create later compensatory behavior (e.g., eating more MAP at dinner) [@vocski2024].
-Ultimately, our findings suggest that meaningfully reducing MAP consumption is an unsolved problem, and points to the critical importance of the field's increasing focus on methodological rigor.
+Ultimately, our findings suggest that meaningfully reducing MAP consumption is an unsolved problem, and point to the critical importance of the field's increasing focus on methodological rigor.
 
 \bmhead{Acknowledgments}
 
