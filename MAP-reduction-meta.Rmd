@@ -2,7 +2,7 @@
 classoptions: 
   - sn-nature      
   - referee         # Optional: Use double line spacing 
-   - lineno        # Optional: Add line numbers
+  # - lineno        # Optional: Add line numbers
   # - iicol         # Optional: Double column layout
 title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: \\newline A meta-analysis"
 titlerunning: MAP-reduction-meta
@@ -66,6 +66,8 @@ source('./scripts/libraries.R')
 source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/models-and-constants.R')
+
+# the main dataset is called `dat`
 
 # fixing something annoying that isn't printing correctly
 choice_delta <- choice_results$Delta 
