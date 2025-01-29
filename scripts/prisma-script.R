@@ -49,7 +49,7 @@ prior_knowledge_n <- nrow(all_papers |> filter(grouped_source == 'prior knowledg
 
 # check we have everything
 GS_search_n + RP_n + registry_n + website_n + prior_review_n +citation_n + 
-  shared_n + prior_knowledge_n
+  shared_n + prior_knowledge_n == nrow(all_papers)
 
 # among included studies, how many came from registries and databases
 included_papers_group_conts <- all_papers |> 
