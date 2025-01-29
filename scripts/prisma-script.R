@@ -34,18 +34,22 @@ final_paper_n <- nrow(all_papers |> filter(inclusion_exclusion == 0))
 excluded_paper_n <- nrow(all_papers |> filter(inclusion_exclusion != 0))
 
 # source Ns: primary categories
-GS_search_n <- nrow(all_papers |> filter(grouped_source == 'Google Scholar'))
-RP_n <- nrow(all_papers |> filter(grouped_source == 'Rethink Priorities databases'))
-database_n <- GS_search_n + RP_n
-registry_n <- nrow(all_papers |> filter(grouped_source == 'registry'))
+GS_search_n <- nrow(all_papers |> filter(grouped_source == 'Google Scholar')); print(GS_search_n)
+RP_n <- nrow(all_papers |> filter(grouped_source == 'Rethink Priorities databases')); print(RP_n)
+database_n <- GS_search_n + RP_n; print(database_n)
+registry_n <- nrow(all_papers |> filter(grouped_source == 'registry')); print(registry_n)
+
+records_screened <- database_n + registry_n; print(records_screened)
 
 # source Ns: secondary categories
 website_n <- nrow(all_papers |> filter(grouped_source == 'AI search tool')) +
-  nrow(all_papers |> filter(grouped_source == 'website'))
-prior_review_n <-  nrow(all_papers |> filter(grouped_source == 'prior review'))
-citation_n <- nrow(all_papers |> filter(grouped_source == 'snowball'))  
-shared_n <- nrow(all_papers |> filter(grouped_source == 'shared by other researchers'))  
-prior_knowledge_n <- nrow(all_papers |> filter(grouped_source == 'prior knowledge'))  
+  nrow(all_papers |> filter(grouped_source == 'website')); print(website_n)
+prior_review_n <-  nrow(all_papers |> filter(grouped_source == 'prior review')); print(prior_review_n)
+citation_n <- nrow(all_papers |> filter(grouped_source == 'snowball')); print(citation_n)
+shared_n <- nrow(all_papers |> filter(grouped_source == 'shared by other researchers')); print(shared_n)
+prior_knowledge_n <- nrow(all_papers |> filter(grouped_source == 'prior knowledge')); print(prior_knowledge_n)
+
+reports_sought <- website_n + prior_review_n + citation_n + shared_n + prior_knowledge_n; print(reports_sought)
 
 # check we have everything
 GS_search_n + RP_n + registry_n + website_n + prior_review_n +citation_n + 
@@ -55,10 +59,40 @@ GS_search_n + RP_n + registry_n + website_n + prior_review_n +citation_n +
 included_papers_group_conts <- all_papers |> 
   filter(inclusion_exclusion == 0) |>
   group_by(grouped_source) |> summarise(n = n()) |> 
-  arrange(desc(n))
+  arrange(desc(n)); print(sum(included_papers_group_conts$n))
+
+included_papers_group_conts |> 
+  mutate(category = case_when(
+    grouped_source %in% c("Google Scholar", "Rethink Priorities databases", "registry") ~ "Databases & Registries",
+    TRUE ~ "Other Sources"
+  )) |> 
+  group_by(category) |> 
+  summarise(total_n = sum(n), .groups = "drop")
 
 # reviews count in included text
 included_review_count <- included_papers_group_conts |> 
   filter(grouped_source == "prior review") |> 
   pull(n)
 
+# final cells
+
+# Manually define the correct "Reports assessed for eligibility" values
+reports_assessed <- tibble(
+  category = c("Databases & Registries", "Other Sources"),
+  assessed_n = c(records_screened, reports_sought)  # 130 and 857
+)
+
+# Merge with included papers to compute reports excluded
+included_papers_summary <- tibble(
+  category = c("Databases & Registries", "Other Sources"),
+  included_n = c(
+    sum(included_papers_group_conts |> filter(grouped_source %in% 
+                                                c("Google Scholar", "Rethink Priorities databases", "registry")) |> pull(n)),
+    sum(included_papers_group_conts |> filter(!grouped_source %in% 
+                                                c("Google Scholar", "Rethink Priorities databases", "registry")) |> pull(n))
+  )
+) |> 
+  left_join(reports_assessed, by = "category") |> 
+  mutate(
+    reports_excluded = assessed_n - included_n  # Compute exclusions
+  ); print(included_papers_summary)
