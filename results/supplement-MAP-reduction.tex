@@ -1,57 +1,67 @@
-%Version 2.1 April 2023
-% See section 11 of the User Manual for version history
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                 %%
-%% Please do not use \input{...} to include other tex files.       %%
-%% Submit your LaTeX manuscript as one .tex document.              %%
-%%                                                                 %%
-%% All additional figures and files should be attached             %%
-%% separately and not embedded in the \TeX\ document itself.       %%
-%%                                                                 %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[preprint, 3p,
+authoryear]{elsarticle} %review=doublespace preprint=single 5p=2 column
+%%% Begin My package additions %%%%%%%%%%%%%%%%%%%
 
-\documentclass[sn-nature,referee,lineno,pdflatex]{sn-jnl}
+\usepackage[hyphens]{url}
 
-%%%% Standard Packages
-%%<additional latex packages if required can be included here>
+  \journal{Appetite} % Sets Journal name
 
-\usepackage{graphicx}%
-\usepackage{multirow}%
-\usepackage{amsmath,amssymb,amsfonts}%
-\usepackage{amsthm}%
-\usepackage{mathrsfs}%
-\usepackage[title]{appendix}%
-\usepackage{xcolor}%
-\usepackage{textcomp}%
-\usepackage{manyfoot}%
-\usepackage{booktabs}%
-\usepackage{algorithm}%
-\usepackage{algorithmicx}%
-\usepackage{algpseudocode}%
-\usepackage{listings}%
-%%%%
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%% end my additions to header
 
-%%%%%=============================================================================%%%%
-%%%%  Remarks: This template is provided to aid authors with the preparation
-%%%%  of original research articles intended for submission to journals published
-%%%%  by Springer Nature. The guidance has been prepared in partnership with
-%%%%  production teams to conform to Springer Nature technical requirements.
-%%%%  Editorial and presentation requirements differ among journal portfolios and
-%%%%  research disciplines. You may find sections in this template are irrelevant
-%%%%  to your work and are empowered to omit any such section if allowed by the
-%%%%  journal you intend to submit to. The submission guidelines and policies
-%%%%  of the journal take precedence. A detailed User Manual is available in the
-%%%%  template package for technical guidance.
-%%%%%=============================================================================%%%%
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+% TODO: Currently lineno needs to be loaded after amsmath because of conflict
+% https://github.com/latex-lineno/lineno/issues/5
+\usepackage{lineno} % add
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage[]{natbib}
+\bibliographystyle{elsarticle-harv}
 
-\usepackage{comment}
-\usepackage{anyfontsize}
-\usepackage[style=default]{caption}
-\usepackage{float}
-\usepackage{placeins}
-\usepackage{adjustbox}
-\usepackage{threeparttablex}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Supplement to: `Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis'},
+            colorlinks=false,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+
+\setcounter{secnumdepth}{5}
+% Pandoc toggle for numbering sections (defaults to be off)
+
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+
+\usepackage{caption}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -68,58 +78,44 @@
 \usepackage{xcolor}
 
 
-\raggedbottom
-
-
-
-
-% tightlist command for lists without linebreak
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
-
 
 \begin{document}
 
 
-\title[MAP-reduction-supplement]{Supplement to: `Meaningfully reducing
-consumption of meat and animal products is an unsolved problem: A
-meta-analysis'}
+\begin{frontmatter}
 
-%%=============================================================%%
-%% Prefix	-> \pfx{Dr}
-%% GivenName	-> \fnm{Joergen W.}
-%% Particle	-> \spfx{van der} -> surname prefix
-%% FamilyName	-> \sur{Ploeg}
-%% Suffix	-> \sfx{IV}
-%% NatureName	-> \tanm{Poet Laureate} -> Title after name
-%% Degrees	-> \dgr{MSc, PhD}
-%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate}
-%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
-%%=============================================================%%
-
-\author*[1]{\fnm{Seth
-Ariel} \sur{Green} }\email{\href{mailto:setgree@stanford.edu}{\nolinkurl{setgree@stanford.edu}}}
-
-\author[2]{\fnm{Benny} \sur{Smith} }
-
-\author[1]{\fnm{Maya B.} \sur{Mathur} }
-
-
-
-  \affil[1]{\orgdiv{Quantitative Sciences Unit, Department of
-Medicine}, \orgname{Stanford University}}
-  \affil[2]{\orgname{Allied Scholars for Animal Protection}}
-
-\abstract{}
-
-\keywords{meta-analysis, meat, plant-based, randomized controlled trial}
-
-
-
-\maketitle
+  \title{Supplement to: `Meaningfully reducing consumption of meat and
+animal products is an unsolved problem: A meta-analysis'}
+    \author[1]{Seth Ariel Green%
+  \corref{cor1}%
+  }
+   \ead{setgree@stanford.edu} 
+    \author[2]{Benny Smith%
+  %
+  }
+  
+    \author[1]{Maya B. Mathur%
+  %
+  }
+   \ead{mmathur@stanford.edu} 
+      \affiliation[Stanford]{
+    organization={Stanford University},addressline={300 Pasteur
+Drive},city={Palo Alto},postcode={94305},state={CA},country={United
+States},}
+    \cortext[cor1]{Corresponding author}
+    \fntext[1]{Quantitative Sciences Unit, Department of Medicine,
+Stanford University}
+    \fntext[2]{Allied Scholars for Animal Protection}
+  
+  \begin{abstract}
+  
+  \end{abstract}
+    \begin{keyword}
+    meta-analysis \sep meat \sep plant-based \sep 
+    randomized controlled trial
+  \end{keyword}
+  
+ \end{frontmatter}
 
 \section{Search strategy}\label{search-strategy}
 
@@ -332,7 +328,7 @@ repository}\label{description-of-code-and-data-repository}
 
 Our code and data are shared on GitHub
 (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean
-(\url{https://doi.org/10.24433/CO.6020578.v3}). The Code Ocean
+(\url{https://doi.org/10.24433/CO.6020578.v4}). The Code Ocean
 repository allows for reproducing our papers' results without
 downloading any files or managing software versions.
 

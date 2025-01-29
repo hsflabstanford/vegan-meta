@@ -8,9 +8,9 @@ set -ex
 # mkdir ../results/figures
 
 # knit main script & replace all instances of [H] with [!ht] in the generated .tex file
-Rscript -e "rmarkdown::render('./MAP-reduction-meta.Rmd', clean = T)"
-sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta.tex 
-Rscript -e "tinytex::latexmk('MAP-reduction-meta.tex')"
+Rscript -e "rmarkdown::render('./MAP-reduction-meta-appetite.Rmd', clean = T)"
+sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta-appetite.tex 
+Rscript -e "tinytex::latexmk('MAP-reduction-meta-appetite.tex')"
 mv ./figures/*.pdf ./results/figures
 
 # supplement

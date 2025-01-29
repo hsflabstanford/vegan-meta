@@ -48,6 +48,9 @@ output:
   rticles::elsevier_article:
     keep_tex: true
     citation_package: natbib
+header-includes:
+  - \usepackage{caption}
+
 ---
 
 ```{r setup, include=FALSE}
@@ -173,7 +176,7 @@ For instance, many reviews concluded that choice architecture approaches are eff
 
 # Description of code and data repository
 
-Our code and data are shared on GitHub (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean (\url{https://doi.org/10.24433/CO.6020578.v3}). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
+Our code and data are shared on GitHub (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean (\url{https://doi.org/10.24433/CO.6020578.v4}). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim and the first two figures reproduced each time the document is knit.
 
