@@ -1,51 +1,53 @@
 ---
-classoptions: 
-  - sn-nature      
-  - referee         # Optional: Use double line spacing 
-  - lineno        # Optional: Add line numbers
-  # - iicol         # Optional: Double column layout
 title: "Supplement to: 'Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis'"
 titlerunning: MAP-reduction-supplement
-authors: 
-  - firstname: Seth Ariel
-    lastname: Green
-    email: setgree@stanford.edu
-    affiliation: 1
-    corresponding: TRUE
-  - firstname: Benny
-    lastname: Smith 
-    affiliation: 2
-  - firstname: Maya B.
-    lastname: Mathur
-    affiliation: 1
-affiliations:
-  - number: 1
-    info:
-      orgdiv: Quantitative Sciences Unit, Department of Medicine
-      orgname: Stanford University
-  - number: 2
-    info:
-      orgname: Allied Scholars for Animal Protection 
+author:
+  - name: "Seth Ariel Green"
+    email: "setgree@stanford.edu"
+    affiliation: "1"
+    correspondingauthor: true
+  - name: "Benny Smith"
+    affiliation: "2"
+  - name: "Maya B. Mathur"
+    email: "mmathur@stanford.edu"
+    affiliation: "1"
+
+affiliation:
+  - id: "1"
+    institution: "Stanford University, 300 Pasteur Drive, Palo Alto, CA 94305, USA"
+  - id: "2"
+    institution: "Allied Scholars for Animal Protection"
+address:
+  - code: Stanford
+    organization: Stanford University 
+    addressline: 300 Pasteur Drive
+    city: Palo Alto
+    state: CA
+    postcode: 94305
+    country: United States
+footnote:
+  - code: 1
+    text: "Quantitative Sciences Unit, Department of Medicine, Stanford University"
+  - code: 2
+    text: "Allied Scholars for Animal Protection"
 keywords:
   - meta-analysis
   - meat
   - plant-based
   - randomized controlled trial
+journal: "Appetite"
 date: "`r Sys.Date()`"
-output: 
-  rticles::springer_article:
-    keep_tex: true
+linenumbers: false
+numbersections: true
 bibliography: "./vegan-refs.bib"
-editor_options: 
-  chunk_output_type: console
-header-includes:
-  - \usepackage{comment}
-  - \usepackage{anyfontsize}
-  - \usepackage[style=default]{caption}
-  - \usepackage{float}      # For precise float placement
-  - \usepackage{placeins}   # Provides \FloatBarrier command
-  - \usepackage{adjustbox}
-  - \usepackage{threeparttablex}
+biblio-style: elsarticle-harv # author year style for natbib - use 'elsarticle-num' or 'elsarticle-num-names' for numbered scheme
+classoption: preprint, 3p, authoryear # remove authoryear is not using `elsarticle-harv`
+# Use a CSL with `citation_package = "default"`
+# csl: https://www.zotero.org/styles/elsevier-harvard
+output: 
+  rticles::elsevier_article:
+    keep_tex: true
+    citation_package: natbib
 ---
 
 ```{r setup, include=FALSE}
