@@ -24,6 +24,7 @@
 3. Make sure everything in `./scripts/libraries.R` is installed
 4. Either run `run.sh` or knit the `.Rmd` files
 
+Note that the tables and figures might look a little different in the preprint/final version -- we did a bit of final latex fiddling in the submission phase.
 ## SessionInfo
 ```
 ─ Session info ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
