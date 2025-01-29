@@ -30,7 +30,7 @@ all_papers <- full_join(
     TRUE ~ "ERROR"))
 
 # included/excluded (counting RPM studies as 'excluded')
-final_paper_n <- nrow(all_papers |> filter(inclusion_exclusion == 0))
+final_paper_n <- nrow(all_papers |> filter(inclusion_exclusion == 0)); print(final_paper_n)
 excluded_paper_n <- nrow(all_papers |> filter(inclusion_exclusion != 0))
 
 # source Ns: primary categories
@@ -85,14 +85,15 @@ reports_assessed <- tibble(
 # Merge with included papers to compute reports excluded
 included_papers_summary <- tibble(
   category = c("Databases & Registries", "Other Sources"),
-  included_n = c(
-    sum(included_papers_group_conts |> filter(grouped_source %in% 
-                                                c("Google Scholar", "Rethink Priorities databases", "registry")) |> pull(n)),
-    sum(included_papers_group_conts |> filter(!grouped_source %in% 
-                                                c("Google Scholar", "Rethink Priorities databases", "registry")) |> pull(n))
-  )
-) |> 
+  included_n = c(sum(included_papers_group_conts |> 
+                       filter(grouped_source %in% 
+                                c("Google Scholar", "Rethink Priorities databases", "registry")) |> 
+                       pull(n)), sum(included_papers_group_conts |>
+                       filter(!grouped_source %in% 
+                                c("Google Scholar", "Rethink Priorities databases", "registry")) |> 
+                         pull(n)))) |>  
   left_join(reports_assessed, by = "category") |> 
-  mutate(
-    reports_excluded = assessed_n - included_n  # Compute exclusions
-  ); print(included_papers_summary)
+  mutate(reports_excluded = assessed_n - included_n); print(included_papers_summary)
+
+included_studies <- max(dat$unique_study_id); print(included_studies)
+      
