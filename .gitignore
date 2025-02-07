@@ -21,3 +21,4 @@ literature/
 Icon*
 documentation
 ./scripts/download-data.R
+*.spl

@@ -303,7 +303,7 @@ worst_case <- extract_model_results(data = nulls)
 ```
 
 The meta-analytic mean corrected for publication bias that favors significant, positive results was `r round(hedges_model$b, 3)` (95% CI: [`r paste0(round(hedges_model$ci.lb, 3), ",", " ", round(hedges_model$ci.ub, 3))`]), p = `r round(hedges_model$pval, 3)` [@hedges1992].
-Figure 2 displays a significance funnel plot [@mathur2020]. 
+Figure 3 displays a significance funnel plot [@mathur2020]. 
 A conservative estimate that accounts for the possibility of worst-case publication bias yields an estimate of SMD = `r worst_case$Delta` (95% CI: `r worst_case$CI`), p = `r worst_case$p_val` [@mathur2020; @mathur2024] (further sensitivity checks in Supplement).
 
 ```{r funnel_plot, echo=FALSE, message=F, fig.cap="Significance funnel plot displaying studies’ point estimates versus their estimated standard errors. Orange points: affirmative studies (p < 0.05 and a positive point estimate). Grey points: nonaffirmative studies (p $\\geq$ 0.05 or a negative point estimate). Diagonal grey line: the standard threshold of “statistical significance” for positive point estimates; studies lying on the line have exactly p = 0.05. Black diamond: main-analysis point estimate within all studies; grey diamond: worst-case point estimate within only the nonaffirmative studies.", fig.align='center', fig.pos='H'}
