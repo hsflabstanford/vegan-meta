@@ -6,6 +6,7 @@ author:
     affiliation: "1"
     correspondingauthor: true
   - name: "Benny Smith"
+    email: "abennysmith@proton.me"
     affiliation: "2"
   - name: "Maya B. Mathur"
     email: "mmathur@stanford.edu"
@@ -13,22 +14,20 @@ author:
 
 affiliation:
   - id: "1"
-    institution: "Stanford University, 300 Pasteur Drive, Palo Alto, CA 94305, USA"
+    institution: "Stanford University"
   - id: "2"
     institution: "Allied Scholars for Animal Protection"
+
 address:
-  - code: Stanford
-    organization: Stanford University 
-    addressline: 300 Pasteur Drive
-    city: Palo Alto
-    state: CA
-    postcode: 94305
-    country: United States
-footnote:
-  - code: 1
-    text: "Quantitative Sciences Unit, Department of Medicine, Stanford University"
-  - code: 2
-    text: "Allied Scholars for Animal Protection"
+  - code: "1"
+    organization: "Stanford University"
+    addressline: "300 Pasteur Drive"
+    city: "Palo Alto"
+    state: "CA"
+    postcode: "94305"
+    country: "United States"
+  - code: "2"
+    organization: "Allied Scholars for Animal Protection"
 abstract: |
   Which interventions produce the largest and most enduring reductions in consumption of meat and animal products (MAP)? We address this question with a theoretical review and meta-analysis of randomized controlled trials that measured MAP consumption at least one day after intervention. We meta-analyze 35 papers comprising 41 studies, 112 interventions, and approximately 87,000 subjects. We find that these papers employ four major strategies to change behavior: choice architecture, persuasion, psychology, and a combination of persuasion and psychology. The pooled effect of all 112 interventions on MAP consumption is quite small (standardized mean difference (SMD) = 0.07 (95\% CI: [0.02, 0.12]), indicating an unsolved problem. Interventions aiming to reduce only consumption of red and processed meat were more effective (SMD = 0.25; 95\% CI: [0.11, 0.38]), but it remains unclear whether such interventions increase consumption of other forms of MAP. but it remains unclear whether such interventions also decrease consumption of other forms of MAP. We conclude that while existing approaches do not provide a proven remedy to MAP consumption, designs and measurement strategies have generally been improving over time, and many promising interventions await rigorous evaluation.
 keywords:
