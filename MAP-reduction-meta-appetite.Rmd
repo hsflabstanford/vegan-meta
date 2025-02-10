@@ -120,9 +120,6 @@ excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
 ## Study selection {#sec2.1}
-
-%bm
-
 Our meta-analytic sample comprises RCT evaluations of interventions intended to reduce MAP consumption that had at least 25 subjects in treatment and control (or at least 10 clusters for studies that were cluster-assigned) and that measured MAP consumption at least a single day after treatment begins.
 We required that studies have a pure control group receiving no treatment.
 We further restricted our search to studies that were publicly circulated in English by December 2023.
