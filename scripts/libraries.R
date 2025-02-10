@@ -1,6 +1,7 @@
 #' libraries
 library(dplyr, warn.conflicts = F)
 library(forcats)
+library(flextable)
 library(ggplot2)
 library(ggtext)
 library(kableExtra, warn.conflicts = F)

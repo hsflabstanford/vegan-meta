@@ -9,15 +9,13 @@ set -ex
 
 # knit main script & replace all instances of [H] with [!ht] in the generated .tex file
 Rscript -e "rmarkdown::render('./MAP-reduction-meta-appetite.Rmd', clean = T)"
-sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' MAP-reduction-meta-appetite.tex 
-Rscript -e "tinytex::latexmk('MAP-reduction-meta-appetite.tex')"
 mv ./figures/*.pdf ./results/figures
 
 # supplement
 Rscript -e "rmarkdown::render('./supplement-MAP-reduction.Rmd', clean = T)"
 sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' supplement-MAP-reduction.tex 
 Rscript -e "tinytex::pdflatex('supplement-MAP-reduction.tex')"
-mv *{.pdf,.tex} ./results
+mv *{.pdf,.tex.,.docx} ./results
 
 # to sort bibliography (from package `bibtex2html`, via `npm install -g bibtex-tidy`)
 
