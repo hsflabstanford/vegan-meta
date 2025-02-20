@@ -253,7 +253,6 @@ ggsave('./results/figures/forest_plot.pdf', plot = forest_plot,
 ```
 
 ```{r moderator_table, echo=F, message=F}
-word=TRUE
 source('./scripts/table-two-moderator.R')
 moderator_table
 
