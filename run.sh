@@ -17,11 +17,13 @@ Rscript -e "tinytex::pdflatex('supplement-MAP-reduction.tex')"
 Rscript -e "rmarkdown::render('./PDF-MAP-reduction-meta.Rmd', clean = T)"
 sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' PDF-MAP-reduction-meta.tex 
 Rscript -e "tinytex::pdflatex('PDF-MAP-reduction-meta.tex')"
+mv PDF-MAP-reduction-meta.tex MAP-reduction-meta.tex 
+mv PDF-MAP-reduction-meta.pdf MAP-reduction-meta.pdf
 
 # move things over but supress error message if nothing is found
 rm *.spl 2>/dev/null || true
 mv *.tex *.pdf *.docx ./results 2>/dev/null || true
-mv ./results/PDF-MAP-reduction-meta.tex MAP-reduction-meta.tex
+
 # to sort bibliography (from package `bibtex2html`, via `npm install -g bibtex-tidy`)
 
 bibtex-tidy --curly --numeric --tab --modify --align=13 --sort=key --duplicates=key --no-escape --sort-fields --no-remove-dupe-fields --enclosing-braces=title ./vegan-refs.bib
