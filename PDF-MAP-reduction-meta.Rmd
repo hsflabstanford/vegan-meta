@@ -229,7 +229,7 @@ high_prop_test
 ```
 
 ```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
-word=TRUE
+word=FALSE
 source('./scripts/table-one-meta.R')
 meta_table
 ```
