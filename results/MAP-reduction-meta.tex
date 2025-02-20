@@ -75,11 +75,6 @@ authoryear]{elsarticle} %review=doublespace preprint=single 5p=2 column
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\usepackage{multicol}
-\usepackage{hhline}
-\newlength\Oldarrayrulewidth
-\newlength\Oldtabcolsep
-\usepackage{hyperref}
 
 
 
@@ -423,121 +418,33 @@ one's MAP consumption \citep{mathur2021effectiveness, shreedhar2021}.
 
 \subsection{Main findings: overall small effects}\label{Sec3.2}
 
-\begin{verbatim}
-## Warning: fonts used in `flextable` are ignored because the `pdflatex` engine is
-## used and not `xelatex` or `lualatex`. You can avoid this warning by using the
-## `set_flextable_defaults(fonts_ignore=TRUE)` command or use a compatible engine
-## by defining `latex_engine: xelatex` in the YAML header of the R Markdown
-## document.
-\end{verbatim}
-
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{2pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[c]{|p{2.02in}|p{1.05in}|p{1.21in}|p{0.64in}|p{1.10in}|p{0.61in}}
-
-\caption{Table\ 1:\ Main\ Findings}\\
-
-\ascline{1.5pt}{666666}{1-6}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Approach}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Studies)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Estimates)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Delta}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{95\%\ CIs}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{p\ val}}} \\
-
-\ascline{1.5pt}{666666}{1-6}\endfirsthead \caption[]{Table\ 1:\ Main\ Findings}\\
-
-\ascline{1.5pt}{666666}{1-6}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Approach}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Studies)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Estimates)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Delta}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{95\%\ CIs}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{p\ val}}} \\
-
-\ascline{1.5pt}{666666}{1-6}\endhead
-
-
-
-\multicolumn{6}{>{\raggedright}m{\dimexpr 6.63in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Note\ that\ studies\ could\ occupy\ multiple\ categories\ for\ both\ theory\ and\ type\ of\ persuasion,\ that\ Ns\ for\ Types\ of\ Persuasion\ draw\ from\ both\ Persuasion\ and\ Persuasion\ and\ Psychology\ studies,\ and\ that\ some\ studies\ with\ multiple\ interventions\ are\ represented\ in\ multiple\ theoretical\ categories}}} \\
-
-\endlastfoot
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Overall}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{41}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{112}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.07}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.02,\ 0.12]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.007}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Theory}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Choice\ Architecture}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.21}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.99,\ 1.42]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.267}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Psychology}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{19}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{32}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.1}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0,\ 0.2]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.054}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Persuasion}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{25}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{77}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.07}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.01,\ 0.13]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.023}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Persuasion\ \&\ Psychology}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{11}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{20}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.11}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.06,\ 0.28]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.189}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Types\ of\ Persuasion}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Animal\ Welfare}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{16}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{65}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.03}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.02,\ 0.07]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.189}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Environment}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{16}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{29}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.09}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.02,\ 0.19]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.095}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.02in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Health}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{18}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{29}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.64in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.08}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.01,\ 0.17]}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.61in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.064}}} \\
-
-\ascline{1.5pt}{666666}{1-6}
-
-
-
-\end{longtable}
-
-
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
+\begin{table}[!ht]
+\centering
+\caption{\label{tab:table_one}Meta-analytic Results Overall and by Theoretical Approach}
+\centering
+\begin{tabular}[t]{llllll}
+\toprule
+Approach & N (Studies) & N (Estimates) & Delta & 95\% CIs & p val\\
+\midrule
+Overall & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007\\
+\addlinespace[0.5em]
+\multicolumn{6}{l}{\textbf{Theory}}\\
+\hspace{1em}Choice Architecture & 2 & 3 & 0.21 & {}[-0.99, 1.42] & .267\\
+\hspace{1em}Psychology & 19 & 32 & 0.10 & {}[0, 0.2] & .054\\
+\hspace{1em}Persuasion & 25 & 77 & 0.07 & {}[0.01, 0.13] & .023\\
+\hspace{1em}Persuasion \& Psychology & 11 & 20 & 0.11 & {}[-0.06, 0.28] & .189\\
+\addlinespace[0.5em]
+\multicolumn{6}{l}{\textbf{Type of Persuasion}}\\
+\hspace{1em}Animal Welfare & 16 & 65 & 0.03 & {}[-0.02, 0.07] & .189\\
+\hspace{1em}Environment & 16 & 29 & 0.09 & {}[-0.02, 0.19] & .095\\
+\hspace{1em}Health & 18 & 29 & 0.08 & {}[-0.01, 0.17] & .064\\
+\bottomrule
+\multicolumn{6}{l}{\textsuperscript{} Note that studies could occupy multiple categories for both theory and type of persuasion, that}\\
+\multicolumn{6}{l}{Ns for Types of Persuasion draw from both Persuasion and Persuasion and Psychology studies, and}\\
+\multicolumn{6}{l}{that some studies with multiple interventions are represented in multiple theoretical}\\
+\multicolumn{6}{l}{categories.}\\
+\end{tabular}
+\end{table}
 
 In our dataset, the pooled effect of all interventions is standardized
 mean difference (SMD) = 0.07 (95\% CI: {[}0.02, 0.12{]}), p = .007, with
@@ -572,199 +479,48 @@ reduce MAP consumption \citep{jalil2023}.
 \caption{Figure 2: Forest plot of all meta-analyzed studies. For papers contributing multiple point estimates, the plotted point corresponds to a fixed effects meta-analysis for each paper for visual clarity. Papers employing multiple theoretical approaches are represented once per theory. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.}\label{fig:forest_plot}
 \end{figure}
 
-\begin{verbatim}
-## Warning: fonts used in `flextable` are ignored because the `pdflatex` engine is
-## used and not `xelatex` or `lualatex`. You can avoid this warning by using the
-## `set_flextable_defaults(fonts_ignore=TRUE)` command or use a compatible engine
-## by defining `latex_engine: xelatex` in the YAML header of the R Markdown
-## document.
-\end{verbatim}
-
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{2pt}
-
-\renewcommand*{\arraystretch}{1.5}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[c]{|p{2.04in}|p{1.05in}|p{1.21in}|p{0.62in}|p{1.10in}|p{1.30in}|p{1.52in}}
-
-\caption{Table\ 2:\ Moderator\ Analysis\ Results}\\
-
-\ascline{1.5pt}{666666}{1-7}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Study\ Characteristic}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Studies)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Estimates)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SMD}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{95\%\ CIs}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Subset\ p\ value}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Moderator\ p}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\linebreak }}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{value}}} \\
-
-\ascline{1.5pt}{666666}{1-7}\endfirsthead \caption[]{Table\ 2:\ Moderator\ Analysis\ Results}\\
-
-\ascline{1.5pt}{666666}{1-7}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Study\ Characteristic}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Studies)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N\ (Estimates)}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{SMD}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{95\%\ CIs}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Subset\ p\ value}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Moderator\ p}}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\linebreak }}\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{value}}} \\
-
-\ascline{1.5pt}{666666}{1-7}\endhead
-
-
-
-\multicolumn{7}{>{\raggedright}m{\dimexpr 8.84in+12\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Moderation\ analyses\ by\ differences\ in\ outcomes,\ population,\ region,\ decade\ of\ publication,\ and\ delivery\ method.\ The\ first\ p\ value\ column\ tests\ the\ hypothesis\ that\ the\ subset\ of\ studies\ with\ a\ given\ characteristic\ is\ significantly\ different\ than\ an\ SMD\ of\ zero.\ The\ second\ compares\ effects\ within\ a\ given\ category\ to\ the\ reference\ category\ for\ that\ moderator.\ N/A\ p\ values\ were\ not\ calculated\ due\ to\ an\ insufficient\ number\ of\ qualifying\ studies.}}} \\
-
-\endlastfoot
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Outcome}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Meat\ and\ animal\ products}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{41}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{112}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.07}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.02,\ 0.12]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.007}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{ref}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Red\ and\ processed\ meat}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{17}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{25}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.25}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.11,\ 0.38]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.002}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.046}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Population}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{University\ students/staff}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{18}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{38}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.07}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.03,\ 0.16]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.139}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{ref}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{All\ ages}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.04}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.16,\ 0.25]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.361}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.733}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Adults}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{17}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{61}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.09}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.01,\ 0.18]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.034}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.714}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Adolescents}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{3}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.02}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.4,\ 0.44]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.806}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.686}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Region}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{North\ America}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{23}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{74}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.04}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.01,\ 0.08]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.142}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{ref}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Europe}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{14}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{28}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.14}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.02,\ 0.27]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.029}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.156}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Multi-region}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{1}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{4}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.21}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[0.21,\ 0.21]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N/A}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{N/A}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Asia\ +\ Australia}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{5}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.13}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.17,\ 0.43]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.116}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.220}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Publication\ Decade}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2000s}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{6}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.16}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.12,\ 0.43]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.199}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{ref}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2010s}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{12}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{31}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.07}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.03,\ 0.17]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.13}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.464}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2020s}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{23}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{73}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.05}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.01,\ 0.11]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.074}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.369}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{Method\ of\ Delivery}}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Educational\ materials}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{15}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{48}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.01}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.04,\ 0.07]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.591}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\textbf{ref}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Online}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{22}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.16}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.02,\ 0.34]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.067}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.173}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Dietary\ consultation}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{2}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.4}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-3.36,\ 4.15]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.409}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.441}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{In-cafeteria}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{8}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{13}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.1}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.04,\ 0.25]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.101}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.126}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.04in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{Video}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.05in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{11}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.21in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{27}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 0.62in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{0.01}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{[-0.04,\ 0.07]}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.3in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.487}}} & \multicolumn{1}{>{\raggedright}m{\dimexpr 1.52in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{.553}}} \\
-
-\ascline{1.5pt}{666666}{1-7}
-
-
-
-\end{longtable}
-
-
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
+\begin{table}[!ht]
+
+\caption{\label{tab:table_S1}Moderator Analysis Results}
+\begin{tabular}[t]{lllll>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}}
+\toprule
+Study Characteristic & N (Studies) & N (Estimates) & SMD & 95\% CIs & Subset $p$ value & Moderator $p$ value\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Outcome}}\\
+\hspace{1em}Meat and animal products & 41 & 112 & 0.07 & {}[0.02, 0.12] & .007 & \textbf{ref}\\
+\hspace{1em}Red and processed meat & 17 & 25 & 0.25 & {}[0.11, 0.38] & .002 & .046\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Population}}\\
+\hspace{1em}University students/staff & 18 & 38 & 0.07 & {}[-0.03, 0.16] & .139 & \textbf{ref}\\
+\hspace{1em}All ages & 3 & 6 & 0.04 & {}[-0.16, 0.25] & .361 & .733\\
+\hspace{1em}Adults & 17 & 61 & 0.09 & {}[0.01, 0.18] & .034 & .714\\
+\hspace{1em}Adolescents & 3 & 6 & 0.02 & {}[-0.4, 0.44] & .806 & .686\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Region}}\\
+\hspace{1em}North America & 23 & 74 & 0.04 & {}[-0.01, 0.08] & .142 & \textbf{ref}\\
+\hspace{1em}Europe & 14 & 28 & 0.14 & {}[0.02, 0.27] & .029 & .156\\
+\hspace{1em}Multi-region & 1 & 4 & 0.21 & {}[0.21, 0.21] & N/A & N/A\\
+\hspace{1em}Asia + Australia & 2 & 5 & 0.13 & {}[-0.17, 0.43] & .116 & .220\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Publication Decade}}\\
+\hspace{1em}2000s & 6 & 8 & 0.16 & {}[-0.12, 0.43] & .199 & \textbf{ref}\\
+\hspace{1em}2010s & 12 & 31 & 0.07 & {}[-0.03, 0.17] & .13 & .464\\
+\hspace{1em}2020s & 23 & 73 & 0.05 & {}[-0.01, 0.11] & .074 & .369\\
+\addlinespace[0.3em]
+\multicolumn{7}{l}{\textbf{Method of Delivery}}\\
+\hspace{1em}Educational materials & 15 & 48 & 0.01 & {}[-0.04, 0.07] & .591 & \textbf{ref}\\
+\hspace{1em}Online & 8 & 22 & 0.16 & {}[-0.02, 0.34] & .067 & .173\\
+\hspace{1em}Dietary consultation & 2 & 2 & 0.40 & {}[-3.36, 4.15] & .409 & .441\\
+\hspace{1em}In-cafeteria & 8 & 13 & 0.10 & {}[-0.04, 0.25] & .101 & .126\\
+\hspace{1em}Video & 11 & 27 & 0.01 & {}[-0.04, 0.07] & .487 & .553\\
+\bottomrule
+\multicolumn{7}{l}{\textsuperscript{} Moderation analyses by differences in outcomes, population, region, decade of publication, and delivery method. The first $p$}\\
+\multicolumn{7}{l}{value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD}\\
+\multicolumn{7}{l}{of zero. The second compares effects within a given category to the reference category for that moderator. N/A $p$ values were}\\
+\multicolumn{7}{l}{not calculated due to an insufficient number of qualifying studies.}\\
+\end{tabular}
+\end{table}
 
 The 17 studies that only attempted to reduce consumption of RPM,
 comprising 25 point estimates, yielded a pooled effect of SMD = 0.25
