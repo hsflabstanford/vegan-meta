@@ -11,7 +11,6 @@ author:
   - name: "Maya B. Mathur"
     email: "mmathur@stanford.edu"
     affiliation: "1"
-
 affiliation:
   - id: "1"
     institution: "Stanford University, 300 Pasteur Drive, Palo Alto, CA 94305, USA"
@@ -42,7 +41,6 @@ numbersections: true
 bibliography: "./vegan-refs.bib"
 biblio-style: elsarticle-harv # author year style for natbib - use 'elsarticle-num' or 'elsarticle-num-names' for numbered scheme
 classoption: preprint, 3p, authoryear # remove authoryear is not using `elsarticle-harv`
-# Use a CSL with `citation_package = "default"`
 # csl: https://www.zotero.org/styles/elsevier-harvard
 output: 
   rticles::elsevier_article:
@@ -50,7 +48,8 @@ output:
     citation_package: natbib
 header-includes:
   - \usepackage{caption}
-
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -217,10 +216,16 @@ no_os_delta <- open_science_results |> filter(Moderator == 'None') |> pull(Delta
 pap_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan only') |> pull(Delta)
 open_data_delta <- open_science_results |> filter(Moderator == 'Open data only') |> pull(Delta)
 both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
+
+no_unspecified_nulls <- dat |> filter(eff_type != 'unspecified_null') |> extract_model_results()
+
+zero_delta <- dat |> mutate(d = if_else(eff_type == 'unspecified_null', 0, d)) |> extract_model_results() |> pull(Delta)
 ```
 
 Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD = `r objective_delta`, respectively).
 Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
+
+In our main dataset, we recorded `r `overall_results$N_estimates - no_unspecified_nulls$N_estimates` point estimates as 'unspecified nulls' because we lacked the statistical information to calculate a precise effect size. We then manually coded these estimates as 0.01, a convention borrowed from [@porat2020]. If we set these to be equal to 0.00, our meta-analytic estimate remains `r zero_delta`. If we omit them entirely, our overall estimate rises to `r no_unspecified_nulls$Delta` (95)
 
 ## Details of marginal studies included in robustness check
 While assembling our dataset, a handful of studies stuck out to us as yielding interesting findings and/or design features, but nevertheless did not meet all of our inclusion criteria. 
