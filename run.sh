@@ -24,7 +24,10 @@ mv PDF-MAP-reduction-meta.pdf MAP-reduction-meta.pdf
 rm *.spl 2>/dev/null || true
 mv *.tex *.pdf *.docx ./results 2>/dev/null || true
 
-# to sort bibliography (from package `bibtex2html`, via `npm install -g bibtex-tidy`)
+# to sort bibliography (from package `bibtex2html`, via `npm install -g bibtex-tidy` -- requires Node.js)
 
-bibtex-tidy --curly --numeric --tab --modify --align=13 --sort=key --duplicates=key --no-escape --sort-fields --no-remove-dupe-fields --enclosing-braces=title ./vegan-refs.bib
+bibtex-tidy --curly --numeric --tab --modify \
+  --align=13 --sort=key --duplicates=key \
+  --no-escape --sort-fields --no-remove-dupe-fields \
+  --enclosing-braces=title ./vegan-refs.bib
 
