@@ -32,7 +32,7 @@ authoryear]{elsarticle} %review=doublespace preprint=single 5p=2 column
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \usepackage[]{natbib}
-\bibliographystyle{elsarticle-harv}
+\bibliographystyle{plainnat}
 
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
@@ -211,12 +211,12 @@ generated. This yielded one paper that met our inclusion criteria
 \citep{mattson2020} that seems to have slipped past many other
 systematic search processes.
 
-Finally, we benefited from two in-progress literature reviews at Rethink
-Priorities, ``a think-and-do tank'' that researches animal welfare as
-one of its four main priorities. Both of these literature reviews are
-aimed at assessing interventions that reduce MAP consumption, but have
-broader inclusion criteria than our paper employed. For more details on
-these two projects, see \url{<https://osf.io/74paj>} and
+Finally, we benefited from two in-progress literature reviews affiliated
+with Rethink Priorities, ``a think-and-do tank'' that researches animal
+welfare as one of its main priorities. Both of these literature reviews
+are aimed at assessing interventions that reduce MAP consumption, but
+have broader inclusion criteria than our paper employed. For more
+details on these two projects, see \url{<https://osf.io/74paj>} and
 \url{<https://meat-lime.vercel.app>}.
 
 \section{Discussion of prior reviews}\label{discussion-of-prior-reviews}
@@ -372,7 +372,7 @@ bias: publication status, data collection strategy, and use of open
 science practices.
 
 \captionsetup[table]{labelformat=empty}
-\begin{table}[!ht]
+\begin{table}[!h]
 
 \caption{\label{tab:table_S1}Table S1: Sensitivity Analysis Results}
 \begin{tabular}[t]{lllll>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}}
@@ -412,18 +412,17 @@ largest difference is between studies that have neither open data nor a
 pre-analysis plan (SMD = 0.11) and those that have just open data (SMD =
 0.01).
 
-In our main dataset, we recorded
-\texttt{r}overall\_results\(N_estimates - no_unspecified_nulls\)N\_estimates`
-point estimates as `unspecified nulls' because authors reported them as
-nulls but did not provide the necessary statistical information to
-calculate a precise effect. We manually coded these estimates as 0.01, a
-convention borrowed from \citep{porat2020}. If we set these to be equal
-to 0.00 instead, our meta-analytic estimate remains 0.07. If we omit
-them entirely, our overall estimate rises to 0.09 (95\% CI: {[}0.03,
-0.16{]}). Although this difference is small in absolute terms, it is
-large in relative terms. This difference suggests that meta-analyses
-which exclude studies for gaps in outcome reporting might be producing
-upwardly biased overall estimates.
+In our main dataset, we recorded 12 point estimates as `unspecified
+nulls' because authors reported them as nulls but did not provide the
+necessary statistical information to calculate a precise effect. We
+manually coded these estimates as 0.01, a convention borrowed from
+\citep{porat2024}. If we set these to be equal to 0.00 instead, our
+meta-analytic estimate remains 0.07. If we omit them entirely, our
+overall estimate rises to 0.09 (95\% CI: {[}0.03, 0.16{]}). Although
+this difference is small in absolute terms, it is large in relative
+terms. This difference suggests that meta-analyses which exclude studies
+for gaps in outcome reporting might be producing upwardly biased overall
+estimates.
 
 \subsection{Details of marginal studies included in robustness
 check}\label{details-of-marginal-studies-included-in-robustness-check}
@@ -498,6 +497,7 @@ our analysis to the 31 studies and 96 point estimates where this
 secondary delay exceeds zero, we observe an effect of SMD = 0.07 (95\%
 CI: {[}0.01, 0.12{]}), p = .028.
 
+\renewcommand\refname{References}
 \bibliography{./vegan-refs.bib}
 
 
