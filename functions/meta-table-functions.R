@@ -2,7 +2,7 @@
 run_subset_meta_analysis <- function(data, group_var = NULL, level = NULL, 
                                      filter_string = NULL, filter_column = NULL, 
                                      str_detect_flag = TRUE, approach_name = NULL,
-                                     col_name = "Moderator") {
+                                     col_name = "Moderator", include_tau = FALSE) {
   # Handle filtering
   if (!is.null(filter_column) && !is.null(filter_string)) {
     if (str_detect_flag) {
@@ -74,7 +74,17 @@ run_subset_meta_analysis <- function(data, group_var = NULL, level = NULL,
     !!col_name := Moderator,
     N_Studies = num_studies,
     N_Estimates = num_estimates,
-    Delta = round(estimate, 2),
+    Delta = round(estimate, 2)
+  )
+  
+  # Add tau if requested
+  if (include_tau) {
+    tau <- round(sqrt(model$mod_info$tau.sq), 2)[1]
+    result <- result |> mutate(tau = tau)  # This puts it right after Delta
+  }
+  
+  # Add remaining columns
+  result <- result |> mutate(
     CI = paste0("[", round(ci_lower, 2), ", ", round(ci_upper, 2), "]"),
     p_val = p_val
   )
@@ -147,7 +157,7 @@ run_meta_regression <- function(data, group_var, ref_level) {
   return(p_values_named)
 }
 
-process_group <- function(data, group_var, ref_level, order_levels = NULL) {
+process_group <- function(data, group_var, ref_level, order_levels = NULL, include_tau = FALSE) {
   # Automatically determine group levels present in data
   group_levels <- data |>
     filter(!is.na(!!sym(group_var))) |>
@@ -163,7 +173,7 @@ process_group <- function(data, group_var, ref_level, order_levels = NULL) {
   
   # Run subset meta-analyses for each level
   group_results <- lapply(group_levels, function(level) {
-    run_subset_meta_analysis(data, group_var, level)
+    run_subset_meta_analysis(data, group_var, level, include_tau = include_tau)
   }) |> bind_rows()
   
   # Identify levels with sufficient data

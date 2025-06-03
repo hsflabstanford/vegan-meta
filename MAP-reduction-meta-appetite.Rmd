@@ -250,7 +250,7 @@ source('./scripts/table-one-meta.R')
 meta_table
 ```
 
-In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = 0.082).
+In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = `r round(sqrt(model$mod_info$tau.sq),3)[1]`).
 Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100)`% are above SMD = 0.2 [@mathur2019; @mathur2020robust].
 
 ## Subset and moderator analyses {#Sec3.3}
