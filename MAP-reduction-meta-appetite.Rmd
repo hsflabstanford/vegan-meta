@@ -298,10 +298,8 @@ Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`
 We observe consistently small effects across categories of population (all pooled SMDs \< 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. 0.14 to 0.21 for other locations.
 Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s.
 
-```{r moderator_table}
+```{r moderator_table, echo=F, include=F, message=F}
 moderator_table
-
-
 ```
 
 ## Publication bias and robustness checks {#Sec3.4}
