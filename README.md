@@ -1,13 +1,13 @@
 # Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis
 
 
-## The main code files:
+## Main code files:
   * `MAP-reduction-meta.Rmd` is the paper
   * `supplement-MAP-reduction.Rmd` is the Supplement
   * `./scripts/*.R` is where most of the R code lives, e.g. for tables and figures. [^1]
   * `./functions/*.R` are mostly adapted/lifted from [a previous project](https://github.com/setgree/PaluckMetaSOP), along with some new things for making tables.
 
-## data
+## Data
   * `./data/vegan-meta.csv`  is our dataset of studies
   * `./data/RPMC-data.csv` is a supplementary dataset of studies aimed at reducing consumption of red and processed meat
   * `./data/excluded-studies.csv` is our list of studies we looked at but didn't include & why
