@@ -173,7 +173,7 @@ We also note that prior reviews vastly outnumber rigorous RCTs that meet our inc
 
 # Description of code and data repository
 
-Our code and data are shared on GitHub (<https://github.com/hsflabstanford/vegan-meta>), and Code Ocean (<https://doi.org/10.24433/CO.6020578.v5>). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
+Our code and data are shared on GitHub (<https://github.com/hsflabstanford/vegan-meta>), and Code Ocean (<https://doi.org/10.24433/CO.6020578.v6>). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim and the first two figures reproduced each time the document is knit.
 
@@ -289,9 +289,12 @@ dat |> arrange(desc(d)) |> slice(n()/2) |> select(author, year, intervention_con
 
 ```
 
-Our dataset featured heterogeneous outcomes and sample variances, which makes it difficult to suggest either a rules of thumb or common-sense interpretations of effect sizes [@mastrich2021] that apply broadly.
-However, for context, our largest effect size [@carfora2023] recorded self-reported servings of red, processed, and white meat over the previous week.
+Our dataset featured heterogeneous outcomes and sample variances, which makes it difficult to suggest either a rules of thumb [@cohen1988] or common-sense interpretations of effect sizes [@mastrich2021] that apply broadly.
+However, for context, our largest effect size [@carfora2023] recorded self-reported servings of red, processed, and white meat over the previous week where treatment was a combination of a dynamic norms message and environmental information about legumes.
 That study featured a difference of 1.9 servings on average between treatment and control and a standard deviation of 2.23 servings, for an SMD of 0.819.
-Our median effect size
+Our median effect size [@coker2022] assessed the proportion of plant-based meals served at breakfast and lunch at the "in-store restaurants of a retail store chain that specializes in the sale of non-food related products in the UK" (p. 2) after a dynamic norms intervention.
+The study detected a difference of 0.007 (a beta coefficient from a regression) measured against a standard deviation of 0.24, for an SMD of 0.0292.
+
+## Relationship between year and effect size
 
 # References {.unnumbered}

@@ -160,7 +160,7 @@ knitr::include_graphics('./figures/prisma-diagram.png')
 
 The first author extracted all data.
 We extracted an effect size for one outcome per intervention: the measure of net MAP or RPM consumption that had the longest follow-up time after intervention.
-Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <https://doi.org/10.24433/CO.6020578.v5>).
+Additional variables coded included information about publication, details of the interventions, length of follow-ups, intervention theories, and additional details about interventions' methods, contexts, and open science practices (see accompanying code and data repository for full documentation: <https://doi.org/10.24433/CO.6020578.v6>).
 When in doubt about calculating effect sizes, we consulted publicly available datasets and/or contacted authors.
 To assess risk of bias, we collected data on whether outcomes were self-reported or objectively measured, publication status, and presence of a pre-analysis plan and/or open data (Supplement).
 
@@ -291,12 +291,19 @@ twenty_twenty_delta <- decade_results |> filter(Moderator == "2020s") |> pull(De
 edu_delta <- delivery_results |> filter(Moderator == 'Educational materials') |> pull(Delta)
 delivery_delta <- delivery_results |> filter(Moderator == 'Dietary consultation') |> pull(Delta)
 delivery_n <- delivery_results |> filter(Moderator == 'Dietary consultation') |> pull(N_Studies)
+
+# pval for d ~ year relationship
+year_pval <- substring(round((dat |> sum_lm(d, year))["year", "Pr(>|t|)"], 2), 2)
+# to look at this more closely, run
+# dat |> ggplot(aes(x = year, y = d)) + geom_point() + stat_smooth(method = "lm")
+
 ```
 
 In terms of moderators, the `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
 Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
 We observe consistently small effects across categories of population (all pooled SMDs \< 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. 0.14 to 0.21 for other locations.
 Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s.
+The overall relationship between year of publication and effect size is not significant (p = `r year_pval`).
 
 ```{r moderator_table, echo=F, message=F}
 moderator_table
