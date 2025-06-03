@@ -43,26 +43,19 @@ citation_package: natbib
 csl: https://www.zotero.org/styles/apa
 classoption: preprint, 3p, authoryear # remove authoryear is not using `elsarticle-harv`
 # csl: https://www.zotero.org/styles/elsevier-harvard
-output: 
-  rticles::elsevier_article:
-    keep_tex: true
-  header-includes:
-  - \usepackage{caption}
+output:
+  word_document: default
 editor_options: 
   chunk_output_type: console
+always_allow_html: true
+
 ---
 
 ```{r setup, include=FALSE}
 
 # so that knitr labels figures
 library(knitr)
-opts_chunk$set(fig.path = "./results/figures/",
-               echo = TRUE,
-               out.extra = "",
-               fig.pos = "ht")
-
-options(tinytex.clean = TRUE) # switch to FALSE to get the bbl file
-
+opts_chunk$set(fig.path = "./results/figures/")
 # libraries, functions, data, and key results
 source('./scripts/libraries.R')
 source('./scripts/functions.R')
@@ -113,14 +106,14 @@ In particular, we searched Google Scholar for the following list of terms, and c
 -   "sustainable" "meat" "nudge" "random"
 -   "university" "meat" "default" "reduction"
 
-Additionally, we searched the American Economic Association's registry of randomized controlled trials (\url{https://www.socialscienceregistry.org/}) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
+Additionally, we searched the American Economic Association's registry of randomized controlled trials (https://www.socialscienceregistry.org/) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
-Another innovative part of our search strategy was our use of of an AI-based search tool (\url{https://undermind.ai/}), to which we described our research question and then reviewed 100 results that it generated.
+Another innovative part of our search strategy was our use of of an AI-based search tool (https://undermind.ai/), to which we described our research question and then reviewed 100 results that it generated.
 This yielded one paper that met our inclusion criteria [@mattson2020] that seems to have slipped past many other systematic search processes.
 
 Finally, we benefited from two in-progress literature reviews affiliated with Rethink Priorities, "a think-and-do tank" that researches animal welfare as one of its main priorities.
 Both of these literature reviews are aimed at assessing interventions that reduce MAP consumption, but have broader inclusion criteria than our paper employed.
-For more details on these two projects, see \url{<https://osf.io/74paj>} and \url{<https://meat-lime.vercel.app>}.
+For more details on these two projects, see https://osf.io/74paj and https://meat-lime.vercel.app.
 
 # Discussion of prior reviews
 
@@ -175,7 +168,7 @@ For instance, many reviews concluded that choice architecture approaches are eff
 
 # Description of code and data repository
 
-Our code and data are shared on GitHub (\url{https://github.com/hsflabstanford/vegan-meta}), and Code Ocean (\url{https://doi.org/10.24433/CO.6020578.v5}). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
+Our code and data are shared on GitHub (https://github.com/hsflabstanford/vegan-meta), and Code Ocean (https://doi.org/10.24433/CO.6020578.v5). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim and the first two figures reproduced each time the document is knit.
 
@@ -198,7 +191,6 @@ See `readme.md` for more details about the included scripts and supplementary ma
 ## Sensitivity to publication status, outcome recorded, and open science practices
 Table S1 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices.
 
-\captionsetup[table]{labelformat=empty}
 ```{r sensitivity_table,echo=F, message=F, results='asis'}
 source('./scripts/table-S1-sensitivity.R')
 sensitivity_table
@@ -215,7 +207,7 @@ objective_delta <- data_collection_results |> filter(Moderator == 'Objectively m
 no_os_delta <- open_science_results |> filter(Moderator == 'None') |> pull(Delta)
 pap_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan only') |> pull(Delta)
 open_data_delta <- open_science_results |> filter(Moderator == 'Open data only') |> pull(Delta)
-both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan \\& open data') |> pull(Delta)
+both_delta <- open_science_results |> filter(Moderator == 'Pre-analysis plan & open data') |> pull(Delta)
 
 no_unspecified_nulls <- dat |> filter(eff_type != 'unspecified_null') |> extract_model_results()
 

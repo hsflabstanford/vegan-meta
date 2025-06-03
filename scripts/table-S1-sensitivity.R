@@ -2,7 +2,7 @@
 # 0. libraries, data and functions
 # -------------------------------
 library(dplyr, warn.conflicts = F)
-library(kableExtra, warn.conflicts = F)
+library(flextable, warn.conflicts = F)
 source('./scripts/load-data.R')
 source('./scripts/functions.R')
 
@@ -25,7 +25,7 @@ dat <- dat |>
       public_pre_analysis_plan == 'N' & open_data == 'N' ~ "None",
       public_pre_analysis_plan != 'N' & open_data == 'N' ~ "Pre-analysis plan only",
       public_pre_analysis_plan == 'N' & open_data != 'N' ~ "Open data only",
-      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan \\& open data"),
+      public_pre_analysis_plan != 'N' & open_data != 'N' ~ "Pre-analysis plan & open data"),
     
     # Create 'data_collection_group' variable
     data_collection_group = case_when(
@@ -46,51 +46,52 @@ data_collection_results <- process_group(dat, "data_collection_group", ref_level
 
 # 2.3. Open Science Practices
 open_science_results <- process_group(dat, "open_science_group", ref_level = "None", 
-  order_levels = c("None", "Pre-analysis plan only", "Open data only", "Pre-analysis plan \\& open data"))
-
-
-# -------------------------------
-# 3. Calculate Row Indices for Grouping
-# -------------------------------
-
-start_row_pub_status <- 1
-end_row_pub_status <- start_row_pub_status + nrow(pub_status_results) - 1
-
-start_row_data_collection <- end_row_pub_status + 1
-end_row_data_collection <- start_row_data_collection + nrow(data_collection_results) - 1
-
-start_row_open_science <- end_row_data_collection + 1
-end_row_open_science <- start_row_open_science + nrow(open_science_results) - 1
+                                      order_levels = c("None", "Pre-analysis plan only", "Open data only", "Pre-analysis plan & open data"))
 
 # -------------------------------
-# 4. Combine sensitivity analyses and format for publication
+# 3. Combine and format for Word output
 # -------------------------------
 
 sensitivity_table <- bind_rows(
   pub_status_results,
   data_collection_results,
-  open_science_results) |>
-  kbl(
-    booktabs = TRUE,
-    col.names = c("Study Characteristic", "N (Studies)", "N (Estimates)", 
-                  "SMD", "95\\% CIs", 
-                  "Subset $p$ value", 
-                  "Moderator $p$ value"), 
-    caption = "Table S1: Sensitivity Analysis Results", 
-    label = "table_S1",
-    align = "llllllll",
-    escape = FALSE,
-    centering = TRUE) |>
-  kable_styling(
-    full_width = FALSE,
-    latex_options = "hold_position", 
-    position = "left") |>
-  column_spec(6, width = "2 cm") |>
-  column_spec(7, width = "2 cm") |>
-  pack_rows("Publication Status", start_row_pub_status, end_row_pub_status, bold = TRUE, italic = FALSE) |>
-  pack_rows("Data Collection Strategy", start_row_data_collection, end_row_data_collection, bold = TRUE, italic = FALSE) |>
-  pack_rows("Open Science", start_row_open_science, end_row_open_science, bold = TRUE, italic = FALSE) |>
-  add_footnote(
-    "Sensitivity analyses by publication status, data collection strategy, and open science practices. The first $p$ value tests the hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second compares effects within a given category to the reference category for that moderator.",
-    escape = FALSE, 
-    notation = 'none')
+  open_science_results)
+
+# Convert numeric columns to character so binding with text rows works
+sensitivity_table <- sensitivity_table |>
+  mutate(across(c(N_Studies, N_Estimates, Delta, CI, p_val, p_val_ref), as.character))
+
+# Insert header rows
+sensitivity_table <- bind_rows(
+  tibble(Moderator = "Publication Status", N_Studies = "", N_Estimates = "", Delta = "", CI = "", p_val = "", p_val_ref = ""),
+  sensitivity_table[1:3, ],
+  tibble(Moderator = "Data Collection Strategy", N_Studies = "", N_Estimates = "", Delta = "", CI = "", p_val = "", p_val_ref = ""),
+  sensitivity_table[4:5, ],
+  tibble(Moderator = "Open Science", N_Studies = "", N_Estimates = "", Delta = "", CI = "", p_val = "", p_val_ref = ""),
+  sensitivity_table[6:9, ]
+)
+
+# Build the flextable
+sensitivity_table <- sensitivity_table |>
+  mutate(
+    p_val = ifelse(grepl("ref", p_val, ignore.case = TRUE), "ref", p_val),
+    p_val_ref = ifelse(grepl("ref", p_val_ref, ignore.case = TRUE), "ref", p_val_ref)) |>
+  flextable() |>
+  set_caption("Table S1: Sensitivity Analysis Results") |>
+  set_header_labels(
+    Moderator = "Study Characteristic",
+    N_Studies = "N (Studies)",
+    N_Estimates = "N (Estimates)",
+    Delta = "SMD",
+    CI = "95% CIs",
+    p_val = "Subset p value",
+    p_val_ref = "Moderator p value") |>
+    theme_booktabs() |>
+    bold(i = which(sensitivity_table$p_val == "ref"), j = "p_val", bold = TRUE, part = "body") |>
+    bold(i = which(sensitivity_table$p_val_ref == "ref"), j = "p_val_ref", bold = TRUE, part = "body") |> 
+    align(j = 2:ncol(sensitivity_table), align = "center") |>
+    autofit() |>
+    add_footer_lines("Sensitivity analyses. The first p value tests the hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second compares effects within a given category to the reference category for that moderator.") |>
+    bold(i = c(1, 5, 8), j = 1, bold = TRUE, part = "body")
+
+sensitivity_table

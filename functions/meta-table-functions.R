@@ -176,11 +176,6 @@ process_group <- function(data, group_var, ref_level, order_levels = NULL) {
   group_results <- group_results |>
     mutate(
       p_val_ref = group_p_values[Moderator],
-      p_val_ref = ifelse(
-        p_val_ref == "ref",
-        cell_spec(p_val_ref, bold = TRUE),
-        p_val_ref
-      ),
       # Replace both p-values with N/A if both are 0
       across(c(p_val, p_val_ref), ~ ifelse(. %in% c("0", ".000"), "N/A", .))
     )

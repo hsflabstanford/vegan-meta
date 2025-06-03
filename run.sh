@@ -8,7 +8,7 @@ set -ex
 # mkdir ../results/figures
 
 # knit main script & replace all instances of [H] with [!ht] in the supplementary .tex file
-Rscript -e "rmarkdown::render('./WORD-MAP-reduction-meta-appetite.Rmd', clean = T)"
+Rscript -e "rmarkdown::render('./MAP-reduction-meta-appetite.Rmd', clean = T)"
 Rscript -e "rmarkdown::render('./supplement-MAP-reduction.Rmd', clean = T)"
 sed -i '' 's/\\begin{table}\[!h\]/\\begin{table}[!ht]/g' supplement-MAP-reduction.tex 
 Rscript -e "tinytex::pdflatex('supplement-MAP-reduction.tex')"
