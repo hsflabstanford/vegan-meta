@@ -2,10 +2,10 @@
 
 
 ## The main code files:
-  * `MAP-reduction-meta.Rmd` is the paper, along with its `.bib` file and style file, etc. 
+  * `MAP-reduction-meta.Rmd` is the paper
   * `supplement-MAP-reduction.Rmd` is the Supplement
-  * `./scripts/*.R` is where most of the actual R code lives, e.g., the scripts for tables and figures. [^1]
-  * `./functions/*.R` are some functions we wrote, mostly adapted/lifted from a previous project, [PaluckMetaSOP](https://github.com/setgree/PaluckMetaSOP).
+  * `./scripts/*.R` is where most of the R code lives, e.g. for tables and figures. [^1]
+  * `./functions/*.R` are mostly adapted/lifted from [a previous project](https://github.com/setgree/PaluckMetaSOP), along with some new things for making tables.
 
 ## data
   * `./data/vegan-meta.csv`  is our dataset of studies
@@ -14,18 +14,17 @@
   * `./data/review-of-reviews.csv` is a list of prior reviews we looked at to find studies
   
 ## everything else
-  * project setup, license, .gitignore, past drafts, presentations etc.
-  * supplementary-analyses/* are some scripts we used to to analyze original datasets when we weren't sure about how to record an effect size.
+  * project setup, license, .bib, .gitignore, etc.
+  * supplementary-analyses/* are some scripts we used to to analyze original datasets where that was helpful for calculating an effect size.
 
 ## To reproduce the paper locally
-(This assumes you use Rstudio)
+(Assuming you use Rstudio)
 1. Download this repo (`git clone https://github.com/hsflabstanford/vegan-meta.git`)
 2. Open `vegan-meta.Rproj` (all paths are set relative to its directory)
 3. Make sure everything in `./scripts/libraries.R` is installed
 4. Either run `run.sh` or knit the `.Rmd` files
 
-Note that the tables and figures might look a little different in the preprint/final version -- we did a bit of final latex fiddling in the submission phase.
-## SessionInfo
+## `SessionInfo`
 ```
 ─ Session info ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
  setting  value
