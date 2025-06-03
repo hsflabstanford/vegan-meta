@@ -48,7 +48,6 @@ output:
 editor_options: 
   chunk_output_type: console
 always_allow_html: true
-
 ---
 
 ```{r setup, include=FALSE}
@@ -67,22 +66,27 @@ reviews_count <- nrow(read.csv('./data/review-of-reviews.csv'))
 excluded_count <- nrow(read.csv('./data/excluded-studies.csv'))
 ```
 
-
 # Search strategy
 
 ```{r prisma_numbers, include=F, echo=F}
 source('./scripts/prisma-script.R')
 ```
 
-Our search process was shaped by three features of our research project. First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself. For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while some studies focus on a particular, sometimes unusual category of MAP, such as fish sauce
-[@kanchanachitra2020] or discussed their agenda mainly in terms of increasing plant-based alternatives. Coming up with an exhaustive list of terms to search for from first principles would have been very difficult or impossible.
+Our search process was shaped by three features of our research project.
+First, our surveyed literature was highly interdisciplinary, with few shared terms to describe itself.
+For instance, the term 'MAP' is not universally agreed upon; other papers use animal-based protein, edible animal products, or just meat, while some studies focus on a particular, sometimes unusual category of MAP, such as fish sauce [@kanchanachitra2020] or discussed their agenda mainly in terms of increasing plant-based alternatives.
+Coming up with an exhaustive list of terms to search for from first principles would have been very difficult or impossible.
 
-Second, our methods-based inclusion criteria complicated screening on titles and abstracts. While it was sometimes possible to use solely that information to eliminate studies with no interventions (e.g. survey-based research), determining whether an intervention qualified almost always required some amount of full text screening. We also discovered that terms like field experiment have varying meanings across papers, and identifying whether a measured food choice was hypothetical or not often required a close reading. For these reasons, screening thousands or tens of thousands of papers struck us as prohibitively time-consuming.
+Second, our methods-based inclusion criteria complicated screening on titles and abstracts.
+While it was sometimes possible to use solely that information to eliminate studies with no interventions (e.g. survey-based research), determining whether an intervention qualified almost always required some amount of full text screening.
+We also discovered that terms like field experiment have varying meanings across papers, and identifying whether a measured food choice was hypothetical or not often required a close reading.
+For these reasons, screening thousands or tens of thousands of papers struck us as prohibitively time-consuming.
 
-Third, we found a very large number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question. Reviewing tables and bibliographies of those papers proved fruitful for assembling our dataset.
+Third, we found a very large number of prior reviews, typically aimed at one disciplinary strand or conceptual approach, touching on our research question.
+Reviewing tables and bibliographies of those papers proved fruitful for assembling our dataset.
 
 For these reasons, we employed what could be called a 'prior-reviews-first' search strategy.
-Of the `r nrow(all_papers)` papers we screened, a full `r round(prior_review_n / nrow(all_papers), 2) * 100`\% came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100`\% of papers in our main dataset.
+Of the `r nrow(all_papers)` papers we screened, a full `r round(prior_review_n / nrow(all_papers), 2) * 100`% came from prior reviews, and `r round(included_review_count/num_papers, 2) * 100`% of papers in our main dataset.
 (See the next section of the supplement for notes on reviews that were especially informative.) Then, as detailed in the main text, we employed a multitude of other search strategies to fill in our dataset, one of which was systematic search.
 In particular, we searched Google Scholar for the following list of terms, and checked ten pages of results for each:
 
@@ -106,14 +110,14 @@ In particular, we searched Google Scholar for the following list of terms, and c
 -   "sustainable" "meat" "nudge" "random"
 -   "university" "meat" "default" "reduction"
 
-Additionally, we searched the American Economic Association's registry of randomized controlled trials (https://www.socialscienceregistry.org/) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
+Additionally, we searched the American Economic Association's registry of randomized controlled trials (<https://www.socialscienceregistry.org/>) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
-Another innovative part of our search strategy was our use of of an AI-based search tool (https://undermind.ai/), to which we described our research question and then reviewed 100 results that it generated.
+Another innovative part of our search strategy was our use of of an AI-based search tool (<https://undermind.ai/>), to which we described our research question and then reviewed 100 results that it generated.
 This yielded one paper that met our inclusion criteria [@mattson2020] that seems to have slipped past many other systematic search processes.
 
 Finally, we benefited from two in-progress literature reviews affiliated with Rethink Priorities, "a think-and-do tank" that researches animal welfare as one of its main priorities.
 Both of these literature reviews are aimed at assessing interventions that reduce MAP consumption, but have broader inclusion criteria than our paper employed.
-For more details on these two projects, see https://osf.io/74paj and https://meat-lime.vercel.app.
+For more details on these two projects, see <https://osf.io/74paj> and <https://meat-lime.vercel.app>.
 
 # Discussion of prior reviews
 
@@ -164,11 +168,12 @@ Finally, we note a few papers that were helpful in filling out our supplementary
 [@ronto2022] investigated interventions to move consumer to protein sources with lower ecological footprints, and was instrumental in filling out our RPM and robustness check datasets, as were [@kwasny2022] and [@grummon2023].
 
 Taking these reviews in sum, we encourage researchers to be cautious in extrapolating impacts across outcome categories.
-For instance, many reviews concluded that choice architecture approaches are effective at changing food choice, but these are typically aimed at foods with weak social and cultural associations. We also note that prior reviews vastly outnumber rigorous RCTs that meet our inclusion criteria.
+For instance, many reviews concluded that choice architecture approaches are effective at changing food choice, but these are typically aimed at foods with weak social and cultural associations.
+We also note that prior reviews vastly outnumber rigorous RCTs that meet our inclusion criteria.
 
 # Description of code and data repository
 
-Our code and data are shared on GitHub (https://github.com/hsflabstanford/vegan-meta), and Code Ocean (https://doi.org/10.24433/CO.6020578.v5). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
+Our code and data are shared on GitHub (<https://github.com/hsflabstanford/vegan-meta>), and Code Ocean (<https://doi.org/10.24433/CO.6020578.v5>). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim and the first two figures reproduced each time the document is knit.
 
@@ -189,6 +194,7 @@ See `readme.md` for more details about the included scripts and supplementary ma
 # Additional robustness checks and alternative analyses
 
 ## Sensitivity to publication status, outcome recorded, and open science practices
+
 Table S1 compares average differences by three potential sources of bias: publication status, data collection strategy, and use of open science practices.
 
 ```{r sensitivity_table,echo=F, message=F, results='asis'}
@@ -217,10 +223,16 @@ zero_delta <- dat |> mutate(d = if_else(eff_type == 'unspecified_null', 0, d)) |
 Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD = `r objective_delta`, respectively).
 Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
 
-In our main dataset, we recorded `r overall_results$N_estimates - no_unspecified_nulls$N_estimates` point estimates as 'unspecified nulls' because  authors reported them as nulls but did not provide the necessary statistical information to calculate a precise effect. We manually coded these estimates as 0.01, a convention borrowed from [@porat2024]. If we set these to be equal to 0.00 instead, our meta-analytic estimate remains `r zero_delta`. If we omit them entirely, our overall estimate rises to `r no_unspecified_nulls$Delta` (95% CI: `r no_unspecified_nulls$CI`). Although this difference is small in absolute terms, it is large in relative terms. This difference suggests that meta-analyses which exclude studies for gaps in outcome reporting might be producing upwardly biased overall estimates. 
+In our main dataset, we recorded `r overall_results$N_estimates - no_unspecified_nulls$N_estimates` point estimates as 'unspecified nulls' because authors reported them as nulls but did not provide the necessary statistical information to calculate a precise effect.
+We manually coded these estimates as 0.01, a convention borrowed from [@porat2024].
+If we set these to be equal to 0.00 instead, our meta-analytic estimate remains `r zero_delta`.
+If we omit them entirely, our overall estimate rises to `r no_unspecified_nulls$Delta` (95% CI: `r no_unspecified_nulls$CI`).
+Although this difference is small in absolute terms, it is large in relative terms.
+This difference suggests that meta-analyses which exclude studies for gaps in outcome reporting might be producing upwardly biased overall estimates.
 
 ## Details of marginal studies included in robustness check
-While assembling our dataset, a handful of studies stuck out to us as yielding interesting findings and/or design features, but nevertheless did not meet all of our inclusion criteria. 
+
+While assembling our dataset, a handful of studies stuck out to us as yielding interesting findings and/or design features, but nevertheless did not meet all of our inclusion criteria.
 We included these marginal cases in our main text as a robustness check.
 Each of these studies measures MAP consumption and has a control group.
 However, we excluded them from our main dataset for one of five reasons: 1) issues with random assignment or the control group (for instance, where the control group receives some aspect of treatment [@piazza2022], or where treatment was alternated weekly but not randomly [@garnett2020]); 2) underpowered (too few clusters [@reinders2017] or subjects [@lentz2020]); 3) immediate outcome measurement [@dannenberg2023; @sparkman2017; @griesoph2021; @hansen2021]; 4) actively encouraging substitution within categories of MAP, e.g. from red meat to fish [@celis2017; @johansen2009]; 5) uncertainty in calculating an effect size arising from missing information about the behavior of diners who opt out of treatment to avoid a vegetarian meal [@betterfoodfoundation2023].
@@ -266,5 +278,20 @@ Our delay variable therefore reflects the days elapsed from the beginning of tre
 
 We also coded a secondary delay variable that corresponds to time elapsed between treatment *conclusion* to measurement.
 Restricting our analysis to the `r strict_delay_model$N_studies` studies and `r strict_delay_model$N_estimates` point estimates where this secondary delay exceeds zero, we observe an effect of SMD = `r strict_delay_model$Delta` (95% CI: `r strict_delay_model$CI`), p = `r strict_delay_model$p_val`.
+
+## Contextualizing effect sizes
+
+```{r max_median_min_eff_sizes, include=F, echo=F}
+# largest
+dat |> arrange(desc(d)) |> head(1) |> select(author, year, intervention_condition, u_s_d, ctrl_sd, eff_type, outcome, d)
+# median
+dat |> arrange(desc(d)) |> slice(n()/2) |> select(author, year, intervention_condition, u_s_d, ctrl_sd, eff_type, outcome, d)
+
+```
+
+Our dataset featured heterogeneous outcomes and sample variances, which makes it difficult to suggest either a rules of thumb or common-sense interpretations of effect sizes [@mastrich2021] that apply broadly.
+However, for context, our largest effect size [@carfora2023] recorded self-reported servings of red, processed, and white meat over the previous week.
+That study featured a difference of 1.9 servings on average between treatment and control and a standard deviation of 2.23 servings, for an SMD of 0.819.
+Our median effect size
 
 # References {.unnumbered}
