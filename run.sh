@@ -7,7 +7,6 @@ set -ex
 # ln -s ../results ./results
 # mkdir ../results/figures
 
-# knit main script & replace all instances of [H] with [!ht] in the supplementary .tex file
 Rscript -e "rmarkdown::render('./MAP-reduction-meta-appetite.Rmd', output_dir = './results', clean = T)"
 Rscript -e "rmarkdown::render('./supplement-MAP-reduction.Rmd', output_dir = './results', clean = T)"
 
