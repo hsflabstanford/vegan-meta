@@ -13,7 +13,7 @@
   * `./data/excluded-studies.csv` is our list of studies we looked at but didn't include & why
   * `./data/review-of-reviews.csv` is a list of prior reviews we looked at to find studies
   
-## everything else
+## Everything else
   * project setup, license, .bib, .gitignore, etc.
   * supplementary-analyses/* are some scripts we used to to analyze original datasets where that was helpful for calculating an effect size.
 
