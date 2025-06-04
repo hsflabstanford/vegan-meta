@@ -242,11 +242,11 @@ high_prop_test <- prop_stronger( q = 0.2,  M = overall_results$Delta,
      mutate(across(1:6, \(x) round(x, 3)))
 
 pred_lower <- round(model$reg_table$b.r - 
-                      qt(0.975, df) * sqrt(model$reg_table$SE^2 +
+                      qt(0.975, model$dfs) * sqrt(model$reg_table$SE^2 +
                                               model$mod_info$tau.sq), 2)[1]
 
 pred_upper <- round(model$reg_table$b.r + 
-                      qt(0.975, df) * sqrt(model$reg_table$SE^2 + 
+                      qt(0.975, model$dfs) * sqrt(model$reg_table$SE^2 + 
                                              model$mod_info$tau.sq), 2)[1]
 ```
 
