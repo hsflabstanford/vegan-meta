@@ -302,7 +302,7 @@ Assessing this usually meant identifying the study's primary outcome.
 For example, @carfora2023 recorded self-reported servings of red, processed, and white meat over the previous week, while @feltz2022 used a food frequency questionnaire asking participants to recall, over a given day, how many times they ate "dairy, chicken, turkey, fish, pork, eggs, beef, bacon, sausages, processed meats, hamburgers, or any animal meat" (p. 7), where responses were coded from 0-5 and the outcome was the sum of those responses.
 
 When studies measured multiple meat categories separately (e.g., "beef, poultry + fish, and meat" in @jalil2023), we selected the most comprehensive category ("meat").
-While @andersson2021 measured meat and fish separately, they also reported proportion of vegetarian meals sold, which captured changes in both categories.
+While @andersson2021 measured meat and fish separately, they also reported the proportion of vegetarian meals sold, which captured changes in both categories.
 We chose that as our primary outcome.
 
 We considered including attitudinal outcomes as well to assess whether changes in attitude predict changes in behavior [@verplanken2022].
