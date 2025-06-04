@@ -289,7 +289,7 @@ dat |> arrange(desc(d)) |> slice(n()/2) |> select(author, year, intervention_con
 
 ```
 
-Our dataset featured heterogeneous outcomes and sample variances, which makes it difficult to suggest either a rules of thumb [@cohen1988] or common-sense interpretations of effect sizes [@mastrich2021] that apply broadly.
+Our dataset featured heterogeneous outcomes and sample variances, which makes it difficult to suggest either a rule of thumb [@cohen1988] or common-sense interpretations of effect sizes [@mastrich2021] that apply broadly.
 However, for context, our largest effect size [@carfora2023] recorded self-reported servings of red, processed, and white meat over the previous week where treatment was a combination of a dynamic norms message and environmental information about legumes.
 That study featured a difference of 1.9 servings on average between treatment and control and a standard deviation of 2.23 servings, for an SMD of 0.819.
 Our median effect size [@coker2022] assessed the proportion of plant-based meals served at breakfast and lunch at the "in-store restaurants of a retail store chain that specializes in the sale of non-food related products in the UK" (p. 2) after a dynamic norms intervention.
