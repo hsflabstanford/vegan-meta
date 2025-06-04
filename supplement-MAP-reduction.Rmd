@@ -295,7 +295,7 @@ That study featured a difference of 1.9 servings on average between treatment an
 Our median effect size [@coker2022] assessed the proportion of plant-based meals served at breakfast and lunch at the "in-store restaurants of a retail store chain that specializes in the sale of non-food related products in the UK" (p. 2) after a dynamic norms intervention.
 The study detected a difference of 0.007 (a beta coefficient from a regression) measured against a standard deviation of 0.24, for an SMD of 0.0292.
 
-## **Selecting an appropriate dependent variable from studies with multiple outcomes**
+## Selecting an appropriate dependent variable from studies with multiple outcomes
 
 We selected one dependent variable per intervention using a hierarchical approach: (1) behavioral outcomes over attitudinal/intentional outcomes, (2) the latest measurement timepoint with adequate sample size, and (3) the outcome best corresponding to net MAP or RPM reduction.
 Assessing this usually meant identifying the study's primary outcome.
@@ -306,6 +306,6 @@ While @andersson2021 measured meat and fish separately, they also reported propo
 We chose that as our primary outcome.
 
 We considered including attitudinal outcomes as well to assess whether changes in attitude predict changes in behavior [@verplanken2022].
-However, selecting representative attitudinal measures across diverse studies involved a great deal of researcher discretion compared to the straightforward process of identifying of consumption outcomes.
+However, selecting representative attitudinal measures across diverse studies involved a great deal of researcher discretion compared to the straightforward process of identifying consumption outcomes.
 
 # References {.unnumbered}
