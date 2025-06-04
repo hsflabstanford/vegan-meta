@@ -224,8 +224,7 @@ Within different types of publication, we find broadly similar results for journ
 Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
 
 In our main dataset, we recorded `r overall_results$N_estimates - no_unspecified_nulls$N_estimates` point estimates as 'unspecified nulls' because authors reported them as nulls but did not provide the necessary statistical information to calculate a precise effect.
-We manually coded these estimates as 0.01, a convention borrowed from [@porat2024].
-If we set these to be equal to 0.00 instead, our meta-analytic estimate remains `r zero_delta`.
+We manually coded these estimates as 0.01, a convention borrowed from @porat2024. If we set these to be equal to 0.00 instead, our meta-analytic estimate remains `r zero_delta`.
 If we omit them entirely, our overall estimate rises to `r no_unspecified_nulls$Delta` (95% CI: `r no_unspecified_nulls$CI`).
 Although this difference is small in absolute terms, it is large in relative terms.
 This difference suggests that meta-analyses which exclude studies for gaps in outcome reporting might be producing upwardly biased overall estimates.
