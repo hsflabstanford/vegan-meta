@@ -295,6 +295,17 @@ That study featured a difference of 1.9 servings on average between treatment an
 Our median effect size [@coker2022] assessed the proportion of plant-based meals served at breakfast and lunch at the "in-store restaurants of a retail store chain that specializes in the sale of non-food related products in the UK" (p. 2) after a dynamic norms intervention.
 The study detected a difference of 0.007 (a beta coefficient from a regression) measured against a standard deviation of 0.24, for an SMD of 0.0292.
 
-## Relationship between year and effect size
+## **Selecting an appropriate dependent variable from studies with multiple outcomes**
+
+We selected one dependent variable per intervention using a hierarchical approach: (1) behavioral outcomes over attitudinal/intentional outcomes, (2) the latest measurement timepoint with adequate sample size, and (3) the outcome best corresponding to net MAP or RPM reduction.
+Assessing this usually meant identifying the study's primary outcome.
+For example, @carfora2023 recorded self-reported servings of red, processed, and white meat over the previous week, while @feltz2022 used a food frequency questionnaire asking participants to recall, over a given day, how many times they ate "dairy, chicken, turkey, fish, pork, eggs, beef, bacon, sausages, processed meats, hamburgers, or any animal meat" (p. 7), where responses were coded from 0-5 and the outcome was the sum of those responses.
+
+When studies measured multiple meat categories separately (e.g., "beef, poultry + fish, and meat" in @jalil2023), we selected the most comprehensive category ("meat").
+While @andersson2021 measured meat and fish separately, they also reported proportion of vegetarian meals sold, which captured changes in both categories.
+We chose that as our primary outcome.
+
+We considered including attitudinal outcomes as well to assess whether changes in attitude predict changes in behavior [@verplanken2022].
+However, selecting representative attitudinal measures across diverse studies involved a great deal of researcher discretion compared to the straightforward process of identifying of consumption outcomes.
 
 # References {.unnumbered}
