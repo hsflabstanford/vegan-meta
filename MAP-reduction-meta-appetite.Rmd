@@ -217,7 +217,7 @@ We found that studies' theoretical approaches could be grouped into four categor
 One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002].
 Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019], and implementation intentions, where participants list potential challenges and solutions to changing their own behavior [@aberman2018; @shreedhar2021].
 
-[^1]: This study was formally published in 2024, but first came to our attention as a preprint in 2023. Generally speaking, if a study published outside of our date range looked especially relevant, we made an effort to search for a preprint in our window.
+[^1]: This study was formally published in 2024, but first came to our attention as a preprint in 2023. Generally speaking, when we became aware of studies published outside of our date range that met our inclusion criteria, we made an effort to search for a preprint released during our eligible data range
 
 Finally, some studies combine **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021] `r paste0("(n = ", psych_persuasion_results$N_studies, " studies with ", psych_persuasion_results$N_estimates, " estimates)")`. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's MAP consumption [@mathur2021effectiveness; @shreedhar2021].
 
@@ -257,7 +257,8 @@ meta_table
 ```
 
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = `r round(sqrt(model$mod_info$tau.sq),3)[1]`).
-Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100)`% are above SMD = 0.2 [@mathur2019; @mathur2020robust]. We estimate prediction intervals ranging from  `r pred_lower` to `r pred_upper`, indicating uncertainty about the anticipated direction of a hypothetical future study but relative certainty that the effect size is likely to be small to moderate in magnitude. 
+Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100)`% are above SMD = 0.2 [@mathur2019; @mathur2020robust].
+We estimate prediction intervals ranging from `r pred_lower` to `r pred_upper`, indicating uncertainty about the anticipated direction of a hypothetical future study but relative certainty that the effect size is likely to be small to moderate in magnitude.
 
 ## Subset and moderator analyses {#Sec3.3}
 
@@ -368,9 +369,14 @@ Prior research has found that intentions often do not predict behavior [@mathur2
 Supporting this interpretation, robustness checks in which we relaxed our methodological inclusion criteria produced results similar to those of previous reviews.
 This possibility will need further empirical evaluation.
 
-Another potentially surprising result is that only two choice architecture papers met our methodological inclusion criteria.
-Most potentially eligible papers either measured hypothetical outcomes or measured outcomes immediately after the intervention.
-Moreover, prior reviews that found choice architecture approaches to be consistently effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2020; @adriaanse2009].
+Notably, only two choice architecture papers met our methodological inclusion criteria.
+A surprising number of papers measured hypothetical outcomes, while others measured outcomes immediately (i.e. during the intervention).
+By design, choice architecture studies aim to modify behavior in the specific contexts in which people make choices, and they may have meaningful short-term effects that are cumulatively powerful.
+To assess this, we encourage researchers to track subjects over time and space to capture potential compensatory effects.
+For instance, if intervening at lunch, researchers might measure behavior at dinner as well [@vocski2024], and if participants are able to opt out, studies can track how many people do [@ginn2024] and model their behavior [@russo2025].
+This will provide a clearer sense of how to extrapolate between immediate outcomes and net impact.
+
+Moreover, prior reviews that found choice architecture approaches to be especially effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2020; @adriaanse2009].
 We speculate that changes to how MAP is sold and consumed, by contrast, are more likely to be noticed and to engender political and cultural backlash [@popper2019].
 
 Likewise, as our analyses show, studies aimed at reducing RPM consumption are associated with a considerably larger effect (SMD = `r rpmc_results$Delta`) than those aimed at reducing all MAP consumption.
@@ -394,7 +400,7 @@ First, as noted, a majority of studies in our meta-analysis have been published 
 Second, we observe many fruitful collaborations between researchers and advocacy organizations, as shown by the large number of nonprofit white papers in our sample.
 Third, many promising avenues of behavioral change await rigorous evaluation.
 For instance, no study that met our criteria evaluated extended contact with farm animals [@cerrato2022], manipulations to the price of meat [@wilde2016], activating moral and/or physical disgust [@palomo2018], watching popular media such as the *Simpsons* episode "Lisa the Vegetarian" [@byrd2010] or the movie *Babe* [@novatna2019], and many categories of choice architecture intervention [@olafsson2024].
-Moreover, emerging research designs help address longstanding measurement challenges, such as the possibility that interventions implemented at one time point (e.g., choice architecture at a lunch buffet) create later compensatory behavior (e.g., eating more MAP at dinner) [@vocski2024].
+Finally, emerging research designs help address longstanding measurement challenges, such as capturing potential compensatory behavior after an intervention's conclusion [@vocski2024].
 Ultimately, our findings suggest that meaningfully reducing MAP consumption is an unsolved problem, and point to the critical importance of the field's increasing focus on methodological rigor.
 
 \subsubsection{Acknowledgments}
