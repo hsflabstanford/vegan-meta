@@ -80,6 +80,7 @@ source('./scripts/functions.R')
 source('./scripts/load-data.R')
 source('./scripts/models-and-constants.R')
 
+
 # the main dataset is `dat`
 # the main analyses are in `models-and-constants.R`
 
@@ -232,7 +233,6 @@ low_prop_test <- prop_stronger( q = 0.1, M = overall_results$Delta,
                                 yi.name = "d", vi.name = "var_d",
                               bootstrap = "ifneeded", R = 200) |> 
    mutate(across(1:6, \(x) round(x, 3)))
-low_prop_test
 high_prop_test <- prop_stronger( q = 0.2,  M = overall_results$Delta,
                                 t2 = overall_results$tau^2,
                                 se.M = overall_results$SE, tail = "above",
@@ -241,7 +241,14 @@ high_prop_test <- prop_stronger( q = 0.2,  M = overall_results$Delta,
                                 yi.name = "d", vi.name = "var_d",
                               bootstrap = "ifneeded", R = 200) |> 
      mutate(across(1:6, \(x) round(x, 3)))
-high_prop_test
+
+pred_lower <- round(model$reg_table$b.r - 
+                      qt(0.975, df) * sqrt(model$reg_table$SE^2 +
+                                              model$mod_info$tau.sq), 2)[1]
+
+pred_upper <- round(model$reg_table$b.r + 
+                      qt(0.975, df) * sqrt(model$reg_table$SE^2 + 
+                                             model$mod_info$tau.sq), 2)[1]
 ```
 
 ```{r meta_table, echo=FALSE, message=FALSE, results='asis'}
@@ -251,7 +258,7 @@ meta_table
 ```
 
 In our dataset, the pooled effect of all interventions is standardized mean difference (SMD) = `r overall_results$Delta` (95% CI: `r overall_results$CI`), p = `r overall_results$p_val`, with some heterogeneity (standard deviation of population effects $\tau$ = `r round(sqrt(model$mod_info$tau.sq),3)[1]`).
-Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100)`% are above SMD = 0.2 [@mathur2019; @mathur2020robust].
+Given the pooled effect size and the estimated heterogeneity, we estimate that `r round(low_prop_test$est * 100)`% of true effects are above SMD = 0.1, and just `r round(high_prop_test$est * 100)`% are above SMD = 0.2 [@mathur2019; @mathur2020robust]. We estimate prediction intervals ranging from  `r pred_lower` to `r pred_upper`, indicating uncertainty about the anticipated direction of a hypothetical future study but relative certainty that the effect size is likely to be small to moderate in magnitude. 
 
 ## Subset and moderator analyses {#Sec3.3}
 
@@ -285,8 +292,6 @@ word=TRUE
 source('./scripts/table-two-moderator.R')
 
 NA_delta <- region_results |> filter(Moderator == "North America") |> pull(Delta)
-two_thousand_delta <- decade_results |> filter(Moderator == "2000s") |> pull(Delta)
-twenty_twenty_delta <- decade_results |> filter(Moderator == "2020s") |> pull(Delta)
 
 edu_delta <- delivery_results |> filter(Moderator == 'Educational materials') |> pull(Delta)
 delivery_delta <- delivery_results |> filter(Moderator == 'Dietary consultation') |> pull(Delta)
@@ -302,8 +307,6 @@ year_pval <- substring(round((dat |> sum_lm(d, year))["year", "Pr(>|t|)"], 2), 2
 In terms of moderators, the `r RPMC_studies` studies that only attempted to reduce consumption of RPM, comprising 25 point estimates, yielded a pooled effect of SMD = `r rpmc_results$Delta` (95% CI: `r rpmc_results$CI`), p = `r rpmc_results$p_val`, $\tau$ = `r rpmc_results$tau`.
 Among these studies, we estimate that `r round(red_high_prop_test$est * 100, 2)`% of true RPM effects are above SMD = 0.2.
 We observe consistently small effects across categories of population (all pooled SMDs \< 0.1), but more heterogeneity by region: North America, where a majority of studies took place, had an average effect of SMD = `r NA_delta` vs. 0.14 to 0.21 for other locations.
-Effect sizes have broadly been declining over time, from an average of SMD = `r two_thousand_delta` in the 2000s to SMD = `r twenty_twenty_delta` in the 2020s.
-The overall relationship between year of publication and effect size is not significant (p = `r year_pval`).
 
 ```{r moderator_table, echo=F, message=F}
 moderator_table
