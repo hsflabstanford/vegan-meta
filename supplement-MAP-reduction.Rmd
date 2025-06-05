@@ -112,7 +112,7 @@ In particular, we searched Google Scholar for the following list of terms, and c
 
 Additionally, we searched the American Economic Association's registry of randomized controlled trials (<https://www.socialscienceregistry.org/>) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
-Another innovative part of our search strategy was our use of of an AI-based search tool (<https://undermind.ai/>), to which we described our research question and then reviewed 100 results that it generated.
+Another innovative part of our search strategy was our use of an AI-based search tool (<https://undermind.ai/>), to which we described our research question and then reviewed 100 results that it generated.
 This yielded one paper that met our inclusion criteria [@mattson2020] that seems to have slipped past many other systematic search processes.
 
 Finally, we benefited from two in-progress literature reviews affiliated with Rethink Priorities, "a think-and-do tank" that researches animal welfare as one of its main priorities.
@@ -124,48 +124,47 @@ For more details on these two projects, see <https://osf.io/74paj> and <https://
 We turn now to an overview of prior reviews that were highly relevant to this one.
 
 Among the reviews that found MAP reduction interventions to be effective, several focused exclusively on choice architecture.
-[@arno2016] found that nudges led to an average increase of healthy dietary choices of 15.3%, while [@byerly2018] found that committing to reduce meat intake and making menus vegetarian by default were more effective than educational interventions.
+@arno2016 found that nudges led to an average increase of healthy dietary choices of 15.3%, while @byerly2018 found that committing to reduce meat intake and making menus vegetarian by default were more effective than educational interventions.
 However, the vast majority of vegetarian-default studies we analyzed for this paper did not qualify for our analysis because they lacked delayed outcomes.
-In a similar vein, [@mertens2022] concludes that food choices are "particularly responsive to choice architecture interventions" (p. 1), but featured no studies that met our inclusion criteria.
-[@bianchi2018restructuring] found that reducing meat portions, making alternatives available, moving meat products to be less conspicuous, and changing meat's sensory properties can all reduce meat demand.
-[@pandey2023] found that changing the presentation and availability of sustainable products was effective in increasing demand for them.
+In a similar vein, @mertens2022 concludes that food choices are "particularly responsive to choice architecture interventions" (p. 1), but featured no studies that met our inclusion criteria.
+@bianchi2018restructuring found that reducing meat portions, making alternatives available, moving meat products to be less conspicuous, and changing meat's sensory properties can all reduce meat demand.
+[@pandey2023 found that changing the presentation and availability of sustainable products was effective in increasing demand for them.
 
-In a meta-review, [@grundy2022] found environmental education to be especially promising, with substantial evidence also supporting health information, emphasizing social norms, and decreasing meat portions.
+In a meta-review, @grundy2022 found environmental education to be especially promising, with substantial evidence also supporting health information, emphasizing social norms, and decreasing meat portions.
 
 Some reviews have focused on particular settings for MAP reduction interventions.
-[@hartmannboyce2018] found that grocery store interventions, such as price changes, suggested swaps, and changes to item availability, were effective at changing purchasing choices.
+@hartmannboyce2018] found that grocery store interventions, such as price changes, suggested swaps, and changes to item availability, were effective at changing purchasing choices.
 However, that review covered a wide variety of health interventions, such as reducing consumption of dietary fat and increasing fruit and vegetable purchases.
 It is unclear how directly such findings translate to MAP reduction efforts.
-[@chang2023] focused on university meat-reduction interventions and found more promising results than reviews that looked at the wider public typically did.
-[@harguess2020] reviewed 22 studies on meat consumption and found promising results for educational interventions focused on the environment, health, and animal welfare.
+@chang2023 focused on university meat-reduction interventions and found more promising results than reviews that looked at the wider public typically did.
+@harguess2020 reviewed 22 studies on meat consumption and found promising results for educational interventions focused on the environment, health, and animal welfare.
 That paper recommends using animal imagery to cause an emotional response and utilizing choice architecture interventions.
 Our review, by contrast, found a miniscule pooled effect associated with animal welfare appeals.
 
-Taking a different angle, [@adleberg2018] reviewed the literature on protests in a variety of movements and found mixed evidence of efficacy.
+@adleberg2018 reviewed the literature on protests in a variety of movements and found mixed evidence of efficacy.
 The authors recommend that animal advocacy protests have a specific target (e.g. a particular institution) and "ask."
 
-Other reviews assesed which groups are most easily influenced by interventions to reduce MAP consumption.
-For example, [@blackford2021] found that nudges focused on "system 1" thinking were more effective at encouraging sustainable choices than those focused on "system 2," and that interventions had greater effects on females than males.
+Other reviews assessed which groups are most easily influenced by interventions to reduce MAP consumption.
+For example, @blackford2021 found that nudges focused on "system 1" thinking were more effective at encouraging sustainable choices than those focused on "system 2," and that interventions had greater effects on females than males.
 
-[@rosenfeld2018] reports that meat avoidance is associated with liberal political views, feminine gender, and higher openness, agreeableness and neuroticism, and that issues such as recidivism and hostility from friends and family can act as barriers to adopting a vegetarian diet.
+@rosenfeld2018 reports that meat avoidance is associated with liberal political views, feminine gender, and higher openness, agreeableness and neuroticism, and that issues such as recidivism and hostility from friends and family can act as barriers to adopting a vegetarian diet.
 
 Several reviews have had mixed or inconclusive results.
-For instance, [@bianchi2018conscious] found that health and environmental appeals appear to change dietary intentions in virtual environments, but did not find evidence of actual consumption changes.
-Likewise, [@kwasny2022] notes that most existing research focuses on attitudes and intentions and lacks measures of actual meat consumption over an extended period of time.
-[@taufik2019] reviewed many studies aimed at increasing fruit and vegetable intake, but found far fewer that looked at reducing MAP consumption.
-[@benningstad2020] found that dissociation of meat from its source plays a role in meat consumption, but no extant research that included behavioral outcomes.
+For instance, @bianchi2018conscious found that health and environmental appeals appear to change dietary intentions in virtual environments, but did not find evidence of actual consumption changes.
+Likewise, @kwasny2022 notes that most existing research focuses on attitudes and intentions and lacks measures of actual meat consumption over an extended period of time.
+@taufik2019 reviewed many studies aimed at increasing fruit and vegetable intake, but found far fewer that looked at reducing MAP consumption.
+@benningstad2020 found that dissociation of meat from its source plays a role in meat consumption, but no extant research that included behavioral outcomes.
 
 A few reviews have found evidence that seems to recommend against particular interventions.
-[@greig2017] reviewed the literature on leafleting for vegan/animal advocacy outreach, and observed biases that may have led to overestimated impacts.
+@greig2017 reviewed the literature on leafleting for vegan/animal advocacy outreach, and observed biases that may have led to overestimated impacts.
 That paper concluded that leafleting does not seem cost-effective, though with significant uncertainty.
 
-[@nisa2019] meta-analyzed interventions to improve household sustainability, of which reducing MAP consumption was one of several.
-Although they found small effect sizes for most interventions, they concluded that nudges were comparatively effective, as did [@ensaff2021].
-Similarly, [@rau2022] reviewed the literature on environmentally friendly behavior changes, including but not limited to diet change, and found small or nonexistent effects in most cases.
+@nisa2019 meta-analyzed interventions to improve household sustainability, of which reducing MAP consumption was one of several.
+Although they found small effect sizes for most interventions, they concluded that nudges were comparatively effective, as did @ensaff2021. Similarly, @rau2022 reviewed the literature on environmentally friendly behavior changes, including but not limited to diet change, and found small or nonexistent effects in most cases.
 Only fifteen interventions in that paper were described as “very successful,” and none of these related to food.
 
 Finally, we note a few papers that were helpful in filling out our supplementary datasets.
-[@ronto2022] investigated interventions to move consumer to protein sources with lower ecological footprints, and was instrumental in filling out our RPM and robustness check datasets, as were [@kwasny2022] and [@grummon2023].
+@ronto2022 investigated interventions to move consumer to protein sources with lower ecological footprints, and was instrumental in filling out our RPM and robustness check datasets, as were @kwasny2022 and @grummon2023.
 
 Taking these reviews in sum, we encourage researchers to be cautious in extrapolating impacts across outcome categories.
 For instance, many reviews concluded that choice architecture approaches are effective at changing food choice, but these are typically aimed at foods with weak social and cultural associations.
@@ -173,7 +172,7 @@ We also note that prior reviews vastly outnumber rigorous RCTs that meet our inc
 
 # Description of code and data repository
 
-Our code and data are shared on GitHub (<https://github.com/hsflabstanford/vegan-meta>), and Code Ocean (<https://doi.org/10.24433/CO.6020578.v6>). The Code Ocean repository allows for reproducing our papers' results without downloading any files or managing software versions.
+Our code and data are shared on GitHub (<https://github.com/hsflabstanford/vegan-meta>), and Code Ocean (<https://doi.org/10.24433/CO.6020578.v6>). The Code Ocean repository allows for reproducing our paper's results without downloading any files or managing software versions.
 
 Our main document, `MAP-reduction-meta.Rmd`, reproduces the paper, with every quantitative claim and the first two figures reproduced each time the document is knit.
 
@@ -224,7 +223,8 @@ Within different types of publication, we find broadly similar results for journ
 Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
 
 In our main dataset, we recorded `r overall_results$N_estimates - no_unspecified_nulls$N_estimates` point estimates as 'unspecified nulls' because authors reported them as nulls but did not provide the necessary statistical information to calculate a precise effect.
-We manually coded these estimates as 0.01, a convention borrowed from @porat2024. If we set these to be equal to 0.00 instead, our meta-analytic estimate remains `r zero_delta`.
+We manually coded these estimates as 0.01, a convention borrowed from @porat2024.
+If we set these to be equal to 0.00 instead, our meta-analytic estimate remains `r zero_delta`.
 If we omit them entirely, our overall estimate rises to `r no_unspecified_nulls$Delta` (95% CI: `r no_unspecified_nulls$CI`).
 Although this difference is small in absolute terms, it is large in relative terms.
 This difference suggests that meta-analyses which exclude studies for gaps in outcome reporting might be producing upwardly biased overall estimates.
