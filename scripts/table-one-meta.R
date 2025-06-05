@@ -9,7 +9,7 @@ meta_table <- bind_rows(
                              col_name = "Approach", include_tau = TRUE),
     run_subset_meta_analysis(data = dat, filter_string = "Psychology", 
                              filter_column = "theory", approach_name = "Psychology", 
-                             col_name = "Approach", include_tau = TRUE),
+                             col_name = "Approach", include_tau = TRUE, str_detect_flag = FALSE),
     run_subset_meta_analysis(data = dat, filter_string = "Persuasion", 
                              filter_column = "theory", approach_name = "Persuasion",
                              str_detect_flag = FALSE, col_name = "Approach", include_tau = TRUE),

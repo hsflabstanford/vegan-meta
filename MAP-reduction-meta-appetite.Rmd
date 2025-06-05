@@ -86,7 +86,7 @@ source('./scripts/models-and-constants.R')
 
 # fixing something that isn't printing correctly
 choice_delta <- choice_results$Delta 
-#You can set different `natbiboptions` conventions  in YAML header, e.g. 
+#You can set different `natbiboptions` conventions  in YAML header, e.g., 
 # natbiboptions: longnamesfirst,angle,semicolon
 ```
 
@@ -141,12 +141,12 @@ We required that studies have a pure control group receiving no treatment.
 We further restricted our search to studies that were publicly circulated in English by December 2023.
 We also made three decisions regarding study inclusion after data collection began.
 First, we defined a separate analytic category for studies that only targeted RPM consumption.
-Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead sought to induce substitution from one kind of MAP to another, e.g. that encouraged treated subjects to eat fish [@johansen2009].
-Third, we excluded studies whose interventions left no room for participants to voluntarily decide their MAP consumption, e.g. interventions where subjects were simply served more vegetables on their plate, unless their measurement strategies encompassed potential spatial and intertemporal spillovers [@russo2025; @vocski2024].
+Second, we excluded studies that did not aim to reduce either all MAP or all RPM consumption and instead sought to induce substitution from one kind of MAP to another, e.g., that encouraged treated subjects to eat fish [@johansen2009].
+Third, we excluded studies whose interventions left no room for participants to voluntarily decide their MAP consumption, e.g., interventions where subjects were simply served more vegetables on their plate, unless their measurement strategies encompassed potential spatial and intertemporal spillovers [@russo2025; @vocski2024].
 (In practice, all such studies were ineligible on other criteria.)
 
 Given our interdisciplinary research question and previous work indicating a large grey literature [@mathur2021meta], we designed and carried out a customized search process.
-We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (<https://undermind.ai/>); and 7) checked two databases emerging from ongoing nonprofit projects that both seek to identify all papers on meat-reducing interventions.
+We: 1) reviewed `r reviews_count` prior reviews, nine of which yielded included articles [@mathur2021meta; @bianchi2018conscious; @bianchi2018restructuring; @ammann2023; @chang2023; @DiGennaro2024; @harguess2020; @ronto2022; @wynes2018]; 2) conducted backwards and forward citation search; 3) reviewed published articles by authors with papers in the meta-analysis; 4) crowdsourced potentially missing papers from leading researchers in the field; 5) searched Google Scholar for terms that had come up in studies repeatedly; 6) used an AI search tool to search for gray literature (<https://undermind.ai/>); and 7) checked two databases emerging from ongoing nonprofit projects on closely related questions.
 All three authors contributed to the search.
 Inclusion/exclusion decisions were primarily made by the first author, with all authors contributing to discussions about borderline cases.
 
@@ -265,7 +265,7 @@ We estimate 95% prediction intervals ranging from `r pred_lower` to `r pred_uppe
 Stratifying by theoretical approach, pooled estimates were similar across psychology, persuasion, and persuasion and psychology (SMDs from `r persuasion_results$Delta` to `r psych_results$Delta`; Table 1).
 Estimates may have been somewhat larger among the choice architecture studies (SMD = `r choice_delta`), but the sample size was much smaller (`r choice_results$N_estimates` estimates).
 Within studies with a persuasion component, pooled estimates are similar for environmental appeals (SMD = `r environment_results$Delta`, `r environment_results$N_studies` studies with `r environment_results$N_estimates` estimates), and health appeals (SMD = `r health_results$Delta`, `r health_results$N_studies` studies with `r health_results$N_estimates` estimates), but are smaller for appeals to animal welfare (SMD = `r animal_welfare_results$Delta`, `r animal_welfare_results$N_studies` studies with `r animal_welfare_results$N_estimates` estimates).
-We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g. presenting students with both environmental and health reasons to reduce MAP consumption [@jalil2023].
+We did not conduct meta-regression for theoretical approach or type of persuasion because studies with multiple interventions could occupy multiple categories, and many persuasion interventions combined multiple types of message, e.g., presenting students with both environmental and health reasons to reduce MAP consumption [@jalil2023].
 
 ```{r forest_plot, echo=FALSE, message=FALSE, fig.pos='H', fig.cap="Figure 2: Forest plot of all meta-analyzed studies. Each intervention comprises one point estimate; for papers with multiple interventions in one theoretical category, the plotted point corresponds to a fixed effects meta-analysis for each paper. For papers with multiple interventions reflecting different theories, each paper-theory combination is plotted on its own. Point size is inversely proportional to variance. Points are sorted within theory by estimate size. The vertical black line demarcates an effect size of zero, and the dotted line is the observed overall effect.", out.width="100%", fig.fullwidth=TRUE, fig.width=8.5, fig.height=11}
 source('./scripts/forest-plot.R')
@@ -349,7 +349,7 @@ source('./scripts/robustness-checks.R')
 ```
 
 As a robustness check, we also coded and meta-analyzed a supplementary dataset of 22 marginal studies, comprising 35 point estimates.
-Marginal studies were those whose methods fell short of our inclusion criteria, but typically met all but one, e.g. the control group received some aspect of treatment [@piazza2022], or treatment was alternated weekly but not randomly [@garnett2020] (Supplement).
+Marginal studies were those whose methods fell short of our inclusion criteria, but typically met all but one, e.g., the control group received some aspect of treatment [@piazza2022], or treatment was alternated weekly but not randomly [@garnett2020] (Supplement).
 Expanding the meta-analytic dataset to include these marginal studies yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p $<$ `r merged_results$p_val`.
 Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
 
@@ -357,7 +357,7 @@ Particularly large results were found in studies that measured outcomes immediat
 
 Our meta-analysis of RCTs estimated a small overall effect of SMD = `r overall_results$Delta`, along with its upper confidence bound of SMD = `r round(model$reg_table$CI.U, 2)`.
 Effects were also consistently small across an array of locations, study designs, and intervention categories.
-Some individual studies found comparatively larger effects (e.g. five studies estimated SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
+Some individual studies found comparatively larger effects (e.g., five studies estimated SMD \> 0.5: [@carfora2023; @merrill2009; @kanchanachitra2020; @bianchi2022; @piester2020]).
 We view these these interventions as intriguing candidates for subsequent research and replication.
 However, these studies' heterogeneous theories, methods, and implementation details suggest that no singular approach, means of delivery, or message should be considered a well-validated method of reducing MAP consumption.
 Taken together, these findings suggest that reducing MAP consumption is an unsolved problem.
