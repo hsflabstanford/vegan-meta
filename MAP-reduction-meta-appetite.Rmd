@@ -370,11 +370,11 @@ Supporting this interpretation, robustness checks in which we relaxed our method
 This possibility will need further empirical evaluation.
 
 Notably, only two choice architecture papers met our methodological inclusion criteria.
-A surprising number of papers measured hypothetical outcomes, while others measured outcomes immediately (i.e. during the intervention).
-By design, choice architecture studies aim to modify behavior *in situ*, and their short-term effects may be cumulatively powerful.
-To assess this, we encourage researchers to track subjects over time and space to capture potential compensatory effects.
+A surprising number of papers measured hypothetical outcomes, while others measured outcomes without any delay.
+By design, choice architecture studies aim to modify behavior in situ, and may further be aimed at place-specific goals such as reducing an organization’s carbon footprint or encouraging healthy meals in a hospital setting.
+While achieving these context-specific goals is valuable, our meta-analysis seeks to estimate net impact on overall MAP consumption.
+This requires measurement strategies that capture potential compensatory behaviors and spillovers.
 For instance, if intervening at lunch, researchers might measure behavior at dinner as well [@vocski2024], and if participants are able to opt out, studies can track how many people do [@ginn2024] and model their behavior [@russo2025].
-This will provide a clearer sense of how to extrapolate between immediate outcomes and net impact.
 
 Moreover, prior reviews that found choice architecture approaches to be especially effective at modifying diet typically focused on foods that may have weaker cultural and social attachments than MAP, such as sugary drinks and snacks [@venema2020; @adriaanse2009].
 We speculate that changes to how MAP is sold and consumed, by contrast, are more likely to be noticed and to engender political and cultural backlash [@popper2019].
