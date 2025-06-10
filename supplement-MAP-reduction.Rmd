@@ -110,7 +110,7 @@ In particular, we searched Google Scholar for the following list of terms, and c
 -   "sustainable" "meat" "nudge" "random"
 -   "university" "meat" "default" "reduction"
 
-Additionally, we searched the American Economic Association's registry of randomized controlled trials (<https://www.socialscienceregistry.org/>) for the the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
+Additionally, we searched the American Economic Association's registry of randomized controlled trials (<https://www.socialscienceregistry.org/>) for the terms "meat" and "random" and reviewed all matching results in the relevant time frame.
 
 Another innovative part of our search strategy was our use of an AI-based search tool (<https://undermind.ai/>), to which we described our research question and then reviewed 100 results that it generated.
 This yielded one paper that met our inclusion criteria [@mattson2020] that seems to have slipped past many other systematic search processes.
@@ -185,7 +185,7 @@ The datasets are:
 
 -   `robustness-data.csv`, another secondary dataset borderline studies for a robustness check (see section below);
 
--   `review-of-reviews.csv`, which details the the `r reviews_count` reviews we consulted;
+-   `review-of-reviews.csv`, which details the `r reviews_count` reviews we consulted;
 
 -   `excluded-studies.csv`, which details the papers we screened but did not include, along with their reasons for exclusion and where we found them (the studies in `robustness-data.csv` are included in this dataset as well).
 
@@ -220,7 +220,8 @@ no_unspecified_nulls <- dat |> filter(eff_type != 'unspecified_null') |> extract
 zero_delta <- dat |> mutate(d = if_else(eff_type == 'unspecified_null', 0, d)) |> extract_model_results() |> pull(Delta)
 ```
 
-Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`. Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD = `r objective_delta`, respectively).
+Within different types of publication, we find broadly similar results for journal articles and preprints/theses (SMD = `r  journal_delta` and SMD = `r preprint_delta`, respectively), and a small backlash associated with results published as nonprofits' white papers (SMD = `r whitepaper_delta`).
+Surprisingly, we do not detect meaningful differences between studies that recorded self-reported vs. objectively measured outcomes (SMD = `r self_report_delta` vs SMD = `r objective_delta`, respectively).
 Looking at adherence to open science practices, the largest difference is between studies that have neither open data nor a pre-analysis plan (SMD = `r no_os_delta`) and those that have just open data (SMD = `r open_data_delta`).
 
 In our main dataset, we recorded `r overall_results$N_estimates - no_unspecified_nulls$N_estimates` point estimates as 'unspecified nulls' because authors reported them as nulls but did not provide the necessary statistical information to calculate a precise effect.
