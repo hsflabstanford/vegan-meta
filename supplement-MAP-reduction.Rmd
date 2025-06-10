@@ -128,12 +128,12 @@ Among the reviews that found MAP reduction interventions to be effective, severa
 However, the vast majority of vegetarian-default studies we analyzed for this paper did not qualify for our analysis because they lacked delayed outcomes.
 In a similar vein, @mertens2022 concludes that food choices are "particularly responsive to choice architecture interventions" (p. 1), but featured no studies that met our inclusion criteria.
 @bianchi2018restructuring found that reducing meat portions, making alternatives available, moving meat products to be less conspicuous, and changing meat's sensory properties can all reduce meat demand.
-[@pandey2023 found that changing the presentation and availability of sustainable products was effective in increasing demand for them.
+@pandey2023 found that changing the presentation and availability of sustainable products was effective in increasing demand for them.
 
 In a meta-review, @grundy2022 found environmental education to be especially promising, with substantial evidence also supporting health information, emphasizing social norms, and decreasing meat portions.
 
 Some reviews have focused on particular settings for MAP reduction interventions.
-@hartmannboyce2018] found that grocery store interventions, such as price changes, suggested swaps, and changes to item availability, were effective at changing purchasing choices.
+@hartmannboyce2018 found that grocery store interventions, such as price changes, suggested swaps, and changes to item availability, were effective at changing purchasing choices.
 However, that review covered a wide variety of health interventions, such as reducing consumption of dietary fat and increasing fruit and vegetable purchases.
 It is unclear how directly such findings translate to MAP reduction efforts.
 @chang2023 focused on university meat-reduction interventions and found more promising results than reviews that looked at the wider public typically did.

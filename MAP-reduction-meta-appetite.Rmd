@@ -180,7 +180,7 @@ Therefore, we used the RVE method to allow for the resulting dependence between 
 
 Data analyses were largely conducted with custom functions building on `tidyverse` [@wickham2019].
 We assessed publication bias using selection model methods [@hedges1992; @vevea1995], sensitivity analysis methods [@mathur2024], and the significance funnel plot [@mathur2020].
-These methods assume that the publication process favors “statistically significant” (i.e., p \< 0.05) and positive results over “nonsignificant” or negative results.
+These methods assume that the publication process favors “statistically significant” (i.e., p \< .05) and positive results over “nonsignificant” or negative results.
 Our sensitivity check meta-analyzes only non-affirmative results, which creates an estimate under a hypothetical “worst-case” publication bias scenario where affirmative studies are almost infinitely more likely to be published than non-affirmative studies.
 We conducted these analyses using functions in `metafor` [@viechtbauer2010] and `PublicationBias` [@mathur2020; @mathur2024].
 
@@ -350,7 +350,7 @@ source('./scripts/robustness-checks.R')
 
 As a robustness check, we also coded and meta-analyzed a supplementary dataset of 22 marginal studies, comprising 35 point estimates.
 Marginal studies were those whose methods fell short of our inclusion criteria, but typically met all but one, e.g., the control group received some aspect of treatment [@piazza2022], or treatment was alternated weekly but not randomly [@garnett2020] (Supplement).
-Expanding the meta-analytic dataset to include these marginal studies yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p $<$ `r merged_results$p_val`.
+Expanding the meta-analytic dataset to include these marginal studies yields a pooled effect of SMD = `r merged_results$Delta` (95% CI: `r merged_results$CI`), p  `r merged_results$p_val`.
 Particularly large results were found in studies that measured outcomes immediately [@hansen2021] or that had smaller samples [@lentz2020].
 
 # Discussion {#Sec4}
