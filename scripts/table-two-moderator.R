@@ -238,7 +238,7 @@ if (!word) {
       set_caption("Table 2: Moderator Analysis Results") |>
       theme_booktabs() |>
       autofit() |>
-      add_footer_lines("Moderation analyses. The first p value column tests the hypothesis that the subset of studies with a given characteristic is significantly different than an SMD of zero. The second compares effects within a category to the reference for that moderator. N/A p values were not calculated due to an insufficient number of qualifying studies.") |>
+      add_footer_lines("Moderation analyses. The first p value column tests the hypothesis that the subset of studies with a given characteristic is significantly different from an SMD of zero. The second compares effects within a category to the reference for that moderator. N/A p values were not calculated due to an insufficient number of qualifying studies.") |>
       padding(part = "footer", padding.bottom = 12)
     
     # Bold the group header rows in the first column
