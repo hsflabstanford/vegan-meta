@@ -18,7 +18,7 @@ abstract: "Which interventions produce the largest and most enduring reductions 
   consumption of meat and animal products (MAP)? We address this question with a theoretical
   review and meta-analysis of randomized controlled trials that measured MAP consumption
   at least one day after intervention. We meta-analyze 35 papers comprising 41 studies,
-  112 interventions, and approximately 87,000 subjects. We find that these papers
+  112 interventions, and approximately 87,000 subjects. We find that these papers 
   employ four major strategies to change behavior: choice architecture, persuasion,
   psychology (manipulating the interpersonal, cognitive, or affective factors associated 
   with eating MAP), and a combination of persuasion and psychology. The pooled effect of
@@ -217,7 +217,7 @@ We found that studies' theoretical approaches could be grouped into four categor
 One study told participants that people who ate meat are more likely to endorse social hierarchy and embrace human dominance over nature [@allen2002].
 Other psychological interventions include response inhibition training, where subjects are trained to avoid responding impulsively to stimuli such as unhealthy food [@camp2019], and implementation intentions, where participants list potential challenges and solutions to changing their own behavior [@aberman2018; @shreedhar2021].
 
-[^1]: This study was formally published in 2024, but first came to our attention as a preprint in 2023. Generally speaking, when we became aware of studies published outside of our date range that met our inclusion criteria, we made an effort to search for a preprint released during our eligible data range
+[^1]: This study was formally published in 2024, but first came to our attention as a preprint in 2023. Generally speaking, when we became aware of studies published outside of our date range that met our inclusion criteria, we searched for a preprint released during our eligible data range.
 
 Finally, some studies combine **persuasion** approaches with **psychological** appeals to reduce MAP consumption [@aberman2018; @berndsen2005; @bertolaso2015; @carfora2023; @fehrenbach2015; @hennessy2016; @mathur2021effectiveness; @mattson2020; @piester2020; @shreedhar2021] `r paste0("(n = ", psych_persuasion_results$N_studies, " studies with ", psych_persuasion_results$N_estimates, " estimates)")`. These studies typically combine a persuasive message with a norms-based appeal [@piester2020; @mattson2020] or an opportunity to pledge to reduce one's MAP consumption [@mathur2021effectiveness; @shreedhar2021].
 
