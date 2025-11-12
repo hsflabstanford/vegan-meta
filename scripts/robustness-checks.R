@@ -25,7 +25,7 @@ robust_dat <- read.csv('./data/robustness-data.csv') |>
            venue == "Master's Thesis" ~ 'Thesis',
            venue == "SSRN (Preprint)" ~ 'Preprint',
            str_detect(doi_or_url, "10\\.") ~ "Journal article"),
-         total_sample = n_c_post + n_c_post, 
+         total_sample = n_t_post + n_c_post, 
          d = mapply(
            FUN = d_calc,
            stat_type = eff_type,
