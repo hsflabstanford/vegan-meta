@@ -1,4 +1,4 @@
-# Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis
+This repository reproduces every quantitative claim and figure in [Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis](https://doi.org/10.1016/j.appet.2025.108233). You may also find the same materials in a computationally reproducible format on [Code Ocean](https://doi.org/10.24433/CO.6020578.v6).
 
 
 ## Main code files:
