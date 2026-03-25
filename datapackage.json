@@ -1,0 +1,86 @@
+{
+  "name": "map-reduction-meta",
+  "title": "Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis",
+  "description": "Dataset of randomized controlled trials testing interventions to reduce consumption of meat and animal products (MAP), along with excluded studies, prior reviews, and a supplementary red/processed meat dataset.",
+  "licenses": [{ "name": "MIT" }],
+  "sources": [{
+    "title": "Green, S. A., Smith, B., & Mathur, M. (2025). Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis. Appetite, 108233.",
+    "path": "https://doi.org/10.1016/j.appet.2025.108233"
+  }],
+  "resources": [
+    {
+      "name": "map-reduction-data",
+      "path": "data/MAP-reduction-data.csv",
+      "description": "Main analysis dataset. Each row is one intervention arm from an included RCT. Effect sizes (d, var_d, se_d) are computed at runtime by load-data.R and are not stored in the CSV.",
+      "schema": {
+        "fields": [
+          { "name": "author", "type": "string", "description": "First author of the paper" },
+          { "name": "year", "type": "integer", "description": "Publication year" },
+          { "name": "title", "type": "string", "description": "Title of the paper" },
+          { "name": "doi_or_url", "type": "string", "description": "DOI or URL of the paper" },
+          { "name": "venue", "type": "string", "description": "Publication source (journal, conference, etc.)" },
+          { "name": "source", "type": "string", "description": "How the study was located" },
+          { "name": "intervention_condition", "type": "string", "description": "Specific intervention coded; useful for multi-intervention studies" },
+          { "name": "brief_description", "type": "string", "description": "Brief summary of the intervention" },
+          { "name": "study_num_within_paper", "type": "integer", "description": "Identifier for cluster-robust SEs; references specific study within a paper" },
+          { "name": "outcome", "type": "string", "description": "Dependent variable recorded for analysis" },
+          { "name": "n_t_post", "type": "integer", "description": "Post-intervention sample size for treatment group(s)" },
+          { "name": "n_c_post", "type": "integer", "description": "Post-intervention sample size for control group" },
+          { "name": "n_t_total_pop", "type": "integer", "description": "Total treatment group population (subjects, not clusters)" },
+          { "name": "n_c_total_pop", "type": "number", "description": "Total control group population; divided proportionally when multiple treatments share one control" },
+          { "name": "eff_type", "type": "string", "description": "Type of effect used to calculate Glass's delta" },
+          { "name": "u_s_d", "type": "number", "description": "Unstandardized effect size for Glass's delta calculation" },
+          { "name": "ctrl_sd", "type": "number", "description": "Standard deviation of the outcome in the control group" },
+          { "name": "neg_null_pos", "type": "string", "description": "Direction of effect as reported by authors: negative, null, or positive" },
+          { "name": "delay", "type": "number", "description": "Days between treatment administration and final outcome measurement" },
+          { "name": "theory", "type": "string", "description": "Guiding methodological theory or framework" },
+          { "name": "secondary_theory", "type": "string", "description": "Specific theoretical content (e.g., animal welfare, environmental, health)" },
+          { "name": "self_report", "type": "string", "description": "Whether data were self-reported (Y/N)" },
+          { "name": "outcome_category", "type": "string", "description": "Outcome categorization (e.g., original, amount, servings)" },
+          { "name": "cafeteria_or_restaurant_or_store_based", "type": "string", "description": "Whether the intervention took place in a cafeteria, restaurant, or store (Y/N)" },
+          { "name": "leaflet", "type": "string", "description": "Whether treatment was administered via a leaflet (Y/N)" },
+          { "name": "video", "type": "string", "description": "Whether treatment was administered via a video (Y/N)" },
+          { "name": "delivery_method", "type": "string", "description": "General category of treatment administration method" },
+          { "name": "internet", "type": "string", "description": "Whether treatment was delivered over the internet (Y/N)" },
+          { "name": "cluster_assigned", "type": "string", "description": "Whether treatment was assigned at the cluster level (Y/N)" },
+          { "name": "multi_component", "type": "string", "description": "Whether the treatment was a multi-component intervention (Y/N)" },
+          { "name": "delay_post_endline", "type": "number", "description": "Delay after treatment ended; typically zero for cafeteria studies" },
+          { "name": "public_pre_analysis_plan", "type": "string", "description": "Whether a public pre-analysis plan exists (Y/N)" },
+          { "name": "open_data", "type": "string", "description": "Whether data are publicly available (Y/N)" },
+          { "name": "emotional_activation", "type": "string", "description": "Whether emotional activation is an intended effect of the intervention (Y/N)" },
+          { "name": "advocacy_org", "type": "string", "description": "Whether advocacy organization materials were used (Y/N)" },
+          { "name": "country", "type": "string", "description": "Country or countries where the study took place" },
+          { "name": "population", "type": "string", "description": "Target population" },
+          { "name": "age_info_if_given", "type": "string", "description": "Age group or setting of participants, if specified" },
+          { "name": "inclusion_exclusion", "type": "integer", "description": "0=main dataset, 1=RPM dataset, 2=excluded (RCT issue), 3=excluded (underpowered), 4=excluded (no delay), 5=substitution issue, 6=other" },
+          { "name": "notes", "type": "string", "description": "Additional notes" }
+        ]
+      }
+    },
+    {
+      "name": "rpmc-data",
+      "path": "data/rpmc-data.csv",
+      "description": "Supplementary dataset of studies targeting red and processed meat consumption specifically."
+    },
+    {
+      "name": "excluded-studies",
+      "path": "data/excluded-studies.csv",
+      "description": "Studies reviewed but not included in the main analysis, with reasons for exclusion."
+    },
+    {
+      "name": "review-of-reviews",
+      "path": "data/review-of-reviews.csv",
+      "description": "Prior systematic reviews consulted to identify candidate studies."
+    },
+    {
+      "name": "robustness-data",
+      "path": "data/robustness-data.csv",
+      "description": "Data for robustness and sensitivity checks."
+    },
+    {
+      "name": "codebook",
+      "path": "data/MAP-reduction-codebook.md",
+      "description": "Variable definitions for MAP-reduction-data.csv."
+    }
+  ]
+}

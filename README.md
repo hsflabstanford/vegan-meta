@@ -1,16 +1,16 @@
-This repository reproduces every quantitative claim and figure in [Meaningfully reducing consumption of meat and animal products is an unsolved problem: results from a meta-analysis](https://doi.org/10.1016/j.appet.2025.108233). 
+This repository reproduces every quantitative claim and figure in [Green, S. A., Smith, B., & Mathur, M. (2025). Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis. *Appetite*, 108233.](https://doi.org/10.1016/j.appet.2025.108233)
 
 You may also find the same materials in a computationally reproducible format on [Code Ocean](https://doi.org/10.24433/CO.6020578.v6).
 
 ## Main code files:
-  * `MAP-reduction-meta.Rmd` is the paper
+  * `MAP-reduction-meta-appetite.Rmd` is the paper
   * `supplement-MAP-reduction.Rmd` is the Supplement
   * `./scripts/*.R` is where most of the R code lives, e.g. for tables and figures. [^1]
   * `./functions/*.R` are mostly adapted/lifted from [a previous project](https://github.com/setgree/PaluckMetaSOP), along with some new things for making tables.
 
 ## Data
-  * `./data/vegan-meta.csv`  is our dataset of studies
-  * `./data/RPMC-data.csv` is a supplementary dataset of studies aimed at reducing consumption of red and processed meat
+  * `./data/MAP-reduction-data.csv` is our dataset of studies
+  * `./data/rpmc-data.csv` is a supplementary dataset of studies aimed at reducing consumption of red and processed meat
   * `./data/excluded-studies.csv` is our list of studies we looked at but didn't include & why
   * `./data/review-of-reviews.csv` is a list of prior reviews we looked at to find studies
   

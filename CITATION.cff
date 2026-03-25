@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the associated paper."
+type: software
+authors:
+  - family-names: Green
+    given-names: Seth Ariel
+    affiliation: "Quantitative Sciences Unit, Stanford University"
+  - family-names: Smith
+    given-names: Benny
+    affiliation: "Allied Scholars for Animal Protection"
+  - family-names: Mathur
+    given-names: Maya B.
+    affiliation: "Quantitative Sciences Unit, Stanford University"
+title: "Code and data for: Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis"
+repository-code: "https://github.com/hsflabstanford/vegan-meta"
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Green
+      given-names: Seth Ariel
+    - family-names: Smith
+      given-names: Benny
+    - family-names: Mathur
+      given-names: Maya B.
+  title: "Meaningfully reducing consumption of meat and animal products is an unsolved problem: A meta-analysis"
+  journal: "Appetite"
+  year: 2025
+  article-number: "108233"
+  doi: "10.1016/j.appet.2025.108233"
+  url: "https://doi.org/10.1016/j.appet.2025.108233"
